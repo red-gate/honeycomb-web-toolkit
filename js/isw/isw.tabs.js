@@ -1,7 +1,7 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
 // Tabbable content functionality. (https://github.com/edwardcasbon/jquery.tabs)
-Base.Tabs = function() {
+ISW.Tabs = function() {
   $('.js-tabbed').each(function() {
     var $this = $(this);
     var options = {
@@ -77,5 +77,5 @@ Base.Tabs = function() {
 };
 
 $(function(){
-  Base.Tabs();
+  ISW.Tabs();
 });

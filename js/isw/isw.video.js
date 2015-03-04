@@ -1,6 +1,6 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
-Base.Video = (function() {
+ISW.Video = (function() {
 
   // Default options for video playback.
   var options = {
@@ -77,7 +77,7 @@ Base.Video = (function() {
                     var value = $container.attr('data-ga-track-value') || null;
 
                     // Call the tracking event.
-                    Base.Analytics.Google.trackEvent(category, action, label, value);
+                    ISW.Analytics.Google.trackEvent(category, action, label, value);
 
                     // Add a tracked data attribute to prevent from tracking multiple times.
                     $video.attr('data-ga-tracked', 'true');
@@ -127,7 +127,7 @@ Base.Video = (function() {
   var getOptions = function getOptions($this) {
 
     // Copy the defaults.
-    var options = jQuery.extend({}, Base.Video.options);
+    var options = jQuery.extend({}, ISW.Video.options);
 
     // Autohide.
     if($this.attr('data-video-auto-hide')) {
@@ -167,10 +167,10 @@ Base.Video = (function() {
 })();
 
 $(function() {
-  Base.Video.init();
+  ISW.Video.init();
 });
 
 // Add the video when the iframe API library has loaded.
 window.onYouTubeIframeAPIReady = function() {
-  Base.Video.addInlineVideos();
+  ISW.Video.addInlineVideos();
 };

@@ -1,9 +1,9 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
-Base.Polyfill = Base.Polyfill || {};
+ISW.Polyfill = ISW.Polyfill || {};
 
 // initIndexOfPolyfill - Polyfill for the array indexOf command.
-Base.Polyfill.indexOf = function() {
+ISW.Polyfill.indexOf = function() {
   if (!('indexOf' in Array.prototype)) {
     Array.prototype.indexOf= function(find, i /*opt*/) {
       if (i===undefined) i= 0;
@@ -20,5 +20,5 @@ Base.Polyfill.indexOf = function() {
 };
 
 $(function(){
-  Base.Polyfill.indexOf();
+  ISW.Polyfill.indexOf();
 });

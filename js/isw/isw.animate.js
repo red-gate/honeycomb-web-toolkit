@@ -1,8 +1,8 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
-Base.Animate = Base.Animate || {};
+ISW.Animate = ISW.Animate || {};
 
-Base.Animate.Fade = (function() {
+ISW.Animate.Fade = (function() {
   var interval = 5000;
   var fadeOutDuration = 1000;
   var fadeInDuration = 2500;
@@ -39,5 +39,5 @@ Base.Animate.Fade = (function() {
 })();
 
 $(function() {
-  Base.Animate.Fade.init();
+  ISW.Animate.Fade.init();
 });

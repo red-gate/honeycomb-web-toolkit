@@ -1,7 +1,7 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
 // Filter (Hide/Show) content on a page.
-Base.Filter = (function() {
+ISW.Filter = (function() {
 
   var init = function init() {
 
@@ -107,5 +107,5 @@ Base.Filter = (function() {
 })();
 
 $(function(){
-  Base.Filter.init();
+  ISW.Filter.init();
 });

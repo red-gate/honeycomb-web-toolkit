@@ -1,7 +1,7 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
 // Initialise sticky element functionality. (https://github.com/edwardcasbon/jquery.sticky)
-Base.Sticky = function() {
+ISW.Sticky = function() {
   if(typeof $.fn.sticky === 'function') {
     $('.js-sticky').each(function() {
       var $this = $(this);
@@ -21,5 +21,5 @@ Base.Sticky = function() {
 };
 
 $(function(){
-  Base.Sticky();
+  ISW.Sticky();
 });

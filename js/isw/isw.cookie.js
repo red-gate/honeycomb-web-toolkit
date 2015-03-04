@@ -1,6 +1,6 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
-Base.Cookie = (function(){
+ISW.Cookie = (function(){
 
   var get = function get(property) {
     var value = null;

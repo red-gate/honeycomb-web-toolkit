@@ -1,9 +1,9 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
-Base.Location = Base.Location || {};
+ISW.Location = ISW.Location || {};
 
 // Get a URL parameter by its name.
-Base.Location.getUrlParameterByName = function(name) {
+ISW.Location.getUrlParameterByName = function(name) {
   var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
   var results = regex.exec(location.search);
 

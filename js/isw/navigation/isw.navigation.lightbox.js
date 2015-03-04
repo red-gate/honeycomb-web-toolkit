@@ -1,5 +1,5 @@
-var Base = Base || {};
-Base.Navigation = Base.Navigation || {};
+var ISW = ISW || {};
+ISW.Navigation = ISW.Navigation || {};
 
 var options = {
   type: 'lightbox',
@@ -9,4 +9,4 @@ var options = {
   }
 };
 
-Base.Navigation.Lightbox = new Base.Navigation.Base(options);
+ISW.Navigation.Lightbox = new ISW.Navigation.ISW(options);

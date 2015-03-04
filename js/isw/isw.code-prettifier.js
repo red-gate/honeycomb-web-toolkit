@@ -1,7 +1,7 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
 // Style code snippets.
-Base.CodePrettifier = function() {
+ISW.CodePrettifier = function() {
 
   // Load the code prettifier in from Google.
   if($('.code').length > 0) {
@@ -25,5 +25,5 @@ Base.CodePrettifier = function() {
 };
 
 $(function(){
-  Base.CodePrettifier();
+  ISW.CodePrettifier();
 });

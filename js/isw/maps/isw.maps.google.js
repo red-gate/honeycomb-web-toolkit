@@ -1,8 +1,8 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
-Base.Maps = Base.Maps || {};
+ISW.Maps = ISW.Maps || {};
 
-Base.Maps.Google = (function() {
+ISW.Maps.Google = (function() {
 
   var $maps;
 
@@ -15,7 +15,7 @@ Base.Maps.Google = (function() {
       var done = false;
 
       se.type = 'text/javascript';
-      se.src = 'http://maps.googleapis.com/maps/api/js?sensor=false&callback=Base.Maps.Google.initialiseMap';
+      se.src = 'http://maps.googleapis.com/maps/api/js?sensor=false&callback=ISW.Maps.Google.initialiseMap';
       s.parentNode.insertBefore(se, s);
     }
   };
@@ -58,5 +58,5 @@ Base.Maps.Google = (function() {
 })();
 
 $(function() {
-  Base.Maps.Google.init();
+  ISW.Maps.Google.init();
 });

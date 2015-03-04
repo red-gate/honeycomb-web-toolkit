@@ -1,9 +1,9 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
-Base.Polyfill = Base.Polyfill || {};
+ISW.Polyfill = ISW.Polyfill || {};
 
 // initTrimPolyfill - Polyfill for the string trim command.
-Base.Polyfill.trim = function() {
+ISW.Polyfill.trim = function() {
   if (!String.prototype.trim) {
     String.prototype.trim = function () {
       return this.replace(/^\s+|\s+$/g, '');
@@ -12,5 +12,5 @@ Base.Polyfill.trim = function() {
 };
 
 $(function(){
-  Base.Polyfill.trim();
+  ISW.Polyfill.trim();
 });

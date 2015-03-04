@@ -1,7 +1,7 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
 // scrollTo - Scroll to an area on the page.
-Base.ScrollTo = (function(){
+ISW.ScrollTo = (function(){
 
   var init = function init() {
     $('a.js-scroll-to').on('click', function(e) {
@@ -51,5 +51,5 @@ Base.ScrollTo = (function(){
 })();
 
 $(function(){
-  Base.ScrollTo.init();
+  ISW.ScrollTo.init();
 });

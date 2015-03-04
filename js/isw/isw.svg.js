@@ -1,7 +1,7 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
 // initSVG - Load SVG image replacement.
-Base.SVG = function() {
+ISW.SVG = function() {
   $('img.js-svg').each(function() {
     var $element = $(this);
     var src = $element.attr('src').replace(/(.png)|(.gif)/,'.svg');
@@ -15,5 +15,5 @@ Base.SVG = function() {
 };
 
 $(function(){
-  Base.SVG();
+  ISW.SVG();
 });

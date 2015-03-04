@@ -1,6 +1,6 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
-Base.Lightbox = (function() {
+ISW.Lightbox = (function() {
 
   var init = function init() {
     if(typeof $.fancybox !== 'undefined') {
@@ -22,5 +22,5 @@ Base.Lightbox = (function() {
 })();
 
 $(function(){
-  Base.Lightbox.init();
+  ISW.Lightbox.init();
 });

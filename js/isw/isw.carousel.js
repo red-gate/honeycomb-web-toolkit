@@ -1,7 +1,7 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
 // Carousel functionality. (http://kenwheeler.github.io/slick/)
-Base.Carousel = function() {
+ISW.Carousel = function() {
 
   // TODO: Check if slick carousel plugin exists. - If $.fn.slick ?
 
@@ -30,5 +30,5 @@ Base.Carousel = function() {
 };
 
 $(function(){
-  Base.Carousel();
+  ISW.Carousel();
 });

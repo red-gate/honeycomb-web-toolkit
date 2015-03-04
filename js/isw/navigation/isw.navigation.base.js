@@ -1,8 +1,8 @@
-var Base = Base || {};
+var ISW = ISW || {};
 
-Base.Navigation = Base.Navigation || {};
+ISW.Navigation = ISW.Navigation || {};
 
-Base.Navigation.Base = function(options) {
+ISW.Navigation.ISW = function(options) {
 
   // User specified options
   this.options = options;
