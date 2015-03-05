@@ -57,13 +57,13 @@ ISW.Video = (function() {
           events: {
             onReady: function(event) {
               // Add the 'video' class to the dynamically added iframe.
-              $(event.target.d).addClass('video');
+			  $("iframe#" + $(event.target.getVideoEmbedCode()).attr('id')).addClass('video');
             },
             onStateChange: function(event) {
               if(event.data === YT.PlayerState.PLAYING) {
 
                 // Video playing.
-                var $video = $(event.target.d);
+				var $video = $("iframe#" + $(event.target.getVideoEmbedCode()).attr('id'));
 
                 if(!$video.attr('data-ga-tracked')) {
                   var $container = $video.parent();
