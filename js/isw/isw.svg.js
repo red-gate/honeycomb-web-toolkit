@@ -1,7 +1,7 @@
 var ISW = ISW || {};
 
 // initSVG - Load SVG image replacement.
-ISW.SVG = function() {
+ISW.SVG = function($) {
   $('img.js-svg').each(function() {
     var $element = $(this);
     var src = $element.attr('src').replace(/(.png)|(.gif)/,'.svg');
@@ -14,6 +14,6 @@ ISW.SVG = function() {
   });
 };
 
-$(function(){
-  ISW.SVG();
+jQuery(function(){
+  ISW.SVG(jQuery);
 });

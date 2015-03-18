@@ -2,7 +2,7 @@ var ISW = ISW || {};
 
 ISW.Analytics = ISW.Analytics || {};
 
-ISW.Analytics.Google = (function() {
+ISW.Analytics.Google = (function($) {
 
   // Account ID - THIS NEEDS TO BE SET TO YOUR GOOGLE ANALYTICS ACCOUNT ID.
   var accountId = 'UA-XXX';
@@ -110,8 +110,8 @@ ISW.Analytics.Google = (function() {
     trackEvent: trackEvent,
     setCustomVariable: setCustomVariable,
   };
-})();
+})(jQuery);
 
-$(function() {
+jQuery(function() {
   // ISW.Analytics.Google.init();
 });

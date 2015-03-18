@@ -1,4 +1,4 @@
 var ISW = ISW || {};
 
-ISW.version = '1.0';
-ISW.date = '2015-02-27';
+ISW.version = '1.0.1';
+ISW.date = '2015-03-18';

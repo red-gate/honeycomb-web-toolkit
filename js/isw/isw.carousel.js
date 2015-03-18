@@ -1,7 +1,7 @@
 var ISW = ISW || {};
 
 // Carousel functionality. (http://kenwheeler.github.io/slick/)
-ISW.Carousel = function() {
+ISW.Carousel = function($) {
 
   // TODO: Check if slick carousel plugin exists. - If $.fn.slick ?
 
@@ -29,6 +29,6 @@ ISW.Carousel = function() {
   });
 };
 
-$(function(){
-  ISW.Carousel();
+jQuery(function(){
+  ISW.Carousel(jQuery);
 });

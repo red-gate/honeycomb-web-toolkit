@@ -1,7 +1,7 @@
 var ISW = ISW || {};
 
 // Equalise heights amongst selected items (https://github.com/edwardcasbon/jquery.equalise)
-ISW.Equalise = function() {
+ISW.Equalise = function($) {
   if($.fn.equalise) {
     $('.js-equal-heights').equalise({
       itemClass: 'js-equal-heights__item',
@@ -10,6 +10,6 @@ ISW.Equalise = function() {
   }
 };
 
-$(function(){
-  ISW.Equalise();
+jQuery(function(){
+  ISW.Equalise(jQuery);
 });

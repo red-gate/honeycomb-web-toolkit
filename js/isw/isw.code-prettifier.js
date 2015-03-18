@@ -1,7 +1,7 @@
 var ISW = ISW || {};
 
 // Style code snippets.
-ISW.CodePrettifier = function() {
+ISW.CodePrettifier = function($) {
 
   // Load the code prettifier in from Google.
   if($('.code').length > 0) {
@@ -24,6 +24,6 @@ ISW.CodePrettifier = function() {
   });
 };
 
-$(function(){
-  ISW.CodePrettifier();
+jQuery(function(){
+  ISW.CodePrettifier(jQuery);
 });

@@ -1,9 +1,9 @@
 var ISW = ISW || {};
 
 // Reveal - Hide/Show content.
-ISW.Reveal = (function(){
+ISW.Reveal = (function($) {
   var init = function init() {
-    $('.js-reveal').each(function(){
+    $('.js-reveal').each(function() {
       var $this = $(this);
       var buttonTextOpen = $this.attr('data-reveal-buttonOpen') || 'Open';
       var $button = $('<a/>').attr('href', '#' + this.id).addClass('reveal-cta').html(buttonTextOpen);
@@ -150,8 +150,8 @@ ISW.Reveal = (function(){
     open: open,
     close: close
   };
-})();
+})(jQuery);
 
-$(function(){
+jQuery(function(){
   ISW.Reveal.init();
 });

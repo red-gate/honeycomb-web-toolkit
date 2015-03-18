@@ -1,6 +1,6 @@
 var ISW = ISW || {};
 
-ISW.Lightbox = (function() {
+ISW.Lightbox = (function($) {
 
   var init = function init() {
     if(typeof $.fancybox !== 'undefined') {
@@ -19,8 +19,8 @@ ISW.Lightbox = (function() {
   return {
     init: init
   };
-})();
+})(jQuery);
 
-$(function(){
+jQuery(function(){
   ISW.Lightbox.init();
 });
