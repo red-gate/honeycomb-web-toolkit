@@ -1,0 +1,17 @@
+/*------------------------------------*\
+    #PARAGRAPHS
+\*------------------------------------*/
+
+
+/**
+ * Use this to add a chevron icon to single links, inside a paragraph.
+ * An alternative to .list-chevron (which you'd use for multiple lists in a list).
+ */
+
+.chevron-before:before {
+    font-family: "FontAwesome";
+    content: "\f054";
+    color: color(blue);
+    @include padding(0.5, right);
+}
+        

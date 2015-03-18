@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    #ALIGNMENT
+\*------------------------------------*/
+
+
+/**
+ * Center an element like an image or content container.
+ */
+
+@mixin center-element () {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,70 @@
+/*------------------------------------*\
+    #POSITIONING TRUMPS
+\*------------------------------------*/
+/**
+ * High-specificity, very explicit selectors. Overrides and helper classes.
+ * Positioning overrides.
+ */
+ 
+.absolute {
+	position: absolute !important;
+}
+
+
+// ?? Is the following also absolute-top-left?
+.absolute-top {
+	position: absolute !important;
+	top:0 !important;
+}
+
+
+.absolute-top-right {
+	position: absolute !important;
+	top:0 !important;
+	right:0 !important;
+}
+
+
+.absolute-top-left {
+	position: absolute !important;
+	top:0 !important;
+    left:0 !important;
+}
+
+
+.absolute-bottom {
+	position: absolute !important;
+	bottom:0 !important;
+}
+
+
+.absolute--bottom-right {
+	position: absolute !important;
+	bottom:0 !important;
+    right:0 !important;
+}
+
+
+.absolute--bottom-left {
+	position: absolute !important;
+	bottom:0 !important;
+    left:0 !important;
+}
+
+
+.absolute--left {
+	position: absolute !important;
+    left:0 !important;
+}
+
+
+.absolute--right {
+	position: absolute !important;
+    left:0 !important;
+}
+
+
+.relative {
+	position: relative !important;
+}
+

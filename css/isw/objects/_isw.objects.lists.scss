@@ -1,0 +1,218 @@
+/*------------------------------------*\
+    #GENERIC LIST STYLES
+\*------------------------------------*/
+
+// Remove extra vertical spacing when nesting lists.
+li {
+  > ul,
+  > ol {
+    @include margin(0, bottom);
+  }
+}
+
+
+.ul--square {
+  list-style: square;
+}
+
+.ul--circle {
+  list-style: circle;
+}
+
+.ul--disc {
+  list-style: disc;
+}
+
+.ol--lower-alpha {
+  list-style: lower-alpha;
+}
+
+.ol--lower-roman {
+  list-style: lower-roman;
+}
+
+// Vertical
+// Normal list?
+
+// Horizontal
+.list--horizontal,
+%list--horizontal {
+  @include margin(0, left);
+  list-style: none;
+  li {
+    display: inline-block;
+  }
+}
+
+// Bare list
+.list--bare,
+%list--bare {
+  @include margin(0);
+  @include padding(0);
+  list-style: none;
+}
+
+.list--padded,
+%list--padded {
+  li {
+    @include padding(0.5);
+  }
+  &.list--horizontal {
+    li {
+      @include padding(0);
+      @include padding(0.5, left);
+      @include padding(0.5, right);
+    }
+  }
+}
+
+
+// With dividers (Horizontal and Vertical)
+.list--dividers,
+%list--dividers {
+  li {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-style: solid;
+    @include padding(0.5, top);
+    @include padding(0.5, bottom);
+    &:last-child {
+      border-bottom-width: 0;
+    }
+  }
+  &.list--horizontal {
+    li {
+      border-bottom-width: 0;
+      border-right-width: 1px;
+      @include padding(0, top);
+      @include padding(0, bottom);
+      @include padding(0.5, left);
+      @include padding(0.5, right);
+      &:last-child {
+        border-right-width: 0;
+      }
+    }
+  }
+}
+
+
+/**
+ * Tick list 
+ *  
+*/
+.list--tick {
+    @extend %list--bare;
+    & > li {
+        position: relative;
+        @include padding(1, left);
+        &:before {
+            content: "\f00c";
+            font-family: "FontAwesome";
+            position: absolute;
+            left:0;
+            @include font-size(16px);
+            color: color(green);
+        }
+    }
+}
+
+.list--tick--large > .list--bullet {
+    color: red;
+}
+
+
+/**
+ * Larger version of the tick list 
+ *  
+*/
+.list--tick--large {
+    @extend .list--tick;
+    & > li {
+        @include padding(1.5, left);
+        &:before {
+            @include font-size(24px, 1);
+            color: color(green);
+        }
+    }
+}
+
+
+/**
+ * Chevron list 
+ *  
+*/
+.list--chevron {
+    @extend .list--tick;
+    & > li {
+        &:before {
+            content: "\f054";
+            color: color(blue);
+        }
+    }
+}
+
+
+/**
+ * Larger version of the chevron list 
+ *  
+*/
+.list--chevron--large {
+    @extend .list--chevron;
+    & > li {
+        &:before {
+            @include font-size(24px, 1);
+        }
+    }
+}
+
+
+/**
+ * Chevron down list 
+ *  
+*/
+.list--chevron-down {
+    @extend .list--chevron;
+    & > li {
+        &:before {
+            content: "\f078";
+            color: color(blue);
+        }
+    }
+}
+
+
+/**
+ * Larger version of the chevron list 
+ *  
+*/
+.list--chevron-down--large {
+    @extend .list--chevron-down;
+    & > li {
+        @include padding(2, left);
+        &:before {
+            @include font-size(24px, 1);
+        }
+    }
+}
+
+
+/**
+ * bullet list 
+ *  
+*/
+.list--bullet {
+    @extend .list--tick;
+    & > li {
+        &:before {
+            @include font-size(12px, 2.3);
+            content: "\f111";
+            color: color(blue);
+        }
+    }
+}
+
+
+
+
+
+

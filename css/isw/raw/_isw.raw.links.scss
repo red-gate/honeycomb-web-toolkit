@@ -1,0 +1,45 @@
+/*------------------------------------*\
+    #LINKS
+\*------------------------------------*/
+
+/**
+ * Basic styles for raw unclassed links.
+ */
+
+a {
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  color: color(default-text);
+// @TODO this colour should have it's variable  
+  border-bottom-color: color(blue, light);
+}
+
+a:visited { }
+
+a:focus { }
+
+a:active, a:hover { 
+// @TODO this colour should have it's variable  
+    color: color(blue, light);
+}
+
+
+/**
+ * Basic styles linked headings.
+ */
+ 
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+.main-heading a,
+.sub-heading a {
+    border-bottom-color: transparent;
+    &:hover {
+        color: color(black);
+        border-bottom-color: color(blue, light);
+    }
+}

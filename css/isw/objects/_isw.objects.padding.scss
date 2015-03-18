@@ -1,0 +1,119 @@
+/*------------------------------------*\
+    #PADDING
+\*------------------------------------*/
+
+
+/**
+ * Padding options, for things like grid columns and rows, etc.
+ * For example, <div class="grid__row col-padded-v">, gives a grid row 'standard' vertical padding.
+ */
+
+/**
+ * Normal padding.
+ */
+.padded {
+    @include padding(1);
+}
+
+
+.padded-h {
+    @include padding(1, left);
+    @include padding(1, right);
+}
+
+.padded-left {
+    @include padding(1, left);
+}
+
+.padded-right {
+    @include padding(1, right);
+}
+
+
+.padded-v {
+    @include padding(1, top);
+    @include padding(1, bottom);
+}
+
+.padded-top {
+    @include padding(1, top);
+}
+
+.padded-bottom {
+    @include padding(1, bottom);
+}
+
+/**
+ * Less padded.
+ */
+.padded--tight {
+    @include padding(0.5);
+}
+
+
+.padded-h--tight {
+    @include padding(0.5, left);
+    @include padding(0.5, right);
+}
+
+.padded-left--tight {
+    @include padding(0.5, left);
+}
+
+.padded-right--tight {
+    @include padding(0.5, right);
+}
+
+
+.padded-v--tight {
+    @include padding(0.5, top);
+    @include padding(0.5, bottom);
+}
+
+.padded-top--tight {
+    @include padding(0.5, top);
+}
+
+.padded-bottom--tight {
+    @include padding(0.5, bottom);
+} 
+
+/**
+ * More padded
+ */
+.padded--loose {
+    @include padding(4);
+}
+
+
+.padded-h--loose {
+    @include padding(4, left);
+    @include padding(4, right);
+}
+
+.padded-left--loose {
+    @include padding(4, left);
+}
+
+.padded-right--loose {
+    @include padding(4, right);
+}
+
+
+.padded-v--loose {
+    @include padding(4, top);
+    @include padding(4, bottom);
+}
+
+.padded-top--loose {
+    @include padding(4, top);
+}
+
+.padded-bottom--loose {
+    @include padding(4, bottom);
+}    
+    
+
+
+
+

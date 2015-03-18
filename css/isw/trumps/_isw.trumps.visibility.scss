@@ -1,0 +1,70 @@
+/*------------------------------------*\
+    #VISIBILITY TRUMPS
+\*------------------------------------*/
+/**
+ * High-specificity, very explicit selectors. Overrides and helper classes.
+ * Visibiity helpers.
+ */
+
+.overflow-visible {
+	overflow: visible !important;
+}
+
+
+.overflow-hidden {
+	overflow: hidden !important;
+}
+
+
+/**
+ * Hide for screenreaders and browser.
+ */
+ 
+.hidden {
+	display:none !important;
+	visibility:hidden !important;
+}
+
+
+/**
+ * Hide for screenreaders and browsers but maintain layout.
+ */
+ 
+.invisible {
+	visibility:hidden !important;
+}
+
+
+/**
+ * Hide visually but keep available for screenreaders.
+ */
+ 
+.visually-hidden {
+	clip:rect(1px 1px 1px 1px);
+ 	/* IE6, IE7 */
+	clip:rect(1px, 1px, 1px, 1px);
+	height:1px;
+	overflow:hidden;
+	position:absolute !important;
+	width:1px;
+}
+
+
+/**
+ * Extends .visually-hidden to allow the element to be focusable
+   when navigated to via the keyboard eg:skip links.
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus	{
+	clip:auto;
+	height:auto;
+	position:static;
+	margin:0;
+	overflow:visible;
+	width:auto;
+}
+
+
+
+

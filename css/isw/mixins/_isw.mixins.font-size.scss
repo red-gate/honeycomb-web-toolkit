@@ -1,0 +1,20 @@
+// 1. Generates a font size in REMs from a px font-size value
+// 2. Sets line-height:
+//  - if left blank set to $line-height
+//  - else set to the unitless value passed in
+// example use:  @include font-size(12px, 3);
+
+@mixin font-size($size: $font-size, $line-height: auto) {
+  font-size: $size;
+  font-size: ($size / $font-size) * 1rem;
+
+  @if $line-height == auto {
+    line-height: $line-height;
+  } @else {
+    @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+      line-height: $line-height;
+    } @elseif ($line-height != none and $line-height != false) {
+      @warn "‘#{$line-height}’ is not a valid value for `line-height`.";
+    }
+  }
+}

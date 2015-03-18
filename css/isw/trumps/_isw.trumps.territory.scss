@@ -1,0 +1,17 @@
+/*------------------------------------*\
+    #TERRITORY TRUMPS
+\*------------------------------------*/
+
+/**
+ * Project specific: high-specificity, very explicit selectors. Overrides and helper classes.
+ * Location specific content.
+ */
+ 
+.territory {
+	display: none !important;
+}
+
+
+.territory-default {
+	display: block !important;
+}

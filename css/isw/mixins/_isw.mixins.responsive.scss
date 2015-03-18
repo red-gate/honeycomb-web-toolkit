@@ -1,0 +1,14 @@
+// TODO document and example
+
+@mixin responsive($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    $width: map-get($breakpoints, $breakpoint);
+    @media only screen and (min-width: $width) {
+      @content;
+    }
+
+  } @else {
+    @error "Breakpoint `#{$breakpoint}` doesn't exist in the list of breakpoints.";
+  }
+}

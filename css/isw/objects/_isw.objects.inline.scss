@@ -1,0 +1,41 @@
+/*------------------------------------*\
+    #INLINE
+\*------------------------------------*/
+
+/**
+ * Basic inline styles for inline HTML elements.
+ */
+
+
+
+
+
+/*------------------------------------*\
+    #CODE
+\*------------------------------------*/
+.code {
+  white-space: pre-wrap;
+}
+
+
+
+
+/*------------------------------------*\
+    #PRETTYPRINT
+\*------------------------------------*/
+
+/**
+ * Styles on <pre> fro the prettify plugin.
+ */
+ 
+// @TODO: - sort out prettify.css so we can overide some of the defaults
+
+// ???? Are we using prettify still? Where's the CSS?  
+
+pre.prettyprint {
+  @include padding(0.5);
+}
+
+
+
+

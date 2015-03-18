@@ -1,0 +1,45 @@
+/*------------------------------------*\
+    #VERTICAL RHYTHM
+\*------------------------------------*/
+
+/**
+ * Set a default margin, on most block level elements.
+ * Only add margin to the bottom, to keep some vertical rhythm.
+ */
+
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+blockquote, p, address,
+table,
+fieldset, figure,
+pre,
+hr
+{
+    @include margin(1, bottom);
+}
+
+h3, h4, h5, h6 {
+    @include margin(0.5, bottom);
+}
+
+/**
+ * Reduce vertical space between adjacent headings.
+ */
+h1 + h2, h1 + h3, h1 + h4, h1 + h5,
+h2 + h3, h2 + h4, h2 + h5,
+h3 + h4, h3 + h5,
+h4 + h5,
+.main-heading + .sub-heading,
+.sub-heading + .sub-heading,
+h1 + .sub-heading,
+h2 + .sub-heading
+{
+    @include margin(-1, top);
+}
+
+h3 + h4, h3 + h5,
+h4 + h5,
+h3 + .sub-heading
+{
+    @include margin(-0.5, top);
+}

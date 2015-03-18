@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    #LINKS
+\*------------------------------------*/
+
+/**
+ * Linked images:
+ * Turn off borders and dip the opacity on hover.
+ */
+
+a.link-image, 
+a:link.link-image, 
+a:focus.link-image, 
+a:active.link-image, 
+a:hover.link-image {
+    border: none;
+}
+a:hover.link-image {
+	opacity: 0.5;
+}

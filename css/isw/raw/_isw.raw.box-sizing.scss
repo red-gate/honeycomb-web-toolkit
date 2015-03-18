@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    #BOX-SIZING
+\*------------------------------------*/
+
+
+/**
+ * Sets box-sizing globally.
+ */
+html {
+  box-sizing: border-box;
+}
+
+
+/**
+ * The lines below ensure that if box-sizing is set on an element it is inherited by it's children.
+ */
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}

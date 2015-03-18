@@ -1,0 +1,74 @@
+/*------------------------------------*\
+    #TEXT TRUMPS
+\*------------------------------------*/
+/**
+ * High-specificity, very explicit selectors. Overrides and helper classes.
+ * Alignment, weight and decoration text overrides.
+ */
+
+
+
+
+
+/*------------------------------------*\
+    #TEXT ALIGNMENT
+\*------------------------------------*/
+
+.text--center {
+  text-align: center !important;
+}
+
+
+.text--left {
+  text-align: left !important;
+}
+
+
+.text--right {
+  text-align: right !important;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #TEXT WEIGHTS
+\*------------------------------------*/
+
+.text--bold {
+  font-weight: bold !important;
+}
+
+
+.text--normal {
+  font-weight: normal !important;
+}
+
+
+
+
+
+/*------------------------------------*\
+    #TEXT DECORATIONS
+\*------------------------------------*/
+
+.text--underline {
+  text-decoration: underline !important;
+}
+
+
+.text--uppercase {
+  text-transform: uppercase !important;
+  // @TODO: Not sure the best way to apply !important to the output of the mixin below?
+  @include px-rem(letter-spacing, 1);
+}
+
+
+.text--strikethrough {
+  text-decoration: line-through !important;
+}
+
+
+
+

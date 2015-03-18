@@ -1,0 +1,56 @@
+/*------------------------------------*\
+    #PIN
+\*------------------------------------*/
+
+/**
+* Used to pin things the edge of their absolutely positioned, containing element.
+* To give the effect of them bleeding beyond their container, like print off a page.
+*/
+@mixin pin () {
+	position: absolute;
+}
+
+@mixin pin-top () {
+	@include pin;
+	top: 0;
+}
+
+@mixin pin-right () {
+	@include pin;
+	right: 0;
+}
+
+@mixin pin-bottom () {
+	@include pin;
+	bottom: 0;
+}
+
+@mixin pin-left () {
+	@include pin;
+	left: 0;
+}
+
+@mixin pin-top-right () {
+	@include pin-top;
+	right: 0;
+}
+
+@mixin pin-bottom-right () {
+    @include pin-bottom;
+    right: 0;
+}
+
+@mixin pin-bottom-left () {
+    @include pin-bottom;
+    left: 0;
+}
+
+@mixin pin-top-left () {
+    @include pin-top;
+    left: 0;
+}
+
+
+
+
+

@@ -1,0 +1,71 @@
+/*------------------------------------*\
+    #COLOUR SETTINGS
+\*------------------------------------*/
+
+/**
+ * Set default colour variable values.
+ * These can be overwritten by the $site-colours SASS map in [project name].settings.colors.scss
+ * These variables are accessed by the function _isw.functions.colors.scss when we reference them in our SASS
+ */
+
+
+$site-colors: (
+    default-bg: (
+        base: #fff /* default background colour */
+    ),
+    default-text: (
+        base: #444 /* default text colour */
+    ),
+    default-border: (
+        base: #dcdcdc /* default border colour */
+    ),
+    black: (
+        base: #000
+    ),
+    white: (
+        base: #fff
+    ),
+    brand-red: (
+        base: #c00
+    ),
+    red: (
+        base: #c1152f,
+        light: #f7adad,
+        lightest: #f7d9d9,
+        dark: #900,
+        darkest: #410710
+    ),
+    near-black: (
+        base: #222
+    ),
+    grey: (
+        base: #b6b6b6,
+        light: #dcdcdc, /* default colour for HRs, frames and borders */
+        lightest: #f6f6f6,
+        dark: #767676, /* default button bg */
+        darkest: #373737 /* headings & default button bg:hover */
+    ),
+    blue: (
+        base: #008bcb,
+        light: #1696e5, /* primary button bg */
+        lightest: lighten(#1696e5, 48%),  
+        dark: #0F6499,
+        darkest: #093A59 /* primary button bg:hover */
+    ),
+    green: (
+        base: #04a64b, /* buy button bg */
+        light: #00cb3a,
+        lightest: lighten(#00cb3a, 40%),
+        dark: #007f24,
+        darkest: #003f12 /* buy button bg:hover */
+    ),
+    post-it-yellow: (
+        base: #fff7c2
+    )
+);
+
+
+// chain colours onto useage variables
+
+
+

@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    #BORDERS
+\*------------------------------------*/
+
+/* set border to inheirt for colour schemes */
+*{
+    border-color:inherit;
+}
+
+
+.border {
+    border-style: solid;
+    border-width: 1px;
+    border-color: inherit;
+}
+
+.border-top {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-color: inherit;
+}
+
+.border-right {
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-color: inherit;
+}
+
+.border-bottom {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: inherit;
+}
+
+.border-left {
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-color: inherit;
+}
