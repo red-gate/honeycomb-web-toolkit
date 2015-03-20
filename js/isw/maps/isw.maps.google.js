@@ -2,7 +2,7 @@ var ISW = ISW || {};
 
 ISW.Maps = ISW.Maps || {};
 
-ISW.Maps.Google = (function() {
+ISW.Maps.Google = (function($) {
 
   var $maps;
 
@@ -55,8 +55,8 @@ ISW.Maps.Google = (function() {
     init: init,
     initialiseMap: initialiseMap
   };
-})();
+})(jQuery);
 
-$(function() {
+jQuery(function() {
   ISW.Maps.Google.init();
 });

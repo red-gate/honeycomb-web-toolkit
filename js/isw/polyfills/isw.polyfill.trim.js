@@ -11,6 +11,6 @@ ISW.Polyfill.trim = function() {
   }
 };
 
-$(function(){
+jQuery(function(){
   ISW.Polyfill.trim();
 });

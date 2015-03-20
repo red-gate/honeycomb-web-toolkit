@@ -1,6 +1,6 @@
 var ISW = ISW || {};
 
-ISW.Video = (function() {
+ISW.Video = (function($) {
 
   // Default options for video playback.
   var options = {
@@ -164,9 +164,9 @@ ISW.Video = (function() {
     addInlineVideos: addInlineVideos
   };
 
-})();
+})(jQuery);
 
-$(function() {
+jQuery(function() {
   ISW.Video.init();
 });
 

@@ -1,7 +1,7 @@
 var ISW = ISW || {};
 
 // Initialise sticky element functionality. (https://github.com/edwardcasbon/jquery.sticky)
-ISW.Sticky = function() {
+ISW.Sticky = function($) {
   if(typeof $.fn.sticky === 'function') {
     $('.js-sticky').each(function() {
       var $this = $(this);
@@ -20,6 +20,6 @@ ISW.Sticky = function() {
   }
 };
 
-$(function(){
-  ISW.Sticky();
+jQuery(function(){
+  ISW.Sticky(jQuery);
 });

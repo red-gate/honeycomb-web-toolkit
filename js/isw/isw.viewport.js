@@ -1,7 +1,7 @@
 var ISW = ISW || {};
 
 // Toggle class when elements in/out of the viewport. (https://github.com/edwardcasbon/jquery.inViewport)
-ISW.Viewport = function() {
+ISW.Viewport = function($) {
   if($.fn.inViewport) {
     $('.js-vp').inViewport(function(){
       $(this).removeClass('vp-out').addClass('vp-in');
@@ -12,6 +12,6 @@ ISW.Viewport = function() {
   }
 };
 
-$(function(){
-  ISW.Viewport();
+jQuery(function(){
+  ISW.Viewport(jQuery);
 });

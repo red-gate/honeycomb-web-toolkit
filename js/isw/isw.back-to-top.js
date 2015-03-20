@@ -3,7 +3,7 @@ var ISW = ISW || {};
 // Back to top functionality - Use CSS for presentation.
 // {activeClass} class name is toggled when the window scrolls past the
 // {displayOffset} value.
-ISW.BackToTop = (function() {
+ISW.BackToTop = (function($) {
 
   var $element      = $('.js-back-to-top');
   var activeClass   = 'back-to-top--active';
@@ -44,8 +44,8 @@ ISW.BackToTop = (function() {
   return {
     init: init
   }
-})();
+})(jQuery);
 
-$(function(){
+jQuery(function(){
   ISW.BackToTop.init();
 });

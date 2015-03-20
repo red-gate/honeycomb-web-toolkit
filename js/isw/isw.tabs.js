@@ -1,7 +1,7 @@
 var ISW = ISW || {};
 
 // Tabbable content functionality. (https://github.com/edwardcasbon/jquery.tabs)
-ISW.Tabs = function() {
+ISW.Tabs = function($) {
   $('.js-tabbed').each(function() {
     var $this = $(this);
     var options = {
@@ -76,6 +76,6 @@ ISW.Tabs = function() {
   });
 };
 
-$(function(){
-  ISW.Tabs();
+jQuery(function(){
+  ISW.Tabs(jQuery);
 });

@@ -2,7 +2,7 @@ var ISW = ISW || {};
 
 ISW.Navigation = ISW.Navigation || {};
 
-ISW.Navigation.ISW = function(options) {
+ISW.Navigation.ISW = function(options, $) {
 
   // User specified options
   this.options = options;

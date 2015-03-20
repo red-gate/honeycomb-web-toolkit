@@ -18,7 +18,7 @@ Please visit https://github.com/settings/ssh to check your SSH keys, and https:/
 ### Getting ISW into your project
 Firstly, make sure you've installed Bower.
 
-Once Bower is installed, add a bower.conf manifest file into the root of your project and add the following json:
+Once Bower is installed, add a bower.json manifest file into the root of your project and add the following json:
 
 <pre><code>{
     "name": "Your project name goes here",

@@ -9,4 +9,4 @@ var options = {
   }
 };
 
-ISW.Navigation.Drawer = new ISW.Navigation.ISW(options);
+ISW.Navigation.Drawer = new ISW.Navigation.ISW(options, jQuery);

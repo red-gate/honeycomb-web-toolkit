@@ -2,7 +2,7 @@ var ISW = ISW || {};
 
 ISW.Animate = ISW.Animate || {};
 
-ISW.Animate.Fade = (function() {
+ISW.Animate.Fade = (function($) {
   var interval = 5000;
   var fadeOutDuration = 1000;
   var fadeInDuration = 2500;
@@ -36,8 +36,8 @@ ISW.Animate.Fade = (function() {
   return {
     init: init
   };
-})();
+})(jQuery);
 
-$(function() {
+jQuery(function() {
   ISW.Animate.Fade.init();
 });

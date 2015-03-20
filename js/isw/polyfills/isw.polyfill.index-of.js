@@ -19,6 +19,6 @@ ISW.Polyfill.indexOf = function() {
   }
 };
 
-$(function(){
+jQuery(function(){
   ISW.Polyfill.indexOf();
 });

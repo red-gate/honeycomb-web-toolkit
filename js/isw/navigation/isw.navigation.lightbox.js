@@ -9,4 +9,4 @@ var options = {
   }
 };
 
-ISW.Navigation.Lightbox = new ISW.Navigation.ISW(options);
+ISW.Navigation.Lightbox = new ISW.Navigation.ISW(options, jQuery);

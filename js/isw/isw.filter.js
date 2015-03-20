@@ -1,7 +1,7 @@
 var ISW = ISW || {};
 
 // Filter (Hide/Show) content on a page.
-ISW.Filter = (function() {
+ISW.Filter = (function($) {
 
   var init = function init() {
 
@@ -104,8 +104,8 @@ ISW.Filter = (function() {
   return {
     init: init
   };
-})();
+})(jQuery);
 
-$(function(){
+jQuery(function(){
   ISW.Filter.init();
 });
