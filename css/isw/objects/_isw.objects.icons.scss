@@ -9,7 +9,7 @@
 %icon {
     &:before {
         font-family: "FontAwesome";
-        @include margin(0.5, right);
+        @include margin(0.25, right);
         color: color(blue);
     }   
 }
@@ -48,6 +48,13 @@
         content: "\f16a";
     }
 }
+
+.icon--download {
+    @extend %icon;
+    &:before {
+        content: "\f019";
+    }   
+} 
 
 .icon--chevron-down {
     @extend %icon;
