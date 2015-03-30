@@ -103,6 +103,10 @@
     
         }
     }
+	
+	input, select, textarea {
+		color: color(near-black);
+	}
 }
 
 
@@ -143,8 +147,10 @@
     .pagination {
     	-webkit-font-smoothing: antialiased;
 	}
-
-
+	
+	input, select, textarea {
+		color: color(near-black);
+	}
 }
 
 
@@ -268,6 +274,10 @@
     // Pagination style navigation
     .pagination {
     	-webkit-font-smoothing: antialiased;
+	}
+	
+	input, select, textarea {
+		color: color(near-black);
 	}
 	
 /*
@@ -399,14 +409,9 @@
     	-webkit-font-smoothing: antialiased;
 	}
 
-
-
-/*
-    aside, .island {
-        @include scheme--darkest-blue;
-    }
-*/
-
+	input, select, textarea {
+		color: color(near-black);
+	}
 }
 
 
@@ -529,11 +534,9 @@
     	-webkit-font-smoothing: antialiased;
 	}
     
-/*
-    aside, .island {
-        @include scheme--black;
-    }
-*/
+	input, select, textarea {
+		color: color(near-black);
+	}
 }
 
 
@@ -633,11 +636,9 @@
         }
     }
     
-/*
-    aside, .island {
-        @include scheme--darkest-grey;
-    }
-*/
+	input, select, textarea {
+		color: color(near-black);
+	}
 }
 
 
@@ -737,11 +738,9 @@
         }
     }
     
-/*
-    aside, .island {
-        @include scheme--darkest-grey;
-    }
-*/
+	input, select, textarea {
+		color: color(near-black);
+	}
 }
 
 
