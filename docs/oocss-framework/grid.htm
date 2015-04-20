@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Responsive Grid</title>
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="icon" type="image/png" href="/assets/images/favicon.ico" />
+	<meta name="author" content="Red Gate Software Ltd">
+	<meta name="copyright" content="All material (c) Red Gate Software Ltd or its original authors unless otherwise stated">
+	<meta name="Description" content="Style Guide for red-gate.com." />
+	<meta name="DocType" content="Style Guide" />
+
+	<script src="/assets/INTERIM/assets/scripts/external/modernizr.min.js"></script>
+
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100italic,100,300,300italic,900italic,900,700italic,700,500,400italic,500italic' rel='stylesheet' type='text/css'>
+
+
+	<!-- FOR TESTING ONLY - SQL Test index page specific CSS -->
+	<style>
+	figure.sql-test-hero {position:absolute; right:0; top:40px; outline:solid 1px red;}
+		figure.sql-test-hero img{position:absolute; right:0; top:0;}
+		#cog-outer{right:30px; top:30px;}
+		#cog-inner{right:104px; top:104px;}
+		#cog-tick{right:162px; top: 170px;}
+	</style>
+
+
+</head>
+
+
+
+<body class="style-guide overview">
+
+	<!--#include virtual="/includes/common-nav.htm" -->
+
+	<!-- NOTE: currently CSS and JS are being added inside the document body until we resolve Dynamic site stuff -->
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/assets/INTERIM/assets/styles/styles.css">
+
+	<!-- JavaScripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+	<script src="/assets/INTERIM/assets/scripts/scripts.min.js"></script>
+
+
+	<!-- This div is being used to contain and give scope to WDT code -->
+	<div class="page-wrapper">
+
+
+		<div class="band">
+			<div class="band__inner-container">
+				<h1>Responsive grid</h1>
+				<p>Use classes on the column elements to set span amounts, at different breakpoints.</p>
+				<p>Eg: "grid__col grid__col--span-1-of-6 small-grid__col--span-6-of-6 medium-grid__col--span-3-of-6"</p>
+				<div class="grid">
+					<div class="grid__col grid__col--span-1-of-2">
+						<p>1 of 2</p>
+						<p>Here is another paragraph
+					</div>
+						<div class="grid__col grid__col--span-1-of-2"><p>1 of 2</p></div>
+					</div>
+
+					<div class="grid">
+						<div class="grid__col grid__col--span-1-of-4">1 of 4</div>
+						<div class="grid__col grid__col--span-1-of-4">1 of 4</div>
+						<div class="grid__col grid__col--span-2-of-4">2 of 4</div>
+					</div>
+
+					<div class="grid">
+						<div class="grid__col grid__col--span-4-of-4">4 of 4</div>
+					</div>
+
+					<div class="grid no-gutter">
+						<div class="grid__col grid__col--span-2-of-6 small-grid__col--span-6-of-6">2-of-6</div>
+						<div class="grid__col grid__col--span-2-of-6">2 of 6</div>
+						<div class="grid__col grid__col--span-2-of-6">2 of 6</div>
+					</div>
+
+					<div class="grid">
+						<div class="grid__col grid__col--span-1-of-10">1 of 10</div>
+						<div class="grid__col grid__col--span-2-of-10">2 of 10</div>
+						<div class="grid__col grid__col--span-3-of-10">3 of 10</div>
+						<div class="grid__col grid__col--span-4-of-10">4 of 10</div>
+					</div>
+
+					<p>12 column grid</p>
+					<div class="grid">
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+						<div class="grid__col grid__col--span-1-of-12">1 of 12</div>
+					</div>
+
+				<p>Example paragraph goes here</p>
+			</div>
+		</div>
+
+
+
+
+
+
+
+		<!-- HERO example -->
+		<section>
+
+			<div class="band grid bg-colour--grey-5">
+				<div class="band__inner-container position--relative padding--double padding--extra-vertical">
+					<div class="grid__col grid__col--span-6-of-12">
+						<h1>Do test-driven database development in SQL Server Management Studio</h1>
+					</div>
+					<div class="grid__col grid__col--span-6-of-12 padding--extra-top">
+						<figure class="sql-test-hero">
+						</figure>
+					</div>
+				</div>
+			</div>
+
+			<div class="grid band bg-colour--dark-grey">
+				<div class="band__inner-container padding--double">
+					<div class="grid__col grid__col--span-8-of-12 text--larger-scale padding--double-right">
+						<p>If you want to do test-driven development for databases, SQL Test is the place to start.</p>
+						<p>It lets you write database unit tests in T-SQL and run them in SQL Server Management Studio.</p>
+						<p><b>It’s simple to set up, you don’t need extra tools, and you don’t need to learn new technologies.</b></p>
+					</div>
+					<div class="grid__col grid__col--span-4-of-12 padding--double-left">
+						<div data-ui-component="price-box"  class="price-box island rounded bg-colour--white">
+							<p><em class="dynaPrice sqltest">$369</em> per user</p>
+		                    <a class="button buy" href="/dynamic/purchase/product/sqltest">Buy now</a>
+						</div>
+						<div class="island">
+							<p>content below</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
+		<section data-ui-component="chunky-feature" class="band grid border--bottom bg-colour--white position--relative">
+			<div class="band__inner-container padding--double">
+				<div class="grid__col grid__col--span-6-of-12 padding--normal padding--extra-vertical text--right">
+					<h2>Write your tests in regular T-SQL</h2>
+					<p>SQL Test uses the open-source tSQLt framework, a set of T-SQL tables, views, stored procedures, and functions.</p>
+					<p>Tests are simple queries which use the framework to check the values of your data types and to mock database objects.</p>
+				</div>
+				<div class="grid__col grid__col--span-6-of-12 ">
+					<img class="bleeding" src="/assets/INTERIM/assets/products/sql-test/images/chunky-feature/tsql.png" alt="" width="1282" height="432">
+				</div>
+			</div>
+		</section>
+		<!-- END chunky-feature -->
+
+			<section data-ui-component="chunky-feature" class="band grid border--bottom bg-colour--grey-5">
+				<div class="band__inner-container padding--double">
+					<div class="grid__col grid__col--span-6-of-12 padding--double-vertical">
+						<img class="svg float--right" src="/assets/INTERIM/assets/products/sql-test/images/chunky-feature/tests-wont-change.png" alt="" width="297" height="432">
+					</div>
+				<div class="grid__col grid__col--span-6-of-12 padding--normal padding--extra-vertical">
+					<h2>Tests won't change your database</h2>
+					<p>SQL Test stores its objects in a separate schema, so they won’t get in your way.</p>
+					<p>The tests run in transactions, which rolls back any changes.</p>
+					<p>You won’t need any clean-up code.</p>
+				</div>
+			</div>
+		</section>
+		<!-- END chunky-feature -->
+
+		<div class="band bg-colour--blue">
+			<div class="band__inner-container padding--extra">
+				<blockquote>
+					<p class="text--body-larger">Everyone is excited about SQL Test – it allows us to complete our agile test-driven development journey.</p>
+					<footer class="media">
+						<img class="media__image" src="/assets/INTERIM/assets/products/sql-test/images/logos/late-rooms.png" alt="" width="57" height="60">
+						<cite class="media__body">Philip Bates, <br>Senior Database Developer, <br>Laterooms.com</cite>
+					</footer>
+				</blockquote>
+			</div>
+		</div>
+
+
+		<section data-ui-component="chunky-feature" class="band grid border--bottom bg-colour--white">
+			<div class="band__inner-container padding--double">
+				<div class="grid__col grid__col--span-6-of-12 padding--normal padding--extra-vertical text--right">
+					<h2>Run as many tests as you want with one click</h2>
+					<p>Pick your tests, click one button, and the SQL Test UI will display each result as it comes in.</p>
+				</div>
+				<div class="grid__col grid__col--span-6-of-12 padding--double-vertical">
+					<img class="float--left" src="/assets/INTERIM/assets/products/sql-test/images/chunky-feature/one-click.png" alt="" width="417" height="417">
+				</div>
+			</div>
+		</section>
+		<!-- END chunky-feature -->
+
+		<section data-ui-component="chunky-feature" class="band grid border--bottom bg-colour--grey-5">
+			<div class="band__inner-container padding--double">
+				<div class="grid__col grid__col--span-6-of-12 padding--double-vertical">
+					<img class="svg float--right" src="/assets/INTERIM/assets/products/sql-test/images/chunky-feature/isolation.png" alt="" width="347" height="432">
+				</div>
+				<div class="grid__col grid__col--span-6-of-12 padding--normal padding--extra-vertical">
+					<h2>Test objects in isolation &ndash; no need to worry about keys or IDs</h2>
+					<p>SQL Test comes with stored procedures for faking tables, triggers, and constraints.</p>
+					<p>They make it easy to test your objects in isolation, without adding extra data for IDs or foreign keys.</p>
+				</div>
+			</div>
+		</section>
+		<!-- END chunky-feature -->
+
+		<section data-ui-component="chunky-feature" class="band grid border--bottom bg-colour--white">
+			<div class="band__inner-container padding--double">
+				<div class="grid__col grid__col--span-6-of-12 padding--normal padding--extra-vertical text--right">
+					<h2>Includes example unit tests and SQL Cop</h2>
+					<p>SQL Test has built-in examples to help you get started, and SQL Cop tests to check for problems such as fragmented indexes, badly sized data types, and missing keys.</p>
+				</div>
+				<div class="grid__col grid__col--span-6-of-12 padding--double-vertical">
+					<img class="float--left" src="/assets/INTERIM/assets/products/sql-test/images/chunky-feature/sql-cop.png" alt="" width="432" height="432">
+				</div>
+			</div>
+		</section>
+		<!-- END chunky-feature -->
+
+
+		<section class="band grid padding--normal-horizontal bg-colour--grey-5">
+			<div class="band__inner-container padding--double">
+				<h2 class="text--center">Additional tSQLt learning and resources</h2>
+
+				<div class="grid">
+					<div class="grid__col grid__col--span-4-of-12 padding--half">
+						<article class="island bg-colour--white">
+			                <h3>Getting started &amp; support</h3>
+			                <ul>
+			                    <li>
+			                        <a href="http://tsqlt.org/">www.tsqlt.org</a>
+			                    </li>
+			                    <li>
+			                        <a href="http://tsqlt.org/user-guide/">User guide to tSQLt</a>
+			                    </li>
+			                    <li>
+			                        <a href="http://tsqlt.org/user-guide/tsqlt-tutorial/">tSQLt tutorial</a>
+			                    </li>
+			                    <li>
+			                        <a href="https://groups.google.com/forum/#!forum/tsqlt">tSQLt forum</a>
+			                    </li>
+			                    <li>
+			                        <a href="http://stackoverflow.com/questions/tagged/tsqlt">StackOverflow</a>
+			                    </li>
+			                </ul>
+			            </article>
+					</div>
+
+					<div class="grid__col grid__col--span-4-of-12 padding--half">
+						<article class="island bg-colour--blue-15">
+							<h3 class="text--center">tSQLt articles</h3>
+			                <ul>
+			                    <li>
+			                        <a onclick="_gaq.push(['_trackEvent', 'sql-test', 'links', this.href]);" href="https://www.simple-talk.com/sql/t-sql-programming/sql-server-unit-testing-with-tsqlt/">SQL Server Unit Testing with tSQLt</a>
+			                    </li>
+			                    <li>
+			                        <a onclick="_gaq.push(['_trackEvent', 'sql-test', 'links', this.href]);" href="https://www.simple-talk.com/sql/t-sql-programming/test-driven-database-development-%E2%80%93-why-tsqlt/">Test-driven Database Development – Why tSQLt?</a>
+			                    </li>
+			                    <li>
+			                        <a onclick="_gaq.push(['_trackEvent', 'sql-test', 'links', this.href]);" href="https://www.simple-talk.com/sql/sql-training/test-driven-database-development-%E2%80%93-why-bother/">Test-driven Database Development – Why Bother?</a>
+			                    </li>
+			                    <li>
+			                        <a onclick="_gaq.push(['_trackEvent', 'sql-test', 'links', this.href]);" href="https://www.simple-talk.com/sql/t-sql-programming/getting-started-testing-databases-with-tsqlt/">Getting Started Testing Databases with tSQLt</a>
+			                    </li>
+			                    <li>
+			                        <a onclick="_gaq.push(['_trackEvent', 'sql-test', 'links', this.href]);" href="https://www.simple-talk.com/sql/sql-tools/ten-things-i-wish-i%E2%80%99d-known-when-i-started-using-tsqlt-and-sql-test/">Ten Things I Wish I’d Known When I Started Using tSQLt and SQL Test</a>
+			                    </li>
+			                </ul>
+						</article>
+					</div>
+
+					<div class="grid__col grid__col--span-4-of-12 padding--half">
+						<article class="padding--normal">
+			                <h3 class="text--center">Resources to use with tSQLt</h3>
+			                <ul>
+			                    <li>
+				                    <a href="/products/sql-development/sql-automation-pack/">SQL Automation Pack</a><br /><small>(with TeamCity plugin, NAnt, and MSBuild scripts to integrate tSQLt with CI servers)</small>
+			                    </li>
+			                    <li>
+				                    <a href="https://github.com/cprieto/tsqlt-teamcity">TeamCity runner for tSQLt</a>
+			                    </li>
+			                    <li>
+			                        <a href="http://www.sqltreeo.com/wp/">SSMS add-in to support organization of tSQLt objects</a>
+			                    </li>
+			                    <li>
+			                        <a href="http://documentation.red-gate.com/display/SC10/Options+used+in+the+command+line ">Ignore tSQLt objects for deployment with SQL Compare</a>
+			                    </li>
+			                    <li>
+			                        <a href="http://tsqlt.org/downloads/ ">tSQLt snippets for SQL Prompt</a>
+			                    </li>
+			                </ul>
+			            </article>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+		<div class="band grid grid--no-gutter bg-colour--near-black">
+			<div class="band__inner-container padding--none ">
+				<article class="grid__col grid__col--span-6-of-12 padding--double">
+				        <h1>Try SQL Test free</h1>
+                        <p>Download a fully-functional, 28-day trial of SQL Test.</p>
+                        <a class="button primary" href="/products/sql-development/sql-test/download">Download SQL Test</a>
+                        <h3>Got a question?</h3>
+                        <p>If you'd like any help, or have any questions about our tools and purchasing options, get in touch.</p>
+                        <p><span class="dynaPhone">01223 437 922</span></p>
+                        <p><a class="dynaEmailAddress" href="mailto:sales@red-gate.com">sales@red-gate.com</a></p>
+
+				</article>
+
+				<article class="grid__col grid__col--span-6-of-12 border--left">
+					<div class="grid">
+						<div class="grid__col grid__col--span-3-of-6 padding--normal-horizontal padding--double-vertical">
+					        <h2>Save <span class="sqldeveloperbundle dynaSaving">55%</span> with our SQL Developer Bundle</h2>
+					        <p>The <a href="/products/sql-development/sql-developer-bundle/">SQL Developer Bundle</a> contains all our SQL Server dev tools for <span class="sqldeveloperbundle dynaPrice">£1,190</span> - <em>a 55% saving</em>.</p>
+					        <p>SQL Test is available on its own, or as part of the <a href="/products/sql-development/sql-developer-bundle/">SQL Developer Bundle</a>.</p>
+					        <p><a class="button primary" href="/products/sql-development/sql-developer-bundle/">Learn more</a></p>
+						</div>
+						<div class="grid__col grid__col--span-3-of-6">
+							<figure data-ui-component="sash" class="sash">
+								<p>save<em class="sqldeveloperbundle dynaSaving">55%</em></p>
+							</figure>
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+
+
+	</div><!-- END .page-wrapper -->
+	<!--#include virtual="/includes/common-footer.htm" -->
+</body>
+</html>

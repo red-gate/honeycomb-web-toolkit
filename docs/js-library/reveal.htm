@@ -1,0 +1,50 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+<title>Style Guide - JavaScript library - Reveal</title>
+<meta name="description" content="Front-end Web Development, Design and Branding Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="style-guide" id="top-of-page">
+  <div class="page-wrapper">
+
+    <!--#include virtual="/docs/includes/navicon.htm" -->
+
+    <div class="band band--style-guide">
+        <div class="band__inner-container">
+            <h1 class="section-heading--style-guide">Reveal</h1>
+            <p>Reveal (Hide/Show) content</p>
+            <p>There are 2 parts to this component:</p>
+            <ul>
+                <li>The area to be revealled</li>
+                <li>The link(s) to action the reveal</li>
+            </ul>
+
+            <h2 class="section-heading--style-guide">Example</h2>
+            <p>This is some text</p>
+            <p>Para with <a href="#reveal-area" class="js-reveal-cta" data-reveal-cta-close-html="<span class='icon icon-download'></span> Link 1 Close"><span class="icon icon-upload"></span> hardcoded link</a></p>
+            <p>Para with <a href="#reveal-area" class="js-reveal-cta" data-reveal-cta-close-html="Link 2 Close">hardcoded link 2</a></p>
+            <p class="js-reveal" id="reveal-area">This is some more, but hidden text</p>
+
+            <h2 class="section-heading--style-guide">HTML</h2>
+            <p data-height="268" data-theme-id="0" data-slug-hash="OPxOqW" data-default-tab="html" data-user="redgatewebteam" class='codepen'>See the Pen <a href='http://codepen.io/edwardcasbon/pen/azWeGw/'>Redgate - Reveal</a> by Edward Casbon (<a href='http://codepen.io/edwardcasbon'>@edwardcasbon</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+            <h2 class="section-heading--style-guide">Options</h2>
+            <p>Using HTML data attributes options can be set for the individual reveal components.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Option</th><th>Description</th><th>Default</th><th>Example usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Button close state HTML</td><td>Set the HTML that is displayed in the button when the 'revealled' content is displayed.</td><td>NULL (No change)</td><td><code class="code"><a class="js-reveal-cta&nbsp;" href="#reveal-area" data-reveal-cta-close-html="Button close text">...</a></code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+  </div><!-- END .page-wrapper -->
+
+  <!--#include virtual="/docs/includes/footer/footer.htm" -->

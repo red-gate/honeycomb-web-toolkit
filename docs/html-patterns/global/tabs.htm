@@ -1,0 +1,283 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+<title>ISW - HTML pattern library - Global - Tabs</title>
+<meta name="description" content="Front-end Web Development and Design Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="guide" id="top-of-page">
+  <div class="page-wrapper">
+
+    <!--#include virtual="/docs/includes/navicon.htm" -->
+
+    <div class="band grid">
+      <div class="band__inner-container--tight">
+        <h1 class="section-heading--isw">Tabs</h1>
+        <div class="grid__col grid__col--span-1-of-2">
+            <p>On redgate.com tabbed sections of content have a "lozenge" style navigation.</p>
+            <p>Tabbed content is normally marked up within a band and, other than the default white, you can use these <a href="/docs/html-patterns/global/colour-schemes.htm">colour schemes</a>: lightest-grey, lightest-blue, darkest-grey and darkest-blue.</p>
+        </div>
+        <div class="grid__col grid__col--span-1-of-2">
+            <p>Use the <a href="/docs/js-library/tabs.htm">Tabs JS component</a> to add the functionality to the tabs.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="band">
+        <div class="band__inner-container--tight">
+
+            <h2 class="section-heading--isw">Default tabs</h2>
+
+            <section class="js-tabbed tabbed">
+                <h1 class="main-heading">Heading with a class of "main-heading"</h1>
+                <nav class="tabbed__nav">
+                    <ul class="tabs lozenge-nav">
+                        <li>
+                            <a href="#tab-1">Tab 1</a>
+                        </li>
+                        <li>
+                            <a href="#tab-2">Tab 2</a>
+                        </li>
+                        <li>
+                            <a href="#tab-3">Tab 3</a>
+                        </li>
+                        <li>
+                            <a href="#tab-4">Tab 4</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <article class="js-tab tabbed__content" id="tab-1">
+                  <h2>Tab 1</h2>
+                  <p>Tab 1 content</p>
+                </article>
+
+                <article class="js-tab tabbed__content" id="tab-2">
+                  <h2>Tab 2</h2>
+                  <p>Tab 2 content</p>
+                </article>
+
+                <article class="js-tab tabbed__content" id="tab-3">
+                  <h2>Tab 3</h2>
+                  <p>Tab 3 content</p>
+                </article>
+
+                <article class="js-tab tabbed__content" id="tab-4">
+                  <h2>Tab 4</h2>
+                  <p>Tab 4 content</p>
+                </article>
+
+            </section>
+
+            <h3 class="section-heading--isw">Example HTML</h3>
+            <p data-height="440" data-theme-id="0" data-slug-hash="qEPpdB" data-default-tab="html" data-user="redgatewebteam" class='codepen'>See the Pen <a href='http://codepen.io/edwardcasbon/pen/JoyRyR/'>Redgate - HTML - Band - Tabbed</a> on <a href='http://codepen.io'>CodePen</a>.</p>
+
+      </div>
+    </div>
+
+<div class="band">
+  <div class="band__inner-container--tight">
+    <h2 class="section-heading--isw">Example of tabs in use</h2>
+    <p>An example of tabs using an alternative colour scheme, with lots of content and with pagination navigation switched on.</p>
+  </div>
+</div>
+
+
+    <!-- TABBED SECTION - Features of the SQL DBA Bundle -->
+		<section class="tabbed js-tabbed scheme--darkest-blue" data-tabs-pagination="true">
+			<div class="band__inner-container">
+				<h1 class="main-heading">Features of the X</h1>
+
+				<nav class="tabbed__nav js-equal-heights">
+					<ul class="tabs lozenge-nav">
+						<li><a href="#tab-a" class="js-equal-heights__item">Feature A</a></li>
+						<li><a href="#tab-b" class="js-equal-heights__item">Feature B</a></li>
+						<li><a href="#tab-c" class="js-equal-heights__item">Feature C</a></li>
+						<li><a href="#tab-d" class="js-equal-heights__item">Feature D</a></li>
+						<li><a href="#tab-e" class="js-equal-heights__item">Feature E</a></li>
+					</ul>
+				</nav>
+
+				<article class="js-tab tabbed__content" id="tab-a">
+					<div class="media media--chunky">
+                        <figure class="media__image--right">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Cut backup size by 95%</h2>
+							<p>Use SQL Backup Pro's high-performance compression to create up to 95% smaller SQL Server backups. You'll save storage space and speed up network file transfers.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+					<div class="media media--chunky">
+                        <figure class="media__image">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Encrypt and protect your data</h2>
+							<p>Protect your backups with 256-bit AES encryption. Protect your backups from onsite disaster with quick, simple, and secure uploads to the cloud.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="media media--chunky">
+                        <figure class="media__image--right">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Trust your backups</h2>
+							<p>Use SQL Backup Pro to schedule regular backup and restore jobs from a central UI, and include an optional <code>DBCC CHECKDB</code> to fully verify your backups' integrity.</p>
+                        </div>
+                    </div>
+
+				</article>
+
+				<article class="js-tab tabbed__content" id="tab-b">
+                    <div class="media media--chunky">
+                        <figure class="media__image--right">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Stay on top of server performance</h2>
+							<p>See at a glance if your server is behaving normally.</p>
+							<p>SQL Monitor will calculate and display baselines for you, using performance data that’s collected every minute.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="media media--chunky">
+                        <figure class="media__image">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Custom metrics</h2>
+							<p>Create your own custom metrics to monitor the data that's important to you and your organization.</p>
+							<p>You can also <a href="http://sqlmonitormetrics.red-gate.com/"><span class="icon icon-external-link"></span> download custom metrics</a> written by SQL Server experts.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="media media--chunky">
+                        <figure class="media__image--right">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Fix problems fast</h2>
+							<p>Get alerted to problems within seconds, and respond quickly, using the embedded advice and suggestions. SQL Multi Script makes it easier and faster to deploy those changes.</p>
+                        </div>
+                    </div>
+
+				</article>
+
+				<article class="js-tab tabbed__content" id="tab-c">
+					<div class="media media--chunky">
+                        <figure class="media__image--right">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Compare databases with ease</h2>
+							<p>Compare and synchronize schema and data within SQL Server Management Studio, and generate T-SQL scripts to update one database to match another.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="media media--chunky">
+                        <figure class="media__image">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Eliminate mistakes</h2>
+							<p>Speed up the deployment of new database schema updates, and eliminate mistakes migrating database changes, or copying lookup data, from dev, to test, to production.</p>
+                        </div>
+                    </div>
+
+					<hr>
+
+					<div class="media media--chunky">
+                        <figure class="media__image--right">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Quickly restore data</h2>
+							<p>Quickly fix problems by restoring damaged or missing data to a single row, without the need for full database recovery.</p>
+                        </div>
+                    </div>
+
+				</article>
+
+				<article class="js-tab tabbed__content" id="tab-d">
+					<div class="media media--chunky">
+                        <figure class="media__image--right">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Save time writing SQL</h2>
+							<p>Write SQL smoothly with unparalleled code-completion and customizable code snippets using SQL Prompt, an add-in for SSMS and VS. You can now also save, search, and recover tabs in SSMS.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="media media--chunky">
+                        <figure class="media__image">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Generate database documentation</h2>
+							<p>SQL Doc generates full database documentation automatically, so you don't have to do it by hand. You can document a database with a couple of clicks in SSMS, satisfying audit requirements.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="media media--chunky">
+                        <figure class="media__image--right">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Team-wide benefits</h2>
+							<p>Keep everyone on your team working to the same coding standards, with single-click, customizable code reformatting. You can also ensure everyone is up to date, with distributable database documentation.</p>
+                        </div>
+                    </div>
+				</article>
+
+				<article class="js-tab tabbed__content" id="tab-e">
+					<div class="media media--chunky">
+                        <figure class="media__image--right">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Save storage space</h2>
+							<p>Make the most of your existing storage with SQL Backup Pro. It will compress backup sizes by up to 95%, a higher compression than can be achieved through native backups.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="media media--chunky">
+                        <figure class="media__image">
+                            <a href="#" class="js-lightbox lightbox lightbox--zoom" title="" rel="screenshot"><img src="/docs/images/isw-couch-guy.jpg" alt="" width="500" height="284"><span class="icon icon-plus-circle"></span></a>
+                        </figure>
+                        <div class="media__body">
+                            <h2>Monitor disk capacity</h2>
+							<p>SQL Monitor tracks database size and growth so you can proactively manage your space requirements. Use custom metrics, and set up alerts to let you know when your remaining disk space is low.</p>
+                        </div>
+                    </div>
+				</article>
+
+			</div>
+		</section>
+
+
+
+  </div><!-- END .page-wrapper -->
+
+
+
+
+  <!--#include virtual="/docs/includes/footer/footer.htm" -->

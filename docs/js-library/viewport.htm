@@ -1,0 +1,47 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+<title>ISW - JavaScript library - In/Out Viewport</title>
+<meta name="description" content="Front-end Web Development and Design Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="style-guide" id="top-of-page">
+  <div class="page-wrapper">
+
+    <!--#include virtual="/docs/includes/navicon.htm" -->
+
+    <div class="band">
+        <div class="band__inner-container--tight">
+            <h1 class="section-heading--isw">In/Out Viewport</h1>
+            <p>This functionality add a class when a selected element scrolls in and out of the viewport.</p>
+            <p>An example where this could be used is for starting animations on elements when they
+                become in the viewport, rather than them happening where the user cannot see them.</p>
+            <p>This functionality adds a class of "<code>vp-in</code>" to the element when it's in the viewport and
+                "<code>vp-out</code>" when it's out of the viewport.</p>
+        </div>
+    </div>
+
+    <div class="band scheme--darkest-blue">
+        <div class="band__inner-container--loose">
+            <h2>Example</h2>
+            <style>
+                .vp-example { -webkit-transition: all, 1s; -moz-transition: all, 1s; -ms-transition: all, 1s; transition: all, 1s; position: relative; }
+                .vp-example.vp-in { left: 0; opacity: 1; }
+                .vp-example.vp-out { left: -100px; opacity: 0; }
+            </style>
+            <div class="vp-example js-vp">
+                <p>In/Out viewport example. (This text will fade in from the side when in the viewport, and fade out when out of the viewport.)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="band">
+        <div class="band__inner-container--tight">
+            <h2 class="section-heading--isw">HTML</h2>
+            <p><b>Note:</b> Additional CSS needed with this example code to product transition effect.</p>
+            <p data-height="268" data-theme-id="0" data-slug-hash="bNoYZR" data-default-tab="html" data-user="redgatewebteam" class='codepen'>See the Pen <a href='http://codepen.io/edwardcasbon/pen/gbWVKZ/'>Redgate - In/Out Viewport</a> on <a href='http://codepen.io'>CodePen</a>.</p>
+
+        </div>
+    </div>
+
+  </div><!-- END .page-wrapper -->
+
+  <!--#include virtual="/docs/includes/footer/footer.htm" -->

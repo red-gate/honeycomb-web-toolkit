@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>OLD Base elements</title>
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="icon" type="image/png" href="/assets/images/favicon.ico" />
+	<meta name="author" content="Red Gate Software Ltd">
+	<meta name="copyright" content="All material (c) Red Gate Software Ltd or its original authors unless otherwise stated">
+	<meta name="Description" content="PAGE SPECIFIC DESCRIPTION GOES HERE">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/assets/INTERIM/assets/styles/styles.css">
+
+	<!-- FOR TESTING ROBOTO FONT -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100italic,100,300,300italic,900italic,900,700italic,700,500,400italic,500italic' rel='stylesheet' type='text/css'>
+
+	<!-- Modernizr -->
+	<script src="/assets/INTERIM/assets/scripts/external/modernizr.min.js"></script>
+</head>
+
+<body class="style-guide primary-style-guide secondary-overview" id="top-of-page">
+
+	<div class="page-wrapper">
+
+
+		<div class="band">
+		    <div class="band__inner-container bg-colour--white grid grid--no-gutter">
+
+        		<!-- include virtual="/style-guide/includes/base-elements-nav.htm" -->
+
+		        <!-- SIDE MENU -->
+		        <div class="grid__col grid__col--span-2-of-12 text--smaller-scale">
+                    <ul class="list--ui--vertical">
+                        <li><a href="/style-guide/"><h6>Intro</h6></a></li>
+                    </ul>
+                    <ul class="list--ui--vertical">
+                        <li><a href="#"><h6>Base elements</h6></a></li>
+                        <li><a href="#">Typographic scale & baseline</a></li>
+
+                        <li><a href="#">Headings</a></li>
+                        <li><a href="#">Headings wrapping</a></li>
+                        <li><a href="#">Pairing examples</a></li>
+                        <li><a href="#">Heading modifiers</a></li>
+
+                        <li><a href="#">Paragraphs & links</a></li>
+                        <li><a href="#">Buttons</a></li>
+                        <li><a href="#">Other inline elements</a></li>
+                        <li><a href="#">Text modifiers</a></li>
+
+                        <li><a href="#">Blockquotes</a></li>
+                        <li><a href="#">Blockquote modifiers</a></li>
+                        <li><a href="#">Display type</a></li>
+                        <li><a href="#">Lists</a></li>
+                        <li><a href="#">Tables</a></li>
+                        <li><a href="#">Forms</a></li>
+
+                        <li><a href="#">Images</a></li>
+                    </ul>
+		        </div>
+
+                <!-- MAIN PAGE -->
+		        <div class="grid__col grid__col--span-10-of-12 border--left padding--normal">
+            		<!--#include virtual="/style-guide/includes/style-guide-breadcrumb.htm" -->
+
+
+				<h1 class="text--center">Base elements</h1>
+
+				<h2>Typographic scale and baseline</h2>
+				<p>The base font size for the website is left at 100% (which is 16px by default in most browsers).</p>
+				<p>All font-sizes are calculated as REMs, with a pixel fallback value.</p>
+				<p>The basic set of styles are based on a typographic scale of 11, 14, 16, 18, 24, and 32.</p>
+				<p>All components align to an 8 pixel square baseline grid and type aligns to a 4px grid, within reason.</p>
+
+                <hr>
+
+				<h2>Headings</h2>
+
+				<h1>h1. A very large header (32)</h1>
+				<h2>h2. A large header (24)</h2>
+				<h3>h3. A medium header (18)</h3>
+				<h4>h4. A moderate header (16)</h4>
+				<h5>h5. A small header (14)</h5>
+				<h6>h6. A tiny header (11)</h6>
+
+	<hr>
+
+				<h2>Headings wrapping</h2>
+
+				<h1>h1. This is a very large header. Let's add some text and make it wrap and look rubbish for a few lines.</h1>
+				<h2>h2. This is a large header. Let's add some text and make it wrap and look rubbish for a few lines. Let's add some text and make it wrap and look rubbish for a few lines</h2>
+				<h3>h3. This is a medium header. Let's add some text and make it wrap and look rubbish for a few lines. Let's add some text and make it wrap and look rubbish for a few lines.</h3>
+
+
+	<hr>
+		<aside class="island rounded bg-colour--lightest-grey">
+				<p>(Add ".text--light" - for low impact headings, which follow another heading)</p>
+		</aside>
+				<h1 class="text--light">h1.text--light</h1>
+				<h2 class="text--light">h2.text--light</h2>
+				<h3 class="text--light">h3.text--light</h3>
+				<h4 class="text--light">h4.text--light</h4>
+				<h5 class="text--light">h5.text--light</h5>
+
+	<hr>
+
+				<h2>(Add ".text--light" and ".text--uppercase" for subtle section or component headings)</h2>
+
+				<h1 class="text--light text--uppercase">h1. A very large header</h1>
+				<h2 class="text--light text--uppercase">h2. A large header</h2>
+				<h3 class="text--light text--uppercase">h3. A medium header</h3>
+				<h4 class="text--light text--uppercase">h4. A moderate header</h4>
+				<h5 class="text--light text--uppercase">h5. A small header</h5>
+				<h6 class="text--light text--uppercase">h6. A tiny header</h6>
+
+	<hr>
+
+				<h2>(Mix heading and helper styles to suit)</h2>
+
+				<h1 class="text--light center">h1.text--light .center</h1>
+				<h2 class="text--right">h2.text--right</h2>
+				<h3 class="text--light text--uppercase center">h3.text--light .text--uppercase .center</h3>
+				<h4 class="text--right">h4.text--right</h4>
+				<h5 class="text--light text--subhead text--right">h5.text--light .text--subhead .text--right</h5>
+				<h6 class="center">h6.center</h2>
+				<h4 class="text--light text--uppercase">h4.text--light .text--uppercase</h4>
+
+	<hr>
+
+				<h2>(Pairing examples)</h2>
+
+				<h1>This is a 1st level heading</h1>
+				<p>Daniel goes back and sits by one of the windows – these are undershot so that he can look straight down and see Minerva’s wake being born in a foamy collision around the rudder. He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string. It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+
+				<p>He’s been trying to perform this ritual every four hours – the objective being to see if there’s any rumour that the North Atlantic is striped with currents of warm water. He can present the data to the Royal Society if God-willing he reaches London.</p>
+
+				<h2>This is 2nd level heading</h2>
+				<p>Daniel goes back and sits by one of the windows – these are undershot so that he can look straight down and see Minerva’s wake being born in a foamy collision around the rudder.</p>
+				<p>He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string. It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+
+				<h2>This is 2nd level heading</h2>
+				<p>Daniel goes back and sits by one of the windows – these are undershot so that he can look straight down and see Minerva’s wake being born in a foamy collision around the rudder. He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string.</p>
+				<p>It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+
+				<h1>This is a 1st level heading</h1>
+				<h2 class="text--light text--subhead">This is 2nd level subheading</h2>
+				<p>Daniel goes back and sits by one of the windows – these are undershot so that he can look straight down and see Minerva’s wake being born in a foamy collision around the rudder. He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string.</p>
+
+				<h3>This is 3rd level heading</h3>
+				<p>He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string.</p>
+				<h3>This is 3rd level heading</h3>
+				<p>It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+
+
+				<h2>This is a 2nd level heading</h2>
+				<h3 class="text--light text--subhead">This is 3rd level subheading</h3>
+				<p>He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string. It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+
+				<h4>This is 4th level heading</h4>
+				<p>Daniel goes back and sits by one of the windows – these are undershot so that he can look straight down and see Minerva’s wake being born in a foamy collision around the rudder.</p>
+
+
+				<h3>This is a 3rd level heading</h3>
+				<h4 class="text--light text--subhead">This is 4th level subheading</h4>
+				<p>He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string. It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+
+
+				<h5>This is 5th level heading</h5>
+				<p>Daniel goes back and sits by one of the windows – these are undershot so that he can look straight down and see Minerva’s wake being born in a foamy collision around the rudder. He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string.</p>
+				<p>It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+
+				<hr>
+				<h4>This is a 4th level heading</h4>
+				<h5 class="text--light text--subhead">This is 5th level subheading</h5>
+				<p>He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string. It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+
+
+				<h2>This is 6th level heading</h2>
+				<p>Daniel goes back and sits by one of the windows – these are undershot so that he can look straight down and see Minerva’s wake being born in a foamy collision around the rudder.</p>
+				<p>He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string. It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+	<hr>
+				<h2>(Display type)</h2>
+
+				<h1 class="text--light text--biggest">The biggest display font on the website. This is a nice, huge one.</h1>
+				<h1 class="text--bigger">The second biggest display font on the website.</h1>
+				<h1 class="text--big">The third biggest display font on the website. Still quite nice and large.</h1>
+
+
+	<hr>
+
+				<h2>(Paragraphs)</h2>
+
+				<p>This is a normal paragraph (<code>p</code> element). To add some length to it, let us mention that this page was primarily written for testing the effect of <strong>user style sheets</strong>. You can use it for <a href="#">various other purposes as well</a>, like just checking how your browser displays various HTML elements by default. It can also be useful when testing conversions from HTML format to other formats, since some elements can go wrong then.</p>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+				<p>This is a paragraph. Paragraphs are preset with a font size, <a href="#">line height and spacing</a> to match the overall vertical rhythm. To show what a paragraph looks like this needs a little more content so, did you know that there are storms occurring on Jupiter that are larger than the Earth? Pretty cool.</p>
+
+
+	<hr>
+
+				<h2>(Links)</h2>
+
+				<p>This is a text paragraph that contains some inline links. Generally, inline links can be problematic from the usability perspective. Lorem Ipsum is simply dummy text of the <a href="#">printing</a> and <a href="#">typesetting</a> industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into <a href="#">electronic typesetting</a>, remaining essentially unchanged. It was popularised in the 1960s with the release of <a href="#">Letraset sheets containing Lorem Ipsum passages,</a> and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+	<h5>Buttons</h5>
+	<a href="#" class="button">A button</a>
+	<a href="#" class="button primary">Download</a>
+	<a href="#" class="button buy">Buy now</a>
+
+	<hr>
+
+				<h2>(Other typographic elements and inline styles)</h2>
+				<p><abbr title="Cascading Style Sheets">CSS</abbr> (abbreviation - <code>abbr</code> markup used)</p>
+
+				  <p><b>bolded</b> (<code>b</code> markup used - just bolding with unspecified semantics)</p>
+				  <p><cite>Origin of Species</cite> (a book title; <code>cite</code> markup used)</p>
+				  <p><code>a[i] = b[i] + c[i);</code> (computer code; <code>code</code> markup used)</p>
+				  <p>Here we have some <del>deleted</del> text. (<code>del</code> markup used)</p>
+				  <p>An <dfn>octet</dfn> is an entity consisting of eight bits (<code>dfn</code> markup used for the term being defined)</p>
+				  <p>This is <em>very</em> simple (<code>em</code> markup used to emphasise a word)</p>
+				  <p><i lang="la">Homo sapiens</i> (<code>i</code> markup used - just italics with no unspecified semantics)</p>
+				  <p>Here we have some <ins>inserted</ins> text (<code>ins</code> markup used)</p>
+				  <p>Here we have some <mark>marked</mark> text (<code>mark</code> markup used)</p>
+				  <p>Type <kbd>yes</kbd> when prompted for an answer (<code>kbd</code> markup used for text indicating keyboard input)</p>
+
+
+				  <!--
+				  TO DO at some point
+	<p><code>&lt;q&gt;</code> is for quoting something inline within a section of prose:</p>
+				  <p>Luke continued, <q>And then she called him a <q>scruffy-looking nerf-herder</q>! I think I’ve got a chance!</q> The poor naive fool…</p>
+				  <p>He said: <q>She said <q>Hello!</q></q> (a quotation inside a quotation)</p>
+	-->
+
+
+				  <p>You may get the message <samp>Core dumped</samp> at times (<code>samp</code> markup used for sample output)</p>
+				  <p><small>This is not that important</small> (<code>small</code> markup used)</p>
+				  <p><strong>This is highlighted text</strong> (<code>strong</code> markup used)</p>
+				  <p>In order to test how subscripts and superscripts (<code>sub</code> and <code>sup</code> markup) work inside running text, we need some dummy text around constructs like x<sub>1</sub> and H<sub>2</sub>O (where subscripts occur). So here is some fill so that you will (hopefully) see whether and how badly the subscripts and superscripts mess up vertical spacing between lines. Now superscripts: M<sup>lle</sup>, 1<sup>st</sup>, and then some mathematical notations: e<sup>x</sup>, sin<sup>2</sup> <i>x</i>, and some nested superscripts (exponents) too:  e<sup>x<sup>2</sup></sup> and f(x)<sup>g(x)<sup>a+b+c</sup></sup> (where 2 and a+b+c should appear as exponents of exponents).</p>
+				  <p><u>Underlined</u> text (<code>u</code> markup used)</p>
+				  <p>The command <code>cat</code> <var>filename</var> displays the file specified by the <var>filename</var> (<code>var</code> markup used to indicate a word as a variable).</p>
+
+				<p>Some of the elements tested above are typically displayed in a monospace font, often using the same presentation for all of them. This tests whether that is the case on your browser:</p>
+
+				<ul>
+				  <li><code>This is sample text inside code markup</code>
+				  <li><kbd>This is sample text inside kbd markup</kbd>
+				  <li><samp>This is sample text inside samp markup</samp>
+				</ul>
+
+	<hr>
+
+				<h2>(Blockquote)</h2>
+				<blockquote>
+					<p>&ldquo;We can be confident that what we’re developing and testing is what’s going to be deployed to production.&rdquo;</p>
+					<footer class="media">
+						<img class="media__image" src="/assets/INTERIM/assets/products/sql-test/images/logos/late-rooms.png" alt="" width="57" height="60">
+						<cite class="media__body">Bruce Lawson,<br> Boss dude, <br><a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">www.brucelawson.co.uk</a></cite>
+					</footer>
+				</blockquote>
+
+
+				<blockquote>
+					<p>&ldquo;We can be confident that what we’re developing and testing is what’s going to be deployed to production.</p>
+					<p>This is a quotation containing two paragraphs.&rdquo;</p>
+					<footer class="media">
+						<img class="media__image" src="/assets/INTERIM/assets/products/sql-test/images/logos/late-rooms.png" alt="" width="57" height="60">
+						<cite class="media__body">Bruce Lawson<br> some more text</cite>
+					</footer>
+				</blockquote>
+
+
+				<blockquote>
+					<p class="text--big">&ldquo;We can be confident that what we’re developing and testing is what’s going to be deployed to production.&rdquo;</p>
+					<footer class="media">
+						<img class="media__image" src="/assets/INTERIM/assets/products/sql-test/images/logos/late-rooms.png" alt="" width="57" height="60">
+						<cite class="media__body">Bruce Lawson</cite>
+					</footer>
+				</blockquote>
+
+				<blockquote class="blockquote--light-blue">
+					<p class="text--bigger">&ldquo;We can be confident that what we’re developing and testing is what’s going to be deployed to production.&rdquo;</p>
+					<footer class="media">
+						<img class="media__image" src="/assets/INTERIM/assets/products/sql-test/images/logos/late-rooms.png" alt="" width="57" height="60">
+						<cite class="media__body"><a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">www.brucelawson.co.uk</a></cite>
+					</footer>
+				</blockquote>
+
+				<blockquote>
+					<p class="text--biggest padding--extra">&ldquo;We can be confident that what we’re developing and testing is what’s going to be deployed to production.&rdquo;</p>
+					<footer class="media">
+						<cite class="media__body">Bruce Lawson<br /> Web Person</cite>
+					</footer>
+				</blockquote>
+
+				<hr>
+
+				<h2>(Blockquote with a classes of blockquote--light-blue, blockquote--float-left and blockquote--half)</h2>
+				<blockquote class="blockquote--light-blue blockquote--float-left blockquote--half">
+					<p>&ldquo;As my fellow HTML5 Doctor, Oli Studholme has showed, people seldom quote exactly
+					– so sacrosanctity of the quoted text isn’t a useful ideal – and in print etc,
+					citations almost always appear as part of the quotation – it’s highly conventional.&rdquo;</p>
+					<footer class="media">
+	<!-- 					<img class="media__image" src="/assets/INTERIM/assets/products/sql-test/images/logos/late-rooms.png" alt="" width="57" height="60">  -->
+						<cite class="media__body">Bruce Lawson</cite>
+					</footer>
+				</blockquote>
+
+				<p>Daniel goes back and sits by one of the windows – these are undershot so that he can look straight down and see Minerva’s wake being born in a foamy collision around the rudder. He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string. It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+				<p>He’s been trying to perform this ritual every four hours – the objective being to see if there’s any rumour that the North Atlantic is striped with currents of warm water. He can present the data to the Royal Society if God-willing he reaches London.</p>
+				<p>This is a paragraph before an <strong>unnumbered</strong> list (<code>ul</code>). Note that the spacing between a paragraph and a list before or after that is hard to tune in a user style sheet. You can't guess which paragraphs are ogically related to a list, e.g. as a "list header".</p>
+				<p>Daniel goes back and sits by one of the windows – these are undershot so that he can look straight down and see Minerva’s wake being born in a foamy collision around the rudder. He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string. It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+				<p>He’s been trying to perform this ritual every four hours – the objective being to see if there’s any rumour that the North Atlantic is striped with currents of warm water. He can present the data to the Royal Society if God-willing he reaches London.</p>
+				<p>This is a paragraph before an <strong>unnumbered</strong> list (<code>ul</code>). Note that the spacing between a paragraph and a list before or after that is hard to tune in a user style sheet. You can't guess which paragraphs are ogically related to a list, e.g. as a "list header".</p>
+
+
+	<hr>
+
+				<h2>(Blockquote with a class of .blockquote-right)</h2>
+				<blockquote class="blockquote--light-blue blockquote--right blockquote--half">
+					<p>&ldquo;As my fellow HTML5 Doctor, Oli Studholme has showed, people seldom quote exactly – so sacrosanctity of the quoted text isn’t a useful ideal – and in print etc, citations almost always appear as part of the quotation – it’s highly conventional.</p>
+					<p>Here's a second paragraph to test the padding. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.&rdquo;</p>
+					<footer class="media">
+						<img class="media__image" src="/assets/INTERIM/assets/products/sql-test/images/logos/late-rooms.png" alt="" width="57" height="60">
+						<cite class="media__body">Bruce Lawson, <br>Web Geezer<br> <a href="http://www.brucelawson.co.uk/2013/on-citing-quotations-again/">brucelawson.co.uk</a></cite>
+					</footer>
+				</blockquote>
+
+				<p>Daniel goes back and sits by one of the windows – these are undershot so that he can look straight down and see Minerva’s wake being born in a foamy collision around the rudder. He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string. It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+				<p>He’s been trying to perform this ritual every four hours – the objective being to see if there’s any rumour that the North Atlantic is striped with currents of warm water. He can present the data to the Royal Society if God-willing he reaches London.</p>
+				<p>This is a paragraph before an <strong>unnumbered</strong> list (<code>ul</code>). Note that the spacing between a paragraph and a list before or after that is hard to tune in a user style sheet. You can't guess which paragraphs are ogically related to a list, e.g. as a "list header".</p>
+				<p>Daniel goes back and sits by one of the windows – these are undershot so that he can look straight down and see Minerva’s wake being born in a foamy collision around the rudder. He opens a small hatch below a window and drops out a Fahrenheit thermometer on a string. It is the very latest in temperature measurement from Europe – Enoch presented it to him as a sort of party favour. He lets it bounce through the surf for a few minutes, then hauls it in a takes a reading.</p>
+				<p>He’s been trying to perform this ritual every four hours – the objective being to see if there’s any rumour that the North Atlantic is striped with currents of warm water. He can present the data to the Royal Society if God-willing he reaches London.</p>
+				<p>This is a paragraph before an <strong>unnumbered</strong> list (<code>ul</code>). Note that the spacing between a paragraph and a list before or after that is hard to tune in a user style sheet. You can't guess which paragraphs are ogically related to a list, e.g. as a "list header".</p>
+
+
+	<hr>
+
+
+				<h2>(Lists)</h2>
+
+				<p>This is a paragraph before an <strong>unordered</strong> list. Note that the spacing between a paragraph and a list before or after that is hard to tune in a style sheet. You can't guess which paragraphs are logically related to a list, e.g. as a "list header".</p>
+				<ul>
+				  <li>One</li>
+				  <li>Two</li>
+				  <li><a href="#">Link</a></li>
+				  <li><a href="#">Link</a></li>
+				  <li>List item
+					<ul>
+					  <li>Nested List Item</li>
+					  <li>Nested List Item</li>
+					  <li><a href="#">Link</a></li>
+					  <li>Nested List Item</li>
+					</ul>
+				  </li>
+				  <li>Three. Well, probably this list item should be longer. Note that for short items lists look better if they are compactly presented, whereas for long items, it would be better to have more vertical spacing between items.</li>
+				  <li> Four. This is the last item in this list. Let us terminate the list now without making any more fuss about it.</li>
+				</ul>
+
+
+				<p>This is a paragraph before an <strong>ordered</strong> list. Note that the spacing between a paragraph and a list before or after that is hard to tune in a style sheet. You can't guess which paragraphs are logically related to a list, e.g. as a "list header".</p>
+				<ol>
+				  <li>One.</li>
+				  <li>Two.</li>
+				  <li>Three. Well, probably this list item should be longer. Note that if <a href="#">items are short</a>, lists look better if they are compactly presented, whereas for long items, it would be better to have more vertical spacing between items.</li>
+				  <li>Four.
+					<ul>
+					  <li>Nested List Item</li>
+					  <li>Nested List Item</li>
+					  <li><a href="#">Link</a>
+					  <li>Nested List Item</li>
+					</ul>
+				 </li>
+				 <li>Five.
+					<ol>
+					  <li><a href="#">Link</a></li>
+					  <li>Nested List Item</li>
+					  <li>Nested List Item</li>
+					  <li>Nested List Item</li>
+					</ol>
+				 </li>
+				 <li>Six. This is the last item in this list. Let us terminate the list now without making any more fuss about it.</li>
+				</ol>
+
+				<p>This is a paragraph before a <strong>definition</strong> list. In principle, such a list should consist of terms and associated definitions. Definition lists are great for small block of copy that describe the header</p>
+
+				<dl>
+					<dt>Lower cost</dt>
+					<dd>The new version of this product costs significantly less than the previous one!</dd>
+					<dt>Easier to use</dt>
+					<dd>We&#39;ve changed the product so that it&#39;s much easier to use!</dd>
+					<dt>Safe for kids</dt>
+					<dd>You can leave your kids alone in a room with this product and they won&#39;t get hurt (not a guarantee).</dd>
+				</dl>
+				<p>This is a paragraph after a <strong>definition</strong> list. In principle, such a list should consist of terms and associated definitions. Definition lists are great for small block of copy that describe the header</p>
+
+
+	<hr>
+
+
+				<h2>Horizontal Rules</h2>
+				<h5 class="center">Standard &lt;HR&gt;</h5>
+				<hr>
+
+				<h5 class="center">Dashed &lt;HR&gt;</h5>
+				<hr class="dashed">
+
+				<h5 class="center">Dotted &lt;HR&gt;</h5>
+				<hr class="dotted">
+
+	<hr>
+				<h2>Tables</h2>
+
+				<h2 class="text--center">Simple table</h2>
+				<table class="table-grid">
+				    <thead>
+				        <tr>
+				            <th colspan="6">Lorem</th>
+				            <th colspan="6">Ipsum</th>
+				            <th colspan="12">Dolor Sit</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr>
+				            <td colspan="6">One</td>
+				            <td colspan="6">Two</td>
+				            <td colspan="2">Three</td>
+				            <td colspan="2">Four</td>
+				            <td colspan="2">Five</td>
+				            <td colspan="2">Six</td>
+				            <td colspan="2">Seven</td>
+				            <td colspan="2">Eight</td>
+				        </tr>
+				    </tbody>
+				</table>
+
+
+				<h2 class="text--center">Table with a caption</h2>
+				<TABLE summary=
+				"Each row names a Nordic country and specifies its total area and land area, in square kilometers">
+				<CAPTION>Sample table: Areas of the Nordic countries, in sq km</CAPTION>
+				<TR><th scope="col">Country</th> <th scope="col">Total area</TH> <th scope="col">Land area</TH>
+				<TR><th scope="row">Denmark</TH> <TD ALIGN=RIGHT> 43,070 </TD><TD ALIGN=RIGHT> 42,370</TR>
+				<TR><th scope="row">Finland</TH> <TD ALIGN=RIGHT>337,030 </TD><TD ALIGN=RIGHT>305,470</TR>
+				<TR><th scope="row">Iceland</TH> <TD ALIGN=RIGHT>103,000 </TD><TD ALIGN=RIGHT>100,250</TR>
+				<TR><th scope="row">Norway</TH>  <TD ALIGN=RIGHT>324,220 </TD><TD ALIGN=RIGHT>307,860</TR>
+				<TR><th scope="row">Sweden</TH>  <TD ALIGN=RIGHT>449,964 </TD><TD ALIGN=RIGHT>410,928</TR>
+				</TABLE>
+
+				<h2 class="text--center">Striped table</h2>
+				<table class="table-grid striped">
+				    <thead>
+				        <tr>
+				            <th colspan="6">Lorem</th>
+				            <th colspan="6">Ipsum</th>
+				            <th colspan="6">Dolor</th>
+				            <th colspan="6">Sit</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr>
+				            <td colspan="6">Lorem</td>
+				            <td colspan="6">Ipsum</td>
+				            <td colspan="12">Dolor Sit</td>
+				        </tr>
+				        <tr>
+				            <td colspan="6">Lorem</td>
+				            <td colspan="6">Ipsum</td>
+				            <td colspan="12">Dolor Sit</td>
+				        </tr>
+				        <tr>
+				            <td colspan="6">Lorem</td>
+				            <td colspan="6">Ipsum</td>
+				            <td colspan="12">Dolor Sit</td>
+				        </tr>
+				    </tbody>
+				</table>
+
+
+	<hr>
+
+				<h2>Forms</h2>
+				<form action="#">
+				<div>
+				<input type="hidden" name="hidden field" value="42">
+				This is a form containing various fields (with some initial
+				values (defaults) set, so that you can see how input text looks
+				like without actually typing it):</div>
+				<div><label for="but">Button:
+				<button id="but" type="submit" name="foo" value="bar">A cool<br>button</button></label></div>
+				<div><label for="f0">Reset button:
+				<input id="f0" type="reset" name="reset" value="Reset"></label></div>
+				<div><label for="f1">Single-line text input field: <input id="f1" name="text" size="20" value="Default text."></label></div>
+				<div><label for="f2">Multi-line text input field (textarea):</label><br>
+				<textarea id="f2" name="textarea" rows="2" cols="20">
+				Default text.
+				</textarea></div>
+				<div>The following two radio buttons are inside
+				a <code>fieldset</code> element with a <code>legend</code>:</div>
+				<fieldset>
+				<legend>Legend</legend>
+				<div><label for="f3"><input id="f3" type="radio" name="radio" value="1"> Radio button 1</label></div>
+				<div><label for="f4"><input id="f4" type="radio" name="radio" value="2" checked> Radio button 2 (initially checked)</label></div>
+				</fieldset>
+				<fieldset>
+				<legend>Check those that apply</legend>
+				<div><label for="f5"><input id="f5" type="checkbox" name="checkbox"> Checkbox 1</label></div>
+				<div><label for="f6"><input id="f6" type="checkbox" name="checkbox2" checked> Checkbox 2 (initially checked)</label></div>
+				</fieldset>
+				<div><label for="f10">A <code>select</code> element with <code>size="1"</code>
+				(dropdown box):
+				<select id="f10" name="select1" size="1">
+				<option>one
+				<option selected>two (default)
+				<option>three
+				</select></label></div>
+				<div><label for="f11">A <code>select</code> element with <code>size="3"</code>
+				(listbox):</label><br>
+				<select id="f11" name="select2" size="3">
+				<option>one
+				<option selected>two (default)
+				<option>three
+				</select></div>
+				<div><label for="f99">Submit button:
+				<input id="f99" type="submit" name="submit" value="Just a test"></label></div>
+				</form>
+
+
+
+				<hr>
+
+        		<h2>Image Sizes</h2>
+        		<p>All images should be produced as SVG where possible.</p>
+        		<h3>Pixel dimensions for key images sizes:</h3>
+        		<ul>
+            		<li><b>Product logos</b>, in "secondary-nav" component - <b>36px high</b></li>
+            		<li><b>Document covers</b> (whitepapers, PDFs, case studies, etc.) - <b>180px wide</b></li>
+            		<li><b>Screenshots (XXX-small.png)</b>, lightbox image links - <b>283px x 15px</b> (16:9)</li>
+            		<li><b>Company logos</b>, for logo bands - <b>240px x 135px</b> (16:9)</li>
+            		<li><b>Hero illustrations on product pages</b>, with tagline / CTA to the left - <b>minimum of 440px wide</b> (can include negative space, as suits illustration placement)</li>
+        		</ul>
+
+
+			</div>
+		</div>
+
+	</div><!-- END .page-wrapper -->
+
+
+	
+	

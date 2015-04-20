@@ -1,0 +1,102 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+	<title>ISW - Working practices - Mobile</title>
+    <meta name="description" content="Front-end Web Development and Design Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<!--#include virtual="/docs/includes/navicon.htm" -->
+
+<body class="" id="top-of-page">
+
+	<div class="page-wrapper">
+
+		<div class="band">
+		    <div class="band__inner-container--tight">
+
+		        <h1>Accessibility</h1>
+		        
+	            <h3>People</h3>
+                <p>Accessibility matters, it matters to those trying to use our software with a disability, it&#8217;s in our contracts, it also directly relates to discrimination laws we need to know about, as well as simply being the right thing to do.</p>
+                
+                <p>Writing semantic HTML, CSS that&#8217;s flexible with layout &amp; font-size as well as using Javascript to add keyboard support go a long way in making a web app as accessible as possible.</p>
+                
+                <p>It&#8217;s not always difficult to make something accessible.  Always ask what you can do to improve a pages accessibility.</p>
+                
+                <h3>Visual impairments</h3>
+                <p>Supporting blind users of screen reading software like JAWS / NVDA is the obvious case but there are others.  Use a sensibly sized default font and provide alt stylesheets for different font sizes. Use enough contrast between colours and foreground / background to enhance readability.</p>
+                
+                <p>Use a screen reader, it&#8217;s the only way to gain a good insight into what using our software is really like for blind users.</p>
+                
+                <h3>Accessible tables &amp; forms</h3>
+                <p>Keep tables simple and avoid nested headings. Using th elements for heading cells with appropriate scope is the first step for accessible tables.</p>
+                
+                <pre><code>
+                &lt;table&gt;
+                  &lt;tr&gt;
+                    &lt;th scope="col"&gt;Name&lt;/th&gt;
+                    &lt;th scope="col"&gt;Age&lt;/th&gt;
+                    &lt;th scope="col"&gt;Birthday&lt;/th&gt;
+                  &lt;/tr&gt;
+                  &lt;tr&gt;
+                    &lt;th scope="row"&gt;Jackie&lt;/th&gt;
+                    &lt;td&gt;5&lt;/td&gt;
+                    &lt;td&gt;April 5&lt;/td&gt;
+                  &lt;/tr&gt;
+                  &lt;tr&gt;
+                    &lt;th scope="row"&gt;Beth&lt;/th&gt;
+                    &lt;td&gt;8&lt;/td&gt;
+                    &lt;td&gt;January 14&lt;/td&gt;
+                  &lt;/tr&gt;
+                &lt;/table&gt;
+                </code></pre>
+                
+                <p>Linking labels to inputs with the for attribute is the first step for accessible forms.</p>
+                
+                <pre><code>
+                &lt;label for="email"&gt;Email&lt;/label&gt;
+                &lt;input id="email"&gt;</code></pre>
+                
+                <p>Resources:</p>
+                <ul>
+                <li><a href="http://www.456bereastreet.com/archive/200410/bring_on_the_tables/">http://www.456bereastreet.com/archive/200410/bring_on_the_tables/</a></li>
+                <li><a href="http://www.webstandards.org/learn/tutorials/accessible-forms/">http://www.webstandards.org/learn/tutorials/accessible-forms/</a></li>
+                </ul>
+                
+                <h3>Motor impairments</h3>
+                <p>Most of us can appreciate using keyboard short cuts for navigating forms, people with low mobility will appreciate being able to use our software without a mouse far more than this.</p>
+                
+                <h3>UI consistency</h3>
+                <p>This one is not as obvious as the other points, but is as valid.  A consistent UI will help all our users be able to access what they need to.  It&#8217;s rare to find a web application of our size and complexity that doesn&#8217;t have a style guide, let&#8217;s make one.</p>
+                
+                <h3>WCAG <span class="amp">&amp;</span> WAI ARIA</h3>
+                <p>We have focused on <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 1 Level A compliance in the past, <abbr title="Web Accessibility Initiative’s Accessible Rich Internet Applications">WAI ARIA</abbr> is a fairly recent addition and focuses on the moving parts of a web app. The ARIA attributes can help explain dynamic changes to the page with javascript to users of assistive technologies.</p>
+                
+                <p><a href="http://dev.opera.com/articles/view/introduction-to-wai-aria/">http://dev.opera.com/articles/view/introduction-to-wai-aria/</a></p>
+                
+                <h3>Best practices:</h3>
+                <ul>
+                <li>Test in JAWS or NVDA (onch U:) &#8211; Add alt attributes, accessible forms &amp; tables</li>
+                <li>Consider Ajax &amp; screen readers &#8211; How do you alert users to changed content?</li>
+                <li>Add keyboard alternatives to all mouse events &#8211; mouseover -&gt; focus, mouseout -&gt; blur &#8211; Test without a mouse</li>
+                <li>Assistive features &#8211; High contrast stylesheet, font-size stylesheets, access keys, skip links</li>
+                <li>Avoid colour alone for critical information &#8211; e.g. Red = bad, Green = good</li><li>Help everyone &#8211; Usable in different screen sizes, consistent navigation and user experience, friendly URLs, favicon etc.</li>
+                </ul>
+                
+                <p>People to follow:<br />
+                	<a href="http://twitter.com/jkiss/">@jkiss</a><br />
+                	<a href="http://twitter.com/stevefaulkner/">@stevefaulkner</a><br />
+                	<a href="http://twitter.com/vick08/">@vick08</a></p>
+                
+                
+						
+
+		    </div>
+    	</div>
+
+	</div><!-- END .page-wrapper -->
+
+    
+
+	
+	<!--#include virtual="/docs/includes/footer/footer.htm" -->
+
+	

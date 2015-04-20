@@ -1,0 +1,62 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+<title>ISW - JavaScript library - Equalise heights</title>
+<meta name="description" content="Front-end Web Development and Design Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="style-guide" id="top-of-page">
+  <div class="page-wrapper">
+
+    <!--#include virtual="/docs/includes/navicon.htm" -->
+
+    <div class="band">
+        <div class="band__inner-container--tight">
+            <h1 class="section-heading--isw">Equalise (Equalise heights of elements)</h1>
+            <p>Use HTML classes on elements to equalise their heights.</p>
+            <p>Using data attributes allows grouping of elements within an equalised container. For example, if you needed to equalise the heights of headings, separately to paragraphs, within a container.</p>
+            <ul>
+                <li>Container HTML class: <code>js-equal-heights</code></li>
+                <li>Item HTML class: <code>js-equal-heights__item</code></li>
+                <li>Item group HTML data attribute (Optional): <code>data-js-equal-heights-group</code></li>
+            </ul>
+
+
+            <h2 class="section-heading--isw">Example</h2>
+            <div class="grid js-equal-heights">
+                <div class="grid__col grid__col--span-1-of-3 padded-right border-right">
+                    <h2 class="border--bottom js-equal-heights__item" data-js-equal-heights-group="heading">Small heading</h2>
+                    <p class="border--bottom js-equal-heights__item" data-js-equal-heights-group="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+                <div class="grid__col grid__col--span-1-of-3 padded-h border-right">
+                    <h2 class="border--bottom js-equal-heights__item" data-js-equal-heights-group="heading">Slightly, little bit longer heading</h2>
+                    <p class="border--bottom js-equal-heights__item" data-js-equal-heights-group="content">Phasellus vitae placerat urna. Morbi in ipsum semper, euismod neque quis, ullamcorper massa. Cras tincidunt ipsum non orci volutpat pretium nec sit amet diam. Nunc elit est, iaculis id erat non, convallis rutrum erat. Etiam quis mauris id odio condimentum sagittis vel a sapien.</p>
+                </div>
+                <div class="grid__col grid__col--span-1-of-3 padded-left">
+                    <h2 class="border--bottom js-equal-heights__item" data-js-equal-heights-group="heading">Really super long, extra wordy, massive, multi-line heading</h2>
+                    <p class="border--bottom js-equal-heights__item" data-js-equal-heights-group="content">Pellentesque sapien est, vehicula in dignissim id, viverra eu purus. Praesent odio elit, pharetra sed molestie non, vehicula at massa. Donec semper commodo feugiat. Integer rutrum, dui ac faucibus posuere, felis nunc condimentum lectus, a hendrerit nulla nibh quis ipsum. Sed nec metus in eros rutrum accumsan. In eros nunc, efficitur ac dictum eu, elementum sit amet tortor. Pellentesque nec lorem id orci pellentesque consequat vitae non velit. Maecenas porttitor rhoncus neque, vulputate imperdiet erat pharetra eget. Suspendisse pulvinar mauris diam, ut aliquet felis laoreet a. Cras imperdiet pretium aliquet. Suspendisse sodales, arcu ut dictum elementum, neque velit rutrum quam, eu dignissim tellus elit a justo. Donec placerat augue et blandit viverra</p>
+                </div>
+            </div>
+
+
+            <h2 class="section-heading--isw">HTML</h2>
+            <p data-height="750" data-theme-id="0" data-slug-hash="azLVMM" data-default-tab="html" data-user="redgatewebteam" class='codepen'>See the Pen <a href='http://codepen.io/edwardcasbon/pen/QwveZw/'>Redgate - Equal heights</a> on <a href='http://codepen.io'>CodePen</a>.</p>
+
+            <h2 class="section-heading--isw">Options</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Option</th><th>Description</th><th>Default</th><th>Example usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Group</td><td>Group multiple collections within a container</td><td>default</td><td><code class="code">data-js-equal-heights-group="Heading"</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+  </div><!-- END .page-wrapper -->
+
+  <!--#include virtual="/docs/includes/footer/footer.htm" -->

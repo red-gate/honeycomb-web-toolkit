@@ -1,0 +1,226 @@
+
+
+/* we should have a _styleguide partial, or _style-guide partial directory, in /styles/partials/base where we can put the CSS for colour chips and there might be some mixins that need to go somewhere too. */
+
+
+/* we should put our colour variables into SASS maps, and we can probably do without the "colour--" prefix too: */
+
+
+
+
+/* =TYPOGRAPHY COLOUR SASS MAP
+----------------------------------------------------- */
+
+$type-colours: (
+    bodyColour: $dark-grey,
+    /* get the value out of the site-colours SASS map */
+    bodyColour: map-get($site-colours, dark-grey);
+    linkColour: $blue,
+);
+
+
+
+
+
+
+
+
+
+// lists of selector names and corresponding colour variables
+$list-colours:
+    ('black' $colour--black)
+    ('white' $colour--white)
+    ('brand-red' $colour--brand-red)
+    ('near-black' $colour--near-black)
+    ('darkest-grey' $colour--darkest-grey)
+    ('dark-grey' $colour--dark-grey)
+    ('grey' $colour--grey)
+    ('light-grey' $colour--light-grey)
+    ('lightest-grey' $colour--lightest-grey)
+    ('darkest-red' $colour--darkest-red)
+    ('dark-red' $colour--dark-red)
+    ('red' $colour--red)
+    ('light-red' $colour--light-red)
+    ('lightest-red' $colour--lightest-red)
+    ('darkest-blue' $colour--darkest-blue)
+    ('dark-blue' $colour--dark-blue)
+    ('blue' $colour--blue)
+    ('light-blue' $colour--light-blue)
+    ('lightest-blue' $colour--lightest-blue)
+    ('darkest-green' $colour--darkest-green)
+    ('dark-green' $colour--dark-green)
+    ('green' $colour--green)
+    ('light-green' $colour--light-green)
+    ('lightest-green' $colour--lightest-green)
+    ('post-it-yellow' $colour--post-it-yellow);
+    
+
+
+// create classes for text, background and icon colours from $list-colours 
+@each $colour in $list-colours {
+    .bg-colour--#{nth($colour, 1)} {
+        background-color: nth($colour, 2);
+    }
+    .text--colour-#{nth($colour, 1)}, /* TODO: this line to be removed as naming convention is wrong */ 
+    .text-colour--#{nth($colour, 1)} {
+        color: nth($colour, 2);
+    }
+    .icon-colour--#{nth($colour, 1)},
+    .icon-colour--#{nth($colour, 1)} span.icon {
+        color: nth($colour, 2);
+    }
+}
+
+
+
+
+
+
+/*------------------------------------*\
+    #TYPE COLOURS
+\*------------------------------------*/
+$bodyColour: $colour--dark-grey;
+$linkColour: $colour--blue;
+
+
+
+
+
+
+/*------------------------------------*\
+    #COLOUR-SCHEMES
+\*------------------------------------*/
+/**
+ * Mixins to create basic colour schemes.
+ */
+
+/* following from: http://www.guyroutledge.co.uk/blog/generating-multiple-colour-schemes-with-sass/ */
+
+/* an example of a basic colour scheme */
+body (wrapping element / component scope) {
+    background:$color-background;
+}
+h1, h2, h3, h4, h5, h6 {
+	color:$color-heading;
+}
+a {
+	color:$color-link;
+
+	&:hover, &:focus, &:active {
+		color:$color-link-hover;
+	}
+}
+
+/* example of a mixin to pump out the above */
+@mixin colour-scheme($background, $heading, $copy, $link ) {
+    background:$background;
+    h1, h2, h3, h4, h5, h6 {
+        color:$heading;
+    }
+    p {
+        color:$copy;
+    }
+    a {
+        color:$link;
+    }
+}
+
+/* example mixin use */
+.colour-scheme-orange {
+    @include colour-scheme($color-orange-background, $color-orange-heading, $color-orange-copy, $color-orange-link);
+}
+
+
+
+
+
+/*------------------------------------*\
+    #COLOURS
+\*------------------------------------*/
+/**
+ * Colour values.
+ */
+
+
+/*  the following is from: http://www.phase2technology.com/blog/exploring-maps-in-sass-3-3part-3-calling-variables-with-variables/*/
+
+$site-colors: (
+  primary-color: #111111,
+  secondary-color: #222222,
+  tertiary-color: #333333,
+);
+
+
+
+
+
+/*------------------------------------*\
+    #COLOURS VALUES AND NAMES FROM A SASS MAP
+\*------------------------------------*/
+
+/**
+ * @TODO: Use TBC.
+ */
+
+  
+@each $color, $value in $site-colors  {
+ .styleguide .#{$color} {
+   background-color: $value;
+   &:after {
+     content: “variable name is #{$color}”
+   }
+ }
+}
+
+/* the above code should output:
+
+.styleguide .primary-color {
+  background-color: map-get($site-colors, primary-color);
+  &:after {
+     content: “variable name is primary-color”
+   }
+}
+
+*/
+
+
+
+
+
+/* MY VERSION */
+
+@each $color, $value in $site-colors  {
+ .styleguide .#{$color} {
+   background-color: $value;
+   &:after {
+     content: “variable name is #{$color} & variable value is $value”
+   }
+ }
+}
+
+/* the above code should output:
+
+.colour-list {variable name} {
+  background-color: map-get($site-colors, {variable name}); // = background-color: {variable balue};
+  &:after {
+     content: “variable name is {variable name} & variable value is {variable value}”
+   }
+}
+
+
+.
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+<title>Style Guide - JavaScript library - Google Analytics tracking</title>
+<meta name="description" content="Front-end Web Development, Design and Branding Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="style-guide" id="top-of-page">
+  <div class="page-wrapper">
+
+    <!--#include virtual="/docs/includes/navicon.htm" -->
+
+    <div class="band band--style-guide">
+        <div class="band__inner-container">
+            <h1 class="section-heading--style-guide">Google Analytics tracking</h1>
+            <p>Use data attributes on elements to track their click with google analytics event tracking.</p>
+            <p>This will capture the data in both the current and universal analytics platforms.</p>
+
+            <h2 class="section-heading--style-guide">HTML</h2>
+            <p data-height="350" data-theme-id="0" data-slug-hash="yyzPwj" data-default-tab="html" data-user="redgatewebteam" class='codepen'>See the Pen <a href='http://codepen.io/edwardcasbon/pen/OPmKoG/'>Redgate - Google analytics tracking</a> by Edward Casbon (<a href='http://codepen.io/edwardcasbon'>@edwardcasbon</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+
+            <h2 class="section-heading--style-guide">Options</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Option</th><th>Description</th><th>Default</th><th>Example usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Category</td><td>Category of the tracked event</td><td>null</td><td><code class="code">data-ga-track-category="Category"</code></td>
+                    </tr>
+                    <tr>
+                        <td>Action</td><td>Action of the tracked event</td><td>null</td><td><code class="code">data-ga-track-action="Action"</code></td>
+                    </tr>
+                    <tr>
+                        <td>Label</td><td>Label of the tracked event</td><td>null</td><td><code class="code">data-ga-track-label="Label"</code></td>
+                    </tr>
+                    <tr>
+                        <td>Value</td><td>Value of the tracked event</td><td>null</td><td><code class="code">data-ga-track-value="1"</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+  </div><!-- END .page-wrapper -->
+
+  <!--#include virtual="/docs/includes/footer/footer.htm" -->

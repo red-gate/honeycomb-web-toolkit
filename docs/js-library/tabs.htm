@@ -1,0 +1,74 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+<title>Style Guide - JavaScript library - Tabs</title>
+<meta name="description" content="Front-end Web Development, Design and Branding Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="style-guide" id="top-of-page">
+  <div class="page-wrapper">
+
+    <!--#include virtual="/docs/includes/navicon.htm" -->
+
+    <div class="band band--style-guide">
+        <div class="band__inner-container">
+            <h1 class="section-heading--style-guide">Tabs</h1>
+            <p>Tabs are used for alternating between views within the same context.</p>
+            <p>The tabs functionality can utilise ajax to load in content from other pages on the website.</p>
+
+            <h2 class="section-heading--style-guide">Example</h2>
+            <p>This "tabbed" content is an example of a tabbed area.</p>
+            <p><em>Note: Currently, tabs cannot be nested.</em></p>
+
+            <div class="js-tabbed">
+                <nav>
+                    <ul>
+                        <li><a href="#tab-1">Tab 1</a></li>
+                        <li><a href="#tab-2">Tab 2</a></li>
+                        <li><a href="#tab-3">Tab 3</a></li>
+                        <li><a href="/tab-4.html" data-tab-id="tab-4">Tab 4 (Ajax'ed content)</a></li>
+                    </ul>
+                </nav>
+                <div class="js-tab tab" id="tab-1">
+                    <p>This is tab 1</p>
+                </div>
+                <div class="js-tab tab" id="tab-2">
+                    <p>This is tab 2</p>
+                </div>
+                <div class="js-tab tab" id="tab-3">
+                    <p>This is tab 3</p>
+                </div>
+            </div>
+
+            <h2 class="section-heading--style-guide">HTML</h2>
+            <p data-height="268" data-theme-id="0" data-slug-hash="xbXpxo" data-default-tab="html" data-user="redgatewebteam" class='codepen'>See the Pen <a href='http://codepen.io/edwardcasbon/pen/ByRXxE/'>Redgate - Tabs</a> by Edward Casbon (<a href='http://codepen.io/edwardcasbon'>@edwardcasbon</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+
+            <h2 class="section-heading--style-guide">Options</h2>
+            <p>Using HTML data attributes on the tabbed element options can be set to adjust the functionality of the tabbed element.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Option</th><th>Description</th><th>Default</th><th>Example usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Scroll animation</td><td>Use an animation effect to scroll to the tab when it's opened.</td><td>True</td><td><code class="code">data-tabs-scroll-to="false"</code></td>
+                    </tr>
+                    <tr>
+                        <td>Scroll animation offset</td><td>If using the scroll to animation (see above), then an offset can be set to adjust where the window scrolls to.</td><td>0</td><td><code class="code">data-tabs-scroll-to-offset="10"</code></td>
+                    </tr>
+                    <tr>
+                        <td>Pagination</td><td>Add a pagination object to the bottom of each tab, providing links to the next/previous tabs.</td><td>False</td><td><code class="code">data-tabs-pagination="true"</code></td>
+                    </tr>
+                    <tr>
+                        <td>Reload ajax requests</td><td>When ajaxing content in, should the content be reloaded each time the tab is opened.</td><td>False</td><td><code class="code">data-tabs-reload-ajax="true"</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+  </div><!-- END .page-wrapper -->
+
+  <!--#include virtual="/docs/includes/footer/footer.htm" -->

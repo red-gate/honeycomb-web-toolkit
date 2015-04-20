@@ -1,0 +1,61 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+<title>Style Guide - JavaScript library - Video embedding</title>
+<meta name="description" content="Front-end Web Development, Design and Branding Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="style-guide" id="top-of-page">
+  <div class="page-wrapper">
+
+    <!--#include virtual="/docs/includes/navicon.htm" -->
+
+    <div class="band band--style-guide">
+        <div class="band__inner-container">
+            <h1 class="section-heading--style-guide">Video embedding</h1>
+            <p>Embed YouTube videos on the page, either inline or as background elements.</p>
+            <p>Note: If you want to play the video in a <a href="/style-guide/js-library/lightbox.htm" class="js-scroll-to">lightbox</a>, use the <a href="/style-guide/js-library/lightbox.htm" class="js-scroll-to">lightbox</a> functionality.</p>
+
+
+            <h2 class="section-heading--style-guide">Example inline embed</h2>
+            <div class="js-video-container video-container" data-video-id="O8iVLQ_Vnuw"></div>
+
+            <h2 class="section-heading--style-guide">Example background video</h2>
+            <p>{Killed the autoplay example}</p>
+            <!-- <div data-background-video-id="O8iVLQ_Vnuw">
+                <p>This is my content. There should be a video playing in the background</p>
+            </div> -->
+
+            <h2 class="section-heading--style-guide">HTML</h2>
+            <p data-height="268" data-theme-id="0" data-slug-hash="JorMjg" data-default-tab="html" data-user="redgatewebteam" class='codepen'>See the Pen <a href='http://codepen.io/edwardcasbon/pen/WbjVge/'>Redgate - Video embed</a> by Edward Casbon (<a href='http://codepen.io/edwardcasbon'>@edwardcasbon</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+            <h2 class="section-heading--style-guide">Options</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Option</th><th>Description</th><th>Default</th><th>Example usage</th><th>More info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Autohide</td><td>Automatically hide video controls</td><td>1</td><td><code class="code">data-video-auto-hide="2"</code></td><td><a href="https://developers.google.com/youtube/player_parameters#autohide">https://developers.google.com/youtube/player_parameters#autohide</a></td>
+                    </tr>
+                    <tr>
+                        <td>Autoplay</td><td>Autoplay the video so that it plays without user interaction.</td><td>0</td><td><code class="code">data-video-auto-play="1"</code></td><td><a href="https://developers.google.com/youtube/player_parameters#autoplay">https://developers.google.com/youtube/player_parameters#autoplay</a></td>
+                    </tr>
+                    <tr>
+                        <td>Controls</td><td>Display video controls.</td><td>0</td><td><code class="code">data-video-controls="1"</code></td><td><a href="https://developers.google.com/youtube/player_parameters#controls">https://developers.google.com/youtube/player_parameters#controls</a></td>
+                    </tr>
+                    <tr>
+                        <td>Show info</td><td>Display video information before the video starts playing.</td><td>0</td><td><code class="code">data-video-show-info="1"</code></td><td><a href="https://developers.google.com/youtube/player_parameters#showinfo">https://developers.google.com/youtube/player_parameters#showinfo</a></td>
+                    </tr>
+                    <tr>
+                        <td>Loop</td><td>Loop the video.</td><td>0</td><td><code class="code">data-video-loop="1"</code></td><td><a href="https://developers.google.com/youtube/player_parameters#loop">https://developers.google.com/youtube/player_parameters#loop</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+  </div><!-- END .page-wrapper -->
+
+  <!--#include virtual="/docs/includes/footer/footer.htm" -->

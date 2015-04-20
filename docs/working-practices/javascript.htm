@@ -1,0 +1,109 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+	<title>ISW - Working practices - JavaScript</title>
+    <meta name="description" content="Front-end Web Development and Design Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<!--#include virtual="/docs/includes/navicon.htm" -->
+
+<body class="" id="top-of-page">
+
+	<div class="page-wrapper">
+
+		<div class="band">
+		    <div class="band__inner-container--tight">
+
+		        <h1>JavaScript</h1>
+						<p>Javascript sits on top of the HTML and CSS foundation and enhances the user experience &amp; behaviour of the page, that&#8217;s it.</p>
+
+						<h2>What is JavaScript good for?</h2>
+						<ul>
+							<li>User interaction</li>
+							<li>User experience</li>
+							<li>Dynamic behaviour</li>
+							<li>Animation</li>
+							<li>Make pages easier to use</li>
+							<li>Aid accessibility &#8211; e.g. add keyboard support</li>
+							<li>Shims &#8211; Adding support to browsers for features they don&#8217;t natively support</li>
+						</ul>
+
+						<h2>Progressive enhancement</h2>
+						<p>It's an important concept, it means making a page work without a feature that may or may not be supported across all environments.</p>
+
+						<p>If a feature is supported the user gets the benefit, if not &#8211; it still works. It means that if something breaks, the page can continue to work without the enhancement.</p>
+
+						<h2>Frameworks</h2>
+						<p>We use the popular <a href="http://jquery.com/">jQuery</a> javascript framework.</p>
+
+						<p><i>Please do not add any other javascript frameworks into the mix. jQuery offers lots of functionality as well as having a vast library of plugins, so you shouldn&#8217;t need to anyway!</i></p>
+
+						<h2>Coding standards / Style guide</h2>
+						<p>Airbnb have written up <a href="https://github.com/airbnb/javascript" target="_blank">an excellent JavaScript style guide</a>, and published it on GitHub.</p>
+						<p>Please read it and follow their reasonable approach to writing JavaScript.</p>
+
+						<h2>Clean and Clear</h2>
+						<p>When writing javascript, keep the global scope clear. That ensures that the javascript doesn't interfere with any other libraries or plugins that may be included on the page.</p>
+						<p>To do this, use a global project namespace to keep all the methods and properties in.</p>
+						<p>Use a self-executing anonymous function (SEAF), returning an object, to give your JavaScript scope and keep private properties/functions private. See the below example:</p>
+
+						<pre><code>// Check to see if the RedGate global object already exists. If not, create a blank object.
+						var RedGate = RedGate || {};
+
+						// Create our new namespaced code "Example".
+						RedGate.Example = (function(){
+
+							// Declare a private property (note the underscore to denote private).
+							var _name = "This is a private property";
+
+							// Declare a named function, for getting the name property.
+							var getName = function getName() {
+								return _name;
+							};
+
+							// Return an object with public properties and methods.
+							return {
+								getName: getName
+							}
+						})();
+						</code></pre>
+
+						<p>This ensures that the "_name" property stays private, as we haven't made it available, via the returned object, to the global scope.</p>
+						<p>To call the getName method, just use:</p>
+
+						<pre><code>RedGate.Example.getName();</pre></code>
+
+						<h2>Debugging</h2>
+						<p>If your page isn't acting the way you're expecting it to, and you think it could be down to JavaScript then the best place to start debugging JavaScript is the JavaScript console. This will inform you of any JavaScript errors or warnings that are happening because of the JavaScript.</p>
+
+						<ul><li>In Google Chrome: View > Developer > JavaScript Console</li>
+							<li>In Mozilla Firefox: Tools > Web Developer > Error Console</li>
+							<li>In Microsoft Internet Explorer: Tools > Developer Tools > Console</li>
+						</ul>
+
+						<p>Ideally, there should not be any errors, or warnings, being logged to the console. You'll probably find that if you fix all the errors that are being logged to the console, that your web page will act as you're expecting it to.
+
+						<h2>Code linting</h2>
+						<p>We use JSHint to check our code for any potential bugs. This is set up as part of the Grunt task and will happen automatically whenever any of your JavaScript is modified.
+
+						<h2>Best practices:</h2>
+						<ul>
+							<li>Favour the framework <span class="amp">&amp;</span> <abbr title="Don't Repeat Yourself">DRY</abbr></li>
+							<li>Avoid inline &amp; embedded js (Add it to a JavaScript document)</li>
+							<li>Keep global scope clean, put code into namespaces</li>
+							<li>Be defensive, feature detect</li>
+							<li>Test performance in all browsers mentioned in the <a href="/about-the-team/what-browsers-and-devices-do-we-support/">Browser Support Chart</a></li>
+							<li>Keep components as independent as possible</li>
+							<li>Keep an eye on the console for any errors or warnings</li>
+							<li>Read and follow the style guide</li>
+						</ul>
+
+		    </div>
+    	</div>
+
+	</div><!-- END .page-wrapper -->
+
+    
+
+	
+	<!--#include virtual="/docs/includes/footer/footer.htm" -->
+
+	
