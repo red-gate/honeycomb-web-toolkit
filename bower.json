@@ -4,6 +4,7 @@
 		"dist",
 		"Gruntfile.js",
 		"package.json",
-		"node_modules"
+		"node_modules",
+		".gitignore"
 	]
 }
