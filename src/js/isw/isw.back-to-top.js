@@ -43,7 +43,8 @@ ISW.BackToTop = (function($) {
 
   return {
     init: init
-  }
+};
+
 })(jQuery);
 
 jQuery(function(){
