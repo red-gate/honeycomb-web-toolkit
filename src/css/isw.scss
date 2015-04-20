@@ -101,6 +101,7 @@
 @import 'isw/components/isw.components.navigation.drawer';
 @import 'isw/components/isw.components.navigation.pagination';
 @import 'isw/components/isw.components.tabs';
+@import 'isw/components/isw.components.lightbox';
 
 
 /*------------------------------------*\
@@ -124,5 +125,5 @@
     #EXTERNAL STYLES
 \*------------------------------------*/
 @import 'vendor/slick'; // 'Slick' carousel plug-in
-@import 'vendor/jquery.fancybox.css'; // Fancybox lightbox plug-in
+@import 'vendor/jquery.fancybox.scss'; // Fancybox lightbox plug-in
 @import 'vendor/font-awesome-4.1.0/scss/font-awesome.scss'; // font-awesome-4.1.0

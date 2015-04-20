@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    #LIGHTBOX
+\*------------------------------------*/
+
+/* This pattern is for images and videos that can be opened in a lightbox.
+ *
+ */
+
+.lightbox {
+    position: relative;
+    display: inline-block;
+    img {
+        transition: all 0.4s;
+    }
+}
+
+.lightbox--zoom {
+    border:none;
+    /* this span is to place the plus icon in the top right */
+    span {
+        position: absolute;
+        @include px-rem(top, 4);
+        @include px-rem(right, 4);
+        width: 30px;
+        height: 30px;
+        display: table;
+        text-align: center;
+        vertical-align: middle;
+        padding: 1px;
+        @include font-size(28px, 1);
+        @include rounded-circle();
+        opacity: 0.8;
+        color: #000;
+        background: #fff;
+    }
+    &:hover {
+        img {
+            transform: scale(1.05);
+        }
+        span {
+            opacity: 1;
+        }
+    }
+}
+
+.lightbox--video-has-poster {
+    overflow: hidden;
+    max-width: 450px;
+    img {
+        width: 200%;
+        position: relative;
+        max-width: none;
+    }
+    &:hover img {
+        left: -100%;
+    }
+}
+
+.fancybox-close {
+    border:none !important;
+}
