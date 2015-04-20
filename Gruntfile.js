@@ -49,7 +49,7 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: {
-                    'dist/js/app.min.js' : [
+                    'dist/js/isw.min.js' : [
                         'src/js/vendor/**/*.js',
                         '!src/js/vendor/modernizr.min.js',
                         'src/js/isw/**/*.js'
