@@ -1,3 +1,9 @@
 {
-	"name": "Ingeniously Simple Web, from Redgate Software"
+	"name": "Ingeniously Simple Web, from Redgate Software",
+	"ignore": [
+		"dist",
+		"Gruntfile.js",
+		"package.json",
+		"node_modules"
+	]
 }
