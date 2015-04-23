@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    #ROUNDED CORNERS
+\*------------------------------------*/
+
+.rounded {
+    @include rounded;
+}
+
+.rounded--circle {
+    @include rounded-circle;
+}
