@@ -10,37 +10,36 @@
     &:before {
         font-family: "FontAwesome";
         @include margin(0.25, right);
-        color: color(blue);
-    }   
+    }
 }
 
 .icon--email {
     @extend %icon;
     &:before {
         content: "\f0e0";
-    }   
+    }
 }
 
 .icon--phone {
     @extend %icon;
     &:before {
         content: "\f095";
-    }   
+    }
 }
 
 .icon--pdf {
     @extend %icon;
     &:before {
         content: "\f1c1";
-    }   
+    }
 }
 
 .icon--external {
     @extend %icon;
     &:before {
         content: "\f08e";
-    }   
-}    
+    }
+}
 
 .icon--video {
     @extend %icon;
@@ -53,38 +52,33 @@
     @extend %icon;
     &:before {
         content: "\f019";
-    }   
-} 
+    }
+}
 
 .icon--chevron-down {
     @extend %icon;
     &:before {
         content: "\f078";
-    }   
-}    
+    }
+}
 
 .icon--chevron-up {
     @extend %icon;
     &:before {
         content: "\f077";
-    }   
-}  
+    }
+}
 
 .icon--chevron-left {
     @extend %icon;
     &:before {
         content: "\f053";
-    }   
-}  
+    }
+}
 
 .icon--chevron-right {
     @extend %icon;
     &:before {
         content: "\f054";
-    }   
-}  
-
-
-
-
-
+    }
+}
