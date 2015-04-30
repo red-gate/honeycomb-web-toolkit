@@ -66,6 +66,14 @@ li {
   }
 }
 
+// Tight list, reduced vertical spacing
+.list--tight,
+%list--tight {
+    li {
+        @include margin(0.5, bottom);
+    }
+}
+
 
 // With dividers (Horizontal and Vertical)
 .list--dividers,
