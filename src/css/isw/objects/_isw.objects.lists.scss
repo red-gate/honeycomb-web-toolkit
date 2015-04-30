@@ -97,8 +97,8 @@ li {
 
 
 /**
- * Tick list 
- *  
+ * Tick list
+ *
 */
 .list--tick {
     @extend %list--bare;
@@ -122,8 +122,8 @@ li {
 
 
 /**
- * Larger version of the tick list 
- *  
+ * Larger version of the tick list
+ *
 */
 .list--tick--large {
     @extend .list--tick;
@@ -138,8 +138,8 @@ li {
 
 
 /**
- * Chevron list 
- *  
+ * Chevron list
+ *
 */
 .list--chevron {
     @extend .list--tick;
@@ -153,8 +153,8 @@ li {
 
 
 /**
- * Larger version of the chevron list 
- *  
+ * Larger version of the chevron list
+ *
 */
 .list--chevron--large {
     @extend .list--chevron;
@@ -167,8 +167,8 @@ li {
 
 
 /**
- * Chevron down list 
- *  
+ * Chevron down list
+ *
 */
 .list--chevron-down {
     @extend .list--chevron;
@@ -182,8 +182,8 @@ li {
 
 
 /**
- * Larger version of the chevron list 
- *  
+ * Larger version of the chevron list
+ *
 */
 .list--chevron-down--large {
     @extend .list--chevron-down;
@@ -197,8 +197,8 @@ li {
 
 
 /**
- * bullet list 
- *  
+ * bullet list
+ *
 */
 .list--bullet {
     @extend .list--tick;
@@ -212,7 +212,59 @@ li {
 }
 
 
+/**
+ * Plus '+' list
+ *
+*/
+.list--plus {
+    @extend .list--tick;
+    & > li {
+        &:before {
+            content: "\f067";
+            color: color(blue);
+        }
+    }
+}
+
+/**
+ * Larger version of the plus list
+ *
+*/
+.list--plus--large {
+    @extend .list--plus;
+    & > li {
+        @include padding(2, left);
+        &:before {
+            @include font-size(24px, 1);
+        }
+    }
+}
 
 
+/**
+ * Minus '-' list
+ *
+*/
+.list--minus {
+    @extend .list--tick;
+    & > li {
+        &:before {
+            content: "\f068";
+            color: color(blue);
+        }
+    }
+}
 
-
+/**
+ * Larger version of the minus list
+ *
+*/
+.list--minus--large {
+    @extend .list--minus;
+    & > li {
+        @include padding(2, left);
+        &:before {
+            @include font-size(24px, 1);
+        }
+    }
+}
