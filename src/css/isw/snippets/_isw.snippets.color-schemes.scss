@@ -16,74 +16,74 @@
 @mixin scheme--white {
     background-color: color(white);
    	border-color: color(grey, light);
-   	
+
    	hr {
        	border-color: color(grey, light);
    	}
-    
+
     h1,
     .alpha,
     %alpha {
         color: color(grey, darkest);
     }
-    
+
     .sub-heading {
         color: color(grey, dark);
     }
-    
+
     h2,
     .beta,
     %beta {
         color: color(grey, darkest);
     }
-    
-    
+
+
     h3,
     .gamma,
     %gamma {
         color: color(grey, darkest);
     }
-    
-    
+
+
     h4,
     .delta,
     %delta {
         color: color(grey, darkest);
     }
-    
-    
+
+
     h5,
     .epsilon,
     %epsilon {
         color: color(grey, darkest);
     }
-    
-    
+
+
     h6,
     .zeta,
     %zeta {
         color: color(grey, darkest);
-    }    
-    
-    
-    p {
+    }
+
+
+    p, ul,  ol, dd, label {
         color: color(default-text);
     }
-    
-    
+
+
     a {
 		color: color(default-text);
 		border-color: color(blue);
 	}
-    
-    a:visited { 
-        
-    }    
-    
-    a:focus { 
-        
+
+    a:visited {
+
     }
-	
+
+    a:focus {
+
+    }
+
 	a:active, a:hover {
 		color: color(blue, light);
 	}
@@ -100,10 +100,10 @@
         &:hover {
             color: color(black);
             border-bottom-color: color(blue, light);
-    
+
         }
     }
-	
+
 	input, select, textarea {
 		color: color(near-black);
 	}
@@ -114,13 +114,13 @@
     #LIGHTEST GREY COLOR SCHEME
 \*------------------------------------*/
 
-   
+
  /**
- * This color scheme is the same as the white one 
- * except for the lightest grey background color 
+ * This color scheme is the same as the white one
+ * except for the lightest grey background color
  */
- 
- 
+
+
 @mixin scheme--lightest-grey {
     background-color: color(grey, lightest);
     border-color: color(grey, light);
@@ -136,7 +136,7 @@
         color: color(white);
         background-color: color(blue, dark);
     }
-    
+
     .lozenge-nav a.active, .lozenge-nav a.active:hover {
         // @TODO - make this a variable $lozenge-nav__tab-background-color-active
         background-color: color(blue, dark);
@@ -147,7 +147,7 @@
     .pagination {
     	-webkit-font-smoothing: antialiased;
 	}
-	
+
 	input, select, textarea {
 		color: color(near-black);
 	}
@@ -173,69 +173,69 @@
     hr {
        	border-color: #bad6e7 !important;
    	}
-   	
-   	
+
+
     h1,
     .alpha,
     %alpha {
         color: color(blue, darkest);
     }
-    
-    
+
+
     h2,
     .beta,
     %beta {
         color: color(blue, darkest);
     }
-    
-    
+
+
     h3,
     .gamma,
     %gamma {
         color: color(blue, darkest);
     }
-    
-    
+
+
     h4,
     .delta,
     %delta {
         color: color(blue, darkest);
     }
-    
-    
+
+
     h5,
     .epsilon,
     %epsilon {
         color: color(blue, darkest);
     }
-    
-    
+
+
     h6,
     .zeta,
     %zeta {
         color: color(blue, darkest);
-    }  
-    
-   
+    }
+
+
     p, ul,  ol, dd, label {
         color: color(blue, dark);
     }
-    
-    
+
+
     a {
 		color: color(blue, dark);
 		border-color: color(blue, light);
 	}
-    a:visited { 
-        
-    }    
-    a:focus { 
-        
+    a:visited {
+
+    }
+    a:focus {
+
     }
 	a:active, a:hover {
 		color: color(blue);
 	}
-		
+
 
 	h1 a,
     h2 a,
@@ -249,10 +249,10 @@
         &:hover {
             color: color(black);
             border-bottom-color: color(blue, light);
-    
+
         }
     }
-    
+
     // Lozenge style tabbed navigation
     .lozenge-nav a {
         background-color: color(blue);
@@ -264,7 +264,7 @@
         color: color(white);
         background-color: color(blue, dark);
     }
-    
+
     .lozenge-nav a.active, .lozenge-nav a.active:hover {
         // @TODO - make this a variable $lozenge-nav__tab-background-color-active
         background-color: color(blue, dark);
@@ -275,11 +275,11 @@
     .pagination {
     	-webkit-font-smoothing: antialiased;
 	}
-	
+
 	input, select, textarea {
 		color: color(near-black);
 	}
-	
+
 /*
     aside, .island {
         @include scheme--darkest-grey;
@@ -306,65 +306,65 @@
     hr {
    	   	border-color: color(grey, dark);
     }
-   	
+
     h1,
     .alpha,
     .main-heading,
     %alpha {
         color: color(white);
     }
-    
-    
+
+
     h2,
     .beta,
     .sub-heading,
     %beta {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h3,
     .gamma,
     %gamma {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h4,
     .delta,
     %delta {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h5,
     .epsilon,
     %epsilon {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h6,
     .zeta,
     %zeta {
         color: color(grey, lightest);
-    }  
+    }
 
-  
+
     p, ul,  ol, dd, label {
         color: color(grey, light);
     }
-    
-    
+
+
     a {
 		color: color(grey, lightest);
 		border-color: color(blue);
 	}
-    a:visited { 
-        
-    }    
-    a:focus { 
-        
+    a:visited {
+
+    }
+    a:focus {
+
     }
 	a:active, a:hover {
 		color: color(blue, light);
@@ -382,10 +382,10 @@
         &:hover {
             color: color(white);
             border-bottom-color: color(blue, light);
-    
+
         }
     }
-    
+
     // Lozenge style tabbed navigation
     .lozenge-nav a {
         background-color: color(near-black);
@@ -397,7 +397,7 @@
         color: color(white);
         background-color: color(black);
     }
-    
+
     .lozenge-nav a.active, .lozenge-nav a.active:hover {
         // @TODO - make this a variable $lozenge-nav__tab-background-color-active
         background-color: color(black);
@@ -426,75 +426,75 @@
     background-color: color(blue, darkest);
     border-color: color(grey, dark);
     color: color(grey, lightest);
-   	
+
    	// smooth fonts for high contrast of light text on dark background
 	-webkit-font-smoothing: antialiased;
 
     hr {
        	border-color: color(grey, dark);
    	}
-   	
-   	
+
+
     h1,
     .alpha,
     %alpha {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h2,
     .beta,
     %beta {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h3,
     .gamma,
     %gamma {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h4,
     .delta,
     %delta {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h5,
     .epsilon,
     %epsilon {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h6,
     .zeta,
     %zeta {
-    }  
-    
-   
+    }
+
+
     p, ul,  ol, dd, label {
         color: color(grey, light);
     }
-    
-    
+
+
     a {
 		color: color(grey, lightest);
 		border-color: color(blue);
 	}
-    a:visited { 
-        
-    }    
-    a:focus { 
-        
+    a:visited {
+
+    }
+    a:focus {
+
     }
 	a:active, a:hover {
 		color: color(blue, light);
 	}
-	
+
 
 	h1 a,
     h2 a,
@@ -507,10 +507,10 @@
         &:hover {
             color: color(white);
             border-bottom-color: color(blue, light);
-    
+
         }
     }
-    
+
     // Lozenge style tabbed navigation
     .lozenge-nav a {
         background-color: color(near-black);
@@ -522,7 +522,7 @@
         color: color(white);
         background-color: color(black);
     }
-    
+
     .lozenge-nav a.active, .lozenge-nav a.active:hover {
         // @TODO - make this a variable $lozenge-nav__tab-background-color-active
         background-color: color(black);
@@ -533,7 +533,7 @@
     .pagination {
     	-webkit-font-smoothing: antialiased;
 	}
-    
+
 	input, select, textarea {
 		color: color(near-black);
 	}
@@ -551,75 +551,75 @@
     background-color: color(near-black);
     border-color: color(grey);
     color: color(grey, lightest);
-   	
+
    	// smooth fonts for high contrast of light text on dark background
 	-webkit-font-smoothing: antialiased;
 
     hr {
        	border-color: color(grey);
    	}
-   	
+
 
     h1,
     .alpha,
     %alpha {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h2,
     .beta,
     %beta {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h3,
     .gamma,
     %gamma {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h4,
     .delta,
     %delta {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h5,
     .epsilon,
     %epsilon {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h6,
     .zeta,
     %zeta {
         color: color(grey, lightest);
-    }  
-    
-    
+    }
+
+
     p, ul,  ol, dd, label {
         color: color(grey, light);
     }
-    
-    
+
+
     a {
 		color: color(grey, lightest);
 		border-color: color(blue);
 	}
-    a:visited { 
-        
-    }    
-    a:focus { 
-        
+    a:visited {
+
+    }
+    a:focus {
+
     }
 	a:active, a:hover {
 		color: color(blue, light);
-	}	
+	}
 
 	h1 a,
     h2 a,
@@ -632,10 +632,10 @@
         &:hover {
             color: color(white);
             border-bottom-color: color(blue, light);
-    
+
         }
     }
-    
+
 	input, select, textarea {
 		color: color(near-black);
 	}
@@ -667,61 +667,61 @@
     %alpha {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h2,
     .beta,
     %beta {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h3,
     .gamma,
     %gamma {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h4,
     .delta,
     %delta {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h5,
     .epsilon,
     %epsilon {
         color: color(grey, lightest);
     }
-    
-    
+
+
     h6,
     .zeta,
     %zeta {
-    }  
-    
-  
+    }
+
+
     p, ul,  ol, dd, label {
         color: color(grey, light);
     }
-    
-    
+
+
     a {
 		color: color(grey, lightest);
 		border-color: color(blue);
 	}
-    a:visited { 
-        
-    }    
-    a:focus { 
-        
+    a:visited {
+
+    }
+    a:focus {
+
     }
 	a:active, a:hover {
 		color: color(blue, light);
 	}
-		
+
 
 	h1 a,
     h2 a,
@@ -734,19 +734,11 @@
         &:hover {
             color: color(white);
             border-bottom-color: color(blue, light);
-    
+
         }
     }
-    
+
 	input, select, textarea {
 		color: color(near-black);
 	}
 }
-
-
-
-
-
-
-
-
