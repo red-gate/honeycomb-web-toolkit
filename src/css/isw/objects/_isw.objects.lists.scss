@@ -276,3 +276,31 @@ li {
         }
     }
 }
+
+/**
+ * Star list
+ *
+*/
+.list--star {
+    @extend .list--tick;
+    & > li {
+        &:before {
+            content: "\f005";
+            color: color(blue);
+        }
+    }
+}
+
+/**
+ * Larger version of the star list
+ *
+*/
+.list--star--large {
+    @extend .list--star;
+    & > li {
+        @include padding(2, left);
+        &:before {
+            @include font-size(24px, 1);
+        }
+    }
+}

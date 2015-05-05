@@ -82,3 +82,24 @@
         content: "\f054";
     }
 }
+
+.icon--plus {
+    @extend %icon;
+    &:before {
+        content: "\f067";
+    }
+}
+
+.icon--minus {
+    @extend %icon;
+    &:before {
+        content: "\f068";
+    }
+}
+
+.icon--star {
+    @extend %icon;
+    &:before {
+        content: "\f005";
+    }
+}
