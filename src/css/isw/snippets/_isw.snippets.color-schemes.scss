@@ -412,6 +412,24 @@
 	input, select, textarea {
 		color: color(near-black);
 	}
+
+    table {
+        background-color: color(grey, darkest);
+        color: color(grey, lightest);
+    }
+
+    th {
+        background-color: color(grey, dark);
+        color: color(grey, lightest);
+    }
+
+    th, td {
+        border-color: color(grey, dark);
+    }
+
+    tr:hover {
+    	background-color: color(grey, dark);
+    }
 }
 
 
