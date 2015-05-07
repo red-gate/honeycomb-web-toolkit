@@ -117,3 +117,17 @@
         content: "\f0a1";
     }
 }
+
+.icon--tick {
+    @extend %icon;
+    &:before {
+        content: "\f00c";
+    }
+}
+
+.icon--cross {
+    @extend %icon;
+    &:before {
+        content: "\f00d";
+    }
+}
