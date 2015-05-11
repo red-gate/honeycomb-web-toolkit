@@ -5,7 +5,7 @@
  * High-specificity, very explicit selectors. Overrides and helper classes.
  * Positioning overrides.
  */
- 
+
 .absolute {
 	position: absolute !important;
 }
@@ -68,3 +68,6 @@
 	position: relative !important;
 }
 
+.spaced-bottom--none {
+    margin-bottom: 0 !important;
+}
