@@ -14,7 +14,8 @@ ISW.Sticky = function($) {
         },
         docked: function() {
           $this.removeClass('sticking');
-        }
+        },
+        navActiveClass: 'active'
       });
     });
   }
