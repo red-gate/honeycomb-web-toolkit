@@ -760,3 +760,144 @@
 		color: color(near-black);
 	}
 }
+
+/*------------------------------------*\
+    #RED COLOR SCHEME
+\*------------------------------------*/
+
+@mixin scheme--red {
+    background-color: color(red);
+   	border-color: color(red, dark);
+    color: color(red, lightest);
+
+    // smooth fonts for high contrast of light text on dark background
+	-webkit-font-smoothing: antialiased;
+
+    hr {
+   	   	border-color: color(red, dark);
+    }
+
+    h1,
+    .alpha,
+    .main-heading,
+    %alpha {
+        color: color(white);
+    }
+
+
+    h2,
+    .beta,
+    .sub-heading,
+    %beta {
+        color: color(red, lightest);
+    }
+
+
+    h3,
+    .gamma,
+    %gamma {
+        color: color(red, lightest);
+    }
+
+
+    h4,
+    .delta,
+    %delta {
+        color: color(red, lightest);
+    }
+
+
+    h5,
+    .epsilon,
+    %epsilon {
+        color: color(red, lightest);
+    }
+
+
+    h6,
+    .zeta,
+    %zeta {
+        color: color(red, lightest);
+    }
+
+
+    p, ul,  ol, dd, label {
+        color: color(red, light);
+    }
+
+
+    a {
+		color: color(grey, lightest);
+		border-color: color(blue);
+	}
+    a:visited {
+
+    }
+    a:focus {
+
+    }
+	a:active, a:hover {
+		color: color(blue, light);
+	}
+
+
+	h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    .main-heading a,
+    .sub-heading a {
+        border-bottom-color: transparent;
+        &:hover {
+            color: color(white);
+            border-bottom-color: color(blue, light);
+
+        }
+    }
+
+    // Lozenge style tabbed navigation
+    .lozenge-nav a {
+        background-color: color(near-black);
+        color: color(red, lightest);
+    	-webkit-font-smoothing: antialiased;
+    }
+    .lozenge-nav a:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
+        color: color(white);
+        background-color: color(black);
+    }
+
+    .lozenge-nav a.active, .lozenge-nav a.active:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
+        background-color: color(black);
+        color: color(white);
+    }
+
+    // Pagination style navigation
+    .pagination {
+    	-webkit-font-smoothing: antialiased;
+	}
+
+	input, select, textarea {
+		color: color(near-black);
+	}
+
+    table {
+        background-color: color(red, darkest);
+        color: color(red, lightest);
+    }
+
+    th {
+        background-color: color(red, dark);
+        color: color(red, lightest);
+    }
+
+    th, td {
+        border-color: color(red, dark);
+    }
+
+    tr:hover {
+    	background-color: color(red, dark);
+    }
+}
