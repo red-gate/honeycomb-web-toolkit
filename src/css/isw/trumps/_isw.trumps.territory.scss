@@ -6,12 +6,12 @@
  * Project specific: high-specificity, very explicit selectors. Overrides and helper classes.
  * Location specific content.
  */
- 
+
 .territory {
-	display: none !important;
+	display: none;
 }
 
 
 .territory-default {
-	display: block !important;
+	display: block;
 }
