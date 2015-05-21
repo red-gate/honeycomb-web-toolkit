@@ -76,7 +76,7 @@
 
 .padded-bottom--tight {
     @include padding(0.5, bottom);
-} 
+}
 
 /**
  * More padded
@@ -111,9 +111,39 @@
 
 .padded-bottom--loose {
     @include padding(4, bottom);
-}    
-    
+}
+
+/**
+ * No padding
+ */
+.padded--none {
+    @include padding(0);
+}
 
 
+.padded-h--none {
+    @include padding(0, left);
+    @include padding(0, right);
+}
+
+.padded-left--none {
+    @include padding(0, left);
+}
+
+.padded-right--none {
+    @include padding(0, right);
+}
 
 
+.padded-v--none {
+    @include padding(0, top);
+    @include padding(0, bottom);
+}
+
+.padded-top--none {
+    @include padding(0, top);
+}
+
+.padded-bottom--none {
+    @include padding(0, bottom);
+}
