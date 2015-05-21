@@ -4,59 +4,93 @@ ISW.Maps = ISW.Maps || {};
 
 ISW.Maps.Google = (function($) {
 
-  var $maps;
+    var $maps;
 
-  var init = function init() {
-    $maps = $('.js-google-map');
+    var init = function init() {
+        $maps = $('.js-google-map');
 
-    if($maps.length > 0) {
-      var s = document.getElementsByTagName('script')[0];
-      var se = document.createElement('script');
-      var done = false;
+        if($maps.length > 0) {
+            var s = document.getElementsByTagName('script')[0];
+            var se = document.createElement('script');
+            var done = false;
 
-      se.type = 'text/javascript';
-      se.src = 'http://maps.googleapis.com/maps/api/js?sensor=false&callback=ISW.Maps.Google.initialiseMap';
-      s.parentNode.insertBefore(se, s);
-    }
-  };
+            se.type = 'text/javascript';
+            se.src = 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&callback=ISW.Maps.Google.initialiseMap';
+            s.parentNode.insertBefore(se, s);
+        }
+    };
 
-  var initialiseMap = function initialiseMap() {
-    $maps.each(function() {
-      var $this = $(this);
-      var config = getConfig($this);
+    var initialiseMap = function initialiseMap() {
+        $maps.each(function() {
+            var $this = $(this);
+            var config = getConfig($this);
 
-      var map = new google.maps.Map(this, {
-        center: new google.maps.LatLng(config.lat, config.long),
-        zoom: config.zoom,
-        mapTypeId: config.mapTypeId,
-        disableDefaultUI: config.disableDefaultUI,
-        scrollwheel: config.scrollwheel,
-        draggable: config.draggable
-      });
-    });
-  };
+            var map = new google.maps.Map(this, {
+                center:             new google.maps.LatLng(config.lat, config.long),
+                zoom:               config.zoom,
+                mapTypeId:          config.mapTypeId,
+                disableDefaultUI:   config.disableDefaultUI,
+                scrollwheel:        config.scrollwheel,
+                draggable:          config.draggable
+            });
 
-  var getConfig = function getConfig($map) {
+            if(config.place) {
+                var request = {
+                    location:   map.getCenter(),
+                    radius:     '1000',
+                    query:      config.place
+                };
 
-    // Look at the elements data attributes to get configs and return in object.
-    var config = {};
-    config.lat                = $map.attr('data-google-map-lat') || 0;
-    config.long               = $map.attr('data-google-map-long') || 0;
-    config.zoom               = parseInt($map.attr('data-google-map-zoom'), 10) || 10;
-    config.mapTypeId          = google.maps.MapTypeId.ROADMAP;
-    config.disableDefaultUI   = ($map.attr('data-google-map-disable-ui') === 'true') ? true : false;
-    config.scrollwheel        = ($map.attr('data-google-map-scrollwheel') === 'false') ? false : true;
-    config.draggable          = ($map.attr('data-google-map-draggable') === 'false') ? false : true;
+                var placesService = new google.maps.places.PlacesService(map);
+                placesService.textSearch(request, function(results, status) {
+                    if(status === google.maps.places.PlacesServiceStatus.OK) {
+                        var result = results[0];
 
-    return config;
-  };
+                        var marker = new google.maps.Marker({
+                            map:        map,
+                            position:   result.geometry.location
+                        });
 
-  return {
-    init: init,
-    initialiseMap: initialiseMap
-  };
+                        var content = '<h1 class="delta spaced-bottom--tight">' + result.name + '</h1>' +
+                            '<p>' + result.formatted_address.replace(/,/gi, ',<br/>') + '</p>';
+
+                        var infoWindow = new google.maps.InfoWindow({
+                            content: content
+                        });
+
+                        google.maps.event.addListener(marker, 'click', function() {
+                            infoWindow.open(map, marker);
+                        });
+
+                        infoWindow.open(map, marker);
+                    }
+                });
+            }
+        });
+    };
+
+    var getConfig = function getConfig($map) {
+
+        // Look at the elements data attributes to get configs and return in object.
+        var config = {};
+        config.lat                = $map.attr('data-google-map-lat') || 0;
+        config.long               = $map.attr('data-google-map-long') || 0;
+        config.zoom               = parseInt($map.attr('data-google-map-zoom'), 10) || 10;
+        config.mapTypeId          = google.maps.MapTypeId.ROADMAP;
+        config.disableDefaultUI   = ($map.attr('data-google-map-disable-ui') === 'true') ? true : false;
+        config.scrollwheel        = ($map.attr('data-google-map-scrollwheel') === 'false') ? false : true;
+        config.draggable          = ($map.attr('data-google-map-draggable') === 'false') ? false : true;
+        config.place              = $map.attr('data-google-map-place') || false;
+
+        return config;
+    };
+
+    return {
+        init: init,
+        initialiseMap: initialiseMap
+    };
 })(jQuery);
 
 jQuery(function() {
-  ISW.Maps.Google.init();
+    ISW.Maps.Google.init();
 });
