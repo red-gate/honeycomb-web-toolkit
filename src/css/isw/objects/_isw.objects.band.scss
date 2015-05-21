@@ -15,11 +15,17 @@
 /*   @include scheme--white; */
 }
 
+.band--bg-cover {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 /**
  * .band__inner-wrapper is a content wrapper within .band which is:
  *  1. Centered
  *  2. A class hook for constraining the width of it's contained content
- *  The default band__inner-container has a nice large amount of vertical padding 
+ *  The default band__inner-container has a nice large amount of vertical padding
  * These rules are to set the width of .band__inner-wrapper at different
  * viewport widths.
  * Media query breakpoint defaults are set in base/settings/_settings.scss
@@ -33,13 +39,13 @@
     // @TODO: media queries
     @include px-rem(width, 1000);
 
-    @include padding(4, top);    
-    @include padding(4, bottom);  
+    @include padding(4, top);
+    @include padding(4, bottom);
 }
 
 
 /**
- * band__inner-container with tighter vertical padding 
+ * band__inner-container with tighter vertical padding
  */
 .band__inner-container--tight,
 %band__inner-container--tight {
@@ -48,13 +54,13 @@
     // @TODO: media queries
     @include px-rem(width, 1000);
 
-    @include padding(2, top);    
-    @include padding(2, bottom);    
+    @include padding(2, top);
+    @include padding(2, bottom);
 }
 
 
 /**
- * band__inner-container with looser vertical padding 
+ * band__inner-container with looser vertical padding
  */
 .band__inner-container--loose,
 %band__inner-container--loose {
@@ -63,11 +69,6 @@
     // @TODO: media queries
     @include px-rem(width, 1000);
 
-    @include padding(10, top);    
-    @include padding(10, bottom);    
+    @include padding(10, top);
+    @include padding(10, bottom);
 }
-
-
-
-
-
