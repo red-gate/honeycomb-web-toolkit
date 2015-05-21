@@ -432,8 +432,127 @@
     }
 }
 
+/*------------------------------------*\
+    #BLUE COLOR SCHEME
+\*------------------------------------*/
+
+@mixin scheme--blue {
+    background-color: color(blue);
+    border-color: color(blue, dark);
+   	color: color(white);
+   	// smooth fonts for high contrast of light text on dark background
+	-webkit-font-smoothing: antialiased;
+
+    hr {
+       	border-color: color(white);
+   	}
 
 
+    h1,
+    .alpha,
+    %alpha {
+        color: color(white);
+    }
+
+
+    h2,
+    .beta,
+    %beta {
+        color: color(white);
+    }
+
+
+    h3,
+    .gamma,
+    %gamma {
+        color: color(white);
+    }
+
+
+    h4,
+    .delta,
+    %delta {
+        color: color(white);
+    }
+
+
+    h5,
+    .epsilon,
+    %epsilon {
+        color: color(white);
+    }
+
+
+    h6,
+    .zeta,
+    %zeta {
+    }
+
+
+    p, ul,  ol, dd, label {
+        color: color(white);
+    }
+
+
+    a {
+		color: color(blue, lightest);
+		border-color: color(blue, darkest);
+	}
+    a:visited {
+
+    }
+    a:focus {
+
+    }
+	a:active, a:hover {
+		color: color(blue, darkest);
+	}
+
+
+	h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    .main-heading a,
+    .sub-heading a {
+        border-bottom-color: transparent;
+        &:hover {
+            color: color(white);
+            border-bottom-color: color(blue, light);
+
+        }
+    }
+
+    // Lozenge style tabbed navigation
+    .lozenge-nav a {
+        background-color: color(near-black);
+        color: color(grey, lightest);
+    	-webkit-font-smoothing: antialiased;
+    }
+    .lozenge-nav a:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
+        color: color(white);
+        background-color: color(black);
+    }
+
+    .lozenge-nav a.active, .lozenge-nav a.active:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
+        background-color: color(black);
+        color: color(white);
+    }
+
+    // Pagination style navigation
+    .pagination {
+    	-webkit-font-smoothing: antialiased;
+	}
+
+/*
+    aside, .island {
+        @include scheme--black;
+    }
+*/
+}
 
 
 /*------------------------------------*\

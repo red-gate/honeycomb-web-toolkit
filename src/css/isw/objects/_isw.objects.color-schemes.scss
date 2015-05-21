@@ -22,6 +22,10 @@
     @include scheme--lightest-blue;
 }
 
+.scheme--blue {
+    @include scheme--blue;
+}
+
 .scheme--darkest-blue {
     @include scheme--darkest-blue;
 }
