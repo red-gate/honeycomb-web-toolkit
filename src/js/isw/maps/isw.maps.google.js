@@ -24,47 +24,64 @@ ISW.Maps.Google = (function($) {
         $maps.each(function() {
             var $this = $(this);
             var config = getConfig($this);
+            var map;
 
-            var map = new google.maps.Map(this, {
-                center:             new google.maps.LatLng(config.lat, config.long),
-                zoom:               config.zoom,
-                mapTypeId:          config.mapTypeId,
-                disableDefaultUI:   config.disableDefaultUI,
-                scrollwheel:        config.scrollwheel,
-                draggable:          config.draggable
-            });
+            if(!config.streetView) {
 
-            if(config.place) {
-                var request = {
-                    location:   map.getCenter(),
-                    radius:     '1000',
-                    query:      config.place
-                };
-
-                var placesService = new google.maps.places.PlacesService(map);
-                placesService.textSearch(request, function(results, status) {
-                    if(status === google.maps.places.PlacesServiceStatus.OK) {
-                        var result = results[0];
-
-                        var marker = new google.maps.Marker({
-                            map:        map,
-                            position:   result.geometry.location
-                        });
-
-                        var content = '<h1 class="delta spaced-bottom--tight">' + result.name + '</h1>' +
-                            '<p>' + result.formatted_address.replace(/,/gi, ',<br/>') + '</p>';
-
-                        var infoWindow = new google.maps.InfoWindow({
-                            content: content
-                        });
-
-                        google.maps.event.addListener(marker, 'click', function() {
-                            infoWindow.open(map, marker);
-                        });
-
-                        infoWindow.open(map, marker);
-                    }
+                // Normal map type.
+                map = new google.maps.Map(this, {
+                    center:             new google.maps.LatLng(config.lat, config.long),
+                    zoom:               config.zoom,
+                    mapTypeId:          config.mapTypeId,
+                    disableDefaultUI:   config.disableDefaultUI,
+                    scrollwheel:        config.scrollwheel,
+                    draggable:          config.draggable
                 });
+
+                if(config.place) {
+                    var request = {
+                        location:   map.getCenter(),
+                        radius:     '1000',
+                        query:      config.place
+                    };
+
+                    var placesService = new google.maps.places.PlacesService(map);
+                    placesService.textSearch(request, function(results, status) {
+                        if(status === google.maps.places.PlacesServiceStatus.OK) {
+                            var result = results[0];
+
+                            var marker = new google.maps.Marker({
+                                map:        map,
+                                position:   result.geometry.location
+                            });
+
+                            var content = '<h1 class="delta spaced-bottom--tight">' + result.name + '</h1>' +
+                                '<p>' + result.formatted_address.replace(/,/gi, ',<br/>') + '</p>';
+
+                            var infoWindow = new google.maps.InfoWindow({
+                                content: content
+                            });
+
+                            google.maps.event.addListener(marker, 'click', function() {
+                                infoWindow.open(map, marker);
+                            });
+
+                            infoWindow.open(map, marker);
+                        }
+                    });
+                }
+            } else {
+
+                // Street view
+                map = new google.maps.StreetViewPanorama(this, {
+                    position: new google.maps.LatLng(config.lat, config.long),
+                    pov: {
+                        heading: 0,
+                        pitch: 0
+                    },
+                    zoom: 1
+                });
+                map.setVisible(true);
             }
         });
     };
@@ -81,6 +98,7 @@ ISW.Maps.Google = (function($) {
         config.scrollwheel        = ($map.attr('data-google-map-scrollwheel') === 'false') ? false : true;
         config.draggable          = ($map.attr('data-google-map-draggable') === 'false') ? false : true;
         config.place              = $map.attr('data-google-map-place') || false;
+        config.streetView         = $map.attr('data-google-map-street-view') || false;
 
         return config;
     };
