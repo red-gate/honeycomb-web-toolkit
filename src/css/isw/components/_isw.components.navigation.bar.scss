@@ -1,0 +1,36 @@
+.nav-bar {
+    ul {
+        @extend %list--horizontal;
+        @include margin(0, bottom);
+        li {
+            @include margin(1, left);
+            @include margin(0, bottom);
+        }
+        li:first-child {
+            @include margin(0, left);
+        }
+    }
+}
+
+.nav-bar--right {
+    @extend .float-right;
+}
+
+.nav-bar--center {
+    @extend .text--center;
+    ul {
+        @extend .display--inline;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.nav-bar a {
+    border: none;
+    font-weight: bold;
+}
+
+
+.nav-bar .button {
+    @include margin(0, bottom);
+}
