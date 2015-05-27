@@ -79,7 +79,9 @@ ISW.Maps.Google = (function($) {
                         heading: 0,
                         pitch: 0
                     },
-                    zoom: 1
+                    zoom: 1,
+                    disableDefaultUI:   config.disableDefaultUI,
+                    scrollwheel:        config.scrollwheel
                 });
                 map.setVisible(true);
             }
