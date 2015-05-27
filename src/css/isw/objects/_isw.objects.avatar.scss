@@ -1,10 +1,14 @@
 .avatar {
 	@extend .rounded--circle;
 	overflow:hidden;
+	border-width: 2px;
+	border-style: solid;
+	border-color: $link-border-color;
 }
 
 .avatar img {
     @extend .rounded--circle;
+	@include px-rem(padding, 2);
 }
 
 .avatar a {

@@ -25,15 +25,13 @@ $site-colors: (
     white: (
         base: #fff
     ),
-    brand-red: (
-        base: #c00
-    ),
     red: (
         base: #c1152f,
         light: #f7adad,
         lightest: #f7d9d9,
         dark: #900,
-        darkest: #410710
+        darkest: #410710,
+        brand: #c00
     ),
     near-black: (
         base: #222
@@ -48,7 +46,7 @@ $site-colors: (
     blue: (
         base: #008bcb,
         light: #1696e5, /* primary button bg */
-        lightest: lighten(#1696e5, 48%),  
+        lightest: lighten(#1696e5, 48%),
         dark: #0F6499,
         darkest: #093A59 /* primary button bg:hover */
     ),
@@ -66,6 +64,6 @@ $site-colors: (
 
 
 // chain colours onto useage variables
-
-
-
+$link-color: map-get(map-get($site-colors, default-text), 'base');
+$link-border-color: map-get(map-get($site-colors, blue), 'light');
+$link-hover-color: map-get(map-get($site-colors, blue), 'light');

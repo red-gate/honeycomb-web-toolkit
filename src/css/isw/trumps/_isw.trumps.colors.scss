@@ -6,10 +6,6 @@
     color: color(white) !important;
 }
 
-.color--brand-red {
-    color: color(brand-red) !important;
-}
-
 .color--red {
     & {
         color: color(red, base) !important;
@@ -25,6 +21,9 @@
     }
     &--darkest {
         color: color(red, darkest) !important;
+    }
+    &--brand {
+        color: color(red, brand) !important;
     }
 }
 
