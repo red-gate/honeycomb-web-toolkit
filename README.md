@@ -1,7 +1,7 @@
-# Ingeniously Simple Web (Honeycomb)
+# Honeycomb
 
 ## Introduction
-Ingeniously Simple Web (Honeycomb) is the Web team's approach at providing consistent code, design and components across Redgate's web based projects/products.
+Honeycomb is the Web team's approach at providing consistent code, design and components across Redgate's web based projects/products.
 
 Honeycomb is designed to be the core foundation for a web project to be built from. Website developers then build their web project using, and building upon, the building blocks and components that Honeycomb provides.
 
