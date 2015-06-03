@@ -1,17 +1,17 @@
 /*------------------------------------*\
-    #ISW
+    #Honeycomb
 \*------------------------------------*/
 /**
- * Basic styles for the default ISW isw.
+ * Basic styles for the default Honeycomb honeycomb.
  */
 
-.band--isw .band__inner-container {
+.band--honeycomb .band__inner-container {
     @include padding(2, top);
     @include padding(0.5, bottom);
 }
 
 
-.section-heading--isw {
+.section-heading--honeycomb {
     border-bottom: 1px solid #ccc;
 }
 
@@ -44,7 +44,7 @@
 /*------------------------------------*\
     #FOOTER
 \*------------------------------------*/
-.isw-footer {
+.honeycomb-footer {
     .band {
         @include padding(1, top);    
         @include padding(1, bottom);     

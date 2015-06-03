@@ -1,7 +1,7 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
 // Toggle class when elements in/out of the viewport. (https://github.com/edwardcasbon/jquery.inViewport)
-ISW.Viewport = function($) {
+Honeycomb.Viewport = function($) {
   if($.fn.inViewport) {
     $('.js-vp').inViewport(function(){
       $(this).removeClass('vp-out').addClass('vp-in');
@@ -13,5 +13,5 @@ ISW.Viewport = function($) {
 };
 
 jQuery(function(){
-  ISW.Viewport(jQuery);
+  Honeycomb.Viewport(jQuery);
 });

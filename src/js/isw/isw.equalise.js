@@ -1,7 +1,7 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
 // Equalise heights amongst selected items (https://github.com/edwardcasbon/jquery.equalise)
-ISW.Equalise = function($) {
+Honeycomb.Equalise = function($) {
   if($.fn.equalise) {
     $('.js-equal-heights').equalise({
       itemClass: 'js-equal-heights__item',
@@ -11,5 +11,5 @@ ISW.Equalise = function($) {
 };
 
 jQuery(function(){
-  ISW.Equalise(jQuery);
+  Honeycomb.Equalise(jQuery);
 });

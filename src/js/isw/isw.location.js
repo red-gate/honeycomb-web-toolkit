@@ -1,9 +1,9 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
-ISW.Location = ISW.Location || {};
+Honeycomb.Location = Honeycomb.Location || {};
 
 // Get a URL parameter by its name.
-ISW.Location.getUrlParameterByName = function(name) {
+Honeycomb.Location.getUrlParameterByName = function(name) {
   var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
   var results = regex.exec(location.search);
 

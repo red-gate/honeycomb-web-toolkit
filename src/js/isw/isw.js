@@ -1,4 +1,4 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
-ISW.version = '1.0.1';
-ISW.date = '2015-03-18';
+Honeycomb.version = '1.0.1';
+Honeycomb.date = '2015-03-18';

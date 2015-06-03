@@ -1,6 +1,6 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
-ISW.Cookie = (function(){
+Honeycomb.Cookie = (function(){
 
   var get = function get(property) {
     var value = null;

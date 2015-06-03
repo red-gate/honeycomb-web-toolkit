@@ -1,7 +1,7 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
 // Style code snippets.
-ISW.CodePrettifier = function($) {
+Honeycomb.CodePrettifier = function($) {
 
   // Load the code prettifier in from Google.
   if($('.code').length > 0) {
@@ -25,5 +25,5 @@ ISW.CodePrettifier = function($) {
 };
 
 jQuery(function(){
-  ISW.CodePrettifier(jQuery);
+  Honeycomb.CodePrettifier(jQuery);
 });

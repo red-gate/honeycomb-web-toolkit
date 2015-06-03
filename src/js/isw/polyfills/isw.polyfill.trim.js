@@ -1,9 +1,9 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
-ISW.Polyfill = ISW.Polyfill || {};
+Honeycomb.Polyfill = Honeycomb.Polyfill || {};
 
 // initTrimPolyfill - Polyfill for the string trim command.
-ISW.Polyfill.trim = function() {
+Honeycomb.Polyfill.trim = function() {
   if (!String.prototype.trim) {
     String.prototype.trim = function () {
       return this.replace(/^\s+|\s+$/g, '');
@@ -12,5 +12,5 @@ ISW.Polyfill.trim = function() {
 };
 
 jQuery(function(){
-  ISW.Polyfill.trim();
+  Honeycomb.Polyfill.trim();
 });

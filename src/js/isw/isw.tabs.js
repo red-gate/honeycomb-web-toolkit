@@ -1,7 +1,7 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
 // Tabbable content functionality. (https://github.com/edwardcasbon/jquery.tabs)
-ISW.Tabs = function($) {
+Honeycomb.Tabs = function($) {
   $('.js-tabbed').each(function() {
     var $this = $(this);
     var options = {
@@ -77,5 +77,5 @@ ISW.Tabs = function($) {
 };
 
 jQuery(function(){
-  ISW.Tabs(jQuery);
+  Honeycomb.Tabs(jQuery);
 });

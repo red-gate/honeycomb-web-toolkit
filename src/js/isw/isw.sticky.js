@@ -1,7 +1,7 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
 // Initialise sticky element functionality. (https://github.com/edwardcasbon/jquery.sticky)
-ISW.Sticky = function($) {
+Honeycomb.Sticky = function($) {
   if(typeof $.fn.sticky === 'function') {
     $('.js-sticky').each(function() {
       var $this = $(this);
@@ -22,5 +22,5 @@ ISW.Sticky = function($) {
 };
 
 jQuery(function(){
-  ISW.Sticky(jQuery);
+  Honeycomb.Sticky(jQuery);
 });

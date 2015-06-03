@@ -1,7 +1,7 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
 // Filter (Hide/Show) content on a page.
-ISW.Filter = (function($) {
+Honeycomb.Filter = (function($) {
 
   var init = function init() {
 
@@ -107,5 +107,5 @@ ISW.Filter = (function($) {
 })(jQuery);
 
 jQuery(function(){
-  ISW.Filter.init();
+  Honeycomb.Filter.init();
 });

@@ -1,8 +1,8 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
-ISW.Analytics = ISW.Analytics || {};
+Honeycomb.Analytics = Honeycomb.Analytics || {};
 
-ISW.Analytics.Google = (function($) {
+Honeycomb.Analytics.Google = (function($) {
 
   // Account ID - THIS NEEDS TO BE SET TO YOUR GOOGLE ANALYTICS ACCOUNT ID.
   var accountId = 'UA-XXX';
@@ -84,7 +84,7 @@ ISW.Analytics.Google = (function($) {
   var trackYouTubeViews = function trackYouTubeViews() {
     $('.lightbox--video').on('click', function() {
       var videoId = this.href.replace(/http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g, '');
-      ISW.Analytics.Google.trackEvent('Video', window.location.pathname, videoId);
+      Honeycomb.Analytics.Google.trackEvent('Video', window.location.pathname, videoId);
     });
   };
 
@@ -100,7 +100,7 @@ ISW.Analytics.Google = (function($) {
       var value = $this.attr('data-ga-track-value') || null;
 
       // Process Google tracking event.
-      ISW.Analytics.Google.trackEvent(category, action, label, value);
+      Honeycomb.Analytics.Google.trackEvent(category, action, label, value);
     });
   };
 
@@ -113,5 +113,5 @@ ISW.Analytics.Google = (function($) {
 })(jQuery);
 
 jQuery(function() {
-  // ISW.Analytics.Google.init();
+  // Honeycomb.Analytics.Google.init();
 });

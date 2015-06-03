@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                 map: true
             },
             css: {
-                src: ['dist/css/isw.css']
+                src: ['dist/css/honeycomb.css']
             }
         },
 
@@ -49,10 +49,10 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: {
-                    'dist/js/isw.min.js' : [
+                    'dist/js/honeycomb.min.js' : [
                         'src/js/vendor/**/*.js',
                         '!src/js/vendor/modernizr.min.js',
-                        'src/js/isw/**/*.js'
+                        'src/js/honeycomb/**/*.js'
                     ]
                 }
             }

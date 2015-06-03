@@ -1,7 +1,7 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
 // scrollTo - Scroll to an area on the page.
-ISW.ScrollTo = (function($) {
+Honeycomb.ScrollTo = (function($) {
 
   var init = function init() {
     $('a.js-scroll-to').on('click', function(e) {
@@ -51,5 +51,5 @@ ISW.ScrollTo = (function($) {
 })(jQuery);
 
 jQuery(function(){
-  ISW.ScrollTo.init();
+  Honeycomb.ScrollTo.init();
 });

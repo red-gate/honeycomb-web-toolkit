@@ -1,8 +1,8 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
-ISW.Navigation = ISW.Navigation || {};
+Honeycomb.Navigation = Honeycomb.Navigation || {};
 
-ISW.Navigation.ISW = function(options, $) {
+Honeycomb.Navigation.Honeycomb = function(options, $) {
 
   // User specified options
   this.options = options;

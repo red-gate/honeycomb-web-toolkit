@@ -1,5 +1,5 @@
 <!--#include virtual="/docs/includes/head/head-start.htm" -->
-	<title>ISW - Working practices - JavaScript</title>
+	<title>Honeycomb - Working practices - JavaScript</title>
     <meta name="description" content="Front-end Web Development and Design Guidelines for redgate.com.">
 <!--#include virtual="/docs/includes/head/head-end.htm" -->
 
@@ -42,19 +42,19 @@
 				<p>Please read it and follow their reasonable approach to writing JavaScript.</p>
 
 				<h3>Modular</h3>
-				<p>Keep components and modular functionality in separate JavaScript files. E.g. <code>isw.back-to-top.js</code> and <code>isw.reveal.js</code>.</p>
+				<p>Keep components and modular functionality in separate JavaScript files. E.g. <code>honeycomb.back-to-top.js</code> and <code>honeycomb.reveal.js</code>.</p>
 				<p>We have a Grunt task that will concatenate and minify JavaScripts into 1 production ready file.</p>
 
 				<h3>Clean and clear</h3>
 				<p>When writing JavaScript, keep the global scope clear. That ensures that the JavaScript doesn't interfere with any other libraries or plugins that may be included on the page.</p>
-				<p>To do this, use a global project namespace to keep all the methods and properties in. With the base ISW components we use the 'ISW' module/namespace.</p>
+				<p>To do this, use a global project namespace to keep all the methods and properties in. With the base Honeycomb components we use the 'Honeycomb' module/namespace.</p>
 				<p>Use a self-executing anonymous function (SEAF), returning an object, to give your JavaScript scope and keep private properties/functions private. See the below example: <p><i>Notice that we use a capital letter for the namespaced component 'Example'.</i></p>
 
-				<pre class="border padded rounded">// Check to see if the ISW global object already exists. If not, create a blank object.
-				var ISW = ISW || {};
+				<pre class="border padded rounded">// Check to see if the Honeycomb global object already exists. If not, create a blank object.
+				var Honeycomb = Honeycomb || {};
 
 				// Create our new namespaced code "Example".
-				ISW.Example = (function(){
+				Honeycomb.Example = (function(){
 
 					&nbsp;&nbsp;&nbsp;&nbsp;// Declare a private property (note the underscore to denote private).
 					&nbsp;&nbsp;&nbsp;&nbsp;var _name = "This is a private property";
@@ -73,7 +73,7 @@
 
 				<p>This ensures that the "_name" property stays private, as we haven't made it available, via the returned object, to the global scope.</p>
 				<p>To call the getName method, just use:</p>
-				<pre><code>ISW.Example.getName();</pre></code>
+				<pre><code>Honeycomb.Example.getName();</pre></code>
 
 				<h3>Hooking up to the DOM</h3>
 				<p>Keep the JavaScript layer separate from the presentation layer by hooking your JavaScript up to elements with classes prefixed with 'js-'.</p>

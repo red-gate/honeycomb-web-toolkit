@@ -1,7 +1,7 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
 // Carousel functionality. (http://kenwheeler.github.io/slick/)
-ISW.Carousel = function($) {
+Honeycomb.Carousel = function($) {
 
   // TODO: Check if slick carousel plugin exists. - If $.fn.slick ?
 
@@ -30,5 +30,5 @@ ISW.Carousel = function($) {
 };
 
 jQuery(function(){
-  ISW.Carousel(jQuery);
+  Honeycomb.Carousel(jQuery);
 });

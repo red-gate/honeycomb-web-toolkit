@@ -1,6 +1,6 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
-ISW.Lightbox = (function($) {
+Honeycomb.Lightbox = (function($) {
 
   var init = function init() {
     if(typeof $.fancybox !== 'undefined') {
@@ -22,5 +22,5 @@ ISW.Lightbox = (function($) {
 })(jQuery);
 
 jQuery(function(){
-  ISW.Lightbox.init();
+  Honeycomb.Lightbox.init();
 });

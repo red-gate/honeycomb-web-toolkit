@@ -1,9 +1,9 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
-ISW.Polyfill = ISW.Polyfill || {};
+Honeycomb.Polyfill = Honeycomb.Polyfill || {};
 
 // initIndexOfPolyfill - Polyfill for the array indexOf command.
-ISW.Polyfill.indexOf = function() {
+Honeycomb.Polyfill.indexOf = function() {
   if (!('indexOf' in Array.prototype)) {
     Array.prototype.indexOf= function(find, i /*opt*/) {
       if (i===undefined) i= 0;
@@ -20,5 +20,5 @@ ISW.Polyfill.indexOf = function() {
 };
 
 jQuery(function(){
-  ISW.Polyfill.indexOf();
+  Honeycomb.Polyfill.indexOf();
 });

@@ -1,9 +1,9 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
 // Back to top functionality - Use CSS for presentation.
 // {activeClass} class name is toggled when the window scrolls past the
 // {displayOffset} value.
-ISW.BackToTop = (function($) {
+Honeycomb.BackToTop = (function($) {
 
   var $element      = $('.js-back-to-top');
   var activeClass   = 'back-to-top--active';
@@ -48,5 +48,5 @@ ISW.BackToTop = (function($) {
 })(jQuery);
 
 jQuery(function(){
-  ISW.BackToTop.init();
+  Honeycomb.BackToTop.init();
 });

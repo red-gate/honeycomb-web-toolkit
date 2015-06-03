@@ -1,8 +1,8 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
-ISW.Maps = ISW.Maps || {};
+Honeycomb.Maps = Honeycomb.Maps || {};
 
-ISW.Maps.Google = (function($) {
+Honeycomb.Maps.Google = (function($) {
 
     var $maps;
 
@@ -15,7 +15,7 @@ ISW.Maps.Google = (function($) {
             var done = false;
 
             se.type = 'text/javascript';
-            se.src = 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&callback=ISW.Maps.Google.initialiseMap';
+            se.src = 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&callback=Honeycomb.Maps.Google.initialiseMap';
             s.parentNode.insertBefore(se, s);
         }
     };
@@ -112,5 +112,5 @@ ISW.Maps.Google = (function($) {
 })(jQuery);
 
 jQuery(function() {
-    ISW.Maps.Google.init();
+    Honeycomb.Maps.Google.init();
 });

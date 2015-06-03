@@ -2,131 +2,131 @@
 /*------------------------------------*\
     #SETTINGS
 \*------------------------------------*/
-@import 'isw/settings/isw.settings.breakpoints';
-@import 'isw/settings/isw.settings.colors';
-@import 'isw/settings/isw.settings.corner-radius';
-@import 'isw/settings/isw.settings.grid';
-@import 'isw/settings/isw.settings.type';
-@import 'isw/settings/isw.settings.spacing';
-@import 'isw/settings/isw.settings.buttons';
+@import 'honeycomb/settings/honeycomb.settings.breakpoints';
+@import 'honeycomb/settings/honeycomb.settings.colors';
+@import 'honeycomb/settings/honeycomb.settings.corner-radius';
+@import 'honeycomb/settings/honeycomb.settings.grid';
+@import 'honeycomb/settings/honeycomb.settings.type';
+@import 'honeycomb/settings/honeycomb.settings.spacing';
+@import 'honeycomb/settings/honeycomb.settings.buttons';
 
 
 /*------------------------------------*\
     #MIXINS
 \*------------------------------------*/
-@import 'isw/mixins/isw.mixins.font-size';
-@import 'isw/mixins/isw.mixins.grid';
-@import 'isw/mixins/isw.mixins.margin';
-@import 'isw/mixins/isw.mixins.padding';
-@import 'isw/mixins/isw.mixins.px-rem';
-@import 'isw/mixins/isw.mixins.responsive';
+@import 'honeycomb/mixins/honeycomb.mixins.font-size';
+@import 'honeycomb/mixins/honeycomb.mixins.grid';
+@import 'honeycomb/mixins/honeycomb.mixins.margin';
+@import 'honeycomb/mixins/honeycomb.mixins.padding';
+@import 'honeycomb/mixins/honeycomb.mixins.px-rem';
+@import 'honeycomb/mixins/honeycomb.mixins.responsive';
 
 
 /*------------------------------------*\
     #FUNCTIONS
 \*------------------------------------*/
-@import 'isw/functions/isw.functions.colors';
+@import 'honeycomb/functions/honeycomb.functions.colors';
 
 
 /*------------------------------------*\
     #SNIPPETS
 \*------------------------------------*/
-@import 'isw/snippets/isw.snippets.alignment';
-@import 'isw/snippets/isw.snippets.borders';
-@import 'isw/snippets/isw.snippets.clearfix';
-@import 'isw/snippets/isw.snippets.corners';
-@import 'isw/snippets/isw.snippets.island';
-@import 'isw/snippets/isw.snippets.pin';
-@import 'isw/snippets/isw.snippets.color-schemes';
-@import 'isw/snippets/isw.snippets.type-scales';
+@import 'honeycomb/snippets/honeycomb.snippets.alignment';
+@import 'honeycomb/snippets/honeycomb.snippets.borders';
+@import 'honeycomb/snippets/honeycomb.snippets.clearfix';
+@import 'honeycomb/snippets/honeycomb.snippets.corners';
+@import 'honeycomb/snippets/honeycomb.snippets.island';
+@import 'honeycomb/snippets/honeycomb.snippets.pin';
+@import 'honeycomb/snippets/honeycomb.snippets.color-schemes';
+@import 'honeycomb/snippets/honeycomb.snippets.type-scales';
 
 
 /*------------------------------------*\
     #RAW
 \*------------------------------------*/
 @import 'vendor/normalize.scss';
-@import 'isw/raw/isw.raw.reset';
-@import 'isw/raw/isw.raw.box-sizing';
-@import 'isw/raw/isw.raw.forms';
-@import 'isw/raw/isw.raw.headings';
-@import 'isw/raw/isw.raw.images';
-@import 'isw/raw/isw.raw.inline';
-@import 'isw/raw/isw.raw.links';
-@import 'isw/raw/isw.raw.lists';
-@import 'isw/raw/isw.raw.vertical-rhythm';
-@import 'isw/raw/isw.raw.page';
-@import 'isw/raw/isw.raw.tables';
+@import 'honeycomb/raw/honeycomb.raw.reset';
+@import 'honeycomb/raw/honeycomb.raw.box-sizing';
+@import 'honeycomb/raw/honeycomb.raw.forms';
+@import 'honeycomb/raw/honeycomb.raw.headings';
+@import 'honeycomb/raw/honeycomb.raw.images';
+@import 'honeycomb/raw/honeycomb.raw.inline';
+@import 'honeycomb/raw/honeycomb.raw.links';
+@import 'honeycomb/raw/honeycomb.raw.lists';
+@import 'honeycomb/raw/honeycomb.raw.vertical-rhythm';
+@import 'honeycomb/raw/honeycomb.raw.page';
+@import 'honeycomb/raw/honeycomb.raw.tables';
 
 
 
 /*------------------------------------*\
     #ANIMATIONS
 \*------------------------------------*/
-@import 'isw/animations/isw.animations.animations';
+@import 'honeycomb/animations/honeycomb.animations.animations';
 
 
 /*------------------------------------*\
     #OBJECTS
 \*------------------------------------*/
-@import 'isw/objects/isw.objects.avatar';
-@import 'isw/objects/isw.objects.back-to-top';
-@import 'isw/objects/isw.objects.backgrounds';
-@import 'isw/objects/isw.objects.band';
-@import 'isw/objects/isw.objects.borders';
-@import 'isw/objects/isw.objects.buttons';
-@import 'isw/objects/isw.objects.clearfix';
-@import 'isw/objects/isw.objects.color-schemes';
-@import 'isw/objects/isw.objects.corners';
-@import 'isw/objects/isw.objects.grid';
-@import 'isw/objects/isw.objects.icons';
-@import 'isw/objects/isw.objects.images';
-@import 'isw/objects/isw.objects.inline';
-@import 'isw/objects/isw.objects.island';
-@import 'isw/objects/isw.objects.links';
-@import 'isw/objects/isw.objects.paragraphs';
-@import 'isw/objects/isw.objects.lists';
-@import 'isw/objects/isw.objects.margin';
-@import 'isw/objects/isw.objects.measure';
-@import 'isw/objects/isw.objects.media';
-@import 'isw/objects/isw.objects.padding';
-@import 'isw/objects/isw.objects.pin';
-@import 'isw/objects/isw.objects.scroll-to';
-@import 'isw/objects/isw.objects.sticky';
-@import 'isw/objects/isw.objects.tables';
-@import 'isw/objects/isw.objects.typography';
-@import 'isw/objects/isw.objects.video';
-@import 'isw/objects/isw.objects.forms.hubspot';
+@import 'honeycomb/objects/honeycomb.objects.avatar';
+@import 'honeycomb/objects/honeycomb.objects.back-to-top';
+@import 'honeycomb/objects/honeycomb.objects.backgrounds';
+@import 'honeycomb/objects/honeycomb.objects.band';
+@import 'honeycomb/objects/honeycomb.objects.borders';
+@import 'honeycomb/objects/honeycomb.objects.buttons';
+@import 'honeycomb/objects/honeycomb.objects.clearfix';
+@import 'honeycomb/objects/honeycomb.objects.color-schemes';
+@import 'honeycomb/objects/honeycomb.objects.corners';
+@import 'honeycomb/objects/honeycomb.objects.grid';
+@import 'honeycomb/objects/honeycomb.objects.icons';
+@import 'honeycomb/objects/honeycomb.objects.images';
+@import 'honeycomb/objects/honeycomb.objects.inline';
+@import 'honeycomb/objects/honeycomb.objects.island';
+@import 'honeycomb/objects/honeycomb.objects.links';
+@import 'honeycomb/objects/honeycomb.objects.paragraphs';
+@import 'honeycomb/objects/honeycomb.objects.lists';
+@import 'honeycomb/objects/honeycomb.objects.margin';
+@import 'honeycomb/objects/honeycomb.objects.measure';
+@import 'honeycomb/objects/honeycomb.objects.media';
+@import 'honeycomb/objects/honeycomb.objects.padding';
+@import 'honeycomb/objects/honeycomb.objects.pin';
+@import 'honeycomb/objects/honeycomb.objects.scroll-to';
+@import 'honeycomb/objects/honeycomb.objects.sticky';
+@import 'honeycomb/objects/honeycomb.objects.tables';
+@import 'honeycomb/objects/honeycomb.objects.typography';
+@import 'honeycomb/objects/honeycomb.objects.video';
+@import 'honeycomb/objects/honeycomb.objects.forms.hubspot';
 
 
 /*------------------------------------*\
     #COMPONENTS
 \*------------------------------------*/
-@import 'isw/components/isw.components.maps.google';
-@import 'isw/components/isw.components.navigation.burger';
-@import 'isw/components/isw.components.navigation.drawer';
-@import 'isw/components/isw.components.navigation.pagination';
-@import 'isw/components/isw.components.navigation.bar';
-@import 'isw/components/isw.components.tabs';
-@import 'isw/components/isw.components.lightbox';
+@import 'honeycomb/components/honeycomb.components.maps.google';
+@import 'honeycomb/components/honeycomb.components.navigation.burger';
+@import 'honeycomb/components/honeycomb.components.navigation.drawer';
+@import 'honeycomb/components/honeycomb.components.navigation.pagination';
+@import 'honeycomb/components/honeycomb.components.navigation.bar';
+@import 'honeycomb/components/honeycomb.components.tabs';
+@import 'honeycomb/components/honeycomb.components.lightbox';
 
 
 /*------------------------------------*\
-    #ISW
+    #Honeycomb
 \*------------------------------------*/
-@import 'isw/isw/_isw.isw';
+@import 'honeycomb/honeycomb/_honeycomb.honeycomb';
 
 
 /*------------------------------------*\
     #TRUMPS
 \*------------------------------------*/
-@import 'isw/trumps/isw.trumps.colors';
-@import 'isw/trumps/isw.trumps.display';
-@import 'isw/trumps/isw.trumps.floats';
-@import 'isw/trumps/isw.trumps.positioning';
-@import 'isw/trumps/isw.trumps.sticky';
-@import 'isw/trumps/isw.trumps.text';
-@import 'isw/trumps/isw.trumps.visibility';
-@import 'isw/trumps/isw.trumps.territory';
+@import 'honeycomb/trumps/honeycomb.trumps.colors';
+@import 'honeycomb/trumps/honeycomb.trumps.display';
+@import 'honeycomb/trumps/honeycomb.trumps.floats';
+@import 'honeycomb/trumps/honeycomb.trumps.positioning';
+@import 'honeycomb/trumps/honeycomb.trumps.sticky';
+@import 'honeycomb/trumps/honeycomb.trumps.text';
+@import 'honeycomb/trumps/honeycomb.trumps.visibility';
+@import 'honeycomb/trumps/honeycomb.trumps.territory';
 
 
 /*------------------------------------*\

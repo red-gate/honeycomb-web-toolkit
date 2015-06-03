@@ -1,7 +1,7 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
 // Reveal - Hide/Show content.
-ISW.Reveal = (function($) {
+Honeycomb.Reveal = (function($) {
   var init = function init() {
     $('.js-reveal').each(function() {
       var $this = $(this);
@@ -42,8 +42,8 @@ ISW.Reveal = (function($) {
 
             // If the content is visible (should only be 1), then close and open.
             if($groupContent.is(':visible')) {
-              ISW.Reveal.close(groupButton, function() {
-                ISW.Reveal.open(that);
+              Honeycomb.Reveal.close(groupButton, function() {
+                Honeycomb.Reveal.open(that);
               });
             } else {
 
@@ -54,17 +54,17 @@ ISW.Reveal = (function($) {
 
           // No revealed content is open, so go ahead and open.
           if(closed === $groupButtons.length) {
-            ISW.Reveal.open(that);
+            Honeycomb.Reveal.open(that);
           }
         } else {
 
           // Not in a group.
-          ISW.Reveal.open(this);
+          Honeycomb.Reveal.open(this);
         }
       } else {
 
         // Close content.
-        ISW.Reveal.close(this);
+        Honeycomb.Reveal.close(this);
       }
     });
   };
@@ -138,9 +138,9 @@ ISW.Reveal = (function($) {
     var visible = $content.is(':visible');
 
     if(visible) {
-      ISW.Reveal.close(button, callback);
+      Honeycomb.Reveal.close(button, callback);
     } else {
-      ISW.Reveal.open(button, callback);
+      Honeycomb.Reveal.open(button, callback);
     }
   };
 
@@ -153,5 +153,5 @@ ISW.Reveal = (function($) {
 })(jQuery);
 
 jQuery(function(){
-  ISW.Reveal.init();
+  Honeycomb.Reveal.init();
 });

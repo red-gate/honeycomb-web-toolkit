@@ -1,8 +1,8 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
-ISW.Animate = ISW.Animate || {};
+Honeycomb.Animate = Honeycomb.Animate || {};
 
-ISW.Animate.Fade = (function($) {
+Honeycomb.Animate.Fade = (function($) {
   var interval = 5000;
   var fadeOutDuration = 1000;
   var fadeInDuration = 2500;
@@ -39,5 +39,5 @@ ISW.Animate.Fade = (function($) {
 })(jQuery);
 
 jQuery(function() {
-  ISW.Animate.Fade.init();
+  Honeycomb.Animate.Fade.init();
 });

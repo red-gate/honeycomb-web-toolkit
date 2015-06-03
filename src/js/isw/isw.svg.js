@@ -1,7 +1,7 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
 // initSVG - Load SVG image replacement.
-ISW.SVG = function($) {
+Honeycomb.SVG = function($) {
   $('img.js-svg').each(function() {
     var $element = $(this);
     var src = $element.attr('src').replace(/(.png)|(.gif)/,'.svg');
@@ -15,5 +15,5 @@ ISW.SVG = function($) {
 };
 
 jQuery(function(){
-  ISW.SVG(jQuery);
+  Honeycomb.SVG(jQuery);
 });

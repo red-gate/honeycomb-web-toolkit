@@ -1,5 +1,5 @@
-var ISW = ISW || {};
-ISW.Navigation = ISW.Navigation || {};
+var Honeycomb = Honeycomb || {};
+Honeycomb.Navigation = Honeycomb.Navigation || {};
 
 var options = {
   type: 'lightbox',
@@ -9,4 +9,4 @@ var options = {
   }
 };
 
-ISW.Navigation.Lightbox = new ISW.Navigation.ISW(options, jQuery);
+Honeycomb.Navigation.Lightbox = new Honeycomb.Navigation.Honeycomb(options, jQuery);

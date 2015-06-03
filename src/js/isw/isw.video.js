@@ -1,6 +1,6 @@
-var ISW = ISW || {};
+var Honeycomb = Honeycomb || {};
 
-ISW.Video = (function($) {
+Honeycomb.Video = (function($) {
 
   // Default options for video playback.
   var options = {
@@ -77,7 +77,7 @@ ISW.Video = (function($) {
                     var value = $container.attr('data-ga-track-value') || null;
 
                     // Call the tracking event.
-                    ISW.Analytics.Google.trackEvent(category, action, label, value);
+                    Honeycomb.Analytics.Google.trackEvent(category, action, label, value);
 
                     // Add a tracked data attribute to prevent from tracking multiple times.
                     $video.attr('data-ga-tracked', 'true');
@@ -127,7 +127,7 @@ ISW.Video = (function($) {
   var getOptions = function getOptions($this) {
 
     // Copy the defaults.
-    var options = jQuery.extend({}, ISW.Video.options);
+    var options = jQuery.extend({}, Honeycomb.Video.options);
 
     // Autohide.
     if($this.attr('data-video-auto-hide')) {
@@ -167,10 +167,10 @@ ISW.Video = (function($) {
 })(jQuery);
 
 jQuery(function() {
-  ISW.Video.init();
+  Honeycomb.Video.init();
 });
 
 // Add the video when the iframe API library has loaded.
 window.onYouTubeIframeAPIReady = function() {
-  ISW.Video.addInlineVideos();
+  Honeycomb.Video.addInlineVideos();
 };
