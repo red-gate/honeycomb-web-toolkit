@@ -103,6 +103,34 @@ li {
   }
 }
 
+// UI list - Styled list for use within UI's.
+.list--ui {
+    @extend %list--bare;
+    @extend .border;
+    @extend .rounded;
+    li {
+        @include margin(0);
+    }
+    a {
+        @include padding(0.5);
+        @extend .border-bottom;
+        display: block;
+        &:hover {
+            background-color: $link-hover-background-color;
+        }
+        &.active {
+            border-left: 2px solid $link-border-color;
+        }
+    }
+    li:first-child a {
+        @include rounded-top;
+    }
+    li:last-child a {
+        @include rounded-bottom;
+        border-bottom: none;
+    }
+}
+
 
 /**
  * Tick list

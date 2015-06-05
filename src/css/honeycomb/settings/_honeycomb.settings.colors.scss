@@ -67,3 +67,4 @@ $site-colors: (
 $link-color: map-get(map-get($site-colors, default-text), 'base');
 $link-border-color: map-get(map-get($site-colors, blue), 'light');
 $link-hover-color: map-get(map-get($site-colors, blue), 'light');
+$link-hover-background-color: map-get(map-get($site-colors, grey), 'lightest');
