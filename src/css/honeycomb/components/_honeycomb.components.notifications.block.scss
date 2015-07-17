@@ -1,0 +1,22 @@
+.notification--block {
+    .notification__close {
+        border-bottom: none;
+        display: block;
+    }
+
+    &.notification--info .notification__close {
+        color: color(blue);
+    }
+
+    &.notification--fail .notification__close {
+        color: color(red);
+    }
+
+    &.notification--success .notification__close {
+        color: color(green);
+    }
+
+    p {
+        @include margin(0, bottom);
+    }
+}
