@@ -69,26 +69,29 @@ Honeycomb.Notifications.Block = function(options) {
     // Build the notification HTML.
     this.buildNotification = function buildNotification() {
         notificationStr = '<div class="notification notification--block notification--' + self.settings.type + '">' +
-            '<figure class="notification__icon">';
+                '<div class="notification--block__inner-container">' +
+                    '<figure class="notification__icon">';
 
-                if(self.settings.icon.type) {
-                    if(self.settings.icon.type === 'font') {
+                        if(self.settings.icon.type) {
+                            if(self.settings.icon.type === 'font') {
 
-                        // Icon font
-                        notificationStr += '<span class="icon icon--' + self.settings.icon.src + '"></span>';
-                    } else if(self.settings.icon.type === 'image') {
+                                // Icon font
+                                notificationStr += '<span class="icon icon--' + self.settings.icon.src + '"></span>';
+                            } else if(self.settings.icon.type === 'image') {
 
-                        // Image
-                        notificationStr += '<img src="' + self.settings.icon.src + '" alt=""/>';
-                    }
-                } else {
-                    notificationStr += '<span class="icon icon--' + self.settings.type + '"></span>';
-                }
+                                // Image
+                                notificationStr += '<img src="' + self.settings.icon.src + '" alt=""/>';
+                            }
+                        } else {
+                            notificationStr += '<span class="icon icon--' + self.settings.type + '"></span>';
+                        }
 
-            notificationStr += '</figure>' +
-            '<a class="notification__close" href="#">X</a>' +
-            '<div class="notification__body">' +
-                '<p>' + this.settings.content + '</p>' +
+                    notificationStr += '</figure>' +
+                    '<a class="notification__close" href="#">X</a>' +
+                    '<div class="notification__body">' +
+                        '<p>' + this.settings.content + '</p>' +
+                    '</div>' +
+                '</div>' +
             '</div>' +
         '</div>';
 
@@ -122,7 +125,7 @@ Honeycomb.Notifications.Block = function(options) {
 (function($) {
     $('.notification--block .notification__close').on('click', function(e) {
         e.preventDefault();
-        $(this).parent().slideUp({
+        $(this).parent().parent().slideUp({
             complete: function() {
                 this.remove();
             }
