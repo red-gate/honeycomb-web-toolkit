@@ -9,4 +9,4 @@ var options = {
   }
 };
 
-Honeycomb.Navigation.Lightbox = new Honeycomb.Navigation.Honeycomb(options, jQuery);
+Honeycomb.Navigation.Lightbox = new Honeycomb.Navigation.Base(options, jQuery);

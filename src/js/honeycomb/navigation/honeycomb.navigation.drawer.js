@@ -9,4 +9,4 @@ var options = {
   }
 };
 
-Honeycomb.Navigation.Drawer = new Honeycomb.Navigation.Honeycomb(options, jQuery);
+Honeycomb.Navigation.Drawer = new Honeycomb.Navigation.Base(options, jQuery);

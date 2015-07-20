@@ -4,15 +4,22 @@
         display: block;
     }
 
-    &.notification--info .notification__close {
+    .notification__icon {
+        @include font-size(24px);
+    }
+
+    &.notification--info .notification__close,
+    &.notification--info .notification__icon {
         color: color(blue);
     }
 
-    &.notification--fail .notification__close {
+    &.notification--fail .notification__close,
+    &.notification--fail .notification__icon {
         color: color(red);
     }
 
-    &.notification--success .notification__close {
+    &.notification--success .notification__close,
+    &.notification--success .notification__icon {
         color: color(green);
     }
 

@@ -2,7 +2,7 @@ var Honeycomb = Honeycomb || {};
 
 Honeycomb.Navigation = Honeycomb.Navigation || {};
 
-Honeycomb.Navigation.Honeycomb = function(options, $) {
+Honeycomb.Navigation.Base = function(options, $) {
 
   // User specified options
   this.options = options;

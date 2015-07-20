@@ -131,3 +131,21 @@
         content: "\f00d";
     }
 }
+
+.icon--success {
+    @extend .icon--tick;
+}
+
+.icon--fail {
+    @extend %icon;
+    &:before {
+        content: "\f071";
+    }
+}
+
+.icon--info {
+    @extend %icon;
+    &:before {
+        content: "\f05a";
+    }
+}
