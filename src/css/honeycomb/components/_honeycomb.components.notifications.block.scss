@@ -1,4 +1,17 @@
 .notification--block {
+
+    border: none;
+    @include padding(0);
+
+    .notification--block__inner-container {
+        margin: auto;
+        @include px-rem(max-width, 1000);
+
+        @include padding(1);
+        @include border-left;
+        @include px-rem('border-left-width', 15);
+    }
+
     .notification__close {
         border-bottom: none;
         display: block;
@@ -8,22 +21,49 @@
         @include font-size(24px);
     }
 
-    &.notification--info .notification__close,
-    &.notification--info .notification__icon {
-        color: color(blue);
-    }
-
-    &.notification--fail .notification__close,
-    &.notification--fail .notification__icon {
-        color: color(red);
-    }
-
-    &.notification--success .notification__close,
-    &.notification--success .notification__icon {
-        color: color(green);
-    }
-
     p {
         @include margin(0, bottom);
+    }
+
+    /**
+     * Info
+     */
+    &.notification--info {
+        .notification--block__inner-container {
+            border-color: color(blue);
+        }
+
+        .notification__close,
+        .notification__icon {
+            color: color(blue);
+        }
+    }
+
+    /**
+     * Fail
+     */
+    &.notification--fail {
+        .notification--block__inner-container {
+            border-color: color(red);
+        }
+
+        .notification__close,
+        .notification__icon {
+            color: color(red);
+        }
+    }
+
+    /**
+     * Success
+     */
+    &.notification--success {
+        .notification--block__inner-container {
+            border-color: color(green);
+        }
+
+        .notification__close,
+        .notification__icon {
+            color: color(green);
+        }
     }
 }
