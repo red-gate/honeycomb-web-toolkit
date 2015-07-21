@@ -1,7 +1,6 @@
 {
 	"name": "Honeycomb, from Redgate Software",
 	"ignore": [
-		"dist",
 		"Gruntfile.js",
 		"package.json",
 		"node_modules",
