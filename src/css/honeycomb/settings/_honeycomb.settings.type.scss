@@ -9,7 +9,7 @@
 // $font-size is only used to help calculate a px value for the project's global em unit in base.settings.spacing. We leave the actual base font size for the website at 100%.
 $font-size: 16px !default;
 
-$font-family: "Helvetica Neue", Arial, Sans-serif !default;
+$font-family: "Roboto", "Helvetica Neue", Arial, Sans-serif !default;
 
 $line-height: 1.5 !default;
 
@@ -34,8 +34,3 @@ $heading-size-3-font-weight: bold !default;
 $heading-size-4-font-weight: bold !default;
 $heading-size-5-font-weight: bold !default;
 $heading-size-6-font-weight: bold !default;
-
-
-
-
-
