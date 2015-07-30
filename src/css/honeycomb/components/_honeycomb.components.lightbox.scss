@@ -9,6 +9,13 @@
 .lightbox {
     position: relative;
     display: inline-block;
+
+    // IE7 support.
+    .ie7 & {
+        zoom: 1;
+        display: inline;
+    }
+
     img {
         transition: all 0.4s;
     }
@@ -16,6 +23,7 @@
 
 .lightbox--zoom {
     border:none;
+
     /* this span is to place the plus icon in the top right */
     span {
         position: absolute;
@@ -33,10 +41,12 @@
         color: #000;
         background: #fff;
     }
+
     &:hover {
         img {
             transform: scale(1.05);
         }
+
         span {
             opacity: 1;
         }
@@ -46,11 +56,13 @@
 .lightbox--video-has-poster {
     overflow: hidden;
     max-width: 450px;
+
     img {
         width: 200%;
         position: relative;
         max-width: none;
     }
+
     &:hover img {
         left: -100%;
     }

@@ -127,7 +127,7 @@ Honeycomb.Notifications.Block = function(options) {
         e.preventDefault();
         $(this).parent().parent().slideUp({
             complete: function() {
-                this.remove();
+                $(this).remove();
             }
         });
     });

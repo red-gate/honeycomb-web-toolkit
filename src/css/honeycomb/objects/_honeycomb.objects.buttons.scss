@@ -6,7 +6,7 @@
 .button,
 %button {
     @include margin(1, bottom);
-    display: inline-block;
+    @include font-size(12px);
     padding: $button-padding !important;
     background-color: $button-background !important;
     color: $button-color !important;
@@ -17,8 +17,15 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    @include font-size(12px);
     -webkit-font-smoothing: antialiased;
+    display: inline-block;
+
+    // IE7 support.
+    .ie7 & {
+        zoom: 1;
+        display: inline;
+    }
+
     &:hover {
       background-color: $button-hover-background !important;
       color: $button-hover-color !important;
@@ -64,6 +71,7 @@
 .button--download,
 %button--download {
     @extend %button--primary;
+
     &:before {
         content: "\f019 ";
         font-family: "FontAwesome";
@@ -76,6 +84,7 @@
 .button--more,
 %button--more {
     @extend %button--primary;
+
     &:after {
         content: "\f054 ";
         font-family: "FontAwesome";
@@ -89,14 +98,10 @@
 .button--buy,
 %button--buy {
     background-color: color(green) !important;
+
     &:before {
         content: "\f07a ";
         font-family: "FontAwesome";
         @include padding(0.5, right);
     }
 }
-    
-    
-    
-    
-    

@@ -5,8 +5,8 @@
 /** These 2 navigation components share their style of overlaying the page content.
   * With the page having a colored overlay to lessen it's vibrancy.
   */
-  
-    
+
+
 .base-page-container {
     margin: 0;
     transition: all 0.25s;
@@ -40,25 +40,30 @@
     height: 100%;
 
     .nav--drawer__section, .nav--lightbox__section {
-        width: 80%;
-
         padding-left: 20%;
         width: 100%;
-
-        display: inline-block;
         background-color: color(near-black);
+        display: inline-block;
+
+        // IE7 support.
+        .ie7 & {
+            zoom: 1;
+            display: inline;
+        }
     }
-    
+
     h1 {
         @include font-size(14px);
         color: color(grey);
         text-transform: uppercase;
         @include px-rem(letter-spacing, 1);
- 
+
     }
+
     ul {
         @include margin(0, left);
-        @include font-size(16px); 
+        @include font-size(16px);
+
         li {
             @include margin(0, bottom);
             @include border-bottom();
@@ -68,11 +73,18 @@
 
     a {
         @include padding(0.5);
-        display: inline-block;
         border: none;
         width: 80%;
+        display: inline-block;
+
+        // IE7 support.
+        .ie7 & {
+            zoom: 1;
+            display: inline;
+        }
+
         &.nav--drawer__prev,
-        &.nav--drawer__next {   
+        &.nav--drawer__next {
             position: absolute;
             width: 20%;
             text-align: center;
@@ -93,9 +105,11 @@
     height: 100%;
     overflow: hidden;
     transition: all 0.25s;
+
     a {
       color: color(grey, lightest);
     }
+
     a:visited { }
 
     a:focus { }
@@ -104,30 +118,20 @@
         color: color(blue);
     }
 }
+
 .nav--drawer-open {
+
     .nav--drawer {
         left: 0;
         z-index: 997;
     }
+
     .nav--drawer__content-overlay {
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; // IE8 hack.
         opacity: 1;
         z-index: 996;
     }
 }
-
-/*
-.nav--drawer__prev {
-    background-color: color(near-black);
-}
-.nav--drawer__prev:hover {
-    background-color: color(black);
-}
-*/
-
-
-
-
 
 
 /* =NAV--LIGHTBOX
@@ -141,21 +145,21 @@
     overflow: hidden;
     transition: all 0.25s;
 }
+
 .nav--lightbox-open {
+
     .nav--lightbox {
         top: 12.5%;
         z-index: 999;
     }
+
     .base-page-container {
         transform: scale(0.95);
     }
+
     .nav--lightbox__content-overlay {
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; // IE8 hack.
         opacity: 1;
         z-index: 998;
     }
 }
-
-
-
-

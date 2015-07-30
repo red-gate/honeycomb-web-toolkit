@@ -17,13 +17,26 @@ input, select, textarea {
 
 input[type="checkbox"],
 input[type="radio"] {
-    display: inline-block;
     border: none;
     width: auto;
+    display: inline-block;
+
+    // IE7 support.
+    .ie7 & {
+        zoom: 1;
+        display: inline;
+    }
+
     & + label {
+        @include margin(1, right);
         font-weight: normal;
         display: inline-block;
-        @include margin(1, right);
+
+        // IE7 support.
+        .ie7 & {
+            zoom: 1;
+            display: inline;
+        }
     }
 }
 
@@ -38,4 +51,3 @@ label {
     text-transform: uppercase;
     font-weight: bold;
 }
-

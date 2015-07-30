@@ -2,7 +2,7 @@
     #PAGINATION
 \*------------------------------------*/
 
- 
+
 .pagination {
     @include border-top();
     @include padding(0.5);
@@ -16,6 +16,7 @@
     float: left;
     font-weight: bold;
     text-align: left;
+
     &:before {
         content: "\f053";
         font-family: "FontAwesome";
@@ -28,6 +29,7 @@
     float: right;
     font-weight: bold;
     text-align: right;
+
     &:after {
         content: "\f054";
         font-family: "FontAwesome";
@@ -42,7 +44,14 @@
 
     li {
         display: inline-block;
+
+        // IE7 support.
+        .ie7 & {
+            zoom: 1;
+            display: inline;
+        }
     }
+
     a {
         border:none;
         font-weight: bold;

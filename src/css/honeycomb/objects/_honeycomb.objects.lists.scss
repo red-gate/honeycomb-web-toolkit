@@ -4,6 +4,7 @@
 
 // Remove extra vertical spacing when nesting lists.
 li {
+
   > ul,
   > ol {
     @include margin(0, bottom);
@@ -39,8 +40,15 @@ li {
 %list--horizontal {
   @include margin(0, left);
   list-style: none;
+
   li {
     display: inline-block;
+
+    // IE7 support.
+    .ie7 & {
+        zoom: 1;
+        display: inline;
+    }
   }
 }
 
@@ -54,10 +62,13 @@ li {
 
 .list--padded,
 %list--padded {
+
   li {
     @include padding(0.5);
   }
+
   &.list--horizontal {
+
     li {
       @include padding(0);
       @include padding(0.5, left);
@@ -69,6 +80,7 @@ li {
 // Tight list, reduced vertical spacing
 .list--tight,
 %list--tight {
+
     li {
         @include margin(0.5, bottom);
     }
@@ -78,17 +90,21 @@ li {
 // With dividers (Horizontal and Vertical)
 .list--dividers,
 %list--dividers {
+
   li {
     border-width: 0;
     border-bottom-width: 1px;
     border-style: solid;
     @include padding(0.5, top);
     @include padding(0.5, bottom);
+
     &:last-child {
       border-bottom-width: 0;
     }
   }
+
   &.list--horizontal {
+
     li {
       border-bottom-width: 0;
       border-right-width: 1px;
@@ -96,6 +112,7 @@ li {
       @include padding(0, bottom);
       @include padding(0.5, left);
       @include padding(0.5, right);
+
       &:last-child {
         border-right-width: 0;
       }
@@ -108,23 +125,29 @@ li {
     @extend %list--bare;
     @extend .border;
     @extend .rounded;
+
     li {
         @include margin(0);
     }
+
     a {
         @include padding(0.5);
         @extend .border-bottom;
         display: block;
+
         &:hover {
             background-color: $link-hover-background-color;
         }
+
         &.active {
             border-left: 2px solid $link-border-color;
         }
     }
+
     li:first-child a {
         @include rounded-top;
     }
+
     li:last-child a {
         @include rounded-bottom;
         border-bottom: none;
@@ -138,9 +161,11 @@ li {
 */
 .list--tick {
     @extend %list--bare;
+
     & > li {
         position: relative;
         @include padding(1, left);
+
         &:before {
             content: "\f00c";
             font-family: "FontAwesome";
@@ -163,8 +188,10 @@ li {
 */
 .list--tick--large {
     @extend .list--tick;
+
     & > li {
         @include padding(1.5, left);
+
         &:before {
             @include font-size(24px, 1);
             color: color(green);
@@ -179,7 +206,9 @@ li {
 */
 .list--chevron {
     @extend .list--tick;
+
     & > li {
+
         &:before {
             content: "\f054";
             color: color(blue);
@@ -194,7 +223,9 @@ li {
 */
 .list--chevron--large {
     @extend .list--chevron;
+
     & > li {
+
         &:before {
             @include font-size(24px, 1);
         }
@@ -208,7 +239,9 @@ li {
 */
 .list--chevron-down {
     @extend .list--chevron;
+
     & > li {
+
         &:before {
             content: "\f078";
             color: color(blue);
@@ -223,8 +256,10 @@ li {
 */
 .list--chevron-down--large {
     @extend .list--chevron-down;
+
     & > li {
         @include padding(2, left);
+
         &:before {
             @include font-size(24px, 1);
         }
@@ -238,7 +273,9 @@ li {
 */
 .list--bullet {
     @extend .list--tick;
+
     & > li {
+
         &:before {
             @include font-size(12px, 2.3);
             content: "\f111";
@@ -254,7 +291,9 @@ li {
 */
 .list--plus {
     @extend .list--tick;
+
     & > li {
+
         &:before {
             content: "\f067";
             color: color(blue);
@@ -268,8 +307,10 @@ li {
 */
 .list--plus--large {
     @extend .list--plus;
+
     & > li {
         @include padding(2, left);
+
         &:before {
             @include font-size(24px, 1);
         }
@@ -283,7 +324,9 @@ li {
 */
 .list--minus {
     @extend .list--tick;
+
     & > li {
+
         &:before {
             content: "\f068";
             color: color(blue);
@@ -297,8 +340,10 @@ li {
 */
 .list--minus--large {
     @extend .list--minus;
+
     & > li {
         @include padding(2, left);
+
         &:before {
             @include font-size(24px, 1);
         }
@@ -311,7 +356,9 @@ li {
 */
 .list--star {
     @extend .list--tick;
+
     & > li {
+
         &:before {
             content: "\f005";
             color: color(blue);
@@ -325,8 +372,10 @@ li {
 */
 .list--star--large {
     @extend .list--star;
+
     & > li {
         @include padding(2, left);
+
         &:before {
             @include font-size(24px, 1);
         }
