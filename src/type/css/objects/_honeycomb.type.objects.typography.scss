@@ -11,8 +11,8 @@
 /**
  * Common heading variations.
  */
- 
- 
+
+
 // @TODO: review this style
 .text--micro {
   font-weight: bold;
@@ -41,7 +41,3 @@
 .text--big {
 	@include font-size(44px, 52px);
 }
-
-
-
-
