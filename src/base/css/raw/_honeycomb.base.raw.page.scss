@@ -10,9 +10,8 @@
  */
 
 html {
-  font-family: $font-family;
-  line-height: $line-height;
-  background-color: color(default-bg);
-  color: color(default-text);
-  border-color: color(default-border);
+  font-size: 100%;
+  overflow-y: scroll;
+  min-height: 100%;
+  min-width: 1000px;
 }
