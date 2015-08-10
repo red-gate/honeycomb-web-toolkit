@@ -9,7 +9,7 @@
  */
 
 
-$site-colors: (
+$site-colours: (
     default-bg: (
         base: #fff /* default background colour */
     ),
@@ -64,7 +64,7 @@ $site-colors: (
 
 
 // chain colours onto useage variables
-$link-color: map-get(map-get($site-colors, default-text), 'base');
-$link-border-color: map-get(map-get($site-colors, blue), 'light');
-$link-hover-color: map-get(map-get($site-colors, blue), 'light');
-$link-hover-background-color: map-get(map-get($site-colors, grey), 'lightest');
+$link-colour: map-get(map-get($site-colours, default-text), 'base');
+$link-border-colour: map-get(map-get($site-colours, blue), 'light');
+$link-hover-colour: map-get(map-get($site-colours, blue), 'light');
+$link-hover-background-colour: map-get(map-get($site-colours, grey), 'lightest');
