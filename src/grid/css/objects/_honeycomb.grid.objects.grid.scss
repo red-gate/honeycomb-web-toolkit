@@ -7,7 +7,7 @@
  * Generate the available CSS grid classes for grid, grid__row, grid__col.
  * Build the grid and breakpoint grids.
  */
- 
+
  @if $enable-grid-classes {
   %#{$grid-class},
   .#{$grid-class} {
@@ -38,7 +38,7 @@
 
   /**
    * Build the default grid.
-   */ 
+   */
   @include buildGrid();
 
 
@@ -47,7 +47,7 @@
 
   /**
    * Build the grid at breakpoints.
-   */ 
+   */
    @each $breakpoint in $breakpoints {
     $name: nth($breakpoint, 1);
     $minWidth: nth($breakpoint, 2);
@@ -73,7 +73,3 @@
     }
   }
 }
-
-
-
-
