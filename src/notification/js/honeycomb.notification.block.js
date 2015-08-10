@@ -1,12 +1,12 @@
 var Honeycomb = Honeycomb || {};
 
-Honeycomb.Notifications = Honeycomb.Notifications || {};
+Honeycomb.Notification = Honeycomb.Notification || {};
 
 /**
  * Notification block element
- * Usage: new Honeycomb.Notifications.Block({type: 'info', 'content': 'My notification content goes here';});
+ * Usage: new Honeycomb.Notification.Block({type: 'info', 'content': 'My notification content goes here';});
  */
-Honeycomb.Notifications.Block = function(options) {
+Honeycomb.Notification.Block = function(options) {
 
     var self = this;
 
