@@ -1,6 +1,8 @@
 var Honeycomb = Honeycomb || {};
 
-Honeycomb.Font = (function($) {
+Honeycomb.Type = Honeycomb.Type || {};
+
+Honeycomb.Type.Font = (function($) {
 
     // Config for the Honeycomb web font.
     var config = {
@@ -29,5 +31,5 @@ Honeycomb.Font = (function($) {
 })(jQuery);
 
 jQuery(function() {
-    Honeycomb.Font.init();
+    Honeycomb.Type.Font.init();
 });
