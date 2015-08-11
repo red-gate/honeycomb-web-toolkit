@@ -1,7 +1,7 @@
 var Honeycomb = Honeycomb || {};
 
 // Style code snippets.
-Honeycomb.CodePrettifier = function($) {
+Honeycomb.Code = function($) {
 
   // Load the code prettifier in from Google.
   if($('.code').length > 0) {
@@ -25,5 +25,5 @@ Honeycomb.CodePrettifier = function($) {
 };
 
 jQuery(function(){
-  Honeycomb.CodePrettifier(jQuery);
+  Honeycomb.Code(jQuery);
 });
