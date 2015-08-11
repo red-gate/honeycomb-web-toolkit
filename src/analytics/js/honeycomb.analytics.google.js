@@ -113,5 +113,10 @@ Honeycomb.Analytics.Google = (function($) {
 })(jQuery);
 
 jQuery(function() {
-  // Honeycomb.Analytics.Google.init();
+    // Honeycomb.Analytics.Google.init();
+
+    // jQuery plugin for measuring page scrolling (http://scrolldepth.parsnip.io/)
+    /*if(typeof jQuery.scrollDepth === 'function') {
+        jQuery.scrollDepth();
+    } */
 });
