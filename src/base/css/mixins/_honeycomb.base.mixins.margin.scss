@@ -1,6 +1,5 @@
 // TODO add any extra documentation and an example
 
-
 // Mixin for adding margins to objects/components
 @mixin margin($scale: 1, $direction: all) {
 
@@ -24,6 +23,6 @@
   // Print the rule.
   @if $margin {
     #{$property}: $margin;
-    #{$property}: ($margin / $spacing-unit) * ($spacing-unit / $font-size) * 1rem;
+    #{$property}: px-rem($margin);
   }
 }

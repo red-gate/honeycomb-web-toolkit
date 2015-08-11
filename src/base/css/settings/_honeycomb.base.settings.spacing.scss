@@ -2,11 +2,13 @@
     #SPACING SETTINGS
 \*------------------------------------*/
 
+$index: 16px !default; // font-size
+$index-height: 1.5 !default; // line height
 
 /**
  * Spacing units - based off $line-height.
  */
-$spacing-unit: $line-height * $font-size !default;
+$spacing-unit: $index * $index-height !default;
 $spacing-unit--small: round($spacing-unit / 2) !default;
 $spacing-unit--large: round($spacing-unit * 2) !default;
 

@@ -23,6 +23,6 @@
   // Print the rule.
   @if $padding {
     #{$property}: $padding;
-    #{$property}: ($padding / $spacing-unit) * ($spacing-unit / $font-size) * 1rem;
+    #{$property}: px-rem($padding);
   }
 }

@@ -12,8 +12,8 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'src/css',
-                    src: ['**/*.scss', '!vendor/**/*'],
+                    cwd: 'src',
+                    src: ['**/*.scss', '!**/vendor/**/*'],
                     dest: 'dist/css',
                     ext: '.css'
                 }]
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
         /* Watch scss and js and process when they're updated */
         watch: {
             sass: {
-                files: ['src/css/**/*.scss'],
+                files: ['src/**/*.scss'],
                 tasks: ['sass', 'autoprefixer']
             },
             js: {
