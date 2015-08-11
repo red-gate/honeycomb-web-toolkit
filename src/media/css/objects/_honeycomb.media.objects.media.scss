@@ -8,8 +8,8 @@
  * media to the left or right with some content that describes it in the
  * center.
  */
- 
- 
+
+
 // Wrapper for the media object
 .media {
   @include clearfix();
@@ -48,11 +48,7 @@
 
 
 // A temporary style to set a width on a video when it's inside tabs, inside a media object.
-// This is a common pattern when we tab types of resources, like webinars. 
-.media .video-container { 
+// This is a common pattern when we tab types of resources, like webinars.
+.media .video-container {
     width:440px;
 }
-
-
-
-
