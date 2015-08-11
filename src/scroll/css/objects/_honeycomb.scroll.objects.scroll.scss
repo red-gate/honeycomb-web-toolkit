@@ -13,33 +13,33 @@
         content: "\f077";
         font-family: "FontAwesome";
         @include margin(0.25, right);
-    }   
+    }
 }
 
 .scroll--up {
     @extend %scroll;
     &:before {
         content: "\f077";
-    }   
+    }
 }
 
 .scroll--down {
     @extend %scroll;
     &:before {
         content: "\f078";
-    }   
+    }
 }
 
 .scroll--left {
     @extend %scroll;
     &:before {
         content: "\f053";
-    }   
-}  
+    }
+}
 
 .scroll--right {
     @extend %scroll;
     &:before {
         content: "\f054";
-    }   
+    }
 }  

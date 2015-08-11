@@ -1,7 +1,7 @@
 var Honeycomb = Honeycomb || {};
 
 // scrollTo - Scroll to an area on the page.
-Honeycomb.ScrollTo = (function($) {
+Honeycomb.Scroll = (function($) {
 
   var init = function init() {
     $('a.js-scroll-to').on('click', function(e) {
@@ -51,5 +51,5 @@ Honeycomb.ScrollTo = (function($) {
 })(jQuery);
 
 jQuery(function(){
-  Honeycomb.ScrollTo.init();
+  Honeycomb.Scroll.init();
 });
