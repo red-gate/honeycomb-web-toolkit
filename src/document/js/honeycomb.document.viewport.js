@@ -1,7 +1,9 @@
 var Honeycomb = Honeycomb || {};
 
+Honeycomb.Document = Honeycomb.Document || {};
+
 // Toggle class when elements in/out of the viewport. (https://github.com/edwardcasbon/jquery.inViewport)
-Honeycomb.Viewport = function($) {
+Honeycomb.Document.Viewport = function($) {
   if($.fn.inViewport) {
     $('.js-vp').inViewport(function(){
       $(this).removeClass('vp-out').addClass('vp-in');
@@ -13,5 +15,5 @@ Honeycomb.Viewport = function($) {
 };
 
 jQuery(function(){
-  Honeycomb.Viewport(jQuery);
+  Honeycomb.Document.Viewport(jQuery);
 });
