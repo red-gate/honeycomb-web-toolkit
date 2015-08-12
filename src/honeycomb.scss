@@ -64,9 +64,17 @@
 // Media
 @import 'media/css/objects/*';
 
-// Tabs
-// Island
 // Corners
+@import 'corners/css/settings/*';
+@import 'corners/css/snippets/*';
+@import 'corners/css/objects/*';
+
+// Tabs
+@import 'tabs/css/components/*';
+
+
+// Island
+
 // Avatar
 // Video
 // Lightbox
