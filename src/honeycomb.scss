@@ -26,8 +26,13 @@
 @import 'grid/css/mixins/*';
 @import 'grid/css/objects/*';
 
-// Colours
-
+// Colour
+@import 'colour/css/settings/*';
+@import 'colour/css/functions/*';
+@import 'colour/css/snippets/*';
+@import 'colour/css/raw/*';
+@import 'colour/css/objects/*';
+@import 'colour/css/trumps/*';
 
 // Maps
 // Navigation
