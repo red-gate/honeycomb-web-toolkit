@@ -61,7 +61,7 @@
 .text--uppercase {
   text-transform: uppercase !important;
   // @TODO: Not sure the best way to apply !important to the output of the mixin below?
-  @include px-rem(letter-spacing, 1);
+  letter-spacing: 1px;
 }
 
 

@@ -62,7 +62,7 @@ h6,
     font-weight: $heading-size-6-font-weight;
     color: color(grey, darkest);
     text-transform: uppercase;
-    @include px-rem(letter-spacing, 1);
+    letter-spacing: 1px;
 }
 
 
