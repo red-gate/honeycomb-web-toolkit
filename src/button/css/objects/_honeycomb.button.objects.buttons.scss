@@ -9,10 +9,10 @@
     @include font-size(12px);
     padding: $button-padding !important;
     background-color: $button-background !important;
-    color: $button-color !important;
+    color: $button-colour !important;
     border-width: $button-border-width !important;
     border-style: $button-border-style !important;
-    border-color: $button-border-color !important;
+    border-color: $button-border-colour !important;
     border-radius: $button-radius;
     font-weight: bold;
     text-transform: uppercase;
@@ -28,10 +28,10 @@
 
     &:hover {
       background-color: $button-hover-background !important;
-      color: $button-hover-color !important;
+      color: $button-hover-colour !important;
       border-width: $button-hover-border-width;
       border-style: $button-hover-border-style;
-      border-color: $button-hover-border-color;
+      border-color: $button-hover-border-colour;
   }
 }
 
@@ -63,7 +63,7 @@
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button--primary,
 %button--primary {
-    background-color: color(blue, light) !important;
+    background-color: colour(blue, light) !important;
 }
 
 // Download button.
@@ -97,7 +97,7 @@
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button--buy,
 %button--buy {
-    background-color: color(green) !important;
+    background-color: colour(green) !important;
 
     &:before {
         content: "\f07a ";

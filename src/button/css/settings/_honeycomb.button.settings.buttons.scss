@@ -7,17 +7,15 @@ $button-padding--small:  $button-padding / 2 !default;
 $button-padding--large:  $button-padding * 2 !default;
 $button-background:      #666 !default;
 
-/* $button-color:           color(white) !default; */
-$button-color:           #fff !default;
+$button-colour:          #fff !default;
 $button-border-width:    0px !default;
 $button-border-style:    solid !default;
-$button-border-color:    $button-background !default;
+$button-border-colour:   $button-background !default;
 $button-radius:          5px !default;
 
 // Hover states
-/* $button-hover-background:      color(near-black) !default; */
 $button-hover-background:      #000 !default;
-$button-hover-color:           $button-color !default;
+$button-hover-colour:          $button-colour !default;
 $button-hover-border-width:    $button-border-width !default;
 $button-hover-border-style:    $button-border-style !default;
-$button-hover-border-color:    $button-border-color !default;
+$button-hover-border-colour:   $button-border-colour !default;

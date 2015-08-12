@@ -51,21 +51,24 @@
 @import 'navigation/css/components/*';
 
 // Buttons
-// Notifications
-// Tabs
-// Polyfills
-// Animation
-// Lightbox
-// Avatar
-// Corners
+@import 'button/css/settings/*';
+@import 'button/css/objects/*';
+
+// Table
 // Forms
-// Island
 // Media
+// Tabs
+// Island
+// Corners
+// Avatar
+// Video
+// Lightbox
+// Notifications
+// Carousel
+// Animation
 // Scroll
 // Sticky
-// Table
-// Video
-// Carousel
+// Polyfills
 // Browser
 // Code (Code prettifier)
 // Cookie
