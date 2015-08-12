@@ -11,8 +11,8 @@ a {
     text-decoration: none;
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    color: $link-color;
-    border-bottom-color: $link-border-color;
+    color: $link-colour;
+    border-bottom-color: $link-border-colour;
 }
 
 a:visited { }
@@ -20,7 +20,7 @@ a:visited { }
 a:focus { }
 
 a:active, a:hover {
-    color: $link-hover-color;
+    color: $link-hover-colour;
 }
 
 
@@ -37,7 +37,7 @@ h5 a,
 .sub-heading a {
     border-bottom-color: transparent;
     &:hover {
-        color: color(black);
-        border-bottom-color: $link-border-color;
+        color: colour(black);
+        border-bottom-color: $link-border-colour;
     }
 }

@@ -110,41 +110,6 @@
   }
 }
 
-// UI list - Styled list for use within UI's.
-.list--ui {
-    @extend %list--bare;
-    @extend .border;
-    @extend .rounded;
-
-    li {
-        @include margin(0);
-    }
-
-    a {
-        @include padding(0.5);
-        @extend .border-bottom;
-        display: block;
-
-        &:hover {
-            background-color: $link-hover-background-color;
-        }
-
-        &.active {
-            border-left: 2px solid $link-border-color;
-        }
-    }
-
-    li:first-child a {
-        @include rounded-top;
-    }
-
-    li:last-child a {
-        @include rounded-bottom;
-        border-bottom: none;
-    }
-}
-
-
 /**
  * Tick list
  *
@@ -162,7 +127,7 @@
             position: absolute;
             left:0;
             @include font-size(16px);
-            color: color(green);
+            color: colour(green);
         }
     }
 }
@@ -184,7 +149,7 @@
 
         &:before {
             @include font-size(24px, 1);
-            color: color(green);
+            color: colour(green);
         }
     }
 }
@@ -201,7 +166,7 @@
 
         &:before {
             content: "\f054";
-            color: color(blue);
+            color: colour(blue);
         }
     }
 }
@@ -234,7 +199,7 @@
 
         &:before {
             content: "\f078";
-            color: color(blue);
+            color: colour(blue);
         }
     }
 }
@@ -269,7 +234,7 @@
         &:before {
             @include font-size(12px, 2.3);
             content: "\f111";
-            color: color(blue);
+            color: colour(blue);
         }
     }
 }
@@ -286,7 +251,7 @@
 
         &:before {
             content: "\f067";
-            color: color(blue);
+            color: colour(blue);
         }
     }
 }
@@ -319,7 +284,7 @@
 
         &:before {
             content: "\f068";
-            color: color(blue);
+            color: colour(blue);
         }
     }
 }
@@ -351,7 +316,7 @@
 
         &:before {
             content: "\f005";
-            color: color(blue);
+            color: colour(blue);
         }
     }
 }

@@ -12,20 +12,6 @@
 @import 'base/css/objects/*';
 @import 'base/css/trumps/*';
 
-// Type
-@import 'type/vendor/*';
-@import 'type/css/settings/*';
-@import 'type/css/mixins/*';
-@import 'type/css/snippets/*';
-@import 'type/css/raw/*';
-@import 'type/css/objects/*';
-@import 'type/css/trumps/*';
-
-// Grid
-@import 'grid/css/settings/*';
-@import 'grid/css/mixins/*';
-@import 'grid/css/objects/*';
-
 // Colour
 @import 'colour/css/settings/*';
 @import 'colour/css/functions/*';
@@ -34,23 +20,46 @@
 @import 'colour/css/objects/*';
 @import 'colour/css/trumps/*';
 
+// Type
+@import 'type/css/settings/*';
+@import 'type/css/mixins/*';
+@import 'type/css/snippets/*';
+@import 'type/css/raw/*';
+@import 'type/css/objects/*';
+@import 'type/css/trumps/*';
+
+// Links
+@import 'links/css/raw/*';
+@import 'links/css/objects/*';
+
+// Grid
+@import 'grid/css/settings/*';
+@import 'grid/css/mixins/*';
+@import 'grid/css/objects/*';
+
+// Icons
+@import 'icons/vendor/font-awesome-4.1.0/scss/font-awesome';
+@import 'icons/css/objects/*';
+
+// List
+@import 'list/css/objects/*';
+
 // Maps
 @import 'maps/css/components/*';
 
 // Navigation
+@import 'navigation/css/components/*';
+
+// Buttons
 // Notifications
 // Tabs
 // Polyfills
 // Animation
-// Buttons
 // Lightbox
 // Avatar
 // Corners
 // Forms
-// Icons
 // Island
-// Links
-// Lists
 // Media
 // Scroll
 // Sticky
