@@ -77,9 +77,19 @@
 @import 'island/css/objects/*';
 
 // Avatar
+@import 'avatar/css/objects/*';
+
 // Video
+@import 'video/css/objects/*';
+
 // Lightbox
-// Notifications
+@import 'lightbox/vendor/*';
+@import 'lightbox/css/components/*';
+
+// Notification
+@import 'notification/css/components/*';
+
+
 // Carousel
 // Animation
 // Scroll
