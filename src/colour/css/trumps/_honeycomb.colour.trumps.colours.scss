@@ -1,86 +1,86 @@
-.colour--black {
-    color: colour(black) !important;
+.color--black {
+    color: color(black) !important;
 }
 
-.colour--white {
-    color: colour(white) !important;
+.color--white {
+    color: color(white) !important;
 }
 
-.colour--red {
+.color--red {
     & {
-        color: colour(red, base) !important;
+        color: color(red, base) !important;
     }
     &--light {
-        color: colour(red, light) !important;
+        color: color(red, light) !important;
     }
     &--lightest {
-        color: colour(red, lightest) !important;
+        color: color(red, lightest) !important;
     }
     &--dark {
-        color: colour(red, dark) !important;
+        color: color(red, dark) !important;
     }
     &--darkest {
-        color: colour(red, darkest) !important;
+        color: color(red, darkest) !important;
     }
     &--brand {
-        color: colour(red, brand) !important;
+        color: color(red, brand) !important;
     }
 }
 
-.colour--near-black {
-    color: colour(near-black);
+.color--near-black {
+    color: color(near-black);
 }
 
-.colour--grey {
+.color--grey {
     & {
-        color: colour(grey, base) !important;
+        color: color(grey, base) !important;
     }
     &--light {
-        color: colour(grey, light) !important;
+        color: color(grey, light) !important;
     }
     &--lightest {
-        color: colour(grey, lightest) !important;
+        color: color(grey, lightest) !important;
     }
     &--dark {
-        color: colour(grey, dark) !important;
+        color: color(grey, dark) !important;
     }
     &--darkest {
-        color: colour(grey, darkest) !important;
+        color: color(grey, darkest) !important;
     }
 }
 
-.colour--blue {
+.color--blue {
     & {
-        color: colour(blue, base) !important;
+        color: color(blue, base) !important;
     }
     &--light {
-        color: colour(blue, light) !important;
+        color: color(blue, light) !important;
     }
     &--lightest {
-        color: colour(blue, lightest) !important;
+        color: color(blue, lightest) !important;
     }
     &--dark {
-        color: colour(blue, dark) !important;
+        color: color(blue, dark) !important;
     }
     &--darkest {
-        color: colour(blue, darkest) !important;
+        color: color(blue, darkest) !important;
     }
 }
 
-.colour--green {
+.color--green {
     & {
-        color: colour(green, base) !important;
+        color: color(green, base) !important;
     }
     &--light {
-        color: colour(green, light) !important;
+        color: color(green, light) !important;
     }
     &--lightest {
-        color: colour(green, lightest) !important;
+        color: color(green, lightest) !important;
     }
     &--dark {
-        color: colour(green, dark) !important;
+        color: color(green, dark) !important;
     }
     &--darkest {
-        color: colour(green, darkest) !important;
+        color: color(green, darkest) !important;
     }
 }

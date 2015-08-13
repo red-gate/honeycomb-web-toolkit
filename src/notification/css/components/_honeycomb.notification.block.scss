@@ -30,12 +30,12 @@
      */
     &.notification--info {
         .notification--block__inner-container {
-            border-color: colour(blue);
+            border-color: color(blue);
         }
 
         .notification__close,
         .notification__icon {
-            color: colour(blue);
+            color: color(blue);
         }
     }
 
@@ -44,12 +44,12 @@
      */
     &.notification--fail {
         .notification--block__inner-container {
-            border-color: colour(red);
+            border-color: color(red);
         }
 
         .notification__close,
         .notification__icon {
-            color: colour(red);
+            color: color(red);
         }
     }
 
@@ -58,12 +58,12 @@
      */
     &.notification--success {
         .notification--block__inner-container {
-            border-color: colour(green);
+            border-color: color(green);
         }
 
         .notification__close,
         .notification__icon {
-            color: colour(green);
+            color: color(green);
         }
     }
 }

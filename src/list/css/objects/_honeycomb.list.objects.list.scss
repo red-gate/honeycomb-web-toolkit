@@ -127,7 +127,7 @@
             position: absolute;
             left:0;
             @include font-size(16px);
-            color: colour(green);
+            color: color(green);
         }
     }
 }
@@ -149,7 +149,7 @@
 
         &:before {
             @include font-size(24px, 1);
-            color: colour(green);
+            color: color(green);
         }
     }
 }
@@ -166,7 +166,7 @@
 
         &:before {
             content: "\f054";
-            color: colour(blue);
+            color: color(blue);
         }
     }
 }
@@ -199,7 +199,7 @@
 
         &:before {
             content: "\f078";
-            color: colour(blue);
+            color: color(blue);
         }
     }
 }
@@ -234,7 +234,7 @@
         &:before {
             @include font-size(12px, 2.3);
             content: "\f111";
-            color: colour(blue);
+            color: color(blue);
         }
     }
 }
@@ -251,7 +251,7 @@
 
         &:before {
             content: "\f067";
-            color: colour(blue);
+            color: color(blue);
         }
     }
 }
@@ -284,7 +284,7 @@
 
         &:before {
             content: "\f068";
-            color: colour(blue);
+            color: color(blue);
         }
     }
 }
@@ -316,7 +316,7 @@
 
         &:before {
             content: "\f005";
-            color: colour(blue);
+            color: color(blue);
         }
     }
 }
