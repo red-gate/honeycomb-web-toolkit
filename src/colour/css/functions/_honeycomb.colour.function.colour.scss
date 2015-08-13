@@ -8,9 +8,9 @@
   * Source: http://erskinedesign.com/blog/friendlier-color-names-sass-maps/
   * Here's an example of how you would use this in your CSS:
   *    a {
-  *        color: color(blue);
+  *        color: color('blue');
   *        &:hover {
-  *            color: color(blue, light);
+  *            color: color('blue', 3);
   *        }
   *    }
   */

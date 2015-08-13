@@ -15,7 +15,7 @@ h1,
 .main-heading  {
     @include font-size($heading-size-1);
     font-weight: $heading-size-1-font-weight;
-    color: color(grey, darkest);
+    color: color('grey', 6);
 }
 
 
@@ -24,7 +24,7 @@ h2,
 %beta {
     @include font-size($heading-size-2);
     font-weight: $heading-size-2-font-weight;
-    color: color(grey, darkest);
+    color: color('grey', 6);
 }
 
 
@@ -33,7 +33,7 @@ h3,
 %gamma {
     @include font-size($heading-size-3);
     font-weight: $heading-size-3-font-weight;
-    color: color(grey, darkest);
+    color: color('grey', 6);
 }
 
 
@@ -42,7 +42,7 @@ h4,
 %delta {
     @include font-size($heading-size-4);
     font-weight: $heading-size-4-font-weight;
-    color: color(grey, darkest);
+    color: color('grey', 6);
 }
 
 
@@ -51,7 +51,7 @@ h5,
 %epsilon {
     @include font-size($heading-size-5);
     font-weight: $heading-size-5-font-weight;
-    color: color(grey, darkest);
+    color: color('grey', 6);
 }
 
 
@@ -60,7 +60,7 @@ h6,
 %zeta {
     @include font-size($heading-size-6);
     font-weight: $heading-size-6-font-weight;
-    color: color(grey, darkest);
+    color: color('grey', 6);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -74,7 +74,7 @@ h6,
 
 .sub-heading {
     @include font-size(24px);
-    color: color(grey, dark);
+    color: color('grey', 5);
 }
 
 /* reduce subheading following an h2 */

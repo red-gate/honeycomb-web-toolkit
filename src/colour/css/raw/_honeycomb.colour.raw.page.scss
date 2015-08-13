@@ -10,7 +10,7 @@
  */
 
 html {
-  background-color: color(default-bg);
-  color: color(default-text);
-  border-color: color(default-border);
+  background-color: $default-bg-color;
+  color: $default-text-color;
+  border-color: $default-border-color;
 }

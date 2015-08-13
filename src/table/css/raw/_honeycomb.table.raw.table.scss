@@ -17,7 +17,7 @@ table {
     width: 100%;
     vertical-align: top;
 // @TODO this colour should have it's own variable
-    background-color: color(default-bg);
+    background-color: $default-bg-color;
 }
 
 /**
@@ -34,16 +34,16 @@ th, td {
     @include padding(0.5);
     @include border();
 // @TODO this colour should have it's own variable
-    border-color: color(grey, light);
+    border-color: color('grey', 3);
 }
 
 
 th {
     font-weight: bold;
 // @TODO this colour should have it's own variable
-    color: color(grey, dark);
+    color: color('grey', 5);
 // @TODO this colour should have it's own variable
-    background-color: color(grey, lightest);
+    background-color: color('grey', 2);
 }
 
 
@@ -56,18 +56,18 @@ th {
 
 
 tr:hover {
-	background-color: color(grey, lightest);
+	background-color: color('grey', 2);
 }
 
 
 table.striped tr.odd,
 table.striped tr:nth-child(odd) {
-    background: color(default-bg);
+    background: $default-bg-color;
 }
 
 table.striped tr.even,
 table.striped tr:nth-child(even) {
-    background: color(grey, lightest);
+    background: color('grey', 2);
 }
 
 

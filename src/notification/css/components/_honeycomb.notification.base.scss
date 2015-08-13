@@ -3,19 +3,19 @@
     @include padding(1);
     @include border-left;
     @include px-rem('border-left-width', 15);
-    background-color: color(grey, lightest);
+    background-color: color('grey', 2);
 }
 
 .notification--info {
-    border-color: color(blue);
+    border-color: color('blue');
 }
 
 .notification--fail {
-    border-color: color(red);
+    border-color: color('red');
 }
 
 .notification--success {
-    border-color: color(green);
+    border-color: color('green');
 }
 
 .notification__icon {

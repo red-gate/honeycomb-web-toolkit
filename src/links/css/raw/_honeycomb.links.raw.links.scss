@@ -37,7 +37,7 @@ h5 a,
 .sub-heading a {
     border-bottom-color: transparent;
     &:hover {
-        color: color(black);
+        color: color('black');
         border-bottom-color: $link-border-color;
     }
 }

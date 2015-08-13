@@ -58,7 +58,7 @@
 .lozenge-nav a {
     @include padding(0.5);
     // @TODO - make this a variable $lozenge-nav__tab-background-color
-    background-color: color(grey, lightest);
+    background-color: color('grey', 2);
     font-weight: bold;
     text-decoration: none;
     border:none;
@@ -66,12 +66,12 @@
 
 .lozenge-nav a:hover {
     // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
-    color: color(black);
-    background-color: color(grey, light);
+    color: color('black');
+    background-color: color('grey', 3);
 }
 
 .lozenge-nav a.active, .lozenge-nav a.active:hover {
     // @TODO - make this a variable $lozenge-nav__tab-background-color-active
-    background-color: color(grey, light);
-    color: color(default-text);
+    background-color: color('grey', 3);
+    color: $default-text-color;
 }

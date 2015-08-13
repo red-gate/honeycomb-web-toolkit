@@ -63,7 +63,7 @@
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button--primary,
 %button--primary {
-    background-color: color(blue, light) !important;
+    background-color: color('blue') !important;
 }
 
 // Download button.
@@ -97,7 +97,7 @@
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button--buy,
 %button--buy {
-    background-color: color(green) !important;
+    background-color: color('green', 5) !important;
 
     &:before {
         content: "\f07a ";
