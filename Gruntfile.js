@@ -12,8 +12,8 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'src/css',
-                    src: ['**/*.scss', '!vendor/**/*'],
+                    cwd: 'src',
+                    src: ['**/*.scss', '!**/vendor/**/*'],
                     dest: 'dist/css',
                     ext: '.css'
                 }]
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
                 loopfunc: true,
                 expr: true
             },
-            scripts: ['src/js/**/*.js', '!src/js/vendor/**/*'],
+            scripts: ['src/**/*.js', '!src/*/vendor/**/*'],
         },
 
         /* Uglify - Concatenate and minify JavaScript */
@@ -50,9 +50,9 @@ module.exports = function(grunt) {
             scripts: {
                 files: {
                     'dist/js/honeycomb.min.js' : [
-                        'src/js/vendor/**/*.js',
-                        '!src/js/vendor/modernizr.min.js',
-                        'src/js/honeycomb/**/*.js'
+                        'src/*/vendor/**/*.js',
+                        '!src/base/vendor/modernizr.min.js',
+                        'src/*/js/**/*.js'
                     ]
                 }
             }
@@ -61,11 +61,11 @@ module.exports = function(grunt) {
         /* Watch scss and js and process when they're updated */
         watch: {
             sass: {
-                files: ['src/css/**/*.scss'],
+                files: ['src/**/*.scss'],
                 tasks: ['sass', 'autoprefixer']
             },
             js: {
-                files: ['src/js/**/*.js'],
+                files: ['src/**/*.js'],
                 tasks: ['jshint', 'uglify']
             }
         }

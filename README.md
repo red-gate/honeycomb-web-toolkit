@@ -5,6 +5,9 @@ Honeycomb is the Web team's approach at providing consistent code, design and co
 
 Honeycomb is designed to be the core foundation for a web project to be built from. Website developers then build their web project using, and building upon, the building blocks and components that Honeycomb provides.
 
+## Modules
+The building blocks and components have been separated into modules, to make it easier to maintain and separate concerns. Each module has a README that explains what the module is for, and the module dependencies it has.
+
 ## Bower
 Honeycomb is packaged as a Bower package, and therefore can be distributed across projects using the Bower package manager (http://bower.io/, a package manager for the web).
 

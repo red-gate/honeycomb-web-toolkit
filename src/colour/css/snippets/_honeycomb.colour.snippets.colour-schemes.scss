@@ -1,0 +1,1022 @@
+/*------------------------------------*\
+    #COLOR SCHEMES
+\*------------------------------------*/
+
+
+/*------------------------------------*\
+    #WHITE COLOR SCHEME
+\*------------------------------------*/
+
+/**
+ * White is the default website background and type color scheme
+ * but sometimes you might want to apply it to a component.
+ */
+
+
+@mixin scheme--white {
+    background-color: color('white');
+   	border-color: color('grey', 3);
+
+   	hr {
+       	border-color: color('grey', 3);
+   	}
+
+    h1,
+    .alpha,
+    %alpha {
+        color: color('grey', 6);
+    }
+
+    .sub-heading {
+        color: color('grey', 5);
+    }
+
+    h2,
+    .beta,
+    %beta {
+        color: color('grey', 6);
+    }
+
+
+    h3,
+    .gamma,
+    %gamma {
+        color: color('grey', 6);
+    }
+
+
+    h4,
+    .delta,
+    %delta {
+        color: color('grey', 6);
+    }
+
+
+    h5,
+    .epsilon,
+    %epsilon {
+        color: color('grey', 6);
+    }
+
+
+    h6,
+    .zeta,
+    %zeta {
+        color: color('grey', 6);
+    }
+
+
+    p, ul,  ol, dd, label {
+        color: $default-text-color;
+    }
+
+
+    a {
+		color: $default-text-color;
+		border-color: color('blue');
+	}
+
+    a:visited {
+
+    }
+
+    a:focus {
+
+    }
+
+	a:active, a:hover {
+		color: color('blue', 3);
+	}
+
+
+	h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    .main-heading a,
+    .sub-heading a {
+        border-bottom-color: transparent;
+        &:hover {
+            color: color('black');
+            border-bottom-color: color('blue', 3);
+
+        }
+    }
+
+	input, select, textarea {
+		color: color('grey', 7);
+	}
+}
+
+
+/*------------------------------------*\
+    #LIGHTEST GREY COLOR SCHEME
+\*------------------------------------*/
+
+
+ /**
+ * This color scheme is the same as the white one
+ * except for the lightest grey background color
+ */
+
+
+@mixin scheme--lightest-grey {
+    background-color: color('grey', 1);
+    border-color: color('grey', 3);
+
+ // Lozenge style tabbed navigation
+    .lozenge-nav a {
+        background-color: color('blue');
+        color: color('grey', 2);
+    	-webkit-font-smoothing: antialiased;
+    }
+    .lozenge-nav a:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
+        color: color('white');
+        background-color: color('blue', 6);
+    }
+
+    .lozenge-nav a.active, .lozenge-nav a.active:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
+        background-color: color('blue', 6);
+        color: color('white');
+    }
+
+    // Pagination style navigation
+    .pagination {
+    	-webkit-font-smoothing: antialiased;
+	}
+
+	input, select, textarea {
+		color: color('grey', 7);
+	}
+}
+
+
+
+
+
+/*------------------------------------*\
+    #LIGHTEST BLUE COLOR SCHEME
+\*------------------------------------*/
+
+@mixin scheme--lightest-blue {
+    background-color: color('blue', 2);
+    color: color('blue', 6);
+
+// @TODO - this colour should be lighter - for example #bad6e7
+// This then needs to be set as a daisychained variable in settings.
+    border-color: #bad6e7 !important;
+
+// @TODO - sort out this colour variable- as above.
+    hr {
+       	border-color: #bad6e7 !important;
+   	}
+
+
+    h1,
+    .alpha,
+    %alpha {
+        color: color('blue', 7);
+    }
+
+
+    h2,
+    .beta,
+    %beta {
+        color: color('blue', 7);
+    }
+
+
+    h3,
+    .gamma,
+    %gamma {
+        color: color('blue', 7);
+    }
+
+
+    h4,
+    .delta,
+    %delta {
+        color: color('blue', 7);
+    }
+
+
+    h5,
+    .epsilon,
+    %epsilon {
+        color: color('blue', 7);
+    }
+
+
+    h6,
+    .zeta,
+    %zeta {
+        color: color('blue', 7);
+    }
+
+
+    p, ul,  ol, dd, label {
+        color: color('blue', 6);
+    }
+
+
+    a {
+		color: color('blue', 6);
+		border-color: color('blue', 3);
+	}
+    a:visited {
+
+    }
+    a:focus {
+
+    }
+	a:active, a:hover {
+		color: color('blue');
+	}
+
+
+	h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    .main-heading a,
+    .sub-heading a {
+        color: color('blue', 7);
+        border-bottom-color: transparent;
+        &:hover {
+            color: color('black');
+            border-bottom-color: color('blue', 3);
+
+        }
+    }
+
+    // Lozenge style tabbed navigation
+    .lozenge-nav a {
+        background-color: color('blue');
+        color: color('blue', 2);
+    	-webkit-font-smoothing: antialiased;
+    }
+    .lozenge-nav a:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
+        color: color('white');
+        background-color: color('blue', 6);
+    }
+
+    .lozenge-nav a.active, .lozenge-nav a.active:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
+        background-color: color('blue', 6);
+        color: color('white');
+    }
+
+    // Pagination style navigation
+    .pagination {
+    	-webkit-font-smoothing: antialiased;
+	}
+
+	input, select, textarea {
+		color: color('grey', 7);
+	}
+
+/*
+    aside, .island {
+        @include scheme--darkest-grey;
+    }
+*/
+}
+
+
+
+
+
+/*------------------------------------*\
+    #DARKEST GREY COLOR SCHEME
+\*------------------------------------*/
+
+@mixin scheme--darkest-grey {
+    background-color: color('grey', 6);
+   	border-color: color('grey', 5);
+    color: color('grey', 2);
+
+    // smooth fonts for high contrast of light text on dark background
+	-webkit-font-smoothing: antialiased;
+
+    hr {
+   	   	border-color: color('grey', 5);
+    }
+
+    h1,
+    .alpha,
+    .main-heading,
+    %alpha {
+        color: color('white');
+    }
+
+
+    h2,
+    .beta,
+    .sub-heading,
+    %beta {
+        color: color('grey', 2);
+    }
+
+
+    h3,
+    .gamma,
+    %gamma {
+        color: color('grey', 2);
+    }
+
+
+    h4,
+    .delta,
+    %delta {
+        color: color('grey', 2);
+    }
+
+
+    h5,
+    .epsilon,
+    %epsilon {
+        color: color('grey', 2);
+    }
+
+
+    h6,
+    .zeta,
+    %zeta {
+        color: color('grey', 2);
+    }
+
+
+    p, ul,  ol, dd, label {
+        color: color('grey', 3);
+    }
+
+
+    a {
+		color: color('grey', 2);
+		border-color: color('blue');
+	}
+    a:visited {
+
+    }
+    a:focus {
+
+    }
+	a:active, a:hover {
+		color: color('blue', 3);
+	}
+
+
+	h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    .main-heading a,
+    .sub-heading a {
+        border-bottom-color: transparent;
+        &:hover {
+            color: color('white');
+            border-bottom-color: color('blue', 3);
+
+        }
+    }
+
+    // Lozenge style tabbed navigation
+    .lozenge-nav a {
+        background-color: color('grey', 7);
+        color: color('grey', 2);
+    	-webkit-font-smoothing: antialiased;
+    }
+    .lozenge-nav a:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
+        color: color('white');
+        background-color: color('black');
+    }
+
+    .lozenge-nav a.active, .lozenge-nav a.active:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
+        background-color: color('black');
+        color: color('white');
+    }
+
+    // Pagination style navigation
+    .pagination {
+    	-webkit-font-smoothing: antialiased;
+	}
+
+	input, select, textarea {
+		color: color('grey', 7);
+	}
+
+    table {
+        background-color: color('grey', 6);
+        color: color('grey', 2);
+    }
+
+    th {
+        background-color: color('grey', 5);
+        color: color('grey', 2);
+    }
+
+    th, td {
+        border-color: color('grey', 5);
+    }
+
+    tr:hover {
+    	background-color: color('grey', 5);
+    }
+}
+
+/*------------------------------------*\
+    #BLUE COLOR SCHEME
+\*------------------------------------*/
+
+@mixin scheme--blue {
+    background-color: color('blue');
+    border-color: color('blue', 6);
+   	color: color('white');
+   	// smooth fonts for high contrast of light text on dark background
+	-webkit-font-smoothing: antialiased;
+
+    hr {
+       	border-color: color('white');
+   	}
+
+
+    h1,
+    .alpha,
+    %alpha {
+        color: color('white');
+    }
+
+
+    h2,
+    .beta,
+    %beta {
+        color: color('white');
+    }
+
+
+    h3,
+    .gamma,
+    %gamma {
+        color: color('white');
+    }
+
+
+    h4,
+    .delta,
+    %delta {
+        color: color('white');
+    }
+
+
+    h5,
+    .epsilon,
+    %epsilon {
+        color: color('white');
+    }
+
+
+    h6,
+    .zeta,
+    %zeta {
+    }
+
+
+    p, ul,  ol, dd, label {
+        color: color('white');
+    }
+
+
+    a {
+		color: color('blue', 2);
+		border-color: color('blue', 7);
+	}
+    a:visited {
+
+    }
+    a:focus {
+
+    }
+	a:active, a:hover {
+		color: color('blue', 7);
+	}
+
+
+	h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    .main-heading a,
+    .sub-heading a {
+        border-bottom-color: transparent;
+        &:hover {
+            color: color('white');
+            border-bottom-color: color('blue', 3);
+
+        }
+    }
+
+    // Lozenge style tabbed navigation
+    .lozenge-nav a {
+        background-color: color('grey', 7);
+        color: color('grey', 2);
+    	-webkit-font-smoothing: antialiased;
+    }
+    .lozenge-nav a:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
+        color: color('white');
+        background-color: color('black');
+    }
+
+    .lozenge-nav a.active, .lozenge-nav a.active:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
+        background-color: color('black');
+        color: color('white');
+    }
+
+    // Pagination style navigation
+    .pagination {
+    	-webkit-font-smoothing: antialiased;
+	}
+
+/*
+    aside, .island {
+        @include scheme--black;
+    }
+*/
+}
+
+
+/*------------------------------------*\
+    #DARKEST BLUE COLOR SCHEME
+\*------------------------------------*/
+
+@mixin scheme--darkest-blue {
+    background-color: color('blue', 7);
+    border-color: color('grey', 5);
+    color: color('grey', 2);
+
+   	// smooth fonts for high contrast of light text on dark background
+	-webkit-font-smoothing: antialiased;
+
+    hr {
+       	border-color: color('grey', 5);
+   	}
+
+
+    h1,
+    .alpha,
+    %alpha {
+        color: color('grey', 2);
+    }
+
+
+    h2,
+    .beta,
+    %beta {
+        color: color('grey', 2);
+    }
+
+
+    h3,
+    .gamma,
+    %gamma {
+        color: color('grey', 2);
+    }
+
+
+    h4,
+    .delta,
+    %delta {
+        color: color('grey', 2);
+    }
+
+
+    h5,
+    .epsilon,
+    %epsilon {
+        color: color('grey', 2);
+    }
+
+
+    h6,
+    .zeta,
+    %zeta {
+    }
+
+
+    p, ul,  ol, dd, label {
+        color: color('grey', 3);
+    }
+
+
+    a {
+		color: color('grey', 2);
+		border-color: color('blue');
+	}
+    a:visited {
+
+    }
+    a:focus {
+
+    }
+	a:active, a:hover {
+		color: color('blue', 3);
+	}
+
+
+	h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    .main-heading a,
+    .sub-heading a {
+        border-bottom-color: transparent;
+        &:hover {
+            color: color('white');
+            border-bottom-color: color('blue', 3);
+
+        }
+    }
+
+    // Lozenge style tabbed navigation
+    .lozenge-nav a {
+        background-color: color('grey', 7);
+        color: color('grey', 2);
+    	-webkit-font-smoothing: antialiased;
+    }
+    .lozenge-nav a:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
+        color: color('white');
+        background-color: color('black');
+    }
+
+    .lozenge-nav a.active, .lozenge-nav a.active:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
+        background-color: color('black');
+        color: color('white');
+    }
+
+    // Pagination style navigation
+    .pagination {
+    	-webkit-font-smoothing: antialiased;
+	}
+
+	input, select, textarea {
+		color: color('grey', 7);
+	}
+}
+
+
+
+
+
+/*------------------------------------*\
+    #NEAR BLACK COLOR SCHEME
+\*------------------------------------*/
+
+@mixin scheme--near-black {
+    background-color: color('grey', 7);
+    border-color: color('grey');
+    color: color('grey', 2);
+
+   	// smooth fonts for high contrast of light text on dark background
+	-webkit-font-smoothing: antialiased;
+
+    hr {
+       	border-color: color('grey');
+   	}
+
+
+    h1,
+    .alpha,
+    %alpha {
+        color: color('grey', 2);
+    }
+
+
+    h2,
+    .beta,
+    %beta {
+        color: color('grey', 2);
+    }
+
+
+    h3,
+    .gamma,
+    %gamma {
+        color: color('grey', 2);
+    }
+
+
+    h4,
+    .delta,
+    %delta {
+        color: color('grey', 2);
+    }
+
+
+    h5,
+    .epsilon,
+    %epsilon {
+        color: color('grey', 2);
+    }
+
+
+    h6,
+    .zeta,
+    %zeta {
+        color: color('grey', 2);
+    }
+
+
+    p, ul,  ol, dd, label {
+        color: color('grey', 3);
+    }
+
+
+    a {
+		color: color('grey', 2);
+		border-color: color('blue');
+	}
+    a:visited {
+
+    }
+    a:focus {
+
+    }
+	a:active, a:hover {
+		color: color('blue', 3);
+	}
+
+	h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    .main-heading a,
+    .sub-heading a {
+        border-bottom-color: transparent;
+        &:hover {
+            color: color('white');
+            border-bottom-color: color('blue', 3);
+
+        }
+    }
+
+	input, select, textarea {
+		color: color('grey', 7);
+	}
+}
+
+
+
+
+
+/*------------------------------------*\
+    #BLACK COLOR SCHEME
+\*------------------------------------*/
+
+@mixin scheme--black {
+    background-color: color('black');
+    border-color: color('grey', 6);
+    color: color('grey', 2);
+
+   	// smooth fonts for high contrast of light text on dark background
+	-webkit-font-smoothing: antialiased;
+
+    hr {
+       	border-color: color('grey', 6);
+   	}
+
+
+    h1,
+    .alpha,
+    %alpha {
+        color: color('grey', 2);
+    }
+
+
+    h2,
+    .beta,
+    %beta {
+        color: color('grey', 2);
+    }
+
+
+    h3,
+    .gamma,
+    %gamma {
+        color: color('grey', 2);
+    }
+
+
+    h4,
+    .delta,
+    %delta {
+        color: color('grey', 2);
+    }
+
+
+    h5,
+    .epsilon,
+    %epsilon {
+        color: color('grey', 2);
+    }
+
+
+    h6,
+    .zeta,
+    %zeta {
+    }
+
+
+    p, ul,  ol, dd, label {
+        color: color('grey', 3);
+    }
+
+
+    a {
+		color: color('grey', 2);
+		border-color: color('blue');
+	}
+    a:visited {
+
+    }
+    a:focus {
+
+    }
+	a:active, a:hover {
+		color: color('blue', 3);
+	}
+
+
+	h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    .main-heading a,
+    .sub-heading a {
+        border-bottom-color: transparent;
+        &:hover {
+            color: color('white');
+            border-bottom-color: color('blue', 3);
+
+        }
+    }
+
+	input, select, textarea {
+		color: color('grey', 7);
+	}
+}
+
+/*------------------------------------*\
+    #RED COLOR SCHEME
+\*------------------------------------*/
+
+@mixin scheme--red {
+    background-color: color('red');
+   	border-color: color('red', 5);
+    color: color('red', 2);
+
+    // smooth fonts for high contrast of light text on dark background
+	-webkit-font-smoothing: antialiased;
+
+    hr {
+   	   	border-color: color('red', 5);
+    }
+
+    h1,
+    .alpha,
+    .main-heading,
+    %alpha {
+        color: color('white');
+    }
+
+
+    h2,
+    .beta,
+    .sub-heading,
+    %beta {
+        color: color('red', 2);
+    }
+
+
+    h3,
+    .gamma,
+    %gamma {
+        color: color('red', 2);
+    }
+
+
+    h4,
+    .delta,
+    %delta {
+        color: color('red', 2);
+    }
+
+
+    h5,
+    .epsilon,
+    %epsilon {
+        color: color('red', 2);
+    }
+
+
+    h6,
+    .zeta,
+    %zeta {
+        color: color('red', 2);
+    }
+
+
+    p, ul,  ol, dd, label {
+        color: color('red', 3);
+    }
+
+
+    a {
+		color: color('grey', 2);
+		border-color: color('blue');
+	}
+    a:visited {
+
+    }
+    a:focus {
+
+    }
+	a:active, a:hover {
+		color: color('blue', 3);
+	}
+
+
+	h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    .main-heading a,
+    .sub-heading a {
+        border-bottom-color: transparent;
+        &:hover {
+            color: color('white');
+            border-bottom-color: color('blue', 3);
+
+        }
+    }
+
+    // Lozenge style tabbed navigation
+    .lozenge-nav a {
+        background-color: color('grey', 7);
+        color: color('red', 2);
+    	-webkit-font-smoothing: antialiased;
+    }
+    .lozenge-nav a:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
+        color: color('white');
+        background-color: color('black');
+    }
+
+    .lozenge-nav a.active, .lozenge-nav a.active:hover {
+        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
+        background-color: color('black');
+        color: color('white');
+    }
+
+    // Pagination style navigation
+    .pagination {
+    	-webkit-font-smoothing: antialiased;
+	}
+
+	input, select, textarea {
+		color: color('grey', 7);
+	}
+
+    table {
+        background-color: color('red', 6);
+        color: color('red', 2);
+    }
+
+    th {
+        background-color: color('red', 5);
+        color: color('red', 2);
+    }
+
+    th, td {
+        border-color: color('red', 5);
+    }
+
+    tr:hover {
+    	background-color: color('red', 5);
+    }
+}

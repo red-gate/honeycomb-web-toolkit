@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    #COLOUR
+\*------------------------------------*/
+
+
+/** This function allows us to call our colours in our styles,
+  * by accessing colours in our site-colors by name and optional tone/shade.
+  * Source: http://erskinedesign.com/blog/friendlier-color-names-sass-maps/
+  * Here's an example of how you would use this in your CSS:
+  *    a {
+  *        color: color('blue');
+  *        &:hover {
+  *            color: color('blue', 3);
+  *        }
+  *    }
+  */
+
+@function color($color, $tone: 'base') {
+    @return map-get(map-get($site-colors, $color), $tone);
+}

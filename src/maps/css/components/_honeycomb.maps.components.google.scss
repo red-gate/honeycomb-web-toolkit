@@ -1,0 +1,5 @@
+.google-map {
+    @extend .absolute-top-left !optional;
+    width: 100%;
+    height: 100%;
+}

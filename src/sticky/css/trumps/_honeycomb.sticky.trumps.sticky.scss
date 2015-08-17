@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    #STICKY TRUMPS
+\*------------------------------------*/
+/**
+ * High-specificity, very explicit selectors. Overrides and helper classes.
+ * Sticky items - menus, etc that are pinned to the edge of the viewport by JS.
+ */
+
+.sticky {
+	z-index:2 !important;
+	box-shadow: 0 2px 2px rgba(118, 118, 118, 0.1) !important;
+}

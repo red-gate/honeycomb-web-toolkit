@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    #COLOUR SCHEMES
+\*------------------------------------*/
+
+/* Classes to include colour schemes in components
+ * Colour schemes are built in this partial: _honeycomb.snippets.color-schemes.scss
+ */
+
+.scheme--white {
+    @include scheme--white;
+}
+
+.scheme--lightest-grey {
+    @include scheme--lightest-grey;
+}
+
+.scheme--darkest-grey {
+    @include scheme--darkest-grey;
+}
+
+.scheme--lightest-blue {
+    @include scheme--lightest-blue;
+}
+
+.scheme--blue {
+    @include scheme--blue;
+}
+
+.scheme--darkest-blue {
+    @include scheme--darkest-blue;
+}
+
+.scheme--near-black {
+    @include scheme--near-black;
+}
+
+.scheme--black {
+    @include scheme--black;
+}
+
+.scheme--red {
+    @include scheme--red;
+}

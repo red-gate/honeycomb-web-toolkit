@@ -1,0 +1,89 @@
+/*------------------------------------*\
+    #TABLE
+\*------------------------------------*/
+
+/**
+ * To keep things lined up, mark up your tables to a 24-col grid.
+ * Basically, put colspan on every cell, andmake sure your colspans add up to 24.
+ * Also add the .table-grid  helper class to your table.
+ * http://csswizardry.com/2013/11/taming-data-tables/
+ */
+
+
+// @TODO: Set default table colours in global settings ???
+
+
+table {
+    width: 100%;
+    vertical-align: top;
+// @TODO this colour should have it's own variable
+    background-color: $default-bg-color;
+}
+
+/**
+ * Move the caption beneath the table.
+ * Note: Caption must be the first element within the table element.
+ */
+table caption {
+    caption-side: bottom;
+    @include margin(0.5, top);
+}
+
+
+th, td {
+    @include padding(0.5);
+    @include border();
+// @TODO this colour should have it's own variable
+    border-color: color('grey', 3);
+}
+
+
+th {
+    font-weight: bold;
+// @TODO this colour should have it's own variable
+    color: color('grey', 5);
+// @TODO this colour should have it's own variable
+    background-color: color('grey', 2);
+}
+
+
+/**
+ * Force table cells to all render at the same width.
+ */
+.table-grid {
+    table-layout: fixed;
+}
+
+
+tr:hover {
+	background-color: color('grey', 2);
+}
+
+
+table.striped tr.odd,
+table.striped tr:nth-child(odd) {
+    background: $default-bg-color;
+}
+
+table.striped tr.even,
+table.striped tr:nth-child(even) {
+    background: color('grey', 2);
+}
+
+
+/**
+ * Double the padding in table cells.
+ */
+.td-padded--loose {
+    @include padding(1);
+}
+
+.td-padded-v--loose {
+    @include padding(1, top);
+    @include padding(1, bottom);
+}
+
+.td-padded-h--loose {
+    @include padding(1, left);
+    @include padding(1, right);
+}

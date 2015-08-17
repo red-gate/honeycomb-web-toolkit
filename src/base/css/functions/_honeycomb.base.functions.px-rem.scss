@@ -1,0 +1,11 @@
+@function px-rem($px) {
+
+    // Strip the unit.
+    $px: strip-unit($px);
+
+    // Do the calc.
+    $rem: (($px/$index) * 1px) + rem;
+
+    // Return the rem.
+    @return $rem;
+}

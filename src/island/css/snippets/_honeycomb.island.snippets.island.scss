@@ -1,0 +1,17 @@
+/*------------------------------------*\
+    #ISLAND - BOX OFF SOME CONTENT
+\*------------------------------------*/
+
+@mixin island {
+  display: block;
+  @include margin(1, bottom);
+
+  & div:last-child,
+  & a:last-child,
+  & p:last-child,
+  & ul:last-child,
+  & ol:last-child,
+  & dl:last-child {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,28 @@
+// TODO add any extra documentation and an example
+
+// Mixin for adding margins to objects/components
+@mixin margin($scale: 1, $direction: all) {
+
+  $margin: inherit;
+  $property: margin;
+
+  @if index($margin-whitelist, $scale) {
+    $margin: round($spacing-unit * $scale);
+  } @else {
+    @error "Scale '#{$scale}' is not a valid value for `margin`.";
+    $margin: false;
+  }
+
+  // Determine the direction.
+  @if $direction == "all" {
+    $property: margin;
+  } @else {
+    $property: margin-#{$direction};
+  }
+
+  // Print the rule.
+  @if $margin {
+    #{$property}: $margin;
+    #{$property}: px-rem($margin);
+  }
+}

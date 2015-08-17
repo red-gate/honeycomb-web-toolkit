@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    #ISLAND - BOX OFF SOME CONTENT
+\*------------------------------------*/
+
+.island {
+  @include island;
+}
+
+.island--padded {
+  @include padding(1);
+}
+
+.island--padded--loose {
+  @include padding(4);
+}
+
+.island--padded--tight {
+  @include padding(0.5);
+}
+
+.island--border {
+  @include border;
+}

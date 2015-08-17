@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    #FLOATS TRUMPS
+\*------------------------------------*/
+/**
+ * High-specificity, very explicit selectors. Overrides and helper classes.
+ * Float overrides.
+ */
+
+.float-left {
+    float: left !important;
+}
+
+
+.float-right {
+    float: right !important;
+}

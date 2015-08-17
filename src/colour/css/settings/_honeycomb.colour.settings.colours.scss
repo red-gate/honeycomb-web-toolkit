@@ -1,0 +1,85 @@
+/*------------------------------------*\
+    #COLOUR SETTINGS
+\*------------------------------------*/
+
+/**
+ * Set default colour variable values.
+ * These can be overwritten by the $site-colours SASS map in [project name].settings.colors.scss
+ * These variables are accessed by the function _honeycomb.functions.colors.scss when we reference them in our SASS
+ */
+$site-colors: (
+    'yellow': (
+        'base': #ffe335,
+        1: #fffbe1,
+        2: #fff7c2,
+        3: #ffee86,
+        4: #ffe335,
+        5: #f4cd00,
+        6: #dcaa00
+    ),
+    'orange': (
+        'base': #ffb700,
+        1: #fff4d9,
+        2: #ffe9b2,
+        3: #ffd466,
+        4: #ffb700,
+        5: #f99115,
+        6: #ff5000
+    ),
+    'green': (
+        'base': #82c140,
+        1: #ebf5e3,
+        2: #d7ebc5,
+        3: #b4da8c,
+        4: #82c140,
+        5: #6db543,
+        6: #568c37
+    ),
+    'red': (
+        'base': #e50e1f,
+        'brand': #cc0000,
+        1: #fce5e6,
+        2: #f8c3c7,
+        3: #f2868f,
+        4: #e50e1f,
+        5: #c80a14,
+        6: #8c0a14
+    ),
+    'blue': (
+        'base': #1696e5,
+        1: #dceffb,
+        2: #b9dff7,
+        3: #73c0ef,
+        4: #1696e5,
+        5: #008bcb,
+        6: #0f6499,
+        7: #093a59
+    ),
+    'grey': (
+        'base': #b6b6b6,
+        1: #f2f2f2,
+        2: #ebebeb,
+        3: #dcdcdc,
+        4: #b6b6b6,
+        5: #767676,
+        6: #373737,
+        7: #222222,
+        8: #000000
+    ),
+    'black': (
+        'base': #000000
+    ),
+    'white': (
+        'base': #ffffff
+    )
+);
+
+// Chain colours onto useage variables
+$default-bg-color: map-get(map-get($site-colors, 'white'), 'base');
+$default-text-color: map-get(map-get($site-colors, 'grey'), 5);
+$default-border-color: map-get(map-get($site-colors, 'grey'), 3);
+
+$link-color: $default-text-color;
+$link-border-color: map-get(map-get($site-colors, 'blue'), 'base');
+$link-hover-color: map-get(map-get($site-colors, 'blue'), 'base');
+$link-hover-background-color: map-get(map-get($site-colors, 'grey'), 1);

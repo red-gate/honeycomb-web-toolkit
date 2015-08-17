@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    #LINKS
+\*------------------------------------*/
+
+/**
+ * Basic styles for raw unclassed links.
+ */
+
+a {
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    color: $link-color;
+    border-bottom-color: $link-border-color;
+}
+
+a:visited { }
+
+a:focus { }
+
+a:active, a:hover {
+    color: $link-hover-color;
+}
+
+
+/**
+ * Basic styles linked headings.
+ */
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+.main-heading a,
+.sub-heading a {
+    border-bottom-color: transparent;
+    &:hover {
+        color: color('black');
+        border-bottom-color: $link-border-color;
+    }
+}

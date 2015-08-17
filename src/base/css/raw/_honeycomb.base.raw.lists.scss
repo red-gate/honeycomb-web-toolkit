@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #LISTS
+\*------------------------------------*/
+
+/**
+ * Basic styles for raw unclassed lists.
+ */
+
+ul, ol, dd {
+  @include margin(1, left);
+}
+
+li {
+  @include margin(1, bottom);
+}
+
+
+dl { }
+dt {
+  font-weight: bold; }
+dd { }
+
+ul ul,
+ul ol,
+ul dl,
+ol ul,
+ol ol,
+ol dl,
+dl ul,
+dl ol,
+dl dl {
+    @include margin(0.5, top);
+}
+
+// Remove extra vertical spacing when nesting lists.
+li {
+
+  > ul,
+  > ol {
+    @include margin(0, bottom);
+  }
+}

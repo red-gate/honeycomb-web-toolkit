@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    #SPACING SETTINGS
+\*------------------------------------*/
+
+$index: 16px !default; // font-size
+$index-height: 1.5 !default; // line height
+
+/**
+ * Spacing units - based off $line-height.
+ */
+$spacing-unit: $index * $index-height !default;
+$spacing-unit--small: round($spacing-unit / 2) !default;
+$spacing-unit--large: round($spacing-unit * 2) !default;
+
+
+/**
+ * White list of margin scales.
+ */
+$margin-whitelist: (-1, -0.5, 0, 0.25, 0.5, 1, 1.5, 2, 3, 4, 10) !default;
+
+
+/**
+ * White list of padding scales.
+ */
+$padding-whitelist: (0, 0.25, 0.5, 1, 1.5, 2, 3, 4, 8, 10) !default;

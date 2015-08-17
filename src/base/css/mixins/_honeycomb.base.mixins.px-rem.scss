@@ -1,0 +1,15 @@
+// Convert pixels to rems
+// Usage: @include px-rem(margin, 10, 20); 10 = top/bottom margin, 20 = left/right margin.
+@mixin px-rem($property, $values...) {
+  $pxs: '';
+  $rems: '';
+
+  @for $i from 1 through length($values) {
+    $value: nth($values, $i);
+    $pxs: #{$pxs}$value + px + ' ';
+    $rems: #{$rems}(($value/$index) * 1px) + rem + ' ';
+  }
+
+  #{$property}: $pxs;
+  #{$property}: $rems;
+}
