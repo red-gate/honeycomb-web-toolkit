@@ -7,7 +7,7 @@
   @for $i from 1 through length($values) {
     $value: nth($values, $i);
     $pxs: #{$pxs}$value + px + ' ';
-    $rems: #{$rems}(($value/$index) * 1px) + rem + ' ';
+    $rems: #{$rems}(($value/$spacing-index) * 1px) + rem + ' ';
   }
 
   #{$property}: $pxs;
