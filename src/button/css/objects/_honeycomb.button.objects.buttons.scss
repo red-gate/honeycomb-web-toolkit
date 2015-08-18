@@ -17,8 +17,9 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    -webkit-font-smoothing: antialiased;
     display: inline-block;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, .25);
+    -webkit-font-smoothing: antialiased;
 
     // IE7 support.
     .ie7 & {
@@ -27,47 +28,54 @@
     }
 
     &:hover {
-      background-color: $button-hover-background !important;
-      color: $button-hover-color !important;
-      border-width: $button-hover-border-width;
-      border-style: $button-hover-border-style;
-      border-color: $button-hover-border-color;
-  }
+        background-color: $button-hover-background !important;
+        color: $button-hover-color !important;
+        border-width: $button-hover-border-width !important;
+        border-style: $button-hover-border-style !important;
+        border-color: $button-hover-border-color !important;
+    }
+
+    &:active {
+        box-shadow: none;
+    }
 }
 
 .button--large,
 %button--large {
-  padding: $button-padding--large;
+padding: $button-padding--large;
 }
 
 .button--small,
 %button--small {
-  padding: $button-padding--small;
+padding: $button-padding--small;
 }
 
 .button--full-width,
 %button--full-width {
-  display: block;
-  text-align: center;
+display: block;
+text-align: center;
 }
 
 .button--inline,
 %button--inline {
-  display: inline;
+display: inline;
 }
 
-
-
-
-// Blue buttons.
+// Primary buttons.
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button--primary,
 %button--primary {
     background-color: color('blue') !important;
+    color: color('white') !important;
+
+    &:hover {
+        background-color: color('blue', 6) !important;
+        color: color('white') !important;
+    }
 }
 
 // Download button.
-// Extends the primary blue button, adding a download icon before the button text
+// Extends the primary button, adding a download icon before the button text
 .button--download,
 %button--download {
     @extend %button--primary;
@@ -98,10 +106,32 @@
 .button--buy,
 %button--buy {
     background-color: color('green', 5) !important;
+    color: color('white') !important;
+    border-color: color('green', 5) !important;
+
+    &:hover {
+        background-color: color('green', 6) !important;
+        color: color('white') !important;
+        border-color: color('green', 6) !important;
+    }
 
     &:before {
         content: "\f07a ";
         font-family: "FontAwesome";
         @include padding(0.5, right);
+    }
+}
+
+// "Disabled" buttons
+// These colors are !important as they should always apply no matter what color schemes they are nested in.
+.button--disabled,
+%button--disabled,
+[disabled] {
+    &, &:hover, &:active {
+        background-color: color('grey') !important;
+        color: color('white') !important;
+        border-color: color('grey') !important;
+        box-shadow: none;
+        cursor: pointer;
     }
 }
