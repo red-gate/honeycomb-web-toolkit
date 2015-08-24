@@ -1,0 +1,190 @@
+/* PRIMARY NAVIGATION */
+.header--primary {
+    display: table;
+    width: 100%;
+    box-shadow: 0 2px 2px rgba(118,118,118,0.1);
+    position: relative;
+    z-index: 10;
+
+    .band__inner-container {
+        @include padding(0);
+        display: table;
+        // width: 100%; /* Remove this when responsive */
+
+        &:before, &:after {
+            display: none;
+        }
+    }
+
+    .header--primary__app-logo-container {
+        @include padding(1, left);
+        @include padding(1, right);
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        width: 1px;
+        white-space: nowrap;
+    }
+
+    .header--primary__company-logo-container {
+        @extend .header--primary__app-logo-container;
+        border-right: none !important;
+    }
+
+    ul {
+        @extend %list--horizontal;
+        @include margin(1, left);
+        @include margin(1, right);
+        float: left;
+
+        &, li {
+            @include margin(0, bottom);
+            @include margin(0.25, left);
+            @include margin(0.25, right);
+        }
+
+        a {
+            @include padding(0.75, top);
+            @include padding(0.75, bottom);
+            @include padding(0.5, left);
+            @include padding(0.5, right);
+            display: block;
+            border-bottom-width: 0;
+
+            &.active {
+                border-bottom-width: 5px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    @include responsive('medium') {
+        &, .band__inner-container {
+            display: block;
+        }
+
+        .header--primary__app-logo-container,
+        .header--primary__company-logo-container {
+            @include padding(0.5, top);
+            @include padding(0.5, bottom);
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+
+        .header--primary__company-logo-container {
+            display: none;
+        }
+
+        ul {
+            @include margin(0);
+            float: none !important;
+
+            li {
+                display: block;
+            }
+
+            a {
+                @include padding(0.5, top);
+                @include padding(0.5, bottom);
+                @include padding(1, left);
+                @include padding(1, right);
+            }
+        }
+    }
+}
+
+.header--primary--light {
+    background-color: color('grey', 1);
+    border-bottom: 1px solid color('grey', 3);
+
+    .header--primary__app-logo-container {
+        border-right: 1px solid color('grey', 3);
+    }
+
+    .header--primary__company-logo-container {
+        background-color: color('grey', 3);
+    }
+
+    @include responsive('medium') {
+        .header--primary__app-logo-container {
+            border-bottom: 4px solid color('grey', 3);
+        }
+
+        li {
+            border-bottom: 1px solid color('grey', 3);
+        }
+    }
+}
+
+.header--primary--dark {
+    background-color: color('grey', 6);
+
+    .header--primary__app-logo-container {
+        background-color: color('red', 'brand');
+    }
+
+    .header--primary__company-logo-container {
+        background-color: color('grey', 5);
+    }
+
+    ul {
+        a {
+            color: color('white');
+        }
+    }
+
+    @include responsive('medium') {
+        li {
+            border-bottom: 1px solid color('grey', 5);
+        }
+    }
+}
+
+/* SECONDARY NAVIGATION */
+.header--secondary {
+    border-bottom: 4px solid color('grey', 2);
+    overflow: visible;
+
+    .band__inner-container {
+        @include padding(0);
+        position: relative;
+    }
+
+    ul {
+        @extend %list--horizontal;
+
+        &, li {
+            @include margin(0, bottom);
+        }
+
+        a {
+            @include padding(1);
+            @include padding(0.5, top);
+            @include padding(0.5, bottom);
+            @include font-size(13px);
+            display: block;
+            border-bottom-color: transparent;
+            border-bottom-width: 4px;
+            text-transform: uppercase;
+            position: relative;
+            top: 4px;
+
+            &.active {
+                border-bottom-color: $link-border-color;
+                font-weight: bold;
+            }
+        }
+    }
+
+    @include responsive('medium') {
+        border-bottom: none;
+
+        ul {
+            li {
+                display: block;
+                border-bottom: 4px solid color('grey', 2);
+            }
+        }
+    }
+}

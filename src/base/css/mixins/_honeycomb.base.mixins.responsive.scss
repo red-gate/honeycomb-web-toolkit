@@ -1,10 +1,15 @@
 // TODO document and example
 
+/**
+ * When using medium as breakpoint, means to apply rules to medium breakpoint and BELOW,
+ * as we're going desktop first (max-width), rather than mobile first (min-width).
+ */
+
 @mixin responsive($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
 
     $width: map-get($breakpoints, $breakpoint);
-    @media only screen and (min-width: $width) {
+    @media only screen and (max-width: $width) {
       @content;
     }
 
