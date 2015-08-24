@@ -2,15 +2,7 @@
  * Import all the modules
  */
 
-// Base
-@import 'base/vendor/*';
-@import 'base/css/settings/*';
-@import 'base/css/functions/*';
-@import 'base/css/mixins/*';
-@import 'base/css/snippets/*';
-@import 'base/css/raw/*';
-@import 'base/css/objects/*';
-@import 'base/css/trumps/*';
+@import 'base/css/main';
 
 // Colour
 @import 'colour/css/settings/*';
