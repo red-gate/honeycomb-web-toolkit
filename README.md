@@ -20,7 +20,6 @@ Once Bower is installed, add a bower.json manifest file into the root of your pr
 
 <pre><code>{
     "name": "Your project name goes here",
-    "version": "Your project version goes here, e.g. 1.0.0",
     "dependencies": {
         "honeycomb": "git@github.com:red-gate/honeycomb.git"
     }
