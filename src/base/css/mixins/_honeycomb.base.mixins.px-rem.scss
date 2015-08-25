@@ -6,8 +6,8 @@
 
   @for $i from 1 through length($values) {
     $value: nth($values, $i);
-    $pxs: (#{$pxs})$value + px + ' ';
-    $rems: #{$rems}(($value/$spacing-index) * 1px) + rem + ' ';
+    $pxs: (#{$pxs}) + $value + px + ' ';
+    $rems: (#{$rems}) + (($value/$spacing-index) * 1px) + rem + ' ';
   }
 
   #{$property}: $pxs;
