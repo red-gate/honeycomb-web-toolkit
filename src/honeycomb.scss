@@ -2,102 +2,50 @@
  * Import all the modules
  */
 
-// Base
-@import 'base/vendor/*';
-@import 'base/css/settings/*';
-@import 'base/css/functions/*';
-@import 'base/css/mixins/*';
-@import 'base/css/snippets/*';
-@import 'base/css/raw/*';
-@import 'base/css/objects/*';
-@import 'base/css/trumps/*';
+@import 'base/css/main';
 
-// Colour
-@import 'colour/css/settings/*';
-@import 'colour/css/functions/*';
-@import 'colour/css/snippets/*';
-@import 'colour/css/raw/*';
-@import 'colour/css/objects/*';
-@import 'colour/css/trumps/*';
+@import 'colour/css/main';
 
-// Type
-@import 'type/css/settings/*';
-@import 'type/css/mixins/*';
-@import 'type/css/snippets/*';
-@import 'type/css/raw/*';
-@import 'type/css/objects/*';
-@import 'type/css/trumps/*';
+@import 'type/css/main';
 
-// Links
-@import 'links/css/raw/*';
-@import 'links/css/objects/*';
+@import 'links/css/main';
 
-// Grid
-@import 'grid/css/settings/*';
-@import 'grid/css/mixins/*';
-@import 'grid/css/objects/*';
+@import 'grid/css/main';
 
-// Icons
-@import 'icons/vendor/font-awesome-4.1.0/scss/font-awesome';
-@import 'icons/css/objects/*';
+@import 'icons/css/main';
 
-// List
-@import 'list/css/objects/*';
+@import 'list/css/main';
 
-// Maps
-@import 'maps/css/components/*';
+@import 'maps/css/main';
 
-// Navigation
-@import 'navigation/css/components/*';
+@import 'navigation/css/main';
 
-// Buttons
-@import 'button/css/settings/*';
-@import 'button/css/objects/*';
+@import 'button/css/main';
 
-// Table
-@import 'table/css/raw/*';
+@import 'table/css/main';
 
-// Forms
-@import 'forms/css/raw/*';
-@import 'forms/css/objects/*';
+@import 'forms/css/main';
 
-// Media
-@import 'media/css/objects/*';
+@import 'media/css/main';
 
-// Corners
-@import 'corners/css/settings/*';
-@import 'corners/css/snippets/*';
-@import 'corners/css/objects/*';
+@import 'corners/css/main';
 
-// Tabs
-@import 'tabs/css/components/*';
+@import 'tabs/css/main';
 
-// Island
-@import 'island/css/snippets/*';
-@import 'island/css/objects/*';
+@import 'island/css/main';
 
-// Avatar
-@import 'avatar/css/objects/*';
+@import 'avatar/css/main';
 
-// Video
-@import 'video/css/objects/*';
+@import 'video/css/main';
 
-// Lightbox
-@import 'lightbox/vendor/*';
-@import 'lightbox/css/components/*';
+@import 'lightbox/css/main';
 
-// Notification
-@import 'notification/css/components/*';
+@import 'notification/css/main';
 
-// Carousel
-@import 'carousel/vendor/*';
+@import 'carousel/css/main';
 
-// Animation
-@import 'animation/css/objects/*';
+@import 'animation/css/main';
 
-// Scroll
-@import 'scroll/css/objects/*';
+@import 'scroll/css/main';
 
-// Sticky
-@import 'sticky/css/objects/*';
-@import 'sticky/css/trumps/*';
+@import 'sticky/css/main';

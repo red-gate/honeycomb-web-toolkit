@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'src',
-                    src: ['**/*.scss', '!**/vendor/**/*'],
+                    src: ['honeycomb.scss'],
                     dest: 'dist/css',
                     ext: '.css'
                 }]
