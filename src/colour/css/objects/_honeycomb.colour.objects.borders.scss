@@ -1,0 +1,13 @@
+/*------------------------------------*\
+    #BORDERS
+\*------------------------------------*/
+
+/* set border to inheirt for colour schemes */
+*,
+.border,
+.border-top,
+.border-right,
+.border-bottom,
+.border-left {
+    border-color: inherit;
+}
