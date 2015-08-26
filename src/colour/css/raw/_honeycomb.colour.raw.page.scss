@@ -2,13 +2,6 @@
     #PAGE
 \*------------------------------------*/
 
-
-/**
- * min-width rule is to get scrollbars while the project is fixed width at 1000px
- * this is a temporary style to ensure the overflow:hidden rule on the band__inner-container, isn't a problem when resizing the viewport
- *
- */
-
 html {
   background-color: $default-bg-color;
   color: $default-text-color;
