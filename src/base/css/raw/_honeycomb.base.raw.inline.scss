@@ -33,8 +33,6 @@ hr {
   border-left: 0;
   min-height: 0;
   height: 1px;
-  // @TODO change to an HR colour variable
-  border-color: color('grey', 3);
   border-style: solid;
   &.dashed {
     border-style: dashed;
