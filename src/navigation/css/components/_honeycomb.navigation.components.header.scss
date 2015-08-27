@@ -53,6 +53,7 @@
 
             &.active {
                 border-bottom-width: 5px;
+                border-bottom-style: solid;
                 font-weight: bold;
             }
         }
@@ -172,6 +173,7 @@
 
             &.active {
                 border-bottom-color: $link-border-color;
+                border-bottom-style: solid;
                 font-weight: bold;
             }
         }
