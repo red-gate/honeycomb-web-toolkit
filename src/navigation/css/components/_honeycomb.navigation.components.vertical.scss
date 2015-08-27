@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    #VERTICAL NAVIGATION
+\*------------------------------------*/
+
+.nav--vertical {
+
+    ul {
+        @extend .list--bare;
+        @include margin(0);
+        @include margin(1, bottom);
+        border-right: 5px solid $default-border-color;
+        border-bottom: 1px solid color('grey', 2);
+
+        ul {
+            @include margin(0, bottom);
+            border-right: none;
+            border-bottom: none;
+        }
+    }
+
+    li {
+        @include margin(0);
+        border-top: 1px solid color('grey', 2);
+
+        li {
+            @include padding(1, left);
+        }
+    }
+
+    a {
+        @include padding(0.25);
+        position: relative;
+        display: block;
+        border-bottom: none;
+        width: calc(100% + 5px);
+
+        &.active {
+            border-right: 5px solid $link-border-color;
+            font-weight: bold;
+        }
+    }
+
+}
