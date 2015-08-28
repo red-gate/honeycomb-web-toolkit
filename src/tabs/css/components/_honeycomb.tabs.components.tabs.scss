@@ -2,38 +2,49 @@
     #TABS
 \*------------------------------------*/
 
-// The containing element for tabs
 .tabbed {
     .main-heading {
         text-align: center;
     }
 }
 
-
-/**
- * Tabs object - based on CSS Wizardy tabs
- *
- * 1. Tables (kinda) for layout!
- * 2. This is the magic bit; make all children occupy equal width.
- * 3. Required to make the tabs fill their container.
- * 4. Make each tab pack up horizontally.
- * 5. Ensure the hit area covers the whole tab.
- */
 .tabs {
+    @include clearfix();
+    float: left;
+    width: 100%;
+    list-style: none;
     margin:  0;
     padding: 0;
-    list-style: none;
-    display: table; /* [1] */
-    table-layout: fixed; /* [2] */
-    width: 100%; /* [3] */
+    border-bottom-style: solid;
+    border-bottom-width: $tabs-border-width;
 }
 
 .tabs li {
-    display: table-cell; /* [4] */
+    @include margin(0);
+    @include margin(0.25, right);
+    position: relative;
+    float: left;
+    top: $tabs-border-width;
+}
+
+.tabs li.active {
+    @include margin(0);
+    @include margin(-0.25, left);
+    @include padding(0.25, left);
+    @include padding(0.25, right);
 }
 
 .tabs a {
-    display: block; /* [5] */
+    @include padding(0.5);
+    @include padding(1, left);
+    @include padding(1, right);
+    display: block;
+    text-decoration: none;
+    border:none;
+    border-top-style: solid;
+    border-top-width: $tabs-border-width;
+    border-bottom-style: solid;
+    border-bottom-width: $tabs-border-width;
 }
 
 .tabbed__content {
@@ -41,37 +52,24 @@
 }
 
 
-
-
-
-/**
- * .lozenge-nav styles `.tabs` as a lozenge style nav.
- *
- * 1. Stop tabs’ corners leaking out beyond our rounded corners.
- */
-.lozenge-nav {
-    text-align: center;
-    @include rounded;
-    overflow: hidden; /* [1] */
+/* Default colours */
+.tabs {
+    border-bottom-color: $tabs-border-color;
 }
 
-.lozenge-nav a {
-    @include padding(0.5);
-    // @TODO - make this a variable $lozenge-nav__tab-background-color
-    background-color: color('grey', 2);
-    font-weight: bold;
-    text-decoration: none;
-    border:none;
+.tabs li.active {
+    background-color: color('white');
+
+    a {
+        border-top-color: color('blue');
+        border-bottom-color: color('white');
+        background-color: color('white');
+    }
+
 }
 
-.lozenge-nav a:hover {
-    // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
-    color: color('black');
-    background-color: color('grey', 3);
-}
-
-.lozenge-nav a.active, .lozenge-nav a.active:hover {
-    // @TODO - make this a variable $lozenge-nav__tab-background-color-active
-    background-color: color('grey', 3);
-    color: $default-text-color;
+.tabs a {
+    background-color: $tabs-background-color;
+    border-top-color: $tabs-border-color;
+    border-bottom-color: $tabs-border-color;
 }

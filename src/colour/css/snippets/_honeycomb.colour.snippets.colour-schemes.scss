@@ -125,22 +125,20 @@
     background-color: color('grey', 1);
     border-color: color('grey', 3);
 
- // Lozenge style tabbed navigation
-    .lozenge-nav a {
-        background-color: color('blue');
-        color: color('grey', 2);
-    	-webkit-font-smoothing: antialiased;
-    }
-    .lozenge-nav a:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
-        color: color('white');
-        background-color: color('blue', 6);
+    // Tabbed navigation
+    .tabs {
+        border-bottom-color: color('grey', 3);
     }
 
-    .lozenge-nav a.active, .lozenge-nav a.active:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
-        background-color: color('blue', 6);
-        color: color('white');
+    .tabs li.active {
+        background-color: color('grey', 1);
+
+        a {
+            border-top-color: color('blue');
+            border-bottom-color: color('grey', 1);
+            background-color: color('grey', 1);
+        }
+
     }
 
     // Pagination style navigation
@@ -253,22 +251,25 @@
         }
     }
 
-    // Lozenge style tabbed navigation
-    .lozenge-nav a {
-        background-color: color('blue');
-        color: color('blue', 2);
-    	-webkit-font-smoothing: antialiased;
-    }
-    .lozenge-nav a:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
-        color: color('white');
-        background-color: color('blue', 6);
+    // Tabbed navigation
+    .tabs {
+        border-bottom-color: color('blue', 3);
     }
 
-    .lozenge-nav a.active, .lozenge-nav a.active:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
-        background-color: color('blue', 6);
-        color: color('white');
+    .tabs li.active {
+        background-color: color('blue', 1);
+
+        a {
+            border-top-color: color('blue');
+            border-bottom-color: color('blue', 1);
+            background-color: color('blue', 1);
+        }
+    }
+
+    .tabs a {
+        background-color: color('blue', 3);
+        border-top-color: color('blue', 3);
+        border-bottom-color: color('blue', 3);
     }
 
     // Pagination style navigation
@@ -386,22 +387,27 @@
         }
     }
 
-    // Lozenge style tabbed navigation
-    .lozenge-nav a {
-        background-color: color('grey', 7);
-        color: color('grey', 2);
-    	-webkit-font-smoothing: antialiased;
-    }
-    .lozenge-nav a:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
-        color: color('white');
-        background-color: color('black');
+    // Tabbed navigation
+    .tabs {
+        border-bottom-color: color('grey', 3);
     }
 
-    .lozenge-nav a.active, .lozenge-nav a.active:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
-        background-color: color('black');
-        color: color('white');
+    .tabs li.active {
+        background-color: color('grey', 6);
+
+        a {
+            border-top-color: color('blue');
+            border-bottom-color: color('grey', 6);
+            background-color: color('grey', 6);
+            color: color('white');
+        }
+    }
+
+    .tabs a {
+        background-color: color('grey', 3);
+        border-top-color: color('grey', 3);
+        border-bottom-color: color('grey', 3);
+        color: color('grey', 6);
     }
 
     // Pagination style navigation
@@ -524,22 +530,27 @@
         }
     }
 
-    // Lozenge style tabbed navigation
-    .lozenge-nav a {
-        background-color: color('grey', 7);
-        color: color('grey', 2);
-    	-webkit-font-smoothing: antialiased;
-    }
-    .lozenge-nav a:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
-        color: color('white');
-        background-color: color('black');
+    // Tabbed navigation
+    .tabs {
+        border-bottom-color: color('blue', 1);
     }
 
-    .lozenge-nav a.active, .lozenge-nav a.active:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
-        background-color: color('black');
-        color: color('white');
+    .tabs li.active {
+        background-color: color('blue');
+
+        a {
+            border-top-color: color('white');
+            border-bottom-color: color('blue');
+            background-color: color('blue');
+            color: color('white');
+        }
+    }
+
+    .tabs a {
+        background-color: color('blue', 1);
+        border-top-color: color('blue', 1);
+        border-bottom-color: color('blue', 1);
+        color: color('blue');
     }
 
     // Pagination style navigation
@@ -643,27 +654,32 @@
         border-bottom-color: transparent;
         &:hover {
             color: color('white');
-            border-bottom-color: color('blue', 3);
+            border-bottom-color: color('blue');
 
         }
     }
 
-    // Lozenge style tabbed navigation
-    .lozenge-nav a {
-        background-color: color('grey', 7);
-        color: color('grey', 2);
-    	-webkit-font-smoothing: antialiased;
-    }
-    .lozenge-nav a:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
-        color: color('white');
-        background-color: color('black');
+    // Tabbed navigation
+    .tabs {
+        border-bottom-color: color('blue', 1);
     }
 
-    .lozenge-nav a.active, .lozenge-nav a.active:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
-        background-color: color('black');
-        color: color('white');
+    .tabs li.active {
+        background-color: color('blue', 7);
+
+        a {
+            border-top-color: color('blue');
+            border-bottom-color: color('blue', 7);
+            background-color: color('blue', 7);
+            color: color('white');
+        }
+    }
+
+    .tabs a {
+        background-color: color('blue', 1);
+        border-top-color: color('blue', 1);
+        border-bottom-color: color('blue', 1);
+        color: color('blue', 7);
     }
 
     // Pagination style navigation
@@ -970,28 +986,49 @@
         border-bottom-color: transparent;
         &:hover {
             color: color('white');
-            border-bottom-color: color('blue', 3);
+            border-bottom-color: color('red', 1);
 
         }
     }
 
-    // Lozenge style tabbed navigation
-    .lozenge-nav a {
+    // Tabbed navigation
+    .tabs {
+        border-bottom-color: color('red', 2);
+    }
+
+    .tabs li.active {
+        background-color: color('red');
+
+        a {
+            border-top-color: color('white');
+            border-bottom-color: color('red');
+            background-color: color('red');
+            color: color('white');
+        }
+    }
+
+    .tabs a {
+        background-color: color('red', 2);
+        border-top-color: color('red', 2);
+        border-bottom-color: color('red', 2);
+        color: color('grey', 7);
+    }
+
+    /*// Lozenge style tabbed navigation
+    .tabs a {
         background-color: color('grey', 7);
         color: color('red', 2);
     	-webkit-font-smoothing: antialiased;
     }
-    .lozenge-nav a:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-hover
+    .tabs a:hover {
         color: color('white');
         background-color: color('black');
     }
 
-    .lozenge-nav a.active, .lozenge-nav a.active:hover {
-        // @TODO - make this a variable $lozenge-nav__tab-background-color-active
+    .tabs a.active, .tabs a.active:hover {
         background-color: color('black');
         color: color('white');
-    }
+    } */
 
     // Pagination style navigation
     .pagination {
