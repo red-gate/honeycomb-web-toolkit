@@ -38,7 +38,8 @@
     }
 
     &:active {
-        box-shadow: none;
+        background-color: color('grey', 5) !important;
+        border-color: $button-hover-border-color !important;
     }
 }
 
@@ -67,10 +68,19 @@ display: inline;
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button--primary,
 %button--primary {
-    background-color: color('blue') !important;
+    background-color: color('blue', 4) !important;
+    border-color: color('blue', 6) !important;
+    color: color('white') !important;
 
     &:hover {
+        background-color: color('blue', 5) !important;
+        border-color: color('blue', 7) !important;
+        color: color('white') !important;
+    }
+
+    &:active {
         background-color: color('blue', 6) !important;
+        border-color: color('blue', 6) !important;
     }
 }
 
@@ -106,9 +116,18 @@ display: inline;
 .button--buy,
 %button--buy {
     background-color: color('green', 5) !important;
+    border-color: color('green', 6) !important;
+    color: color('white') !important;
 
     &:hover {
         background-color: color('green', 6) !important;
+        border-color: color('green', 7) !important;
+        color: color('white') !important;
+    }
+
+    &:active {
+        background-color: color('green', 7) !important;
+        border-color: color('green', 7) !important;
     }
 
     &:before {
@@ -124,9 +143,9 @@ display: inline;
 %button--disabled,
 [disabled] {
     &, &:hover, &:active {
-        background-color: color('grey') !important;
+        background-color: color('grey', 2) !important;
         border-color: transparent !important;
-        box-shadow: none;
-        cursor: pointer;
+        color: color('grey') !important;
+        cursor: not-allowed;
     }
 }

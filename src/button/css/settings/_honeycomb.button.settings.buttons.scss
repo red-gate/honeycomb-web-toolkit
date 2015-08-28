@@ -8,20 +8,20 @@ $button-padding--small:         $button-padding / 2 !default;
 $button-padding--large:         $button-padding * 2 !default;
 
 // Background
-$button-background:             color('blue') !default;
+$button-background:             color('grey', 3) !default;
 
 // Text
-$button-color:                  color('white') !default;
+$button-color:                  color('grey', 6) !default;
 
 // Border
 $button-border-width:           0 !default;
 $button-border-style:           solid !default;
-$button-border-color:           color('black') !default;
+$button-border-color:           color('grey', 4) !default;
 $button-radius:                 5px !default;
 
 // Hover state
-$button-hover-background:       $button-background !default;
+$button-hover-background:       color('grey') !default;
 $button-hover-color:            $button-color !default;
 $button-hover-border-width:     $button-border-width !default;
 $button-hover-border-style:     $button-border-style !default;
-$button-hover-border-color:     $button-border-color !default;
+$button-hover-border-color:     color('grey', 5) !default;
