@@ -107,6 +107,12 @@
         background-color: color('grey', 3);
     }
 
+    ul {
+        a {
+            color: color('grey', 6);
+        }
+    }
+
     @include responsive('medium') {
         .header--primary__app-logo-container {
             border-bottom: 4px solid color('grey', 3);
@@ -164,6 +170,7 @@
             @include padding(0.5, top);
             @include padding(0.5, bottom);
             @include font-size(13px);
+            color: color('grey', 6);
             display: block;
             border-bottom-color: transparent;
             border-bottom-width: 4px;
