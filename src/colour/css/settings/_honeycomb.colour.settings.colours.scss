@@ -46,13 +46,13 @@ $site-colors: (
         6: #8c0a14
     ),
     'blue': (
-        'base': #1696e5,
+        'base': #3c85df,
         1: #dceffb,
         2: #b9dff7,
         3: #73c0ef,
-        4: #1696e5,
-        5: #008bcb,
-        6: #0f6499,
+        4: #3c85df,
+        5: #3576c6,
+        6: #2a5e9d,
         7: #093a59
     ),
     'grey': (
@@ -79,7 +79,7 @@ $default-bg-color: map-get(map-get($site-colors, 'white'), 'base');
 $default-text-color: map-get(map-get($site-colors, 'grey'), 5);
 $default-border-color: map-get(map-get($site-colors, 'grey'), 3);
 
-$link-color: $default-text-color;
+$link-color: map-get(map-get($site-colors, 'blue'), 'base');
 $link-border-color: map-get(map-get($site-colors, 'blue'), 'base');
-$link-hover-color: map-get(map-get($site-colors, 'blue'), 'base');
+$link-hover-color: map-get(map-get($site-colors, 'blue'), '6');
 $link-hover-background-color: map-get(map-get($site-colors, 'grey'), 1);
