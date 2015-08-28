@@ -18,8 +18,9 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     display: inline-block;
-    box-shadow: 0 2px 1px rgba(0, 0, 0, .25);
     -webkit-font-smoothing: antialiased;
+
+    border-bottom-width: 2px !important;
 
     // IE7 support.
     .ie7 & {
@@ -33,6 +34,7 @@
         border-width: $button-hover-border-width !important;
         border-style: $button-hover-border-style !important;
         border-color: $button-hover-border-color !important;
+        border-bottom-width: 2px !important;
     }
 
     &:active {
@@ -66,11 +68,9 @@ display: inline;
 .button--primary,
 %button--primary {
     background-color: color('blue') !important;
-    color: color('white') !important;
 
     &:hover {
         background-color: color('blue', 6) !important;
-        color: color('white') !important;
     }
 }
 
@@ -106,13 +106,9 @@ display: inline;
 .button--buy,
 %button--buy {
     background-color: color('green', 5) !important;
-    color: color('white') !important;
-    border-color: color('green', 5) !important;
 
     &:hover {
         background-color: color('green', 6) !important;
-        color: color('white') !important;
-        border-color: color('green', 6) !important;
     }
 
     &:before {
@@ -129,8 +125,7 @@ display: inline;
 [disabled] {
     &, &:hover, &:active {
         background-color: color('grey') !important;
-        color: color('white') !important;
-        border-color: color('grey') !important;
+        border-color: transparent !important;
         box-shadow: none;
         cursor: pointer;
     }
