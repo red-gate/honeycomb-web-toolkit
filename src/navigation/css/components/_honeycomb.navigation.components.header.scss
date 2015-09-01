@@ -70,11 +70,12 @@
             @include padding(0.5, left);
             @include padding(0.5, right);
             display: block;
-            border-bottom-width: 0;
+            border-bottom-width: 5px;
+            border-bottom-style: solid;
+            border-bottom-color: transparent;
 
             &.active {
-                border-bottom-width: 5px;
-                border-bottom-style: solid;
+                border-bottom-color: $link-border-color;
                 font-weight: bold;
             }
         }
