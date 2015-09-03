@@ -6,6 +6,7 @@ In each module you will find a readme file that lists the dependencies of that m
 Honeycomb provides unprocessed SASS files that need have some processing done to them as part of your build process.
 Once this is done a module can be added by importing the _main.scss file in that module's css folder.
 
+For an example of this in action check out [DLM Dashboard](https://github.com/red-gate/sqllighthouse/blob/master/source/RedGate.SQLLighthouse.WebServer.StaticFiles/gulpfile.js)
 ## Prerequistes
 ### Gulp
 It will be assumed that you've set your project up to build with Gulp, and have some familiarity with using gulp.  A list of helpful articles for getting started can be found [here](https://github.com/gulpjs/gulp/blob/master/docs/README.md#articles) 
