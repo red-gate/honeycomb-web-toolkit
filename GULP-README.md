@@ -1,7 +1,7 @@
 # Consuming Honeycomb as a set of SASS libraries
 ## Overview
 There are currently two different ways to consume Honeycomb.
-One is to take the compiled css and js in (dist)[dist] and to use the classes provided in your project.
+One is to take the compiled css and js in [dist](dist) and to use the classes provided in your project.
 
 The other is to import some of the Honeycomb modules as uncompiled SASS libraries.  This gives access to the functions and mixins that Honeycomb provides, such as color and margin, as well as allowing only a subset of the modules to be imported, allowinhg Honeycomb to be added to your project incrementally.
 This page will explain how to achieve the latter approach.  If you would like to see an example of this in action, please check out [DLM Dashboard](https://github.com/red-gate/sqllighthouse/blob/master/source/RedGate.SQLLighthouse.WebServer.StaticFiles/gulpfile.js)
