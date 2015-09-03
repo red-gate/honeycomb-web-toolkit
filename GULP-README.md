@@ -80,10 +80,26 @@ i.e. with no 'url', underscore or extension
 See http://sass-lang.com/guide for more information on using SASS
 
 ### Compiling SASS with Gulp
+The gulp-sass library provides a plugin that will do the SASS compiling.
+If you already have a task that minifies css then gulp-sass can be added at the start of the pipeline, and the task should depend on the two globbing tasks that were added [previously](#globbing-honeycomb).
+Otherwise add a new task:
 
+```JavaScript
+var sass = require('gulp-sass');
+
+...
+
+gulp.task('compile-css', ['honeycomb-css', 'honeycomb-glob'], function () {
+    return gulp.src('assets/css/main.scss') //Or wherever your top level scss file is
+               .pipe(sass())
+               .pipe(gulp.dest(buildFolder));
+}
+```
+This will compile your scss file, compiling and merging in any partial scss files that it references.
+Don't forget to add your new task as a dependancy to the default task so that it gets run.
 
 ## Referencing honeycomb modules
-TODO
+
 ## Teamcity
 
 Building a project with bower requires that Git installed and on PATH, so on Teamcity you should add this agent requirement: 
