@@ -11,16 +11,11 @@ Once this is done a module can be added by importing the _main.scss file in that
 It will be assumed that you've set your project up to build with Gulp.
 
 ### Packages
-These are the npm packages required to use Honeycomb with gulp: 
-gulp-bower
-gulp-css-globbing
-gulp-debug
-gulp-sass
+Run the following command in your project's directory to install the necessary packages to use Honeycomb with Gulp:
 
 ```
 npm install --save-dev gulp-bower gulp-css-globbing gulp-debug gulp-sass
 ```
-will add the necessary packages to your project.
 
 Alternative packages and approaches may exist.
 
