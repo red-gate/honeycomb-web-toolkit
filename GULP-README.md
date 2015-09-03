@@ -6,19 +6,25 @@ One is to take the compiled css and js in [dist](dist) and to use the classes pr
 The other is to import some of the Honeycomb modules as uncompiled SASS libraries.  This gives access to the functions and mixins that Honeycomb provides, such as color and margin, as well as allowing only a subset of the modules to be imported, allowinhg Honeycomb to be added to your project incrementally.
 This page will explain how to achieve the latter approach.  If you would like to see an example of this in action, please check out [DLM Dashboard](https://github.com/red-gate/sqllighthouse/blob/master/source/RedGate.SQLLighthouse.WebServer.StaticFiles/gulpfile.js)
 
+## Things to know before you start
+### Gulp
+It will be assumed that you've set your project up to build with Gulp, and have some familiarity with using gulp.  A list of helpful articles for getting started can be found [here](https://github.com/gulpjs/gulp/blob/master/docs/README.md#articles) 
+
+There is no reason that you can't take a similar approach using Grunt or some other build tool.  Contribute the steps that you ended up taking!
+
+### SASS
+These instructions will involve moving over to using SASS for all css.
+Whilst this provides many benefits, it's a nontrivial change to a project and can take a little time to set up.
+
 ## Structure
 Each of the folders in [src](src) represent a Honeycomb module that can be imported.
 In each module you will find a readme file that lists the dependencies of that module ([e.g.](src/base/README)).  Anything could happen if you import a module without its dependencies.
 
-Honeycomb provides unprocessed SASS files that need have some processing done to them as part of your build process.
+Honeycomb provides unprocessed SASS files that need have some processing and compilation done to them as part of your build process.
 Once this is done a module can be added by importing the _main.scss file in that module's css folder.
 
 
-## Prerequistes
-### Gulp
-It will be assumed that you've set your project up to build with Gulp, and have some familiarity with using gulp.  A list of helpful articles for getting started can be found [here](https://github.com/gulpjs/gulp/blob/master/docs/README.md#articles) 
-
-### Packages
+## Packages
 Run the following command in your project's directory to install the necessary packages to use Honeycomb with Gulp:
 
 ```
