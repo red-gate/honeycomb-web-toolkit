@@ -113,4 +113,15 @@ Building a project with bower requires that Git installed and on PATH, so on Tea
 env.HAS_GIT exists
 ```
 ##Local development
-TODO
+It is possible to use bower to pull from a local repo.  This is useful if you are working on Honeycomb and want to see the changes in your product before pushing the changes.
+
+Change your bower.json to look like this 
+```json
+{
+    "name": "Your project name goes here",
+    "dependencies": {
+        "honeycomb": PATH_TO_LOCAL_REPO
+    }
+}
+```
+Now bower will pull HEAD of your local repo rather than from Github (changes still need to be commited locally).
