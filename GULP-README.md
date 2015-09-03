@@ -67,8 +67,17 @@ Notice that both these tasks need to depend on the bower task, otherwise the fil
 
 ## SASS
 Honeycomb components are written in SASS, and compilation is necessary.
-To start using SASS in you project, change the file extension of your top level css file(eg main.css) to .scss.
-TODO
+The easiest way to do this is to convert your css over to scss, as this will also allow you to use the functions and mixins that honeycomb provides
+### Moving over to SASS.
+To do this, simply change the file extension on all your css files to .scss.  
+Then add an underscore to the front of any partial css file, where a partial css file is any css file that is imported by another css file. So 'not-found/index.css' would become 'not-found/_index.scss'
+Finally make sure that any css import statements are of the form:
+```css
+@import 'not-found/index'
+```
+i.e. with no 'url', underscore or extension
+
+See http://sass-lang.com/guide for more information on using SASS
 
 ## Referencing honeycomb modules
 TODO
