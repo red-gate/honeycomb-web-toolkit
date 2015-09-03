@@ -99,7 +99,12 @@ This will compile your scss file, compiling and merging in any partial scss file
 Don't forget to add your new task as a dependancy to the default task so that it gets run.
 
 ## Referencing honeycomb modules
-
+To start using a honeycomb module in your project add an import of that modules main file to your top level scss file.
+If you followed the instructions above then gulp will have installed the globbed honeycomb modules into "bower_components/honeycomb/dist".
+For each module $module_name that you want to add to your project add an import statement to your main.scss file:
+```css
+@import '../../bower_components/honeycomb/dist/$module_name/css/main';
+```
 ## Teamcity
 
 Building a project with bower requires that Git installed and on PATH, so on Teamcity you should add this agent requirement: 
