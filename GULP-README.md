@@ -85,7 +85,10 @@ See http://sass-lang.com/guide for more information on using SASS
 ## Referencing honeycomb modules
 TODO
 ## Teamcity
-TODO
 
+Building a project with bower requires that Git installed and on PATH, so on Teamcity you should add this agent requirement: 
+```
+env.HAS_GIT exists
+```
 ##Local development
 TODO
