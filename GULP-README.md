@@ -79,6 +79,17 @@ gulp.task('honeycomb-glob', ['bower'], function () {
 ```
 Notice that both these tasks need to depend on the bower task, otherwise the files wouldn't exist.
 
+## Honeycomb fonts
+Honeycomb.Type depends on some font files.  The following task will copy them to your build folder:
+
+```JavaScript
+gulp.task('honeycomb-fonts', ['bower'], function () {
+    return gulp.src('bower_components/honeycomb/src/type/vendor/**')
+        .pipe(gulp.dest('dist/fonts')); //Adjust build folder to taste
+});
+```
+Add the new task as a dependancy of the default task.
+
 ## SASS
 Honeycomb components are written in SASS, and compilation is necessary.
 The easiest way to do this is to convert your css over to scss, as this will also allow you to use the functions and mixins that honeycomb provides
@@ -120,8 +131,6 @@ For each module $module_name that you want to add to your project add an import 
 @import '../../bower_components/honeycomb/dist/$module_name/css/main';
 ```
 
-## Honeycomb fonts
-TODO
 ## Teamcity
 
 Building a project with bower requires that Git installed and on PATH, so on Teamcity you should add this agent requirement: 
