@@ -38,8 +38,37 @@ gulp.task('bower', function () {
     return bower({ cmd: 'update' });
 });
 ```
+
 ## Globbing Honeycomb
-TODO
+Each honeycomb module needs to be globbed before it can be used.  This is to avoid explicitly listing every .scss file in the modules _main.scss file.
+
+First add a task to import the libraries we need and add a task to copy all the honeycomb css into bower_components/honeycomb/dist:
+```JavaScript
+var cssglobbing = require('gulp-css-globbing');
+var debug = require('gulp-debug');
+
+gulp.task('honeycomb-css', ['bower'], function () {
+    return gulp.src(['bower_components/honeycomb/src/*/css/*/_*.scss', 'bower_components/honeycomb/src/*/vendor/**/*.scss'])
+        .pipe(gulp.dest('bower_components/honeycomb/dist'));
+});
+```
+
+Next add a task to glob all of the _main.scss in the honeycomb modules:
+```JavaScript
+gulp.task('honeycomb-glob', ['bower'], function () {
+    return gulp.src('bower_components/honeycomb/src/*/css/_main.scss')
+        .pipe(cssglobbing({
+            extensions: ['.scss'],
+            scssImportPath: {
+                leading_underscore: false,
+                filename_extension: false
+            }
+        }))
+        .pipe(debug({ title: 'honeycomb-glob:' })) // HACK: this line is needed otherwise not all of the files get copied :@
+        .pipe(gulp.dest('bower_components/honeycomb/dist'));
+});
+```
+Notice that both these tasks need to depend on the bower task, otherwise the files wouldn't exist.
 
 ## SASS
 Honeycomb components are written in SASS, and compilation is necessary.
