@@ -71,13 +71,16 @@ The easiest way to do this is to convert your css over to scss, as this will als
 ### Moving over to SASS.
 To do this, simply change the file extension on all your css files to .scss.  
 Then add an underscore to the front of any partial css file, where a partial css file is any css file that is imported by another css file. So 'not-found/index.css' would become 'not-found/_index.scss'
-Finally make sure that any css import statements are of the form:
+Finally make sure that any css import statements of scss files are of the form:
 ```css
 @import 'not-found/index'
 ```
 i.e. with no 'url', underscore or extension
 
 See http://sass-lang.com/guide for more information on using SASS
+
+### Compiling SASS with Gulp
+
 
 ## Referencing honeycomb modules
 TODO
