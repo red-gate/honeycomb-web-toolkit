@@ -113,6 +113,9 @@ For each module $module_name that you want to add to your project add an import 
 ```css
 @import '../../bower_components/honeycomb/dist/$module_name/css/main';
 ```
+
+## Honeycomb fonts
+TODO
 ## Teamcity
 
 Building a project with bower requires that Git installed and on PATH, so on Teamcity you should add this agent requirement: 
