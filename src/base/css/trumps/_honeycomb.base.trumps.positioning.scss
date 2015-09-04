@@ -71,3 +71,19 @@
 .spaced-bottom--none {
     margin-bottom: 0 !important;
 }
+
+.center {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.center--h {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.center--v {
+	top: 50%;
+	transform: translateY(-50%);
+}
