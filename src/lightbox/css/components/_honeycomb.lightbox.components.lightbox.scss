@@ -9,6 +9,7 @@
 .lightbox {
     position: relative;
     display: inline-block;
+    max-width: 100%;
 
     // IE7 support.
     .ie7 & {
