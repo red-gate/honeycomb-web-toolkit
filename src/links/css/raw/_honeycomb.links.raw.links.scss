@@ -35,6 +35,7 @@ h4 a,
 h5 a,
 .main-heading a,
 .sub-heading a {
+    color: color('grey', 7);
     border-bottom-color: transparent;
     &:hover {
         color: color('black');
