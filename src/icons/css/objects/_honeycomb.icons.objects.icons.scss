@@ -90,6 +90,13 @@
     }
 }
 
+.icon--plus-circle {
+    @extend %icon;
+    &:before {
+        content: "\f055";
+    }
+}
+
 .icon--minus {
     @extend %icon;
     &:before {
