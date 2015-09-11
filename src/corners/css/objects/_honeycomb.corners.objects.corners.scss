@@ -6,6 +6,38 @@
     @include rounded;
 }
 
+.rounded--top {
+    @include rounded-top;
+}
+
+.rounded--bottom {
+    @include rounded-bottom;
+}
+
+.rounded--left {
+    @include rounded-left;
+}
+
+.rounded--right {
+    @include rounded-right;
+}
+
+.rounded--top-left {
+    @include rounded-top-left;
+}
+
+.rounded--top-right {
+    @include rounded-top-right;
+}
+
+.rounded--bottom-right {
+    @include rounded-bottom-right;
+}
+
+.rounded--bottom-left {
+    @include rounded-bottom-left;
+}
+
 .rounded--circle {
     @include rounded-circle;
 }
