@@ -65,8 +65,8 @@
         }
 
         a {
-            @include padding(0.75, top);
-            @include padding(0.75, bottom);
+            @include padding(1, top);
+            @include padding(1, bottom);
             @include padding(0.5, left);
             @include padding(0.5, right);
             display: block;
@@ -189,17 +189,31 @@
         position: relative;
     }
 
+    .section {
+        @include margin(0);
+        @include margin(0.5, top);
+        @include margin(1, right);
+        @include font-size(24px);
+        float: left;
+
+        img {
+            @include margin(0.5, right);
+        }
+    }
+
     ul {
         @extend %list--horizontal;
+        float: left;
 
         &, li {
             @include margin(0, bottom);
         }
 
         a {
+            @include margin(0);
             @include padding(1);
-            @include padding(0.5, top);
-            @include padding(0.5, bottom);
+            @include padding(0.75, top);
+            @include padding(1, bottom);
             @include font-size(13px);
             color: color('grey', 6);
             display: block;
@@ -217,6 +231,10 @@
         }
     }
 
+    .button {
+        @include margin(0.5, left);
+    }
+
     @include responsive('medium') {
         border-bottom: none;
 
@@ -227,4 +245,8 @@
             }
         }
     }
+}
+
+.header--secondary--spaced {
+    @include padding(1, top);
 }
