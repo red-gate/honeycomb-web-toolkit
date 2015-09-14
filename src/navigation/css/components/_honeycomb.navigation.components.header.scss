@@ -205,6 +205,10 @@
         @extend %list--horizontal;
         float: left;
 
+        &.right {
+            float: right;
+        }
+
         &, li {
             @include margin(0, bottom);
         }
@@ -248,5 +252,13 @@
 }
 
 .header--secondary--spaced {
-    @include padding(1, top);
+    // @include padding(1, top);
+    .section {
+        @include margin(1.25, top);
+    }
+
+    ul a {
+        @include padding(1.5, top);
+        @include padding(1.5, bottom);
+    }
 }
