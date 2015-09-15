@@ -903,13 +903,13 @@
 @mixin scheme--red {
     background-color: color('red');
    	border-color: color('red', 5);
-    color: color('red', 2);
+    color: color('white');
 
     // smooth fonts for high contrast of light text on dark background
 	-webkit-font-smoothing: antialiased;
 
     hr {
-   	   	border-color: color('red', 5);
+   	   	border-color: color('white');
     }
 
     h1,
@@ -924,46 +924,46 @@
     .beta,
     .sub-heading,
     %beta {
-        color: color('red', 2);
+        color: color('white');
     }
 
 
     h3,
     .gamma,
     %gamma {
-        color: color('red', 2);
+        color: color('white');
     }
 
 
     h4,
     .delta,
     %delta {
-        color: color('red', 2);
+        color: color('white');
     }
 
 
     h5,
     .epsilon,
     %epsilon {
-        color: color('red', 2);
+        color: color('white');
     }
 
 
     h6,
     .zeta,
     %zeta {
-        color: color('red', 2);
+        color: color('white');
     }
 
 
     p, ul,  ol, dd, label {
-        color: color('red', 3);
+        color: color('red', 1);
     }
 
 
     a {
-		color: color('grey', 2);
-		border-color: color('blue');
+		color: color('white');
+		border-color: color('white');
 	}
     a:visited {
 
