@@ -336,3 +336,51 @@
         }
     }
 }
+
+
+
+/**
+ * New list
+ *
+*/
+.list--new {
+    @extend .list--tick;
+
+    & > li {
+
+      &:before {
+          @include font-size(11px);
+          @include rounded-circle;
+          content: "New";
+          color: color('white');
+          background-color: color('blue', 4);
+          font-family: sans-serif;
+          font-weight: bold;
+          width: 28px;
+          height: 28px;
+          transform: rotate(-12deg);
+          padding: 6px 0 0 3px;
+          margin: -5px 0 0 -7px;
+      }
+   }
+}
+
+/**
+ * Larger version of the star list
+ *
+*/
+.list--star--large {
+    @extend .list--star;
+
+    & > li {
+        @include padding(2, left);
+
+        &:before {
+          @include font-size(14px);
+          width: 37px;
+          height: 37px;
+          padding: 11px 0 0 4px;
+          margin: -9px 0 0 -7px;
+        }
+    }
+}

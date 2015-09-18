@@ -156,3 +156,24 @@
         content: "\f05a";
     }
 }
+
+.icon--new {
+    @extend %icon;
+    &:before {
+        @include font-size(14px);
+        @include rounded-circle;
+        @include padding(0.5, right);
+        @include padding(0.5, top);
+        @include margin(0.5, top);
+        content: "New";
+        color: color('white');
+        background-color: color('blue', 4);
+        font-family: sans-serif;
+        font-weight: bold;
+        width: 37px;
+        height: 37px;
+        transform: rotate(-12deg);
+        //padding: 11px 0 0 4px;
+        //margin: -9px 0 0 -7px;
+    }
+}
