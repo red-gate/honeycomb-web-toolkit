@@ -366,11 +366,11 @@
 }
 
 /**
- * Larger version of the star list
+ * Larger version of the new list
  *
 */
-.list--star--large {
-    @extend .list--star;
+.list--new--large {
+    @extend .list--new;
 
     & > li {
         @include padding(2, left);
