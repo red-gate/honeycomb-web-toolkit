@@ -336,3 +336,51 @@
         }
     }
 }
+
+
+
+/**
+ * New list
+ *
+*/
+.list--new {
+    @extend .list--tick;
+
+    & > li {
+
+      &:before {
+          @include font-size(11px);
+          @include rounded-circle;
+          content: "New";
+          color: color('white');
+          background-color: color('blue', 4);
+          font-family: sans-serif;
+          font-weight: bold;
+          width: 28px;
+          height: 28px;
+          transform: rotate(-12deg);
+          padding: 6px 0 0 3px;
+          margin: -5px 0 0 -7px;
+      }
+   }
+}
+
+/**
+ * Larger version of the new list
+ *
+*/
+.list--new--large {
+    @extend .list--new;
+
+    & > li {
+        @include padding(1.5, left);
+
+        &:before {
+          @include font-size(13px);
+          width: 35px;
+          height: 35px;
+          padding: 7px 0 0 4px;
+          margin: -9px 0 0 -7px;
+        }
+    }
+}
