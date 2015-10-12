@@ -1,0 +1,10 @@
+/*------------------------------------*\
+    #TOC (TABLE OF CONTENTS)
+\*------------------------------------*/
+.panelContent {
+    @include padding(1);
+}
+
+.toc-macro ul {
+    @include margin(0, bottom);
+}

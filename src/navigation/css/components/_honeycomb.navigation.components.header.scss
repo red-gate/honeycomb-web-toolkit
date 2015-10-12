@@ -51,6 +51,16 @@
         }
     }
 
+    .header--primary__search-container {
+        display: table-cell;
+        vertical-align: middle;
+        width: 25%;
+
+        input {
+            @include margin(0);
+        }
+    }
+
     ul {
         @extend %list--horizontal;
         @include margin(0, bottom);

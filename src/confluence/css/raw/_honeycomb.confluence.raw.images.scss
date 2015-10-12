@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    #IMAGES
+\*------------------------------------*/
+img[width],
+img[height] {
+    max-width: 100%;
+}
+
+.header--primary img {
+    max-width: none;
+}

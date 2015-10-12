@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    #GRID
+\*------------------------------------*/
+.grid__row--confluence {
+    .grid__col--confluence:last-child {
+        margin-right: 0;
+    }
+}
+
+.grid__col--confluence {
+    margin-right: 5%;
+}

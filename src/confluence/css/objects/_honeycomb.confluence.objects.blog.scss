@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #BLOG
+\*------------------------------------*/
+.blog-post-listing .logo-heading-block {
+    @include clearfix();
+    @include margin(0.5, bottom);
+}
+
+.blog-post-listing .logoBlock {
+    display: inline-block;
+    float: left;
+    width: 15%;
+    @include margin(0.5, right);
+    @include margin(0.5, bottom);
+}
+
+.blog-post-listing .userLogoLink {
+    display: inline-block;
+    border: none;
+}
+
+.blog-post-listing .userLogoLink img {
+    @include rounded-circle;
+}
+
+.blog-post-listing span.blogHeading {
+    display: inline-block;
+    width: 80%;
+}
+
+.blog-post-listing a.blogHeading {
+    @extend %gamma;
+}
+
+.blog-post__metadata {
+    @include margin(-1, top);
+}

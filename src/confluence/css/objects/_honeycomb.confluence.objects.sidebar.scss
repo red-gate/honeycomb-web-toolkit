@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    #SIDEBAR
+\*------------------------------------*/
+.confluence-sidebar a {
+	@include padding(1, left);
+	@include padding(1, right);
+}
+
+.confluence-sidebar .toggle {
+	display: block;
+	width: 10px;
+	height: 100%;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+}
+
+.confluence-sidebar .toggle::before {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+}
+
+.confluence-sidebar .toggle--has-children {
+	@extend .icon--chevron-right;
+}
+
+.confluence-sidebar .expanded > a .toggle--has-children {
+	@extend .icon--chevron-down;
+}
+
+.confluence-sidebar .expanded > ul {
+	display: block;
+}
+
+.confluence-sidebar .collapsed > ul {
+	display: none;
+}

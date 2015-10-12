@@ -21,6 +21,7 @@
 .notification__icon {
     @extend .media__image;
     @include margin(0, bottom);
+    @include margin(0.5, right);
 }
 
 .notification__close {
