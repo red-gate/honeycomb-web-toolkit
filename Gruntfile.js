@@ -58,11 +58,26 @@ module.exports = function(grunt) {
             }
         },
 
+        clean: {
+            fonts: ['dist/fonts']
+        },
+
+        copy: {
+            fonts: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/icons/vendor/redgate/',
+                    src: '**',
+                    dest: 'dist/fonts/redgate/'
+                }]
+            }
+        },
+
         /* Watch scss and js and process when they're updated */
         watch: {
             sass: {
                 files: ['src/**/*.scss'],
-                tasks: ['sass', 'autoprefixer']
+                tasks: ['sass', 'autoprefixer', 'clean', 'copy']
             },
             js: {
                 files: ['src/**/*.js'],
@@ -78,6 +93,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Register the default task.
     grunt.registerTask('default', 'watch');

@@ -91,8 +91,8 @@ display: inline;
     @extend %button--primary;
 
     &:before {
-        content: "\f019 ";
-        font-family: "FontAwesome";
+        content: "\e60f ";
+        font-family: "Redgate";
         @include padding(0.5, right);
     }
 }
@@ -104,8 +104,8 @@ display: inline;
     @extend %button--primary;
 
     &:after {
-        content: "\f054 ";
-        font-family: "FontAwesome";
+        content: "\e607 ";
+        font-family: "Redgate";
         @include padding(0.5, left);
     }
 }
@@ -131,8 +131,8 @@ display: inline;
     }
 
     &:before {
-        content: "\f07a ";
-        font-family: "FontAwesome";
+        content: "\e62a ";
+        font-family: "Redgate";
         @include padding(0.5, right);
     }
 }

@@ -119,14 +119,15 @@
 
     & > li {
         position: relative;
-        @include padding(1, left);
+        @include padding(1.5, left);
 
         &:before {
-            content: "\f00c";
-            font-family: "FontAwesome";
+            content: "\e625";
+            font-family: "Redgate";
             position: absolute;
             left:0;
-            @include font-size(16px);
+            font-size: $icon-font-size;
+            line-height: 1;
             color: color('green');
         }
     }
@@ -145,10 +146,10 @@
     @extend .list--tick;
 
     & > li {
-        @include padding(1.5, left);
+        @include padding(2, left);
 
         &:before {
-            @include font-size(24px, 1);
+            font-size: $icon-font-size--large;
             color: color('green');
         }
     }
@@ -165,7 +166,7 @@
     & > li {
 
         &:before {
-            content: "\f054";
+            content: "\e607";
             color: color('blue');
         }
     }
@@ -180,9 +181,10 @@
     @extend .list--chevron;
 
     & > li {
+        @include padding(2, left);
 
         &:before {
-            @include font-size(24px, 1);
+            font-size: $icon-font-size--large;
         }
     }
 }
@@ -198,7 +200,7 @@
     & > li {
 
         &:before {
-            content: "\f078";
+            content: "\e605";
             color: color('blue');
         }
     }
@@ -216,7 +218,7 @@
         @include padding(2, left);
 
         &:before {
-            @include font-size(24px, 1);
+            font-size: $icon-font-size--large;
         }
     }
 }
@@ -232,8 +234,8 @@
     & > li {
 
         &:before {
-            @include font-size(12px, 2.3);
-            content: "\f111";
+            // @include font-size(12px, 2.3);
+            content: "\e603";
             color: color('blue');
         }
     }
@@ -250,7 +252,7 @@
     & > li {
 
         &:before {
-            content: "\f067";
+            content: "\e620";
             color: color('blue');
         }
     }
@@ -267,7 +269,7 @@
         @include padding(2, left);
 
         &:before {
-            @include font-size(24px, 1);
+            font-size: $icon-font-size--large;
         }
     }
 }
@@ -283,7 +285,7 @@
     & > li {
 
         &:before {
-            content: "\f068";
+            content: "\e61c";
             color: color('blue');
         }
     }
@@ -300,7 +302,7 @@
         @include padding(2, left);
 
         &:before {
-            @include font-size(24px, 1);
+            font-size: $icon-font-size--large;
         }
     }
 }
@@ -332,7 +334,7 @@
         @include padding(2, left);
 
         &:before {
-            @include font-size(24px, 1);
+            font-size: $icon-font-size--large;
         }
     }
 }

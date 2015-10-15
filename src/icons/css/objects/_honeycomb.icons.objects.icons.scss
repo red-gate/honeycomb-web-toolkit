@@ -8,7 +8,9 @@
 
 %icon {
     &:before {
-        font-family: "FontAwesome";
+        font-family: "Redgate";
+        font-size: $icon-font-size;
+        vertical-align: middle;
         @include margin(0.25, right);
     }
 }
@@ -16,126 +18,112 @@
 .icon--email {
     @extend %icon;
     &:before {
-        content: "\f0e0";
+        content: "\e611";
     }
 }
 
 .icon--phone {
     @extend %icon;
     &:before {
-        content: "\f095";
+        content: "\e61d";
     }
 }
 
 .icon--pdf {
     @extend %icon;
     &:before {
-        content: "\f1c1";
+        content: "\e60e";
     }
 }
 
 .icon--external {
     @extend %icon;
     &:before {
-        content: "\f08e";
+        content: "\e612";
     }
 }
 
 .icon--video {
     @extend %icon;
     &:before {
-        content: "\f16a";
+        content: "\e628";
     }
 }
 
 .icon--download {
     @extend %icon;
     &:before {
-        content: "\f019";
+        content: "\e60f";
     }
 }
 
 .icon--chevron-down {
     @extend %icon;
     &:before {
-        content: "\f078";
+        content: "\e605";
     }
 }
 
 .icon--chevron-up {
     @extend %icon;
     &:before {
-        content: "\f077";
+        content: "\e608";
     }
 }
 
 .icon--chevron-left {
     @extend %icon;
     &:before {
-        content: "\f053";
+        content: "\e606";
     }
 }
 
 .icon--chevron-right {
     @extend %icon;
     &:before {
-        content: "\f054";
+        content: "\e607";
     }
 }
 
 .icon--plus {
     @extend %icon;
     &:before {
-        content: "\f067";
+        content: "\e620";
     }
 }
 
 .icon--plus-circle {
     @extend %icon;
     &:before {
-        content: "\f055";
+        content: "\e61f";
     }
 }
 
 .icon--minus {
     @extend %icon;
     &:before {
-        content: "\f068";
-    }
-}
-
-.icon--star {
-    @extend %icon;
-    &:before {
-        content: "\f005";
+        content: "\e61c";
     }
 }
 
 .icon--comments {
     @extend %icon;
     &:before {
-        content: "\f0e6";
-    }
-}
-
-.icon--bullhorn {
-    @extend %icon;
-    &:before {
-        content: "\f0a1";
+        content: "\e60b";
     }
 }
 
 .icon--tick {
     @extend %icon;
     &:before {
-        content: "\f00c";
+        content: "\e625";
     }
 }
 
 .icon--cross {
     @extend %icon;
     &:before {
-        content: "\f00d";
+        content: "\e60a";
     }
 }
 
@@ -146,14 +134,91 @@
 .icon--fail {
     @extend %icon;
     &:before {
-        content: "\f071";
+        content: "\e62b";
     }
 }
 
 .icon--info {
     @extend %icon;
     &:before {
-        content: "\f05a";
+        content: "\e619";
+    }
+}
+
+.icon--calendar {
+    @extend %icon;
+    &:before {
+        content: "\e604";
+    }
+}
+
+.icon--settings {
+    @extend %icon;
+    &:before {
+        content: "\e624";
+    }
+}
+
+.icon--user {
+    @extend %icon;
+    &:before {
+        content: "\e626";
+    }
+}
+
+.icon--users {
+    @extend %icon;
+    &:before {
+        content: "\e627";
+    }
+}
+
+.icon--globe {
+    @extend %icon;
+    &:before {
+        content: "\e616";
+    }
+}
+
+.icon--arrow-left {
+    @extend %icon;
+    &:before {
+        content: "\e601";
+    }
+}
+
+.icon--arrow-right {
+    @extend %icon;
+    &:before {
+        content: "\e602";
+    }
+}
+
+.icon--play {
+    @extend %icon;
+    &:before {
+        content: "\e61e";
+    }
+}
+
+.icon--warning {
+    @extend %icon;
+    &:before {
+        content: "\e629";
+    }
+}
+
+.icon--bullet {
+    @extend %icon;
+    &:before {
+        content: "\e603";
+    }
+}
+
+.icon--shopping-cart {
+    @extend %icon;
+    &:before {
+        content: "\e62a";
     }
 }
 

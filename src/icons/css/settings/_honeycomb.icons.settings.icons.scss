@@ -1,0 +1,9 @@
+// Font directory, relative to the compiled CSS.
+$icon-font-dir: "../fonts/redgate/" !default;
+
+// Font version, for cachebusting.
+$icon-font-version: "1.0" !default;
+
+// Font sizes for the icons.
+$icon-font-size: 125%;
+$icon-font-size--large: 175%;

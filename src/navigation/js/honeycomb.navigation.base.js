@@ -168,7 +168,7 @@ Honeycomb.Navigation.Base = function(options, $) {
 
     // 'Previous' hyperlink.
     if(content.prev.url !== undefined) {
-      html += '<a href=\"' + content.prev.url + '\" class=\"nav--' + this.settings.type + '__prev\"><span class=\"icon icon-chevron-left\"></span></a>';
+      html += '<a href=\"' + content.prev.url + '\" class=\"nav--' + this.settings.type + '__prev\"><span class=\"icon icon--chevron-left\"></span></a>';
     }
 
     // Section title.
@@ -187,7 +187,7 @@ Honeycomb.Navigation.Base = function(options, $) {
 
       // If link has children, then display a 'Next' hyperlink.
       if(content.links[i].hasChildren) {
-        html += '<a href=\"' + content.links[i].url + '\" class=\"nav--' + this.settings.type + '__next\"><span class=\"icon icon-chevron-right\"></span></a>';
+        html += '<a href=\"' + content.links[i].url + '\" class=\"nav--' + this.settings.type + '__next\"><span class=\"icon icon--chevron-right\"></span></a>';
       }
 
       html += '</li>';

@@ -18,8 +18,8 @@
     text-align: left;
 
     &:before {
-        content: "\f053";
-        font-family: "FontAwesome";
+        content: "\e606";
+        font-family: "Redgate";
         @include margin(0.5, right);
     }
 }
@@ -31,8 +31,8 @@
     text-align: right;
 
     &:after {
-        content: "\f054";
-        font-family: "FontAwesome";
+        content: "\e607";
+        font-family: "Redgate";
         @include margin(0.5, left);
     }
 }
