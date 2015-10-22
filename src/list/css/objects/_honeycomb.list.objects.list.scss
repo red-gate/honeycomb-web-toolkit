@@ -63,6 +63,14 @@
       @include padding(0);
       @include padding(0.5, left);
       @include padding(0.5, right);
+
+      &:first-child {
+          @include padding(0, left);
+      }
+
+      &:last-child {
+          @include padding(0, right);
+      }
     }
   }
 }
@@ -103,8 +111,13 @@
       @include padding(0.5, left);
       @include padding(0.5, right);
 
+      &:first-child {
+          @include padding(0, left);
+      }
+
       &:last-child {
-        border-right-width: 0;
+          @include padding(0, right);
+          border-right-width: 0;
       }
     }
   }
