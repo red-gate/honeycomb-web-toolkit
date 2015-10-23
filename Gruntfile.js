@@ -63,12 +63,20 @@ module.exports = function(grunt) {
         },
 
         copy: {
-            fonts: {
+            redgateFonts: {
                 files: [{
                     expand: true,
                     cwd: 'src/icons/vendor/redgate/',
                     src: '**',
                     dest: 'dist/fonts/redgate/'
+                }]
+            },
+            slickFonts: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/carousel/vendor/slick/fonts/',
+                    src: '**',
+                    dest: 'dist/fonts/slick/'
                 }]
             }
         },

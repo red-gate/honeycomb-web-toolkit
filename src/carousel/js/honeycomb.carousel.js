@@ -7,7 +7,11 @@ Honeycomb.Carousel = function($) {
 
   $('.js-carousel').each(function() {
     var $this = $(this);
-    var options = {};
+    var options = {
+        autoplaySpeed: 4000,
+        dotsClass: 'slick-dots carousel__pagination',
+        adaptiveHeight: true
+    };
 
     // Arrows
     if($this.attr('data-carousel-arrows')) {
@@ -22,6 +26,16 @@ Honeycomb.Carousel = function($) {
     // Pagination / Dots
     if($this.attr('data-carousel-pagination')) {
       options.dots = ($this.attr('data-carousel-pagination') === 'true');
+    }
+
+    // Fade
+    if($this.attr('data-carousel-fade')) {
+      options.fade = ($this.attr('data-carousel-fade') === 'true');
+    }
+
+    // Adaptive Height (Automatically update height)
+    if($this.attr('data-carousel-auto-height')) {
+        options.adaptiveHeight = ($this.attr('data-carousel-auto-height') === 'true');
     }
 
     // Apply slick plugin.
