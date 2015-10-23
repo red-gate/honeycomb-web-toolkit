@@ -1,0 +1,17 @@
+.slick-prev:before, .slick-next:before {
+    @include font-size(36px);
+}
+
+.slick-prev {
+    left: $carousel-dir-offset;
+    [dir="rtl"] & {
+        right: $carousel-dir-offset;
+    }
+}
+
+.slick-next {
+    right: $carousel-dir-offset;
+    [dir="rtl"] & {
+        left: $carousel-dir-offset;
+    }
+}
