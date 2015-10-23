@@ -1,5 +1,10 @@
-.slick-prev:before, .slick-next:before {
-    @include font-size(36px);
+.slick-prev,
+.slick-next {
+    top: 40%;
+
+    &:before {
+        @include font-size(36px);
+    }
 }
 
 .slick-prev {
