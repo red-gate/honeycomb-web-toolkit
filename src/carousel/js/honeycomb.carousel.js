@@ -38,6 +38,11 @@ Honeycomb.Carousel = function($) {
         options.adaptiveHeight = ($this.attr('data-carousel-auto-height') === 'true');
     }
 
+    // Autoplay speed
+    if($this.attr('data-carousel-autoplay-speed')) {
+        options.autoplaySpeed = $this.attr('data-carousel-autoplay-speed');
+    }
+
     // Apply slick plugin.
     $this.slick(options);
   });
