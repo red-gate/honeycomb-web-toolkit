@@ -1,6 +1,7 @@
 .slick-prev,
 .slick-next {
     top: 40%;
+    z-index: 1;
 
     &:before {
         @include font-size(36px);
