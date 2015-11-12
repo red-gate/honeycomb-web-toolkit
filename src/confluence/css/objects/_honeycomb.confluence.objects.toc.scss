@@ -7,4 +7,9 @@
 
 .toc-macro ul {
     @include margin(0, bottom);
+    list-style: none;
+}
+
+.toc-macro > ul {
+    @include margin(0, left);
 }
