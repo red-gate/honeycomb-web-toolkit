@@ -15,7 +15,7 @@ Honeycomb.Maps.Google = (function($) {
             var done = false;
 
             se.type = 'text/javascript';
-            se.src = 'http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&callback=Honeycomb.Maps.Google.initialiseMap';
+            se.src = '//maps.googleapis.com/maps/api/js?libraries=places&sensor=false&callback=Honeycomb.Maps.Google.initialiseMap';
             s.parentNode.insertBefore(se, s);
         }
     };
