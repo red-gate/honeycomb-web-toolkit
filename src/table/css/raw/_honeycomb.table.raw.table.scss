@@ -56,11 +56,6 @@ th {
 }
 
 
-tr:hover {
-	background-color: color('grey', 2);
-}
-
-
 table.striped tr.odd,
 table.striped tr:nth-child(odd) {
     background: $default-bg-color;
