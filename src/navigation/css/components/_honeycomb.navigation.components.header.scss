@@ -1,14 +1,11 @@
 /* PRIMARY NAVIGATION */
 .header--primary {
-    display: table;
-    width: 100%;
     box-shadow: 0 2px 2px rgba(118,118,118,0.1);
     position: relative;
     z-index: 10;
 
     .band__inner-container {
         @include padding(0);
-        display: table;
         // width: 100%; /* Remove this when responsive */
 
         &:before, &:after {
@@ -19,18 +16,44 @@
     .header--primary__app-logo-container {
         @include padding(1, left);
         @include padding(1, right);
-        display: table-cell;
-        vertical-align: middle;
+        position: relative;
+        float: left;
         text-align: center;
-        width: 1px;
-        white-space: nowrap;
+        min-height: $navigation-minimum-height;
+        line-height: $navigation-minimum-height;
+
+        // Slash, 30 degrees. Optional with the "header--primary__app-logo-container--slash" class.
+        &.header--primary__app-logo-container--slash {
+            @include padding(0.5, right);
+
+            &:after {
+                display: block;
+                content: " ";
+                width: 100%;
+                height: $navigation-minimum-height;
+                position: absolute;
+                top: 0;
+                right: -20px;
+                transform: skewX(-30deg);
+                z-index: 1;
+            }
+        }
+
+        a {
+            display: block;
+            border: none;
+        }
+
+        img {
+            position: relative;
+            z-index: 2;
+        }
     }
 
     .header--primary__company-logo-container {
         @extend .header--primary__app-logo-container;
-        @include padding(0, left);
+        @include padding(0.5, left);
         border-right: none !important;
-        position: relative;
 
         // Slash (30 degrees)
         &:before {
@@ -44,15 +67,9 @@
             transform: skewX(30deg);
             z-index: 1;
         }
-
-        img {
-            position: relative;
-            z-index: 2;
-        }
     }
 
     .header--primary__search-container {
-        display: table-cell;
         vertical-align: middle;
         width: 25%;
 
@@ -75,12 +92,12 @@
         }
 
         a {
-            @include padding(1, top);
-            @include padding(1, bottom);
             @include padding(0.5, left);
             @include padding(0.5, right);
             display: block;
-            border-bottom-width: 5px;
+            min-height: $navigation-minimum-height;
+            line-height: $navigation-minimum-height - $navigation-border-width;
+            border-bottom-width: $navigation-border-width;
             border-bottom-style: solid;
             border-bottom-color: transparent;
 
@@ -91,18 +108,26 @@
         }
     }
 
+    .header--primary__app-logo-container--slash + ul {
+        @include margin(2, left);
+    }
+
     @include responsive('medium') {
         &, .band__inner-container {
             display: block;
         }
 
+        div {
+            float: left;
+            width: 100%;
+        }
+
         .header--primary__app-logo-container,
         .header--primary__company-logo-container {
-            @include padding(0.5, top);
-            @include padding(0.5, bottom);
             display: block;
             width: 100%;
             text-align: left;
+            float: none;
         }
 
         .header--primary__company-logo-container {
@@ -114,14 +139,17 @@
             float: none !important;
 
             li {
+                @include margin(0, left);
                 display: block;
             }
 
             a {
-                @include padding(0.5, top);
-                @include padding(0.5, bottom);
+                @include padding(0.5);
                 @include padding(1, left);
                 @include padding(1, right);
+                display: block;
+                line-height: normal;
+                min-height: 0;
             }
         }
     }
@@ -148,16 +176,6 @@
             color: color('grey', 6);
         }
     }
-
-    @include responsive('medium') {
-        .header--primary__app-logo-container {
-            border-bottom: 4px solid color('grey', 3);
-        }
-
-        li {
-            border-bottom: 1px solid color('grey', 3);
-        }
-    }
 }
 
 .header--primary--dark {
@@ -165,6 +183,10 @@
 
     .header--primary__app-logo-container {
         background-color: color('red', 'brand');
+
+        &.header--primary__app-logo-container--slash:after {
+            background: color('red', 'brand');
+        }
     }
 
     .header--primary__company-logo-container {
@@ -178,12 +200,6 @@
     ul {
         a {
             color: color('white');
-        }
-    }
-
-    @include responsive('medium') {
-        li {
-            border-bottom: 1px solid color('grey', 5);
         }
     }
 }
@@ -253,6 +269,8 @@
         border-bottom: none;
 
         ul {
+            width: 100%;
+
             li {
                 display: block;
                 border-bottom: 4px solid color('grey', 2);

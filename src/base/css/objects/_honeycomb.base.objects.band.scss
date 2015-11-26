@@ -30,6 +30,8 @@
     @include clearfix();
     @include padding(4, top);
     @include padding(4, bottom);
+    @include padding(1, left);
+    @include padding(1, right);
     width: 100%;
     max-width: $container-width;
     margin: auto;
