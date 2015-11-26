@@ -83,3 +83,19 @@ table.striped tr:nth-child(even) {
     @include padding(1, left);
     @include padding(1, right);
 }
+
+@include responsive("medium") {
+    thead {
+        display: none; /* Hide the table heading row */
+    }
+    th, td {
+        float: left;
+        clear: both;
+        width: 100%;
+        text-align: center;
+    }
+    td:before {
+        content: attr(title); /* Add the column heading to the cell */
+        display: block;
+    }
+}

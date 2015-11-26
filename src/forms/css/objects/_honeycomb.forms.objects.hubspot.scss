@@ -34,3 +34,9 @@
         }
     }
 }
+
+@include responsive("small") {
+  .hbspt-form .hs-form fieldset.form-columns-2 .hs-form-field { /* excessively specific to overwrite hubspot css */
+    width: 100%;
+  }
+}

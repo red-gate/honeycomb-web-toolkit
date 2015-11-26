@@ -25,6 +25,12 @@
     position: relative;
     float: left;
     top: $tabs-border-width;
+
+    @include responsive("small") {
+        @include margin(0);
+        @include margin(0.25, bottom);
+        float: none;
+    }
 }
 
 .tabs li.active {
@@ -32,6 +38,12 @@
     @include margin(-0.25, left);
     @include padding(0.25, left);
     @include padding(0.25, right);
+
+    @include responsive("small") {
+        @include margin(0);
+        @include padding(0, left);
+        @include padding(0, right);
+    }
 }
 
 .tabs a {

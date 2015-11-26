@@ -8,6 +8,12 @@
 */
 @mixin pin () {
 	position: absolute;
+	@include responsive("medium") {
+		position: relative;
+		left: 0;
+		right: 0;
+		clear: both;
+	}
 }
 
 @mixin pin-top () {

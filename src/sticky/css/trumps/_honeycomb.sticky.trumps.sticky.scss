@@ -9,3 +9,15 @@
 .sticky {
 	z-index:2 !important;
 }
+
+.sticky.sticking {
+	@include responsive("small") {
+		position: relative !important; // Stop sticking on mobile devices.
+	}
+}
+
+.stickyContainer {
+	@include responsive("small") {
+		height: auto !important; // Reset the height of the sticky container.
+	}
+}

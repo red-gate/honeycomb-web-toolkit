@@ -32,6 +32,10 @@
     @include padding(4, bottom);
     @include padding(1, left);
     @include padding(1, right);
+    @include responsive("medium") {
+      @include padding(2, top);
+      @include padding(2, bottom);
+    }
     width: 100%;
     max-width: $container-width;
     margin: auto;
@@ -57,4 +61,8 @@
     @extend %band__inner-container;
     @include padding(10, top);
     @include padding(10, bottom);
+    @include responsive("medium") {
+      @include padding(4, top);
+      @include padding(4, bottom);
+    }
 }

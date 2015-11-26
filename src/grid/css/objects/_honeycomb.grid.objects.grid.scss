@@ -32,8 +32,16 @@
     margin: 0;
   }
 
-
-
+  @include responsive('small') {
+    %#{$grid-class} %#{$grid-class}__col,
+    .#{$grid-class} .#{$grid-class}__col {
+      @include padding(0, left);
+      @include padding(0, right);
+      margin-left: 0;
+      width: 100%;
+      border: none;
+    }
+  }
 
 
   /**
