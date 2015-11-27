@@ -199,7 +199,16 @@
 
     ul {
         a {
-            color: color('white');
+            color: color('grey');
+
+            &:hover {
+                color: color('white');
+            }
+
+            &.active {
+                background-color: color('grey', 7);
+                color: color('white');
+            }
         }
     }
 }
