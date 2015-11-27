@@ -94,6 +94,9 @@ table.striped tr:nth-child(even) {
         width: 100%;
         text-align: center;
     }
+    td:first-child {
+        margin-top: 1rem;
+    }
     td:before {
         content: attr(title); /* Add the column heading to the cell */
         display: block;
