@@ -21,3 +21,10 @@
 		height: auto !important; // Reset the height of the sticky container.
 	}
 }
+
+.sticky-element {
+	@include responsive("small") {
+		position: relative !important;
+		width: auto !important;
+	}
+}
