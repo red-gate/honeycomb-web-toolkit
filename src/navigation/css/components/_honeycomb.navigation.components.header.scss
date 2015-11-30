@@ -42,6 +42,8 @@
         a {
             display: block;
             border: none;
+            position: relative;
+            z-index: 2;
         }
 
         img {
