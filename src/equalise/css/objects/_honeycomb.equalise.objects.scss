@@ -1,0 +1,6 @@
+/* when grid layout goes single file, reset height to auto */
+@include responsive("small") {
+	.js-equal-heights__item {
+		height: auto !important;
+	}
+}
