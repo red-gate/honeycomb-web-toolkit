@@ -104,6 +104,8 @@
     function appendToTOC(toc, index, id, text) {
         var parent = toc;
 
+        text = stripBrackets(text);
+
         for (var i = 1; i < index; i++) {
             if (parent.find('> li:last > ul').length === 0) {
                 parent.append('<li><ul></ul></li>');
@@ -116,6 +118,14 @@
         } else {
             parent.append('<li><a href="#' + id + '">' + text + '</a></li>');
         }
+    };
+
+    /*
+     * Strip brackets from the text.
+     */
+    function stripBrackets(text) {
+        var stripped = text.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
+        return stripped;
     };
 
     $.fn.toc.defaults = {
