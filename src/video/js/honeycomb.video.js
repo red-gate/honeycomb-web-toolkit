@@ -120,13 +120,9 @@ Honeycomb.Video = (function($) {
                   goalTracked = true;
                 }
 
-                if (percentages['20%'] < 30) {
-                  var shortVideo = true;
-                }
-
                 // check goal conditions 
                 if (!goalTracked) {
-                  if (i = '20%' && !shortVideo) {
+                  if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
                     trackGoal();
                   }
                   else if (currentTime > 30){
