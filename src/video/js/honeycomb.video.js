@@ -33,6 +33,7 @@ Honeycomb.Video = (function($) {
       var videoId = $this.attr('data-video-id');
       var duration;
       var percentages = {};
+      var goalTracked = false;
 
       if(videoId) {
 
@@ -73,8 +74,8 @@ Honeycomb.Video = (function($) {
                 percentages.calculated = true; 
               }
 
-              var trackPercentageEvent = function trackPercentageEvent(percentage) {
-                Honeycomb.Analytics.Google.trackEvent('Video', event.target.getVideoUrl() + ' - ' + document.location.pathname, percentage);
+              var trackVideoEvent = function trackVideoEvent(value) {
+                Honeycomb.Analytics.Google.trackEvent('Video', event.target.getVideoUrl() + ' - ' + document.location.pathname, value);
               }
 
               if(event.data === YT.PlayerState.PLAYING) {
@@ -106,19 +107,41 @@ Honeycomb.Video = (function($) {
                   // Add a tracked data attribute to prevent from tracking multiple times.
                   $video.attr('data-ga-tracked', 'true');
 
-                  trackPercentageEvent('0%');
+                  trackVideoEvent('0%');
                 }
               }
 
               if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
                 currentTime = event.target.getCurrentTime();
 
+                // we want to track a special event when we hit either 20% or 30 seconds through the video, whichever is longer 
+                var trackGoal = function trackGoal() {
+                  trackVideoEvent('goal');
+                  goalTracked = true;
+                }
+
+                if (percentages['20%'] < 30) {
+                  var shortVideo = true;
+                }
+
+                // check goal conditions 
+                if (!goalTracked) {
+                  if (i = '20%' && !shortVideo) {
+                    trackGoal();
+                  }
+                  else if (currentTime > 30){
+                    trackGoal();
+                  }
+                }
+
+                // check what percentages the playhead has passed
                 for (var i in percentages) {
                   if (currentTime > percentages[i]) {
-                    trackPercentageEvent(i);
+                    trackVideoEvent(i);
                     delete percentages[i];
                   }
                 }
+
               }
 
             }
