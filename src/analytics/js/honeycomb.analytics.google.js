@@ -5,7 +5,7 @@ Honeycomb.Analytics = Honeycomb.Analytics || {};
 Honeycomb.Analytics.Google = (function($) {
 
   // Account ID - THIS NEEDS TO BE SET TO YOUR GOOGLE ANALYTICS ACCOUNT ID.
-  var accountId = 'UA-XXX';
+  var accountId = Honeycomb.Analytics.Google.accountId = 'UA-XXX';
 
   var init = function init() {
 
