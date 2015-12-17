@@ -11,6 +11,8 @@ Honeycomb.Video = (function($) {
     loop: 0
   };
 
+  var videos = {};
+
   var init = function init() {
     loadYouTubeIframeAPI();
     addBackgroundVideos();
@@ -41,7 +43,7 @@ Honeycomb.Video = (function($) {
         var options = getOptions($this);
 
         // Replace the empty div with the video player iframe.
-        new YT.Player(videoId + '-' + videoCounter, {
+        videos[videoId + '-' + videoCounter] = new YT.Player(videoId + '-' + videoCounter, {
           width: 640,
           height: 360,
           videoId: videoId,
@@ -161,7 +163,8 @@ Honeycomb.Video = (function($) {
   return {
     init: init,
     options: options,
-    addInlineVideos: addInlineVideos
+    addInlineVideos: addInlineVideos,
+    videos: videos
   };
 
 })(jQuery);
