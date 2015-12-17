@@ -108,6 +108,7 @@ Honeycomb.Analytics.Google = (function($) {
     trackPageView: trackPageView,
     trackEvent: trackEvent,
     setCustomVariable: setCustomVariable,
+    accountId: accountId
   };
 })(jQuery);
 
