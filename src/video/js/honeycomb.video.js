@@ -28,11 +28,36 @@ Honeycomb.Video = (function($) {
     }
   };
 
+  // calculate second values for 10%, 20% etc. for event tracking
+  var calculatePercentages = function calculatePercentages(duration) {
+    var percentage;
+    var percentages = {};
+    for (i = 1; i < 10; i++) {
+      percentage = i * 10 + '%';
+      percentages[percentage] = duration * (i / 10);
+    }
+   return percentages; 
+  }
+
+  var trackVideoEvent = function trackVideoEvent(event, value) {
+    Honeycomb.Analytics.Google.trackEvent('Video', event.target.getVideoUrl() + ' - ' + document.location.pathname, value);
+  }
+
+  // we want to track a special event when we hit either 20% or 30 seconds through the video, whichever is longer 
+  var trackGoal = function trackGoal(event) {
+    trackVideoEvent(event, 'goal');
+    return true;
+  }
+
   var addInlineVideos = function addInlineVideos() {
     var videoCounter = 0;
     $('.js-video-container').each(function() {
       var $this = $(this);
       var videoId = $this.attr('data-video-id');
+      var duration;
+      var currentTime;
+      var percentages;
+      var goalTracked = false;
 
       if(videoId) {
 
@@ -59,19 +84,23 @@ Honeycomb.Video = (function($) {
           events: {
             onReady: function(event) {
               // Add the 'video' class to the dynamically added iframe.
-			  $("iframe#" + $(event.target.getVideoEmbedCode()).attr('id')).addClass('video');
+              $("iframe#" + $(event.target.getVideoEmbedCode()).attr('id')).addClass('video');
             },
             onStateChange: function(event) {
+
+
               if(event.data === YT.PlayerState.PLAYING) {
 
                 // Video playing.
-				var $video = $("iframe#" + $(event.target.getVideoEmbedCode()).attr('id'));
+                var $video = $("iframe#" + $(event.target.getVideoEmbedCode()).attr('id'));
 
-                if(!$video.attr('data-ga-tracked')) {
+                duration = duration || event.target.getDuration();
+                percentages = percentages || calculatePercentages(duration);
+
+                if(!$video.attr("data-ga-tracked")) {
                   var $container = $video.parent();
 
                   if($container.attr('data-ga-track')) {
-
                     // Track the video in GA (Google Analytics).
                     var category = $container.attr('data-ga-track-category') || null;
                     var action = $container.attr('data-ga-track-action') || null;
@@ -80,27 +109,52 @@ Honeycomb.Video = (function($) {
 
                     // Call the tracking event.
                     Honeycomb.Analytics.Google.trackEvent(category, action, label, value);
-
-                    // Add a tracked data attribute to prevent from tracking multiple times.
-                    $video.attr('data-ga-tracked', 'true');
                   }
+                  // Add a tracked data attribute to prevent from tracking multiple times.
+                  $video.attr('data-ga-tracked', 'true');
+
+                  trackVideoEvent(event, '0%');
                 }
               }
+
+              if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+                currentTime = event.target.getCurrentTime();
+
+                // check goal conditions 
+                if (!goalTracked) {
+                  if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
+                    goalTracked = trackGoal(event);
+                  }
+                  else if (currentTime > 30){
+                    goalTracked = trackGoal(event);
+                  }
+                }
+
+                // check what percentages the playhead has passed
+                for (var i in percentages) {
+                  if (currentTime > percentages[i]) {
+                    trackVideoEvent(event, i);
+                    delete percentages[i];
+                  }
+                }
+
+              }
+
             }
           }
         });
-      }
+}
       // Increase the counter.
       videoCounter++;
     });
-  };
+};
 
-  var addBackgroundVideos = function addBackgroundVideos() {
-    $('[data-background-video-id]').each(function() {
-      var $this = $(this);
-      var videoId = $this.attr('data-background-video-id');
-      var $videoContainer = $('<div class="js-video-container"></div>');
-      var $video = $('<iframe />');
+var addBackgroundVideos = function addBackgroundVideos() {
+  $('[data-background-video-id]').each(function() {
+    var $this = $(this);
+    var videoId = $this.attr('data-background-video-id');
+    var $videoContainer = $('<div class="js-video-container"></div>');
+    var $video = $('<iframe />');
 
       // Get the options (data attributes)
       var options = getOptions($this);
@@ -124,9 +178,9 @@ Honeycomb.Video = (function($) {
       $video.appendTo($videoContainer);
       $videoContainer.prependTo($this);
     });
-  };
+};
 
-  var getOptions = function getOptions($this) {
+var getOptions = function getOptions($this) {
 
     // Copy the defaults.
     var options = jQuery.extend({}, Honeycomb.Video.options);
