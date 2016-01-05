@@ -51,6 +51,7 @@ Honeycomb.Confluence = (function($) {
             "confluence-information-macro": "notification notification--block",
             "confluence-information-macro-tip": "notification--success",
             "confluence-information-macro-note": "notification--info",
+            "confluence-information-macro-information": "notification--info",
             "confluence-information-macro-warning": "notification--fail",
             "confluence-information-macro-body": "notification__body",
             "confluence-information-macro-icon": "notification__icon"

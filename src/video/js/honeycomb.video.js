@@ -36,18 +36,18 @@ Honeycomb.Video = (function($) {
       percentage = i * 10 + '%';
       percentages[percentage] = duration * (i / 10);
     }
-   return percentages; 
-  }
+   return percentages;
+  };
 
   var trackVideoEvent = function trackVideoEvent(event, value) {
     Honeycomb.Analytics.Google.trackEvent('Video', event.target.getVideoUrl() + ' - ' + document.location.pathname, value);
-  }
+  };
 
-  // we want to track a special event when we hit either 20% or 30 seconds through the video, whichever is longer 
+  // we want to track a special event when we hit either 20% or 30 seconds through the video, whichever is longer
   var trackGoal = function trackGoal(event) {
     trackVideoEvent(event, 'goal');
     return true;
-  }
+  };
 
   var addInlineVideos = function addInlineVideos() {
     var videoCounter = 0;
@@ -120,7 +120,7 @@ Honeycomb.Video = (function($) {
               if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
                 currentTime = event.target.getCurrentTime();
 
-                // check goal conditions 
+                // check goal conditions
                 if (!goalTracked) {
                   if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
                     goalTracked = trackGoal(event);
