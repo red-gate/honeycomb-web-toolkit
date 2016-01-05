@@ -4,3 +4,8 @@
 .notification--block {
     @include margin(1, bottom);
 }
+
+.notification--block .title {
+    @include margin(1, bottom);
+    font-weight: bold;
+}
