@@ -33,3 +33,31 @@
     @warn "CSS grid classes are disabled. Please enable CSS grid classes using `$enable-grid-classes: true`";
   }
 }
+
+
+
+/**
+ * JavaScript for calculating grid column widths with a gutter.
+
+// x of y
+// 2 of 12
+
+var gutter = 1.6; // 1.6% gutter
+
+var x = 2;
+var y = 12;
+
+var numGutters = y-1;
+var totalGutters = gutter * numGutters;
+var remainder = 100 - totalGutters;
+
+var singleColWidth = remainder/y;
+var initialColWidth = singleColWidth * x;
+
+var additionalGutters = x-1;
+var totalAdditionalGutters = additionalGutters * gutter;
+
+var totalWidth = initialColWidth + totalAdditionalGutters;
+
+console.log(totalWidth + "%");
+**/

@@ -7,10 +7,12 @@
  *  - enable/disable grid classes,
  *  - enable/disable grid mixins,
  *  - set grid classname,
- *  - set number of columns to generate and make available for layout.
+ *  - set number of columns to generate and make available for layout,
+ *  - set the grid gutter as a percentage.
  */
 
 $enable-grid-classes: true !default;
 $enable-grid-mixins: true !default;
 $grid-class: "grid" !default;
-$grid-cols: (1, 2, 3, 4, 5, 6, 8, 12) !default;
+$grid-cols: (12) !default;
+$grid-gutter: 1.2 !default;
