@@ -1,64 +1,71 @@
 /*------------------------------------*\
-    #GRID
+#GRID
 \*------------------------------------*/
 
 
 /**
- * Generate the available CSS grid classes for grid, grid__row, grid__col.
- * Build the grid and breakpoint grids.
- */
+* Generate the available CSS grid classes for grid, grid__row, grid__col.
+* Build the grid and breakpoint grids.
+*/
 
- @if $enable-grid-classes {
-  %#{$grid-class},
-  .#{$grid-class} {
-    &:before, &:after {
-      content: " ";
-      display: table;
+@if $enable-grid-classes {
+    %#{$grid-class},
+    .#{$grid-class} {
+        &:before, &:after {
+            content: " ";
+            display: table;
+        }
+
+        &:after {
+            clear: both;
+        }
     }
-    &:after {
-      clear: both;
+
+    %#{$grid-class}__row,
+    .#{$grid-class}__row {
+        @extend %clearfix !optional;
     }
-  }
 
-  %#{$grid-class}__row,
-  .#{$grid-class}__row {
-    @extend %clearfix !optional;
-  }
+    %#{$grid-class}__col,
+    .#{$grid-class}__col {
+        display: block;
+        float: left;
+        margin: 0;
+        margin-left: $grid-gutter * 1%;
 
-  %#{$grid-class}__col,
-  .#{$grid-class}__col {
-    display: block;
-    float: left;
-    margin: 0;
-  }
-
-  @include responsive('small') {
-    %#{$grid-class} %#{$grid-class}__col,
-    .#{$grid-class} .#{$grid-class}__col {
-      @include padding(0, left);
-      @include padding(0, right);
-      margin-left: 0;
-      width: 100%;
-      border: none;
+        &:first-of-type {
+            margin-left: 0;
+        }
     }
-  }
 
+    @if $grid-gutter != 0 {
+        %#{$grid-class}__col--no-gutter,
+        .#{$grid-class}__col--no-gutter {
+            margin-left: 0;
+        }
+    }
 
-  /**
-   * Build the default grid.
-   */
-  @include buildGrid();
+    @include responsive('small') {
+        %#{$grid-class} %#{$grid-class}__col,
+        .#{$grid-class} .#{$grid-class}__col {
+            @include padding(0, left);
+            @include padding(0, right);
+            margin-left: 0;
+            width: 100%;
+            border: none;
+        }
+    }
 
-
-
-
+    /**
+    * Build the default grid.
+    */
+    @include buildGrid($grid-gutter);
 
     /**
     * Build the grid at breakpoints.
     */
     $breakpoints: false !default;
     @if $breakpoints {
-
         @each $breakpoint in $breakpoints {
             $name: nth($breakpoint, 1);
             $minWidth: nth($breakpoint, 2);
@@ -80,7 +87,7 @@
             }
 
             @media only screen and #{$declaration} {
-                @include buildGrid("--#{$name}");
+                @include buildGrid($grid-gutter, "--#{$name}");
             }
         }
     }

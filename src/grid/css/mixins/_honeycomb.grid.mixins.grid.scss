@@ -9,29 +9,59 @@
  *
  */
 
-@mixin buildGrid ($suffix: "") {
-  @if $enable-grid-classes {
-    @include build($suffix);
-    @include build($suffix, "push", "margin-left");
-  } @else {
-    @warn "CSS grid classes are disabled. Please enable CSS grid classes using `$enable-grid-classes: true`";
-  }
+@mixin buildGrid ($gutter: 0, $suffix: "") {
+    @if $enable-grid-classes {
+        @include build($gutter, $suffix);
+        @include build($gutter, $suffix, "push", "margin-left");
+    } @else {
+        @warn "CSS grid classes are disabled. Please enable CSS grid classes using `$enable-grid-classes: true`";
+    }
 }
 
-@mixin build ($suffix: "", $action: "span", $property: "width") {
-  @if $enable-grid-classes {
-    @each $grid-col in $grid-cols {
-      @for $i from 1 through $grid-col {
-            %#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},
-            .#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {
-                $value: (($i * 100) / $grid-col) * 1%;
-                #{$property}: $value;
+@mixin build ($gutter: 0, $suffix: "", $action: "span", $property: "width") {
+    @if $enable-grid-classes {
+        @each $grid-col in $grid-cols {
+            @for $i from 1 through $grid-col {
+
+                $total: calculateGridTotal($grid-col, $i, $gutter);
+
+                @if $action == "push" {
+                    $total: $total + ($gutter * 2);
+                }
+
+                %#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},
+                .#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {
+                    #{$property}: $total * 1%;
+
+                    &.grid__col--no-gutter {
+                        #{$property}: ($total + $gutter) * 1%;
+
+                        @if $action == "push" {
+                            #{$property}: ($total - $gutter) * 1%;
+                        }
+                    }
+                }
             }
-      }
+        }
+    } @else {
+        @warn "CSS grid classes are disabled. Please enable CSS grid classes using `$enable-grid-classes: true`";
     }
-  } @else {
-    @warn "CSS grid classes are disabled. Please enable CSS grid classes using `$enable-grid-classes: true`";
-  }
+}
+
+@function calculateGridTotal($total-columns, $column-span, $gutter) {
+    $num-gutters: $total-columns - 1;
+    $total-gutters: $gutter * $num-gutters;
+    $remainder: 100 - $total-gutters;
+
+    $single: $remainder / $total-columns;
+    $initial: $single * $column-span;
+
+    $additional-gutters: $column-span - 1;
+    $total-additional-gutters: $additional-gutters * $gutter;
+
+    $total: $initial + $total-additional-gutters;
+
+    @return $total;
 }
 
 
