@@ -8,7 +8,6 @@
  * CSS grid classes must be enabled in settings for this to work.
  *
  */
-
 @mixin buildGrid ($gutter: 0, $suffix: "") {
     @if $enable-grid-classes {
         @include build($gutter, $suffix);
@@ -47,47 +46,3 @@
         @warn "CSS grid classes are disabled. Please enable CSS grid classes using `$enable-grid-classes: true`";
     }
 }
-
-@function calculateGridTotal($total-columns, $column-span, $gutter) {
-    $num-gutters: $total-columns - 1;
-    $total-gutters: $gutter * $num-gutters;
-    $remainder: 100 - $total-gutters;
-
-    $single: $remainder / $total-columns;
-    $initial: $single * $column-span;
-
-    $additional-gutters: $column-span - 1;
-    $total-additional-gutters: $additional-gutters * $gutter;
-
-    $total: $initial + $total-additional-gutters;
-
-    @return $total;
-}
-
-
-
-/**
- * JavaScript for calculating grid column widths with a gutter.
-
-// x of y
-// 2 of 12
-
-var gutter = 1.6; // 1.6% gutter
-
-var x = 2;
-var y = 12;
-
-var numGutters = y-1;
-var totalGutters = gutter * numGutters;
-var remainder = 100 - totalGutters;
-
-var singleColWidth = remainder/y;
-var initialColWidth = singleColWidth * x;
-
-var additionalGutters = x-1;
-var totalAdditionalGutters = additionalGutters * gutter;
-
-var totalWidth = initialColWidth + totalAdditionalGutters;
-
-console.log(totalWidth + "%");
-**/
