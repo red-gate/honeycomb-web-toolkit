@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    #GRID FUNCTIONS
+\*------------------------------------*/
+
+
+/**
+ * This function calculates the total size for a column based on the gutter,
+ * size of column, and the total amount of columns.
+ *
+ */
+@function calculateGridTotal($total-columns, $column-span, $gutter) {
+    $num-gutters: $total-columns - 1;
+    $total-gutters: $gutter * $num-gutters;
+    $remainder: 100 - $total-gutters;
+
+    $single: $remainder / $total-columns;
+    $initial: $single * $column-span;
+
+    $additional-gutters: $column-span - 1;
+    $total-additional-gutters: $additional-gutters * $gutter;
+
+    $total: $initial + $total-additional-gutters;
+
+    @return $total;
+}
