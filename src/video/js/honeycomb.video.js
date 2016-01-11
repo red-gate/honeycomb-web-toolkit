@@ -40,8 +40,7 @@ Honeycomb.Video = (function($) {
   };
 
   var trackVideoEvent = function trackVideoEvent(event, videoId, value) {
-    //Honeycomb.Analytics.Google.trackEvent('Video', videoId + ' - ' + document.location.pathname, value);
-    console.log('Video', videoId + ' - ' + document.location.pathname, value);
+    Honeycomb.Analytics.Google.trackEvent('Video', videoId + ' - ' + document.location.pathname, value);
   };
 
   // we want to track a special event when we hit either 20% or 30 seconds through the video, whichever is longer
