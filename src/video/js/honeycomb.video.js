@@ -39,13 +39,14 @@ Honeycomb.Video = (function($) {
    return percentages;
   };
 
-  var trackVideoEvent = function trackVideoEvent(event, value) {
-    Honeycomb.Analytics.Google.trackEvent('Video', event.target.getVideoUrl() + ' - ' + document.location.pathname, value);
+  var trackVideoEvent = function trackVideoEvent(event, videoId, value) {
+    //Honeycomb.Analytics.Google.trackEvent('Video', videoId + ' - ' + document.location.pathname, value);
+    console.log('Video', videoId + ' - ' + document.location.pathname, value);
   };
 
   // we want to track a special event when we hit either 20% or 30 seconds through the video, whichever is longer
-  var trackGoal = function trackGoal(event) {
-    trackVideoEvent(event, 'goal');
+  var trackGoal = function trackGoal(event, videoId) {
+    trackVideoEvent(event, videoId, 'goal');
     return true;
   };
 
@@ -113,7 +114,7 @@ Honeycomb.Video = (function($) {
                   // Add a tracked data attribute to prevent from tracking multiple times.
                   $video.attr('data-ga-tracked', 'true');
 
-                  trackVideoEvent(event, '0%');
+                  trackVideoEvent(event, videoId, '0%');
                 }
               }
 
@@ -123,17 +124,17 @@ Honeycomb.Video = (function($) {
                 // check goal conditions
                 if (!goalTracked) {
                   if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
-                    goalTracked = trackGoal(event);
+                    goalTracked = trackGoal(event, videoId);
                   }
                   else if (currentTime > 30){
-                    goalTracked = trackGoal(event);
+                    goalTracked = trackGoal(event, videoId);
                   }
                 }
 
                 // check what percentages the playhead has passed
                 for (var i in percentages) {
                   if (currentTime > percentages[i]) {
-                    trackVideoEvent(event, i);
+                    trackVideoEvent(event, videoId, i);
                     delete percentages[i];
                   }
                 }
