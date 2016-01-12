@@ -36,6 +36,7 @@ th, td {
 // @TODO this colour should have it's own variable
     border-color: color('grey', 3);
     word-wrap: break-word;
+    word-break: normal;
     vertical-align: top;
 }
 
