@@ -50,7 +50,7 @@ Honeycomb.Confluence = (function($) {
         var classes = {
             "confluence-information-macro": "notification notification--block",
             "confluence-information-macro-tip": "notification--success",
-            "confluence-information-macro-note": "notification--info",
+            "confluence-information-macro-note": "notification--warning",
             "confluence-information-macro-information": "notification--info",
             "confluence-information-macro-warning": "notification--fail",
             "confluence-information-macro-body": "notification__body",
@@ -60,7 +60,8 @@ Honeycomb.Confluence = (function($) {
         var icons = {
             "info": "icon--info",
             "success": "icon--success",
-            "fail": "icon--fail"
+            "fail": "icon--fail",
+            "warning": "icon--warning"
         };
 
         // Loop through and add the classes.

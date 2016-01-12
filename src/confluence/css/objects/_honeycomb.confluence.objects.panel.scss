@@ -4,3 +4,7 @@
 .panel {
     border-color: color('grey', 3);
 }
+
+.panelContent {
+    @include padding(1);
+}

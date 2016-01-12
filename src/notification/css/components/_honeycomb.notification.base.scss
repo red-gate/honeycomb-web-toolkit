@@ -18,6 +18,10 @@
     border-color: color('green');
 }
 
+.notification--warning {
+    border-color: color('yellow');
+}
+
 .notification__icon {
     @extend .media__image;
     @include margin(0, bottom);

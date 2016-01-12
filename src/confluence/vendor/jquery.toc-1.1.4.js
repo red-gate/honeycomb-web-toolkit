@@ -25,7 +25,7 @@
 	 */
     $.fn.toc = function(options) {
         var opts = $.extend({}, $.fn.toc.defaults, options);
-        var toc = this.append('<ul></ul>').children('ul');
+        var toc = this;
         var headers = {h1: 0, h2: 0, h3: 0, h4: 0, h5: 0, h6: 0};
         var index = 0;
         var indexes = {h1: 0, h2: 0, h3: 0, h4: 0, h5: 0, h6: 0};
@@ -50,6 +50,7 @@
                     }
                 }
             });
+            toc.append(markup);
         });
     };
 
@@ -101,23 +102,32 @@
     /*
      * Appends a new node to the TOC.
      */
+    var previousIndex = 0;
+    var markup = '';
     function appendToTOC(toc, index, id, text) {
-        var parent = toc;
-
         text = stripBrackets(text);
 
-        for (var i = 1; i < index; i++) {
-            if (parent.find('> li:last > ul').length === 0) {
-                parent.append('<li><ul></ul></li>');
-            }
-            parent = parent.find('> li:last > ul:first');
+        if(index < previousIndex) {
+
+            // End a list.
+            markup += '</ul>';
         }
 
-        if (id === '') {
-            parent.append('<li>' + text + '</li>');
-        } else {
-            parent.append('<li><a href="#' + id + '">' + text + '</a></li>');
+        if(index > previousIndex) {
+
+            // Start a list.
+            markup += '<ul>';
         }
+
+        if(id === '') {
+            markup += '<li>' + text + '</li>';
+        } else {
+            markup += '<li><a href="#' + id + '">' + text + '</a></li>';
+        }
+
+        // Keep a record of the previous index to calculate whether the list
+        // item needs nesting or not.
+        previousIndex = index;
     };
 
     /*

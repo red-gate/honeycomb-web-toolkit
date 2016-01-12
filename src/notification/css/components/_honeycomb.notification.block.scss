@@ -64,4 +64,18 @@
             color: color('green');
         }
     }
+
+    /**
+     * Warning
+     */
+    &.notification--warning {
+        .notification--block__inner-container {
+            border-color: color('yellow');
+        }
+
+        .notification__close,
+        .notification__icon {
+            color: color('yellow');
+        }
+    }
 }
