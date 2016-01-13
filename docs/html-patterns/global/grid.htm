@@ -65,17 +65,19 @@
               </div>
 
              <h2>A 12 column grid with no gutters</h2>
-             <p>(add 'grid__col--no-gutter' class to the columns, apart from the first one!)</p>
+             <p>(add 'grid__row--no-gutter' class to the optional row element)</p>
 
              <div class="grid spaced-bottom">
-                  <div class="grid__col grid__col--span-2-of-12 border">
-                      <p>2 of 12</p>
-                  </div>
-                  <div class="grid__col grid__col--span-6-of-12 grid__col--no-gutter border">
-                      <p>6 of 12</p>
-                  </div>
-                  <div class="grid__col grid__col--span-4-of-12 grid__col--no-gutter border">
-                      <p>4 of 12</p>
+                 <div class="grid__row grid__row--no-gutter">
+                      <div class="grid__col grid__col--span-2-of-12 border">
+                          <p>2 of 12</p>
+                      </div>
+                      <div class="grid__col grid__col--span-6-of-12 border">
+                          <p>6 of 12</p>
+                      </div>
+                      <div class="grid__col grid__col--span-4-of-12 border">
+                          <p>4 of 12</p>
+                      </div>
                   </div>
               </div>
 
@@ -93,13 +95,53 @@
                <h2>A 12 column grid with push (no gutter)</h2>
 
                <div class="grid spaced-bottom">
-                    <div class="grid__col grid__col--span-2-of-12 border">
-                        <p>2 of 12</p>
-                    </div>
-                    <div class="grid__col grid__col--span-4-of-12 grid__col--push-6-of-12 grid__col--no-gutter border">
-                        <p>4 of 12</p>
+                   <div class="grid__row grid__row--no-gutter">
+                        <div class="grid__col grid__col--span-2-of-12 border">
+                            <p>2 of 12</p>
+                        </div>
+                        <div class="grid__col grid__col--span-4-of-12 grid__col--push-6-of-12 border">
+                            <p>4 of 12</p>
+                        </div>
                     </div>
                 </div>
+
+                <div class="grid spaced-bottom">
+                     <div class="grid__col grid__col--span-4-of-12 border">
+                         <p>4 of 12</p>
+                     </div>
+                     <div class="grid__col grid__col--span-4-of-12 border">
+                         <p>4 of 12</p>
+                     </div>
+                     <div class="grid__col grid__col--span-4-of-12 border">
+                         <p>4 of 12</p>
+                     </div>
+                 </div>
+
+                 <div class="grid spaced-bottom">
+                       <div class="grid__row grid__row--no-gutter">
+                          <div class="grid__col grid__col--span-4-of-12 border">
+                              <p>4 of 12</p>
+                          </div>
+                          <div class="grid__col grid__col--span-4-of-12 border">
+                              <p>4 of 12</p>
+                          </div>
+                          <div class="grid__col grid__col--span-4-of-12 border">
+                              <p>4 of 12</p>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="grid spaced-bottom">
+                        <div class="grid__row grid__row--no-gutter">
+                           <div class="grid__col grid__col--span-4-of-12 border">
+                               <p>4 of 12</p>
+                           </div>
+                           <div class="grid__col grid__col--span-4-of-12 grid__col--push-4-of-12 border">
+                               <p>4 of 12</p>
+                           </div>
+                       </div>
+                   </div>
+
              </div>
          </div>
   </div><!-- END .page-wrapper -->

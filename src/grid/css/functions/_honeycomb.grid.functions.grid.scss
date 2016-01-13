@@ -8,7 +8,7 @@
  * size of column, and the total amount of columns.
  *
  */
-@function calculateGridTotal($total-columns, $column-span, $gutter) {
+@function calculateGridTotal($total-columns, $column-span, $gutter, $action, $no-gutter: false) {
     $num-gutters: $total-columns - 1;
     $total-gutters: $gutter * $num-gutters;
     $remainder: 100 - $total-gutters;
@@ -20,6 +20,16 @@
     $total-additional-gutters: $additional-gutters * $gutter;
 
     $total: $initial + $total-additional-gutters;
+
+    @if $no-gutter == true {
+        $total: 100 / ($total-columns / $column-span);
+    }
+
+    @if $action == "push" {
+        @if $no-gutter == false {
+            $total: $total + ($gutter * 2);
+        }
+    }
 
     @return $total;
 }

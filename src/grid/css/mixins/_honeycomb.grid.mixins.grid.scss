@@ -22,22 +22,15 @@
         @each $grid-col in $grid-cols {
             @for $i from 1 through $grid-col {
 
-                $total: calculateGridTotal($grid-col, $i, $gutter);
-
-                @if $action == "push" {
-                    $total: $total + ($gutter * 2);
-                }
+                $total: calculateGridTotal($grid-col, $i, $gutter, $action);
 
                 %#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},
                 .#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {
                     #{$property}: $total * 1%;
 
-                    &.grid__col--no-gutter {
-                        #{$property}: ($total + $gutter) * 1%;
-
-                        @if $action == "push" {
-                            #{$property}: ($total - $gutter) * 1%;
-                        }
+                    .#{$grid-class}__row--no-gutter &.#{$grid-class}__col {
+                        $total: calculateGridTotal($grid-col, $i, $gutter, $action, true);
+                        #{$property}: ($total) * 1%;
                     }
                 }
             }

@@ -39,9 +39,12 @@
     }
 
     @if $grid-gutter != 0 {
-        %#{$grid-class}__col--no-gutter,
-        .#{$grid-class}__col--no-gutter {
-            margin-left: 0;
+        %#{$grid-class}__row--no-gutter,
+        .#{$grid-class}__row--no-gutter {
+            %#{$grid-class}__col,
+            .#{$grid-class}__col {
+                margin-left: 0;
+            }
         }
     }
 
