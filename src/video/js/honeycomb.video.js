@@ -125,7 +125,7 @@ Honeycomb.Video = (function($) {
                   if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
                     goalTracked = trackGoal(event, videoId);
                   }
-                  else if (currentTime > 30){
+                  else if (currentTime > 30 && percentages['20%'] < 30){
                     goalTracked = trackGoal(event, videoId);
                   }
                 }
