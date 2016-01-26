@@ -7,11 +7,17 @@
     &[type="radio"] {
         width: auto !important;
     }
+    &[type="checkbox"] {
+        padding-right: 10px;
+    }
 }
 
 .hs-form {
     fieldset {
         max-width: none !important;
+    }
+    li {
+        list-style-type: none;
     }
     .multi-container {
         @include margin(0.5, top);
