@@ -41,6 +41,9 @@
         opacity: 0.8;
         color: #000;
         background: #fff;
+        &::before {
+            margin-right: 0;
+        }
     }
 
     &:hover {
