@@ -69,8 +69,8 @@ Honeycomb.Video = (function($) {
 
         // Replace the empty div with the video player iframe.
         videos[videoId + '-' + videoCounter] = new YT.Player(videoId + '-' + videoCounter, {
-          width: 640,
-          height: 360,
+          width: '100%',
+          height: '100%',
           videoId: videoId,
           playerVars: {
             rel: 0,
