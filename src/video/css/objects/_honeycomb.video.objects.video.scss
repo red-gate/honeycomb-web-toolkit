@@ -5,11 +5,7 @@
     overflow: hidden;
 }
 
-.video-container iframe {
-    position: absolute;
-}
-
-iframe.video, iframe.js-background-video__video {
+.video-container iframe, iframe.video, iframe.js-background-video__video {
     position: absolute;
     top: 0;
     left: 0;

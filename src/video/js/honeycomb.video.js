@@ -69,8 +69,8 @@ Honeycomb.Video = (function($) {
 
         // Replace the empty div with the video player iframe.
         videos[videoId + '-' + videoCounter] = new YT.Player(videoId + '-' + videoCounter, {
-          width: '100%',
-          height: '100%',
+          width: 640,
+          height: 360,
           videoId: videoId,
           playerVars: {
             rel: 0,
@@ -82,17 +82,12 @@ Honeycomb.Video = (function($) {
             enablejsapi: 1
           },
           events: {
-            onReady: function(event) {
-              // Add the 'video' class to the dynamically added iframe.
-              $("iframe#" + $(event.target.getVideoEmbedCode()).attr('id')).addClass('video');
-            },
             onStateChange: function(event) {
-
 
               if(event.data === YT.PlayerState.PLAYING) {
 
                 // Video playing.
-                var $video = $("iframe#" + $(event.target.getVideoEmbedCode()).attr('id'));
+                var $video = $("iframe#" + event.target.getVideoData().video_id);
 
                 duration = duration || event.target.getDuration();
                 percentages = percentages || calculatePercentages(duration);
