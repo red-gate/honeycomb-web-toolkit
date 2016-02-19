@@ -24,6 +24,13 @@
     %#{$grid-class}__row,
     .#{$grid-class}__row {
         @extend %clearfix !optional;
+
+        &.#{$grid-class}__row--no-gutter {
+            .#{$grid-class}__col {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
     }
 
     %#{$grid-class}__col,
