@@ -70,7 +70,9 @@
     /**
     * Build the grid at breakpoints.
     */
-    /** @TODO Needs work. Need to think about this not on a Friday afternoon! */
+    /** @TODO Needs work. Need to think about this not on a Friday afternoon!
+    Look at how the breakpoints are used in the responsive mixin and make
+    consistent here. */
     $breakpoints: false !default;
     @if $breakpoints {
         @each $breakpoint in $breakpoints {
