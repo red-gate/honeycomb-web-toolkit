@@ -53,9 +53,10 @@
     }
 
     h1 {
-        @include font-size(14px);
-        color: color('grey');
+        @include font-size(20px);
+        color: color('grey', 8);
         text-transform: uppercase;
+        font-weight: 300;
         @include px-rem(letter-spacing, 1);
 
     }
