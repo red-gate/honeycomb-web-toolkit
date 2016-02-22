@@ -22,7 +22,10 @@
 }
 
 
-
+.text--intro {
+  font-weight: 300;
+  @include font-size(18px);
+}
 
 
 
