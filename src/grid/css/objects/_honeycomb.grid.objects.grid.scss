@@ -24,36 +24,39 @@
     %#{$grid-class}__row,
     .#{$grid-class}__row {
         @extend %clearfix !optional;
+
+        &.#{$grid-class}__row--no-gutter {
+            .#{$grid-class}__col {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
     }
 
     %#{$grid-class}__col,
     .#{$grid-class}__col {
         display: block;
         float: left;
-        margin: 0;
-        margin-left: $grid-gutter * 1%;
+        padding-left: $grid-gutter * 1%;
+        padding-right: $grid-gutter * 1%;
 
-        &:first-of-type {
-            margin-left: 0;
+        &.#{$grid-class}__col--no-gutter {
+            padding-left: 0;
+            padding-right: 0;
         }
-    }
 
-    @if $grid-gutter != 0 {
-        %#{$grid-class}__row--no-gutter,
-        .#{$grid-class}__row--no-gutter {
-            %#{$grid-class}__col,
-            .#{$grid-class}__col {
-                margin-left: 0;
-            }
+        &.#{$grid-class}__col--no-left-gutter {
+            padding-left: 0;
+        }
+
+        &.#{$grid-class}__col--no-right-gutter {
+            padding-right: 0;
         }
     }
 
     @include responsive('small') {
         %#{$grid-class} %#{$grid-class}__col,
         .#{$grid-class} .#{$grid-class}__col {
-            @include padding(0, left);
-            @include padding(0, right);
-            margin-left: 0;
             width: 100%;
             border: none;
         }
@@ -65,29 +68,15 @@
     @include buildGrid($grid-gutter);
 
     /**
-    * Build the grid at breakpoints.
+    * Build the grid at breakpoints, using Desktop first approach, like the
+    * responsive mixin in the base module.
     */
     $breakpoints: false !default;
     @if $breakpoints {
         @each $breakpoint in $breakpoints {
             $name: nth($breakpoint, 1);
-            $minWidth: nth($breakpoint, 2);
-            $maxWidth: false;
-            $declaration: false;
-
-            $index: index($breakpoints, $breakpoint);
-            @if $index == 1 {
-                $maxWidth: false;
-            } @else {
-                $prevBP: nth($breakpoints, ($index - 1));
-                $maxWidth: nth($prevBP, 2) - 1;
-            }
-
-            @if($maxWidth) {
-                $declaration: "(min-width: #{$minWidth}) and (max-width: #{$maxWidth})";
-            } @else {
-                $declaration: "(min-width: #{$minWidth})";
-            }
+            $width: nth($breakpoint, 2);
+            $declaration: "(#{$mqProperty} #{$width})";
 
             @media only screen and #{$declaration} {
                 @include buildGrid($grid-gutter, "--#{$name}");

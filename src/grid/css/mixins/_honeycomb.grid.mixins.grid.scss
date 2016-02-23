@@ -19,32 +19,14 @@
 
 @mixin build ($gutter: 0, $suffix: "", $action: "span", $property: "width") {
     @if $enable-grid-classes {
-
-        $important: "";
-        @if $action == "push" {
-            $important: "!important";
-        }
-
         @each $grid-col in $grid-cols {
             @for $i from 1 through $grid-col {
 
-                $total: calculateGridTotal($grid-col, $i, $gutter, $action);
+                $total: (100 / ($grid-col / $i)) * 1%;
 
                 %#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},
                 .#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {
-                    #{$property}: $total * 1% #{$important};
-
-                    @if $action == "push" {
-                        &:first-of-type {
-                            $total: $total - $gutter;
-                            #{$property}: $total * 1% #{$important};
-                        }
-                    }
-
-                    .#{$grid-class}__row--no-gutter &.#{$grid-class}__col {
-                        $total: calculateGridTotal($grid-col, $i, $gutter, $action, true);
-                        #{$property}: ($total) * 1% #{$important};
-                    }
+                    #{$property}: $total;
                 }
             }
         }

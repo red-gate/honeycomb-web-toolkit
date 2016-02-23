@@ -4,11 +4,27 @@
 
 /**
  * Set responsive breakpoints.
+ * (Note: No large breakpoint, as large is the default as using desktop first
+ * approach.)
  */
 
-
 $breakpoints: (
-  "large": 1000px,
   "medium": 768px,
   "small": 480px
 ) !default;
+
+
+/**
+ * Set whether the breakpoints and media queries should run as desktop first.
+ * i.e. when using a responsive breakpoint, desktop first captures upto the
+ * breakpoint, so 'medium' breakpoint would apply to medium and small.
+ */
+
+$desktopFirst: true !default;
+$mqProperty: "max-width:" !default;
+
+@if $desktopFirst == true {
+    $mqProperty: "max-width:";
+} @else {
+    $mqProperty: "min-width:";
+}

@@ -11,7 +11,7 @@ $font-size: 16px !default;
 
 $font-family: "Roboto", "Helvetica Neue", Arial, Sans-serif !default;
 
-$line-height: 1.5 !default;
+$line-height: 26px !default;
 
 // Font directory, relative to the compiled CSS.
 $font-dir: "../fonts/roboto/" !default;
@@ -21,16 +21,16 @@ $font-dir: "../fonts/roboto/" !default;
     #HEADINGS
 \*------------------------------------*/
 
-$heading-size-1: 32px !default;
+$heading-size-1: 30px !default;
 $heading-size-2: 24px !default;
 $heading-size-3: 18px !default;
 $heading-size-4: 16px !default;
 $heading-size-5: 14px !default;
-$heading-size-6: 11px !default;
+$heading-size-6: 12px !default;
 
-$heading-size-1-font-weight: normal !default;
-$heading-size-2-font-weight: bold !default;
-$heading-size-3-font-weight: bold !default;
-$heading-size-4-font-weight: bold !default;
-$heading-size-5-font-weight: bold !default;
-$heading-size-6-font-weight: bold !default;
+$heading-size-1-font-weight: 300 !default;
+$heading-size-2-font-weight: normal !default;
+$heading-size-3-font-weight: normal !default;
+$heading-size-4-font-weight: medium !default;
+$heading-size-5-font-weight: medium !default;
+$heading-size-6-font-weight: medium !default;
