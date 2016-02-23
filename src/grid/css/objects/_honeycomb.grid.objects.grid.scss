@@ -68,32 +68,15 @@
     @include buildGrid($grid-gutter);
 
     /**
-    * Build the grid at breakpoints.
+    * Build the grid at breakpoints, using Desktop first approach, like the
+    * responsive mixin in the base module.
     */
-    /** @TODO Needs work. Need to think about this not on a Friday afternoon!
-    Look at how the breakpoints are used in the responsive mixin and make
-    consistent here. */
     $breakpoints: false !default;
     @if $breakpoints {
         @each $breakpoint in $breakpoints {
             $name: nth($breakpoint, 1);
-            $minWidth: nth($breakpoint, 2);
-            $maxWidth: false;
-            $declaration: false;
-
-            $index: index($breakpoints, $breakpoint);
-            @if $index == 1 {
-                $maxWidth: false;
-            } @else {
-                $prevBP: nth($breakpoints, ($index - 1));
-                $maxWidth: nth($prevBP, 2) - 1;
-            }
-
-            @if($maxWidth) {
-                $declaration: "(min-width: #{$minWidth}) and (max-width: #{$maxWidth})";
-            } @else {
-                $declaration: "(min-width: #{$minWidth})";
-            }
+            $width: nth($breakpoint, 2);
+            $declaration: "(#{$mqProperty} #{$width})";
 
             @media only screen and #{$declaration} {
                 @include buildGrid($grid-gutter, "--#{$name}");

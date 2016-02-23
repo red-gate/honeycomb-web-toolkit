@@ -1,5 +1,3 @@
-// TODO document and example
-
 /**
  * When using medium as breakpoint, means to apply rules to medium breakpoint and BELOW,
  * as we're going desktop first (max-width), rather than mobile first (min-width).
@@ -9,7 +7,7 @@
   @if map-has-key($breakpoints, $breakpoint) {
 
     $width: map-get($breakpoints, $breakpoint);
-    @media only screen and (max-width: $width) {
+    @media only screen and (#{$mqProperty} $width) {
       @content;
     }
 
