@@ -17,29 +17,3 @@ hr
 {
     @include margin(1, bottom);
 }
-//
-// h3, h4, h5, h6 {
-//     @include margin(0.5, bottom);
-// }
-//
-// /**
-//  * Reduce vertical space between adjacent headings.
-//  */
-// h1:not(.visually-hidden) + h2, h1:not(.visually-hidden) + h3, h1:not(.visually-hidden) + h4, h1:not(.visually-hidden) + h5,
-// h2:not(.visually-hidden) + h3, h2:not(.visually-hidden) + h4, h2:not(.visually-hidden) + h5,
-// h3:not(.visually-hidden) + h4, h3:not(.visually-hidden) + h5,
-// h4:not(.visually-hidden) + h5,
-// .main-heading:not(.visually-hidden) + .sub-heading,
-// .sub-heading:not(.visually-hidden) + .sub-heading,
-// h1:not(.visually-hidden) + .sub-heading,
-// h2:not(.visually-hidden) + .sub-heading
-// {
-//     @include margin(-1, top);
-// }
-//
-// h3:not(.visually-hidden) + h4, h3:not(.visually-hidden) + h5,
-// h4:not(.visually-hidden) + h5,
-// h3:not(.visually-hidden) + .sub-heading
-// {
-//     @include margin(-0.5, top);
-// }
