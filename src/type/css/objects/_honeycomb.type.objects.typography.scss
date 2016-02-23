@@ -33,6 +33,15 @@
     #DISPLAY FONTS
 \*------------------------------------*/
 
+h1,
+.alpha,
+%alpha,
+.main-heading {
+    &.h1--large {
+        @include font-size(40px);
+    }
+}
+
 /* Display fonts. Super large font sizes. Use with .text--normal for some nice big display fonts for pull quotes and ting.  */
 .text--biggest {
 	@include font-size(80px, 88px);

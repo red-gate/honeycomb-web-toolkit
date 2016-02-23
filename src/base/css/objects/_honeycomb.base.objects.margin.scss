@@ -82,35 +82,35 @@
  * More margin
  */
 .spaced--loose {
-    @include margin(4);
+    @include margin(2);
 }
 
 
 .spaced-h--loose {
-    @include margin(4, left);
-    @include margin(4, right);
+    @include margin(2, left);
+    @include margin(2, right);
 }
 
 .spaced-left--loose {
-    @include margin(4, left);
+    @include margin(2, left);
 }
 
 .spaced-right--loose {
-    @include margin(4, right);
+    @include margin(2, right);
 }
 
 
 .spaced-v--loose {
-    @include margin(4, top);
-    @include margin(4, bottom);
+    @include margin(2, top);
+    @include margin(2, bottom);
 }
 
 .spaced-top--loose {
-    @include margin(4, top);
+    @include margin(2, top);
 }
 
 .spaced-bottom--loose {
-    @include margin(4, bottom);
+    @include margin(2, bottom);
 }
 
 /**
