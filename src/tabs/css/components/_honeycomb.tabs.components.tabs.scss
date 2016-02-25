@@ -47,9 +47,9 @@
 }
 
 .tabs a {
-    @include padding(0.5);
-    @include padding(1, left);
-    @include padding(1, right);
+    @include padding(0.25);
+    @include padding(0.5, left);
+    @include padding(0.5, right);
     display: block;
     text-decoration: none;
     border:none;
@@ -60,7 +60,7 @@
 }
 
 .tabbed__content {
-  @include padding(1);
+  @include padding(0.5);
 }
 
 

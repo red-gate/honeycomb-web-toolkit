@@ -5,7 +5,7 @@
 
     .notification--block__inner-container {
         margin: auto;
-        @include padding(1);
+        @include padding(0.5);
         @include border-left;
         @include px-rem('border-left-width', 15);
     }

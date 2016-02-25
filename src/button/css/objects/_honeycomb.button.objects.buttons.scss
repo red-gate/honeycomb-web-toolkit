@@ -5,7 +5,7 @@
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button,
 %button {
-    @include margin(1, bottom);
+    @include margin(0.5, bottom);
     @include font-size(12px);
     padding: $button-padding !important;
     background-color: $button-background !important;
@@ -93,7 +93,7 @@ display: inline;
     &:before {
         content: "\e60f ";
         font-family: "Redgate";
-        @include padding(0.5, right);
+        @include padding(0.25, right);
     }
 }
 
@@ -106,7 +106,7 @@ display: inline;
     &:after {
         content: "\e607 ";
         font-family: "Redgate";
-        @include padding(0.5, left);
+        @include padding(0.25, left);
     }
 }
 
@@ -133,7 +133,7 @@ display: inline;
     &:before {
         content: "\e62a ";
         font-family: "Redgate";
-        @include padding(0.5, right);
+        @include padding(0.25, right);
     }
 }
 

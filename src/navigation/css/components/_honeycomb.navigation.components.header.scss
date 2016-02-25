@@ -14,8 +14,8 @@
     }
 
     .header--primary__app-logo-container {
-        @include padding(1, left);
-        @include padding(1, right);
+        @include padding(0.5, left);
+        @include padding(0.5, right);
         position: relative;
         float: left;
         text-align: center;
@@ -24,7 +24,7 @@
 
         // Slash, 30 degrees. Optional with the "header--primary__app-logo-container--slash" class.
         &.header--primary__app-logo-container--slash {
-            @include padding(0.5, right);
+            @include padding(0.25, right);
 
             &:after {
                 display: block;
@@ -54,7 +54,7 @@
 
     .header--primary__company-logo-container {
         @extend .header--primary__app-logo-container;
-        @include padding(0.5, left);
+        @include padding(0.25, left);
         border-right: none !important;
 
         // Slash (30 degrees)
@@ -83,8 +83,8 @@
     ul {
         @extend %list--horizontal;
         @include margin(0, bottom);
-        @include margin(1, left);
-        @include margin(2, right);
+        @include margin(0.5, left);
+        @include margin(1, right);
         float: left;
 
         li {
@@ -94,8 +94,8 @@
         }
 
         a {
-            @include padding(0.5, left);
-            @include padding(0.5, right);
+            @include padding(0.25, left);
+            @include padding(0.25, right);
             display: block;
             min-height: $navigation-minimum-height;
             line-height: $navigation-minimum-height - $navigation-border-width;
@@ -111,7 +111,7 @@
     }
 
     .header--primary__app-logo-container--slash + ul {
-        @include margin(2, left);
+        @include margin(1, left);
     }
 
     @include responsive('medium') {
@@ -146,9 +146,9 @@
             }
 
             a {
-                @include padding(0.5);
-                @include padding(1, left);
-                @include padding(1, right);
+                @include padding(0.25);
+                @include padding(0.5, left);
+                @include padding(0.5, right);
                 display: block;
                 line-height: normal;
                 min-height: 0;
@@ -228,13 +228,13 @@
 
     .section {
         @include margin(0);
-        @include margin(0.5, top);
-        @include margin(1, right);
+        @include margin(0.25, top);
+        @include margin(0.5, right);
         @include font-size(24px);
         float: left;
 
         img {
-            @include margin(0.5, right);
+            @include margin(0.25, right);
         }
     }
 
@@ -252,9 +252,9 @@
 
         a {
             @include margin(0);
-            @include padding(1);
-            @include padding(0.75, top);
-            @include padding(1, bottom);
+            @include padding(0.5);
+            @include padding(0.25, top);
+            @include padding(0.5, bottom);
             @include font-size(13px);
             color: color('grey', 6);
             display: block;
@@ -273,7 +273,7 @@
     }
 
     .button {
-        @include margin(0.5, left);
+        @include margin(0.25, left);
     }
 
     @include responsive('medium') {
@@ -293,11 +293,11 @@
 .header--secondary--spaced {
     // @include padding(1, top);
     .section {
-        @include margin(1.25, top);
+        @include margin(0.75, top);
     }
 
     ul a {
-        @include padding(1.5, top);
-        @include padding(1.5, bottom);
+        @include padding(0.75, top);
+        @include padding(0.75, bottom);
     }
 }

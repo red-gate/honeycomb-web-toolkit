@@ -20,18 +20,18 @@
         list-style-type: none;
     }
     .multi-container {
-        @include margin(0.5, top);
+        @include margin(0.25, top);
         @include margin(0, left);
         list-style: none;
 
         li {
-            @include margin(0.5, bottom);
+            @include margin(0.25, bottom);
         }
 
         label {
             font-weight: normal;
             input {
-                @include margin(0.5, right);
+                @include margin(0.25, right);
             }
         }
 

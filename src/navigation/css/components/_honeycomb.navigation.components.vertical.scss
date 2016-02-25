@@ -7,7 +7,7 @@
     ul {
         @extend .list--bare;
         @include margin(0);
-        @include margin(1, bottom);
+        @include margin(0.5, bottom);
         border-right: 5px solid $default-border-color;
         border-bottom: 1px solid color('grey', 2);
 
@@ -23,7 +23,7 @@
         border-top: 1px solid color('grey', 2);
 
         li {
-            @include padding(1, left);
+            @include padding(0.5, left);
         }
     }
 

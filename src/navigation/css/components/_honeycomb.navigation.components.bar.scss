@@ -3,7 +3,7 @@
         @extend %list--horizontal;
         @include margin(0, bottom);
         li {
-            @include margin(1, left);
+            @include margin(0.5, left);
             @include margin(0, bottom);
         }
         li:first-child {

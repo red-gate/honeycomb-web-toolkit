@@ -54,15 +54,15 @@
 %list--padded {
 
   li {
-    @include padding(0.5);
+    @include padding(0.25);
   }
 
   &.list--horizontal {
 
     li {
       @include padding(0);
-      @include padding(0.5, left);
-      @include padding(0.5, right);
+      @include padding(0.25, left);
+      @include padding(0.25, right);
 
       &:first-child {
           @include padding(0, left);
@@ -80,7 +80,7 @@
 %list--tight {
 
     li {
-        @include margin(0.5, bottom);
+        @include margin(0.25, bottom);
     }
 }
 
@@ -93,8 +93,8 @@
     border-width: 0;
     border-bottom-width: 1px;
     border-style: solid;
-    @include padding(0.5, top);
-    @include padding(0.5, bottom);
+    @include padding(0.25, top);
+    @include padding(0.25, bottom);
 
     &:last-child {
       border-bottom-width: 0;
@@ -108,8 +108,8 @@
       border-right-width: 1px;
       @include padding(0, top);
       @include padding(0, bottom);
-      @include padding(0.5, left);
-      @include padding(0.5, right);
+      @include padding(0.25, left);
+      @include padding(0.25, right);
 
       &:first-child {
           @include padding(0, left);
@@ -132,7 +132,7 @@
 
     & > li {
         position: relative;
-        @include padding(1.5, left);
+        @include padding(0.75, left);
 
         &:before {
             content: "\e625";
@@ -159,7 +159,7 @@
     @extend .list--tick;
 
     & > li {
-        @include padding(2, left);
+        @include padding(1, left);
 
         &:before {
             font-size: $icon-font-size--large;
@@ -194,7 +194,7 @@
     @extend .list--chevron;
 
     & > li {
-        @include padding(2, left);
+        @include padding(1, left);
 
         &:before {
             font-size: $icon-font-size--large;
@@ -228,7 +228,7 @@
     @extend .list--chevron-down;
 
     & > li {
-        @include padding(2, left);
+        @include padding(1, left);
 
         &:before {
             font-size: $icon-font-size--large;
@@ -279,7 +279,7 @@
     @extend .list--plus;
 
     & > li {
-        @include padding(2, left);
+        @include padding(1, left);
 
         &:before {
             font-size: $icon-font-size--large;
@@ -312,7 +312,7 @@
     @extend .list--minus;
 
     & > li {
-        @include padding(2, left);
+        @include padding(1, left);
 
         &:before {
             font-size: $icon-font-size--large;
@@ -344,7 +344,7 @@
     @extend .list--star;
 
     & > li {
-        @include padding(2, left);
+        @include padding(1, left);
 
         &:before {
             font-size: $icon-font-size--large;
@@ -389,7 +389,7 @@
     @extend .list--new;
 
     & > li {
-        @include padding(1.5, left);
+        @include padding(0.75, left);
 
         &:before {
           @include font-size(13px);

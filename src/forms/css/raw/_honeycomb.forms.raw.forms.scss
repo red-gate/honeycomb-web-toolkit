@@ -9,8 +9,8 @@ input, select, textarea, label {
 
 input, select, textarea {
     @include border();
-    @include margin(1, bottom);
-    @include padding(0.5);
+    @include margin(0.5, bottom);
+    @include padding(0.25);
     width: 100%;
     border-radius: 5px;
 }

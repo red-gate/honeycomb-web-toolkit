@@ -5,7 +5,7 @@
 
 .pagination {
     @include border-top();
-    @include padding(0.5);
+    @include padding(0.25);
     @include clearfix();
     float: left;
     width: 100%;
@@ -20,7 +20,7 @@
     &:before {
         content: "\e606";
         font-family: "Redgate";
-        @include margin(0.5, right);
+        @include margin(0.25, right);
     }
 }
 
@@ -33,7 +33,7 @@
     &:after {
         content: "\e607";
         font-family: "Redgate";
-        @include margin(0.5, left);
+        @include margin(0.25, left);
     }
 }
 
