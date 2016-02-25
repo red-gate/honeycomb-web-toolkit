@@ -7,11 +7,11 @@
  */
 
 ul, ol, dd {
-  @include margin(1, left);
+  @include margin(0.5, left);
 }
 
 li {
-  @include margin(1, bottom);
+  @include margin(0.5, bottom);
 }
 
 

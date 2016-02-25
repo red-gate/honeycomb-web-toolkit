@@ -15,5 +15,5 @@ fieldset, figure,
 pre,
 hr
 {
-    @include margin(1, bottom);
+    @include margin(0.5, bottom);
 }
