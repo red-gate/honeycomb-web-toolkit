@@ -28,8 +28,8 @@
 .band__inner-container,
 %band__inner-container {
     @include clearfix();
-    @include padding(2, top);
-    @include padding(2, bottom);
+    @include padding(1, top);
+    @include padding(1, bottom);
     width: 100%;
     max-width: $container-width;
     margin: auto;
@@ -42,8 +42,8 @@
 .band__inner-container--tight,
 %band__inner-container--tight {
     @extend %band__inner-container;
-    @include padding(1, top);
-    @include padding(1, bottom);
+    @include padding(0.5, top);
+    @include padding(0.5, bottom);
 }
 
 
@@ -53,6 +53,6 @@
 .band__inner-container--loose,
 %band__inner-container--loose {
     @extend %band__inner-container;
-    @include padding(4, top);
-    @include padding(4, bottom);
+    @include padding(2, top);
+    @include padding(2, bottom);
 }
