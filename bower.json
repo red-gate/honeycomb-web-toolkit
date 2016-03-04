@@ -4,6 +4,7 @@
 		"Gruntfile.js",
 		"package.json",
 		"node_modules",
-		".gitignore"
+		".gitignore",
+		"docs"
 	]
 }
