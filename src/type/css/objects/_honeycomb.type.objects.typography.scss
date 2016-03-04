@@ -27,6 +27,10 @@
   @include font-size(18px);
 }
 
+.text--body-small {
+  @include font-size(14px);
+}
+
 
 
 /*------------------------------------*\
@@ -44,12 +48,12 @@ h1,
 
 /* Display fonts. Super large font sizes. Use with .text--normal for some nice big display fonts for pull quotes and ting.  */
 .text--biggest {
-	@include font-size(80px, 88px);
+  @include font-size(80px, 88px);
 }
 
 .text--bigger {
-	@include font-size(56px, 64px);
+  @include font-size(56px, 64px);
 }
 .text--big {
-	@include font-size(44px, 52px);
+  @include font-size(44px, 52px);
 }
