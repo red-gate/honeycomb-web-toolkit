@@ -14,6 +14,7 @@ jQuery(function(){
 	$(window).on('resize', function() {
 		Honeycomb.Equalise(jQuery);
 	})
-	// make it run on initial load
+	
+	// Make it run on initial load
 	.trigger('resize');
 });
