@@ -5,9 +5,11 @@
   $rems: '';
 
   @for $i from 1 through length($values) {
-    $value: nth($values, $i);
-    $pxs: (#{$pxs}) + $value + px + ' ';
-    $rems: (#{$rems}) + (($value/$spacing-index) * 1px) + rem + ' ';
+    $pxValue: nth($values, $i);
+    $remValue: px-rem($pxValue);
+
+    $pxs: (#{$pxs}) + $pxValue + px + ' ';
+    $rems: (#{$rems}) + $remValue + ' ';
   }
 
   #{$property}: $pxs;

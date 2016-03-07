@@ -7,10 +7,12 @@
  *  - enable/disable grid classes,
  *  - set grid classname,
  *  - set number of columns to generate and make available for layout,
- *  - set the grid gutter as a percentage.
+ *  - set the target gutter size based on the container width,
+ *  - set the grid gutter as a percentage (auto calculated).
  */
 
 $enable-grid-classes: true !default;
 $grid-class: "grid" !default;
 $grid-cols: (12) !default;
-$grid-gutter: 20px !default;
+$grid-target-gutter: 20px !default;
+$grid-gutter: ($grid-target-gutter / $container-width) * 100% !default;
