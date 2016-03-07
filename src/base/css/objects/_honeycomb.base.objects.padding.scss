@@ -83,34 +83,56 @@
  */
 .padded--loose {
     @include padding(2);
+    @include responsive("medium") {
+        @include padding(1);
+    }
 }
-
 
 .padded-h--loose {
     @include padding(2, left);
     @include padding(2, right);
+    @include responsive("medium") {
+        @include padding(1, left);
+        @include padding(1, right);
+    }
 }
 
 .padded-left--loose {
     @include padding(2, left);
+    @include responsive("medium") {
+        @include padding(1, left);
+    }
 }
 
 .padded-right--loose {
     @include padding(2, right);
+    @include responsive("medium") {
+        @include padding(1, right);
+    }
 }
 
 
 .padded-v--loose {
     @include padding(2, top);
     @include padding(2, bottom);
+    @include responsive("medium") {
+        @include padding(1, top);
+        @include padding(1, bottom);
+    }
 }
 
 .padded-top--loose {
     @include padding(2, top);
+    @include responsive("medium") {
+        @include padding(1, top);
+    }
 }
 
 .padded-bottom--loose {
     @include padding(2, bottom);
+    @include responsive("medium") {
+        @include padding(1, bottom);
+    }
 }
 
 /**
