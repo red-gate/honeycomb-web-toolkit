@@ -33,6 +33,10 @@
     width: 100%;
     max-width: $container-width;
     margin: auto;
+    & > *:not(.grid) {
+      @include padding(0.5, left);
+      @include padding(0.5, right);
+    }
 }
 
 
