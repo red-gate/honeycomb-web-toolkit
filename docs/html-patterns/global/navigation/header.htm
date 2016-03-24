@@ -6,7 +6,7 @@
 <body class="guide" id="top-of-page">
   <div class="page-wrapper">
 
-    
+
 
     <div class="band">
       <div class="band__inner-container--tight">
@@ -15,38 +15,82 @@
         <p>The header menu, comprising of a top level primary navigation, and a secondary navigation.</p>
         <p>Note: The menu's are responsive, however need improving.</p>
 
-        <p data-height="400" data-theme-id="0" data-slug-hash="mJNOam" data-default-tab="html" data-user="redgatewebteam" class='codepen'See the Pen <a href='http://codepen.io/redgatewebteam/pen/mJNOam/'>Redgate - HTML - Navigation - Header</a> by Redgate Web Team (<a href='http://codepen.io/redgatewebteam'>@redgatewebteam</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-
         <h2 class="spaced-top">HTML Examples</h2>
       </div>
     </div>
 
 
+
+
     <div class="spaced-bottom--loose">
-        <div class="band header--primary header--primary--light">
-            <nav class="band__inner-container">
-                <div>
-                    <div class="header--primary__app-logo-container">
-                        <img src="/docs/images/header/example-logo-red.png" alt="" width="36" class="js-svg header--primary__img">
-                    </div>
-                    <ul class="">
-                        <li><a href="#">Warnings</a></li>
-                        <li><a href="#" class="active">Overview</a></li>
-                        <li><a href="#">Report</a></li>
+        <div class="band header--primary">
+            <nav>
+                <a href="/" class="header--primary__app-logo-container"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/redgate-logo--white.svg" alt="" width="94" height="23"></a>
+
+
+                <span class="hide-on-medium">
+                    <ul>
+                        <li><a href="x">Products</a></li>
+                        <li><a href="x" class="active">DLM</a></li>
+                        <li><a href="x">Support</a></li>
+                        <li><a href="x">Our company</a></li>
                     </ul>
+                </span>
 
-                    <div class="float-right">
+                <span class="hide-on-medium float-right">
+                    <ul>
+                        <li><a href="x">My account</a></li>
+                        <li><a href="x">Quotes</a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/search.png" alt="Search"></a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
+                    </ul>
+                    <!-- <a href="/" class="header--primary__company-logo-container"><img src="/docs/images/header/redgate-logo-black.png" width="75" class="js-svg"></a> -->
+                </span>
+
+
+                <span class="hide-on-large show-on-medium float-right">
+                <!-- <span class="float-right"> -->
+                    <ul>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/search.png" alt="Search"></a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
+                        <li><a href="x" class="header--primary__icon header--primary__menu-button">Menu</a></li>
+                    </ul>
+                </span>
+
+                <ul class="header--primary__menu js-dropdown">
+                    <li>
+                        <a href="#item">Item 1</a>
                         <ul>
-                            <li><a href="#">Help</a></li>
-                            <li><a href="#">Give feedback</a></li>
+                            <li><a href="#item">Item 1 A</a></li>
+                            <li><a href="#item">Item 1 B</a></li>
+                            <li><a href="#item">Item 1 C</a></li>
+                            <li><a href="#item">Item 1 D</a></li>
                         </ul>
-                        <div class="header--primary__company-logo-container">
-                            <img src="/docs/images/header/redgate-logo-black.png" width="75" class="js-svg">
-                        </div>
-                    </div>
-                </div>
+                    </li>
+                    <li>
+                        <a href="#item">Item 2</a>
+                        <ul>
+                            <li><a href="#item">Item 2 A</a></li>
+                            <li>
+                                <a href="#item">Item 2 B</a>
+                                <ul>
+                                    <li><a href="#item">Item 2 B 1</a></li>
+                                    <li><a href="#item">Item 2 B 2</a></li>
+                                    <li><a href="#item">Item 2 B 3</a></li>
+                                    <li><a href="#item">Item 2 B 4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#item">Item 2 C</a></li>
+                            <li><a href="#item">Item 2 D</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#item">Item 3</a></li>
+                    <li><a href="#item">Item 4</a></li>
+                </ul>
+
             </nav>
         </div>
+
         <div class="band header--secondary">
             <nav class="band__inner-container">
                 <ul>
@@ -58,24 +102,80 @@
         </div>
     </div>
 
+
+
+
+
+    <!-- Lightest -->
     <div class="spaced-bottom--loose">
         <div class="band header--primary header--primary--light">
-            <nav class="band__inner-container">
+            <nav>
+                <a href="/" class="header--primary__app-logo-container"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/redgate-logo--white.svg" alt="" width="94" height="23"></a>
 
-                <div class="header--primary__app-logo-container">
-                    <a href="#"><img src="/docs/images/header/example-logo-red.png" alt="" width="36" class="js-svg header--primary__img"></a>
-                </div>
-                <ul class="">
-                    <li><a href="#">Warnings</a></li>
-                    <li><a href="#" class="active">Overview</a></li>
-                    <li><a href="#">Report</a></li>
+
+                <span class="hide-on-medium">
+                    <ul>
+                        <li><a href="x">Products</a></li>
+                        <li><a href="x" class="active">DLM</a></li>
+                        <li><a href="x">Support</a></li>
+                        <li><a href="x">Our company</a></li>
+                    </ul>
+                </span>
+
+                <span class="hide-on-medium float-right">
+                    <ul>
+                        <li><a href="x">My account</a></li>
+                        <li><a href="x">Quotes</a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/search.png" alt="Search"></a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
+                    </ul>
+                    <a href="/" class="header--primary__company-logo-container"><img src="/docs/images/header/redgate-logo-black.png" width="75" class="js-svg"></a>
+                </span>
+
+
+                <span class="hide-on-large show-on-medium float-right">
+                <!-- <span class="float-right"> -->
+                    <ul>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/search.png" alt="Search"></a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
+                        <li><a href="x" class="header--primary__icon header--primary__menu-button">Menu</a></li>
+                    </ul>
+                </span>
+
+                <ul class="header--primary__menu js-dropdown">
+                    <li>
+                        <a href="#item">Item 1</a>
+                        <ul>
+                            <li><a href="#item">Item 1 A</a></li>
+                            <li><a href="#item">Item 1 B</a></li>
+                            <li><a href="#item">Item 1 C</a></li>
+                            <li><a href="#item">Item 1 D</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#item">Item 2</a>
+                        <ul>
+                            <li><a href="#item">Item 2 A</a></li>
+                            <li>
+                                <a href="#item">Item 2 B</a>
+                                <ul>
+                                    <li><a href="#item">Item 2 B 1</a></li>
+                                    <li><a href="#item">Item 2 B 2</a></li>
+                                    <li><a href="#item">Item 2 B 3</a></li>
+                                    <li><a href="#item">Item 2 B 4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#item">Item 2 C</a></li>
+                            <li><a href="#item">Item 2 D</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#item">Item 3</a></li>
+                    <li><a href="#item">Item 4</a></li>
                 </ul>
 
-                <div class="header--primary__company-logo-container">
-                    <img src="/docs/images/header/redgate-logo-black.png" width="75" class="js-svg">
-                </div>
             </nav>
         </div>
+
         <div class="band header--secondary">
             <nav class="band__inner-container">
                 <ul>
@@ -87,65 +187,48 @@
         </div>
     </div>
 
-    <div class="spaced-bottom--loose">
-        <div class="band header--primary header--primary--dark">
-            <nav class="band__inner-container">
 
-                <div class="header--primary__app-logo-container header--primary__app-logo-container--slash">
-                    <a href="#" class=""><img src="/docs/images/header/redgate-logo-white.png" alt="" width="75" class="js-svg header--primary__img"></a>
-                </div>
-                <ul class="">
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#" class="active">Training</a></li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">Our company</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="band header--secondary header--secondary--spaced">
-            <nav class="band__inner-container">
-                <h1 class="section"><img class="js-svg" src="/docs/images/isw-product-logo-small.png" alt="">Section title</h1>
-                <ul class="right">
-                    <li><a href="#">Changes</a></li>
-                    <li><a href="#" class="active">Alerts</a></li>
-                    <li><a href="#">Script</a></li>
-                    <li><a href="#" class="button button--download">Download</a></li>
-                    <li><a href="#" class="button button--buy">Buy now</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+
+
 
     <div class="spaced-bottom--loose">
-        <div class="band header--primary header--primary--dark">
-            <nav class="band__inner-container">
+        <div class="band header--primary">
+            <nav>
+                <a href="/" class="header--primary__app-logo-container"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/redgate-logo--white.svg" alt="" width="94" height="23"></a>
 
-                <div class="header--primary__app-logo-container">
-                    <img src="/docs/images/header/example-logo-white.png" alt="" width="36" class="js-svg header--primary__img">
-                </div>
-                <ul class="">
-                    <li><a href="#">Warnings</a></li>
-                    <li><a href="#" class="active">Overview</a></li>
-                    <li><a href="#">Report</a></li>
+                <span class="hide-on-medium">
+                    <ul>
+                        <li><a href="x">Nav item 1</a></li>
+                        <li><a href="x" class="active">Nav item 2</a></li>
+                        <li><a href="x">Nav item 3</a></li>
+                    </ul>
+                </span>
+
+                <span class="hide-on-medium float-right">
+                    <a href="/" class="header--primary__company-logo-container"><img src="/docs/images/header/redgate-logo-black.png" width="75" class="js-svg"></a>
+                </span>
+
+
+                <span class="hide-on-large show-on-medium float-right">
+                    <ul>
+                        <li><a href="x" class="header--primary__icon header--primary__menu-button">Menu</a></li>
+                    </ul>
+                </span>
+
+                <ul class="header--primary__menu js-dropdown">
+                    <li>
+                        <a href="#item">Item 1</a>
+                        <ul>
+                            <li><a href="#item">Item 1 A</a></li>
+                            <li><a href="#item">Item 1 B</a></li>
+                            <li><a href="#item">Item 1 C</a></li>
+                            <li><a href="#item">Item 1 D</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#item">Item 2</a></li>
+                    <li><a href="#item">Item 3</a></li>
                 </ul>
 
-                <ul class="float-right">
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Give feedback</a></li>
-                </ul>
-
-                <div class="header--primary__company-logo-container">
-                    <img src="/docs/images/header/redgate-logo-black.png" width="75" class="js-svg">
-                </div>
-            </nav>
-        </div>
-        <div class="band header--secondary">
-            <nav class="band__inner-container">
-                <ul>
-                    <li><a href="#">Changes</a></li>
-                    <li><a href="#" class="active">Alerts</a></li>
-                    <li><a href="#">Script</a></li>
-                </ul>
             </nav>
         </div>
     </div>

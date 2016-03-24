@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    #DROPDOWN NAVIGATION
+\*------------------------------------*/
+.dropdown {
+    position: relative;
+
+    &.closed > ul {
+        display: none;
+    }
+
+    .arrow {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px;
+        height: 34px;
+
+        &:before {
+            @include font-size(26px);
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: "Redgate";
+        }
+    }
+
+    &.open .arrow:before {
+        content: "\e608";
+    }
+
+    &.closed .arrow:before {
+        content: "\e605";
+    }
+}

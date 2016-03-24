@@ -1,0 +1,17 @@
+$breakpoints: false !default;
+@if $breakpoints {
+    @each $breakpoint in $breakpoints {
+        $name: nth($breakpoint, 1);
+        $width: nth($breakpoint, 2);
+        $declaration: "(#{$mqProperty} #{$width})";
+
+        @media only screen and #{$declaration} {
+            .show-on-#{$name} {
+                display: inline-block;
+            }
+            .hide-on-#{$name} {
+                display: none;
+            }
+        }
+    }
+}
