@@ -16,7 +16,7 @@
     }
 
     .notification__icon {
-        @include font-size(24px);
+        @include font-size(24px, false);
     }
 
     p {
