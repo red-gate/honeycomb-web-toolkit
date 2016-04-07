@@ -45,12 +45,12 @@
 
 .button--large,
 %button--large {
-padding: $button-padding--large;
+padding: $button-padding--large !important;
 }
 
 .button--small,
 %button--small {
-padding: $button-padding--small;
+padding: $button-padding--small !important;
 }
 
 .button--full-width,
