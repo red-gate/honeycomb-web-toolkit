@@ -1,5 +1,5 @@
 {
-	"name": "redgate.honeycomb",
+	"name": "redgate-honeycomb",
 	"ignore": [
 		"Gruntfile.js",
 		"package.json",
