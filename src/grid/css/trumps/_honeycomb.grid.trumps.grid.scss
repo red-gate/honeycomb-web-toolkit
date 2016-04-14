@@ -1,7 +1,6 @@
 @include responsive('small') {
     %#{$grid-class} %#{$grid-class}__col,
     .#{$grid-class} .#{$grid-class}__col {
-        margin-left: 0 !important;
-        width: 100% !important;
+        width: 100%;
     }
 }
