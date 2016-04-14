@@ -51,7 +51,7 @@
     &:before {
         font-family: "Redgate";
         font-size: $icon-font-size;
-        vertical-align: middle;
+        vertical-align: top;
         @include margin(0.25, right);
     }
 }
@@ -235,7 +235,7 @@
     }
 }
 
-.icon--play {
+.icon--play-circle {
     @extend %icon;
     &:before {
         content: "\e61e";
@@ -260,6 +260,272 @@
     @extend %icon;
     &:before {
         content: "\e62a";
+    }
+}
+
+.icon--server {
+    @extend %icon;
+    &:before {
+        content: "\e900";
+    }
+}
+
+.icon--more-actions-horizontal {
+    @extend %icon;
+    &:before {
+        content: "\e906";
+    }
+}
+
+.icon--more-actions-vertical {
+    @extend %icon;
+    &:before {
+        content: "\e907";
+    }
+}
+
+.icon--alert-silence {
+    @extend %icon;
+    &:before {
+        content: "\e908";
+    }
+}
+
+.icon--maintenance {
+    @extend %icon;
+    &:before {
+        content: "\e909";
+    }
+}
+
+.icon--print {
+    @extend %icon;
+    &:before {
+        content: "\e90a";
+    }
+}
+
+.icon--hide {
+    @extend %icon;
+    &:before {
+        content: "\e90b";
+    }
+}
+
+.icon--warning-octagon {
+    @extend %icon;
+    &:before {
+        content: "\e90c";
+    }
+}
+
+.icon--tag {
+    @extend %icon;
+    &:before {
+        content: "\e90d";
+    }
+}
+
+.icon--flag {
+    @extend %icon;
+    &:before {
+        content: "\e901";
+    }
+}
+
+.icon--minimize {
+    @extend %icon;
+    &:before {
+        content: "\e90e";
+    }
+}
+
+.icon--expand {
+    @extend %icon;
+    &:before {
+        content: "\e90f";
+    }
+}
+
+.icon--import {
+    @extend %icon;
+    &:before {
+        content: "\e910";
+    }
+}
+
+.icon--export {
+    @extend %icon;
+    &:before {
+        content: "\e911";
+    }
+}
+
+.icon--zoom-in {
+    @extend %icon;
+    &:before {
+        content: "\e912";
+    }
+}
+
+.icon--zoom-out {
+    @extend %icon;
+    &:before {
+        content: "\e913";
+    }
+}
+
+.icon--show {
+    @extend %icon;
+    &:before {
+        content: "\e902";
+    }
+}
+
+.icon--play {
+    @extend %icon;
+    &:before {
+        content: "\e903";
+    }
+}
+
+.icon--copydoc {
+    @extend %icon;
+    &:before {
+        content: "\e904";
+    }
+}
+
+.icon--dock {
+    @extend %icon;
+    &:before {
+        content: "\e905";
+    }
+}
+
+.icon--test-data {
+    @extend %icon;
+    &:before {
+        content: "\e914";
+    }
+}
+
+.icon--add-ons {
+    @extend %icon;
+    &:before {
+        content: "\e800";
+    }
+}
+
+.icon--pipeline {
+    @extend %icon;
+    &:before {
+        content: "\e614";
+    }
+}
+
+.icon--alert {
+    @extend %icon;
+    &:before {
+        content: "\e600";
+    }
+}
+
+.icon--clear-cross-circle {
+    @extend %icon;
+    &:before {
+        content: "\e609";
+    }
+}
+
+.icon--instance {
+    @extend %icon;
+    &:before {
+        content: "\e61a";
+    }
+}
+
+.icon--database {
+    @extend %icon;
+    &:before {
+        content: "\e60c";
+    }
+}
+
+.icon--delete {
+    @extend %icon;
+    &:before {
+        content: "\e60d";
+    }
+}
+
+.icon--edit {
+    @extend %icon;
+    &:before {
+        content: "\e610";
+    }
+}
+
+.icon--filter {
+    @extend %icon;
+    &:before {
+        content: "\e613";
+    }
+}
+
+.icon--folder-open {
+    @extend %icon;
+    &:before {
+        content: "\e62c";
+    }
+}
+
+.icon--folder {
+    @extend %icon;
+    &:before {
+        content: "\e615";
+    }
+}
+
+.icon--history {
+    @extend %icon;
+    &:before {
+        content: "\e618";
+    }
+}
+
+.icon--message-tick {
+    @extend %icon;
+    &:before {
+        content: "\e61b";
+    }
+}
+
+.icon--refresh {
+    @extend %icon;
+    &:before {
+        content: "\e621";
+    }
+}
+
+.icon--save {
+    @extend %icon;
+    &:before {
+        content: "\e622";
+    }
+}
+
+.icon--search {
+    @extend %icon;
+    &:before {
+        content: "\e623";
+    }
+}
+
+.icon--help-circle {
+    @extend %icon;
+    &:before {
+        content: "\e617";
     }
 }
 
