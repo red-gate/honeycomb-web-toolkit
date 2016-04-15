@@ -54,14 +54,6 @@
         }
     }
 
-    @include responsive('small') {
-        %#{$grid-class} %#{$grid-class}__col,
-        .#{$grid-class} .#{$grid-class}__col {
-            width: 100%;
-            border: none;
-        }
-    }
-
     /**
     * Build the default grid.
     */
