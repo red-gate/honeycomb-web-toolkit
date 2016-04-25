@@ -1,2 +1,5 @@
-$navigation-minimum-height: 70px;
-$navigation-border-width: 5px;
+$navigation-minimum-height: 70px !default;
+$navigation-border-width: 5px !default;
+$navigation-images-dir: "../images/navigation/" !default;
+$navigation-menu-icon-open: $navigation-images-dir + "menu" !default; // png/svg depending on class.
+$navigation-menu-icon-close: $navigation-images-dir + "menu--close" !default; // png/svg depending on class.

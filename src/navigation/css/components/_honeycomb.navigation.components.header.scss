@@ -32,9 +32,9 @@
     }
 
     .header--primary__app-logo-container {
-        display: inline-block;
         @include padding(0.5, left);
         @include padding(0.5, right);
+        display: inline-block;
     }
 
     .header--primary__company-logo-container {
@@ -43,7 +43,7 @@
     }
 
     .header--primary__menu-button {
-        background-image: url(http://www.red-gate.com/assets/INTERIM/assets/images/global/header/menu.svg);
+        background-image: url(#{$navigation-menu-icon-open}.png);
         background-position: center;
         background-repeat: no-repeat;
         width: 60px;
@@ -53,18 +53,34 @@
             color: transparent;
         }
 
+        .svg & {
+            background-image: url(#{$navigation-menu-icon-open}.svg);
+        }
+
         .mobile-nav--open & {
-            background-image: url(http://www.red-gate.com/assets/INTERIM/assets/images/global/header/menu--close.svg);
+            background-image: url(#{$navigation-menu-icon-close}.png);
+
+            .svg & {
+                background-image: url(#{$navigation-menu-icon-close}.svg);
+            }
+        }
+    }
+
+    .dropdown {
+        .arrow {
+            top: 50%;
+            transform: translateY(-50%);
+            @include padding(0);
         }
     }
 }
 
 // MOBILE MENU
-.header--primary .header--primary__menu {
-    display: none;
-    line-height: normal;
+.header--primary .header--primary__menu--mobile {
     @include padding(0.5, top);
     @include padding(0.5, bottom);
+    display: none;
+    line-height: normal;
 
     .mobile-nav--open & {
         display: block;
@@ -72,14 +88,15 @@
 
     ul, li {
         display: block;
+        position: relative;
     }
 
     a {
-        display: block;
         @include padding(0.25, top);
         @include padding(0.25, bottom);
         @include padding(0.5, left);
         @include padding(0.5, right);
+        display: block;
     }
 
     li li a {
@@ -88,6 +105,13 @@
 
     li li li a {
         @include padding(1.5, left);
+    }
+
+    .arrow {
+        top: 0;
+        transform: initial;
+        @include padding(0.5, left);
+        @include padding(0.5, right);
     }
 
 }
@@ -118,7 +142,7 @@
     }
 
     .header--primary__menu-button,
-    .header--primary__menu {
+    .header--primary__menu--mobile {
         background-color: color('grey', 7);
     }
 }
@@ -149,7 +173,7 @@
     }
 
     .header--primary__menu-button,
-    .header--primary__menu {
+    .header--primary__menu--mobile {
         background-color: color('grey', 3);
     }
 }
