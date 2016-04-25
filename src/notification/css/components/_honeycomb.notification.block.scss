@@ -2,12 +2,12 @@
 
     border: none;
     @include padding(0);
+    @include border-left;
+    @include px-rem('border-left-width', 15);
 
     .notification--block__inner-container {
         margin: auto;
         @include padding(0.5);
-        @include border-left;
-        @include px-rem('border-left-width', 15);
     }
 
     .notification__close {
@@ -16,7 +16,7 @@
     }
 
     .notification__icon {
-        @include font-size(24px);
+        @include font-size(24px, false);
     }
 
     p {
@@ -27,9 +27,7 @@
      * Info
      */
     &.notification--info {
-        .notification--block__inner-container {
-            border-color: color('blue');
-        }
+        border-color: color('blue');
 
         .notification__close,
         .notification__icon {
@@ -41,9 +39,7 @@
      * Fail
      */
     &.notification--fail {
-        .notification--block__inner-container {
-            border-color: color('red');
-        }
+        border-color: color('red');
 
         .notification__close,
         .notification__icon {
@@ -55,9 +51,7 @@
      * Success
      */
     &.notification--success {
-        .notification--block__inner-container {
-            border-color: color('green');
-        }
+        border-color: color('green');
 
         .notification__close,
         .notification__icon {
@@ -69,9 +63,7 @@
      * Warning
      */
     &.notification--warning {
-        .notification--block__inner-container {
-            border-color: color('yellow');
-        }
+        border-color: color('yellow');
 
         .notification__close,
         .notification__icon {

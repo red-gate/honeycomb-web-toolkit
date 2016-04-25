@@ -123,27 +123,52 @@
   }
 }
 
+%list--icon {
+    @extend %list--bare;
+
+    & > li {
+        @extend %icon;
+        @include padding(0.75, left);
+        position: relative;
+
+        &:before {
+            position: absolute;
+            left: 0;
+            line-height: 1;
+            color: color('blue');
+        }
+    }
+}
+
+%list--icon--large {
+    & > li {
+        @include padding(1, left);
+
+        &:before {
+            font-size: $icon-font-size--large;
+        }
+    }
+}
+
 /**
  * Tick list
  *
 */
 .list--tick {
-    @extend %list--bare;
+    @extend %list--icon;
 
     & > li {
-        position: relative;
-        @include padding(0.75, left);
+        @extend .icon--tick;
 
         &:before {
-            content: "\e625";
-            font-family: "Redgate";
-            position: absolute;
-            left:0;
-            font-size: $icon-font-size;
-            line-height: 1;
             color: color('green');
         }
     }
+}
+
+.list--tick--large {
+    @extend .list--tick;
+    @extend %list--icon--large;
 }
 
 .list--tick--large > .list--bullet {
@@ -151,55 +176,22 @@
 }
 
 
-/**
- * Larger version of the tick list
- *
-*/
-.list--tick--large {
-    @extend .list--tick;
-
-    & > li {
-        @include padding(1, left);
-
-        &:before {
-            font-size: $icon-font-size--large;
-            color: color('green');
-        }
-    }
-}
-
 
 /**
  * Chevron list
  *
 */
 .list--chevron {
-    @extend .list--tick;
+    @extend %list--icon;
 
     & > li {
-
-        &:before {
-            content: "\e607";
-            color: color('blue');
-        }
+        @extend .icon--chevron-right;
     }
 }
 
-
-/**
- * Larger version of the chevron list
- *
-*/
 .list--chevron--large {
     @extend .list--chevron;
-
-    & > li {
-        @include padding(1, left);
-
-        &:before {
-            font-size: $icon-font-size--large;
-        }
-    }
+    @extend %list--icon--large;
 }
 
 
@@ -208,32 +200,16 @@
  *
 */
 .list--chevron-down {
-    @extend .list--chevron;
+    @extend %list--icon;
 
     & > li {
-
-        &:before {
-            content: "\e605";
-            color: color('blue');
-        }
+        @extend .icon--chevron-down;
     }
 }
 
-
-/**
- * Larger version of the chevron list
- *
-*/
 .list--chevron-down--large {
     @extend .list--chevron-down;
-
-    & > li {
-        @include padding(1, left);
-
-        &:before {
-            font-size: $icon-font-size--large;
-        }
-    }
+    @extend %list--icon--large;
 }
 
 
@@ -242,15 +218,10 @@
  *
 */
 .list--bullet {
-    @extend .list--tick;
+    @extend %list--icon;
 
     & > li {
-
-        &:before {
-            // @include font-size(12px, 2.3);
-            content: "\e603";
-            color: color('blue');
-        }
+        @extend .icon--bullet;
     }
 }
 
@@ -260,31 +231,16 @@
  *
 */
 .list--plus {
-    @extend .list--tick;
+    @extend %list--icon;
 
     & > li {
-
-        &:before {
-            content: "\e620";
-            color: color('blue');
-        }
+        @extend .icon--plus;
     }
 }
 
-/**
- * Larger version of the plus list
- *
-*/
 .list--plus--large {
     @extend .list--plus;
-
-    & > li {
-        @include padding(1, left);
-
-        &:before {
-            font-size: $icon-font-size--large;
-        }
-    }
+    @extend %list--icon--large;
 }
 
 
@@ -293,73 +249,24 @@
  *
 */
 .list--minus {
-    @extend .list--tick;
+    @extend %list--icon;
 
     & > li {
-
-        &:before {
-            content: "\e61c";
-            color: color('blue');
-        }
+        @extend .icon--minus;
     }
 }
 
-/**
- * Larger version of the minus list
- *
-*/
 .list--minus--large {
     @extend .list--minus;
-
-    & > li {
-        @include padding(1, left);
-
-        &:before {
-            font-size: $icon-font-size--large;
-        }
-    }
+    @extend %list--icon--large;
 }
-
-/**
- * Star list
- *
-*/
-.list--star {
-    @extend .list--tick;
-
-    & > li {
-
-        &:before {
-            content: "\f005";
-            color: color('blue');
-        }
-    }
-}
-
-/**
- * Larger version of the star list
- *
-*/
-.list--star--large {
-    @extend .list--star;
-
-    & > li {
-        @include padding(1, left);
-
-        &:before {
-            font-size: $icon-font-size--large;
-        }
-    }
-}
-
-
 
 /**
  * New list
  *
 */
 .list--new {
-    @extend .list--tick;
+    @extend %list--icon;
 
     & > li {
 
@@ -381,10 +288,6 @@
    }
 }
 
-/**
- * Larger version of the new list
- *
-*/
 .list--new--large {
     @extend .list--new;
 

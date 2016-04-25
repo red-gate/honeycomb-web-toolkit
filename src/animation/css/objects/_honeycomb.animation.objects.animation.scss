@@ -75,3 +75,9 @@
 %fade-out-slide-down {
     animation: fade-out 1s 1, slide-down 1s 1;
 }
+
+
+/* disable transitions - useful for third-party widgets */
+.no-transition {
+    transition: none !important;
+}
