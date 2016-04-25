@@ -4,6 +4,7 @@
     z-index: 10;
     min-height: $navigation-minimum-height;
     line-height: $navigation-minimum-height;
+    overflow: visible;
 
     ul {
         &, li {
@@ -67,6 +68,17 @@
     }
 
     .dropdown {
+        ul {
+
+            li {
+                line-height: initial;
+            }
+
+            a {
+                @include font-size(14px);
+            }
+        }
+
         .arrow {
             top: 50%;
             transform: translateY(-50%);
@@ -87,8 +99,11 @@
     }
 
     ul, li {
+        @include padding(0, top);
+        @include padding(0, bottom);
         display: block;
         position: relative;
+        left: 0;
     }
 
     a {
@@ -105,6 +120,10 @@
 
     li li li a {
         @include padding(1.5, left);
+    }
+
+    .dropdown ul a {
+        @include font-size(16px);
     }
 
     .arrow {
@@ -141,6 +160,7 @@
         background-color: color('grey', 5);
     }
 
+    .dropdown ul,
     .header--primary__menu-button,
     .header--primary__menu--mobile {
         background-color: color('grey', 7);
@@ -172,6 +192,7 @@
         background-color: color('grey', 3);
     }
 
+    .dropdown ul,
     .header--primary__menu-button,
     .header--primary__menu--mobile {
         background-color: color('grey', 3);
