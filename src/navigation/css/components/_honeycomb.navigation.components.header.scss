@@ -8,8 +8,8 @@
 
     ul {
         &, li {
-            display: inline-block;
             @include margin(0);
+            display: inline-block;
         }
     }
 
@@ -80,9 +80,9 @@
         }
 
         .arrow {
+            @include padding(0);
             top: 50%;
             transform: translateY(-50%);
-            @include padding(0);
         }
     }
 }
@@ -127,10 +127,10 @@
     }
 
     .arrow {
-        top: 0;
-        transform: initial;
         @include padding(0.5, left);
         @include padding(0.5, right);
+        top: 0;
+        transform: initial;
     }
 
 }
