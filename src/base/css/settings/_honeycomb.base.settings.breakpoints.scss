@@ -4,11 +4,12 @@
 
 /**
  * Set responsive breakpoints.
- * (Note: No large breakpoint, as large is the default as using desktop first
+ * (Note: No large breakpoint needed, as large is the default as using desktop first
  * approach.)
  */
 
 $breakpoints: (
+  "large": 9999px,
   "medium": 768px,
   "small": 480px
 ) !default;

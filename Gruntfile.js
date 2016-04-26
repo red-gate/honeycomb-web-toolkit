@@ -86,6 +86,14 @@ module.exports = function(grunt) {
                     src: '**',
                     dest: 'dist/fonts/roboto/'
                 }]
+            },
+            imagesNavigation: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/navigation/images/',
+                    src: '**',
+                    dest: 'dist/images/navigation/'
+                }]
             }
         },
 

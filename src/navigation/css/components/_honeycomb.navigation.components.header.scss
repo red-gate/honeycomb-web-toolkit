@@ -1,157 +1,236 @@
 /* PRIMARY NAVIGATION */
 .header--primary {
-    box-shadow: 0 2px 2px rgba(118,118,118,0.1);
     position: relative;
     z-index: 10;
+    min-height: $navigation-minimum-height;
+    line-height: $navigation-minimum-height - $navigation-border-width;
+    overflow: visible;
 
-    .band__inner-container {
-        @include padding(0);
-        // width: 100%; /* Remove this when responsive */
+    ul {
+        &, li {
+            @include margin(0);
+            display: inline-block;
+        }
+    }
 
-        &:before, &:after {
-            display: none;
+    a {
+        @include padding(0.25, left);
+        @include padding(0.25, right);
+        display: inline-block;
+        border-bottom-width: $navigation-border-width;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+
+        &.active {
+            border-bottom-color: $link-border-color;
+            font-weight: bold;
+        }
+
+        &.header--primary__icon {
+            @include padding(0.5, left);
+            @include padding(0.5, right);
         }
     }
 
     .header--primary__app-logo-container {
         @include padding(0.5, left);
         @include padding(0.5, right);
-        position: relative;
-        float: left;
-        text-align: center;
-        min-height: $navigation-minimum-height;
-        line-height: $navigation-minimum-height;
-
-        // Slash, 30 degrees. Optional with the "header--primary__app-logo-container--slash" class.
-        &.header--primary__app-logo-container--slash {
-            @include padding(0.25, right);
-
-            &:after {
-                display: block;
-                content: " ";
-                width: 100%;
-                height: $navigation-minimum-height;
-                position: absolute;
-                top: 0;
-                right: -20px;
-                transform: skewX(-30deg);
-                z-index: 1;
-            }
-        }
-
-        a {
-            display: block;
-            border: none;
-            position: relative;
-            z-index: 2;
-        }
-
-        img {
-            position: relative;
-            z-index: 2;
-        }
+        display: inline-block;
     }
 
     .header--primary__company-logo-container {
-        @extend .header--primary__app-logo-container;
-        @include padding(0.25, left);
-        border-right: none !important;
-
-        // Slash (30 degrees)
-        &:before {
-            display: block;
-            content: " ";
-            width: 100%;
-            height: 100px;
-            position: absolute;
-            top: 0;
-            left: -20px;
-            transform: skewX(30deg);
-            z-index: 1;
-        }
+        @include padding(0.5, left);
+        @include padding(0.5, right);
     }
 
-    .header--primary__search-container {
-        vertical-align: middle;
-        width: 25%;
+    .header--primary__menu-button {
+        background-image: url(#{$navigation-menu-icon-open}.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 60px;
+        word-break: normal;
 
-        input {
-            @include margin(0);
-        }
-    }
-
-    ul {
-        @extend %list--horizontal;
-        @include margin(0, bottom);
-        @include margin(0.5, left);
-        @include margin(1, right);
-        float: left;
-
-        li {
-            @include margin(0, bottom);
-            @include margin(0.25, left);
-            @include margin(0.25, right);
+        &, &:hover {
+            color: transparent;
         }
 
-        a {
-            @include padding(0.25, left);
-            @include padding(0.25, right);
-            display: block;
-            min-height: $navigation-minimum-height;
-            line-height: $navigation-minimum-height - $navigation-border-width;
-            border-bottom-width: $navigation-border-width;
-            border-bottom-style: solid;
-            border-bottom-color: transparent;
+        .svg & {
+            background-image: url(#{$navigation-menu-icon-open}.svg);
+        }
 
-            &.active {
-                border-bottom-color: $link-border-color;
-                font-weight: bold;
+        .mobile-nav--open & {
+            background-image: url(#{$navigation-menu-icon-close}.png);
+
+            .svg & {
+                background-image: url(#{$navigation-menu-icon-close}.svg);
             }
         }
     }
 
-    .header--primary__app-logo-container--slash + ul {
-        @include margin(1, left);
-    }
-
-    @include responsive('medium') {
-        &, .band__inner-container {
-            display: block;
-        }
-
-        div {
-            float: left;
-            width: 100%;
-        }
-
-        .header--primary__app-logo-container,
-        .header--primary__company-logo-container {
-            display: block;
-            width: 100%;
-            text-align: left;
-            float: none;
-        }
-
-        .header--primary__company-logo-container {
-            display: none;
-        }
-
+    .dropdown {
         ul {
-            @include margin(0);
-            float: none !important;
 
             li {
-                @include margin(0, left);
-                display: block;
+                line-height: initial;
             }
 
             a {
-                @include padding(0.25);
-                @include padding(0.5, left);
-                @include padding(0.5, right);
-                display: block;
-                line-height: normal;
-                min-height: 0;
+                @include font-size(14px);
+            }
+        }
+
+        .arrow {
+            @include padding(0);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .header--primary__strapline {
+        @include margin(0, bottom);
+        display: inline-block;
+    }
+
+    .header--primary__search-form {
+        display: inline-block;
+        position: relative;
+
+        [type="search"], [type="text"] {
+            @include margin(0);
+            @include margin(0.5, left);
+            @include padding(0);
+            @include padding(0.5, left);
+            @include padding(2, right);
+            display: inline-block;
+            box-sizing: border-box;
+            line-height: $navigation-minimum-height - $navigation-border-width;
+            width: 350px;
+            border: none;
+            border-bottom-width: $navigation-border-width;
+            border-bottom-style: solid;
+            border-bottom-color: transparent;
+            border-radius: 0;
+        }
+
+        [type="submit"] {
+            @extend .icon--search;
+            @include font-size(0px);
+            @include margin(0.5, right);
+            background: none;
+            border: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+
+            &:before {
+                @include font-size(30px);
+                @include margin(0);
+            }
+        }
+    }
+}
+
+// MOBILE MENU
+.header--primary .header--primary__menu--mobile {
+    @include padding(0.5, top);
+    @include padding(0.5, bottom);
+    display: none;
+    line-height: normal;
+
+    .mobile-nav--open & {
+        display: block;
+    }
+
+    ul, li {
+        @include padding(0, top);
+        @include padding(0, bottom);
+        display: block;
+        position: relative;
+        left: 0;
+    }
+
+    a {
+        @include padding(0.25, top);
+        @include padding(0.25, bottom);
+        @include padding(0.5, left);
+        @include padding(0.5, right);
+        display: block;
+    }
+
+    li li a {
+        @include padding(1, left);
+    }
+
+    li li li a {
+        @include padding(1.5, left);
+    }
+
+    li li li li a {
+        @include padding(2, left);
+    }
+
+    .dropdown ul a {
+        @include font-size(16px);
+    }
+
+    .arrow {
+        @include padding(0.5, left);
+        @include padding(0.5, right);
+        top: 0;
+        transform: initial;
+    }
+
+}
+
+// COLOURS
+.header--primary {
+    background-color: color('grey', 6);
+
+    a {
+        color: color('grey');
+
+        &:hover {
+            color: color('white');
+        }
+
+        &.active {
+            background-color: color('grey', 6);
+            color: color('white');
+        }
+    }
+
+    .header--primary__app-logo-container {
+        background-color: color('red');
+    }
+
+    .header--primary__app-logo-container--transparent {
+        background-color: transparent;
+    }
+
+    .header--primary__company-logo-container {
+        background-color: color('grey', 5);
+    }
+
+    .dropdown ul,
+    .header--primary__menu-button,
+    .header--primary__menu--mobile {
+        background-color: color('grey', 7);
+    }
+
+    .header--primary__strapline {
+        color: color('grey', 3);
+    }
+
+    .header--primary__search-form {
+        [type="search"], [type="text"] {
+            background-color: color('grey', 7);
+            color: color('white');
+        }
+
+        [type="submit"] {
+            &:before {
+                color: color('red');
             }
         }
     }
@@ -159,61 +238,58 @@
 
 .header--primary--light {
     background-color: color('grey', 1);
-    border-bottom: 1px solid color('grey', 3);
+
+    a {
+        &, &:hover {
+            color: color('grey', 6);
+        }
+
+        &.active {
+            color: color('grey', 6);
+            background-color: transparent;
+        }
+    }
 
     .header--primary__app-logo-container {
-        border-right: 1px solid color('grey', 3);
+        background-color: color('grey', 1);
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-right-color: color('grey', 3);
+    }
+
+    .header--primary__app-logo-container--transparent {
+        background-color: transparent;
+        border-right: none;
     }
 
     .header--primary__company-logo-container {
         background-color: color('grey', 3);
-
-        &:before {
-            background: color('grey', 3);
-        }
     }
 
-    ul {
-        a {
+    .dropdown ul,
+    .header--primary__menu-button,
+    .header--primary__menu--mobile {
+        background-color: color('grey', 3);
+    }
+
+    .header--primary__strapline {
+        color: color('grey', 6);
+    }
+
+    .header--primary__search-form {
+        [type="search"], [type="text"] {
+            background-color: color('grey', 2);
             color: color('grey', 6);
         }
-    }
-}
 
-.header--primary--dark {
-    background-color: color('grey', 6);
-
-    .header--primary__app-logo-container {
-        background-color: color('red', 'brand');
-
-        &.header--primary__app-logo-container--slash:after {
-            background: color('red', 'brand');
-        }
-    }
-
-    .header--primary__company-logo-container {
-        background-color: color('grey', 5);
-
-        &:before {
-            background: color('grey', 5);
-        }
-    }
-
-    ul {
-        a {
-            color: color('grey');
-
-            &:hover {
-                color: color('white');
-            }
-
-            &.active {
-                background-color: color('grey', 7);
-                color: color('white');
+        [type="submit"] {
+            &:before {
+                color: color('red');
             }
         }
     }
 }
+
 
 /* SECONDARY NAVIGATION */
 .header--secondary {
@@ -287,17 +363,5 @@
                 border-bottom: 4px solid color('grey', 2);
             }
         }
-    }
-}
-
-.header--secondary--spaced {
-    // @include padding(1, top);
-    .section {
-        @include margin(0.75, top);
-    }
-
-    ul a {
-        @include padding(0.75, top);
-        @include padding(0.75, bottom);
     }
 }
