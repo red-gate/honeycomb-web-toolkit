@@ -93,21 +93,40 @@
 
     .header--primary__search-form {
         display: inline-block;
+        position: relative;
 
-        [type="search"] {
+        [type="search"], [type="text"] {
             @include margin(0);
             @include margin(0.5, left);
-            box-sizing: border-box;
-            min-height: $navigation-minimum-height;
-            border-radius: 0;
-            border: none;
             @include padding(0);
             @include padding(0.5, left);
-            @include padding(0.5, right);
+            @include padding(2, right);
+            display: inline-block;
+            box-sizing: border-box;
+            line-height: $navigation-minimum-height - $navigation-border-width;
+            width: 350px;
+            border: none;
+            border-bottom-width: $navigation-border-width;
+            border-bottom-style: solid;
+            border-bottom-color: transparent;
+            border-radius: 0;
         }
 
         [type="submit"] {
-            display: none; // For now.
+            @extend .icon--search;
+            @include font-size(0px);
+            @include margin(0.5, right);
+            background: none;
+            border: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+
+            &:before {
+                @include font-size(30px);
+                @include margin(0);
+            }
         }
     }
 }
@@ -147,6 +166,10 @@
         @include padding(1.5, left);
     }
 
+    li li li li a {
+        @include padding(2, left);
+    }
+
     .dropdown ul a {
         @include font-size(16px);
     }
@@ -162,7 +185,7 @@
 
 // COLOURS
 .header--primary {
-    background-color: color('grey', 7);
+    background-color: color('grey', 6);
 
     a {
         color: color('grey');
@@ -181,6 +204,10 @@
         background-color: color('red');
     }
 
+    .header--primary__app-logo-container--transparent {
+        background-color: transparent;
+    }
+
     .header--primary__company-logo-container {
         background-color: color('grey', 5);
     }
@@ -188,7 +215,7 @@
     .dropdown ul,
     .header--primary__menu-button,
     .header--primary__menu--mobile {
-        background-color: color('grey', 6);
+        background-color: color('grey', 7);
     }
 
     .header--primary__strapline {
@@ -196,8 +223,15 @@
     }
 
     .header--primary__search-form {
-        [type="search"] {
-            background-color: color('grey', 6);
+        [type="search"], [type="text"] {
+            background-color: color('grey', 7);
+            color: color('white');
+        }
+
+        [type="submit"] {
+            &:before {
+                color: color('red');
+            }
         }
     }
 }
@@ -223,6 +257,11 @@
         border-right-color: color('grey', 3);
     }
 
+    .header--primary__app-logo-container--transparent {
+        background-color: transparent;
+        border-right: none;
+    }
+
     .header--primary__company-logo-container {
         background-color: color('grey', 3);
     }
@@ -231,6 +270,23 @@
     .header--primary__menu-button,
     .header--primary__menu--mobile {
         background-color: color('grey', 3);
+    }
+
+    .header--primary__strapline {
+        color: color('grey', 6);
+    }
+
+    .header--primary__search-form {
+        [type="search"], [type="text"] {
+            background-color: color('grey', 2);
+            color: color('grey', 6);
+        }
+
+        [type="submit"] {
+            &:before {
+                color: color('red');
+            }
+        }
     }
 }
 
