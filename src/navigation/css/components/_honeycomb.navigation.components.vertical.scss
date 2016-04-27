@@ -53,3 +53,13 @@
     }
 
 }
+
+.nav--vertical--right {
+    @extend .nav--vertical;
+    a {
+        &.active {
+            border-right: none;
+            border-left: 5px solid $link-border-color;
+        }
+    }
+}
