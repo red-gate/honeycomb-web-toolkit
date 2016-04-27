@@ -177,7 +177,7 @@
     .arrow {
         @include padding(0.5, left);
         @include padding(0.5, right);
-        top: 0;
+        top: 13px;
         transform: initial;
     }
 
