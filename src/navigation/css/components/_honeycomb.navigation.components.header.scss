@@ -1,7 +1,7 @@
 /* PRIMARY NAVIGATION */
 .header--primary {
     position: relative;
-    z-index: 10;
+    z-index: 20;
     min-height: $navigation-minimum-height;
     line-height: $navigation-minimum-height - $navigation-border-width;
     overflow: visible;
@@ -218,6 +218,11 @@
         background-color: color('grey', 7);
     }
 
+    .header--primary__menu--mobile .active {
+        background-color: transparent;
+        border-bottom-color: transparent;
+    }
+
     .header--primary__strapline {
         color: color('grey', 3);
     }
@@ -270,6 +275,11 @@
     .header--primary__menu-button,
     .header--primary__menu--mobile {
         background-color: color('grey', 3);
+    }
+
+    .header--primary__menu--mobile .active {
+        background-color: transparent;
+        border-bottom-color: transparent;
     }
 
     .header--primary__strapline {
