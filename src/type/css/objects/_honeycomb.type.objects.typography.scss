@@ -61,3 +61,11 @@ h1,
 .text--big {
   @include font-size(44px, 52px);
 }
+
+/*------------------------------------*\
+    #HIGHLIGHT
+\*------------------------------------*/
+
+.text--highlight {
+  border-left: 2px solid color('red', 'brand');
+}
