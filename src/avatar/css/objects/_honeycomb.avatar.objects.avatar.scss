@@ -3,12 +3,12 @@
 	overflow:hidden;
 	border-width: 2px;
 	border-style: solid;
-	border-color: $link-border-color;
+	border-color: color('red', 'brand');
+	display: inline-block;
 }
 
 .avatar img {
     @extend .rounded--circle;
-	@include px-rem(padding, 2);
 }
 
 .avatar a {
