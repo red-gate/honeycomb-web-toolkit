@@ -42,7 +42,8 @@ Honeycomb.Navigation.Dropdown = (function($) {
     };
 
     return {
-        init: init
+        init: init,
+        addArrows: addArrows
     };
 
 })(jQuery);
