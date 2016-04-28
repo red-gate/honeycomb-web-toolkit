@@ -4,15 +4,24 @@
 
 .nav--vertical {
 
+    h2 {
+        @include padding(0.5, left);
+        @include margin(0.25, bottom);
+        font-weight: bold;
+    }
+
     ul {
         @extend .list--bare;
         @include margin(0);
         @include margin(0.5, bottom);
-        border-right: 5px solid $default-border-color;
-        border-bottom: 1px solid color('grey', 2);
+        @include padding(0.5, top);
+        @include padding(0.5, bottom);
+        background-color: color('grey', 1);
+        border-right: 5px solid color('grey', 1);
 
         ul {
             @include margin(0, bottom);
+            @include padding(0);
             border-right: none;
             border-bottom: none;
         }
@@ -20,24 +29,37 @@
 
     li {
         @include margin(0);
-        border-top: 1px solid color('grey', 2);
 
-        li {
-            @include padding(0.5, left);
+        li a {
+            @include padding(1, left);
         }
     }
 
     a {
-        @include padding(0.25);
+        @include padding(0.5, left);
+        @include padding(0.5, right);
+        @include padding(0.25, top);
+        @include padding(0.25, bottom);
         position: relative;
         display: block;
         border-bottom: none;
         width: calc(100% + 5px);
+        font-weight: bold;
 
         &.active {
             border-right: 5px solid $link-border-color;
-            font-weight: bold;
+            background-color: color('grey', 3);
         }
     }
 
+}
+
+.nav--vertical--right {
+    @extend .nav--vertical;
+    a {
+        &.active {
+            border-right: none;
+            border-left: 5px solid $link-border-color;
+        }
+    }
 }
