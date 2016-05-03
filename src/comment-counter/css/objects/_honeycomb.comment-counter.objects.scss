@@ -1,0 +1,22 @@
+.comment-counter {
+	@include padding(0.25, 'left');
+	@include padding(0.25, 'right');
+	@include font-size(14px);
+	position: relative;
+	color: color('white');
+	background-color: color('red', 'brand');
+	font-weight: bold;
+
+	/* speech bubble tail */
+	&:before {
+		content: '';
+		top: 0;
+		left: 0;
+		position: absolute;
+		z-index: -1;
+		border-color: transparent;
+		border-left-color: color('red', 'brand');
+		border-width: 13px 0 12px 17px;
+		border-style: solid;
+	}
+}
