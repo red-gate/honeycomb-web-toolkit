@@ -36,7 +36,6 @@
 }
 
 
-
 /*------------------------------------*\
     #DISPLAY FONTS
 \*------------------------------------*/
@@ -60,4 +59,13 @@ h1,
 }
 .text--big {
   @include font-size(44px, 52px);
+}
+
+/*------------------------------------*\
+    #HIGHLIGHT
+\*------------------------------------*/
+
+.text--highlight {
+  @include padding(0.5, 'left');
+  border-left: 2px solid color('red', 'brand');
 }
