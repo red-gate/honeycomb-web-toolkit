@@ -1,31 +1,25 @@
 nav.breadcrumbs {
-    ul {
-        @extend %list--horizontal;
-        @extend %list--bare;
-        @include font-size(12px);
+    @include font-size(12px);
+    @include padding(0.5, 'bottom');
 
-        li {
-            &:after {
-                @include margin(0.25, 'left');
-                @include margin(0.25, 'right');
-                content: "\e607";
-                font-family: "Redgate";
-                color: color('red', 'brand');
-                font-weight: normal;
-            }
-            &:last-child:after {
-                content: "";
-            }
+    a {
+        @include margin(1, 'right');
+        position: relative;
+        font-weight: bold;
+        color: inherit;
+        border-bottom-color: rgba(255, 255, 255, 0);  /* hide bottom border but keep it solid so it can transition smoothly */
+
+        &:after {
+            content: "\e607";
+            position: absolute;
+            right: px-rem(-26px);
+            font-family: "Redgate";
+            color: color('red', 'brand');
+            font-weight: normal;
         }
-
-        li a {
-            font-weight: bold;
-            color: inherit;
-            border-bottom-color: rgba(255, 255, 255, 0);  /* hide bottom border but keep it solid so it can transition smoothly */
-
-            &:hover {
-                border-bottom-color: inherit;
-            }
+        
+        &:hover {
+            border-bottom-color: inherit;
         }
     }
 }
