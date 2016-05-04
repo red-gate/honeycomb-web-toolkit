@@ -1,17 +1,14 @@
 .avatar {
 	@extend .rounded--circle;
 	overflow:hidden;
-	border-width: 2px;
-	border-style: solid;
-	border-color: color('red', 'brand');
 	display: inline-block;
-}
 
-.avatar img {
-    @extend .rounded--circle;
-}
+	img {
+		@extend .rounded--circle;
+	}
 
-.avatar a {
-	text-decoration:none;
-    border: none;
+	&, a {
+		text-decoration:none;
+		border: none;
+	}
 }
