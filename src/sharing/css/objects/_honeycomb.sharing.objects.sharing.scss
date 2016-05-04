@@ -16,18 +16,18 @@ ul.sharing {
 		}
 	}
 	.sharing__link--email {
-		background-image: url('../images/sharing-buttons/email.png');
+		background-image: url(#{$sharing-images-dir}/email.png);
 	}
 	.sharing__link--facebook {
-		background-image: url('../images/sharing-buttons/facebook.png');
+		background-image: url(#{$sharing-images-dir}/facebook.png);
 	}
 	.sharing__link--google-plus {
-		background-image: url('../images/sharing-buttons/google-plus.png');
+		background-image: url(#{$sharing-images-dir}/google-plus.png);
 	}
 	.sharing__link--linked-in {
-		background-image: url('../images/sharing-buttons/linked-in.png');
+		background-image: url(#{$sharing-images-dir}/linked-in.png);
 	}
 	.sharing__link--twitter {
-		background-image: url('../images/sharing-buttons/twitter.png');
+		background-image: url(#{$sharing-images-dir}/twitter.png);
 	}
 }
