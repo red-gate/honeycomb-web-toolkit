@@ -1,0 +1,33 @@
+nav.breadcrumbs {
+    @include font-size(12px);
+    @include padding(0.5, 'bottom');
+
+    ul {
+        @include margin(0, left);
+    }
+
+    li {
+        display: inline;
+    }
+
+    a {
+        @include margin(1, 'right');
+        position: relative;
+        font-weight: bold;
+        color: inherit;
+        border-bottom-color: transparent;  /* hide bottom border but keep it solid so it can transition smoothly */
+
+        &:after {
+            content: "\e607";
+            position: absolute;
+            right: px-rem(-26px);
+            font-family: "Redgate";
+            color: color('red', 'brand');
+            font-weight: normal;
+        }
+
+        &:hover {
+            border-bottom-color: inherit;
+        }
+    }
+}
