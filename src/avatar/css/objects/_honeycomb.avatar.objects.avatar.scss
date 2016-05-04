@@ -7,7 +7,7 @@
 		@extend .rounded--circle;
 	}
 
-	a {
+	&, a {
 		text-decoration:none;
 		border: none;
 	}
