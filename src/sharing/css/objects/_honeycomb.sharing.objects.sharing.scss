@@ -1,0 +1,33 @@
+/*------------------------------------*\
+	# SHARING BUTTONS
+\*------------------------------------*/
+
+
+ul.sharing {
+	@extend %list--horizontal;
+	@extend %list--bare;
+	li a.sharing__link {
+		display: block;
+		width: 40px;
+		height: 40px;
+		border: none;
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+	.sharing__link--email {
+		background-image: url('../images/sharing-buttons/email.png');
+	}
+	.sharing__link--facebook {
+		background-image: url('../images/sharing-buttons/facebook.png');
+	}
+	.sharing__link--google-plus {
+		background-image: url('../images/sharing-buttons/google-plus.png');
+	}
+	.sharing__link--linked-in {
+		background-image: url('../images/sharing-buttons/linked-in.png');
+	}
+	.sharing__link--twitter {
+		background-image: url('../images/sharing-buttons/twitter.png');
+	}
+}
