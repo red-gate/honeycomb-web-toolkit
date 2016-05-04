@@ -122,4 +122,7 @@ module.exports = function(grunt) {
 
     // Register the default task.
     grunt.registerTask('default', 'watch');
+
+    // Build task
+    grunt.registerTask('build', ['sass', 'autoprefixer', 'clean', 'copy', 'jshint', 'uglify']);
 };
