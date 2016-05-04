@@ -1,9 +1,6 @@
 .avatar, .avatar-default {
 	@extend .rounded--circle;
 	overflow:hidden;
-	border-width: 2px;
-	border-style: solid;
-	border-color: color('red', 'brand');
 	display: inline-block;
 
 	img {
