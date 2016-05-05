@@ -3,6 +3,10 @@
 \*------------------------------------*/
 
 .nav--vertical {
+    @include padding(0.5, top);
+    @include padding(0.5, bottom);
+    @include margin(1, bottom);
+    background-color: color('grey', 1);
 
     h2 {
         @include padding(0.5, left);
@@ -12,19 +16,6 @@
 
     ul {
         @extend .list--bare;
-        @include margin(0);
-        @include margin(0.5, bottom);
-        @include padding(0.5, top);
-        @include padding(0.5, bottom);
-        background-color: color('grey', 1);
-        border-right: 5px solid color('grey', 1);
-
-        ul {
-            @include margin(0, bottom);
-            @include padding(0);
-            border-right: none;
-            border-bottom: none;
-        }
     }
 
     li {
@@ -43,7 +34,6 @@
         position: relative;
         display: block;
         border-bottom: none;
-        width: calc(100% + 5px);
         font-weight: bold;
 
         &.active {
@@ -56,6 +46,7 @@
 
 .nav--vertical--right {
     @extend .nav--vertical;
+
     a {
         &.active {
             border-right: none;
