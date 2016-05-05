@@ -1,0 +1,40 @@
+/*------------------------------------*\
+	# SHARING BUTTONS
+\*------------------------------------*/
+ul.sharing {
+	@extend %list--horizontal;
+	@extend %list--bare;
+}
+
+.sharing__link {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border: none;
+	color: transparent;
+	overflow: hidden;
+
+	&:hover {
+		opacity: 0.7;
+	}
+
+	&--email {
+		background-image: url(#{$sharing-images-dir}/email.png);
+	}
+
+	&--facebook {
+		background-image: url(#{$sharing-images-dir}/facebook.png);
+	}
+
+	&--google-plus {
+		background-image: url(#{$sharing-images-dir}/google-plus.png);
+	}
+
+	&--linked-in {
+		background-image: url(#{$sharing-images-dir}/linked-in.png);
+	}
+
+	&--twitter {
+		background-image: url(#{$sharing-images-dir}/twitter.png);
+	}
+}
