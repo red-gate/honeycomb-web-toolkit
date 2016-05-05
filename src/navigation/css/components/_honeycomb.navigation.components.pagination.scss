@@ -43,6 +43,8 @@
     text-align: center;
 
     li {
+        @include padding(0.25, left);
+        @include padding(0.25, right);
         display: inline-block;
 
         // IE7 support.
@@ -55,7 +57,5 @@
     a {
         border:none;
         font-weight: bold;
-        @include padding(0.25, left);
-        @include padding(0.25, right);
     }
 }
