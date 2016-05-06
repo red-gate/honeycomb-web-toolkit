@@ -3,8 +3,4 @@
 	@include margin(0.5, 'bottom');
 	border: 1px solid color('grey', 1);
     transition: all 0.3s ease;
-
-	&:hover {
-		border-color: color('red', 'brand');
-	}
 }
