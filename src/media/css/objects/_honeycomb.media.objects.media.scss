@@ -1,48 +1,49 @@
 /*------------------------------------*\
     #MEDIA
-
 \*------------------------------------*/
 
 /**
- * The media object allows you to have an image/video or other fixed width
- * media to the left or right with some content that describes it in the
- * center.
- */
-
+* The media object allows you to have an image/video or other fixed width
+* media to the left or right with some content that describes it in the
+* center.
+*/
 
 // Wrapper for the media object
 .media {
-  @include clearfix();
-  display: block;
+    @include clearfix();
+    display: block;
 }
 
 // Child node of the media object. Generally a link, image, or video. Will
 // appear to the left of the .bd. [ Optional region. ]
 .media__image {
-  float: left;
-  margin-right: 1em;
-}
-.media__image--right {
-  margin-left: 1em;
-  float: right;
+    @include margin(0.5, 'right');
+    float: left;
+
+    &--right {
+        @include margin(0.5, 'left');
+        float: right;
+    }
 }
 
 // Main content area for the media object, can contain any other objects.
 // Protected. [ Required region. ]
 .media__body {
-  overflow: hidden;
-  display: block;
+    overflow: hidden;
+    display: block;
 }
 
 // Chunky media objects add extra margin to the media image.
 .media--chunky {
     @include padding(2, top);
     @include padding(2, bottom);
+
     .media__image {
-        margin-right: 4em;
-    }
-    .media__image--right {
-        margin-left: 4em;
+        @include margin(2, 'right');
+
+        &--right {
+            @include margin(2, 'left');
+        }
     }
 }
 
@@ -50,17 +51,18 @@
 // A temporary style to set a width on a video when it's inside tabs, inside a media object.
 // This is a common pattern when we tab types of resources, like webinars.
 .media .video-container {
-  width: 440px;
+    width: 440px;
 }
 
 @include responsive("medium") {
-  .media, .media--chunky {
-    .media__image, .media__image--right {
-      float: none;
-      margin: 0;
+    .media, .media--chunky {
+        .media__image, .media__image--right {
+            float: none;
+            margin: 0;
+        }
+
+        .video-container {
+            width: 100%;
+        }
     }
-    .video-container {
-      width: 100%;
-    }
-  }
 }
