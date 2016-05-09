@@ -1,11 +1,11 @@
 .comment-counter {
 	@include padding(0.25, 'left');
 	@include padding(0.25, 'right');
-	@include font-size(14px);
 	position: relative;
 	color: color('white');
 	background-color: color('red', 'brand');
 	font-weight: bold;
+	font-size: 0.9em;
 
 	/* speech bubble tail */
 	&:before {
@@ -16,7 +16,7 @@
 		z-index: -1;
 		border-color: transparent;
 		border-left-color: color('red', 'brand');
-		border-width: 13px 0 12px 17px;
+		border-width: 0.8em 0 0.9em 1em;
 		border-style: solid;
 	}
 }
