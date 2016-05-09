@@ -1,6 +1,5 @@
 .card {
-	@include padding(0.75);
-	@include margin(0.5, 'bottom');
-	border: 1px solid color('grey', 2);
-    transition: all 0.3s ease;
+	@include padding(1, 'bottom');
+	@include margin(1, 'bottom');
+	border-bottom: 1px solid color('grey', 2);
 }
