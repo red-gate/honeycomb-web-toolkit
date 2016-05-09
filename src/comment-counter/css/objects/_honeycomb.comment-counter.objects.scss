@@ -1,7 +1,7 @@
 .comment-counter {
 	@include padding(0.25, 'left');
 	@include padding(0.25, 'right');
-	@include font-size(14px);
+	@include font-size(12px);
 	position: relative;
 	color: color('white');
 	background-color: color('red', 'brand');
@@ -16,7 +16,7 @@
 		z-index: -1;
 		border-color: transparent;
 		border-left-color: color('red', 'brand');
-		border-width: 13px 0 12px 17px;
+		border-width: 10px 0 12px 13px;
 		border-style: solid;
 	}
 }
