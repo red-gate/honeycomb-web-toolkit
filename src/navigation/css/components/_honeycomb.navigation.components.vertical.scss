@@ -3,13 +3,13 @@
 \*------------------------------------*/
 
 .nav--vertical {
-    @include padding(0.5, top);
-    @include padding(0.5, bottom);
+    @include padding(1, top);
+    @include padding(1, bottom);
     @include margin(1, bottom);
     background-color: color('grey', 1);
 
     h2 {
-        @include padding(0.5, left);
+        @include padding(1, left);
         @include margin(0.25, bottom);
         font-weight: bold;
     }
@@ -27,8 +27,8 @@
     }
 
     a {
-        @include padding(0.5, left);
-        @include padding(0.5, right);
+        @include padding(1, left);
+        @include padding(1, right);
         @include padding(0.25, top);
         @include padding(0.25, bottom);
         position: relative;
