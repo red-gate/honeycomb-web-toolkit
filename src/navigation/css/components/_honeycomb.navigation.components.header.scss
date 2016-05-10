@@ -112,7 +112,7 @@
             border-radius: 0;
         }
 
-        [type="submit"] {
+        [type="submit"], a.header--primary__search-button--mobile {
             @extend .icon--search;
             @include font-size(0px);
             @include margin(0.5, right);
@@ -127,6 +127,11 @@
                 @include font-size(30px);
                 @include margin(0);
             }
+        }
+
+        a.header--primary__search-button--mobile {
+            color: color('red', 'brand');
+            position: relative;
         }
     }
 }
@@ -239,6 +244,7 @@
             }
         }
     }
+
 }
 
 .header--primary--light {
