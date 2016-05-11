@@ -4,7 +4,6 @@ Honeycomb.Navigation = Honeycomb.Navigation || {};
 
 Honeycomb.Navigation.Dropdown = (function($) {
 
-    var $body = $('body');
     var selector = '.js-dropdown';
     var classNameOpen = 'open';
     var classNameClosed = 'closed';
@@ -28,6 +27,7 @@ Honeycomb.Navigation.Dropdown = (function($) {
     };
 
     var handle = function handle () {
+        var $body = $('body');
         $body.on('click', '.js-dropdown .arrow', function(e) {
             var $this = $(this);
             var $dropdown = $this.parent();
@@ -48,6 +48,6 @@ Honeycomb.Navigation.Dropdown = (function($) {
 
 })(jQuery);
 
-$(function() {
+jQuery(function() {
     Honeycomb.Navigation.Dropdown.init();
 });
