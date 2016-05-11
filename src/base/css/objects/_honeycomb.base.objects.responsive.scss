@@ -7,10 +7,10 @@ $breakpoints: false !default;
 
         @media only screen and #{$declaration} {
             .show-on-#{$name} {
-                display: inline-block;
+                display: inline-block !important;
             }
             .hide-on-#{$name} {
-                display: none;
+                display: none !important;
             }
         }
     }
