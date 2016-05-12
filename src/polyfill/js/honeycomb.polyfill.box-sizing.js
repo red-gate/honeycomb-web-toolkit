@@ -2,7 +2,7 @@ var Honeycomb = Honeycomb || {};
 
 Honeycomb.Polyfill = Honeycomb.Polyfill || {};
 
-Honeycomb.Polyfill.boxSizing = (function() {
+Honeycomb.Polyfill.boxSizing = (function($) {
 
     var init = function init() {
 
@@ -37,7 +37,7 @@ Honeycomb.Polyfill.boxSizing = (function() {
     return {
         init: init
     };
-})();
+})(jQuery);
 
 jQuery(function(){
     Honeycomb.Polyfill.boxSizing.init();

@@ -2,7 +2,7 @@ var Honeycomb = Honeycomb || {};
 
 Honeycomb.Polyfill = Honeycomb.Polyfill || {};
 
-Honeycomb.Polyfill.tableCell = (function() {
+Honeycomb.Polyfill.tableCell = (function($) {
 
     var init = function init() {
 
@@ -45,7 +45,7 @@ Honeycomb.Polyfill.tableCell = (function() {
     return {
         init: init
     };
-})();
+})(jQuery);
 
 jQuery(function(){
     Honeycomb.Polyfill.tableCell.init();

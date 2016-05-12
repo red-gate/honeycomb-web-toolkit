@@ -153,6 +153,6 @@ jQuery(function(){
     Honeycomb.Code.init();
 });
 
-$(window).on("load", function(){
+jQuery(window).on("load", function(){
     Honeycomb.Code.highlight();
 });
