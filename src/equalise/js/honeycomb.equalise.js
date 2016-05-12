@@ -11,10 +11,10 @@ Honeycomb.Equalise = function($) {
 };
 
 jQuery(function(){
-	$(window).on('resize', function() {
+	jQuery(window).on('resize', function() {
 		Honeycomb.Equalise(jQuery);
 	})
-	
+
 	// Make it run on initial load
 	.trigger('resize');
 });
