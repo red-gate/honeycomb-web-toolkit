@@ -36,6 +36,7 @@
         @extend .text--redgate;
         @include padding(0.5, left);
         @include padding(0.5, right);
+        font-size: 21px;
         color: color('white');
         display: inline-block;
         white-space: nowrap;
