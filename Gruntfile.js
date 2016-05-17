@@ -82,9 +82,9 @@ module.exports = function(grunt) {
             robotoFonts: {
                 files: [{
                     expand: true,
-                    cwd: 'src/type/vendor/roboto/',
+                    cwd: 'src/type/vendor/',
                     src: '**',
-                    dest: 'dist/fonts/roboto/'
+                    dest: 'dist/fonts/'
                 }]
             },
             imagesNavigation: {

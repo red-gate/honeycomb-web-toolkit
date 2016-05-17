@@ -33,9 +33,12 @@
     }
 
     .header--primary__app-logo-container {
+        @extend .text--redgate;
         @include padding(0.5, left);
         @include padding(0.5, right);
+        color: color('white');
         display: inline-block;
+        white-space: nowrap;
     }
 
     .header--primary__company-logo-container {
