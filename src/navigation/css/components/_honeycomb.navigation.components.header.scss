@@ -33,10 +33,16 @@
     }
 
     .header--primary__app-logo-container {
+        $font-size: 21px;
+        $diff: (($font-size - 16) + 1) / 2;
+        $line-height: ($navigation-minimum-height - $navigation-border-width) - $diff;
+
         @extend .text--redgate;
         @include padding(0.5, left);
         @include padding(0.5, right);
-        font-size: 21px;
+        @include font-size($font-size);
+        min-height: $navigation-minimum-height;
+        line-height: $line-height;
         color: color('white');
         display: inline-block;
         white-space: nowrap;
