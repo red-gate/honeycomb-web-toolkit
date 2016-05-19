@@ -4,31 +4,31 @@
 // .background-color--red,
 // .background-color--red--1 {}
 
-@each $colour, $shades in $site-colors {
-    $base-colour: map-get($shades, 'base');
+@each $color, $shades in $site-colors {
+    $base-color: map-get($shades, 'base');
 
-    .color--#{$colour} {
-        color: $base-colour;
+    .color--#{$color} {
+        color: $base-color;
     }
 
-    .background-color--#{$colour} {
-        background-color: $base-colour;
+    .background-color--#{$color} {
+        background-color: $base-color;
     }
 
-    .color-code--#{$colour}:after {
-        content: '#{$base-colour}';
+    .color-code--#{$color}:after {
+        content: '#{$base-color}';
     }
 
     @each $shade, $code in $shades {
-        .color--#{$colour}--#{$shade} {
+        .color--#{$color}--#{$shade} {
             color: $code;
         }
 
-        .background-color--#{$colour}--#{$shade} {
+        .background-color--#{$color}--#{$shade} {
             background-color: $code;
         }
 
-        .color-code--#{$colour}--#{$shade}:after {
+        .color-code--#{$color}--#{$shade}:after {
             content: '#{$code}';
         }
     }
