@@ -15,6 +15,10 @@
         background-color: $base-colour;
     }
 
+    .color-code--#{$colour}:after {
+        content: '#{$base-colour}';
+    }
+
     @each $shade, $code in $shades {
         .color--#{$colour}--#{$shade} {
             color: $code;
@@ -22,6 +26,10 @@
 
         .background-color--#{$colour}--#{$shade} {
             background-color: $code;
+        }
+
+        .color-code--#{$colour}--#{$shade}:after {
+            content: '#{$code}';
         }
     }
 }
