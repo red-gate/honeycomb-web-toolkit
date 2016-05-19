@@ -1,86 +1,35 @@
-.color--black {
-    color: color('black') !important;
-}
+// Loop through and produce selectors such as:
+// .color--red,
+// .color--red--1,
+// .background-color--red,
+// .background-color--red--1 {}
 
-.color--white {
-    color: color('white') !important;
-}
+@each $color, $shades in $site-colors {
+    $base-color: map-get($shades, 'base');
 
-.color--red {
-    & {
-        color: color('red') !important;
+    .color--#{$color} {
+        color: $base-color;
     }
-    &--light {
-        color: color('red', 3) !important;
-    }
-    &--lightest {
-        color: color('red', 2) !important;
-    }
-    &--dark {
-        color: color('red', 5) !important;
-    }
-    &--darkest {
-        color: color('red', 6) !important;
-    }
-    &--brand {
-        color: color('red', 'brand') !important;
-    }
-}
 
-.color--near-black {
-    color: color('grey', 7);
-}
+    .background-color--#{$color} {
+        background-color: $base-color;
+    }
 
-.color--grey {
-    & {
-        color: color('grey') !important;
+    .color-code--#{$color}:after {
+        content: '#{$base-color}';
     }
-    &--light {
-        color: color('grey', 3) !important;
-    }
-    &--lightest {
-        color: color('grey', 2) !important;
-    }
-    &--dark {
-        color: color('grey', 5) !important;
-    }
-    &--darkest {
-        color: color('grey', 6) !important;
-    }
-}
 
-.color--blue {
-    & {
-        color: color('blue') !important;
-    }
-    &--light {
-        color: color('blue', 3) !important;
-    }
-    &--lightest {
-        color: color('blue', 2) !important;
-    }
-    &--dark {
-        color: color('blue', 6) !important;
-    }
-    &--darkest {
-        color: color('blue', 7) !important;
-    }
-}
+    @each $shade, $code in $shades {
+        .color--#{$color}--#{$shade} {
+            color: $code;
+        }
 
-.color--green {
-    & {
-        color: color('green') !important;
-    }
-    &--light {
-        color: color('green', 2) !important;
-    }
-    &--lightest {
-        color: color('green', 1) !important;
-    }
-    &--dark {
-        color: color('green', 5) !important;
-    }
-    &--darkest {
-        color: color('green', 6) !important;
+        .background-color--#{$color}--#{$shade} {
+            background-color: $code;
+        }
+
+        .color-code--#{$color}--#{$shade}:after {
+            content: '#{$code}';
+        }
     }
 }
