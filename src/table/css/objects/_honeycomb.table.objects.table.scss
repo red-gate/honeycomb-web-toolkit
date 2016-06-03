@@ -1,0 +1,14 @@
+.table--bare {
+	th, td {
+		border: none;
+	}
+}
+
+.table--striped {
+	tr.odd, tr:nth-child(odd) {
+		background: $default-bg-color;
+	}
+	tr.even, tr:nth-child(even) {
+		background: color('grey', 1);
+	}
+}
