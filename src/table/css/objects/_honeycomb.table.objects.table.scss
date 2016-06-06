@@ -12,3 +12,12 @@
 		background: color('grey', 1);
 	}
 }
+
+.table--striped-grey {
+	tr.odd, tr:nth-child(odd) {
+		background: color('grey', 1);
+	}
+	tr.even, tr:nth-child(even) {
+		background: color('grey', 2);
+	}
+}
