@@ -3,7 +3,7 @@
 	@include padding(0.25, 'right');
 	position: relative;
 	color: color('white');
-	background-color: color('red', 'brand');
+	background-color: $link-color;
 	font-weight: bold;
 	font-size: 0.9em;
 
@@ -11,12 +11,12 @@
 	&:before {
 		content: '';
 		top: 0;
-		left: 0;
+		right: 0;
 		position: absolute;
 		z-index: -1;
 		border-color: transparent;
-		border-left-color: color('red', 'brand');
-		border-width: 0.8em 0 0.9em 1em;
+		border-right-color: $link-color;
+		border-width: 0.9em 1em 0.9em 0;
 		border-style: solid;
 	}
 }
