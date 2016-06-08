@@ -1,0 +1,6 @@
+$nav-bar-background-color: color('grey', 1) !default;
+$nav-bar-link-color: color('grey', 5) !default;
+$nav-bar-link-color-hover: color('grey', 6) !default;
+$nav-bar-link-color-active: $nav-bar-link-color-hover !default;
+$nav-bar-link-border-color: transparent !default;
+$nav-bar-link-border-color-active: color('red', 'brand') !default;

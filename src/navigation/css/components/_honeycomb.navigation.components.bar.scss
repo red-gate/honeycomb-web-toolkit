@@ -1,13 +1,18 @@
 .nav-bar {
+
+    background-color: $nav-bar-background-color;
+
+    &--light {
+        background-color: transparent;
+        border-bottom: 1px solid color('grey', 2);
+    }
+
     ul {
         @extend %list--horizontal;
         @include margin(0, bottom);
+
         li {
-            @include margin(0.5, left);
-            @include margin(0, bottom);
-        }
-        li:first-child {
-            @include margin(0, left);
+            @include margin(0, 'bottom');
         }
     }
 }
@@ -26,10 +31,24 @@
 }
 
 .nav-bar a {
-    border: none;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: $nav-bar-link-border-color;
     font-weight: bold;
+    color: $nav-bar-link-color;
+    display: block;
+
+    @include padding(0.5);
+
+    &:hover {
+        color: $nav-bar-link-color-hover;
+    }
 }
 
+.nav-bar .active a {
+    border-bottom-color: $nav-bar-link-border-color-active;
+    color: $nav-bar-link-color-active;
+}
 
 .nav-bar .button {
     @include margin(0, bottom);
