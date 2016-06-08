@@ -6,12 +6,13 @@
 	background-color: $link-color;
 	font-weight: bold;
 	font-size: 0.9em;
+	border-radius: 3px;
 
 	/* speech bubble tail */
 	&:before {
 		content: '';
 		top: 0;
-		right: 0;
+		right: 30%;
 		position: absolute;
 		z-index: -1;
 		border-color: transparent;
