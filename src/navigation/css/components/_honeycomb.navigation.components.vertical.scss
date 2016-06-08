@@ -45,7 +45,6 @@
 }
 
 .nav--vertical--right {
-	@extend .nav--vertical;
 
 	h2 {
 		border-left: 5px solid color('red', 'brand');
