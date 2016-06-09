@@ -1,5 +1,6 @@
 .avatar {
 	@extend .rounded--circle;
+	@include margin(-0.5, 'left'); // Overlap for multiple avatars.
 	overflow:hidden;
 	display: inline-block;
 
@@ -10,5 +11,9 @@
 	&, a {
 		text-decoration:none;
 		border: none;
+	}
+
+	&:first-child {
+		@include margin(0, 'left'); // Reset the overlap for the first.
 	}
 }
