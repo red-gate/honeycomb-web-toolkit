@@ -5,7 +5,7 @@
 .nav--vertical {
 	@include padding(1, bottom);
 	@include margin(1, bottom);
-	background-color: color('grey', 1);
+	background-color: $nav-vertical-background-color;
 
 	h2 {
 		@include padding(0.5, top);
@@ -33,13 +33,19 @@
 		@include padding(1, right);
 		@include padding(0.25, top);
 		@include padding(0.25, bottom);
+		color: $nav-vertical-link-color;
 		position: relative;
 		display: block;
 		border-bottom: none;
 		font-weight: bold;
 
+		&:hover {
+			color: $nav-vertical-link-color-hover;
+		}
+
 		&.active {
-			background-color: color('grey', 3);
+			background-color: $nav-vertical-link-background-color-active;
+			color: $nav-vertical-link-color-active;
 		}
 	}
 }
