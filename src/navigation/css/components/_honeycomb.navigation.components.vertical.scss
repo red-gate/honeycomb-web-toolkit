@@ -24,7 +24,7 @@
 		@include margin(0);
 
 		li a {
-			@include padding(1, left);
+			@include padding(1.5, left);
 		}
 	}
 
@@ -34,10 +34,10 @@
 		@include padding(0.25, top);
 		@include padding(0.25, bottom);
 		color: $nav-vertical-link-color;
+		font-weight: $nav-vertical-link-font-weight;
 		position: relative;
 		display: block;
 		border-bottom: none;
-		font-weight: bold;
 
 		&:hover {
 			color: $nav-vertical-link-color-hover;
@@ -46,6 +46,7 @@
 		&.active {
 			background-color: $nav-vertical-link-background-color-active;
 			color: $nav-vertical-link-color-active;
+			font-weight: $nav-vertical-link-font-weight-active;
 		}
 	}
 }

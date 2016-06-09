@@ -34,7 +34,7 @@
     border-bottom-width: 4px;
     border-bottom-style: solid;
     border-bottom-color: $nav-bar-link-border-color;
-    font-weight: bold;
+    font-weight: $nav-bar-link-font-weight;
     color: $nav-bar-link-color;
     display: block;
 
@@ -48,6 +48,7 @@
 .nav-bar .active a {
     border-bottom-color: $nav-bar-link-border-color-active;
     color: $nav-bar-link-color-active;
+    font-weight: $nav-bar-link-font-weight-active;
 }
 
 .nav-bar .button {
