@@ -1,0 +1,11 @@
+.label {
+	@include padding(0.25, 'left');
+	@include padding(0.25, 'right');
+	@include margin(0.25);
+	@include font-size(12px);
+	text-transform: uppercase;
+
+	&:first-child {
+		@include margin(0, 'left');
+	}
+}
