@@ -3,5 +3,6 @@
 	@include padding(0.25, 'right');
 	@include margin(0.25, 'right');
 	@include font-size(12px);
+	font-weight: bold;
 	text-transform: uppercase;
 }
