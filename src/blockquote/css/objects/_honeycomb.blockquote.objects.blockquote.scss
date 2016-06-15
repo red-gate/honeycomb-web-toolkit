@@ -1,0 +1,70 @@
+/*------------------------------------*\
+    #BLOCKQUOTE
+\*------------------------------------*/
+
+blockquote {
+    @include padding(3, left); // Space for speechmark
+    display: block;
+    position: relative;
+    clear: both;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+
+    p {
+        @include margin(0.25, bottom);
+        font-style: italic;
+
+        &:last-of-type {
+            @include margin(0.5, bottom);
+        }
+    }
+
+    cite {
+        font-style: normal;
+    }
+
+    .author {
+        font-weight: bold;
+        display: block;
+
+        &:before {
+            @include margin(0.25, right);
+            content: "\2014";
+        }
+    }
+
+    &:before {
+        content: url(#{$blockquote-images-dir}/speechmark.svg);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+/*------------------------------------*\
+ #BLOCKQUOTE WITH A HEADSHOT
+\*------------------------------------*/
+.blockquote--headshot {
+    @include padding(1, left);
+    position: relative;
+
+    p {
+        width: 60%;
+
+        &:last-of-type {
+            @include padding(1, bottom);
+        }
+    }
+
+    &:before {
+        content: url(#{$blockquote-images-dir}/speechmark--small.svg);
+    }
+
+    .blockquote--headshot__headshot {
+        width: 40%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
