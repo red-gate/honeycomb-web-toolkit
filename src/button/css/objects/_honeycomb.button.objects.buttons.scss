@@ -17,6 +17,7 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    cursor: pointer;
     display: inline-block;
     -webkit-font-smoothing: antialiased;
 
@@ -146,6 +147,6 @@ display: inline;
         background-color: color('grey', 2) !important;
         border-color: transparent !important;
         color: color('grey') !important;
-        cursor: not-allowed;
+        cursor: default;
     }
 }
