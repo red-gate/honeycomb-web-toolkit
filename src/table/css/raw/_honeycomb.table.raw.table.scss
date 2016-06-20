@@ -2,22 +2,12 @@
     #TABLE
 \*------------------------------------*/
 
-/**
- * To keep things lined up, mark up your tables to a 24-col grid.
- * Basically, put colspan on every cell, andmake sure your colspans add up to 24.
- * Also add the .table-grid  helper class to your table.
- * http://csswizardry.com/2013/11/taming-data-tables/
- */
-
-
-// @TODO: Set default table colours in global settings ???
-
-
 table {
+    @include border();
+    border-color: $table-border-colour;
     width: 100%;
     vertical-align: top;
-// @TODO this colour should have it's own variable
-    background-color: $default-bg-color;
+    background-color: $table-background-colour;
 }
 
 /**
@@ -25,30 +15,24 @@ table {
  * Note: Caption must be the first element within the table element.
  */
 table caption {
-    caption-side: bottom;
     @include margin(0.5, top);
+    caption-side: bottom;
 }
-
 
 th, td {
     @include padding(0.5);
     @include border();
-// @TODO this colour should have it's own variable
-    border-color: color('grey', 3);
+    border-color: $table-border-colour;
     word-wrap: break-word;
     word-break: normal;
     vertical-align: top;
 }
 
-
 th {
     font-weight: bold;
-// @TODO this colour should have it's own variable
-    color: color('grey', 6);
-// @TODO this colour should have it's own variable
-    background-color: color('grey', 3);
+    color: $table-heading-colour;
+    background-color: $table-heading-background-colour;
 }
-
 
 /**
  * Force table cells to all render at the same width.
@@ -57,38 +41,25 @@ th {
     table-layout: fixed;
 }
 
-
-
 /**
- * Double the padding in table cells.
+ * Responsive table styles
  */
-.td-padded--loose {
-    @include padding(1);
-}
-
-.td-padded-v--loose {
-    @include padding(1, top);
-    @include padding(1, bottom);
-}
-
-.td-padded-h--loose {
-    @include padding(1, left);
-    @include padding(1, right);
-}
-
 @include responsive("medium") {
     thead {
         display: none; /* Hide the table heading row */
     }
+
     th, td {
         float: left;
         clear: both;
         width: 100%;
         text-align: center;
     }
+
     td:first-child {
         margin-top: 1rem;
     }
+
     td:before {
         content: attr(title); /* Add the column heading to the cell */
         display: block;
