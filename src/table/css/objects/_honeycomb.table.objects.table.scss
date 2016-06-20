@@ -38,3 +38,14 @@
     @include padding(1, left);
     @include padding(1, right);
 }
+
+.table--light {
+	border: none;
+
+	th {
+		@include padding(0, 'left');
+		border: none;
+		background-color: transparent;
+		text-align: left;
+	}
+}
