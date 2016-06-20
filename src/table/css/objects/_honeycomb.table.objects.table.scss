@@ -1,5 +1,5 @@
 .table--bare {
-	th, td {
+	&, th, td {
 		border: none;
 	}
 }
@@ -20,4 +20,21 @@
 	tr.even, tr:nth-child(even) {
 		background: color('grey', 2);
 	}
+}
+
+/**
+ * Double the padding in table cells.
+ */
+.td-padded--loose {
+    @include padding(1);
+}
+
+.td-padded-v--loose {
+    @include padding(1, top);
+    @include padding(1, bottom);
+}
+
+.td-padded-h--loose {
+    @include padding(1, left);
+    @include padding(1, right);
 }
