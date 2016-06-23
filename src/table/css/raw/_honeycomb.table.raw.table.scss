@@ -44,24 +44,26 @@ th {
 /**
  * Responsive table styles
  */
-@include responsive("medium") {
-    thead {
-        display: none; /* Hide the table heading row */
-    }
+.table--responsive {
+    @include responsive("medium") {
+        thead {
+            display: none; /* Hide the table heading row */
+        }
 
-    th, td {
-        float: left;
-        clear: both;
-        width: 100%;
-        text-align: center;
-    }
+        th, td {
+            float: left;
+            clear: both;
+            width: 100%;
+            text-align: center;
+        }
 
-    td:first-child {
-        margin-top: 1rem;
-    }
+        td:first-child {
+            margin-top: 1rem;
+        }
 
-    td:before {
-        content: attr(title); /* Add the column heading to the cell */
-        display: block;
+        td:before {
+            content: attr(title); /* Add the column heading to the cell */
+            display: block;
+        }
     }
 }
