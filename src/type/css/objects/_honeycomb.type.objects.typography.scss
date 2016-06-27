@@ -67,5 +67,9 @@ h1,
 
 .text--highlight {
   @include padding(0.5, 'left');
-  border-left: 2px solid color('red', 'brand');
+  border-left: 5px solid color('red', 'brand');
+
+  &--grey {
+    border-color: color('grey', 3);
+  }
 }
