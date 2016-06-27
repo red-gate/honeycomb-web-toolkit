@@ -119,6 +119,7 @@
             display: inline-block;
             box-sizing: border-box;
             line-height: $navigation-minimum-height - $navigation-border-width;
+            height: $navigation-minimum-height;
             width: 350px;
             border: none;
             border-bottom-width: $navigation-border-width;
