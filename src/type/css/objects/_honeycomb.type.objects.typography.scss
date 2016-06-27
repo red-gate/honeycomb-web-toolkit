@@ -70,6 +70,7 @@ h1,
   border-left: 5px solid color('red', 'brand');
 
   &--grey {
+    @extend .text--highlight;
     border-color: color('grey', 3);
   }
 }
