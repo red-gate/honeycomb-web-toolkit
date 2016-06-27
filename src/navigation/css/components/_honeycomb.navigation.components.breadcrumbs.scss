@@ -15,6 +15,7 @@ nav.breadcrumbs {
         font-weight: bold;
         color: inherit;
         border-bottom-color: transparent;  /* hide bottom border but keep it solid so it can transition smoothly */
+        border-bottom: none;
 
         &:after {
             @include padding(0.5, 'left');
@@ -25,7 +26,7 @@ nav.breadcrumbs {
         }
 
         &:hover {
-            border-bottom-color: inherit;
+            opacity: 0.7;
         }
     }
 }
