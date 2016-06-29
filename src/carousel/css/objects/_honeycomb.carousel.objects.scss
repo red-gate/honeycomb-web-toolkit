@@ -2,6 +2,8 @@
 .slick-next {
     top: 40%;
     z-index: 1;
+    height: 100%;
+    width: auto;
 
     &:before {
         @include font-size(36px);
