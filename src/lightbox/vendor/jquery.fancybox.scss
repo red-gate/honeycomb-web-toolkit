@@ -217,9 +217,9 @@
 	position: absolute;
 	bottom: 0;
 	right: 50%;
-	margin-bottom: -35px;
 	z-index: 8050;
 	text-align: center;
+    transform: translateY(110%);
 }
 
 .fancybox-title-float-wrap .child {
@@ -235,7 +235,6 @@
 	color: #FFF;
 	font-weight: bold;
 	line-height: 24px;
-	white-space: nowrap;
 }
 
 .fancybox-title-outside-wrap {
