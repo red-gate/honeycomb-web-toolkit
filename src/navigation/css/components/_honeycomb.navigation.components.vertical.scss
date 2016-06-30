@@ -11,6 +11,7 @@
 		@include padding(0.5, top);
 		@include padding(1, left);
 		@include padding(0.5, bottom);
+		@include margin(0, bottom);
 		background-color: color('grey', 2);
 		border-right: 5px solid color('red', 'brand');
 		font-weight: bold;
