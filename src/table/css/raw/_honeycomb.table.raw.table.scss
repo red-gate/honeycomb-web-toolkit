@@ -26,6 +26,10 @@ th, td {
     word-wrap: break-word;
     word-break: normal;
     vertical-align: top;
+
+    :last-child {
+        @include margin(0, 'bottom');
+    }
 }
 
 th {
