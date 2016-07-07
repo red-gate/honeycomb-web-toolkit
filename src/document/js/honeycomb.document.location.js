@@ -13,9 +13,26 @@ Honeycomb.Document.Location = (function() {
         return results === null ? false : decodeURIComponent(results[1].replace(/\+/g, ' '));
     };
 
+    var onPage = function onPage(url) {
+        var on = false;
+
+        if(typeof url === 'string') {
+            url = [url];
+        }
+
+        for(var i = 0; i < url.length; i++) {
+            if(window.location.href.indexOf(url[i]) !== -1) {
+                on = true;
+            }
+        }
+
+        return on;
+    };
+
     return {
         init: init,
-        getUrlParameterByName: getUrlParameterByName
+        getUrlParameterByName: getUrlParameterByName,
+        onPage: onPage
     };
 
 })();
