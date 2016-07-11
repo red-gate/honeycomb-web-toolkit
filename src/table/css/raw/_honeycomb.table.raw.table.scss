@@ -32,7 +32,7 @@ th, td {
     }
 }
 
-th {
+th, thead td {
     font-weight: bold;
     color: $table-heading-colour;
     background-color: $table-heading-background-colour;
