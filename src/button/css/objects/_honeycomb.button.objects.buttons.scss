@@ -6,7 +6,7 @@
 .button,
 %button {
     @include margin(0.5, bottom);
-    @include font-size(12px);
+    // @include font-size(12px);
     padding: $button-padding !important;
     background-color: $button-background !important;
     color: $button-color !important;
@@ -14,13 +14,9 @@
     border-style: $button-border-style !important;
     border-color: $button-border-color !important;
     border-radius: $button-radius;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: 500;
     display: inline-block;
     -webkit-font-smoothing: antialiased;
-
-    border-bottom-width: 2px !important;
 
     // IE7 support.
     .ie7 & {
@@ -34,7 +30,6 @@
         border-width: $button-hover-border-width !important;
         border-style: $button-hover-border-style !important;
         border-color: $button-hover-border-color !important;
-        border-bottom-width: 2px !important;
     }
 
     &:active {

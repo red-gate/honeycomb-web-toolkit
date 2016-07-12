@@ -77,10 +77,10 @@ $site-colors: (
 
 // Chain colours onto useage variables
 $default-bg-color: map-get(map-get($site-colors, 'white'), 'base');
-$default-text-color: map-get(map-get($site-colors, 'grey'), 5);
+$default-text-color: map-get(map-get($site-colors, 'grey'), 6);
 $default-border-color: map-get(map-get($site-colors, 'grey'), 3);
 
-$link-color: map-get(map-get($site-colors, 'blue'), 5);
+$link-color: map-get(map-get($site-colors, 'blue'), 4);
 $link-border-color: map-get(map-get($site-colors, 'blue'), 'base');
 $link-hover-color: map-get(map-get($site-colors, 'blue'), 6);
 $link-hover-background-color: map-get(map-get($site-colors, 'grey'), 1);
