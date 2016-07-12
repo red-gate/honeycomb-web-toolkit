@@ -6,7 +6,6 @@
 .button,
 %button {
     @include margin(0.5, bottom);
-    // @include font-size(12px);
     padding: $button-padding !important;
     background-color: $button-background !important;
     color: $button-color !important;
