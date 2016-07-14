@@ -3,12 +3,12 @@
 \*------------------------------------*/
 
 // Padding
-$button-padding--horizontal:    $spacing-unit / 2.6667 !default;
-$button-padding--vertical:      $spacing-unit / 2 !default;
-$button-padding:                $button-padding--horizontal $button-padding--vertical;
+$button-padding--vertical:      $spacing-unit / 3.333 !default;
+$button-padding--horizontal:    $spacing-unit / 2 !default;
+$button-padding:                $button-padding--vertical $button-padding--horizontal;
 
-$button-padding--small:         ($button-padding--horizontal / 2) ($button-padding--vertical / 2) !default;
-$button-padding--large:         ($button-padding--horizontal * 2) ($button-padding--vertical * 2) !default;
+$button-padding--small:         ($button-padding--vertical / 2) ($button-padding--horizontal / 2) !default;
+$button-padding--large:         ($button-padding--vertical * 2) ($button-padding--horizontal * 2) !default;
 
 // Background
 $button-background:             color('grey', 3) !default;
