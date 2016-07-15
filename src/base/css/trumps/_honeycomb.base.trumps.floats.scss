@@ -7,10 +7,12 @@
  */
 
 .float-left {
+	@include padding(0.5, 'right');
     float: left !important;
 }
 
 
 .float-right {
+	@include padding(0.5, 'left');
     float: right !important;
 }
