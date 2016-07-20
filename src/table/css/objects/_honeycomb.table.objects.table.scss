@@ -39,6 +39,13 @@
     @include padding(1, right);
 }
 
+
+.table--tight {
+	th, td {
+		padding: 3px;
+	}
+}
+
 .table--light {
 	border: none;
 
