@@ -40,4 +40,10 @@ li {
     @include margin(0, top);
     @include margin(0, bottom);
   }
+
+  // hide empty paragraphs created by wpautop in nested lists
+  p:empty {
+    display: none;
+  }
+  
 }
