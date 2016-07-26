@@ -37,6 +37,7 @@ li {
 
   > ul,
   > ol {
+    @include margin(0, top);
     @include margin(0, bottom);
   }
 }
