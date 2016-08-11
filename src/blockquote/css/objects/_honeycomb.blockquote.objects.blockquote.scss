@@ -42,6 +42,17 @@ blockquote {
     }
 }
 
+
+/*------------------------------------*\
+// BLOCKQUOTE WITHOUT QUOTEMARK
+\*------------------------------------*/
+.blockquote--plain {
+    @include padding(1, 'left');
+    &:before {
+        content: '';
+    }
+}
+
 /*------------------------------------*\
  #BLOCKQUOTE WITH A HEADSHOT
 \*------------------------------------*/
