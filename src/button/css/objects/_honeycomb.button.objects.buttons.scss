@@ -1,6 +1,6 @@
 /*------------------------------------*\
     #BUTTON STYLES
-\*------------------------------------*/
+    \*------------------------------------*/
 
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button,
@@ -39,23 +39,23 @@
 
 .button--large,
 %button--large {
-padding: $button-padding--large !important;
+    padding: $button-padding--large !important;
 }
 
 .button--small,
 %button--small {
-padding: $button-padding--small !important;
+    padding: $button-padding--small !important;
 }
 
 .button--full-width,
 %button--full-width {
-display: block;
-text-align: center;
+    display: block;
+    text-align: center;
 }
 
 .button--inline,
 %button--inline {
-display: inline;
+    display: inline;
 }
 
 // Primary buttons.
@@ -141,5 +141,21 @@ display: inline;
         border-color: transparent !important;
         color: color('grey') !important;
         cursor: not-allowed;
+    }
+}
+
+// Red button
+.button--red {
+    background-color: color('red', 4) !important;
+    border-color: color('red', 5) !important;
+
+    :hover {
+        background-color: color('red', 5) !important;
+        border-color: color('red', 6) !important;
+    }
+
+    :active {
+        background-color: color('red', 7) !important;
+        border-color: color('red', 7) !important;
     }
 }
