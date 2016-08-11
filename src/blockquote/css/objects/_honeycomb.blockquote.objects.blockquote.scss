@@ -47,7 +47,7 @@ blockquote {
 // BLOCKQUOTE WITHOUT QUOTEMARK
 \*------------------------------------*/
 .blockquote--plain {
-    @include padding(1, 'left');
+    @include padding(0.5, 'left');
     &:before {
         content: '';
     }
