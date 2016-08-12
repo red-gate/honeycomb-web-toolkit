@@ -149,13 +149,13 @@
     background-color: color('red', 4) !important;
     border-color: color('red', 5) !important;
 
-    :hover {
+    &:hover {
         background-color: color('red', 5) !important;
         border-color: color('red', 6) !important;
     }
 
-    :active {
-        background-color: color('red', 7) !important;
-        border-color: color('red', 7) !important;
+    &:active {
+        background-color: color('red', 6) !important;
+        border-color: color('red', 6) !important;
     }
 }
