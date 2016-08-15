@@ -46,5 +46,8 @@
     .grid__col.scheme--white, .grid__col.scheme--lightest-grey, .grid__col.scheme--darkest-grey, .grid__col.scheme--lightest-blue, .grid__col.scheme--blue, .grid__col.scheme--darkest-blue, .grid__col.scheme--near-black, .grid__col.scheme--black, .grid__col.scheme--red {
         background-color: inherit;
         color: inherit;
+        p, h1, h2, h3, h4, h5, h6 {
+            color: inherit;
+        }
     }
 }
