@@ -39,6 +39,9 @@
             @include margin(0, bottom);
         }
     }
+    .hs-button {
+        @extend %button--primary;
+    }
 }
 
 @include responsive("small") {
