@@ -1,0 +1,91 @@
+// based on https://codepen.io/theigmo87/pen/cwHyK
+
+@keyframes downstroke {
+    0% { height: 0; }
+    100% { height: $checkbox-height/2;  }
+}
+@keyframes upstroke {
+    0% { height: 0; }
+    50% { height: 0; }
+    100% { height: $checkbox-height * 1.2; }
+}
+
+input[type=checkbox].checkbox {
+    display:none;
+}
+
+.checkbox {
+    height: $checkbox-height;
+    width: $checkbox-height;
+    background-color: transparent;
+    border: $checkbox-height * .1 solid $unchecked-color;
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    transition: border-color ease $duration/2;
+    cursor:pointer;
+
+    &::before, &::after {
+        box-sizing: border-box;
+        position: absolute;
+        height: 0;
+        width: $checkbox-height * .2;
+        background-color: $checked-color;
+        display: inline-block;
+        transform-origin: left top;
+        border-radius: 5px;
+        content: ' ';
+        transition: opacity ease .5;
+    }
+
+    &::before {
+        top:$checkbox-height * .72;
+        left: $checkbox-height * .41;
+        box-shadow: 0 0 0 $checkbox-height * .05 $background-color;
+        transform: rotate(-135deg);
+    }
+
+    &::after {
+        top: $checkbox-height * .37;
+        left: $checkbox-height * .05;
+        transform: rotate(-45deg);
+    }
+
+    span {
+        display: inline-block;
+        width: 400px;
+        padding-left: $checkbox-height + 10;
+        padding-top: $checkbox-height / 4;
+
+    }
+}
+
+input[type=checkbox]:checked + .checkbox, 
+.checkbox--checked {
+    border-color: $checked-color;
+    
+    &::after{
+        height: $checkbox-height * .5;
+        animation: downstroke $duration/2 ease 0s forwards;
+    }
+     
+    &::before{
+        height: $checkbox-height * 1.2;
+        animation: upstroke $duration ease 0s forwards;
+    }
+}
+
+.checkbox--loading {
+    border: none;
+
+    &::before, &::after {
+        content: '';
+    }
+    span {
+        // stop label text from jumping when borders vanish
+        padding-left: $checkbox-height + 10 + $checkbox-height * 0.1;
+        padding-top: $checkbox-height / 4 + $checkbox-height * 0.1;
+    }
+    background: url('/dist/images/spinny.gif') no-repeat;
+}

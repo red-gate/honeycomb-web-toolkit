@@ -1,0 +1,65 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+<title>Honeycomb - HTML pattern library - Global - Checkbox</title>
+<meta name="description" content="Front-end Web Development and Design Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="guide" id="top-of-page">
+	<div class="page-wrapper">
+
+
+
+		<div class="band">
+			<div class="band__inner-container--tight">
+				<h1 class="section-heading--honeycomb">Checkbox</h1>
+
+				<h2>Checked</h2>
+				<p>
+					<input type="checkbox" id="not-robot" class="checkbox">
+					<label for="not-robot" class="checkbox">
+						<span>I am not a robot</span>
+					</label>
+				</p>
+				<h2>Unchecked</h2>
+				<p>
+					<input type="checkbox" id="robot" class="checkbox" checked>
+					<label for="robot" class="checkbox">
+						<span>I am a robot</span>
+					</label>
+				</p>
+				<h2>Checkbox with loading state</h2>
+				<p>
+					<input type="checkbox" id="might-be-robot" class="checkbox">
+					<label for="might-be-robot" class="checkbox">
+						<span>I might be a robot</span>
+					</label>
+				</p>
+			</div>
+		</div>
+	</div><!-- END .page-wrapper -->
+
+
+	<script>
+	var checkbox = document.getElementById('might-be-robot');
+	var label = document.querySelectorAll('[for="might-be-robot"]')[0];
+
+	checkbox.addEventListener('change', function(event) {
+	    if(checkbox.checked) {
+	    	checkbox.checked = false;
+			label.classList.add('checkbox--loading');
+			setTimeout(function() {
+				label.classList.remove('checkbox--loading');
+				checkbox.checked = true;
+			}, 1000);
+		} else {
+	    	checkbox.checked = false;
+			label.classList.add('checkbox--loading');
+			setTimeout(function() {
+				label.classList.remove('checkbox--loading');
+			}, 1000);
+		}
+		return false;
+	});
+	</script>
+
+
+	<!--#include virtual="/docs/includes/footer/footer.htm" -->
