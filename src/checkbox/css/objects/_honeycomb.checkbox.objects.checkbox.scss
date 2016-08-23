@@ -85,6 +85,10 @@ input[type=checkbox].checkbox {
     }
 }
 
+input[type=checkbox].checkbox--loading + .checkbox {
+    @extend .checkbox--loading;
+}
+
 
 input[type=checkbox]:checked + .checkbox, 
 .checkbox--checked {

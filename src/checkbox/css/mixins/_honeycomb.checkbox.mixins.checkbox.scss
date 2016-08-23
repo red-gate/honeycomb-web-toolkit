@@ -33,21 +33,3 @@
 		}
 	}
 }
-
-
-@mixin checkboxCheckedDimensions ($height: $checkbox-height) {
-	input[type=checkbox]:checked + .checkbox, 
-	.checkbox--checked {
-		border-color: $checkbox-checked-color;
-		
-		&::after{
-			height: $height * .5;
-			animation: downstroke $checkbox-duration/2 ease 0s forwards;
-		}
-		 
-		&::before{
-			height: $height * 1.2;
-			animation: upstroke $checkbox-duration ease 0s forwards;
-		}
-	}
-}

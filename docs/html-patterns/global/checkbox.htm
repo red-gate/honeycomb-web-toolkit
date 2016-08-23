@@ -47,33 +47,30 @@
 
 	<script>
 	var largeCheckbox = document.getElementById('might-be-robot');
-	var largeLabel = document.querySelectorAll('[for="might-be-robot"]')[0];
-
 	var smallCheckbox = document.getElementById('might-be-robot-small');
-	var smallLabel = document.querySelectorAll('[for="might-be-robot-small"]')[0];
 
-	var addLoadingState = function addLoadingState(checkbox, label) {
+	var addLoadingState = function addLoadingState(checkbox) {
 		checkbox.addEventListener('change', function(event) {
 			if(checkbox.checked) {
 				checkbox.checked = false;
-				label.classList.add('checkbox--loading');
+				checkbox.classList.add('checkbox--loading');
 				setTimeout(function() {
-					label.classList.remove('checkbox--loading');
+					checkbox.classList.remove('checkbox--loading');
 					checkbox.checked = true;
 				}, 1000);
 			} else {
 				checkbox.checked = false;
-				label.classList.add('checkbox--loading');
+				checkbox.classList.add('checkbox--loading');
 				setTimeout(function() {
-					label.classList.remove('checkbox--loading');
+					checkbox.classList.remove('checkbox--loading');
 				}, 1000);
 			}
 			return false;
 		});
 	};
 
-	addLoadingState(largeCheckbox, largeLabel);
-	addLoadingState(smallCheckbox, smallLabel);
+	addLoadingState(largeCheckbox);
+	addLoadingState(smallCheckbox);
 	</script>
 
 
