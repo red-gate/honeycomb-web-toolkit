@@ -9,6 +9,7 @@
     50% { height: 0; }
     100% { height: $checkbox-height * 1.2; }
 }
+
 @keyframes downstrokeSmall {
     0% { height: 0; }
     100% { height: $checkbox-height-small/2;  }
@@ -32,8 +33,12 @@ input[type=checkbox].checkbox {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    transition: border-color ease $checkbox-duration/2;
+    transition: border-color ease $checkbox-duration/2, opacity ease $checkbox-duration/2;
     cursor:pointer;
+
+    &:hover {
+        opacity: 0.7;
+    }
 
     &::before, &::after {
         box-sizing: border-box;
@@ -54,6 +59,7 @@ input[type=checkbox].checkbox {
     &::after {
         transform: rotate(-45deg);
     }
+
 
     span {
         display: inline-block;
