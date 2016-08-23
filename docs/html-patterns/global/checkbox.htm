@@ -12,25 +12,39 @@
 			<div class="band__inner-container--tight">
 				<h1 class="section-heading--honeycomb">Checkbox</h1>
 
-				<h2>Checked</h2>
+				<h2>Unchecked</h2>
 				<p>
 					<input type="checkbox" id="not-robot" class="checkbox">
 					<label for="not-robot" class="checkbox">
 						<span>I am not a robot</span>
 					</label>
 				</p>
-				<h2>Unchecked</h2>
+				<h2>Checked</h2>
 				<p>
 					<input type="checkbox" id="robot" class="checkbox" checked>
 					<label for="robot" class="checkbox">
 						<span>I am a robot</span>
 					</label>
 				</p>
-				<h2>Checkbox with loading state</h2>
+				<h2>Loading state</h2>
 				<p>
 					<input type="checkbox" id="might-be-robot" class="checkbox">
 					<label for="might-be-robot" class="checkbox">
 						<span>I might be a robot</span>
+					</label>
+				</p>
+				<h2>Small checkbox with loading state</h2>
+				<p>
+					<input type="checkbox" id="might-be-robot-small" class="checkbox">
+					<label for="might-be-robot-small" class="checkbox checkbox--small">
+						<span>I might be a small robot</span>
+					</label>
+				</p>
+				<h2>Small checkbox with loading state</h2>
+				<p>
+					<input type="checkbox" id="might-be-robot-small" class="checkbox">
+					<label for="might-be-robot-small" class="checkbox checkbox--small checkbox--loading">
+						<span>I might be a small robot</span>
 					</label>
 				</p>
 			</div>
@@ -39,26 +53,34 @@
 
 
 	<script>
-	var checkbox = document.getElementById('might-be-robot');
-	var label = document.querySelectorAll('[for="might-be-robot"]')[0];
+	var largeCheckbox = document.getElementById('might-be-robot');
+	var largeLabel = document.querySelectorAll('[for="might-be-robot"]')[0];
 
-	checkbox.addEventListener('change', function(event) {
-	    if(checkbox.checked) {
-	    	checkbox.checked = false;
-			label.classList.add('checkbox--loading');
-			setTimeout(function() {
-				label.classList.remove('checkbox--loading');
-				checkbox.checked = true;
-			}, 1000);
-		} else {
-	    	checkbox.checked = false;
-			label.classList.add('checkbox--loading');
-			setTimeout(function() {
-				label.classList.remove('checkbox--loading');
-			}, 1000);
-		}
-		return false;
-	});
+	var smallCheckbox = document.getElementById('might-be-robot-small');
+	var smallLabel = document.querySelectorAll('[for="might-be-robot-small"]')[0];
+
+	var addLoadingState = function addLoadingState(checkbox, label) {
+		checkbox.addEventListener('change', function(event) {
+			if(checkbox.checked) {
+				checkbox.checked = false;
+				label.classList.add('checkbox--loading');
+				setTimeout(function() {
+					label.classList.remove('checkbox--loading');
+					checkbox.checked = true;
+				}, 1000);
+			} else {
+				checkbox.checked = false;
+				label.classList.add('checkbox--loading');
+				setTimeout(function() {
+					label.classList.remove('checkbox--loading');
+				}, 1000);
+			}
+			return false;
+		});
+	};
+
+	addLoadingState(largeCheckbox, largeLabel);
+	addLoadingState(smallCheckbox, smallLabel);
 	</script>
 
 

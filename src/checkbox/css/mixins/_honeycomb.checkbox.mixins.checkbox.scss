@@ -1,0 +1,53 @@
+@mixin checkboxDimensions ($height: $checkbox-height) {
+	height: $height;
+	width: $height;
+	border: $height * .1 solid $checkbox-unchecked-color;
+
+	&::before, &::after {
+		width: $height * .2;
+	}
+
+	&::before {
+		top:$height * .72;
+		left: $height * .41;
+		box-shadow: 0 0 0 $height * .05 $checkbox-background-color;
+	}
+
+	&::after {
+		top: $height * .37;
+		left: $height * .05;
+	}
+
+	span {
+		padding-left: $height + 10;
+		padding-top: $height / 5;
+	}
+
+	&.checkbox--loading {
+		background-size: $height - $height * 0.2;
+		background-position: $height * 0.1 $height * 0.1;
+		span {
+			// stop label text from jumping when borders vanish
+			padding-left: $height + 10 + $height * 0.1;
+			padding-top: $height / 5 + $height * 0.1;
+		}
+	}
+}
+
+
+@mixin checkboxCheckedDimensions ($height: $checkbox-height) {
+	input[type=checkbox]:checked + .checkbox, 
+	.checkbox--checked {
+		border-color: $checkbox-checked-color;
+		
+		&::after{
+			height: $height * .5;
+			animation: downstroke $checkbox-duration/2 ease 0s forwards;
+		}
+		 
+		&::before{
+			height: $height * 1.2;
+			animation: upstroke $checkbox-duration ease 0s forwards;
+		}
+	}
+}
