@@ -80,7 +80,7 @@ input[type=checkbox].checkbox {
         background-repeat: no-repeat;
 
         &::before, &::after {
-            content: '';
+            display: none;
         }
     }
 }
