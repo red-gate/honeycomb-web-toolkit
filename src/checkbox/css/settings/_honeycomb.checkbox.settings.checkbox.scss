@@ -1,8 +1,8 @@
-$checkbox-checked-color: color('green', 4);
+$checkbox-checked-color: color('green');
 $checkbox-unchecked-color: color('grey', 5);
 $checkbox-background-color: inherit;
-$checkbox-height: 40px;
-$checkbox-height-small: $checkbox-height / 2;
+$checkbox-height: 30px;
+$checkbox-height-small: $checkbox-height / 3 * 2;
 $checkbox-font-color: inherit;
 $checkbox-duration: .4s;
 $checkbox-loading-icon-dir: "../images/" !default;
