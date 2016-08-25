@@ -77,7 +77,6 @@ input[type=checkbox].checkbox {
     }
 
     &.checkbox--loading {
-        border: none;
         background-image: url(#{$checkbox-loading-icon-dir}/spinny.gif);
         background-repeat: no-repeat;
 
