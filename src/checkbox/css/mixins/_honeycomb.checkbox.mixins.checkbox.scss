@@ -20,7 +20,7 @@
 
 	span {
 		padding-left: $height + 10;
-		padding-top: $height / 5;
+		padding-top: $height / 6;
 	}
 
 	&.checkbox--loading {
@@ -29,7 +29,7 @@
 		span {
 			// stop label text from jumping when borders vanish
 			padding-left: $height + 10 + $height * 0.1;
-			padding-top: $height / 5 + $height * 0.1;
+			padding-top: $height / 6 + $height * 0.1;
 		}
 	}
 }

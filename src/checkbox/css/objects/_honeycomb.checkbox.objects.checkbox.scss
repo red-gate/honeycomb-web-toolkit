@@ -62,6 +62,7 @@ input[type=checkbox].checkbox {
 
 
     span {
+        @include font-size(14px);
         display: inline-block;
         width: 400px;
     }
@@ -70,6 +71,7 @@ input[type=checkbox].checkbox {
         @include checkboxDimensions($checkbox-height-small);
         
         span {
+            font-size: inherit;
             padding-top: 0 !important;
         }
     }
