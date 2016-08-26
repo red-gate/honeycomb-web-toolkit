@@ -16,6 +16,7 @@
     font-weight: 500;
     display: inline-block;
     -webkit-font-smoothing: antialiased;
+    word-break: normal;
 
     // IE7 support.
     .ie7 & {
