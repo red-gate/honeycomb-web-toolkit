@@ -1,53 +1,65 @@
-var Honeycomb = Honeycomb || {};
-
-// Carousel functionality. (http://kenwheeler.github.io/slick/)
-Honeycomb.Carousel = function($) {
-
-  // TODO: Check if slick carousel plugin exists. - If $.fn.slick ?
-
-  $('.js-carousel').each(function() {
-    var $this = $(this);
-    var options = {
-        autoplaySpeed: 4000,
-        dotsClass: 'slick-dots carousel__pagination',
-        adaptiveHeight: true
-    };
-
-    // Arrows
-    if($this.attr('data-carousel-arrows')) {
-      options.arrows = ($this.attr('data-carousel-arrows') === 'true');
-    }
-
-    // Autoplay
-    if($this.attr('data-carousel-autoplay')) {
-      options.autoplay = ($this.attr('data-carousel-autoplay') === 'true');
-    }
-
-    // Pagination / Dots
-    if($this.attr('data-carousel-pagination')) {
-      options.dots = ($this.attr('data-carousel-pagination') === 'true');
-    }
-
-    // Fade
-    if($this.attr('data-carousel-fade')) {
-      options.fade = ($this.attr('data-carousel-fade') === 'true');
-    }
-
-    // Adaptive Height (Automatically update height)
-    if($this.attr('data-carousel-auto-height')) {
-        options.adaptiveHeight = ($this.attr('data-carousel-auto-height') === 'true');
-    }
-
-    // Autoplay speed
-    if($this.attr('data-carousel-autoplay-speed')) {
-        options.autoplaySpeed = $this.attr('data-carousel-autoplay-speed');
-    }
-
-    // Apply slick plugin.
-    $this.slick(options);
-  });
+let init = () => {
+    loadScript();
 };
 
-jQuery(function(){
-  Honeycomb.Carousel(jQuery);
-});
+let loadScript = () => {
+    let slick = document.createElement( 'script' );
+    let script = document.getElementsByTagName( 'script' )[ 0 ];
+    slick.async = true;
+    slick.src = '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js';
+    slick.onload = () => {
+        try { loadCarousel(); } catch ( e ) {}
+    };
+    script.parentNode.insertBefore( slick, script );
+};
+
+let loadCarousel = () => {
+    let carousels = document.querySelectorAll( '.js-carousel' );
+
+    for ( let i = 0; i < carousels.length; i++ ) {
+        let carousel = carousels[ i ];
+        let options = {
+            autoplaySpeed: 4000,
+            dotsClass: 'slick-dots carousel__pagination',
+            adaptiveHeight: true
+        };
+
+        // Arrows.
+        if ( carousel.getAttribute( 'data-carousel-arrows' ) ) {
+            options.arrows = carousel.getAttribute( 'data-carousel-arrows' ) === 'true';
+        }
+
+        // Autoplay
+        if ( carousel.getAttribute( 'data-carousel-autoplay' ) ) {
+            options.autoplay = carousel.getAttribute( 'data-carousel-autoplay' ) === 'true';
+        }
+
+        // Pagination / Dots.
+        if ( carousel.getAttribute( 'data-carousel-pagination' ) ) {
+            options.dots = carousel.getAttribute( 'data-carousel-pagination' ) === 'true';
+        }
+
+        // Fade.
+        if ( carousel.getAttribute( 'data-carousel-fade' ) ) {
+            options.fade = carousel.getAttribute( 'data-carousel-fade' ) === 'true';
+        }
+
+        // Adaptive Height (Automatically update height)
+        if ( carousel.getAttribute( 'data-carousel-auto-height' ) ) {
+            options.adaptiveHeight = carousel.getAttribute( 'data-carousel-auto-height' ) === 'true';
+        }
+
+        // Autoplay speed.
+        if ( carousel.getAttribute( 'data-carousel-autoplay-speed' ) ) {
+            options.autoplaySpeed = carousel.getAttribute( 'data-carousel-autoplay-speed' );
+        }
+
+        if ( typeof $ === 'undefined' ) break;
+
+        $( carousel ).slick( options );
+    }
+};
+
+export default {
+    init: init
+};

@@ -1,158 +1,144 @@
-var Honeycomb = Honeycomb || {};
+let vendorUrl   = "//alexgorbatchev.com/pub/sh/current/";
+let scriptsDir  = "scripts/";
+let cssDir      = "styles/";
 
-Honeycomb.Code = (function($){
+let scripts = [
+    vendorUrl + scriptsDir + "shCore.js"
+];
 
-    var vendorUrl   = "//alexgorbatchev.com/pub/sh/current/";
-    var scriptsDir  = "scripts/";
-    var cssDir      = "styles/";
+let styles = [
+    cssDir + "shThemeDefault.css"
+];
 
-    var scripts = [
-        vendorUrl + scriptsDir + "shCore.js"
-    ];
+let samples = [];
 
-    var styles = [
-        cssDir + "shThemeDefault.css"
-    ];
+let brushes = [
+    ['applescript', 'shBrushAppleScript.js'],
+    ['actionscript3', 'as3', 'shBrushAS3.js'],
+    ['bash', 'shell',	'shBrushBash.js'],
+    ['coldfusion', 'cf', 'shBrushColdFusion.js'],
+    ['cpp', 'c', 'shBrushCpp.js'],
+    ['c#', 'c-sharp', 'csharp', 'shBrushCSharp.js'],
+    ['css', 'shBrushCss.js'],
+    ['delphi', 'pascal', 'shBrushDelphi.js'],
+    ['diff', 'patch', 'pas', 'shBrushDiff.js'],
+    ['erl', 'erlang', 'shBrushErlang.js'],
+    ['groovy', 'shBrushGroovy.js'],
+    ['java', 'shBrushJava.js'],
+    ['jfx', 'javafx', 'shBrushJavaFX.js'],
+    ['js', 'jscript', 'javascript', 'shBrushJScript.js'],
+    ['perl', 'pl', 'shBrushPerl.js'],
+    ['php', 'shBrushPhp.js'],
+    ['text', 'plain', 'shBrushPlain.js'],
+    ['py', 'python', 'shBrushPython.js'],
+    ['powershell', 'ps', 'posh', 'shBrushPowerShell.js'],
+    ['ruby', 'rails', 'ror', 'rb', 'shBrushRuby.js'],
+    ['sass', 'scss', 'shBrushSass.js'],
+    ['scala', 'shBrushScala.js'],
+    ['sql', 'shBrushSql.js'],
+    ['vb', 'vbnet', 'shBrushVb.js'],
+    ['xml', 'xhtml', 'xslt', 'html', 'shBrushXml.js']
+];
 
-    var samples = [];
+let isCodeSample = ( sample ) => {
+    let search = "brush:";
+    if ( sample.className.match( search ) ) {
+        return true;
+    }
 
-    var brushes = [
-        ['applescript', 'shBrushAppleScript.js'],
-        ['actionscript3', 'as3', 'shBrushAS3.js'],
-        ['bash', 'shell',	'shBrushBash.js'],
-        ['coldfusion', 'cf', 'shBrushColdFusion.js'],
-        ['cpp', 'c', 'shBrushCpp.js'],
-        ['c#', 'c-sharp', 'csharp', 'shBrushCSharp.js'],
-        ['css', 'shBrushCss.js'],
-        ['delphi', 'pascal', 'shBrushDelphi.js'],
-        ['diff', 'patch', 'pas', 'shBrushDiff.js'],
-        ['erl', 'erlang', 'shBrushErlang.js'],
-        ['groovy', 'shBrushGroovy.js'],
-        ['java', 'shBrushJava.js'],
-        ['jfx', 'javafx', 'shBrushJavaFX.js'],
-        ['js', 'jscript', 'javascript', 'shBrushJScript.js'],
-        ['perl', 'pl', 'shBrushPerl.js'],
-        ['php', 'shBrushPhp.js'],
-        ['text', 'plain', 'shBrushPlain.js'],
-        ['py', 'python', 'shBrushPython.js'],
-        ['powershell', 'ps', 'posh', 'shBrushPowerShell.js'],
-        ['ruby', 'rails', 'ror', 'rb', 'shBrushRuby.js'],
-        ['sass', 'scss', 'shBrushSass.js'],
-        ['scala', 'shBrushScala.js'],
-        ['sql', 'shBrushSql.js'],
-        ['vb', 'vbnet', 'shBrushVb.js'],
-        ['xml', 'xhtml', 'xslt', 'html', 'shBrushXml.js']
-    ];
+    return false;
+};
 
-    var _isCodeSample = function _isCodeSample(sample) {
-        var search = "brush:";
-        if(sample.className.match(search)) {
-            return true;
+let loadStylesheet = ( sheet ) => {
+    let head = document.getElementsByTagName( "head" )[ 0 ];
+    let link = document.createElement( "link" );
+    link.rel = "stylesheet";
+    link.href = vendorUrl + sheet;
+    head.appendChild(link);
+};
+
+let loadScript = ( src ) => {
+    let scriptNodes = document.getElementsByTagName( "script" )[ 0 ];
+    let script = document.createElement( "script" );
+    script.async = true;
+    script.src = src;
+    scriptNodes.parentNode.insertBefore( script, scriptNodes );
+};
+
+let loadBrush = ( brush ) => {
+    for ( let i = 0; i < brushes.length; i++ ) {
+        if ( brushes[ i ].indexOf( brush ) !== -1 ) {
+            let ref = brushes[ i ][ brushes[ i ].length-1 ];
+            loadScript( vendorUrl + scriptsDir + ref );
         }
+    }
+};
 
-        return false;
-    };
+let init = () => {
+    samples = getCodeSamples();
 
-    var _loadStylesheet = function _loadStylesheet(sheet) {
-        var head = document.getElementsByTagName("head")[0];
-        var link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = vendorUrl + sheet;
-        head.appendChild(link);
-    };
+    if ( samples.length > 0 ) {
+        loadStylesheets();
+        loadScripts();
+        autoloadBrushes();
+    }
+};
 
-    var _loadScript = function _loadScript(src) {
-        var scriptNodes = document.getElementsByTagName("script")[0];
-        var script = document.createElement("script");
-        script.async = true;
-        script.src = src;
-        scriptNodes.parentNode.insertBefore(script, scriptNodes);
-    };
+let getCodeSamples = () => {
+    let pres = document.getElementsByTagName( "pre" );
+    let scripts = document.getElementsByTagName( "script" );
+    let samples = [];
 
-    var _loadBrush = function _loadBrush(brush) {
-        for(var i=0; i<brushes.length; i++) {
-            if(brushes[i].indexOf(brush) !== -1) {
-                var ref = brushes[i][brushes[i].length-1];
-                _loadScript(vendorUrl + scriptsDir + ref);
-            }
+    for ( let a = 0; a < pres.length; a++ ) {
+        if ( isCodeSample( pres[ a ] ) ) {
+            samples.push( pres[ a ] );
         }
-    };
+    }
 
-    var init = function init() {
-        samples = getCodeSamples();
-
-        if(samples.length > 0) {
-            loadStylesheets();
-            loadScripts();
-            autoloadBrushes();
+    for ( let b = 0; b < scripts.length; b++ ) {
+        if ( isCodeSample( scripts[ b ] ) ) {
+            samples.push( scripts[ b ] );
         }
-    };
+    }
 
-    var getCodeSamples = function getCodeSamples() {
-        var pres = document.getElementsByTagName("pre");
-        var scripts = document.getElementsByTagName("script");
-        var _samples = [];
+    return samples;
+};
 
-        for(var a=0; a<pres.length; a++) {
-            if(_isCodeSample(pres[a])) {
-                _samples.push(pres[a]);
-            }
+let loadStylesheets = () => {
+    for ( let i = 0; i < styles.length; i++ ) {
+        loadStylesheet( styles[ i ] );
+    }
+};
+
+let loadScripts = () => {
+    for ( let i = 0; i < scripts.length; i++ ) {
+        loadScript( scripts[ i ] );
+    }
+};
+
+let autoloadBrushes = () => {
+    let brushesLoaded = [];
+
+    for ( let i = 0; i < samples.length; i++ ) {
+        let brush = samples[ i ].className.match( /brush:[\s]*([a-z#]*)/i )[ 1 ];
+
+        if ( brushesLoaded.indexOf( brush ) === -1 ) {
+            brushesLoaded.push( brush );
+            loadBrush( brush );
         }
+    }
+};
 
-        for(var b=0; b<scripts.length; b++) {
-            if(_isCodeSample(scripts[b])) {
-                _samples.push(scripts[b]);
-            }
-        }
+let highlight = () => {
+    if ( typeof SyntaxHighlighter !== "undefined" ) {
+        SyntaxHighlighter.defaults.toolbar = false;
+        SyntaxHighlighter.defaults.gutter = false;
+        SyntaxHighlighter.defaults[ 'quick-code' ] = false;
+        SyntaxHighlighter.highlight();
+    }
+};
 
-        return _samples;
-    };
-
-    var loadStylesheets = function loadStylesheets() {
-        for(var i=0; i<styles.length; i++) {
-            _loadStylesheet(styles[i]);
-        }
-    };
-
-    var loadScripts = function loadScripts() {
-        for(var i=0; i<scripts.length; i++) {
-            _loadScript(scripts[i]);
-        }
-    };
-
-    var autoloadBrushes = function autoloadBrushes() {
-        var brushesLoaded = [];
-
-        for(var i=0; i<samples.length; i++) {
-            var brush = samples[i].className.match(/brush:[\s]*([a-z#]*)/i)[1];
-
-            if(brushesLoaded.indexOf(brush) === -1) {
-                brushesLoaded.push(brush);
-                _loadBrush(brush);
-            }
-        }
-    };
-
-    var highlight = function highlight() {
-        if(typeof SyntaxHighlighter !== "undefined") {
-            SyntaxHighlighter.defaults.toolbar = false;
-            SyntaxHighlighter.defaults.gutter = false;
-            SyntaxHighlighter.defaults['quick-code'] = false;
-            SyntaxHighlighter.highlight();
-        }
-    };
-
-    return {
-        init: init,
-        highlight: highlight
-    };
-
-})(jQuery);
-
-jQuery(function(){
-    Honeycomb.Code.init();
-});
-
-jQuery(window).on("load", function(){
-    Honeycomb.Code.highlight();
-});
+export default {
+    init: init,
+    highlight: highlight
+};

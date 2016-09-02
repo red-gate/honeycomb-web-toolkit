@@ -35,24 +35,50 @@ module.exports = function(grunt) {
         jshint: {
             options: {
                 loopfunc: true,
-                expr: true
+                expr: true,
+                esnext: true
             },
             scripts: ['src/**/*.js', '!src/*/vendor/**/*'],
         },
 
         /* Uglify - Concatenate and minify JavaScript */
-        uglify: {
-            options: {
-                sourceMap: true,
-                mangle: true
-            },
-            scripts: {
-                files: {
-                    'dist/js/honeycomb.min.js' : [
-                        'src/*/vendor/**/*.js',
-                        '!src/base/vendor/modernizr.min.js',
-                        'src/*/js/**/*.js'
+        // uglify: {
+        //     options: {
+        //         sourceMap: true,
+        //         mangle: true
+        //     },
+        //     scripts: {
+        //         files: {
+        //             'dist/js/honeycomb.min.js' : [
+        //                 'src/*/vendor/**/*.js',
+        //                 '!src/base/vendor/modernizr.min.js',
+        //                 'src/*/js/**/*.js'
+        //             ]
+        //         }
+        //     }
+        // },
+
+        // babel: {
+        //     options: {
+        //         sourceMap: true,
+        //         minified: true
+        //     },
+        //     dist: {
+        //         files: {
+        //             'dist/js/honeycomb.min.js': 'src/honeycomb.js'
+        //         }
+        //     }
+        // },
+
+        browserify: {
+            dist: {
+                options: {
+                    transform: [
+                        ['babelify', {}]
                     ]
+                },
+                files: {
+                    'dist/js/honeycomb.min.js': 'src/honeycomb.js'
                 }
             }
         },
@@ -104,7 +130,8 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['src/**/*.js'],
-                tasks: ['jshint', 'uglify']
+                // tasks: ['jshint', 'uglify']
+                tasks: ['jshint', 'browserify']
             }
         }
 
@@ -118,10 +145,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-browserify');
 
     // Register the default task.
     grunt.registerTask('default', 'watch');
 
     // Build task
-    grunt.registerTask('build', ['sass', 'autoprefixer', 'clean', 'copy', 'jshint', 'uglify']);
+    // grunt.registerTask('build', ['sass', 'autoprefixer', 'clean', 'copy', 'jshint', 'uglify']);
+    grunt.registerTask('build', ['sass', 'autoprefixer', 'clean', 'copy', 'jshint', 'browserify']);
 };
