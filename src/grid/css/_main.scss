@@ -1,6 +1,8 @@
 // Grid
-@import 'settings/**';
-@import 'functions/**';
-@import 'mixins/**';
-@import 'objects/**';
-@import 'trumps/**';
+@import 'settings/honeycomb.grid.settings.grid';
+
+@import 'mixins/honeycomb.grid.mixins.grid';
+
+@import 'objects/honeycomb.grid.objects.grid';
+
+@import 'trumps/honeycomb.grid.trumps.grid';

@@ -1,5 +1,6 @@
 // Icons
-// @import '../vendor/font-awesome-4.1.0/scss/font-awesome';
-@import 'settings/**';
-@import 'raw/**';
-@import 'objects/**';
+@import 'settings/honeycomb.icons.settings.icons';
+
+@import 'raw/honeycomb.icons.raw.font-face';
+
+@import 'objects/honeycomb.icons.objects.icons';

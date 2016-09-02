@@ -1,6 +1,13 @@
 // Type
-@import 'settings/**';
-@import 'mixins/**';
-@import 'raw/**';
-@import 'objects/**';
-@import 'trumps/**';
+@import 'settings/honeycomb.type.settings.type';
+
+@import 'mixins/honeycomb.type.mixins.font-size';
+
+@import 'raw/honeycomb.type.raw.font-face';
+@import 'raw/honeycomb.type.raw.headings';
+@import 'raw/honeycomb.type.raw.inline';
+@import 'raw/honeycomb.type.raw.page';
+
+@import 'objects/honeycomb.type.objects.typography';
+
+@import 'trumps/honeycomb.type.trumps.text';
