@@ -1,9 +1,41 @@
 // Base
-@import '../vendor/**';
-@import 'settings/**';
-@import 'functions/**';
-@import 'mixins/**';
-@import 'snippets/**';
-@import 'raw/**';
-@import 'objects/**';
-@import 'trumps/**';
+@import '../vendor/normalize';
+
+@import 'settings/honeycomb.base.settings.breakpoints';
+@import 'settings/honeycomb.base.settings.container';
+@import 'settings/honeycomb.base.settings.spacing';
+
+@import 'functions/honeycomb.base.functions.px-rem';
+@import 'functions/honeycomb.base.functions.strip-unit';
+
+@import 'mixins/honeycomb.base.mixins.margin';
+@import 'mixins/honeycomb.base.mixins.padding';
+@import 'mixins/honeycomb.base.mixins.px-rem';
+@import 'mixins/honeycomb.base.mixins.responsive';
+
+@import 'snippets/honeycomb.base.snippets.borders';
+@import 'snippets/honeycomb.base.snippets.clearfix';
+@import 'snippets/honeycomb.base.snippets.pin';
+
+@import 'raw/honeycomb.base.raw.reset';
+@import 'raw/honeycomb.base.raw.box-sizing';
+@import 'raw/honeycomb.base.raw.images';
+@import 'raw/honeycomb.base.raw.inline';
+@import 'raw/honeycomb.base.raw.lists';
+@import 'raw/honeycomb.base.raw.page';
+@import 'raw/honeycomb.base.raw.vertical-rhythm';
+
+@import 'objects/honeycomb.base.objects.backgrounds';
+@import 'objects/honeycomb.base.objects.band';
+@import 'objects/honeycomb.base.objects.borders';
+@import 'objects/honeycomb.base.objects.clearfix';
+@import 'objects/honeycomb.base.objects.code';
+@import 'objects/honeycomb.base.objects.margin';
+@import 'objects/honeycomb.base.objects.padding';
+@import 'objects/honeycomb.base.objects.pin';
+@import 'objects/honeycomb.base.objects.responsive';
+
+@import 'trumps/honeycomb.base.trumps.display';
+@import 'trumps/honeycomb.base.trumps.floats';
+@import 'trumps/honeycomb.base.trumps.positioning';
+@import 'trumps/honeycomb.base.trumps.visibility';
