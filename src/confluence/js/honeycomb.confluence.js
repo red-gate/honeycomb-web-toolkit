@@ -1,128 +1,125 @@
-var Honeycomb = Honeycomb || {};
+let sidebar = () => {
 
-Honeycomb.Confluence = (function($) {
+    if ( typeof scrollTree === 'undefined' ) {
+        window.console.log( 'The scrollTree plugin hasn\'t been installed correctly. - Plugin undefined' );
+        return;
+    }
 
-    var sidebar = function sidebar() {
-		$(".confluence-sidebar ul").scrollTree({
-        	'contextPath': window.contextPath,
-          	'css': {
-              'ancestor': 'ancestor',
-              'current': 'active',
-              'collapsed': 'collapsed',
-              'expanded': 'expanded',
-              'toggle': 'toggle'
-            },
-          	'renderChildLi': function (child, opts) {
-              	var html = '<li class="' + opts.css[child.type] + '">';
-              	html += '<a href="' + child.link + '" class="' + opts.css[child.type] + '">';
+	$(".confluence-sidebar ul").scrollTree({
+    	'contextPath': window.contextPath,
+      	'css': {
+          'ancestor': 'ancestor',
+          'current': 'active',
+          'collapsed': 'collapsed',
+          'expanded': 'expanded',
+          'toggle': 'toggle'
+        },
+      	'renderChildLi': function (child, opts) {
+          	let html = '<li class="' + opts.css[child.type] + '">';
+          	html += '<a href="' + child.link + '" class="' + opts.css[child.type] + '">';
 
-              	if(typeof child.children !== 'undefined') {
-	              	html += '<span class="' + opts.css.toggle + ' ' + opts.css.toggle + '--has-children"></span>';
-                } else {
-                  	html += '<span class="' + opts.css.toggle + '"></span>';
-                }
-
-              	html += child.title + '</a>';
-              	html += '</li>';
-
-              	return html;
+          	if ( typeof child.children !== 'undefined' ) {
+              	html += '<span class="' + opts.css.toggle + ' ' + opts.css.toggle + '--has-children"></span>';
+            } else {
+              	html += '<span class="' + opts.css.toggle + '"></span>';
             }
-        });
+
+          	html += child.title + '</a>';
+          	html += '</li>';
+
+          	return html;
+        }
+    });
+};
+
+let lightbox = () => {
+  	$(".confluence-embedded-image").each(function(){
+      	let $this = $(this);
+    	let $parent = $this.parent().get(0);
+      	if ( $parent.nodeName !== "A" ) {
+        	let $a = $("<a/>")
+            	.addClass("lightbox link-image js-lightbox")
+            	.attr("href", $this.attr("src"))
+            	.attr("rel", "lightbox");
+            $this.wrap($a);
+        }
+    });
+};
+
+let notifications = () => {
+
+    // List of classes to add to.
+    let classes = {
+        "confluence-information-macro": "notification notification--block",
+        "confluence-information-macro-tip": "notification--success",
+        "confluence-information-macro-note": "notification--warning",
+        "confluence-information-macro-information": "notification--info",
+        "confluence-information-macro-warning": "notification--fail",
+        "confluence-information-macro-body": "notification__body",
+        "confluence-information-macro-icon": "notification__icon"
     };
 
-  	var lightbox = function lightbox() {
-      	$(".confluence-embedded-image").each(function(){
-          	var $this = $(this);
-        	var $parent = $this.parent().get(0);
-          	if($parent.nodeName !== "A") {
-            	var $a = $("<a/>")
-                	.addClass("lightbox link-image js-lightbox")
-                	.attr("href", $this.attr("src"))
-                	.attr("rel", "lightbox");
-	            $this.wrap($a);
-            }
-        });
+    let icons = {
+        "info": "icon--info",
+        "success": "icon--success",
+        "fail": "icon--fail",
+        "warning": "icon--warning"
     };
 
-    var notifications = function notifications() {
+    // Loop through and add the classes.
+    for ( let c in classes ) {
+        $("." + c).addClass(classes[c]);
+    }
 
-        // List of classes to add to.
-        var classes = {
-            "confluence-information-macro": "notification notification--block",
-            "confluence-information-macro-tip": "notification--success",
-            "confluence-information-macro-note": "notification--warning",
-            "confluence-information-macro-information": "notification--info",
-            "confluence-information-macro-warning": "notification--fail",
-            "confluence-information-macro-body": "notification__body",
-            "confluence-information-macro-icon": "notification__icon"
-        };
+    // Add the inner container.
+    $(".confluence-information-macro").wrapInner("<div class=\"notification--block__inner-container\"></div>");
 
-        var icons = {
-            "info": "icon--info",
-            "success": "icon--success",
-            "fail": "icon--fail",
-            "warning": "icon--warning"
-        };
+    // Loop through adding in notification icons.
+    $(".confluence-information-macro").each(function(){
+        let $this = $(this);
+        for ( let i in icons ) {
+            if ( $this.hasClass("notification--" + i ) ) {
+                let c = "icon " + icons[i];
+                $span = $("<span/>").addClass(c);
+                $span.prependTo($this.find(".confluence-information-macro-icon"));
+            }
+        }
+    });
+};
 
-        // Loop through and add the classes.
-        for(var c in classes) {
-            $("." + c).addClass(classes[c]);
+let toc = () => {
+    $(".toc-macro").each(function(){
+        let $this = $(this);
+        let defaults = ["h1", "h2", "h3", "h4", "h5", "h6"];
+        let headings = $this.data("headerelements").toLowerCase().split(",");
+        let excludedHeadings = [];
+
+        for ( let i = 0; i < defaults.length; i++ ) {
+            if ( headings.indexOf( defaults[ i ] ) === -1 ) {
+                excludedHeadings.push( defaults[ i ] );
+            }
         }
 
-        // Add the inner container.
-        $(".confluence-information-macro").wrapInner("<div class=\"notification--block__inner-container\"></div>");
+        // Exclude H1 headings by default.
+        excludedHeadings.push( "h1") ;
 
-        // Loop through adding in notification icons.
-        $(".confluence-information-macro").each(function(){
-            var $this = $(this);
-            for(var i in icons) {
-                if($this.hasClass("notification--" + i)) {
-                    var c = "icon " + icons[i];
-                    $span = $("<span/>").addClass(c);
-                    $span.prependTo($this.find(".confluence-information-macro-icon"));
-                }
-            }
+        // Convert array to string.
+        excludedHeadings = excludedHeadings.join( ', ' );
+
+        $this.toc({
+            exclude: excludedHeadings,
+            numerate: false
         });
-    };
+    });
+};
 
-    var toc = function toc() {
-        $(".toc-macro").each(function(){
-            var $this = $(this);
-            var defaults = ["h1", "h2", "h3", "h4", "h5", "h6"];
-            var headings = $this.data("headerelements").toLowerCase().split(",");
-            var excludedHeadings = [];
+let init = () => {
+    sidebar();
+    lightbox();
+    notifications();
+    toc();
+};
 
-            for(var i=0; i<defaults.length; i++) {
-                if(headings.indexOf(defaults[i]) === -1) {
-                    excludedHeadings.push(defaults[i]);
-                }
-            }
-
-            // Exclude H1 headings by default.
-            excludedHeadings.push("h1");
-
-            // Convert array to string.
-            excludedHeadings = excludedHeadings.join(', ');
-
-            $this.toc({
-                exclude: excludedHeadings,
-                numerate: false
-            });
-        });
-    };
-
-  	var init = function init() {
-    	sidebar();
-      	lightbox();
-        notifications();
-        toc();
-    };
-
-    return {
-        init: init
-    };
-})(jQuery);
-
-/* jQuery(function() {
-  Honeycomb.Confluence.init();
-}); */
+export default {
+    init: init
+};

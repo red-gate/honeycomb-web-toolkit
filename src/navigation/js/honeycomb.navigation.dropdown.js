@@ -1,53 +1,41 @@
-var Honeycomb = Honeycomb || {};
+let selector = '.js-dropdown';
+let classNameOpen = 'open';
+let classNameClosed = 'closed';
 
-Honeycomb.Navigation = Honeycomb.Navigation || {};
+let init = () => {
+    addArrows();
+    handle();
+};
 
-Honeycomb.Navigation.Dropdown = (function($) {
+let addArrows = () => {
+    let $lis = $( selector ).find( 'li' );
+    $lis.each( function() {
+        let $this = $( this );
+        if ( ( $this.find( 'ul' ).length > 0 ) && ( $this.attr( 'data-arrow-added' ) !== 'true' ) ) {
+            let $a = $( '<a/>' ).attr( 'href', '#toggle' ).addClass( 'arrow' );
+            $this.addClass( `dropdown ${classNameClosed}` );
+            $this.attr( 'data-arrow-added', 'true' );
+            $a.appendTo( $this );
+        }
+    });
+};
 
-    var selector = '.js-dropdown';
-    var classNameOpen = 'open';
-    var classNameClosed = 'closed';
+let handle = () => {
+    let $body = $( 'body' );
+    $body.on( 'click', '.js-dropdown .arrow', function( e ) {
+        let $this = $( this );
+        let $dropdown = $this.parent();
 
-    var init = function init () {
-        addArrows();
-        handle();
-    };
+        e.preventDefault();
+        if ( $dropdown.hasClass( classNameOpen ) ) {
+            $dropdown.removeClass( classNameOpen ).addClass( classNameClosed );
+        } else {
+            $dropdown.addClass( classNameOpen ).removeClass( classNameClosed );
+        }
+    });
+};
 
-    var addArrows = function addArrows () {
-        var $lis = $(selector).find('li');
-        $lis.each(function() {
-            var $this = $(this);
-            if(($this.find('ul').length > 0) && ($this.attr('data-arrow-added') !== 'true')) {
-                var $a = $('<a/>').attr('href', '#toggle').addClass('arrow');
-                $this.addClass('dropdown ' + classNameClosed);
-                $this.attr('data-arrow-added', 'true');
-                $a.appendTo($this);
-            }
-        });
-    };
-
-    var handle = function handle () {
-        var $body = $('body');
-        $body.on('click', '.js-dropdown .arrow', function(e) {
-            var $this = $(this);
-            var $dropdown = $this.parent();
-
-            e.preventDefault();
-            if($dropdown.hasClass(classNameOpen)) {
-                $dropdown.removeClass(classNameOpen).addClass(classNameClosed);
-            } else {
-                $dropdown.addClass(classNameOpen).removeClass(classNameClosed);
-            }
-        });
-    };
-
-    return {
-        init: init,
-        addArrows: addArrows
-    };
-
-})(jQuery);
-
-jQuery(function() {
-    Honeycomb.Navigation.Dropdown.init();
-});
+export default {
+    init: init,
+    addArrows: addArrows
+};
