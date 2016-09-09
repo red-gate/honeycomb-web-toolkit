@@ -7,7 +7,8 @@
   @if map-has-key($breakpoints, $breakpoint) {
 
     $width: map-get($breakpoints, $breakpoint);
-    @media only screen and (#{$mqProperty} $width) {
+    $declaration: "(#{$mqProperty} #{$width})";
+    @media only screen and #{$declaration} {
       @content;
     }
 
