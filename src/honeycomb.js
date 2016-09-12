@@ -75,9 +75,6 @@ mobileMenu.init();
 // Notification
 import notifications from './notification/js/honeycomb.notification.block';
 notifications.init();
-new notifications.block({
-    'content': 'This is some content'
-});
 
 // Polyfills.
 import boxSizing from './polyfill/js/honeycomb.polyfill.box-sizing';
@@ -86,3 +83,19 @@ import tableCell from './polyfill/js/honeycomb.polyfill.table-cell';
 boxSizing();
 indexOf();
 tableCell();
+
+// Reveal.
+import reveal from './reveal/js/honeycomb.reveal';
+reveal.init();
+
+// Scroll.
+import scroll from './scroll/js/honeycomb.scroll';
+scroll.init();
+
+// Sticky.
+import sticky from './sticky/js/honeycomb.sticky';
+sticky.init();
+
+// SVG.
+import svg from './svg/js/honeycomb.svg';
+svg.init();

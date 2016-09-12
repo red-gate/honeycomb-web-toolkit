@@ -1,157 +1,149 @@
-var Honeycomb = Honeycomb || {};
-
 // Reveal - Hide/Show content.
-Honeycomb.Reveal = (function($) {
-  var init = function init() {
-    $('.js-reveal').each(function() {
-      var $this = $(this);
-      var buttonTextOpen = $this.attr('data-reveal-buttonOpen') || 'Open';
-      var $button = $('<a/>').attr('href', '#' + this.id).addClass('reveal-cta').html(buttonTextOpen);
+let init = () => {
+    $( '.js-reveal' ).each( function () {
+        let $this = $( this );
+        let buttonTextOpen = $this.attr( 'data-reveal-buttonOpen' ) || 'Open';
+        let $button = $( '<a/>' ).attr( 'href', '#' + this.id ).addClass( 'reveal-cta' ).html( buttonTextOpen );
 
-      $this.slideUp(0);
+        $this.slideUp( 0 );
     });
 
-    $('.js-reveal-cta').each(function(){
+    $( '.js-reveal-cta' ).each( function () {
 
-      // Setup cta's.
-      var $button = $(this);
-      $button.attr('data-reveal-cta-open-html', $button.html());
-    }).on('click', function(e) {
+        // Setup cta's.
+        let $button = $( this );
+        $button.attr( 'data-reveal-cta-open-html', $button.html() );
+    }).on( 'click', function( e ) {
 
-      // On click, call toggle.
-      e.preventDefault();
+        // On click, call toggle.
+        e.preventDefault();
 
-      var that = this;
-      var $button = $(this);
-      var hash = $button.attr('href');
-      var $content = $(hash);
-      var group = $button.attr('data-reveal-group') || false;
+        let that = this;
+        let $button = $( this );
+        let hash = $button.attr( 'href' );
+        let $content = $( hash );
+        let group = $button.attr( 'data-reveal-group' ) || false;
 
-      if(!$content.is(':visible')) {
+        if ( ! $content.is( ':visible' ) ) {
 
-        // Open content.
-        if(group) {
+            // Open content.
+            if ( group ) {
 
-          // In a group. Close all group content first.
-          var $groupButtons = $('.js-reveal-cta[data-reveal-group=\"' + group + '\"]');
-          var closed = 0;
+                // In a group. Close all group content first.
+                let $groupButtons = $( '.js-reveal-cta[data-reveal-group=\"' + group + '\"]' );
+                let closed = 0;
 
-          for(var i=0; i<$groupButtons.length; i++) {
-            var groupButton = $groupButtons[i];
-            var $groupContent = $($(groupButton).attr('href'));
+                for ( let i = 0; i < $groupButtons.length; i++ ) {
+                    let groupButton = $groupButtons[ i ];
+                    let $groupContent = $( $( groupButton ).attr( 'href' ) );
 
-            // If the content is visible (should only be 1), then close and open.
-            if($groupContent.is(':visible')) {
-              Honeycomb.Reveal.close(groupButton, function() {
-                Honeycomb.Reveal.open(that);
-              });
+                    // If the content is visible (should only be 1), then close and open.
+                    if ( $groupContent.is( ':visible' ) ) {
+                        close( groupButton, function () {
+                            open( that );
+                        });
+                    } else {
+
+                        // Content's not visible, so just increase the counter for the check later.
+                        closed++;
+                    }
+                }
+
+                // No revealed content is open, so go ahead and open.
+                if ( closed === $groupButtons.length ) {
+                    open( that );
+                }
             } else {
 
-              // Content's not visible, so just increase the counter for the check later.
-              closed++;
+                // Not in a group.
+                open( this );
             }
-          }
-
-          // No revealed content is open, so go ahead and open.
-          if(closed === $groupButtons.length) {
-            Honeycomb.Reveal.open(that);
-          }
         } else {
 
-          // Not in a group.
-          Honeycomb.Reveal.open(this);
+            // Close content.
+            close( this );
         }
-      } else {
-
-        // Close content.
-        Honeycomb.Reveal.close(this);
-      }
     });
-  };
+};
 
-  var open = function open(button, callback) {
-    var $button = $(button);
-    var hash = $button.attr('href');
-    var $content = $(hash);
+let open = ( button, callback ) => {
+    let $button = $( button );
+    let hash = $button.attr( 'href' );
+    let $content = $( hash );
 
-    if($content.is('.js-reveal')) {
-      var $buttons = $('.js-reveal-cta[href=\"' + hash + '\"]');
+    if ( $content.is( '.js-reveal' ) ) {
+        let $buttons = $( '.js-reveal-cta[href=\"' + hash + '\"]' );
 
-      $content.slideDown({
-        duration: 250,
-        complete: function() {
+        $content.slideDown({
+            duration: 250,
+            complete: () => {
 
-          $content.addClass('js-reveal-open');
-          $buttons.addClass('close');
+                $content.addClass( 'js-reveal-open' );
+                $buttons.addClass( 'close' );
 
-          // Update buttons.
-          $buttons.each(function(){
-            var $button = $(this);
-            if($button.attr('data-reveal-cta-close-html')) {
-              $button.html($button.attr('data-reveal-cta-close-html'));
+                // Update buttons.
+                $buttons.each( function () {
+                    let $button = $( this );
+                    if ( $button.attr( 'data-reveal-cta-close-html' ) ) {
+                        $button.html( $button.attr( 'data-reveal-cta-close-html' ) );
+                    }
+                });
+
+                // Callback
+                if ( typeof callback === 'function' ) {
+                    callback.call( this );
+                }
             }
-          });
-
-          // Callback
-          if(typeof callback === 'function') {
-            callback.call(this);
-          }
-        }
-      });
+        });
     }
-  };
+};
 
-  var close = function close(button, callback) {
-    var $button = $(button);
-    var hash = $button.attr('href');
-    var $content = $(hash);
+let close = ( button, callback ) => {
+    let $button = $( button );
+    let hash = $button.attr( 'href' );
+    let $content = $( hash );
 
-    if($content.is('.js-reveal')) {
-      var $buttons = $('.js-reveal-cta[href=\"' + hash + '\"]');
+    if ( $content.is( '.js-reveal' ) ) {
+        let $buttons = $( '.js-reveal-cta[href=\"' + hash + '\"]' );
 
-      $content.slideUp({
-        duration: 250,
-        complete: function() {
+        $content.slideUp({
+            duration: 250,
+            complete: () => {
 
-          $content.removeClass('js-reveal-open');
-          $buttons.removeClass('close');
+                $content.removeClass( 'js-reveal-open' );
+                $buttons.removeClass( 'close' );
 
-          // Update buttons.
-          $buttons.each(function() {
-            var $button = $(this);
-            if($button.attr('data-reveal-cta-open-html')) {
-              $button.html($button.attr('data-reveal-cta-open-html'));
+                // Update buttons.
+                $buttons.each( function () {
+                    let $button = $( this );
+                    if ( $button.attr( 'data-reveal-cta-open-html' ) ) {
+                        $button.html( $button.attr( 'data-reveal-cta-open-html' ) );
+                    }
+                });
+
+                // Callback
+                if ( typeof callback === 'function' ) {
+                    callback.call( this );
+                }
             }
-          });
-
-          // Callback
-          if(typeof callback === 'function') {
-            callback.call(this);
-          }
-        }
-      });
+        });
     }
-  };
+};
 
-  var toggle = function toggle(button, callback) {
-    var $content = $($(button).attr('href'));
-    var visible = $content.is(':visible');
+let toggle = ( button, callback ) => {
+    let $content = $( $( button ).attr( 'href' ) );
+    let visible = $content.is( ':visible' );
 
-    if(visible) {
-      Honeycomb.Reveal.close(button, callback);
+    if ( visible ) {
+        close( button, callback );
     } else {
-      Honeycomb.Reveal.open(button, callback);
+        open( button, callback );
     }
-  };
+};
 
-  return {
-    init: init,
-    toggle: toggle,
-    open: open,
-    close: close
-  };
-})(jQuery);
-
-jQuery(function(){
-  Honeycomb.Reveal.init();
-});
+export default {
+    init,
+    toggle,
+    open,
+    close
+};
