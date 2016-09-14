@@ -79,14 +79,6 @@ module.exports = function(grunt) {
                     dest: 'dist/fonts/slick/'
                 }]
             },
-            robotoFonts: {
-                files: [{
-                    expand: true,
-                    cwd: 'src/type/vendor/',
-                    src: '**',
-                    dest: 'dist/fonts/'
-                }]
-            },
             imagesNavigation: {
                 files: [{
                     expand: true,
