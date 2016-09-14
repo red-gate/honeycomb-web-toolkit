@@ -93,6 +93,14 @@ module.exports = function(grunt) {
                     src: '**',
                     dest: 'dist/images/navigation/'
                 }]
+            },
+            sharingButtons: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/sharing/images/',
+                    src: '**',
+                    dest: 'dist/images/sharing-buttons'
+                }]
             }
         },
 
