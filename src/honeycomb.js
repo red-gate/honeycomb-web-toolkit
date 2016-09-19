@@ -103,3 +103,8 @@ svg.init();
 // Tabs.
 import tabs from './tabs/js/honeycomb.tabs';
 tabs.init();
+
+// Toggle.
+import toggle from './toggle/js/honeycomb.toggle';
+window.toggle = toggle.toggle;
+toggle.init();
