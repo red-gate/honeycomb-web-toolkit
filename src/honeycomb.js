@@ -99,3 +99,7 @@ sticky.init();
 // SVG.
 import svg from './svg/js/honeycomb.svg';
 svg.init();
+
+// Tabs.
+import tabs from './tabs/js/honeycomb.tabs';
+tabs.init();
