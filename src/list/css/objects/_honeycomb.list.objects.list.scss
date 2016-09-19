@@ -49,6 +49,11 @@
   @include padding(0);
   list-style: none;
 }
+// Nested bare lists
+li > .list--bare {
+  @include margin(0.5, 'left');
+  margin-top: 5px;
+}
 
 .list--padded,
 %list--padded {
