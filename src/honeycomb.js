@@ -2,6 +2,7 @@
 import googleAnalytics from './analytics/js/honeycomb.analytics.google';
 googleAnalytics.setAccountId('XX-AAA');
 googleAnalytics.init();
+window.googleAnalytics = googleAnalytics; // Set globally so can use it in different modules, like video.
 
 // Pingdom.
 import pingdom from './analytics/js/honeycomb.analytics.pingdom';
@@ -108,3 +109,7 @@ tabs.init();
 import toggle from './toggle/js/honeycomb.toggle';
 window.toggle = toggle.toggle;
 toggle.init();
+
+// Video.
+import video from './video/js/honeycomb.video';
+video.init();

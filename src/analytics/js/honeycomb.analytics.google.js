@@ -60,7 +60,6 @@ let trackPageView = ( url = false ) => {
 // Track an event.
 let trackEvent = ( category = '', action = '', label = null, value = null ) => {
     ga( 'send', 'event', category, action, label, value );
-    console.log(category, action, label, value);
 };
 
 // Set a custom variable.

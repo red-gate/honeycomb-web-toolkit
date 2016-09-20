@@ -1,228 +1,192 @@
-var Honeycomb = Honeycomb || {};
-
-Honeycomb.Video = (function($) {
-
-  // Default options for video playback.
-  var options = {
+// Default options for video playback.
+let options = {
     autohide: 1,
     autoplay: 0,
     controls: 0,
     showinfo: 0,
     loop: 0
-  };
+};
 
-  var videos = {};
+let videos = {};
 
-  var init = function init() {
+let init = () => {
     loadYouTubeIframeAPI();
-    addBackgroundVideos();
-  };
+};
 
-  var loadYouTubeIframeAPI = function loadYouTubeIframeAPI() {
-    if($('.js-video-container').length > 0) {
-      var tag = document.createElement('script');
-      var firstScriptTag = document.getElementsByTagName('script')[0];
+let loadYouTubeIframeAPI = () => {
+    let videoContainer = document.querySelectorAll( ".js-video-container" );
+    if ( videoContainer.length > 0 ) {
+        let tag = document.createElement( "script" );
+        let firstScriptTag = document.getElementsByTagName( "script" )[ 0 ];
 
-      tag.src = 'https://www.youtube.com/iframe_api';
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        tag.src = "https://www.youtube.com/iframe_api";
+        firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
     }
-  };
+};
 
-  // calculate second values for 10%, 20% etc. for event tracking
-  var calculatePercentages = function calculatePercentages(duration) {
-    var percentage;
-    var percentages = {};
-    for (i = 1; i < 10; i++) {
-      percentage = i * 10 + '%';
-      percentages[percentage] = duration * (i / 10);
+// calculate second values for 10%, 20% etc. for event tracking
+let calculatePercentages = ( duration ) => {
+    let percentage;
+    let percentages = {};
+    for ( let i = 1; i < 10; i++ ) {
+        percentage = i * 10 + "%";
+        percentages[ percentage ] = duration * ( i / 10 );
     }
-   return percentages;
-  };
+    return percentages;
+};
 
-  var trackVideoEvent = function trackVideoEvent(event, videoId, value) {
-    Honeycomb.Analytics.Google.trackEvent('Video', videoId + ' - ' + document.location.pathname, value);
-  };
+let trackVideoEvent = ( event, videoId, value ) => {
+    window.googleAnalytics.trackEvent( "Video", `${videoId} - ${document.location.pathname}`, value );
+};
 
-  // we want to track a special event when we hit either 20% or 30 seconds through the video, whichever is longer
-  var trackGoal = function trackGoal(event, videoId) {
-    trackVideoEvent(event, videoId, 'goal');
+// we want to track a special event when we hit either 20% or 30 seconds through the video, whichever is longer
+let trackGoal = ( event, videoId ) => {
+    trackVideoEvent( event, videoId, "goal" );
     return true;
-  };
-
-  var addInlineVideos = function addInlineVideos() {
-    var videoCounter = 0;
-    $('.js-video-container').each(function() {
-      var $this = $(this);
-      var videoId = $this.attr('data-video-id');
-      var duration;
-      var currentTime;
-      var percentages;
-      var goalTracked = false;
-
-      if(videoId) {
-
-        // Append empty div which will get replaced by video.
-        $this.append($('<div/>').attr('id', videoId + '-' + videoCounter));
-
-        // Get the options (data attributes)
-        var options = getOptions($this);
-
-        // Replace the empty div with the video player iframe.
-        videos[videoId + '-' + videoCounter] = new YT.Player(videoId + '-' + videoCounter, {
-          width: 640,
-          height: 360,
-          videoId: videoId,
-          playerVars: {
-            rel: 0,
-            autohide: options.autohide,
-            autoplay: options.autoplay,
-            controls: options.controls,
-            showinfo: options.showinfo,
-            loop: options.loop,
-            enablejsapi: 1
-          },
-          events: {
-            onStateChange: function(event) {
-
-              if(event.data === YT.PlayerState.PLAYING) {
-
-                // Video playing.
-                var $video = $("iframe#" + event.target.getVideoData().video_id);
-
-                duration = duration || event.target.getDuration();
-                percentages = percentages || calculatePercentages(duration);
-
-                if(!$video.attr("data-ga-tracked")) {
-                  var $container = $video.parent();
-
-                  if($container.attr('data-ga-track')) {
-                    // Track the video in GA (Google Analytics).
-                    var category = $container.attr('data-ga-track-category') || null;
-                    var action = $container.attr('data-ga-track-action') || null;
-                    var label = $container.attr('data-ga-track-label') || null;
-                    var value = $container.attr('data-ga-track-value') || null;
-
-                    // Call the tracking event.
-                    Honeycomb.Analytics.Google.trackEvent(category, action, label, value);
-                  }
-                  // Add a tracked data attribute to prevent from tracking multiple times.
-                  $video.attr('data-ga-tracked', 'true');
-
-                  trackVideoEvent(event, videoId, '0%');
-                }
-              }
-
-              if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-                currentTime = event.target.getCurrentTime();
-
-                // check goal conditions
-                if (!goalTracked) {
-                  if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
-                    goalTracked = trackGoal(event, videoId);
-                  }
-                  else if (currentTime > 30 && percentages['20%'] < 30){
-                    goalTracked = trackGoal(event, videoId);
-                  }
-                }
-
-                // check what percentages the playhead has passed
-                for (var i in percentages) {
-                  if (currentTime > percentages[i]) {
-                    trackVideoEvent(event, videoId, i);
-                    delete percentages[i];
-                  }
-                }
-
-              }
-
-            }
-          }
-        });
-}
-      // Increase the counter.
-      videoCounter++;
-    });
 };
 
-var addBackgroundVideos = function addBackgroundVideos() {
-  $('[data-background-video-id]').each(function() {
-    var $this = $(this);
-    var videoId = $this.attr('data-background-video-id');
-    var $videoContainer = $('<div class="js-video-container"></div>');
-    var $video = $('<iframe />');
+let addInlineVideos = () => {
+    let videoCounter = 0;
+    let videoContainers = document.querySelectorAll( ".js-video-container" );
+    for ( let videoContainer of videoContainers ) {
+        let $this = $( videoContainer );
+        let videoId = videoContainer.getAttribute( 'data-video-id' );
+        let duration;
+        let currentTime;
+        let percentages;
+        let goalTracked = false;
 
-      // Get the options (data attributes)
-      var options = getOptions($this);
-      options.autoplay = 1;
+        if ( videoId ) {
 
-      var src = '//www.youtube.com/embed/' + videoId +
-      '?rel=0&autohide=' + options.autohide +
-      '&autoplay=' + options.autoplay +
-      '&controls=' + options.controls +
-      '&showinfo=' + options.showinfo +
-      '&loop=' + options.loop +
-      '&enablejsapi=1';
+            // Append empty div which will get replaced by video.
+            $this.append( $( '<div/>' ).attr( 'id', `${videoId}-${videoCounter}` ) );
 
-      $this.wrapInner('<div class="js-background-video__content"></div>');
+            // Get the options (data attributes)
+            let options = getOptions( videoContainer );
 
-      $video.attr('class', 'js-background-video__video')
-      .attr('width', 640)
-      .attr('height', 360)
-      .attr('src', src);
+            // Replace the empty div with the video player iframe.
+            videos[ `${videoId}-${videoCounter}` ] = new YT.Player( `${videoId}-${videoCounter}`, {
+                width: 640,
+                height: 360,
+                videoId: videoId,
+                playerVars: {
+                    rel: 0,
+                    autohide: options.autohide,
+                    autoplay: options.autoplay,
+                    controls: options.controls,
+                    showinfo: options.showinfo,
+                    loop: options.loop,
+                    enablejsapi: 1
+                },
+                events: {
+                    onStateChange: ( event ) => {
 
-      $video.appendTo($videoContainer);
-      $videoContainer.prependTo($this);
-    });
+                        // Reset the video ID.
+                        videoId = event.target.getVideoData().video_id;
+
+                        if ( event.data === YT.PlayerState.PLAYING ) {
+
+                            // Video playing.
+                            let iframe = event.target.getIframe();
+
+                            duration = duration || event.target.getDuration();
+                            percentages = percentages || calculatePercentages( duration );
+
+                            if ( ! iframe.hasAttribute( "data-ga-tracked" ) ) {
+                                let container = iframe.parentElement;
+
+                                if ( container.hasAttribute( "data-ga-track" ) ) {
+
+                                    // Track the video in GA (Google Analytics).
+                                    let category = container.getAttribute( "data-ga-track-category" ) || null;
+                                    let action = container.getAttribute( "data-ga-track-action" ) || null;
+                                    let label = container.getAttribute( "data-ga-track-label" ) || null;
+                                    let value = container.getAttribute( "data-ga-track-value" ) || null;
+
+                                    // Call the tracking event.
+                                    window.googleAnalytics.trackEvent( category, action, label, value );
+                                }
+
+                                // Add a tracked data attribute to prevent from tracking multiple times.
+                                iframe.setAttribute( "data-ga-tracked", true );
+
+                                trackVideoEvent( event, videoId, "0%" );
+                            }
+                        }
+
+                        if ( event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED ) {
+                            currentTime = event.target.getCurrentTime();
+
+                            // check goal conditions
+                            if ( ! goalTracked ) {
+                                if ( currentTime > percentages[ "20%" ] && percentages[ "20%" ] > 30 ) {
+                                    goalTracked = trackGoal( event, videoId );
+                                } else if ( currentTime > 30 && percentages[ "20%" ] < 30 ) {
+                                    goalTracked = trackGoal( event, videoId );
+                                }
+                            }
+
+                            // check what percentages the playhead has passed
+                            for ( let i in percentages ) {
+                                if ( currentTime > percentages[ i ] ) {
+                                    trackVideoEvent( event, videoId, i );
+                                    delete percentages[ i ];
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Increase the counter.
+        videoCounter++;
+    }
 };
 
-var getOptions = function getOptions($this) {
+let getOptions = ( video ) => {
 
     // Copy the defaults.
-    var options = jQuery.extend({}, Honeycomb.Video.options);
+    // let options = jQuery.extend({}, Honeycomb.Video.options);
+    let options = Object.assign( {}, options );
 
     // Autohide.
-    if($this.attr('data-video-auto-hide')) {
-      options.autohide = $this.attr('data-video-auto-hide');
+    if ( video.hasAttribute( "data-video-auto-hide" ) ) {
+        options.autohide = video.getAttribute( "data-video-auto-hide" );
     }
 
     // Autoplay.
-    if($this.attr('data-video-auto-play')) {
-      options.autoplay = $this.attr('data-video-auto-play');
+    if ( video.hasAttribute( "data-video-auto-play" ) ) {
+        options.autoplay = video.getAttribute( "data-video-auto-play" );
     }
 
     // Controls.
-    if($this.attr('data-video-controls')) {
-      options.controls = $this.attr('data-video-controls');
+    if ( video.hasAttribute( "data-video-controls" ) ) {
+        options.controls = video.getAttribute( "data-video-controls" );
     }
 
     // Show info.
-    if($this.attr('data-video-show-info')) {
-      options.showinfo = $this.attr('data-video-show-info');
+    if ( video.hasAttribute( "data-video-show-info" ) ) {
+        options.showinfo = video.getAttribute( "data-video-show-info" );
     }
 
     // Loop.
-    if($this.attr('data-video-loop')) {
-      options.loop = $this.attr('data-video-loop');
+    if ( video.hasAttribute( "data-video-loop" ) ) {
+        options.loop = video.getAttribute( "data-video-loop" );
     }
 
     // Return the options object.
     return options;
-  };
-
-  return {
-    init: init,
-    options: options,
-    addInlineVideos: addInlineVideos,
-    videos: videos
-  };
-
-})(jQuery);
-
-jQuery(function() {
-  Honeycomb.Video.init();
-});
+};
 
 // Add the video when the iframe API library has loaded.
-window.onYouTubeIframeAPIReady = function() {
-  Honeycomb.Video.addInlineVideos();
+window.onYouTubeIframeAPIReady = () => {
+    addInlineVideos();
+};
+
+export default {
+    init,
+    options,
+    addInlineVideos,
+    videos
 };
