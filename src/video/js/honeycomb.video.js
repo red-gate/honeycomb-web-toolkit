@@ -49,7 +49,6 @@ let addInlineVideos = () => {
     let videoCounter = 0;
     let videoContainers = document.querySelectorAll( ".js-video-container" );
     for ( let videoContainer of videoContainers ) {
-        let $this = $( videoContainer );
         let videoId = videoContainer.getAttribute( 'data-video-id' );
         let duration;
         let currentTime;
@@ -59,7 +58,9 @@ let addInlineVideos = () => {
         if ( videoId ) {
 
             // Append empty div which will get replaced by video.
-            $this.append( $( '<div/>' ).attr( 'id', `${videoId}-${videoCounter}` ) );
+            let videoDiv = document.createElement( "div" );
+            videoDiv.setAttribute( "id", `${videoId}-${videoCounter}` );
+            videoContainer.appendChild( videoDiv );
 
             // Get the options (data attributes)
             let options = getOptions( videoContainer );
