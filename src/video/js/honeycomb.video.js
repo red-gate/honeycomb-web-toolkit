@@ -9,7 +9,10 @@ let options = {
 
 let videos = {};
 
-let init = () => {
+let analytics;
+
+let init = ( options = {} ) => {
+    analytics = options.analytics || false;
     loadYouTubeIframeAPI();
 };
 
@@ -36,7 +39,9 @@ let calculatePercentages = ( duration ) => {
 };
 
 let trackVideoEvent = ( event, videoId, value ) => {
-    window.googleAnalytics.trackEvent( "Video", `${videoId} - ${document.location.pathname}`, value );
+    if ( analytics ) {
+        analytics.trackEvent( "Video", `${videoId} - ${document.location.pathname}`, value );
+    }
 };
 
 // we want to track a special event when we hit either 20% or 30 seconds through the video, whichever is longer
@@ -93,7 +98,7 @@ let addInlineVideos = () => {
                             duration = duration || event.target.getDuration();
                             percentages = percentages || calculatePercentages( duration );
 
-                            if ( ! iframe.hasAttribute( "data-ga-tracked" ) ) {
+                            if ( ! iframe.hasAttribute( "data-ga-tracked" ) && analytics ) {
                                 let container = iframe.parentElement;
 
                                 if ( container.hasAttribute( "data-ga-track" ) ) {
@@ -105,7 +110,7 @@ let addInlineVideos = () => {
                                     let value = container.getAttribute( "data-ga-track-value" ) || null;
 
                                     // Call the tracking event.
-                                    window.googleAnalytics.trackEvent( category, action, label, value );
+                                    analytics.trackEvent( category, action, label, value );
                                 }
 
                                 // Add a tracked data attribute to prevent from tracking multiple times.

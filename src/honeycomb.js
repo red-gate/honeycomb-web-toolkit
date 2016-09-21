@@ -2,7 +2,6 @@
 import googleAnalytics from './analytics/js/honeycomb.analytics.google';
 googleAnalytics.setAccountId('XX-AAA');
 googleAnalytics.init();
-window.googleAnalytics = googleAnalytics; // Set globally so can use it in different modules, like video.
 
 // Pingdom.
 import pingdom from './analytics/js/honeycomb.analytics.pingdom';
@@ -26,9 +25,6 @@ carousel.init();
 // Code
 import code from './code/js/honeycomb.code';
 code.init();
-window.addEventListener( 'load', () => {
-    code.highlight();
-} );
 
 // Confluence.
 import confluence from './confluence/js/honeycomb.confluence';
@@ -44,12 +40,7 @@ documentViewport.init();
 
 // Equalise.
 import equalise from './equalise/js/honeycomb.equalise';
-window.addEventListener( 'resize', () => {
-    equalise();
-} );
-window.addEventListener( 'load', () => {
-    equalise();
-} );
+equalise.init();
 
 // Filter.
 import filter from './filter/js/honeycomb.filter';
@@ -107,9 +98,10 @@ tabs.init();
 
 // Toggle.
 import toggle from './toggle/js/honeycomb.toggle';
-window.toggle = toggle.toggle;
 toggle.init();
 
 // Video.
 import video from './video/js/honeycomb.video';
-video.init();
+video.init({
+    analytics: googleAnalytics
+});

@@ -74,16 +74,6 @@ let loadBrush = ( brush ) => {
     }
 };
 
-let init = () => {
-    samples = getCodeSamples();
-
-    if ( samples.length > 0 ) {
-        loadStylesheets();
-        loadScripts();
-        autoloadBrushes();
-    }
-};
-
 let getCodeSamples = () => {
     let pres = document.getElementsByTagName( "pre" );
     let scripts = document.getElementsByTagName( "script" );
@@ -136,6 +126,20 @@ let highlight = () => {
         SyntaxHighlighter.defaults[ 'quick-code' ] = false;
         SyntaxHighlighter.highlight();
     }
+};
+
+let init = () => {
+    samples = getCodeSamples();
+
+    if ( samples.length > 0 ) {
+        loadStylesheets();
+        loadScripts();
+        autoloadBrushes();
+    }
+
+    window.addEventListener( 'load', () => {
+        highlight();
+    } );
 };
 
 export default {

@@ -5,10 +5,10 @@ const activeClass = "active";
 let init = () => {
     let toggles = document.querySelectorAll( hook );
     if ( toggles.length > 0 ) {
-        for ( let toggle of toggles ) {
+        for ( let tog of toggles ) {
 
             // Hide the toggle items.
-            let items = toggle.querySelectorAll( `${hook}-item` );
+            let items = tog.querySelectorAll( `${hook}-item` );
             for ( let i = 0; i < items.length; i++ ) {
                 items[ i ].style.display = "none";
             }
@@ -17,17 +17,14 @@ let init = () => {
             items[ 0 ].style.display = "block";
 
             // Add active state to the first nav item.
-            let as = toggle.querySelectorAll( `${hook}-nav a` );
+            let as = tog.querySelectorAll( `${hook}-nav a` );
             for ( let a of as ) {
                 a.classList.remove( activeClass );
 
                 // Add toggle handler.
                 a.addEventListener( "click", ( e ) => {
                     e.preventDefault();
-
-                    // @TODO Work out how best to structure this.
-                    // @TODO callbacks within modules?
-                    window.toggle( e.target.getAttribute( "href" ) );
+                    toggle( e.target.getAttribute( "href" ) );
                 });
             }
             as[ 0 ].classList.add( activeClass );
@@ -66,6 +63,5 @@ let toggle = ( target ) => {
 };
 
 export default {
-    init,
-    toggle
+    init
 };
