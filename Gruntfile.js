@@ -35,7 +35,6 @@ module.exports = function(grunt) {
         jshint: {
             options: {
                 loopfunc: true,
-                expr: true,
                 esnext: true
             },
             scripts: ['src/**/*.js', '!src/*/vendor/**/*'],
@@ -53,6 +52,7 @@ module.exports = function(grunt) {
             }
         },
 
+        /* Browserify - Require modules (Babel to transpile ES2015 to ES5) */
         browserify: {
             dist: {
                 options: {
