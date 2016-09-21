@@ -41,34 +41,17 @@ module.exports = function(grunt) {
             scripts: ['src/**/*.js', '!src/*/vendor/**/*'],
         },
 
-        /* Uglify - Concatenate and minify JavaScript */
-        // uglify: {
-        //     options: {
-        //         sourceMap: true,
-        //         mangle: true
-        //     },
-        //     scripts: {
-        //         files: {
-        //             'dist/js/honeycomb.min.js' : [
-        //                 'src/*/vendor/**/*.js',
-        //                 '!src/base/vendor/modernizr.min.js',
-        //                 'src/*/js/**/*.js'
-        //             ]
-        //         }
-        //     }
-        // },
-
-        // babel: {
-        //     options: {
-        //         sourceMap: true,
-        //         minified: true
-        //     },
-        //     dist: {
-        //         files: {
-        //             'dist/js/honeycomb.min.js': 'src/honeycomb.js'
-        //         }
-        //     }
-        // },
+        /* Uglify - Minify JavaScript */
+        uglify: {
+            options: {
+                mangle: true
+            },
+            scripts: {
+                files: {
+                    'dist/js/honeycomb.min.js' : 'dist/js/honeycomb.js'
+                }
+            }
+        },
 
         browserify: {
             dist: {
@@ -78,7 +61,7 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    'dist/js/honeycomb.min.js': 'src/honeycomb.js'
+                    'dist/js/honeycomb.js': 'src/honeycomb.js'
                 }
             }
         },
@@ -130,8 +113,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['src/**/*.js'],
-                // tasks: ['jshint', 'uglify']
-                tasks: ['jshint', 'browserify']
+                tasks: ['jshint', 'browserify', 'uglify']
             }
         }
 
@@ -152,5 +134,5 @@ module.exports = function(grunt) {
 
     // Build task
     // grunt.registerTask('build', ['sass', 'autoprefixer', 'clean', 'copy', 'jshint', 'uglify']);
-    grunt.registerTask('build', ['sass', 'autoprefixer', 'clean', 'copy', 'jshint', 'browserify']);
+    grunt.registerTask('build', ['sass', 'autoprefixer', 'clean', 'copy', 'jshint', 'browserify', 'uglify']);
 };
