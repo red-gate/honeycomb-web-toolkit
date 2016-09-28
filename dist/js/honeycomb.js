@@ -1730,12 +1730,18 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-// If IE7, bail!
-// if(Honeycomb.Browser.isIE7()) {
-//     return false;
-// }
+var _honeycomb = require('../../browser/js/honeycomb.browser');
+
+var _honeycomb2 = _interopRequireDefault(_honeycomb);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var init = function init() {
+
+    // If IE7, bail!
+    if (_honeycomb2.default.isIE7()) {
+        return false;
+    }
 
     var tabbed = document.querySelectorAll('.js-tabbed');
     if (tabbed.length > 0) {
@@ -1745,7 +1751,7 @@ var init = function init() {
 
         try {
             for (var _iterator = tabbed[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                var tabs = _step.value;
+                var tab = _step.value;
 
                 var options = {
                     pagination: false,
@@ -1785,31 +1791,31 @@ var init = function init() {
                 };
 
                 // Scroll animation
-                var scrollTo = tabs.getAttribute('data-tabs-scroll-to');
+                var scrollTo = tab.getAttribute('data-tabs-scroll-to');
                 if (scrollTo) {
                     options.scrollTo = scrollTo === 'true';
                 }
 
                 // Scroll animation offset
-                var scrollToOffset = tabs.getAttribute('data-tabs-scroll-to-offset');
+                var scrollToOffset = tab.getAttribute('data-tabs-scroll-to-offset');
                 if (scrollToOffset) {
                     options.scrollToOffset = scrollToOffset;
                 }
 
                 // Pagination
-                var pagination = tabs.getAttribute('data-tabs-pagination');
+                var pagination = tab.getAttribute('data-tabs-pagination');
                 if (pagination) {
                     options.pagination = pagination === 'true';
                 }
 
                 // Reload ajax requests
-                var reloadAjax = tabs.getAttribute('data-tabs-reload-ajax');
+                var reloadAjax = tab.getAttribute('data-tabs-reload-ajax');
                 if (reloadAjax) {
                     options.reloadAjax = reloadAjax === 'true';
                 }
 
                 // Apply tabs plugin.
-                var $tabs = $(tabs).tabs(options);
+                var $tabs = $(tab).tabs(options);
             }
         } catch (err) {
             _didIteratorError = true;
@@ -1832,7 +1838,7 @@ exports.default = {
     init: init
 };
 
-},{}],28:[function(require,module,exports){
+},{"../../browser/js/honeycomb.browser":5}],28:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

@@ -1,14 +1,15 @@
-
-// If IE7, bail!
-// if(Honeycomb.Browser.isIE7()) {
-//     return false;
-// }
+import browser from '../../browser/js/honeycomb.browser';
 
 let init = () => {
 
+    // If IE7, bail!
+    if ( browser.isIE7() ) {
+        return false;
+    }
+
     let tabbed = document.querySelectorAll( '.js-tabbed' );
     if ( tabbed.length > 0 ) {
-        for ( let tabs of tabbed ) {
+        for ( let tab of tabbed ) {
             let options = {
                 pagination: false,
                 template: {
@@ -57,31 +58,31 @@ let init = () => {
             };
 
             // Scroll animation
-            let scrollTo = tabs.getAttribute( 'data-tabs-scroll-to' );
+            let scrollTo = tab.getAttribute( 'data-tabs-scroll-to' );
             if ( scrollTo ) {
                 options.scrollTo = scrollTo === 'true';
             }
 
             // Scroll animation offset
-            let scrollToOffset = tabs.getAttribute( 'data-tabs-scroll-to-offset' );
+            let scrollToOffset = tab.getAttribute( 'data-tabs-scroll-to-offset' );
             if ( scrollToOffset ) {
                 options.scrollToOffset = scrollToOffset;
             }
 
             // Pagination
-            let pagination = tabs.getAttribute( 'data-tabs-pagination' );
+            let pagination = tab.getAttribute( 'data-tabs-pagination' );
             if ( pagination ) {
                 options.pagination = pagination === 'true';
             }
 
             // Reload ajax requests
-            let reloadAjax = tabs.getAttribute( 'data-tabs-reload-ajax' );
+            let reloadAjax = tab.getAttribute( 'data-tabs-reload-ajax' );
             if ( reloadAjax ) {
                 options.reloadAjax = reloadAjax === 'true';
             }
 
             // Apply tabs plugin.
-            let $tabs = $( tabs ).tabs( options );
+            let $tabs = $( tab ).tabs( options );
         }
     }
 };
