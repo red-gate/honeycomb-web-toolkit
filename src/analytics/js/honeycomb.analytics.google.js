@@ -1,7 +1,12 @@
 let accountId;
 let sites;
+let settings;
 
-let init = () => {
+let init = ( s = false ) => {
+
+    if ( s ) {
+        settings = s;
+    }
 
     // If the account ID is not set, then don't carry on.
     if ( ! accountId || ( accountId === "UA-XXX" ) ) {
@@ -16,7 +21,9 @@ let init = () => {
     initAccount( accountId );
 
     // Track a page view.
-    trackPageView();
+    if ( s.trackPageView !== false ) {
+        trackPageView();
+    }
 
     // Set up tracking alias helper.
     setupTrackingAlias();

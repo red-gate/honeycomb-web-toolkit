@@ -6,8 +6,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 var accountId = void 0;
 var sites = void 0;
+var settings = void 0;
 
 var init = function init() {
+    var s = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
+
+
+    if (s) {
+        settings = s;
+    }
 
     // If the account ID is not set, then don't carry on.
     if (!accountId || accountId === "UA-XXX") {
@@ -22,7 +29,9 @@ var init = function init() {
     initAccount(accountId);
 
     // Track a page view.
-    trackPageView();
+    if (s.trackPageView !== false) {
+        trackPageView();
+    }
 
     // Set up tracking alias helper.
     setupTrackingAlias();
