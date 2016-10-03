@@ -1,16 +1,17 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var accountId = void 0;
+var sites = void 0;
 
 var init = function init() {
 
     // If the account ID is not set, then don't carry on.
-    if (!accountId || accountId === 'UA-XXX') {
-        console.error('Google Analytics account ID is not set.');
+    if (!accountId || accountId === "UA-XXX") {
+        console.error("Google Analytics account ID is not set.");
         return false;
     }
 
@@ -34,31 +35,41 @@ var setAccountId = function setAccountId(accId) {
     accountId = accId;
 };
 
+var setSites = function setSites(s) {
+    sites = s;
+};
+
 // Add the Google Analytics script to the page.
 // Expanded out the isogram iife.
 var addScript = function addScript() {
-    window.GoogleAnalyticsObject = 'ga';
+    window.GoogleAnalyticsObject = "ga";
     window.ga = window.ga || function () {
         (window.ga.q = window.ga.q || []).push(arguments);
     };
     window.ga.l = 1 * new Date();
 
-    var script = document.createElement('script');
+    var script = document.createElement("script");
     script.async = 1;
-    script.src = '//www.google-analytics.com/analytics.js';
+    script.src = "//www.google-analytics.com/analytics.js";
 
-    var firstScript = document.getElementsByTagName('script')[0];
+    var firstScript = document.getElementsByTagName("script")[0];
     firstScript.parentNode.insertBefore(script, firstScript);
 };
 
 // Initialise the account, with the account ID.
 var initAccount = function initAccount(accountId) {
-    if (!accountId || accountId === 'UA-XXX') {
-        console.log('Google Analytics account ID is not set.');
+    if (!accountId || accountId === "UA-XXX") {
+        console.log("Google Analytics account ID is not set.");
         return false;
     }
 
-    ga('create', accountId, 'auto');
+    if (sites) {
+        ga("create", accountId, "auto", { "allowLinker": true });
+        ga("require", "linker");
+        ga("linker:autoLink", sites);
+    } else {
+        ga("create", accountId, "auto");
+    }
 };
 
 // Track a page view.
@@ -66,38 +77,38 @@ var trackPageView = function trackPageView() {
     var url = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
 
     if (url) {
-        ga('send', 'pageview', {
-            'page': url
+        ga("send", "pageview", {
+            "page": url
         });
     } else {
-        ga('send', 'pageview');
+        ga("send", "pageview");
     }
 };
 
 // Track an event.
 var trackEvent = function trackEvent() {
-    var category = arguments.length <= 0 || arguments[0] === undefined ? '' : arguments[0];
-    var action = arguments.length <= 1 || arguments[1] === undefined ? '' : arguments[1];
+    var category = arguments.length <= 0 || arguments[0] === undefined ? "" : arguments[0];
+    var action = arguments.length <= 1 || arguments[1] === undefined ? "" : arguments[1];
     var label = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
     var value = arguments.length <= 3 || arguments[3] === undefined ? null : arguments[3];
 
-    ga('send', 'event', category, action, label, value);
+    ga("send", "event", category, action, label, value);
 };
 
 // Set a custom variable.
 var setCustomVariable = function setCustomVariable(index, name, value, scope) {
     var options = {};
-    options['dimension' + index] = value;
-    ga('send', 'pageview', options);
+    options["dimension" + index] = value;
+    ga("send", "pageview", options);
 };
 
 // Track youtube video views.
 var trackYouTubeViews = function trackYouTubeViews() {
-    var els = document.querySelectorAll('.lightbox--video');
+    var els = document.querySelectorAll(".lightbox--video");
     for (var i = 0; i < els.length; i++) {
-        els[i].addEventListener('click', function () {
-            var videoId = undefined.href.replace(/http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g, '');
-            trackEvent('Video', window.location.pathname, videoId);
+        els[i].addEventListener("click", function () {
+            var videoId = undefined.href.replace(/http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g, "");
+            trackEvent("Video", window.location.pathname, videoId);
         });
     }
 };
@@ -106,13 +117,13 @@ var trackYouTubeViews = function trackYouTubeViews() {
 // Use data-attributes instead. Keeps HTML nicer and easy to update in the
 // future).
 var setupTrackingAlias = function setupTrackingAlias() {
-    var els = document.querySelectorAll('[data-ga-track]');
+    var els = document.querySelectorAll("[data-ga-track]");
     for (var i = 0; i < els.length; i++) {
-        els[i].addEventListener('click', function () {
-            var category = undefined.getAttribute('data-ga-track-category') || null;
-            var action = undefined.getAttribute('data-ga-track-action') || null;
-            var label = undefined.getAttribute('data-ga-track-label') || null;
-            var value = undefined.getAttribute('data-ga-track-value') || null;
+        els[i].addEventListener("click", function () {
+            var category = undefined.getAttribute("data-ga-track-category") || null;
+            var action = undefined.getAttribute("data-ga-track-action") || null;
+            var label = undefined.getAttribute("data-ga-track-label") || null;
+            var value = undefined.getAttribute("data-ga-track-value") || null;
 
             // Process Google tracking event.
             trackEvent(category, action, label, value);
@@ -123,6 +134,7 @@ var setupTrackingAlias = function setupTrackingAlias() {
 exports.default = {
     init: init,
     setAccountId: setAccountId,
+    setSites: setSites,
     trackPageView: trackPageView,
     trackEvent: trackEvent,
     setCustomVariable: setCustomVariable,
