@@ -1,28 +1,18 @@
-var Honeycomb = Honeycomb || {};
+let init = () => {
+    if ( isIE7() ) {
+        addClass( 'ie7' );
+    }
+};
 
-Honeycomb.Browser = (function($) {
+let addClass = ( className ) => {
+    document.documentElement.classList.add( className );
+};
 
-    var init = function init() {
-        if(isIE7()) {
-            addClass('ie7');
-        }
-    };
+let isIE7 = () => {
+    return ( navigator.appVersion.indexOf( 'MSIE 7' ) !== -1 ) ? true : false;
+};
 
-    var addClass = function addClass(className) {
-        $('html').addClass(className);
-    };
-
-    var isIE7 = function isIE7() {
-        return (navigator.appVersion.indexOf('MSIE 7') !== -1) ? true : false;
-    };
-
-    return {
-        init: init,
-        isIE7: isIE7
-    };
-
-})(jQuery);
-
-jQuery(function() {
-    Honeycomb.Browser.init();
-});
+export default {
+    init: init,
+    isIE7: isIE7
+};

@@ -1,111 +1,102 @@
-var Honeycomb = Honeycomb || {};
-
 // Filter (Hide/Show) content on a page.
-Honeycomb.Filter = (function($) {
-
-  var init = function init() {
+let init = () => {
 
     // Get the filter.
-    var $filter = $(".js-filter");
+    let $filter = $(".js-filter");
 
     // If there's no filter on the page then stop.
-    if($filter.length === 0) {
-      return false;
+    if ( $filter.length === 0 ) {
+        return false;
     }
 
     // When the update button is clicked, update the filter.
-    $filter.on("click", ".js-filter__update", function() {
-      updateFilter.call(this);
+    $filter.on( "click", ".js-filter__update", function() {
+        updateFilter.call( this );
     });
 
     // When any of the filter items are changed (selected/deselected), update
     // the filter.
-    $filter.on("change", ".js-filter__item", function() {
-      updateFilter.call(this);
+    $filter.on( "change", ".js-filter__item", function() {
+        updateFilter.call( this );
     });
 
     // When the reset button is clicked, reset the filter.
-    $filter.on("click", ".js-filter__reset", function() {
-      resetFilter.call(this);
+    $filter.on( "click", ".js-filter__reset", function() {
+        resetFilter.call( this );
     });
 
     // Update the filter on init.
-    updateFilter.call($filter.get(0).childNodes[0]);
-  };
+    updateFilter.call( $filter.get( 0 ).childNodes[ 0 ] );
+};
 
-  // Update the filter.
-  var updateFilter = function updateFilter() {
-    var $this           = $(this);
-    var $filter         = $this.parents(".js-filter");
-    var $items          = $filter.find(".js-filter__item");
-    var $content        = $("[data-filter-content]");
-    var enabledItems    = [];
-    var enabledContent  = [];
+// Update the filter.
+let updateFilter = function () {
+    let $this           = $( this );
+    let $filter         = $this.parents( ".js-filter" );
+    let $items          = $filter.find( ".js-filter__item" );
+    let $content        = $( "[data-filter-content]" );
+    let enabledItems    = [];
+    let enabledContent  = [];
 
     // Get the enabled items.
-    $items.each(function() {
-      var $this = $(this);
-      if($this.prop("checked")) {
-        enabledItems.push($this.attr("data-filter-term"));
-      }
+    $items.each( function () {
+        let $this = $( this );
+        if ( $this.prop( "checked" ) ) {
+            enabledItems.push( $this.attr( "data-filter-term" ) );
+        }
     });
 
     // Show/Hide the relevant content.
-    $content.each(function() {
-      var $this   = $(this);
-      var terms   = $this.attr("data-filter-content").trim().split(" ");
-      var show    = false;
+    $content.each( function () {
+        let $this   = $( this );
+        let terms   = $this.attr( "data-filter-content" ).trim().split( " " );
+        let show    = false;
 
-      for(var i=0; i<terms.length; i++) {
-        if(enabledItems.indexOf(terms[i]) !== -1) {
-          show = true;
+        for ( let i = 0; i < terms.length; i++ ) {
+            if ( enabledItems.indexOf( terms[ i ] ) !== -1 ) {
+                show = true;
+            }
         }
-      }
 
-      if(show) {
-        enabledContent.push($this.get(0));
-      }
+        if ( show ) {
+            enabledContent.push( $this.get( 0 ) );
+        }
     });
 
     $content.stop().animate({
-      opacity: 0
+        opacity: 0
     },{
-      duration: 250,
-      complete: function() {
-        $content.each(function() {
-          var $this = $(this);
-          var enabled = (enabledContent.indexOf($this.get(0)) !== -1) ? true : false;
+        duration: 250,
+        complete: () => {
+            $content.each( function () {
+                let $this = $( this );
+                let enabled = ( enabledContent.indexOf( $this.get( 0 ) ) !== -1 ) ? true : false;
 
-          if(enabled) {
-            $this.show();
-            $this.stop().animate({
-              opacity: 1
-            }, {
-              duration: 250
+                if ( enabled ) {
+                    $this.show();
+                    $this.stop().animate({
+                        opacity: 1
+                    }, {
+                        duration: 250
+                    });
+                } else {
+                    $this.hide();
+                }
             });
-          } else {
-            $this.hide();
-          }
-        });
-      }
+        }
     });
-  };
+};
 
-  var resetFilter = function resetFilter() {
-    var $this = $(this);
-    var $filter = $this.parents(".js-filter");
-    var $items = $filter.find(".js-filter__item");
+let resetFilter = function () {
+    let $this = $( this );
+    let $filter = $this.parents( ".js-filter" );
+    let $items = $filter.find( ".js-filter__item" );
 
-    $items.prop("checked", true);
+    $items.prop( "checked", true );
 
-    updateFilter.call(this);
-  };
+    updateFilter.call( this );
+};
 
-  return {
+export default {
     init: init
-  };
-})(jQuery);
-
-jQuery(function(){
-  Honeycomb.Filter.init();
-});
+};

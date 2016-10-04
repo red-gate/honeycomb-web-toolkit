@@ -1,87 +1,92 @@
-var Honeycomb = Honeycomb || {};
+import browser from '../../browser/js/honeycomb.browser';
 
-// Tabbable content functionality. (https://github.com/edwardcasbon/jquery.tabs)
-Honeycomb.Tabs = function($) {
+let init = () => {
 
     // If IE7, bail!
-    if(Honeycomb.Browser.isIE7()) {
+    if ( browser.isIE7() ) {
         return false;
     }
 
-    $('.js-tabbed').each(function() {
-        var $this = $(this);
-        var options = {
-            pagination: false,
-            template: {
-                container: {
-                    atts: {},
-                    classes: [
-                        'tabbed__container'
-                    ]
-                },
-                tab: {
+    let tabbed = document.querySelectorAll( '.js-tabbed' );
+    if ( tabbed.length > 0 ) {
+        for ( let tab of tabbed ) {
+            let options = {
+                pagination: false,
+                template: {
                     container: {
+                        atts: {},
                         classes: [
-                            'js-tab'
-                        ]
-                    }
-                },
-                pagination: {
-                    container: {
-                        atts: {
-                            'data-ui-component': 'nav--tabs-pagination'
-                        },
-                        classes: [
-                            'pagination'
+                            'tabbed__container'
                         ]
                     },
-                    links: {
-                        prev: {
-                            atts: {},
+                    tab: {
+                        container: {
                             classes: [
-                                'pagination__prev'
-                            ],
-                            preHtml: '',
-                            postHtml: ''
+                                'js-tab'
+                            ]
+                        }
+                    },
+                    pagination: {
+                        container: {
+                            atts: {
+                                'data-ui-component': 'nav--tabs-pagination'
+                            },
+                            classes: [
+                                'pagination'
+                            ]
                         },
-                        next: {
-                            atts: {},
-                            classes: [
-                                'pagination__next'
-                            ],
-                            preHtml: '',
-                            postHtml: ''
+                        links: {
+                            prev: {
+                                atts: {},
+                                classes: [
+                                    'pagination__prev'
+                                ],
+                                preHtml: '',
+                                postHtml: ''
+                            },
+                            next: {
+                                atts: {},
+                                classes: [
+                                    'pagination__next'
+                                ],
+                                preHtml: '',
+                                postHtml: ''
+                            }
                         }
                     }
                 }
+            };
+
+            // Scroll animation
+            let scrollTo = tab.getAttribute( 'data-tabs-scroll-to' );
+            if ( scrollTo ) {
+                options.scrollTo = scrollTo === 'true';
             }
-        };
 
-        // Scroll animation
-        if($this.attr('data-tabs-scroll-to')) {
-            options.scrollTo = ($this.attr('data-tabs-scroll-to') === 'true');
+            // Scroll animation offset
+            let scrollToOffset = tab.getAttribute( 'data-tabs-scroll-to-offset' );
+            if ( scrollToOffset ) {
+                options.scrollToOffset = scrollToOffset;
+            }
+
+            // Pagination
+            let pagination = tab.getAttribute( 'data-tabs-pagination' );
+            if ( pagination ) {
+                options.pagination = pagination === 'true';
+            }
+
+            // Reload ajax requests
+            let reloadAjax = tab.getAttribute( 'data-tabs-reload-ajax' );
+            if ( reloadAjax ) {
+                options.reloadAjax = reloadAjax === 'true';
+            }
+
+            // Apply tabs plugin.
+            let $tabs = $( tab ).tabs( options );
         }
-
-        // Scroll animation offset
-        if($this.attr('data-tabs-scroll-to-offset')) {
-            options.scrollToOffset = $this.attr('data-tabs-scroll-to-offset');
-        }
-
-        // Pagination
-        if($this.attr('data-tabs-pagination')) {
-            options.pagination = ($this.attr('data-tabs-pagination') === 'true');
-        }
-
-        // Reload ajax requests
-        if($this.attr('data-tabs-reload-ajax')) {
-            options.reloadAjax = ($this.attr('data-tabs-reload-ajax') === 'true');
-        }
-
-        // Apply tabs plugin.
-        $this.tabs(options);
-    });
+    }
 };
 
-jQuery(function() {
-    Honeycomb.Tabs(jQuery);
-});
+export default {
+    init
+};

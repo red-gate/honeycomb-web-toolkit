@@ -1,55 +1,67 @@
-var Honeycomb = Honeycomb || {};
+const hook = ".js-toggle";
 
-Honeycomb.Toggle = (function($) {
+const activeClass = "active";
 
-    var hook = '.js-toggle';
-
-    var activeClass = 'active';
-
-    var init = function init () {
-        $(hook).each(function(){
-            var $this = $(this);
+let init = () => {
+    let toggles = document.querySelectorAll( hook );
+    if ( toggles.length > 0 ) {
+        for ( let tog of toggles ) {
 
             // Hide the toggle items.
-            $this.find(hook + '-item').hide();
+            let items = tog.querySelectorAll( `${hook}-item` );
+            for ( let i = 0; i < items.length; i++ ) {
+                items[ i ].style.display = "none";
+            }
 
             // Show the first item.
-            $this.find(hook + '-item').first().show();
+            items[ 0 ].style.display = "block";
 
             // Add active state to the first nav item.
-            $this.find(hook + '-nav a').removeClass(activeClass)
-                .first().addClass(activeClass);
+            let as = tog.querySelectorAll( `${hook}-nav a` );
+            for ( let a of as ) {
+                a.classList.remove( activeClass );
 
-            // Add toggle handler.
-            $this.find(hook + '-nav a').on('click', function(e) {
-                e.preventDefault();
-                toggle($(this).attr('href'));
-            });
-        });
-    };
+                // Add toggle handler.
+                a.addEventListener( "click", ( e ) => {
+                    e.preventDefault();
+                    toggle( e.target.getAttribute( "href" ) );
+                });
+            }
+            as[ 0 ].classList.add( activeClass );
+        }
+    }
+};
 
-    var toggle = function toggle (target) {
+let toggle = ( target ) => {
 
-        // Find the toggle.
-        var $toggle = $(target).parents(hook).first();
+    // Find the toggle.
+    target = target.startsWith( "#" ) ? target.substr( 1 ) : target;
+    let toggleItem = document.getElementById( target );
+    let toggle = toggleItem.parentNode;
+    while ( ! toggle.classList.contains( hook.substr( 1 ) ) ) {
+        toggle = toggle.parentNode;
+    }
 
-        // Hide all the items.
-        $toggle.find(hook + '-item').hide();
+    // Hide all the items.
+    let items = toggle.querySelectorAll( `${hook}-item` );
+    for ( let item of items ) {
+        item.style.display = "none";
+    }
 
-        // Show the selected item.
-        $toggle.find(target).show();
+    // Show the selected item.
+    toggleItem.style.display = "block";
 
-        // Update the active state.
-        $toggle.find(hook + '-nav a').removeClass(activeClass);
-        $toggle.find(hook + '-nav a[href="' + target + '"]').addClass(activeClass);
-    };
+    // Update the active state.
+    let links = toggle.querySelectorAll( `${hook}-nav a` );
+    for ( let link of links ) {
+        link.classList.remove( activeClass );
 
-    return {
-        init: init
-    };
+        if ( link.getAttribute( "href" ) === `#${target}` ) {
+            link.classList.add( activeClass );
+        }
+    }
+};
 
-})(jQuery);
-
-jQuery(function(){
-    Honeycomb.Toggle.init();
-});
+export default {
+    init
+};

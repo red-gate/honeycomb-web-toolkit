@@ -1,34 +1,22 @@
-var Honeycomb = Honeycomb || {};
+let init = () => {
+    let $body = $("body");
 
-Honeycomb.Navigation = Honeycomb.Navigation || {};
+    $body.on( "click", ".header--primary__menu-button", function( e ) {
+        let $this = $( this );
 
-Honeycomb.Navigation.Header = (function($) {
+        e.preventDefault();
+        if ( $body.hasClass( "mobile-nav--open" ) ) {
 
-    var init = function init () {
-        var $body = $("body");
+            // Hide
+            $body.removeClass( "mobile-nav--open" );
+        } else {
 
-        $body.on("click", ".header--primary__menu-button", function(e) {
-            var $this = $(this);
+            // Open
+            $body.addClass( "mobile-nav--open" );
+        }
+    });
+};
 
-            e.preventDefault();
-            if($body.hasClass("mobile-nav--open")) {
-
-                // Hide
-                $body.removeClass("mobile-nav--open");
-            } else {
-
-                // Open
-                $body.addClass("mobile-nav--open");
-            }
-        });
-    };
-
-    return {
-        init: init
-    };
-
-})(jQuery);
-
-jQuery(function() {
-    Honeycomb.Navigation.Header.init();
-});
+export default {
+    init: init
+};

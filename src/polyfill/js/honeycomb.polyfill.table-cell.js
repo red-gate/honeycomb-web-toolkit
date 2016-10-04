@@ -1,52 +1,38 @@
-var Honeycomb = Honeycomb || {};
+let tableCell = () => {
+    let rules = document.createElement( 'div' ).style;
 
-Honeycomb.Polyfill = Honeycomb.Polyfill || {};
-
-Honeycomb.Polyfill.tableCell = (function($) {
-
-    var init = function init() {
-
-        var rules = document.createElement('div').style;
-
-        // Check Modernizr for display: table-cell.
-        Modernizr.addTest("displaytablecell", function() {
-            try {
-                rules.display = 'table-cell';
-                return rules.display === 'table-cell';
-            } catch (e) {
-                return false;
-            }
-        });
-
-        // Has Modernizr applied the class?
-        var hasTableCell = $('html').hasClass('displaytablecell');
-        if(!hasTableCell) {
-            fix();
+    // Check Modernizr for display: table-cell.
+    Modernizr.addTest("displaytablecell", function() {
+        try {
+            rules.display = 'table-cell';
+            return rules.display === 'table-cell';
+        } catch ( e ) {
+            return false;
         }
-    };
+    });
 
-    var fix = function fix() {
-        var selectors = [
-            '.band-logo__logo',
-            '.tabs li'
-        ];
+    // Has Modernizr applied the class?
+    let hasTableCell = $( 'html' ).hasClass( 'displaytablecell' );
+    if ( ! hasTableCell ) {
+        fix();
+    }
+};
 
-        $(selectors.join(', ')).each(function() {
-            var $this = $(this);
-            var numItems = $this.siblings().length + 1;
-            var cssWidth = (100 / numItems) -1 + '%';
+let fix = () => {
+    let selectors = [
+        '.band-logo__logo',
+        '.tabs li'
+    ];
 
-            $this.css('display', 'inline');
-            $this.css('zoom', '1');
-            $this.css('width', cssWidth);
-        });
-    };
+    $( selectors.join( ', ' ) ).each( function() {
+        let $this = $( this );
+        let numItems = $this.siblings().length + 1;
+        let cssWidth = ( 100 / numItems ) -1 + '%';
 
-    return {
-        init: init
-    };
-})(jQuery);
+        $this.css( 'display', 'inline' );
+        $this.css( 'zoom', '1' );
+        $this.css( 'width', cssWidth );
+    });
+};
 
-jQuery(function(){
-    Honeycomb.Polyfill.tableCell.init();
-});
+export default tableCell;

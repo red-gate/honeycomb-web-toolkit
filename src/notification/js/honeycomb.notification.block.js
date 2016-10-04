@@ -1,14 +1,22 @@
-var Honeycomb = Honeycomb || {};
+// Click handler for close buttons on statically built notifications.
+let init = () => {
+    $( 'body' ).on('click', '.notification--block .notification__close', function( e ) {
+        e.preventDefault();
+        $( this ).parent().parent().slideUp({
+            complete: function() {
+                $( this ).remove();
+            }
+        });
+    });
+};
 
-Honeycomb.Notification = Honeycomb.Notification || {};
-
-/**
+/*
  * Notification block element
  * Usage: new Honeycomb.Notification.Block({type: 'info', 'content': 'My notification content goes here';});
  */
-Honeycomb.Notification.Block = function(options) {
+let notification = function ( options ) {
 
-    var self = this;
+    let self = this;
 
     // User specified options.
     this.options = options;
@@ -22,7 +30,7 @@ Honeycomb.Notification.Block = function(options) {
         },
         content: '',
         duration: false,
-        container: $('body')
+        container: $( 'body' )
     };
 
     // Customised settings.
@@ -32,7 +40,7 @@ Honeycomb.Notification.Block = function(options) {
     this.init = function init() {
 
         // Generate the settings array (Merging default settings and user options).
-        $.extend(true, self.settings, self.defaults, self.options);
+        $.extend( true, self.settings, self.defaults, self.options );
 
         // Build the notification.
         self.buildNotification();
@@ -41,43 +49,43 @@ Honeycomb.Notification.Block = function(options) {
         self.show();
 
         // Add the close click handler.
-        self.notification.on('click', '.notification__close', function(e){
+        self.notification.on( 'click', '.notification__close', function( e ) {
             e.preventDefault();
             self.close();
         });
     };
 
     // Show the notification.
-    this.show = function show() {
+    this.show = function show () {
 
         // Hide the notification.
         self.notification.hide();
 
         // Display the notification.
-        self.settings.container.prepend(self.notification);
+        self.settings.container.prepend( self.notification );
 
         // Slide the notification down.
         self.notification.slideDown();
 
-        if(self.settings.duration) {
-            self.timeoutId = window.setTimeout(function() {
-                self.close.call(self);
-            }, self.settings.duration);
+        if ( self.settings.duration ) {
+            self.timeoutId = window.setTimeout( function() {
+                self.close.call( self );
+            }, self.settings.duration );
         }
     };
 
     // Build the notification HTML.
-    this.buildNotification = function buildNotification() {
-        notificationStr = '<div class="notification notification--block notification--' + self.settings.type + '">' +
+    this.buildNotification = function buildNotification () {
+        let notificationStr = '<div class="notification notification--block notification--' + self.settings.type + '">' +
                 '<div class="notification--block__inner-container">' +
                     '<figure class="notification__icon">';
 
-                        if(self.settings.icon.type) {
-                            if(self.settings.icon.type === 'font') {
+                        if ( self.settings.icon.type ) {
+                            if ( self.settings.icon.type === 'font' ) {
 
                                 // Icon font
                                 notificationStr += '<span class="icon icon--' + self.settings.icon.src + '"></span>';
-                            } else if(self.settings.icon.type === 'image') {
+                            } else if ( self.settings.icon.type === 'image' ) {
 
                                 // Image
                                 notificationStr += '<img src="' + self.settings.icon.src + '" alt=""/>';
@@ -95,23 +103,23 @@ Honeycomb.Notification.Block = function(options) {
             '</div>' +
         '</div>';
 
-        self.notification = $(notificationStr);
+        self.notification = $( notificationStr );
     };
 
     // Close the notification.
-    this.close = function close() {
+    this.close = function close () {
 
         // Slide up the notification, then remove it from the DOM.
-        self.notification.slideUp({
-            complete: function() {
+        self.notification.slideUp( {
+            complete: function () {
                 this.remove();
             }
         });
 
-        if(self.settings.duration) {
+        if ( self.settings.duration ) {
 
             // Clear the timeout.
-            window.clearTimeout(self.timeoutId);
+            window.clearTimeout( self.timeoutId );
         }
     };
 
@@ -119,16 +127,7 @@ Honeycomb.Notification.Block = function(options) {
     self.init();
 };
 
-/**
- * Click handler for close buttons on statically built notifications.
- */
-(function($) {
-    $('.notification--block .notification__close').on('click', function(e) {
-        e.preventDefault();
-        $(this).parent().parent().slideUp({
-            complete: function() {
-                $(this).remove();
-            }
-        });
-    });
-})(jQuery);
+export default {
+    init: init,
+    block: notification
+};

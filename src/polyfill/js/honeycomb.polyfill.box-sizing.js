@@ -1,44 +1,31 @@
-var Honeycomb = Honeycomb || {};
+let boxSizing = () => {
 
-Honeycomb.Polyfill = Honeycomb.Polyfill || {};
+    // Check Modernizr for border box box sizing.
+    Modernizr.addTest( "boxsizing", function() {
+        return Modernizr.testAllProps( "boxSizing" ) && ( document.documentMode === undefined || document.documentMode > 7 );
+    });
 
-Honeycomb.Polyfill.boxSizing = (function($) {
+    // Has Modernizr applied the class?
+    let hasBoxSizing = $( 'html' ).hasClass( 'boxsizing' );
+    if ( ! hasBoxSizing ) {
+        fix();
+    }
+};
 
-    var init = function init() {
+let fix = () => {
+    $( '*' ).each( function() {
+        let fullWidth = $( this ).outerWidth();
+        let actualWidth = $( this ).width();
+        let widthDiff = fullWidth - actualWidth;
+        let newWidth = actualWidth - widthDiff;
+        newWidth--; // To compensate for fractions of a pixel. (Some widths calculated on %).
 
-        // Check Modernizr for border box box sizing.
-        Modernizr.addTest("boxsizing", function() {
-            return Modernizr.testAllProps("boxSizing") && (document.documentMode === undefined || document.documentMode > 7);
-        });
+        if ( this.currentStyle.width !== 'auto' ) {
 
-        // Has Modernizr applied the class?
-        var hasBoxSizing = $('html').hasClass('boxsizing');
-        if(!hasBoxSizing) {
-            fix();
+            // If the element has a width set on it, then adjust it.
+            $( this ).css( 'width', newWidth );
         }
-    };
+    });
+};
 
-    var fix = function fix() {
-        $('*').each(function() {
-            var fullWidth = $(this).outerWidth();
-            var actualWidth = $(this).width();
-            var widthDiff = fullWidth - actualWidth;
-            var newWidth = actualWidth - widthDiff;
-            newWidth--; // To compensate for fractions of a pixel. (Some widths calculated on %).
-
-            if(this.currentStyle.width !== 'auto') {
-
-                // If the element has a width set on it, then adjust it.
-                $(this).css('width', newWidth);
-            }
-            });
-    };
-
-    return {
-        init: init
-    };
-})(jQuery);
-
-jQuery(function(){
-    Honeycomb.Polyfill.boxSizing.init();
-});
+export default boxSizing;
