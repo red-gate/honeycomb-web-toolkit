@@ -1,4 +1,15 @@
 let init = () => {
+
+    // If no jQuery then break;
+    if ( typeof jQuery === "undefined" ) {
+        return;
+    }
+
+    // If no slick plugin then break;
+    if ( typeof jQuery.fn.slick !== "function" ) {
+        return;
+    }
+
     let carousels = document.querySelectorAll( '.js-carousel' );
 
     for ( let i = 0; i < carousels.length; i++ ) {
@@ -39,9 +50,7 @@ let init = () => {
             options.autoplaySpeed = carousel.getAttribute( 'data-carousel-autoplay-speed' );
         }
 
-        if ( typeof $ === 'undefined' ) break;
-
-        $( carousel ).slick( options );
+        jQuery( carousel ).slick( options );
     }
 };
 

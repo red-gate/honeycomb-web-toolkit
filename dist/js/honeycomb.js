@@ -247,12 +247,23 @@ exports.default = {
 };
 
 },{}],6:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var init = function init() {
+
+    // If no jQuery then break;
+    if (typeof jQuery === "undefined") {
+        return;
+    }
+
+    // If no slick plugin then break;
+    if (typeof jQuery.fn.slick !== "function") {
+        return;
+    }
+
     var carousels = document.querySelectorAll('.js-carousel');
 
     for (var i = 0; i < carousels.length; i++) {
@@ -293,9 +304,7 @@ var init = function init() {
             options.autoplaySpeed = carousel.getAttribute('data-carousel-autoplay-speed');
         }
 
-        if (typeof $ === 'undefined') break;
-
-        $(carousel).slick(options);
+        jQuery(carousel).slick(options);
     }
 };
 
