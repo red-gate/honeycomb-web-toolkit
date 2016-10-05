@@ -253,23 +253,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var init = function init() {
-    loadScript();
-};
-
-var loadScript = function loadScript() {
-    var slick = document.createElement('script');
-    var script = document.getElementsByTagName('script')[0];
-    slick.async = true;
-    slick.src = '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js';
-    slick.onload = function () {
-        try {
-            loadCarousel();
-        } catch (e) {}
-    };
-    script.parentNode.insertBefore(slick, script);
-};
-
-var loadCarousel = function loadCarousel() {
     var carousels = document.querySelectorAll('.js-carousel');
 
     for (var i = 0; i < carousels.length; i++) {
@@ -939,7 +922,9 @@ _honeycomb3.default.init();
 
 // Carousel.
 
-_honeycomb5.default.init();
+window.addEventListener("load", function () {
+    _honeycomb5.default.init();
+});
 
 // Code
 

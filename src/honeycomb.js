@@ -20,7 +20,9 @@ browser.init();
 
 // Carousel.
 import carousel from './carousel/js/honeycomb.carousel';
-carousel.init();
+window.addEventListener( "load", () => {
+    carousel.init();
+});
 
 // Code
 import code from './code/js/honeycomb.code';
