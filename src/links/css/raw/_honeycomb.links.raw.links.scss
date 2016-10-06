@@ -38,4 +38,8 @@ h5 a,
         color: color('black');
         opacity: 0.5;
     }
+    &.color--blue:hover {
+        color: $link-hover-color;
+        opacity: 1;
+    }
 }
