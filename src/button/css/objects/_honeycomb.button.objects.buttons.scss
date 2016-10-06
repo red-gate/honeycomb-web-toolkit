@@ -92,6 +92,15 @@
     }
 }
 
+// Mobile download button extension class
+// Replace arrow with email icon
+.button--download--mobile,
+%button--download--mobile {
+    &:before {
+        content: "\e611 ";
+    }
+}
+
 // More button.
 // Extends the primary blue button, adding a chevron-right icon after the button text
 .button--more,
