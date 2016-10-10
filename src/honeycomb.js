@@ -12,7 +12,8 @@ import animationFade from './animation/js/honeycomb.animation.fade';
 animationFade.init();
 
 // Base.
-import { version, date } from './base/js/honeycomb.base';
+import { version, date, breakpoints } from './base/js/honeycomb.base';
+window.breakpoints = breakpoints;
 
 // Browser.
 import browser from './browser/js/honeycomb.browser';
@@ -31,6 +32,12 @@ code.init();
 // Confluence.
 import confluence from './confluence/js/honeycomb.confluence';
 confluence.init();
+
+// Content.
+import content from './content/js/honeycomb.content';
+window.addEventListener( "load", () => {
+    content.init();
+});
 
 // Cookie
 import cookie from './cookie/js/honeycomb.cookie';
