@@ -609,8 +609,12 @@ var update = function update() {
                 for (var _iterator = updateEls[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                     var el = _step.value;
 
-                    if (!el.hasAttribute("data-content-large")) {
-                        el.setAttribute("data-content-large", el.innerHTML);
+
+                    // Get first breakpoint.
+                    var bp = window.breakpoints[0];
+
+                    if (!el.hasAttribute("data-content-" + bp.breakpoint)) {
+                        el.setAttribute("data-content-" + bp.breakpoint, el.innerHTML);
                     }
                 }
             } catch (err) {
@@ -647,11 +651,11 @@ var update = function update() {
 
                 try {
                     for (var _iterator3 = window.breakpoints[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                        var bp = _step3.value;
+                        var _bp = _step3.value;
 
-                        if (width < bp.width) {
-                            if (_el.hasAttribute("data-content-" + bp.breakpoint)) {
-                                content = _el.getAttribute("data-content-" + bp.breakpoint);
+                        if (width < _bp.width) {
+                            if (_el.hasAttribute("data-content-" + _bp.breakpoint)) {
+                                content = _el.getAttribute("data-content-" + _bp.breakpoint);
                             }
                         }
                     }

@@ -16,8 +16,12 @@ const update = ( init = false ) => {
 
             // Store original content.
             for ( let el of updateEls ) {
-                if ( ! el.hasAttribute( "data-content-large" ) ) {
-                    el.setAttribute( "data-content-large", el.innerHTML );
+
+                // Get first breakpoint.
+                let bp = window.breakpoints[ 0 ];
+
+                if ( ! el.hasAttribute( `data-content-${bp.breakpoint}` ) ) {
+                    el.setAttribute( `data-content-${bp.breakpoint}`, el.innerHTML );
                 }
             }
         }
