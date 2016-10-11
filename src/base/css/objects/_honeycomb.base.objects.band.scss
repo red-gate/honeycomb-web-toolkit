@@ -30,13 +30,11 @@
     @include clearfix();
     @include padding(1, top);
     @include padding(1, bottom);
+    @include padding(0.5, left);
+    @include padding(0.5, right);
     width: 100%;
     max-width: $container-width;
     margin: auto;
-    & > *:not(.grid) {
-      @include padding(0.5, left);
-      @include padding(0.5, right);
-    }
 }
 
 
