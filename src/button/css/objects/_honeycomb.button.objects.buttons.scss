@@ -169,3 +169,20 @@
         border-color: color('red', 6) !important;
     }
 }
+
+// White button
+.button--white {
+    background-color: color('white') !important;
+    border-color: color('white') !important;
+    color: $link-color !important;
+
+    &:hover {
+        background-color: color('grey', 2) !important;
+        border-color: color('grey', 2) !important;
+    }
+
+    &:active {
+        background-color: color('grey', 4) !important;
+        border-color: color('grey', 4) !important;
+    }
+}
