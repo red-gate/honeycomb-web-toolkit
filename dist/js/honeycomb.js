@@ -1369,6 +1369,19 @@ var init = function init() {
             $body.addClass("mobile-nav--open");
         }
     });
+
+    // When an item that has a submenu is clicked toggle the menu, rather than
+    // follow the link.
+    $body.on("click", ".header--primary__menu--mobile .dropdown > a", function (e) {
+        if (this.getAttribute("href") !== "#toggle") {
+            e.preventDefault();
+
+            var $toggle = $(this).siblings("a[ href=\"#toggle\" ]");
+            if ($toggle) {
+                $toggle.trigger("click");
+            }
+        }
+    });
 };
 
 exports.default = {
