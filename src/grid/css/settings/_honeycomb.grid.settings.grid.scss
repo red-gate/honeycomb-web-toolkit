@@ -14,5 +14,5 @@
 $enable-grid-classes: true !default;
 $grid-class: "grid" !default;
 $grid-cols: (12) !default;
-$grid-target-gutter: 20px !default;
+$grid-target-gutter: 0px !default;
 $grid-gutter: ($grid-target-gutter / $container-width) * 100% !default;
