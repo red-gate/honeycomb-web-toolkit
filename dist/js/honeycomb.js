@@ -115,8 +115,8 @@ var setCustomVariable = function setCustomVariable(index, name, value, scope) {
 var trackYouTubeViews = function trackYouTubeViews() {
     var els = document.querySelectorAll(".lightbox--video");
     for (var i = 0; i < els.length; i++) {
-        els[i].addEventListener("click", function () {
-            var videoId = undefined.href.replace(/http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g, "");
+        els[i].addEventListener("click", function (e) {
+            var videoId = e.target.href.replace(/http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g, "");
             trackEvent("Video", window.location.pathname, videoId);
         });
     }
@@ -128,11 +128,12 @@ var trackYouTubeViews = function trackYouTubeViews() {
 var setupTrackingAlias = function setupTrackingAlias() {
     var els = document.querySelectorAll("[data-ga-track]");
     for (var i = 0; i < els.length; i++) {
-        els[i].addEventListener("click", function () {
-            var category = undefined.getAttribute("data-ga-track-category") || null;
-            var action = undefined.getAttribute("data-ga-track-action") || null;
-            var label = undefined.getAttribute("data-ga-track-label") || null;
-            var value = undefined.getAttribute("data-ga-track-value") || null;
+        els[i].addEventListener("click", function (e) {
+            var target = e.target;
+            var category = target.getAttribute("data-ga-track-category") || null;
+            var action = target.getAttribute("data-ga-track-action") || null;
+            var label = target.getAttribute("data-ga-track-label") || null;
+            var value = target.getAttribute("data-ga-track-value") || null;
 
             // Process Google tracking event.
             trackEvent(category, action, label, value);

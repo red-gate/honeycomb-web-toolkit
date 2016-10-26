@@ -100,8 +100,8 @@ let setCustomVariable = ( index, name, value, scope ) => {
 let trackYouTubeViews = () => {
     let els = document.querySelectorAll( ".lightbox--video" );
     for ( let i = 0; i < els.length; i++ ) {
-        els[i].addEventListener( "click", () => {
-            let videoId = this.href.replace( /http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g, "" );
+        els[i].addEventListener( "click", ( e ) => {
+            let videoId = e.target.href.replace( /http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g, "" );
             trackEvent( "Video", window.location.pathname, videoId );
         } );
     }
@@ -113,11 +113,12 @@ let trackYouTubeViews = () => {
 let setupTrackingAlias = () => {
     let els = document.querySelectorAll( "[data-ga-track]" );
     for ( let i = 0; i < els.length; i++ ) {
-        els[i].addEventListener( "click", () => {
-            let category = this.getAttribute( "data-ga-track-category" ) || null;
-            let action = this.getAttribute( "data-ga-track-action" ) || null;
-            let label = this.getAttribute( "data-ga-track-label" ) || null;
-            let value = this.getAttribute( "data-ga-track-value" ) || null;
+        els[i].addEventListener( "click", ( e ) => {
+            let target = e.target;
+            let category = target.getAttribute( "data-ga-track-category" ) || null;
+            let action = target.getAttribute( "data-ga-track-action" ) || null;
+            let label = target.getAttribute( "data-ga-track-label" ) || null;
+            let value = target.getAttribute( "data-ga-track-value" ) || null;
 
             // Process Google tracking event.
             trackEvent( category, action, label, value );
