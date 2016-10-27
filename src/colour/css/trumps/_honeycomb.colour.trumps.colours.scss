@@ -8,28 +8,28 @@
     $base-color: map-get($shades, 'base');
 
     .color--#{$color} {
-        color: $base-color;
+        color: $base-color !important;
     }
 
     .background-color--#{$color} {
-        background-color: $base-color;
+        background-color: $base-color !important;
     }
 
     .color-code--#{$color}:after {
-        content: '#{$base-color}';
+        content: '#{$base-color}' !important;
     }
 
     @each $shade, $code in $shades {
         .color--#{$color}--#{$shade} {
-            color: $code;
+            color: $code !important;
         }
 
         .background-color--#{$color}--#{$shade} {
-            background-color: $code;
+            background-color: $code !important;
         }
 
         .color-code--#{$color}--#{$shade}:after {
-            content: '#{$code}';
+            content: '#{$code}' !important;
         }
     }
 }
