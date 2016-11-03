@@ -1008,17 +1008,9 @@ var _honeycombNotification = require('./notification/js/honeycomb.notification.b
 
 var _honeycombNotification2 = _interopRequireDefault(_honeycombNotification);
 
-var _honeycombPolyfill = require('./polyfill/js/honeycomb.polyfill.box-sizing');
+var _honeycombPolyfill = require('./polyfill/js/honeycomb.polyfill.index-of');
 
 var _honeycombPolyfill2 = _interopRequireDefault(_honeycombPolyfill);
-
-var _honeycombPolyfill3 = require('./polyfill/js/honeycomb.polyfill.index-of');
-
-var _honeycombPolyfill4 = _interopRequireDefault(_honeycombPolyfill3);
-
-var _honeycombPolyfill5 = require('./polyfill/js/honeycomb.polyfill.table-cell');
-
-var _honeycombPolyfill6 = _interopRequireDefault(_honeycombPolyfill5);
 
 var _honeycomb20 = require('./reveal/js/honeycomb.reveal');
 
@@ -1129,8 +1121,6 @@ _honeycombNotification2.default.init();
 // Polyfills.
 
 (0, _honeycombPolyfill2.default)();
-(0, _honeycombPolyfill4.default)();
-(0, _honeycombPolyfill6.default)();
 
 // Reveal.
 
@@ -1162,7 +1152,7 @@ _honeycomb33.default.init({
     analytics: _honeycombAnalytics2.default
 });
 
-},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./code/js/honeycomb.code":7,"./confluence/js/honeycomb.confluence":8,"./content/js/honeycomb.content":9,"./cookie/js/honeycomb.cookie":10,"./document/js/honeycomb.document.location":11,"./document/js/honeycomb.document.viewport":12,"./equalise/js/honeycomb.equalise":13,"./filter/js/honeycomb.filter":14,"./lightbox/js/honeycomb.lightbox":16,"./maps/js/honeycomb.maps.google":17,"./navigation/js/honeycomb.navigation.dropdown":18,"./navigation/js/honeycomb.navigation.header":19,"./notification/js/honeycomb.notification.block":20,"./polyfill/js/honeycomb.polyfill.box-sizing":21,"./polyfill/js/honeycomb.polyfill.index-of":22,"./polyfill/js/honeycomb.polyfill.table-cell":23,"./reveal/js/honeycomb.reveal":24,"./scroll/js/honeycomb.scroll":25,"./sticky/js/honeycomb.sticky":26,"./svg/js/honeycomb.svg":27,"./tabs/js/honeycomb.tabs":28,"./toggle/js/honeycomb.toggle":29,"./video/js/honeycomb.video":30}],16:[function(require,module,exports){
+},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./code/js/honeycomb.code":7,"./confluence/js/honeycomb.confluence":8,"./content/js/honeycomb.content":9,"./cookie/js/honeycomb.cookie":10,"./document/js/honeycomb.document.location":11,"./document/js/honeycomb.document.viewport":12,"./equalise/js/honeycomb.equalise":13,"./filter/js/honeycomb.filter":14,"./lightbox/js/honeycomb.lightbox":16,"./maps/js/honeycomb.maps.google":17,"./navigation/js/honeycomb.navigation.dropdown":18,"./navigation/js/honeycomb.navigation.header":19,"./notification/js/honeycomb.notification.block":20,"./polyfill/js/honeycomb.polyfill.index-of":21,"./reveal/js/honeycomb.reveal":22,"./scroll/js/honeycomb.scroll":23,"./sticky/js/honeycomb.sticky":24,"./svg/js/honeycomb.svg":25,"./tabs/js/honeycomb.tabs":26,"./toggle/js/honeycomb.toggle":27,"./video/js/honeycomb.video":28}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1521,44 +1511,6 @@ exports.default = {
 };
 
 },{}],21:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var boxSizing = function boxSizing() {
-
-    // Check Modernizr for border box box sizing.
-    Modernizr.addTest("boxsizing", function () {
-        return Modernizr.testAllProps("boxSizing") && (document.documentMode === undefined || document.documentMode > 7);
-    });
-
-    // Has Modernizr applied the class?
-    var hasBoxSizing = $('html').hasClass('boxsizing');
-    if (!hasBoxSizing) {
-        fix();
-    }
-};
-
-var fix = function fix() {
-    $('*').each(function () {
-        var fullWidth = $(this).outerWidth();
-        var actualWidth = $(this).width();
-        var widthDiff = fullWidth - actualWidth;
-        var newWidth = actualWidth - widthDiff;
-        newWidth--; // To compensate for fractions of a pixel. (Some widths calculated on %).
-
-        if (this.currentStyle.width !== 'auto') {
-
-            // If the element has a width set on it, then adjust it.
-            $(this).css('width', newWidth);
-        }
-    });
-};
-
-exports.default = boxSizing;
-
-},{}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1583,49 +1535,7 @@ var indexOf = function indexOf() {
 
 exports.default = indexOf;
 
-},{}],23:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var tableCell = function tableCell() {
-    var rules = document.createElement('div').style;
-
-    // Check Modernizr for display: table-cell.
-    Modernizr.addTest("displaytablecell", function () {
-        try {
-            rules.display = 'table-cell';
-            return rules.display === 'table-cell';
-        } catch (e) {
-            return false;
-        }
-    });
-
-    // Has Modernizr applied the class?
-    var hasTableCell = $('html').hasClass('displaytablecell');
-    if (!hasTableCell) {
-        fix();
-    }
-};
-
-var fix = function fix() {
-    var selectors = ['.band-logo__logo', '.tabs li'];
-
-    $(selectors.join(', ')).each(function () {
-        var $this = $(this);
-        var numItems = $this.siblings().length + 1;
-        var cssWidth = 100 / numItems - 1 + '%';
-
-        $this.css('display', 'inline');
-        $this.css('zoom', '1');
-        $this.css('width', cssWidth);
-    });
-};
-
-exports.default = tableCell;
-
-},{}],24:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1785,7 +1695,7 @@ exports.default = {
     close: close
 };
 
-},{}],25:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1838,7 +1748,7 @@ exports.default = {
     init: init
 };
 
-},{}],26:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1869,7 +1779,7 @@ exports.default = {
     init: init
 };
 
-},{}],27:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1898,7 +1808,7 @@ exports.default = {
     init: init
 };
 
-},{}],28:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2013,7 +1923,7 @@ exports.default = {
     init: init
 };
 
-},{"../../browser/js/honeycomb.browser":5}],29:[function(require,module,exports){
+},{"../../browser/js/honeycomb.browser":5}],27:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2173,7 +2083,7 @@ exports.default = {
     init: init
 };
 
-},{}],30:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

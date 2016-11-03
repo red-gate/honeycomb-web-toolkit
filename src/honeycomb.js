@@ -78,12 +78,8 @@ import notifications from './notification/js/honeycomb.notification.block';
 notifications.init();
 
 // Polyfills.
-import boxSizing from './polyfill/js/honeycomb.polyfill.box-sizing';
 import indexOf from './polyfill/js/honeycomb.polyfill.index-of';
-import tableCell from './polyfill/js/honeycomb.polyfill.table-cell';
-boxSizing();
 indexOf();
-tableCell();
 
 // Reveal.
 import reveal from './reveal/js/honeycomb.reveal';
