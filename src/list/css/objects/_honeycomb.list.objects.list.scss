@@ -42,6 +42,14 @@
   }
 }
 
+
+// Unbulleted list
+.list--no-bullet,
+%list--no-bullet {
+  list-style: none;
+}
+
+
 // Bare list
 .list--bare,
 %list--bare {
