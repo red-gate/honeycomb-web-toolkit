@@ -1,4 +1,4 @@
-const load = ( url = false, callback ) => {
+const load = ( url = false, callback = false ) => {
     if ( url !== false ) {
         let se = document.createElement( "script" );
         se.type = "text/javascript";
