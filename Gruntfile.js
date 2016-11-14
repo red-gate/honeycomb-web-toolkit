@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: 'src',
                     src: ['honeycomb.scss'],
-                    dest: 'dist/css',
+                    dest: 'dist',
                     ext: '.css'
                 }]
             }
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
                 map: true
             },
             css: {
-                src: ['dist/css/honeycomb.css']
+                src: ['dist/honeycomb.css']
             }
         },
 
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
             },
             scripts: {
                 files: {
-                    'dist/js/honeycomb.min.js' : 'dist/js/honeycomb.js'
+                    'dist/honeycomb.min.js' : 'dist/honeycomb.js'
                 }
             }
         },
@@ -61,54 +61,71 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    'dist/js/honeycomb.js': 'src/honeycomb.js'
+                    'dist/honeycomb.js': 'src/honeycomb.js'
                 }
             }
         },
 
         clean: {
-            fonts: ['dist/fonts']
+            fonts: ['dist']
         },
 
         copy: {
-            redgateIconFonts: {
+            fonts: {
                 files: [{
                     expand: true,
-                    cwd: 'src/icons/vendor/redgate/',
-                    src: '**',
-                    dest: 'dist/fonts/redgate/'
+                    cwd: "src/type",
+                    dest: "dist/type",
+                    src: ["**/*.eot", "**/*.ttf", "**/*.woff"]
+                }, {
+                    expand: true,
+                    cwd: "src/icons",
+                    dest: "dist/icons",
+                    src: ["**/*.eot", "**/*.ttf", "**/*.woff"]
+                }, {
+                    expand: true,
+                    cwd: "src/carousel",
+                    dest: "dist/carousel",
+                    src: ["**/*.eot", "**/*.ttf", "**/*.woff"]
                 }]
             },
-            redgateType: {
+
+            images: {
                 files: [{
                     expand: true,
-                    cwd: 'src/type/vendor/redgate-type/',
-                    src: '**',
-                    dest: 'dist/fonts/redgate-type/'
-                }]
-            },
-            slickFonts: {
-                files: [{
+                    cwd: "src/lightbox",
+                    dest: "dist/lightbox",
+                    src: ["**/*.gif", "**/*.png", "**/*.svg"]
+                }, {
                     expand: true,
-                    cwd: 'src/carousel/vendor/slick/fonts/',
-                    src: '**',
-                    dest: 'dist/fonts/slick/'
-                }]
-            },
-            imagesNavigation: {
-                files: [{
+                    cwd: "src/icons",
+                    dest: "dist/icons",
+                    src: ["**/*.gif", "**/*.png", "**/*.svg"]
+                }, {
                     expand: true,
-                    cwd: 'src/navigation/images/',
-                    src: '**',
-                    dest: 'dist/images/navigation/'
-                }]
-            },
-            sharingButtons: {
-                files: [{
+                    cwd: "src/navigation",
+                    dest: "dist/navigation",
+                    src: ["**/*.gif", "**/*.png", "**/*.svg"]
+                }, {
                     expand: true,
-                    cwd: 'src/sharing/images/',
-                    src: '**',
-                    dest: 'dist/images/sharing-buttons'
+                    cwd: "src/carousel",
+                    dest: "dist/carousel",
+                    src: ["**/*.gif", "**/*.png", "**/*.svg"]
+                }, {
+                    expand: true,
+                    cwd: "src/sharing",
+                    dest: "dist/sharing",
+                    src: ["**/*.gif", "**/*.png", "**/*.svg"]
+                }, {
+                    expand: true,
+                    cwd: "src/blockquote",
+                    dest: "dist/blockquote",
+                    src: ["**/*.gif", "**/*.png", "**/*.svg"]
+                }, {
+                    expand: true,
+                    cwd: "src/base",
+                    dest: "dist/base",
+                    src: ["**/*.gif", "**/*.png", "**/*.svg"]
                 }]
             }
         },
@@ -141,6 +158,5 @@ module.exports = function(grunt) {
     grunt.registerTask('default', 'watch');
 
     // Build task
-    // grunt.registerTask('build', ['sass', 'autoprefixer', 'clean', 'copy', 'jshint', 'uglify']);
-    grunt.registerTask('build', ['sass', 'autoprefixer', 'clean', 'copy', 'jshint', 'browserify', 'uglify']);
+    grunt.registerTask('build', ['clean', 'sass', 'autoprefixer', 'copy', 'jshint', 'browserify', 'uglify']);
 };
