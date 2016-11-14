@@ -15,7 +15,7 @@ const init = ( config = {} ) => {
                 config.url = "/src/carousel/vendor/slick/slick.min.js";
             }
 
-            loadScript.load( config.url, function() {
+            loadScript.load( config.url, () => {
                 init();
             });
         } else {
