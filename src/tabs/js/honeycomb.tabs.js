@@ -1,88 +1,101 @@
-import browser from '../../browser/js/honeycomb.browser';
+import browser from "../../browser/js/honeycomb.browser";
+import loadScript from "../../document/js/honeycomb.document.load-script";
 
-let init = () => {
+let init = ( config = {} ) => {
 
     // If IE7, bail!
     if ( browser.isIE7() ) {
         return false;
     }
 
-    let tabbed = document.querySelectorAll( '.js-tabbed' );
-    if ( tabbed.length > 0 ) {
-        for ( let tab of tabbed ) {
-            let options = {
-                pagination: false,
-                template: {
-                    container: {
-                        atts: {},
-                        classes: [
-                            'tabbed__container'
-                        ]
-                    },
-                    tab: {
+    let tabbed = document.querySelectorAll( ".js-tabbed" );
+    if ( tabbed.length ) {
+
+        if ( typeof jQuery.fn.tabs === "undefined") {
+            if ( typeof config.url === "undefined" ) {
+                config.url = "/src/tabs/vendor/jquery.tabs.min.js";
+            }
+
+            loadScript.load( config.url, () => {
+                init();
+            });
+        } else {
+
+            for ( let tab of tabbed ) {
+                let options = {
+                    pagination: false,
+                    template: {
                         container: {
+                            atts: {},
                             classes: [
-                                'js-tab'
-                            ]
-                        }
-                    },
-                    pagination: {
-                        container: {
-                            atts: {
-                                'data-ui-component': 'nav--tabs-pagination'
-                            },
-                            classes: [
-                                'pagination'
+                                "tabbed__container"
                             ]
                         },
-                        links: {
-                            prev: {
-                                atts: {},
+                        tab: {
+                            container: {
                                 classes: [
-                                    'pagination__prev'
-                                ],
-                                preHtml: '',
-                                postHtml: ''
+                                    "js-tab"
+                                ]
+                            }
+                        },
+                        pagination: {
+                            container: {
+                                atts: {
+                                    "data-ui-component": "nav--tabs-pagination"
+                                },
+                                classes: [
+                                    "pagination"
+                                ]
                             },
-                            next: {
-                                atts: {},
-                                classes: [
-                                    'pagination__next'
-                                ],
-                                preHtml: '',
-                                postHtml: ''
+                            links: {
+                                prev: {
+                                    atts: {},
+                                    classes: [
+                                        "pagination__prev"
+                                    ],
+                                    preHtml: "",
+                                    postHtml: ""
+                                },
+                                next: {
+                                    atts: {},
+                                    classes: [
+                                        "pagination__next"
+                                    ],
+                                    preHtml: "",
+                                    postHtml: ""
+                                }
                             }
                         }
                     }
+                };
+
+                // Scroll animation
+                let scrollTo = tab.getAttribute( "data-tabs-scroll-to" );
+                if ( scrollTo ) {
+                    options.scrollTo = scrollTo === "true";
                 }
-            };
 
-            // Scroll animation
-            let scrollTo = tab.getAttribute( 'data-tabs-scroll-to' );
-            if ( scrollTo ) {
-                options.scrollTo = scrollTo === 'true';
+                // Scroll animation offset
+                let scrollToOffset = tab.getAttribute( "data-tabs-scroll-to-offset" );
+                if ( scrollToOffset ) {
+                    options.scrollToOffset = scrollToOffset;
+                }
+
+                // Pagination
+                let pagination = tab.getAttribute( "data-tabs-pagination" );
+                if ( pagination ) {
+                    options.pagination = pagination === "true";
+                }
+
+                // Reload ajax requests
+                let reloadAjax = tab.getAttribute( "data-tabs-reload-ajax" );
+                if ( reloadAjax ) {
+                    options.reloadAjax = reloadAjax === "true";
+                }
+
+                // Apply tabs plugin.
+                let $tabs = $( tab ).tabs( options );
             }
-
-            // Scroll animation offset
-            let scrollToOffset = tab.getAttribute( 'data-tabs-scroll-to-offset' );
-            if ( scrollToOffset ) {
-                options.scrollToOffset = scrollToOffset;
-            }
-
-            // Pagination
-            let pagination = tab.getAttribute( 'data-tabs-pagination' );
-            if ( pagination ) {
-                options.pagination = pagination === 'true';
-            }
-
-            // Reload ajax requests
-            let reloadAjax = tab.getAttribute( 'data-tabs-reload-ajax' );
-            if ( reloadAjax ) {
-                options.reloadAjax = reloadAjax === 'true';
-            }
-
-            // Apply tabs plugin.
-            let $tabs = $( tab ).tabs( options );
         }
     }
 };
