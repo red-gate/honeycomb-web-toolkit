@@ -22,7 +22,10 @@
         @each $grid-col in $grid-cols {
             @for $i from 0 through $grid-col {
 
-                $total: (100 / ($grid-col / $i)) * 1%;
+                $total: 0;
+                @if $i != 0 {
+                    $total: (100 / ($grid-col / $i)) * 1%;
+                }
 
                 %#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},
                 .#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {

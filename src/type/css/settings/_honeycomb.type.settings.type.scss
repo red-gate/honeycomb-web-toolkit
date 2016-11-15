@@ -13,8 +13,8 @@ $font-family: "Roboto", "Helvetica Neue", Arial, Sans-serif !default;
 
 $line-height: 26px !default;
 
-// Font directory, relative to the compiled CSS.
-$font-dir: "../fonts/" !default;
+// Font directory, relative to the src CSS.
+$font-dir: "type/vendor/" !default;
 
 
 /*------------------------------------*\
