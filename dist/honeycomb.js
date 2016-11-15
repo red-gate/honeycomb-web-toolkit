@@ -844,7 +844,7 @@ var init = function init() {
     var vps = document.querySelectorAll(".js-vp");
     if (vps.length) {
         if (typeof jQuery.fn.inViewport !== "function") {
-            if (config.url === "undefined") {
+            if (typeof config.url === "undefined") {
                 config.url = "/src/document/vendor/jquery.inViewport.min.js";
             }
 
