@@ -19,7 +19,7 @@ const init = ( config = {} ) => {
                 let offset = ( $this.attr( "data-sticky-offset" ) === "auto" ) ? "auto" : parseInt( $this.attr( "data-sticky-offset" ), 10) || "auto";
 
                 $this.sticky({
-                    offset: offset,
+                    offset,
                     sticky: () => {
                         $this.addClass( "sticking" );
                     },
