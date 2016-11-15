@@ -263,59 +263,75 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _honeycombDocument = require("../../document/js/honeycomb.document.load-script");
+
+var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var init = function init() {
+    var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
 
     // If no jQuery then break;
     if (typeof jQuery === "undefined") {
         return;
     }
 
-    // If no slick plugin then break;
-    if (typeof jQuery.fn.slick !== "function") {
-        return;
-    }
-
     var carousels = document.querySelectorAll('.js-carousel');
 
-    for (var i = 0; i < carousels.length; i++) {
-        var carousel = carousels[i];
-        var options = {
-            autoplaySpeed: 4000,
-            dotsClass: 'slick-dots carousel__pagination',
-            adaptiveHeight: true
-        };
+    if (carousels.length) {
+        if (typeof jQuery.fn.slick !== "function") {
+            if (typeof config.url === "undefined") {
+                config.url = "/src/carousel/vendor/slick/slick.min.js";
+            }
 
-        // Arrows.
-        if (carousel.getAttribute('data-carousel-arrows')) {
-            options.arrows = carousel.getAttribute('data-carousel-arrows') === 'true';
+            _honeycombDocument2.default.load(config.url, function () {
+                init();
+            });
+        } else {
+            for (var i = 0; i < carousels.length; i++) {
+                var carousel = carousels[i];
+                var options = {
+                    autoplaySpeed: 4000,
+                    dotsClass: 'slick-dots carousel__pagination',
+                    adaptiveHeight: true
+                };
+
+                // Arrows.
+                if (carousel.getAttribute('data-carousel-arrows')) {
+                    options.arrows = carousel.getAttribute('data-carousel-arrows') === 'true';
+                }
+
+                // Autoplay
+                if (carousel.getAttribute('data-carousel-autoplay')) {
+                    options.autoplay = carousel.getAttribute('data-carousel-autoplay') === 'true';
+                }
+
+                // Pagination / Dots.
+                if (carousel.getAttribute('data-carousel-pagination')) {
+                    options.dots = carousel.getAttribute('data-carousel-pagination') === 'true';
+                }
+
+                // Fade.
+                if (carousel.getAttribute('data-carousel-fade')) {
+                    options.fade = carousel.getAttribute('data-carousel-fade') === 'true';
+                }
+
+                // Adaptive Height (Automatically update height)
+                if (carousel.getAttribute('data-carousel-auto-height')) {
+                    options.adaptiveHeight = carousel.getAttribute('data-carousel-auto-height') === 'true';
+                }
+
+                // Autoplay speed.
+                if (carousel.getAttribute('data-carousel-autoplay-speed')) {
+                    options.autoplaySpeed = carousel.getAttribute('data-carousel-autoplay-speed');
+                }
+
+                jQuery(carousel).slick(options);
+            }
         }
-
-        // Autoplay
-        if (carousel.getAttribute('data-carousel-autoplay')) {
-            options.autoplay = carousel.getAttribute('data-carousel-autoplay') === 'true';
-        }
-
-        // Pagination / Dots.
-        if (carousel.getAttribute('data-carousel-pagination')) {
-            options.dots = carousel.getAttribute('data-carousel-pagination') === 'true';
-        }
-
-        // Fade.
-        if (carousel.getAttribute('data-carousel-fade')) {
-            options.fade = carousel.getAttribute('data-carousel-fade') === 'true';
-        }
-
-        // Adaptive Height (Automatically update height)
-        if (carousel.getAttribute('data-carousel-auto-height')) {
-            options.adaptiveHeight = carousel.getAttribute('data-carousel-auto-height') === 'true';
-        }
-
-        // Autoplay speed.
-        if (carousel.getAttribute('data-carousel-autoplay-speed')) {
-            options.autoplaySpeed = carousel.getAttribute('data-carousel-autoplay-speed');
-        }
-
-        jQuery(carousel).slick(options);
     }
 };
 
@@ -323,7 +339,7 @@ exports.default = {
     init: init
 };
 
-},{}],7:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":11}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -735,6 +751,45 @@ exports.default = {
 };
 
 },{}],11:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var load = function load() {
+    var url = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
+    var callback = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+
+    if (url !== false) {
+        (function () {
+            var se = document.createElement("script");
+            se.type = "text/javascript";
+            se.src = url;
+
+            var done = false;
+
+            // When the script has loaded, apply the callback.
+            se.onload = se.onreadystatechange = function () {
+                if (!done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
+                    done = true;
+
+                    if (typeof callback === "function") {
+                        callback.apply();
+                    }
+                }
+            };
+
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(se, s);
+        })();
+    }
+};
+
+exports.default = {
+    load: load
+};
+
+},{}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -768,21 +823,42 @@ exports.default = {
     onPage: onPage
 };
 
-},{}],12:[function(require,module,exports){
-'use strict';
+},{}],13:[function(require,module,exports){
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _honeycombDocument = require("../../document/js/honeycomb.document.load-script");
+
+var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // Toggle class when elements in/out of the viewport. (https://github.com/edwardcasbon/jquery.inViewport)
 var init = function init() {
-    if ($.fn.inViewport) {
-        $('.js-vp').inViewport(function () {
-            $(this).removeClass('vp-out').addClass('vp-in');
-        }, function () {
-            $(this).addClass('vp-out');
-            // Note that we don't remove the 'vp-in' class. Once it's in, it's in (to prevent multiple occurances of animation).
-        });
+    var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+
+    var vps = document.querySelectorAll(".js-vp");
+    if (vps.length) {
+        if (typeof jQuery.fn.inViewport !== "function") {
+            if (config.url === "undefined") {
+                config.url = "/src/document/vendor/jquery.inViewport.min.js";
+            }
+
+            _honeycombDocument2.default.load(config.url, function () {
+                init();
+            });
+        } else {
+            jQuery('.js-vp').inViewport(function () {
+                jQuery(this).removeClass('vp-out').addClass('vp-in');
+            }, function () {
+                jQuery(this).addClass('vp-out');
+                // Note that we don't remove the 'vp-in' class. Once it's in, it's in (to prevent multiple occurances of animation).
+            });
+        }
     }
 };
 
@@ -790,14 +866,28 @@ exports.default = {
     init: init
 };
 
-},{}],13:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":11}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _honeycombDocument = require('../../document/js/honeycomb.document.load-script');
+
+var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var config = {};
+
 // Equalise heights amongst selected items (https://github.com/edwardcasbon/jquery.equalise)
 var init = function init() {
+	var cf = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+
+	config = cf;
+
 	equalise();
 
 	window.addEventListener('resize', function () {
@@ -810,11 +900,22 @@ var init = function init() {
 };
 
 var equalise = function equalise() {
-	if ($.fn.equalise) {
-		$('.js-equal-heights').equalise({
-			itemClass: 'js-equal-heights__item',
-			groupAttr: 'js-equal-heights-group'
-		});
+	var els = document.querySelectorAll(".js-equal-heights");
+	if (els.length) {
+		if (typeof jQuery.fn.equalise !== "function") {
+			if (typeof config.url === "undefined") {
+				config.url = "/src/equalise/vendor/jquery.equalise.min.js";
+			}
+
+			_honeycombDocument2.default.load(config.url, function () {
+				init();
+			});
+		} else {
+			jQuery('.js-equal-heights').equalise({
+				itemClass: 'js-equal-heights__item',
+				groupAttr: 'js-equal-heights-group'
+			});
+		}
 	}
 };
 
@@ -822,7 +923,7 @@ exports.default = {
 	init: init
 };
 
-},{}],14:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":11}],15:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -931,7 +1032,7 @@ exports.default = {
     init: init
 };
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 'use strict';
 
 var _honeycombAnalytics = require('./analytics/js/honeycomb.analytics.google');
@@ -1152,23 +1253,43 @@ _honeycomb33.default.init({
     analytics: _honeycombAnalytics2.default
 });
 
-},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./code/js/honeycomb.code":7,"./confluence/js/honeycomb.confluence":8,"./content/js/honeycomb.content":9,"./cookie/js/honeycomb.cookie":10,"./document/js/honeycomb.document.location":11,"./document/js/honeycomb.document.viewport":12,"./equalise/js/honeycomb.equalise":13,"./filter/js/honeycomb.filter":14,"./lightbox/js/honeycomb.lightbox":16,"./maps/js/honeycomb.maps.google":17,"./navigation/js/honeycomb.navigation.dropdown":18,"./navigation/js/honeycomb.navigation.header":19,"./notification/js/honeycomb.notification.block":20,"./polyfill/js/honeycomb.polyfill.index-of":21,"./reveal/js/honeycomb.reveal":22,"./scroll/js/honeycomb.scroll":23,"./sticky/js/honeycomb.sticky":24,"./svg/js/honeycomb.svg":25,"./tabs/js/honeycomb.tabs":26,"./toggle/js/honeycomb.toggle":27,"./video/js/honeycomb.video":28}],16:[function(require,module,exports){
-'use strict';
+},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./code/js/honeycomb.code":7,"./confluence/js/honeycomb.confluence":8,"./content/js/honeycomb.content":9,"./cookie/js/honeycomb.cookie":10,"./document/js/honeycomb.document.location":12,"./document/js/honeycomb.document.viewport":13,"./equalise/js/honeycomb.equalise":14,"./filter/js/honeycomb.filter":15,"./lightbox/js/honeycomb.lightbox":17,"./maps/js/honeycomb.maps.google":18,"./navigation/js/honeycomb.navigation.dropdown":19,"./navigation/js/honeycomb.navigation.header":20,"./notification/js/honeycomb.notification.block":21,"./polyfill/js/honeycomb.polyfill.index-of":22,"./reveal/js/honeycomb.reveal":23,"./scroll/js/honeycomb.scroll":24,"./sticky/js/honeycomb.sticky":25,"./svg/js/honeycomb.svg":26,"./tabs/js/honeycomb.tabs":27,"./toggle/js/honeycomb.toggle":28,"./video/js/honeycomb.video":29}],17:[function(require,module,exports){
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var init = function init() {
-    if (typeof $.fancybox !== 'undefined') {
 
-        // Use BEM style modifiers to set type of content for lightbox.
-        $('.js-lightbox').fancybox();
-        $('.js-lightbox--video, .js-lightbox--iframe').fancybox({ type: 'iframe' });
-        $('.js-lightbox--image').fancybox({ type: 'image' });
-        $('.js-lightbox--inline').fancybox({ type: 'inline' });
-        $('.js-lightbox--ajax').fancybox({ type: 'ajax' });
-        $('.js-lightbox--swf').fancybox({ type: 'swf' });
-        $('.js-lightbox--html').fancybox({ type: 'html' });
+var _honeycombDocument = require("../../document/js/honeycomb.document.load-script");
+
+var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var init = function init() {
+    var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+    var els = document.querySelectorAll(".js-lightbox", ".js-lightbox--video", ".js-lightbox--iframe", ".js-lightbox--image", ".js-lightbox--inline", ".js-lightbox--ajax", ".js-lightbox--swf", ".js-lightbox--html");
+    if (els.length) {
+        if (typeof jQuery.fancybox === "undefined") {
+            if (typeof config.url === "undefined") {
+                config.url = "/src/lightbox/vendor/jquery.fancybox.pack.js";
+            }
+
+            _honeycombDocument2.default.load(config.url, function () {
+                init();
+            });
+        } else {
+
+            // Use BEM style modifiers to set type of content for lightbox.
+            jQuery('.js-lightbox').fancybox();
+            jQuery('.js-lightbox--video, .js-lightbox--iframe').fancybox({ type: 'iframe' });
+            jQuery('.js-lightbox--image').fancybox({ type: 'image' });
+            jQuery('.js-lightbox--inline').fancybox({ type: 'inline' });
+            jQuery('.js-lightbox--ajax').fancybox({ type: 'ajax' });
+            jQuery('.js-lightbox--swf').fancybox({ type: 'swf' });
+            jQuery('.js-lightbox--html').fancybox({ type: 'html' });
+        }
     }
 };
 
@@ -1176,7 +1297,7 @@ exports.default = {
     init: init
 };
 
-},{}],17:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":11}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1289,7 +1410,7 @@ exports.default = {
     initialiseMap: initialiseMap
 };
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1337,7 +1458,7 @@ exports.default = {
     addArrows: addArrows
 };
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1379,7 +1500,7 @@ exports.default = {
     init: init
 };
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1510,7 +1631,7 @@ exports.default = {
     block: notification
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1535,7 +1656,7 @@ var indexOf = function indexOf() {
 
 exports.default = indexOf;
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1695,7 +1816,7 @@ exports.default = {
     close: close
 };
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1748,30 +1869,51 @@ exports.default = {
     init: init
 };
 
-},{}],24:[function(require,module,exports){
-'use strict';
+},{}],25:[function(require,module,exports){
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _honeycombDocument = require("../../document/js/honeycomb.document.load-script");
+
+var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // Initialise sticky element functionality. (https://github.com/edwardcasbon/jquery.sticky)
 var init = function init() {
-    if (typeof $.fn.sticky === 'function') {
-        $('.js-sticky').each(function () {
-            var $this = $(this);
-            var offset = $this.attr('data-sticky-offset') === 'auto' ? 'auto' : parseInt($this.attr('data-sticky-offset'), 10) || 'auto';
+    var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-            $this.sticky({
-                offset: offset,
-                sticky: function sticky() {
-                    $this.addClass('sticking');
-                },
-                docked: function docked() {
-                    $this.removeClass('sticking');
-                },
-                navActiveClass: 'active'
+
+    var els = document.querySelectorAll(".js-sticky");
+    if (els.length) {
+        if (typeof jQuery.fn.sticky === "undefined") {
+            if (typeof config.url === "undefined") {
+                config.url = "/src/sticky/vendor/jquery.sticky.min.js";
+            }
+
+            _honeycombDocument2.default.load(config.url, function () {
+                init();
             });
-        });
+        } else {
+            jQuery(".js-sticky").each(function () {
+                var $this = jQuery(this);
+                var offset = $this.attr("data-sticky-offset") === "auto" ? "auto" : parseInt($this.attr("data-sticky-offset"), 10) || "auto";
+
+                $this.sticky({
+                    offset: offset,
+                    sticky: function sticky() {
+                        $this.addClass("sticking");
+                    },
+                    docked: function docked() {
+                        $this.removeClass("sticking");
+                    },
+                    navActiveClass: "active"
+                });
+            });
+        }
     }
 };
 
@@ -1779,7 +1921,7 @@ exports.default = {
     init: init
 };
 
-},{}],25:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":11}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1808,111 +1950,129 @@ exports.default = {
     init: init
 };
 
-},{}],26:[function(require,module,exports){
-'use strict';
+},{}],27:[function(require,module,exports){
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _honeycomb = require('../../browser/js/honeycomb.browser');
+var _honeycomb = require("../../browser/js/honeycomb.browser");
 
 var _honeycomb2 = _interopRequireDefault(_honeycomb);
+
+var _honeycombDocument = require("../../document/js/honeycomb.document.load-script");
+
+var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var init = function init() {
+    var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
 
     // If IE7, bail!
     if (_honeycomb2.default.isIE7()) {
         return false;
     }
 
-    var tabbed = document.querySelectorAll('.js-tabbed');
-    if (tabbed.length > 0) {
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
+    var tabbed = document.querySelectorAll(".js-tabbed");
+    if (tabbed.length) {
 
-        try {
-            for (var _iterator = tabbed[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                var tab = _step.value;
+        if (typeof jQuery.fn.tabs === "undefined") {
+            if (typeof config.url === "undefined") {
+                config.url = "/src/tabs/vendor/jquery.tabs.min.js";
+            }
 
-                var options = {
-                    pagination: false,
-                    template: {
-                        container: {
-                            atts: {},
-                            classes: ['tabbed__container']
-                        },
-                        tab: {
+            _honeycombDocument2.default.load(config.url, function () {
+                init();
+            });
+        } else {
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+
+                for (var _iterator = tabbed[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var tab = _step.value;
+
+                    var options = {
+                        pagination: false,
+                        template: {
                             container: {
-                                classes: ['js-tab']
-                            }
-                        },
-                        pagination: {
-                            container: {
-                                atts: {
-                                    'data-ui-component': 'nav--tabs-pagination'
-                                },
-                                classes: ['pagination']
+                                atts: {},
+                                classes: ["tabbed__container"]
                             },
-                            links: {
-                                prev: {
-                                    atts: {},
-                                    classes: ['pagination__prev'],
-                                    preHtml: '',
-                                    postHtml: ''
+                            tab: {
+                                container: {
+                                    classes: ["js-tab"]
+                                }
+                            },
+                            pagination: {
+                                container: {
+                                    atts: {
+                                        "data-ui-component": "nav--tabs-pagination"
+                                    },
+                                    classes: ["pagination"]
                                 },
-                                next: {
-                                    atts: {},
-                                    classes: ['pagination__next'],
-                                    preHtml: '',
-                                    postHtml: ''
+                                links: {
+                                    prev: {
+                                        atts: {},
+                                        classes: ["pagination__prev"],
+                                        preHtml: "",
+                                        postHtml: ""
+                                    },
+                                    next: {
+                                        atts: {},
+                                        classes: ["pagination__next"],
+                                        preHtml: "",
+                                        postHtml: ""
+                                    }
                                 }
                             }
                         }
+                    };
+
+                    // Scroll animation
+                    var scrollTo = tab.getAttribute("data-tabs-scroll-to");
+                    if (scrollTo) {
+                        options.scrollTo = scrollTo === "true";
                     }
-                };
 
-                // Scroll animation
-                var scrollTo = tab.getAttribute('data-tabs-scroll-to');
-                if (scrollTo) {
-                    options.scrollTo = scrollTo === 'true';
-                }
+                    // Scroll animation offset
+                    var scrollToOffset = tab.getAttribute("data-tabs-scroll-to-offset");
+                    if (scrollToOffset) {
+                        options.scrollToOffset = scrollToOffset;
+                    }
 
-                // Scroll animation offset
-                var scrollToOffset = tab.getAttribute('data-tabs-scroll-to-offset');
-                if (scrollToOffset) {
-                    options.scrollToOffset = scrollToOffset;
-                }
+                    // Pagination
+                    var pagination = tab.getAttribute("data-tabs-pagination");
+                    if (pagination) {
+                        options.pagination = pagination === "true";
+                    }
 
-                // Pagination
-                var pagination = tab.getAttribute('data-tabs-pagination');
-                if (pagination) {
-                    options.pagination = pagination === 'true';
-                }
+                    // Reload ajax requests
+                    var reloadAjax = tab.getAttribute("data-tabs-reload-ajax");
+                    if (reloadAjax) {
+                        options.reloadAjax = reloadAjax === "true";
+                    }
 
-                // Reload ajax requests
-                var reloadAjax = tab.getAttribute('data-tabs-reload-ajax');
-                if (reloadAjax) {
-                    options.reloadAjax = reloadAjax === 'true';
+                    // Apply tabs plugin.
+                    var $tabs = $(tab).tabs(options);
                 }
-
-                // Apply tabs plugin.
-                var $tabs = $(tab).tabs(options);
-            }
-        } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
-        } finally {
-            try {
-                if (!_iteratorNormalCompletion && _iterator.return) {
-                    _iterator.return();
-                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
             } finally {
-                if (_didIteratorError) {
-                    throw _iteratorError;
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
                 }
             }
         }
@@ -1923,7 +2083,7 @@ exports.default = {
     init: init
 };
 
-},{"../../browser/js/honeycomb.browser":5}],27:[function(require,module,exports){
+},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":11}],28:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2083,7 +2243,7 @@ exports.default = {
     init: init
 };
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2315,4 +2475,4 @@ exports.default = {
     videos: videos
 };
 
-},{}]},{},[15]);
+},{}]},{},[16]);
