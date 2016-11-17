@@ -273,22 +273,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var rearrangeNav = function rearrangeNav(carousel) {
     // selectors
     var nav = carousel.querySelector('ul');
-    var navFirstChild = carousel.querySelector('ul :first-child');
     var leftButton = carousel.querySelector('.slick-prev');
     var rightButton = carousel.querySelector('.slick-next');
     var buttons = carousel.querySelectorAll('.slick-arrow');
 
     // move buttons inside <ul>
-    nav.insertBefore(leftButton, navFirstChild);
     nav.appendChild(rightButton);
+    nav.appendChild(leftButton);
 
-    // restyle buttons
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].style.position = 'relative';
-        buttons[i].style.display = 'inline-block';
-    }
-    // leftButton.style.transform = 'translate(-10px, 4px)';
-    // rightButton.style.transform = 'translate(10px, 4px)';
+    // reposition buttons
+    rightButton.style.transform = 'translate(10px, 0px)';
+
+    // the left button can't be the first element in the <ul>, otherwise it messes up the navigation, which counts <ul> child elements to map the slides to the links - adding a new first-child pushes the links off by one
+    // so we need to add it to the end of the list, and translate its position by working out the width of the nav, plus the width of the arrow
+    var navWidth = carousel.querySelectorAll('ul li').length * 40 + 57;
+    leftButton.style.transform = 'translate(-' + navWidth + 'px, 0px)';
 };
 
 var init = function init() {
