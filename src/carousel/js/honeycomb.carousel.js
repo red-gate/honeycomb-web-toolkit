@@ -5,7 +5,6 @@ const rearrangeNav = (carousel) => {
     let nav = carousel.querySelector('ul');
     let leftButton = carousel.querySelector('.slick-prev');
     let rightButton = carousel.querySelector('.slick-next');
-    let buttons = carousel.querySelectorAll('.slick-arrow');
 
     // move buttons inside <ul>
     nav.appendChild(rightButton);
