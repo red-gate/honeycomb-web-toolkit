@@ -24,7 +24,7 @@ const init = ( config = {} ) => {
                 let options = {
                     autoplaySpeed: 4000,
                     dotsClass: 'slick-dots carousel__pagination',
-                    adaptiveHeight: true
+                    adaptiveHeight: false
                 };
 
                 // Arrows.
