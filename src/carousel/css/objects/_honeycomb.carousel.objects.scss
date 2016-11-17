@@ -1,25 +1,42 @@
 .slick-prev,
 .slick-next {
-    top: 40%;
     z-index: 1;
-    height: 100%;
     width: auto;
+    position: relative;
+    display: inline-block;
 
     &:before {
-        @include font-size(36px);
+        content: "";
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        transform: rotate(45deg);
+        border: 3px solid red;
+        border-radius: 1px;
     }
 }
 
 .slick-prev {
-    left: $carousel-dir-offset;
-    [dir="rtl"] & {
-        right: $carousel-dir-offset;
+    transform: translate(-10px, 0px);
+
+    &:before {
+        border-top: transparent;
+        border-right: transparent;
     }
 }
 
 .slick-next {
-    right: $carousel-dir-offset;
-    [dir="rtl"] & {
-        left: $carousel-dir-offset;
+    transform: translate(10px, 0px);
+
+    &:before {
+        border-bottom: transparent;
+        border-left: transparent;
     }
+}
+
+.slick-dots li.slick-active button::before {
+    color: color('red', 4);
+}
+.slick-dots li button::before {
+    color: color('grey', 5);
 }

@@ -17,8 +17,8 @@ const rearrangeNav = (carousel) => {
         buttons[i].style.position = 'relative';
         buttons[i].style.display = 'inline-block';
     }
-    leftButton.style.transform = 'translate(-10px, 4px)';
-    rightButton.style.transform = 'translate(10px, 4px)';
+    // leftButton.style.transform = 'translate(-10px, 4px)';
+    // rightButton.style.transform = 'translate(10px, 4px)';
 };
 
 
