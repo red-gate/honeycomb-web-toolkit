@@ -1,5 +1,27 @@
 import loadScript from "../../document/js/honeycomb.document.load-script";
 
+const rearrangeNav = (carousel) => {
+    // selectors
+    let nav = carousel.querySelector('ul');
+    let navFirstChild = carousel.querySelector('ul :first-child');
+    let leftButton = carousel.querySelector('.slick-prev');
+    let rightButton = carousel.querySelector('.slick-next');
+    let buttons = carousel.querySelectorAll('.slick-arrow');
+
+    // move buttons inside <ul>
+    nav.insertBefore(leftButton, navFirstChild);
+    nav.appendChild(rightButton);
+
+    // restyle buttons
+    for (let i=0; i<buttons.length; i++) {
+        buttons[i].style.position = 'relative';
+        buttons[i].style.display = 'inline-block';
+    }
+    leftButton.style.transform = 'translate(-10px, 4px)';
+    rightButton.style.transform = 'translate(10px, 4px)';
+};
+
+
 const init = ( config = {} ) => {
 
     // If no jQuery then break;
@@ -56,6 +78,11 @@ const init = ( config = {} ) => {
                 if ( carousel.getAttribute( 'data-carousel-autoplay-speed' ) ) {
                     options.autoplaySpeed = carousel.getAttribute( 'data-carousel-autoplay-speed' );
                 }
+                
+                // rearrange nav
+                jQuery( carousel ).on('init', () => {
+                    rearrangeNav(carousel);
+                });
 
                 jQuery( carousel ).slick( options );
             }

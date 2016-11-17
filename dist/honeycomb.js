@@ -258,17 +258,38 @@ exports.default = {
 };
 
 },{}],6:[function(require,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _honeycombDocument = require("../../document/js/honeycomb.document.load-script");
+var _honeycombDocument = require('../../document/js/honeycomb.document.load-script');
 
 var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var rearrangeNav = function rearrangeNav(carousel) {
+    // selectors
+    var nav = carousel.querySelector('ul');
+    var navFirstChild = carousel.querySelector('ul :first-child');
+    var leftButton = carousel.querySelector('.slick-prev');
+    var rightButton = carousel.querySelector('.slick-next');
+    var buttons = carousel.querySelectorAll('.slick-arrow');
+
+    // move buttons inside <ul>
+    nav.insertBefore(leftButton, navFirstChild);
+    nav.appendChild(rightButton);
+
+    // restyle buttons
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].style.position = 'relative';
+        buttons[i].style.display = 'inline-block';
+    }
+    leftButton.style.transform = 'translate(-10px, 4px)';
+    rightButton.style.transform = 'translate(10px, 4px)';
+};
 
 var init = function init() {
     var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -291,7 +312,7 @@ var init = function init() {
                 init();
             });
         } else {
-            for (var i = 0; i < carousels.length; i++) {
+            var _loop = function _loop(i) {
                 var carousel = carousels[i];
                 var options = {
                     autoplaySpeed: 4000,
@@ -329,7 +350,16 @@ var init = function init() {
                     options.autoplaySpeed = carousel.getAttribute('data-carousel-autoplay-speed');
                 }
 
+                // rearrange nav
+                jQuery(carousel).on('init', function () {
+                    rearrangeNav(carousel);
+                });
+
                 jQuery(carousel).slick(options);
+            };
+
+            for (var i = 0; i < carousels.length; i++) {
+                _loop(i);
             }
         }
     }
