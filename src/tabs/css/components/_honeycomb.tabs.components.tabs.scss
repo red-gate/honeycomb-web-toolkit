@@ -8,81 +8,73 @@
     }
 }
 
-.tabs {
-    @include clearfix();
-    float: left;
-    width: 100%;
-    list-style: none;
-    margin:  0;
-    padding: 0;
+.tabbed nav:first-of-type {
+    border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-width: $tabs-border-width;
+    border-bottom-color: color("grey", 3);
+    text-align: center;
+}
+
+.tabs {
+    clear: both;
+    margin: auto;
+    display: table;
+    table-layout: fixed;
+    list-style: none;
+    width: 100%;
+    max-width: $tabs-max-width;
+    max-width: px-rem($tabs-max-width);
+    overflow: hidden;
 }
 
 .tabs li {
     @include margin(0);
-    @include margin(0.25, right);
     position: relative;
-    float: left;
-    top: $tabs-border-width;
+    display: table-cell;
+    width: auto;
+    border-bottom-width: $tabs-border-width;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
 
-    @include responsive("small") {
-        @include margin(0);
-        @include margin(0.25, bottom);
-        float: none;
+    @include responsive("medium") {
+        display: block;
     }
-}
 
-.tabs li.active {
-    @include margin(0);
-    @include margin(-0.25, left);
-    @include padding(0.25, left);
-    @include padding(0.25, right);
-
-    @include responsive("small") {
-        @include margin(0);
-        @include padding(0, left);
-        @include padding(0, right);
+    &.active {
+        border-bottom-color: $tabs-border-color;
+        font-weight: bold;
     }
 }
 
 .tabs a {
-    @include padding(0.25);
-    @include padding(0.5, left);
-    @include padding(0.5, right);
+    @include padding(0.5);
+    @include padding(1, "left");
+    @include padding(1, "right");
     display: block;
-    text-decoration: none;
-    border:none;
-    border-top-style: solid;
-    border-top-width: $tabs-border-width;
-    border-bottom-style: solid;
-    border-bottom-width: $tabs-border-width;
+    transition: none;
+    color: $tabs-link-color;
+
+    &:after {
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 9999px; // For browsers that don't understand calc.
+        top: calc(100% + #{$tabs-border-width});
+        width: 100%;
+        height: $tabs-border-width;
+        background-color: $tabs-border-color;
+        transition: all 0.15s ease-in-out;
+
+        @include responsive("medium") {
+            display: none;
+        }
+    }
+
+    &:hover:after {
+        top: calc(100%);
+    }
 }
 
 .tabbed__content {
   @include padding(0.5);
-}
-
-
-/* Default colours */
-.tabs {
-    border-bottom-color: $tabs-border-color;
-}
-
-.tabs li.active {
-    background-color: color('white');
-
-    a {
-        border-top-color: color('blue');
-        border-bottom-color: color('white');
-        background-color: color('white');
-    }
-
-}
-
-.tabs a {
-    background-color: $tabs-background-color;
-    border-top-color: $tabs-border-color;
-    border-bottom-color: $tabs-border-color;
-    color: $tabs-link-color;
 }
