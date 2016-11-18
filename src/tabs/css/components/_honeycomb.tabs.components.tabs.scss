@@ -16,7 +16,6 @@
 }
 
 .tabs {
-    @include clearfix;
     margin: auto;
     display: table;
     table-layout: fixed;
@@ -31,7 +30,7 @@
     @include margin(0);
     position: relative;
     display: table-cell;
-    width: 100%;
+    width: auto;
     border-bottom-width: $tabs-border-width;
     border-bottom-style: solid;
     border-bottom-color: transparent;
