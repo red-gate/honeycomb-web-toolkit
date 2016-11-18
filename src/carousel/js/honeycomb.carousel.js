@@ -44,7 +44,8 @@ const init = ( config = {} ) => {
                 let options = {
                     autoplaySpeed: 4000,
                     dotsClass: 'slick-dots carousel__pagination',
-                    adaptiveHeight: false
+                    adaptiveHeight: false,
+                    dots: true
                 };
 
                 // Arrows.
@@ -58,8 +59,8 @@ const init = ( config = {} ) => {
                 }
 
                 // Pagination / Dots.
-                if ( carousel.getAttribute( 'data-carousel-pagination' ) ) {
-                    options.dots = carousel.getAttribute( 'data-carousel-pagination' ) === 'true';
+                if ( carousel.getAttribute( 'data-carousel-pagination' ) && carousel.getAttribute( 'data-carousel-pagination' ) === "false" ) {
+                    options.dots = false;
                 }
 
                 // Fade.
