@@ -30,7 +30,7 @@
 .tabs li {
     @include margin(0);
     position: relative;
-    display: table-cell;
+    display: inline-block;
     width: auto;
     border-bottom-width: $tabs-border-width;
     border-bottom-style: solid;
