@@ -42,6 +42,10 @@
     .hs-button {
         @extend %button--primary;
     }
+
+    .hs-error-msgs {
+        color: color('red', 'brand');
+    }
 }
 
 @include responsive("small") {
