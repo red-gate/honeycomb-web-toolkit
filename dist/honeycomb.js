@@ -264,6 +264,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _honeycombDocument = require('../../document/js/honeycomb.document.load-script');
 
 var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
@@ -276,17 +278,19 @@ var rearrangeNav = function rearrangeNav(carousel) {
     var leftButton = carousel.querySelector('.slick-prev');
     var rightButton = carousel.querySelector('.slick-next');
 
-    // move buttons inside <ul>
-    nav.appendChild(rightButton);
-    nav.appendChild(leftButton);
+    if ((typeof nav === 'undefined' ? 'undefined' : _typeof(nav)) !== undefined) {
+        // move buttons inside <ul>
+        nav.appendChild(rightButton);
+        nav.appendChild(leftButton);
 
-    // reposition buttons
-    rightButton.style.transform = 'translate(10px, 0px)';
+        // reposition buttons
+        rightButton.style.transform = 'translate(0px, 0px)';
 
-    // the left button can't be the first element in the <ul>, otherwise it messes up the navigation, which counts <ul> child elements to map the slides to the links - adding a new first-child pushes the links off by one
-    // so we need to add it to the end of the list, and translate its position by working out the width of the nav, plus the width of the arrow
-    var navWidth = carousel.querySelectorAll('ul li').length * 40 + 57;
-    leftButton.style.transform = 'translate(-' + navWidth + 'px, 0px)';
+        // the left button can't be the first element in the <ul>, otherwise it messes up the navigation, which counts <ul> child elements to map the slides to the links - adding a new first-child pushes the links off by one
+        // so we need to add it to the end of the list, and translate its position by working out the width of the nav, plus the width of the arrow
+        var navWidth = (carousel.querySelectorAll('ul li').length - 1) * 30 + 130;
+        leftButton.style.transform = 'translate(-' + navWidth + 'px, 0px)';
+    }
 };
 
 var init = function init() {

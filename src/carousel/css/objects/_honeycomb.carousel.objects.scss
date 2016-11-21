@@ -20,6 +20,7 @@
 
 .slick-prev {
     transform: translate(-10px, 0px);
+    left: 0;
 
     &:before {
         border-top: transparent;
@@ -29,6 +30,7 @@
 
 .slick-next {
     transform: translate(10px, 0px);
+    right: 0;
 
     &:before {
         border-bottom: transparent;

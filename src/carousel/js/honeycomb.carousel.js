@@ -6,17 +6,19 @@ const rearrangeNav = (carousel) => {
     let leftButton = carousel.querySelector('.slick-prev');
     let rightButton = carousel.querySelector('.slick-next');
 
-    // move buttons inside <ul>
-    nav.appendChild(rightButton);
-    nav.appendChild(leftButton);
+    if (typeof nav !== undefined) {
+        // move buttons inside <ul>
+        nav.appendChild(rightButton);
+        nav.appendChild(leftButton);
 
-    // reposition buttons
-    rightButton.style.transform = 'translate(10px, 0px)';
+        // reposition buttons
+        rightButton.style.transform = 'translate(0px, 0px)';
 
-    // the left button can't be the first element in the <ul>, otherwise it messes up the navigation, which counts <ul> child elements to map the slides to the links - adding a new first-child pushes the links off by one
-    // so we need to add it to the end of the list, and translate its position by working out the width of the nav, plus the width of the arrow
-    let navWidth = carousel.querySelectorAll('ul li').length * 40 + 57;
-    leftButton.style.transform = `translate(-${navWidth}px, 0px)`;
+        // the left button can't be the first element in the <ul>, otherwise it messes up the navigation, which counts <ul> child elements to map the slides to the links - adding a new first-child pushes the links off by one
+        // so we need to add it to the end of the list, and translate its position by working out the width of the nav, plus the width of the arrow
+        let navWidth = ( carousel.querySelectorAll('ul li').length - 1 ) * 30 + 130;
+        leftButton.style.transform = `translate(-${navWidth}px, 0px)`;
+    }
 };
 
 
