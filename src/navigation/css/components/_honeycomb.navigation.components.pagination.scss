@@ -4,7 +4,6 @@
 
 
 .pagination {
-    @include border-top();
     @include padding(0.25);
     @include clearfix();
     float: left;
