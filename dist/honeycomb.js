@@ -1274,7 +1274,9 @@ _honeycomb27.default.init();
 
 // Tabs.
 
-_honeycomb29.default.init();
+_honeycomb29.default.init({
+    equalise: _honeycomb15.default.init
+});
 
 // Toggle.
 
@@ -2004,6 +2006,7 @@ var init = function init() {
     var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 
+    console.log(config);
     // If IE7, bail!
     if (_honeycomb2.default.isIE7()) {
         return false;
@@ -2018,7 +2021,7 @@ var init = function init() {
             }
 
             _honeycombDocument2.default.load(config.url, function () {
-                init();
+                init(config);
             });
         } else {
             var _iteratorNormalCompletion = true;
@@ -2089,6 +2092,13 @@ var init = function init() {
                     var reloadAjax = tab.getAttribute("data-tabs-reload-ajax");
                     if (reloadAjax) {
                         options.reloadAjax = reloadAjax === "true";
+                    }
+
+                    // Equal heights
+                    var equalHeights = tab.getAttribute("data-tabs-equal-heights");
+                    if (equalHeights) {
+                        // options.onTabChange = config.equalise;
+                        options.onTabChange = config.equalise;
                     }
 
                     // Apply tabs plugin.

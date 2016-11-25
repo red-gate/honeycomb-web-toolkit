@@ -17,7 +17,7 @@ let init = ( config = {} ) => {
             }
 
             loadScript.load( config.url, () => {
-                init();
+                init(config);
             });
         } else {
 
@@ -91,6 +91,13 @@ let init = ( config = {} ) => {
                 let reloadAjax = tab.getAttribute( "data-tabs-reload-ajax" );
                 if ( reloadAjax ) {
                     options.reloadAjax = reloadAjax === "true";
+                }
+
+                // Equal heights
+                let equalHeights = tab.getAttribute( "data-tabs-equal-heights" );
+                if ( equalHeights ) {
+                    // options.onTabChange = config.equalise;
+                    options.onTabChange = config.equalise;
                 }
 
                 // Apply tabs plugin.

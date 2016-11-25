@@ -17,11 +17,8 @@
             <h2 class="section-heading--style-guide">Example</h2>
             <p>This "tabbed" content is an example of a tabbed area.</p>
             <p><em>Note: Currently, tabs cannot be nested.</em></p>
-        <!--</div>
-    </div>-->
 
-    <!--<div class="band">-->
-            <div class="js-tabbed tabbed">
+            <div class="js-tabbed tabbed" data-tabs-pagination="true">
                 <nav>
                     <ul class="tabs">
                         <li><a href="#tab-1">Redgate Software</a></li>
@@ -42,8 +39,157 @@
                         <p>The company was founded by Neil Davidson and Simon Galbraith in October 1999. It is named after Via Porta Rossa (Red Gate Street) in Florence, Italy, close to where Davidson used to live.</p>
                         <p>In 2005, Redgate launched Simple Talk, an online technical journal and community hub for working Microsoft SQL Server and .NET developers, as well as systems and database administrators. The journal is sponsored by Redgate,[17] but retains editorial independence. In addition to publishing articles, Simple Talk publishes books,  most of which are available in a digital format.</p>
                     </div>
+                    <div class="js-tab tabbed__content" id="tab-4">
+                        <p>The company was founded by Neil Davidson and Simon Galbraith in October 1999. It is named after Via Porta Rossa (Red Gate Street) in Florence, Italy, close to where Davidson used to live.</p>
+                        <p>In 2005, Redgate launched Simple Talk, an online technical journal and community hub for working Microsoft SQL Server and .NET developers, as well as systems and database administrators. The journal is sponsored by Redgate,[17] but retains editorial independence. In addition to publishing articles, Simple Talk publishes books,  most of which are available in a digital format.</p>
+                    </div>
                 </div>
             </div>
+    </div>
+
+    <div class="band">
+        <div class="band__inner-container">
+            <h2>Test tabs with <code>js-equal-heights</code></h2>
+            <div class="js-tabbed tabbed" data-tabs-equal-heights="true">
+               <nav class="tabbed__nav">
+                    <ul class="tabs">
+                        <li><a href="#sqlserver">SQL Server</a></li>
+                        <li><a href="#dotnet">.NET</a></li>
+                        <li><a href="#azure">Azure</a></li>
+                    </ul>
+                </nav>
+
+                <!-- SQL Server -->
+                <div class="js-tab tabbed__content grid js-equal-heights" id="sqlserver">
+
+                    <div class="js-equal-heights__item grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                        <h2 class="text--redgate"><a href="/products/sql-development/sql-compare/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">SQL Compare</a></h2>
+                            <p>Compare SQL Server schemas and deploy differences fast. The industry standard for comparing and deploying SQL Server database schemas quickly and accurately.</p>
+                            <a href="/products/sql-development/sql-compare/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <div class="js-equal-heights__item grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                            <h2 class="text--redgate"><a href="/products/sql-development/sql-prompt/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">SQL Prompt</a></h2>
+                            <p>Write, format, and refactor SQL effortlessly. The easy way to write, format, refactor, share, and standardize SQL in SQL Server Management Studio and Visual Studio.</p>
+                            <a href="/products/sql-development/sql-prompt/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <div class="js-equal-heights__item grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                            <h2 class="text--redgate"><a href="/products/dba/sql-monitor/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">SQL Monitor</a></h2>
+                            <p>Real-time performance monitoring. Transform the way you look at your SQL Server, with a web-based overview of all your SQL Servers, with alerts and diagnostics.</p>
+                            <a href="/products/dba/sql-monitor/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <div class="js-equal-heights__item grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                            <h2 class="text--redgate"><a href="/products/sql-development/sql-search/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">SQL Search</a></h2>
+                            <p>Search for SQL in seconds - <b class="color--red">for free</b>. SQL Search is a free add-in for SQL Server Management Studio that lets you quickly search for SQL across your databases.</p>
+                            <a href="/products/sql-development/sql-search/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <div class="js-equal-heights__item grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                            <h2 class="text--redgate"><a href="/products/sql-development/sql-source-control/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">SQL Source Control</a></h2>
+                            <p>Connect your database to your version control system. Version control schemas and reference data, roll back changes, and maintain the referential integrity.</p>
+                            <a href="/products/sql-development/sql-source-control/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <div class="js-equal-heights__item grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                            <h2 class="text--redgate"><a href="/products/dlm/dlm-automation/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">DLM Automation</a></h2>
+                            <p>Type even less by adding your own code snippets to the customizable library and sharing them with your team.</p>
+                            <a href="/products/dlm/dlm-automation/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <p class="text--center"><a href="/products/">See more SQL tools</a></p>
+                </div>
+
+                <!-- .NET -->
+                <div class="js-tab tabbed__content grid js-equal-heights" id="dotnet">
+
+                    <div class="js-equal-heights__item grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                        <h2 class="text--redgate"><a href="/products/dotnet-development/dotnet-developer-bundle/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">.NET Developer Bundle</a></h2>
+                            <p>Optimize code performance and memory usage, with this bundle containing our top .NET development tools.</p>
+                            <a href="/products/dotnet-development/dotnet-developer-bundle/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <div class="js-equal-heights__item grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                            <h2 class="text--redgate"><a href="/products/dotnet-development/ants-performance-profiler/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">ANTS Performance Profiler</a></h2>
+                            <p>Profile and boost the performance of your .NET applications.</p>
+                            <a href="/products/dotnet-development/ants-performance-profiler/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <div class="js-equal-heights__item grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                            <h2 class="text--redgate"><a href="/products/dotnet-development/ants-memory-profiler/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">ANTS Memory Profiler</a></h2>
+                            <p>Profile .NET application memory usage.</p>
+                            <a href="/products/dotnet-development/ants-memory-profiler/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <div class="js-equal-heights__item grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                            <h2 class="text--redgate"><a href="/products/dotnet-development/reflector/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">Reflector</a></h2>
+                            <p>Browse, analyze, decompile, and debug .NET code.</p>
+                            <a href="/products/dotnet-development/reflector/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <div class="js-equal-heights__item grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                            <h2 class="text--redgate"><a href="/products/dotnet-development/smartassembly/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">SmartAssembly</a></h2>
+                            <p>Obfuscation and automated error reporting.</p>
+                            <a href="/products/dotnet-development/smartassembly/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <p class="text--center"><a href="/products/#dotnet-adwords">See more .NET tools</a></p>
+                </div>
+
+                <!-- Azure -->
+                <div class="js-tab tabbed__content grid" id="azure">
+
+                    <div class="grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                        <h2 class="text--redgate"><a href="/products/sql-development/sql-compare/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">SQL Compare</a></h2>
+                            <p>Compare SQL Server schemas and deploy differences fast. The industry standard for comparing and deploying SQL Server database schemas quickly and accurately.</p>
+                            <a href="/products/sql-development/sql-compare/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <div class="grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                            <h2 class="text--redgate"><a href="/products/sql-development/sql-prompt/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">SQL Prompt</a></h2>
+                            <p>Write, format, and refactor SQL effortlessly. The easy way to write, format, refactor, share, and standardize SQL in SQL Server Management Studio and Visual Studio.</p>
+                            <a href="/products/sql-development/sql-prompt/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <div class="grid__col grid__col--span-4-of-12">
+                        <div class="padded">
+                            <h2 class="text--redgate"><a href="/products/dba/sql-monitor/"><img src="http://placekitten.com/g/40/40" class="js-svg padded-right--tight" alt="">SQL Monitor</a></h2>
+                            <p>Real-time performance monitoring. Transform the way you look at your SQL Server, with a web-based overview of all your SQL Servers, with alerts and diagnostics.</p>
+                            <a href="/products/dba/sql-monitor/">Try it free</a>
+                        </div>
+                    </div>
+
+                    <p class="text--center"><a href="/products/#azure-adwords">See more Azure tools</a></p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="band">

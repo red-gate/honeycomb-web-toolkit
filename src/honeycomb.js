@@ -99,7 +99,9 @@ svg.init();
 
 // Tabs.
 import tabs from './tabs/js/honeycomb.tabs';
-tabs.init();
+tabs.init({
+	equalise: equalise.init
+});
 
 // Toggle.
 import toggle from './toggle/js/honeycomb.toggle';
