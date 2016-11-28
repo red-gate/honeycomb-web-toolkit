@@ -2006,7 +2006,6 @@ var init = function init() {
     var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 
-    console.log(config);
     // If IE7, bail!
     if (_honeycomb2.default.isIE7()) {
         return false;
