@@ -102,6 +102,11 @@ let init = ( config = {} ) => {
 
                 // Apply tabs plugin.
                 let $tabs = $( tab ).tabs( options );
+
+                // Callback.
+                if ( typeof config.callback === "function" ) {
+                    config.callback.call();
+                }
             }
         }
     }
