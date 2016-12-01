@@ -96,11 +96,10 @@
     h5 a,
     .main-heading a,
     .sub-heading a {
+        color: color('black');
         border-bottom-color: transparent;
         &:hover {
             color: color('black');
-            border-bottom-color: color('blue', 3);
-
         }
     }
 
