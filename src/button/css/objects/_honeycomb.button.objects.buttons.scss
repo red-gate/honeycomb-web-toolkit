@@ -158,15 +158,18 @@
 .button--red {
     background-color: color('red', 4) !important;
     border-color: color('red', 5) !important;
+    color: color('white') !important;
 
     &:hover {
         background-color: color('red', 5) !important;
         border-color: color('red', 6) !important;
+        color: color('white') !important;
     }
 
     &:active {
         background-color: color('red', 6) !important;
         border-color: color('red', 6) !important;
+        color: color('white') !important;
     }
 }
 
