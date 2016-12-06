@@ -53,8 +53,8 @@
 
 .tabs a {
     @include padding(0.5);
-    @include padding(1, "left");
-    @include padding(1, "right");
+    @include padding($tabs-padding-horizontal, "left");
+    @include padding($tabs-padding-horizontal, "right");
     display: block;
     transition: none;
     color: $tabs-link-color;
