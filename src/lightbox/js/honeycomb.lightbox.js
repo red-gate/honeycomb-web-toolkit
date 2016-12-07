@@ -1,7 +1,7 @@
 import loadScript from "../../document/js/honeycomb.document.load-script";
 
 const init = ( config = {} ) => {
-    let els = document.querySelectorAll( ".js-lightbox", ".js-lightbox--video", ".js-lightbox--iframe", ".js-lightbox--image", ".js-lightbox--inline", ".js-lightbox--ajax", ".js-lightbox--swf", ".js-lightbox--html" );
+    let els = document.querySelectorAll( ".js-lightbox, .js-lightbox--video, .js-lightbox--iframe, .js-lightbox--image, .js-lightbox--inline, .js-lightbox--ajax, .js-lightbox--swf, .js-lightbox--html" );
     if ( els.length ) {
         if ( typeof jQuery.fancybox === "undefined" ) {
             if ( typeof config.url === "undefined") {

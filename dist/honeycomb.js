@@ -1304,7 +1304,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var init = function init() {
     var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-    var els = document.querySelectorAll(".js-lightbox", ".js-lightbox--video", ".js-lightbox--iframe", ".js-lightbox--image", ".js-lightbox--inline", ".js-lightbox--ajax", ".js-lightbox--swf", ".js-lightbox--html");
+    var els = document.querySelectorAll(".js-lightbox, .js-lightbox--video, .js-lightbox--iframe, .js-lightbox--image, .js-lightbox--inline, .js-lightbox--ajax, .js-lightbox--swf, .js-lightbox--html");
     if (els.length) {
         if (typeof jQuery.fancybox === "undefined") {
             if (typeof config.url === "undefined") {
