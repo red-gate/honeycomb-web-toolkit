@@ -3,79 +3,85 @@
 \*------------------------------------*/
 
 blockquote {
-    @include padding(3, left); // Space for speechmark
-    display: block;
-    position: relative;
-    clear: both;
+    text-align: center;
     -webkit-font-smoothing: antialiased;
-    position: relative;
 
     p {
-        @include margin(0.25, bottom);
-        font-style: italic;
+        @include font-size(24px);
+        color: color("red");
+        font-weight: bold;
+    }
 
-        &:last-of-type {
-            @include margin(0.5, bottom);
+    img {
+        display: block;
+        float: none;
+        margin: auto;
+        @include margin(0.5, "bottom");
+    }
+
+    footer {
+        p {
+            font-weight: normal;
+            font-size: inherit;
+            line-height: inherit;
         }
     }
 
     cite {
+        @include margin(0.5, "bottom");
+        display: block;
         font-style: normal;
     }
 
-    .author {
-        font-weight: bold;
-        display: block;
-
-        &:before {
-            @include margin(0.25, right);
-            content: "\2014";
+    &.blockquote--small {
+        p {
+            @include font-size(18px);
         }
     }
 
-    &:before {
-        content: url(#{$blockquote-images-dir}/speechmark.svg);
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
+    &.blockquote--large {
+        p {
+            @include font-size(36px);
+        }
     }
-}
 
-
-/*------------------------------------*\
-// BLOCKQUOTE WITHOUT QUOTEMARK
-\*------------------------------------*/
-.blockquote--plain {
-    @include padding(0.5, 'left');
-    &:before {
-        content: '';
+    &.blockquote--small,
+    &.blockquote--large {
+        footer p {
+            font-size: inherit;
+            line-height: inherit;
+        }
     }
 }
 
 /*------------------------------------*\
- #BLOCKQUOTE WITH A HEADSHOT
+    #BLOCKQUOTE WITH A HEADSHOT
 \*------------------------------------*/
+
 .blockquote--headshot {
-    @include padding(1, left);
+    @extend .blockquote--small;
+
+    float: left;
+    width: 100%;
+    clear: both;
     position: relative;
 
     p {
-        width: 60%;
-
-        &:last-of-type {
-            @include padding(1, bottom);
-        }
-    }
-
-    &:before {
-        content: url(#{$blockquote-images-dir}/speechmark--small.svg);
+        float: left;
+        clear: left;
+        max-width: 60%;
+        text-align: left;
     }
 
     .blockquote--headshot__headshot {
-        width: 40%;
         position: absolute;
         bottom: 0;
         right: 0;
+        max-width: 34%;
+    }
+
+    cite {
+        float: left;
+        clear: both;
     }
 }
