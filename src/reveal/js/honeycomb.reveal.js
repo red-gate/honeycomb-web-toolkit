@@ -1,9 +1,4 @@
 // Reveal - Hide/Show content.
-
-const animationStart = new Event('js-reveal-animation-start');
-const animationEnd = new Event('js-reveal-animation-end');
-
-
 let init = () => {
     $( '.js-reveal' ).each( function () {
         let $this = $( this );
@@ -79,8 +74,6 @@ let open = ( button, callback ) => {
     if ( $content.is( '.js-reveal' ) ) {
         let $buttons = $( '.js-reveal-cta[href=\"' + hash + '\"]' );
 
-        button.dispatchEvent(animationStart);
-
         $content.slideDown({
             duration: 250,
             complete: () => {
@@ -100,8 +93,6 @@ let open = ( button, callback ) => {
                 if ( typeof callback === 'function' ) {
                     callback.call( this );
                 }
-
-                button.dispatchEvent(animationEnd);
             }
         });
     }
@@ -114,8 +105,6 @@ let close = ( button, callback ) => {
 
     if ( $content.is( '.js-reveal' ) ) {
         let $buttons = $( '.js-reveal-cta[href=\"' + hash + '\"]' );
-
-        button.dispatchEvent(animationStart);
 
         $content.slideUp({
             duration: 250,
@@ -136,8 +125,6 @@ let close = ( button, callback ) => {
                 if ( typeof callback === 'function' ) {
                     callback.call( this );
                 }
-
-                button.dispatchEvent(animationEnd);
             }
         });
     }

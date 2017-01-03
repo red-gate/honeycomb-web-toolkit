@@ -1698,10 +1698,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 // Reveal - Hide/Show content.
-
-var animationStart = new Event('js-reveal-animation-start');
-var animationEnd = new Event('js-reveal-animation-end');
-
 var init = function init() {
     $('.js-reveal').each(function () {
         var $this = $(this);
@@ -1778,8 +1774,6 @@ var open = function open(button, callback) {
         (function () {
             var $buttons = $('.js-reveal-cta[href=\"' + hash + '\"]');
 
-            button.dispatchEvent(animationStart);
-
             $content.slideDown({
                 duration: 250,
                 complete: function complete() {
@@ -1799,8 +1793,6 @@ var open = function open(button, callback) {
                     if (typeof callback === 'function') {
                         callback.call(undefined);
                     }
-
-                    button.dispatchEvent(animationEnd);
                 }
             });
         })();
@@ -1815,8 +1807,6 @@ var close = function close(button, callback) {
     if ($content.is('.js-reveal')) {
         (function () {
             var $buttons = $('.js-reveal-cta[href=\"' + hash + '\"]');
-
-            button.dispatchEvent(animationStart);
 
             $content.slideUp({
                 duration: 250,
@@ -1837,8 +1827,6 @@ var close = function close(button, callback) {
                     if (typeof callback === 'function') {
                         callback.call(undefined);
                     }
-
-                    button.dispatchEvent(animationEnd);
                 }
             });
         })();
