@@ -147,7 +147,7 @@ li > .list--bare {
         &:before {
             position: absolute;
             left: 0;
-            line-height: 1;
+            line-height: inherit;
             color: color('blue');
         }
     }
