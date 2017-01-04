@@ -79,7 +79,9 @@ notifications.init();
 
 // Polyfills.
 import indexOf from './polyfill/js/honeycomb.polyfill.index-of';
+import customEvent from './polyfill/js/honeycomb.polyfill.custom-event';
 indexOf();
+customEvent();
 
 // Reveal.
 import reveal from './reveal/js/honeycomb.reveal';
