@@ -38,6 +38,11 @@
     }
 }
 
+p:last-child .button:last-child {
+    // if the button is the last thing in a section, no extra margin, so that top and bottom section padding can stay consistent
+    @include margin(0, bottom);
+}
+
 .button--large,
 %button--large {
     padding: $button-padding--large !important;
