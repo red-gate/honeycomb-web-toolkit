@@ -86,6 +86,8 @@ const init = ( config = {} ) => {
                 });
 
                 jQuery( carousel ).slick( options );
+
+                jQuery( carousel ).css('visibility', 'inherit').css('height', 'auto');
             }
         }
     }

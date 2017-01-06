@@ -359,6 +359,8 @@ var init = function init() {
                 });
 
                 jQuery(carousel).slick(options);
+
+                jQuery(carousel).css('visibility', 'inherit').css('height', 'auto');
             };
 
             for (var i = 0; i < carousels.length; i++) {
