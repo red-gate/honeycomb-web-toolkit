@@ -1,3 +1,10 @@
+.js-carousel {
+    // reveal with JS
+    // using height and visibility instead of display:none, because slick sets the width of child elements based on the width of .js-carousel
+    visibility: hidden;
+    height: 0px;
+}
+
 .slick-slider {
     margin-bottom: 60px;
 }
