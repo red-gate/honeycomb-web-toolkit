@@ -177,18 +177,20 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var interval = 5000;
+var interval = 9000;
 var fadeOutDuration = 1000;
-var fadeInDuration = 2500;
+var fadeInDuration = 2000;
 
 var init = function init() {
     if (typeof $ === 'undefined') return;
 
     $('.js-animate--fade').each(function () {
         var $this = $(this);
-        $this.find('.js-animate--fade__item').wrapAll('<div class=\"js-animate--fade__container\"/>');
-        $this.find('.js-animate--fade__item').hide().first().show();
-        setInterval(step, interval);
+        if ($this.find('.js-animate--fade__item').length > 1) {
+            $this.find('.js-animate--fade__item').wrapAll('<div class=\"js-animate--fade__container\"/>');
+            $this.find('.js-animate--fade__item').hide().first().show();
+            setInterval(step, interval);
+        }
     });
 };
 
@@ -198,13 +200,12 @@ var step = function step() {
         var $current = $band.find('.js-animate--fade__item:visible');
         var $next = $current.next('.js-animate--fade__item').length !== 0 ? $current.next('.js-animate--fade__item') : $band.find('.js-animate--fade__item').first();
 
-        $current.fadeOut({
-            duration: fadeOutDuration,
-            complete: function complete() {
-                $next.fadeIn({
-                    duration: fadeInDuration
-                });
-            }
+        $next.css('position', 'relative');
+        $current.css('position', 'absolute').css('bottom', '0').fadeOut({
+            duration: fadeOutDuration
+        });
+        $next.fadeIn({
+            duration: fadeInDuration
         });
     });
 };
