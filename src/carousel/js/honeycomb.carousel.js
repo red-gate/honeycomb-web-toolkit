@@ -6,7 +6,7 @@ const rearrangeNav = (carousel) => {
     let leftButton = carousel.querySelector('.slick-prev');
     let rightButton = carousel.querySelector('.slick-next');
 
-    if (typeof nav !== undefined) {
+    if (typeof nav !== undefined && leftButton && rightButton) {
         // move buttons inside <ul>
         nav.appendChild(rightButton);
         nav.appendChild(leftButton);
@@ -79,7 +79,7 @@ const init = ( config = {} ) => {
                 if ( carousel.getAttribute( 'data-carousel-autoplay-speed' ) ) {
                     options.autoplaySpeed = carousel.getAttribute( 'data-carousel-autoplay-speed' );
                 }
-                
+
                 // rearrange nav
                 jQuery( carousel ).on('init', () => {
                     rearrangeNav(carousel);
