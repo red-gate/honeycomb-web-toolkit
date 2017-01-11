@@ -69,10 +69,6 @@
         height: $tabs-border-width;
         background-color: $tabs-border-color;
         transition: all 0.15s ease-in-out;
-
-        @include responsive("medium") {
-            display: none;
-        }
     }
 
     &:hover:after {
