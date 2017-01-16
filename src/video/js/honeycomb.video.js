@@ -70,8 +70,7 @@ let addInlineVideos = () => {
             // Get the options (data attributes)
             let options = getOptions( videoContainer );
 
-            // Replace the empty div with the video player iframe.
-            videos[ `${videoId}-${videoCounter}` ] = new YT.Player( `${videoId}-${videoCounter}`, {
+            let playerSettings = {
                 width: 640,
                 height: 360,
                 videoId: videoId,
@@ -84,6 +83,17 @@ let addInlineVideos = () => {
                     loop: options.loop,
                     enablejsapi: 1
                 },
+            };
+
+            // playlist settings
+            let listId = videoContainer.getAttribute('data-video-list-id');
+            if (listId) {
+                playerSettings.playerVars.listType = 'playlist';
+                playerSettings.playerVars.list = listId;
+            }
+            
+            // Replace the empty div with the video player iframe.
+            videos[ `${videoId}-${videoCounter}` ] = new YT.Player( `${videoId}-${videoCounter}`, playerSettings, {
                 events: {
                     onStateChange: ( event ) => {
 
