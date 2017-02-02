@@ -33,7 +33,7 @@
         height: 20px;
         display: inline-block;
         transform: rotate(45deg);
-        border: 3px solid color('red', 4);
+        border: 3px solid color('red', 5);
         border-radius: 1px;
     }
 }
@@ -68,7 +68,7 @@
         vertical-align: middle;
 
        &.slick-active button::before {
-            color: color('red', 4);
+            color: color('red', 5);
         }
 
         button::before {

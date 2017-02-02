@@ -68,18 +68,18 @@ p:last-child .button:last-child {
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button--primary,
 %button--primary {
-    background-color: color('blue', 4) !important;
+    background-color: color('blue', 5) !important;
     border-color: color('blue', 6) !important;
     color: color('white') !important;
 
     &:hover {
-        background-color: color('blue', 5) !important;
-        border-color: color('blue', 7) !important;
+        background-color: color('blue', 6) !important;
+        border-color: color('blue', 8) !important;
         color: color('white') !important;
     }
 
     &:active {
-        background-color: color('blue', 6) !important;
+        background-color: color('blue', 8) !important;
         border-color: color('blue', 6) !important;
     }
 }
@@ -161,7 +161,7 @@ p:last-child .button:last-child {
 
 // Red button
 .button--red {
-    background-color: color('red', 4) !important;
+    background-color: color('red', 5) !important;
     border-color: color('red', 5) !important;
     color: color('white') !important;
 

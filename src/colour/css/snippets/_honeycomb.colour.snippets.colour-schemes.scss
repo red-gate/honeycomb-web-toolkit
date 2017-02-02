@@ -24,7 +24,7 @@
     h1,
     .alpha,
     %alpha {
-        color: color('grey', 6);
+        color: color('grey', 7);
     }
 
     .sub-heading {
@@ -34,35 +34,35 @@
     h2,
     .beta,
     %beta {
-        color: color('grey', 6);
+        color: color('grey', 7);
     }
 
 
     h3,
     .gamma,
     %gamma {
-        color: color('grey', 6);
+        color: color('grey', 7);
     }
 
 
     h4,
     .delta,
     %delta {
-        color: color('grey', 6);
+        color: color('grey', 7);
     }
 
 
     h5,
     .epsilon,
     %epsilon {
-        color: color('grey', 6);
+        color: color('grey', 7);
     }
 
 
     h6,
     .zeta,
     %zeta {
-        color: color('grey', 6);
+        color: color('grey', 7);
     }
 
 
@@ -85,7 +85,7 @@
     }
 
 	a:active, a:hover {
-		color: color('blue', 3);
+		color: color('blue', 4);
 	}
 
 
@@ -104,7 +104,7 @@
     }
 
 	input, select, textarea {
-		color: color('grey', 7);
+		color: color('grey', 9);
 	}
 }
 
@@ -146,7 +146,7 @@
 	}
 
 	input, select, textarea {
-		color: color('grey', 7);
+		color: color('grey', 9);
 	}
 }
 
@@ -175,42 +175,42 @@
     h1,
     .alpha,
     %alpha {
-        color: color('blue', 7);
+        color: color('blue', 8);
     }
 
 
     h2,
     .beta,
     %beta {
-        color: color('blue', 7);
+        color: color('blue', 8);
     }
 
 
     h3,
     .gamma,
     %gamma {
-        color: color('blue', 7);
+        color: color('blue', 8);
     }
 
 
     h4,
     .delta,
     %delta {
-        color: color('blue', 7);
+        color: color('blue', 8);
     }
 
 
     h5,
     .epsilon,
     %epsilon {
-        color: color('blue', 7);
+        color: color('blue', 8);
     }
 
 
     h6,
     .zeta,
     %zeta {
-        color: color('blue', 7);
+        color: color('blue', 8);
     }
 
 
@@ -221,7 +221,7 @@
 
     a {
 		color: color('blue', 6);
-		border-color: color('blue', 3);
+		border-color: color('blue', 4);
 	}
     a:visited {
 
@@ -241,18 +241,18 @@
     h5 a,
     .main-heading a,
     .sub-heading a {
-        color: color('blue', 7);
+        color: color('blue', 8);
         border-bottom-color: transparent;
         &:hover {
             color: color('black');
-            border-bottom-color: color('blue', 3);
+            border-bottom-color: color('blue', 4);
 
         }
     }
 
     // Tabbed navigation
     .tabs {
-        border-bottom-color: color('blue', 3);
+        border-bottom-color: color('blue', 4);
     }
 
     .tabs li.active {
@@ -266,9 +266,9 @@
     }
 
     .tabs a {
-        background-color: color('blue', 3);
-        border-top-color: color('blue', 3);
-        border-bottom-color: color('blue', 3);
+        background-color: color('blue', 4);
+        border-top-color: color('blue', 4);
+        border-bottom-color: color('blue', 4);
     }
 
     // Pagination style navigation
@@ -277,7 +277,7 @@
 	}
 
 	input, select, textarea {
-		color: color('grey', 7);
+		color: color('grey', 9);
 	}
 
 /*
@@ -296,7 +296,7 @@
 \*------------------------------------*/
 
 @mixin scheme--darkest-grey {
-    background-color: color('grey', 6);
+    background-color: color('grey', 7);
    	border-color: color('grey', 5);
     color: color('grey', 2);
 
@@ -357,7 +357,7 @@
 
 
     a {
-		color: color('blue', 3);
+		color: color('blue', 4);
 		border-color: color('blue');
 	}
     a:visited {
@@ -367,7 +367,7 @@
 
     }
 	a:active, a:hover {
-		color: color('blue', 4);
+		color: color('blue', 5);
 	}
 
 
@@ -381,7 +381,7 @@
         border-bottom-color: transparent;
         &:hover {
             color: color('white');
-            border-bottom-color: color('blue', 3);
+            border-bottom-color: color('blue', 4);
 
         }
     }
@@ -392,12 +392,12 @@
     }
 
     .tabs li.active {
-        background-color: color('grey', 6);
+        background-color: color('grey', 7);
 
         a {
             border-top-color: color('blue');
-            border-bottom-color: color('grey', 6);
-            background-color: color('grey', 6);
+            border-bottom-color: color('grey', 7);
+            background-color: color('grey', 7);
             color: color('white');
         }
     }
@@ -406,7 +406,7 @@
         background-color: color('grey', 3);
         border-top-color: color('grey', 3);
         border-bottom-color: color('grey', 3);
-        color: color('grey', 6);
+        color: color('grey', 7);
     }
 
     // Pagination style navigation
@@ -415,11 +415,11 @@
 	}
 
 	input, select, textarea {
-		color: color('grey', 7);
+		color: color('grey', 9);
 	}
 
     table {
-        background-color: color('grey', 6);
+        background-color: color('grey', 7);
         color: color('grey', 2);
     }
 
@@ -501,7 +501,7 @@
 
     a {
 		color: color('blue', 2);
-		border-color: color('blue', 7);
+		border-color: color('blue', 8);
 	}
     a:visited {
 
@@ -510,7 +510,7 @@
 
     }
 	a:active, a:hover {
-		color: color('blue', 7);
+		color: color('blue', 8);
 	}
 
 
@@ -524,7 +524,7 @@
         border-bottom-color: transparent;
         &:hover {
             color: color('white');
-            border-bottom-color: color('blue', 3);
+            border-bottom-color: color('blue', 4);
 
         }
     }
@@ -570,7 +570,7 @@
 \*------------------------------------*/
 
 @mixin scheme--darkest-blue {
-    background-color: color('blue', 7);
+    background-color: color('blue', 8);
     border-color: color('grey', 5);
     color: color('grey', 2);
 
@@ -639,7 +639,7 @@
 
     }
 	a:active, a:hover {
-		color: color('blue', 3);
+		color: color('blue', 4);
 	}
 
 
@@ -664,12 +664,12 @@
     }
 
     .tabs li.active {
-        background-color: color('blue', 7);
+        background-color: color('blue', 8);
 
         a {
             border-top-color: color('blue');
-            border-bottom-color: color('blue', 7);
-            background-color: color('blue', 7);
+            border-bottom-color: color('blue', 8);
+            background-color: color('blue', 8);
             color: color('white');
         }
     }
@@ -678,7 +678,7 @@
         background-color: color('blue', 1);
         border-top-color: color('blue', 1);
         border-bottom-color: color('blue', 1);
-        color: color('blue', 7);
+        color: color('blue', 8);
     }
 
     // Pagination style navigation
@@ -687,7 +687,7 @@
 	}
 
 	input, select, textarea {
-		color: color('grey', 7);
+		color: color('grey', 9);
 	}
 }
 
@@ -700,7 +700,7 @@
 \*------------------------------------*/
 
 @mixin scheme--near-black {
-    background-color: color('grey', 7);
+    background-color: color('grey', 9);
     border-color: color('grey');
     color: color('grey', 2);
 
@@ -770,7 +770,7 @@
 
     }
 	a:active, a:hover {
-		color: color('blue', 3);
+		color: color('blue', 4);
 	}
 
 	h1 a,
@@ -783,13 +783,13 @@
         border-bottom-color: transparent;
         &:hover {
             color: color('white');
-            border-bottom-color: color('blue', 3);
+            border-bottom-color: color('blue', 4);
 
         }
     }
 
 	input, select, textarea {
-		color: color('grey', 7);
+		color: color('grey', 9);
 	}
 }
 
@@ -803,14 +803,14 @@
 
 @mixin scheme--black {
     background-color: color('black');
-    border-color: color('grey', 6);
+    border-color: color('grey', 7);
     color: color('grey', 2);
 
    	// smooth fonts for high contrast of light text on dark background
 	-webkit-font-smoothing: antialiased;
 
     hr {
-       	border-color: color('grey', 6);
+       	border-color: color('grey', 7);
    	}
 
 
@@ -871,7 +871,7 @@
 
     }
 	a:active, a:hover {
-		color: color('blue', 3);
+		color: color('blue', 4);
 	}
 
 
@@ -885,13 +885,13 @@
         border-bottom-color: transparent;
         &:hover {
             color: color('white');
-            border-bottom-color: color('blue', 3);
+            border-bottom-color: color('blue', 4);
 
         }
     }
 
 	input, select, textarea {
-		color: color('grey', 7);
+		color: color('grey', 9);
 	}
 }
 
@@ -1010,12 +1010,12 @@
         background-color: color('red', 2);
         border-top-color: color('red', 2);
         border-bottom-color: color('red', 2);
-        color: color('grey', 7);
+        color: color('grey', 9);
     }
 
     /*// Lozenge style tabbed navigation
     .tabs a {
-        background-color: color('grey', 7);
+        background-color: color('grey', 9);
         color: color('red', 2);
     	-webkit-font-smoothing: antialiased;
     }
@@ -1035,7 +1035,7 @@
 	}
 
 	input, select, textarea {
-		color: color('grey', 7);
+		color: color('grey', 9);
 	}
 
     table {

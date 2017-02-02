@@ -8,79 +8,80 @@
  * These variables are accessed by the function _honeycomb.functions.colors.scss when we reference them in our SASS
  */
 $site-colors: (
-    'yellow': (
-        'base': #ffe335,
+    "yellow": (
+        "base": #fed100,
         1: #fff9d7,
         2: #fff4ae,
         3: #ffee86,
         4: #ffe335,
-        5: #f4cd00,
-        6: #dcaa00
+        5: #fed100
     ),
-    'orange': (
-        'base': #fe9901,
+    "orange": (
+        "base": #fc9003,
         1: #ffebcc,
         2: #ffd699,
         3: #fec267,
-        4: #fe9901,
-        5: #f99115,
-        6: #ff5000
+        4: #ecac2d,
+        5: #fc9003
     ),
-    'green': (
-        'base': #1aac1e,
+    "green": (
+        "base": #1aac1e,
         1: #d1eed2,
         2: #a3dea5,
         3: #76cd78,
-        4: #82c140,
+        4: #4abc4b,
         5: #1aac1e,
-        6: #158a18,
+        6: #128024,
         7: #0e5b10
     ),
-    'red': (
-        'base': #cc0000,
-        'brand': #cc0000,
+    "red": (
+        "base": #cc0000,
+        "brand": #cc0000,
         1: #f5cccc,
         2: #eb9999,
         3: #e06666,
-        4: #cc0000,
-        5: #a30000,
-        6: #7a0000
+        4: #ff2828,
+        5: #cc0000,
+        6: #a30000,
+        7: #7a0000
     ),
-    'blue': (
-        'base': #3c85df,
-        1: #dceffb,
-        2: #b9dff7,
-        3: #73c0ef,
-        4: #3c85df,
-        5: #3576c6,
-        6: #2a5e9d,
-        7: #183559
+    "blue": (
+        "base": #3c85df,
+        1: #d8e7f9,
+        2: #b1cef2,
+        3: #8ab6ec,
+        4: #67a9f1,
+        5: #3c85df,
+        6: #336dc2,
+        7: #2a5e9d,
+        8: #183559
     ),
-    'grey': (
-        'base': #b6b6b6,
+    "grey": (
+        "base": #b6b6b6,
         1: #f2f2f2,
         2: #ebebeb,
         3: #dcdcdc,
         4: #b6b6b6,
         5: #767676,
-        6: #373737,
-        7: #222222,
-        8: #000000
+        6: #6e6e6e,
+        7: #373737,
+        8: #333333,
+        9: #222222
     ),
-    'black': (
-        'base': #000000
+    "black": (
+        "base": #000000
     ),
-    'white': (
-        'base': #ffffff
+    "white": (
+        "base": #ffffff
     )
 );
 
 // Chain colours onto useage variables
-$default-bg-color: map-get(map-get($site-colors, 'white'), 'base');
-$default-text-color: map-get(map-get($site-colors, 'grey'), 6);
-$default-border-color: map-get(map-get($site-colors, 'grey'), 3);
+$default-bg-color: map-get(map-get($site-colors, "white"), "base");
+$default-text-color: map-get(map-get($site-colors, "grey"), 7);
+$default-border-color: map-get(map-get($site-colors, "grey"), 3);
 
-$link-color: map-get(map-get($site-colors, 'blue'), 4);
-$link-border-color: map-get(map-get($site-colors, 'blue'), 'base');
-$link-hover-color: map-get(map-get($site-colors, 'blue'), 7);
-$link-hover-background-color: map-get(map-get($site-colors, 'grey'), 1);
+$link-color: map-get(map-get($site-colors, "blue"), 6);
+$link-border-color: map-get(map-get($site-colors, "blue"), "base");
+$link-hover-color: map-get(map-get($site-colors, "blue"), 8);
+$link-hover-background-color: map-get(map-get($site-colors, "grey"), 1);
