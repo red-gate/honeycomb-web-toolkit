@@ -2435,18 +2435,7 @@ var addInlineVideos = function addInlineVideos() {
                         showinfo: _options.showinfo,
                         loop: _options.loop,
                         enablejsapi: 1
-                    }
-                };
-
-                // playlist settings
-                var listId = videoContainer.getAttribute('data-video-list-id');
-                if (listId) {
-                    playerSettings.playerVars.listType = 'playlist';
-                    playerSettings.playerVars.list = listId;
-                }
-
-                // Replace the empty div with the video player iframe.
-                videos[videoId + "-" + videoCounter] = new YT.Player(videoId + "-" + videoCounter, playerSettings, {
+                    },
                     events: {
                         onStateChange: function onStateChange(event) {
 
@@ -2505,7 +2494,17 @@ var addInlineVideos = function addInlineVideos() {
                             }
                         }
                     }
-                });
+                };
+
+                // playlist settings
+                var listId = videoContainer.getAttribute('data-video-list-id');
+                if (listId) {
+                    playerSettings.playerVars.listType = 'playlist';
+                    playerSettings.playerVars.list = listId;
+                }
+
+                // Replace the empty div with the video player iframe.
+                videos[videoId + "-" + videoCounter] = new YT.Player(videoId + "-" + videoCounter, playerSettings);
             }
 
             // Increase the counter.

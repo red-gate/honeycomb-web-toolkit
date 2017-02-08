@@ -83,17 +83,6 @@ let addInlineVideos = () => {
                     loop: options.loop,
                     enablejsapi: 1
                 },
-            };
-
-            // playlist settings
-            let listId = videoContainer.getAttribute('data-video-list-id');
-            if (listId) {
-                playerSettings.playerVars.listType = 'playlist';
-                playerSettings.playerVars.list = listId;
-            }
-            
-            // Replace the empty div with the video player iframe.
-            videos[ `${videoId}-${videoCounter}` ] = new YT.Player( `${videoId}-${videoCounter}`, playerSettings, {
                 events: {
                     onStateChange: ( event ) => {
 
@@ -152,7 +141,17 @@ let addInlineVideos = () => {
                         }
                     }
                 }
-            });
+            };
+
+            // playlist settings
+            let listId = videoContainer.getAttribute('data-video-list-id');
+            if (listId) {
+                playerSettings.playerVars.listType = 'playlist';
+                playerSettings.playerVars.list = listId;
+            }
+            
+            // Replace the empty div with the video player iframe.
+            videos[ `${videoId}-${videoCounter}` ] = new YT.Player( `${videoId}-${videoCounter}`, playerSettings);
         }
 
         // Increase the counter.
