@@ -26,15 +26,10 @@
 
     &:hover {
         background-color: $button-hover-background !important;
-        color: $button-hover-color !important;
-        border-width: $button-hover-border-width !important;
-        border-style: $button-hover-border-style !important;
-        border-color: $button-hover-border-color !important;
     }
 
     &:active {
-        background-color: color('grey', 5) !important;
-        border-color: $button-hover-border-color !important;
+        background-color: $button-active-background !important;
     }
 }
 
@@ -45,12 +40,26 @@ p:last-child .button:last-child {
 
 .button--large,
 %button--large {
+    @include font-size($button-font-size--large);
     padding: $button-padding--large !important;
 }
 
 .button--small,
 %button--small {
+    @include font-size($button-font-size--small);
     padding: $button-padding--small !important;
+}
+
+.button--x-small,
+%button--x-small {
+    @include font-size($button-font-size--x-small);
+    padding: $button-padding--x-small !important;
+}
+
+.button--xx-small,
+%button--xx-small {
+    @include font-size($button-font-size--xx-small);
+    padding: $button-padding--xx-small !important;
 }
 
 .button--full-width,
@@ -68,19 +77,15 @@ p:last-child .button:last-child {
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button--primary,
 %button--primary {
-    background-color: color('blue', 5) !important;
-    border-color: color('blue', 6) !important;
-    color: color('white') !important;
+    background-color: $button-primary-background !important;
+    color: $button-primary-color !important;
 
     &:hover {
-        background-color: color('blue', 6) !important;
-        border-color: color('blue', 8) !important;
-        color: color('white') !important;
+        background-color: $button-primary-hover-background !important;
     }
 
     &:active {
-        background-color: color('blue', 8) !important;
-        border-color: color('blue', 6) !important;
+        background-color: $button-primary-active-background !important;
     }
 }
 
@@ -152,9 +157,8 @@ p:last-child .button:last-child {
 %button--disabled,
 [disabled] {
     &, &:hover, &:active {
-        background-color: color('grey', 2) !important;
-        border-color: transparent !important;
-        color: color('grey') !important;
+        background-color: $button-disabled-background !important;
+        color: $button-disabled-color !important;
         cursor: not-allowed;
     }
 }
