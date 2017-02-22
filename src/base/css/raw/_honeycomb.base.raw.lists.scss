@@ -6,18 +6,20 @@
  * Basic styles for raw unclassed lists.
  */
 
-ul, ol, dd {
+ul, ol {
   @include margin(0.5, left);
 }
 
-li {
+li, dd {
   @include margin(0.5, bottom);
 }
 
 
 dl { }
 dt {
-  font-weight: bold; }
+  @include margin(0.25, bottom);
+  font-weight: bold;
+}
 dd { }
 
 ul ul,
@@ -29,7 +31,7 @@ ol dl,
 dl ul,
 dl ol,
 dl dl {
-    @include margin(0.5, top);
+  @include margin(0.5, top);
 }
 
 // Remove extra vertical spacing when nesting lists.
@@ -45,5 +47,5 @@ li {
   p:empty {
     display: none;
   }
-  
+
 }
