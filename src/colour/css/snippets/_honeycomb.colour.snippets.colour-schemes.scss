@@ -17,6 +17,10 @@
     background-color: color('white');
    	border-color: color('grey', 3);
 
+    * {
+        border-color: inherit;
+    }
+
    	hr {
        	border-color: color('grey', 3);
    	}
@@ -106,6 +110,7 @@
 	input, select, textarea {
 		color: color('grey', 9);
 	}
+
 }
 
 
@@ -123,6 +128,10 @@
 @mixin scheme--lightest-grey {
     background-color: color('grey', 1);
     border-color: color('grey', 3);
+
+    * {
+        border-color: inherit;
+    }
 
     // Tabbed navigation
     .tabs {
@@ -161,6 +170,10 @@
 @mixin scheme--lightest-blue {
     background-color: color('blue', 1);
     color: color('blue', 6);
+
+    * {
+        border-color: inherit;
+    }
 
 // @TODO - this colour should be lighter - for example #bad6e7
 // This then needs to be set as a daisychained variable in settings.
@@ -299,6 +312,10 @@
     background-color: color('grey', 7);
    	border-color: color('grey', 5);
     color: color('grey', 2);
+
+    * {
+        border-color: inherit;
+    }
 
     // smooth fonts for high contrast of light text on dark background
 	-webkit-font-smoothing: antialiased;
@@ -448,6 +465,10 @@
    	// smooth fonts for high contrast of light text on dark background
 	-webkit-font-smoothing: antialiased;
 
+    * {
+        border-color: inherit;
+    }
+
     hr {
        	border-color: color('white');
    	}
@@ -577,6 +598,10 @@
    	// smooth fonts for high contrast of light text on dark background
 	-webkit-font-smoothing: antialiased;
 
+    * {
+        border-color: inherit;
+    }
+
     hr {
        	border-color: color('grey', 5);
    	}
@@ -704,6 +729,10 @@
     border-color: color('grey');
     color: color('grey', 2);
 
+    * {
+        border-color: inherit;
+    }
+
    	// smooth fonts for high contrast of light text on dark background
 	-webkit-font-smoothing: antialiased;
 
@@ -806,6 +835,10 @@
     border-color: color('grey', 7);
     color: color('grey', 2);
 
+    * {
+        border-color: inherit;
+    }
+
    	// smooth fonts for high contrast of light text on dark background
 	-webkit-font-smoothing: antialiased;
 
@@ -903,6 +936,10 @@
     background-color: color('red');
    	border-color: color('red', 5);
     color: color('white');
+
+    * {
+        border-color: inherit;
+    }
 
     // smooth fonts for high contrast of light text on dark background
 	-webkit-font-smoothing: antialiased;
