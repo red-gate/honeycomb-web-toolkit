@@ -18,7 +18,7 @@ var init = function init() {
 
     // If the account ID is not set, then don't carry on.
     if (!accountId || accountId === "UA-XXX") {
-        console.error("Google Analytics account ID is not set.");
+        window.console.error("Honeycomb: Google Analytics account ID is not set, therefore the Google Analytics script will not be loaded.");
         return false;
     }
 
@@ -68,7 +68,6 @@ var addScript = function addScript() {
 // Initialise the account, with the account ID.
 var initAccount = function initAccount(accountId) {
     if (!accountId || accountId === "UA-XXX") {
-        console.log("Google Analytics account ID is not set.");
         return false;
     }
 
@@ -509,7 +508,7 @@ Object.defineProperty(exports, "__esModule", {
 var sidebar = function sidebar() {
 
     if (typeof scrollTree === 'undefined') {
-        window.console.log('The scrollTree plugin hasn\'t been installed correctly. - Plugin undefined');
+        window.console.error('Honeycomb: The scrollTree plugin hasn\'t been installed correctly. - Plugin undefined');
         return;
     }
 
@@ -1183,7 +1182,7 @@ var _honeycomb33 = _interopRequireDefault(_honeycomb32);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_honeycombAnalytics2.default.setAccountId('XX-AAA'); // Google analytics.
+_honeycombAnalytics2.default.setAccountId('UA-XXX'); // Google analytics.
 
 _honeycombAnalytics2.default.init();
 

@@ -10,7 +10,7 @@ let init = ( s = false ) => {
 
     // If the account ID is not set, then don't carry on.
     if ( ! accountId || ( accountId === "UA-XXX" ) ) {
-      console.error("Google Analytics account ID is not set.");
+      window.console.error("Honeycomb: Google Analytics account ID is not set, therefore the Google Analytics script will not be loaded.");
       return false;
     }
 
@@ -60,7 +60,6 @@ let addScript = () => {
 // Initialise the account, with the account ID.
 let initAccount = ( accountId ) => {
     if ( ! accountId || ( accountId === "UA-XXX" ) ) {
-        console.log( "Google Analytics account ID is not set." );
         return false;
     }
 

@@ -1,7 +1,7 @@
 let sidebar = () => {
 
     if ( typeof scrollTree === 'undefined' ) {
-        window.console.log( 'The scrollTree plugin hasn\'t been installed correctly. - Plugin undefined' );
+        window.console.error( 'Honeycomb: The scrollTree plugin hasn\'t been installed correctly. - Plugin undefined' );
         return;
     }
 

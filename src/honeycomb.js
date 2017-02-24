@@ -1,6 +1,6 @@
 // Google analytics.
 import googleAnalytics from './analytics/js/honeycomb.analytics.google';
-googleAnalytics.setAccountId('XX-AAA');
+googleAnalytics.setAccountId('UA-XXX');
 googleAnalytics.init();
 
 // Pingdom.
