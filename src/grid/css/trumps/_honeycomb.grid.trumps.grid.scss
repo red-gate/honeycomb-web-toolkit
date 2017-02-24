@@ -3,5 +3,10 @@
     .#{$grid-class} .#{$grid-class}__col {
         margin-left: 0 !important;
         width: 100% !important;
+
+        & > .padded, & > .padded-h, & > .padded--tight, & > .padded-h--tight, & > .padded--loose, & > .padded-h--loose {
+			@include padding(0, 'left');
+			@include padding(0, 'right');
+        }
     }
 }
