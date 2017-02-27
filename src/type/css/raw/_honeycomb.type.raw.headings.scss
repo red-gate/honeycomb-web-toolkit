@@ -16,6 +16,10 @@ h1,
     @include font-size($heading-size-1);
     font-weight: $heading-size-1-font-weight;
     color: color('grey', 9);
+
+    @include responsive('small') {
+        @include font-size($heading-size-1-small);
+    }
 }
 
 

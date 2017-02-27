@@ -46,6 +46,10 @@ h1,
 .main-heading {
     &.h1--large {
         @include font-size(40px);
+
+        @include responsive('small') {
+          @include font-size(32px);
+        }
     }
 }
 
