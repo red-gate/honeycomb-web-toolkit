@@ -8,8 +8,8 @@
     $pxValue: nth($values, $i);
     $remValue: px-rem($pxValue);
 
-    $pxs: (#{$pxs}) + $pxValue + px + ' ';
-    $rems: (#{$rems}) + $remValue + ' ';
+    $pxs: (#{$pxs}) $pxValue + px;
+    $rems: (#{$rems}) $remValue;
   }
 
   #{$property}: $pxs;
