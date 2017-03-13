@@ -20,6 +20,7 @@ $button-background:             color('grey', 3) !default;
 $button-hover-background:       color('grey', 4) !default;
 $button-active-background:      color('grey', 5) !default;
 $button-disabled-background:    color('grey', 2) !default;
+$button-transparent-background: transparent !default;
 
 $button-primary-background:             color('blue', 6) !default;
 $button-primary-hover-background:       color('blue', 7) !default;
@@ -30,6 +31,10 @@ $button-primary-disabled-background:    color('blue', 3) !default;
 $button-color:                  color('grey', 7) !default;
 $button-primary-color:          color('white') !default;
 $button-disabled-color:         color('grey') !default;
+$button-transparent-color:      color('grey', 7) !default;
+$button-transparent-active-color: color('grey', 9) !default;
+$button-transparent-dark-color:      color('white') !default;
+$button-transparent-dark-active-color: color('grey', 2) !default;
 
 // Border
 $button-border-width:           0 !default;

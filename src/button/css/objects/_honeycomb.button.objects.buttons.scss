@@ -198,3 +198,34 @@ p:last-child .button:last-child {
         border-color: color('grey', 4) !important;
     }
 }
+
+// Transparent button
+.button--transparent,
+%button--transparent {
+    background-color: $button-transparent-background !important;
+    color: $button-transparent-color !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    &:hover {
+        background-color: $button-transparent-background !important;
+        color: $button-transparent-color !important;
+    }
+
+    &:active {
+        background-color: $button-transparent-background !important;
+        color: $button-transparent-active-color !important;
+    }
+
+    &--dark {
+        color: $button-transparent-dark-color !important;
+
+        &:hover {
+            color: $button-transparent-dark-color !important;
+        }
+
+        &:active {
+            color: $button-transparent-dark-active-color !important;
+        }
+    }
+}
