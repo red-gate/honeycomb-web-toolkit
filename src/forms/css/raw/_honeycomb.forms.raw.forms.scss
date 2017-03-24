@@ -11,13 +11,10 @@ input, select, textarea {
     @include border();
     @include margin(0.5, bottom);
     @include padding(0.25);
+    display: inline-block;
     width: 90%; // Fallback if calc rule below fails.
     width: calc(100% - 30px);
     border-radius: 5px;
-
-    &.required, &[required] {
-        display: inline-block;
-    }
 }
 
 input[type="checkbox"],

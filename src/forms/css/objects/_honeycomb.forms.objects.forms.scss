@@ -12,5 +12,28 @@
         width: 10px;
         height: 10px;
         background-color: color("grey", 5);
+
+        textarea + & {
+            @include margin(0.25, "top");
+            vertical-align: top;
+        }
+    }
+
+    &__help {
+        @include margin(0.25, "left");
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        color: color("grey", 5);
+
+        &::before {
+            @include margin(0);
+            @include font-size(20px, 20px);
+        }
+
+        textarea + & {
+            @include margin(0.25, "top");
+            vertical-align: top;
+        }
     }
 }
