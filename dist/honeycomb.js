@@ -1075,6 +1075,29 @@ exports.default = {
 };
 
 },{}],16:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var init = function init() {
+    addRequiredDot();
+};
+
+var addRequiredDot = function addRequiredDot() {
+    var fields = document.querySelectorAll("form .required, form [required]");
+    for (var i = 0; i < fields.length; i++) {
+        var dot = document.createElement("span");
+        dot.setAttribute("class", "form__required-dot");
+        fields[i].parentElement.insertBefore(dot, fields[i].nextSibling);
+    }
+};
+
+exports.default = {
+    init: init
+};
+
+},{}],17:[function(require,module,exports){
 'use strict';
 
 var _honeycombAnalytics = require('./analytics/js/honeycomb.analytics.google');
@@ -1131,9 +1154,13 @@ var _honeycomb16 = require('./filter/js/honeycomb.filter');
 
 var _honeycomb17 = _interopRequireDefault(_honeycomb16);
 
-var _honeycomb18 = require('./lightbox/js/honeycomb.lightbox');
+var _honeycomb18 = require('./forms/js/honeycomb.forms');
 
 var _honeycomb19 = _interopRequireDefault(_honeycomb18);
+
+var _honeycomb20 = require('./lightbox/js/honeycomb.lightbox');
+
+var _honeycomb21 = _interopRequireDefault(_honeycomb20);
 
 var _honeycombMaps = require('./maps/js/honeycomb.maps.google');
 
@@ -1159,33 +1186,33 @@ var _honeycombPolyfill3 = require('./polyfill/js/honeycomb.polyfill.custom-event
 
 var _honeycombPolyfill4 = _interopRequireDefault(_honeycombPolyfill3);
 
-var _honeycomb20 = require('./reveal/js/honeycomb.reveal');
-
-var _honeycomb21 = _interopRequireDefault(_honeycomb20);
-
-var _honeycomb22 = require('./scroll/js/honeycomb.scroll');
+var _honeycomb22 = require('./reveal/js/honeycomb.reveal');
 
 var _honeycomb23 = _interopRequireDefault(_honeycomb22);
 
-var _honeycomb24 = require('./sticky/js/honeycomb.sticky');
+var _honeycomb24 = require('./scroll/js/honeycomb.scroll');
 
 var _honeycomb25 = _interopRequireDefault(_honeycomb24);
 
-var _honeycomb26 = require('./svg/js/honeycomb.svg');
+var _honeycomb26 = require('./sticky/js/honeycomb.sticky');
 
 var _honeycomb27 = _interopRequireDefault(_honeycomb26);
 
-var _honeycomb28 = require('./tabs/js/honeycomb.tabs');
+var _honeycomb28 = require('./svg/js/honeycomb.svg');
 
 var _honeycomb29 = _interopRequireDefault(_honeycomb28);
 
-var _honeycomb30 = require('./toggle/js/honeycomb.toggle');
+var _honeycomb30 = require('./tabs/js/honeycomb.tabs');
 
 var _honeycomb31 = _interopRequireDefault(_honeycomb30);
 
-var _honeycomb32 = require('./video/js/honeycomb.video');
+var _honeycomb32 = require('./toggle/js/honeycomb.toggle');
 
 var _honeycomb33 = _interopRequireDefault(_honeycomb32);
+
+var _honeycomb34 = require('./video/js/honeycomb.video');
+
+var _honeycomb35 = _interopRequireDefault(_honeycomb34);
 
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
@@ -1246,9 +1273,13 @@ _honeycomb15.default.init();
 
 _honeycomb17.default.init();
 
-// Lightbox.
+// Forms.
 
 _honeycomb19.default.init();
+
+// Lightbox.
+
+_honeycomb21.default.init();
 
 // Google map.
 
@@ -1274,37 +1305,37 @@ _honeycombNotification2.default.init();
 
 // Reveal.
 
-_honeycomb21.default.init();
+_honeycomb23.default.init();
 
 // Scroll.
 
-_honeycomb23.default.init();
+_honeycomb25.default.init();
 
 // Sticky.
 
-_honeycomb25.default.init();
+_honeycomb27.default.init();
 
 // SVG.
 
-_honeycomb27.default.init();
+_honeycomb29.default.init();
 
 // Tabs.
 
-_honeycomb29.default.init({
+_honeycomb31.default.init({
     equalise: _honeycomb15.default.init
 });
 
 // Toggle.
 
-_honeycomb31.default.init();
+_honeycomb33.default.init();
 
 // Video.
 
-_honeycomb33.default.init({
+_honeycomb35.default.init({
     analytics: _honeycombAnalytics2.default
 });
 
-},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./code/js/honeycomb.code":7,"./confluence/js/honeycomb.confluence":8,"./content/js/honeycomb.content":9,"./cookie/js/honeycomb.cookie":10,"./document/js/honeycomb.document.location":12,"./document/js/honeycomb.document.viewport":13,"./equalise/js/honeycomb.equalise":14,"./filter/js/honeycomb.filter":15,"./lightbox/js/honeycomb.lightbox":17,"./maps/js/honeycomb.maps.google":18,"./navigation/js/honeycomb.navigation.dropdown":19,"./navigation/js/honeycomb.navigation.header":20,"./notification/js/honeycomb.notification.block":21,"./polyfill/js/honeycomb.polyfill.custom-event":22,"./polyfill/js/honeycomb.polyfill.index-of":23,"./reveal/js/honeycomb.reveal":24,"./scroll/js/honeycomb.scroll":25,"./sticky/js/honeycomb.sticky":26,"./svg/js/honeycomb.svg":27,"./tabs/js/honeycomb.tabs":28,"./toggle/js/honeycomb.toggle":29,"./video/js/honeycomb.video":30}],17:[function(require,module,exports){
+},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./code/js/honeycomb.code":7,"./confluence/js/honeycomb.confluence":8,"./content/js/honeycomb.content":9,"./cookie/js/honeycomb.cookie":10,"./document/js/honeycomb.document.location":12,"./document/js/honeycomb.document.viewport":13,"./equalise/js/honeycomb.equalise":14,"./filter/js/honeycomb.filter":15,"./forms/js/honeycomb.forms":16,"./lightbox/js/honeycomb.lightbox":18,"./maps/js/honeycomb.maps.google":19,"./navigation/js/honeycomb.navigation.dropdown":20,"./navigation/js/honeycomb.navigation.header":21,"./notification/js/honeycomb.notification.block":22,"./polyfill/js/honeycomb.polyfill.custom-event":23,"./polyfill/js/honeycomb.polyfill.index-of":24,"./reveal/js/honeycomb.reveal":25,"./scroll/js/honeycomb.scroll":26,"./sticky/js/honeycomb.sticky":27,"./svg/js/honeycomb.svg":28,"./tabs/js/honeycomb.tabs":29,"./toggle/js/honeycomb.toggle":30,"./video/js/honeycomb.video":31}],18:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1350,7 +1381,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":11}],18:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":11}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1463,7 +1494,7 @@ exports.default = {
     initialiseMap: initialiseMap
 };
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1511,7 +1542,7 @@ exports.default = {
     addArrows: addArrows
 };
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1553,7 +1584,7 @@ exports.default = {
     init: init
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1684,7 +1715,7 @@ exports.default = {
     block: notification
 };
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1706,7 +1737,7 @@ var CustomEvent = function CustomEvent() {
 
 exports.default = CustomEvent;
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1731,7 +1762,7 @@ var indexOf = function indexOf() {
 
 exports.default = indexOf;
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1907,7 +1938,7 @@ exports.default = {
     close: close
 };
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1960,7 +1991,7 @@ exports.default = {
     init: init
 };
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2013,7 +2044,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":11}],27:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":11}],28:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2042,7 +2073,7 @@ exports.default = {
     init: init
 };
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2188,7 +2219,7 @@ exports.default = {
     init: init
 };
 
-},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":11}],29:[function(require,module,exports){
+},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":11}],30:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2347,7 +2378,7 @@ exports.default = {
     init: init
 };
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2588,4 +2619,4 @@ exports.default = {
     videos: videos
 };
 
-},{}]},{},[16]);
+},{}]},{},[17]);

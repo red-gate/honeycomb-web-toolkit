@@ -4,4 +4,13 @@
         @include margin(0.25, "bottom");
         color: color("grey", 5);
     }
+
+    &__required-dot {
+        @extend .rounded--circle;
+        @include margin(0.25, "left");
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: color("grey", 5);
+    }
 }
