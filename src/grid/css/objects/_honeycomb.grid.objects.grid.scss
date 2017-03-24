@@ -71,15 +71,17 @@
     * Build the grid at breakpoints, using Desktop first approach, like the
     * responsive mixin in the base module.
     */
-    $hc-breakpoints: false !default;
-    @if $hc-breakpoints {
-        @each $breakpoint in $hc-breakpoints {
-            $name: nth($breakpoint, 1);
-            $width: nth($breakpoint, 2);
-            $declaration: "(#{$hc-mqProperty} #{$width})";
+    @if $hc-responsive {
+        $hc-breakpoints: false !default;
+        @if $hc-breakpoints {
+            @each $breakpoint in $hc-breakpoints {
+                $name: nth($breakpoint, 1);
+                $width: nth($breakpoint, 2);
+                $declaration: "(#{$hc-mqProperty} #{$width})";
 
-            @media only screen and #{$declaration} {
-                @include buildGrid($hc-grid-gutter, "--#{$name}");
+                @media only screen and #{$declaration} {
+                    @include buildGrid($hc-grid-gutter, "--#{$name}");
+                }
             }
         }
     }

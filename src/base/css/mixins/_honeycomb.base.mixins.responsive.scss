@@ -4,15 +4,17 @@
  */
 
 @mixin responsive($breakpoint) {
-  @if map-has-key($hc-breakpoints, $breakpoint) {
+  @if $hc-responsive {
+    @if map-has-key($hc-breakpoints, $breakpoint) {
 
-    $width: map-get($hc-breakpoints, $breakpoint);
-    $declaration: "(#{$hc-mqProperty} #{$width})";
-    @media only screen and #{$declaration} {
-      @content;
+      $width: map-get($hc-breakpoints, $breakpoint);
+      $declaration: "(#{$hc-mqProperty} #{$width})";
+      @media only screen and #{$declaration} {
+        @content;
+      }
+
+    } @else {
+      @error "Breakpoint `#{$breakpoint}` doesn't exist in the list of breakpoints.";
     }
-
-  } @else {
-    @error "Breakpoint `#{$breakpoint}` doesn't exist in the list of breakpoints.";
   }
 }

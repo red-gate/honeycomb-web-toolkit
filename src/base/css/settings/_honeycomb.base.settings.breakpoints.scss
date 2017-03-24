@@ -3,6 +3,13 @@
 \*------------------------------------*/
 
 /**
+ * Toggle responsive functionality on or off.
+ * Default is for responsive functionality to be ON.
+ */
+
+$hc-responsive: true !default;
+
+/**
  * Set responsive breakpoints.
  * (Note: No large breakpoint needed, as large is the default as using desktop first
  * approach.)

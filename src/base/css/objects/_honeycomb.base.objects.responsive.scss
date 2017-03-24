@@ -1,17 +1,34 @@
 $hc-breakpoints: false !default;
 @if $hc-breakpoints {
-    @each $breakpoint in $hc-breakpoints {
-        $name: nth($breakpoint, 1);
-        $width: nth($breakpoint, 2);
-        $declaration: "(#{$hc-mqProperty} #{$width})";
+    @if $hc-responsive {
+        @each $breakpoint in $hc-breakpoints {
+            $name: nth($breakpoint, 1);
+            $width: nth($breakpoint, 2);
+            $declaration: "(#{$hc-mqProperty} #{$width})";
 
-        @media only screen and #{$declaration} {
-            .show-on-#{$name} {
-                display: inline-block !important;
-            }
-            .hide-on-#{$name} {
-                display: none !important;
+            @media only screen and #{$declaration} {
+                .show-on-#{$name} {
+                    display: inline-block !important;
+                }
+                .hide-on-#{$name} {
+                    display: none !important;
+                }
             }
         }
+    } @else {
+
+        // If not responsive, then hide any elements that have `hide-on-x` 
+        // where `x` is the first/last breakpoint.
+        $bp: false;
+
+        @if $hc-desktopFirst {
+            $bp: nth(map-keys($hc-breakpoints), 1);
+        } @else {
+            $bp: nth(map-keys($hc-breakpoints), length($hc-breakpoints));
+        }
+
+        .hide-on-#{$bp} {
+            display: none;
+        }   
     }
 }
