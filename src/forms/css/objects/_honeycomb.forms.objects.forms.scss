@@ -1,0 +1,7 @@
+.form {
+
+    &__help-text {
+        @include margin(0.25, "bottom");
+        color: color("grey", 5);
+    }
+}
