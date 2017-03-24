@@ -2,22 +2,22 @@
 
 @keyframes downstroke {
     0% { height: 0; }
-    100% { height: $checkbox-height/2;  }
+    100% { height: $hc-checkbox-height/2;  }
 }
 @keyframes upstroke {
     0% { height: 0; }
     50% { height: 0; }
-    100% { height: $checkbox-height * 1.2; }
+    100% { height: $hc-checkbox-height * 1.2; }
 }
 
 @keyframes downstrokeSmall {
     0% { height: 0; }
-    100% { height: $checkbox-height-small/2;  }
+    100% { height: $hc-checkbox-height-small/2;  }
 }
 @keyframes upstrokeSmall {
     0% { height: 0; }
     50% { height: 0; }
-    100% { height: $checkbox-height-small * 1.2; }
+    100% { height: $hc-checkbox-height-small * 1.2; }
 }
 
 input[type=checkbox].checkbox {
@@ -33,7 +33,7 @@ input[type=checkbox].checkbox {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    transition: border-color ease $checkbox-duration/2, opacity ease $checkbox-duration/2;
+    transition: border-color ease $hc-checkbox-duration/2, opacity ease $hc-checkbox-duration/2;
     cursor:pointer;
 
     &:hover {
@@ -44,7 +44,7 @@ input[type=checkbox].checkbox {
         box-sizing: border-box;
         position: absolute;
         height: 0;
-        background-color: $checkbox-checked-color;
+        background-color: $hc-checkbox-checked-color;
         display: inline-block;
         transform-origin: left top;
         border-radius: 5px;
@@ -68,7 +68,7 @@ input[type=checkbox].checkbox {
     }
 
     &.checkbox--small {
-        @include checkboxDimensions($checkbox-height-small);
+        @include checkboxDimensions($hc-checkbox-height-small);
         
         span {
             font-size: inherit;
@@ -77,7 +77,7 @@ input[type=checkbox].checkbox {
     }
 
     &.checkbox--loading {
-        background-image: url(#{$checkbox-loading-icon-dir}/spinny.gif);
+        background-image: url(#{$hc-checkbox-loading-icon-dir}/spinny.gif);
         background-repeat: no-repeat;
 
         &::before, &::after {
@@ -93,23 +93,23 @@ input[type=checkbox].checkbox--loading + .checkbox {
 
 input[type=checkbox]:checked + .checkbox, 
 .checkbox--checked {
-    border-color: $checkbox-checked-color;
+    border-color: $hc-checkbox-checked-color;
     
     &::after{
-        height: $checkbox-height * .5;
-        animation: downstroke $checkbox-duration/2 ease 0s forwards;
+        height: $hc-checkbox-height * .5;
+        animation: downstroke $hc-checkbox-duration/2 ease 0s forwards;
     }
     &.checkbox--small::after {
-        height: $checkbox-height-small * .5;
-        animation: downstrokeSmall $checkbox-duration/2 ease 0s forwards;
+        height: $hc-checkbox-height-small * .5;
+        animation: downstrokeSmall $hc-checkbox-duration/2 ease 0s forwards;
     }
      
     &::before{
-        height: $checkbox-height * 1.2;
-        animation: upstroke $checkbox-duration ease 0s forwards;
+        height: $hc-checkbox-height * 1.2;
+        animation: upstroke $hc-checkbox-duration ease 0s forwards;
     }
     &.checkbox--small::before{
-        height: $checkbox-height-small * 1.2;
-        animation: upstrokeSmall $checkbox-duration ease 0s forwards;
+        height: $hc-checkbox-height-small * 1.2;
+        animation: upstrokeSmall $hc-checkbox-duration ease 0s forwards;
     }
 }

@@ -20,22 +20,22 @@ ul.sharing {
 	}
 
 	&--email {
-		background-image: url(#{$sharing-images-dir}/email.png);
+		background-image: url(#{$hc-sharing-images-dir}/email.png);
 	}
 
 	&--facebook {
-		background-image: url(#{$sharing-images-dir}/facebook.png);
+		background-image: url(#{$hc-sharing-images-dir}/facebook.png);
 	}
 
 	&--google-plus {
-		background-image: url(#{$sharing-images-dir}/google-plus.png);
+		background-image: url(#{$hc-sharing-images-dir}/google-plus.png);
 	}
 
 	&--linked-in {
-		background-image: url(#{$sharing-images-dir}/linked-in.png);
+		background-image: url(#{$hc-sharing-images-dir}/linked-in.png);
 	}
 
 	&--twitter {
-		background-image: url(#{$sharing-images-dir}/twitter.png);
+		background-image: url(#{$hc-sharing-images-dir}/twitter.png);
 	}
 }

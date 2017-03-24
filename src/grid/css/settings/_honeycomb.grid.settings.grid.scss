@@ -11,8 +11,8 @@
  *  - set the grid gutter as a percentage (auto calculated).
  */
 
-$enable-grid-classes: true !default;
-$grid-class: "grid" !default;
-$grid-cols: (12) !default;
-$grid-target-gutter: 0px !default;
-$grid-gutter: ($grid-target-gutter / $container-width) * 100% !default;
+$hc-enable-grid-classes: true !default;
+$hc-grid-class: "grid" !default;
+$hc-grid-cols: (12) !default;
+$hc-grid-target-gutter: 0px !default;
+$hc-grid-gutter: ($hc-grid-target-gutter / $hc-container-width) * 100% !default;

@@ -1,17 +1,17 @@
-@mixin checkboxDimensions ($height: $checkbox-height) {
+@mixin checkboxDimensions ($height: $hc-checkbox-height) {
 	$border-width : $height * .1;
 	height: $height;
 	width: $height;
-	border: $border-width solid $checkbox-unchecked-color;
+	border: $border-width solid $hc-checkbox-unchecked-color;
 
 	&::before, &::after {
 		width: $height * .2;
 	}
 
 	&::before {
-		top:$height * .72;
+		top: $height * .72;
 		left: $height * .41;
-		box-shadow: 0 0 0 $height * .05 $checkbox-background-color;
+		box-shadow: 0 0 0 $height * .05 $hc-checkbox-background-color;
 	}
 
 	&::after {

@@ -4,7 +4,7 @@
 // .background-color--red,
 // .background-color--red--1 {}
 
-@each $color, $shades in $site-colors {
+@each $color, $shades in $hc-site-colors {
     $base-color: map-get($shades, 'base');
 
     .color--#{$color} {

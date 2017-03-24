@@ -5,7 +5,7 @@
 .nav--vertical {
 	@include padding(1, bottom);
 	@include margin(1, bottom);
-	background-color: $nav-vertical-background-color;
+	background-color: $hc-nav-vertical-background-color;
 
 	h2 {
 		@include padding(0.5, top);
@@ -34,21 +34,21 @@
 		@include padding(1, right);
 		@include padding(0.25, top);
 		@include padding(0.25, bottom);
-		color: $nav-vertical-link-color;
-		font-weight: $nav-vertical-link-font-weight;
+		color: $hc-nav-vertical-link-color;
+		font-weight: $hc-nav-vertical-link-font-weight;
 		position: relative;
 		display: block;
 		border-bottom: none;
 
 		&:hover {
-			color: $nav-vertical-link-color-hover;
+			color: $hc-nav-vertical-link-color-hover;
 			background-color: color('grey', 2);
 		}
 
 		&.active {
-			background-color: $nav-vertical-link-background-color-active;
-			color: $nav-vertical-link-color-active;
-			font-weight: $nav-vertical-link-font-weight-active;
+			background-color: $hc-nav-vertical-link-background-color-active;
+			color: $hc-nav-vertical-link-color-active;
+			font-weight: $hc-nav-vertical-link-font-weight-active;
 		}
 	}
 }

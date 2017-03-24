@@ -8,7 +8,7 @@
  * approach.)
  */
 
-$breakpoints: (
+$hc-breakpoints: (
   "large": 9999px,
   "medium": 768px,
   "small": 480px
@@ -21,11 +21,11 @@ $breakpoints: (
  * breakpoint, so 'medium' breakpoint would apply to medium and small.
  */
 
-$desktopFirst: true !default;
-$mqProperty: "max-width:" !default;
+$hc-desktopFirst: true !default;
+$hc-mqProperty: "max-width:" !default;
 
-@if $desktopFirst == true {
-    $mqProperty: "max-width:";
+@if $hc-desktopFirst == true {
+    $hc-mqProperty: "max-width:";
 } @else {
-    $mqProperty: "min-width:";
+    $hc-mqProperty: "min-width:";
 }

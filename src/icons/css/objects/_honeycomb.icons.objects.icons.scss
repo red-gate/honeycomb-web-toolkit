@@ -50,7 +50,7 @@
 %icon {
     &:before {
         font-family: "Redgate";
-        font-size: $icon-font-size;
+        font-size: $hc-icon-font-size;
         vertical-align: top;
         @include margin(0.25, right);
     }

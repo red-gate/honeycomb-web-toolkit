@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'Redgate';
-	src:url('#{$icon-font-dir}redgate.eot?v=#{$icon-font-version}');
-	src:url('#{$icon-font-dir}redgate.eot?#iefix&v=#{$icon-font-version}') format('embedded-opentype'),
-		url('#{$icon-font-dir}redgate.ttf?v=#{$icon-font-version}') format('truetype'),
-		url('#{$icon-font-dir}redgate.woff?v=#{$icon-font-version}') format('woff'),
-		url('#{$icon-font-dir}redgate.svg?v=#{$icon-font-version}#Redgate') format('svg');
+	src:url('#{$hc-icon-font-dir}redgate.eot?v=#{$hc-icon-font-version}');
+	src:url('#{$hc-icon-font-dir}redgate.eot?#iefix&v=#{$hc-icon-font-version}') format('embedded-opentype'),
+		url('#{$hc-icon-font-dir}redgate.ttf?v=#{$hc-icon-font-version}') format('truetype'),
+		url('#{$hc-icon-font-dir}redgate.woff?v=#{$hc-icon-font-version}') format('woff'),
+		url('#{$hc-icon-font-dir}redgate.svg?v=#{$hc-icon-font-version}#Redgate') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }

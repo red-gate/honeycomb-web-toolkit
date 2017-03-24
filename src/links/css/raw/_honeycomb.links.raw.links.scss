@@ -9,7 +9,7 @@
 a {
     transition: all 0.3s ease;
     text-decoration: none;
-    color: $link-color;
+    color: $hc-link-color;
 }
 
 a:visited { }
@@ -17,7 +17,7 @@ a:visited { }
 a:focus { }
 
 a:active, a:hover {
-    color: $link-hover-color;
+    color: $hc-link-hover-color;
 }
 
 
@@ -39,7 +39,7 @@ h5 a,
         opacity: 0.5;
     }
     &.color--blue:hover {
-        color: $link-hover-color;
+        color: $hc-link-hover-color;
         opacity: 1;
     }
 }

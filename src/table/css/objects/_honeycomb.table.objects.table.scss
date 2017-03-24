@@ -6,7 +6,7 @@
 
 .table--striped {
 	tr.odd, tr:nth-child(odd) {
-		background: $default-bg-color;
+		background: $hc-default-bg-color;
 	}
 	tr.even, tr:nth-child(even) {
 		background: color('grey', 1);

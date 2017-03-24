@@ -1,9 +1,9 @@
-$breakpoints: false !default;
-@if $breakpoints {
-    @each $breakpoint in $breakpoints {
+$hc-breakpoints: false !default;
+@if $hc-breakpoints {
+    @each $breakpoint in $hc-breakpoints {
         $name: nth($breakpoint, 1);
         $width: nth($breakpoint, 2);
-        $declaration: "(#{$mqProperty} #{$width})";
+        $declaration: "(#{$hc-mqProperty} #{$width})";
 
         @media only screen and #{$declaration} {
             .show-on-#{$name} {

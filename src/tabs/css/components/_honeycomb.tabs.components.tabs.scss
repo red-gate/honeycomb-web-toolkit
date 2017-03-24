@@ -22,8 +22,8 @@
     table-layout: fixed;
     list-style: none;
     width: 100%;
-    max-width: $tabs-max-width;
-    max-width: px-rem($tabs-max-width);
+    max-width: $hc-tabs-max-width;
+    max-width: px-rem($hc-tabs-max-width);
     overflow: hidden;
 }
 
@@ -32,7 +32,7 @@
     position: relative;
     display: inline-block;
     width: auto;
-    border-bottom-width: $tabs-border-width;
+    border-bottom-width: $hc-tabs-border-width;
     border-bottom-style: solid;
     border-bottom-color: transparent;
     overflow: hidden;
@@ -53,21 +53,21 @@
 
 .tabs a {
     @include padding(0.5);
-    @include padding($tabs-padding-horizontal, "left");
-    @include padding($tabs-padding-horizontal, "right");
+    @include padding($hc-tabs-padding-horizontal, "left");
+    @include padding($hc-tabs-padding-horizontal, "right");
     display: block;
     transition: none;
-    color: $tabs-link-color;
+    color: $hc-tabs-link-color;
 
     &:after {
         content: " ";
         position: absolute;
         left: 0;
         top: 9999px; // For browsers that don't understand calc.
-        top: calc(100% + #{$tabs-border-width});
+        top: calc(100% + #{$hc-tabs-border-width});
         width: 100%;
-        height: $tabs-border-width;
-        background-color: $tabs-border-color;
+        height: $hc-tabs-border-width;
+        background-color: $hc-tabs-border-color;
         transition: all 0.15s ease-in-out;
     }
 

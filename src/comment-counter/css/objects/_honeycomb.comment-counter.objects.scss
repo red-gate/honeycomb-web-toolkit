@@ -3,7 +3,7 @@
 	@include padding(0.25, 'right');
 	position: relative;
 	color: color('white');
-	background-color: $link-color;
+	background-color: $hc-link-color;
 	font-weight: bold;
 	font-size: 0.9em;
 	border-radius: 3px;
@@ -16,7 +16,7 @@
 		position: absolute;
 		z-index: -1;
 		border-color: transparent;
-		border-right-color: $link-color;
+		border-right-color: $hc-link-color;
 		border-width: 0.9em 1em 0.9em 0;
 		border-style: solid;
 	}

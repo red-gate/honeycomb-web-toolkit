@@ -4,9 +4,9 @@
 //  - else set to the unitless value passed in
 // example use:  @include font-size(12px, 3);
 
-@mixin font-size($size: $font-size, $line-height: auto) {
+@mixin font-size($size: $hc-font-size, $line-height: auto) {
   font-size: $size;
-  font-size: ($size / $font-size) * 1rem;
+  font-size: ($size / $hc-font-size) * 1rem;
 
   @if $line-height == auto {
     line-height: $size + 10;

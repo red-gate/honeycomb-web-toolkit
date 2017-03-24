@@ -7,7 +7,7 @@
  * These can be overwritten by the $site-colours SASS map in [project name].settings.colors.scss
  * These variables are accessed by the function _honeycomb.functions.colors.scss when we reference them in our SASS
  */
-$site-colors: (
+$hc-site-colors: (
     "yellow": (
         "base": #fed100,
         1: #fff9d7,
@@ -77,11 +77,11 @@ $site-colors: (
 );
 
 // Chain colours onto useage variables
-$default-bg-color: map-get(map-get($site-colors, "white"), "base");
-$default-text-color: map-get(map-get($site-colors, "grey"), 7);
-$default-border-color: map-get(map-get($site-colors, "grey"), 3);
+$hc-default-bg-color: map-get(map-get($hc-site-colors, "white"), "base");
+$hc-default-text-color: map-get(map-get($hc-site-colors, "grey"), 7);
+$hc-default-border-color: map-get(map-get($hc-site-colors, "grey"), 3);
 
-$link-color: map-get(map-get($site-colors, "blue"), 6);
-$link-border-color: map-get(map-get($site-colors, "blue"), "base");
-$link-hover-color: map-get(map-get($site-colors, "blue"), 8);
-$link-hover-background-color: map-get(map-get($site-colors, "grey"), 1);
+$hc-link-color: map-get(map-get($hc-site-colors, "blue"), 6);
+$hc-link-border-color: map-get(map-get($hc-site-colors, "blue"), "base");
+$hc-link-hover-color: map-get(map-get($hc-site-colors, "blue"), 8);
+$hc-link-hover-background-color: map-get(map-get($hc-site-colors, "grey"), 1);

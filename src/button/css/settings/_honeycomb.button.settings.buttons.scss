@@ -3,41 +3,41 @@
 \*------------------------------------*/
 
 // Padding
-$button-padding:                12px 18px !default;
-$button-padding--large:         15px 20px !default;
-$button-padding--small:         8px 16px !default;
-$button-padding--x-small:       5px 16px !default;
-$button-padding--xx-small:      3px 6px !default;
+$hc-button-padding:                12px 18px !default;
+$hc-button-padding--large:         15px 20px !default;
+$hc-button-padding--small:         8px 16px !default;
+$hc-button-padding--x-small:       5px 16px !default;
+$hc-button-padding--xx-small:      3px 6px !default;
 
 // Font size
-$button-font-size--large:       18px !default;
-$button-font-size--small:       16px !default;
-$button-font-size--x-small:     14px !default;
-$button-font-size--xx-small:    12px !default;
+$hc-button-font-size--large:       18px !default;
+$hc-button-font-size--small:       16px !default;
+$hc-button-font-size--x-small:     14px !default;
+$hc-button-font-size--xx-small:    12px !default;
 
 // Background
-$button-background:             color('grey', 3) !default;
-$button-hover-background:       color('grey', 4) !default;
-$button-active-background:      color('grey', 5) !default;
-$button-disabled-background:    color('grey', 2) !default;
-$button-transparent-background: transparent !default;
+$hc-button-background:             color('grey', 3) !default;
+$hc-button-hover-background:       color('grey', 4) !default;
+$hc-button-active-background:      color('grey', 5) !default;
+$hc-button-disabled-background:    color('grey', 2) !default;
+$hc-button-transparent-background: transparent !default;
 
-$button-primary-background:             color('blue', 6) !default;
-$button-primary-hover-background:       color('blue', 7) !default;
-$button-primary-active-background:      color('blue', 8) !default;
-$button-primary-disabled-background:    color('blue', 3) !default;
+$hc-button-primary-background:             color('blue', 6) !default;
+$hc-button-primary-hover-background:       color('blue', 7) !default;
+$hc-button-primary-active-background:      color('blue', 8) !default;
+$hc-button-primary-disabled-background:    color('blue', 3) !default;
 
 // Text
-$button-color:                  color('grey', 7) !default;
-$button-primary-color:          color('white') !default;
-$button-disabled-color:         color('grey') !default;
-$button-transparent-color:      color('grey', 7) !default;
-$button-transparent-active-color: color('grey', 9) !default;
-$button-transparent-dark-color:      color('white') !default;
-$button-transparent-dark-active-color: color('grey', 2) !default;
+$hc-button-color:                           color('grey', 7) !default;
+$hc-button-primary-color:                   color('white') !default;
+$hc-button-disabled-color:                  color('grey') !default;
+$hc-button-transparent-color:               color('grey', 7) !default;
+$hc-button-transparent-active-color:        color('grey', 9) !default;
+$hc-button-transparent-dark-color:          color('white') !default;
+$hc-button-transparent-dark-active-color:   color('grey', 2) !default;
 
 // Border
-$button-border-width:           0 !default;
-$button-border-style:           solid !default;
-$button-border-color:           transparent !default;
-$button-radius:                 5px !default;
+$hc-button-border-width:    0 !default;
+$hc-button-border-style:    solid !default;
+$hc-button-border-color:    transparent !default;
+$hc-button-radius:          5px !default;

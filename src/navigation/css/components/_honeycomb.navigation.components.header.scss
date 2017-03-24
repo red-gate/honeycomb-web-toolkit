@@ -2,8 +2,8 @@
 .header--primary {
     position: relative;
     z-index: 20;
-    min-height: $navigation-minimum-height;
-    line-height: $navigation-minimum-height - $navigation-border-width;
+    min-height: $hc-navigation-minimum-height;
+    line-height: $hc-navigation-minimum-height - $hc-navigation-border-width;
     overflow: visible;
 
     ul {
@@ -17,12 +17,12 @@
         @include padding(0.25, left);
         @include padding(0.25, right);
         display: inline-block;
-        border-bottom-width: $navigation-border-width;
+        border-bottom-width: $hc-navigation-border-width;
         border-bottom-style: solid;
         border-bottom-color: transparent;
 
         &.active {
-            border-bottom-color: $link-border-color;
+            border-bottom-color: $hc-link-border-color;
             font-weight: bold;
         }
 
@@ -36,13 +36,13 @@
     .header--primary__app-name-container {
         $font-size: 21px;
         $diff: (($font-size - 16) + 1) / 2;
-        $line-height: ($navigation-minimum-height - $navigation-border-width) - $diff;
+        $line-height: ($hc-navigation-minimum-height - $hc-navigation-border-width) - $diff;
 
         @extend .text--redgate;
         @include padding(0.5, left);
         @include padding(0.5, right);
         @include font-size($font-size);
-        min-height: $navigation-minimum-height;
+        min-height: $hc-navigation-minimum-height;
         line-height: $line-height;
         color: color('white');
         display: inline-block;
@@ -59,7 +59,7 @@
     }
 
     .header--primary__menu-button {
-        background-image: url(#{$navigation-menu-icon-open}.png);
+        background-image: url(#{$hc-navigation-menu-icon-open}.png);
         background-position: center;
         background-repeat: no-repeat;
         width: 60px;
@@ -70,14 +70,14 @@
         }
 
         .svg & {
-            background-image: url(#{$navigation-menu-icon-open}.svg);
+            background-image: url(#{$hc-navigation-menu-icon-open}.svg);
         }
 
         .mobile-nav--open & {
-            background-image: url(#{$navigation-menu-icon-close}.png);
+            background-image: url(#{$hc-navigation-menu-icon-close}.png);
 
             .svg & {
-                background-image: url(#{$navigation-menu-icon-close}.svg);
+                background-image: url(#{$hc-navigation-menu-icon-close}.svg);
             }
         }
     }
@@ -118,11 +118,11 @@
             @include padding(2, right);
             display: inline-block;
             box-sizing: border-box;
-            line-height: $navigation-minimum-height - $navigation-border-width;
-            height: $navigation-minimum-height;
+            line-height: $hc-navigation-minimum-height - $hc-navigation-border-width;
+            height: $hc-navigation-minimum-height;
             width: 350px;
             border: none;
-            border-bottom-width: $navigation-border-width;
+            border-bottom-width: $hc-navigation-border-width;
             border-bottom-style: solid;
             border-bottom-color: transparent;
             border-radius: 0;
@@ -374,7 +374,7 @@
             top: 4px;
 
             &.active {
-                border-bottom-color: $link-border-color;
+                border-bottom-color: $hc-link-border-color;
                 border-bottom-style: solid;
                 font-weight: bold;
             }

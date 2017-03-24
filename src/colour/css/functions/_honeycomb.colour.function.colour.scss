@@ -16,5 +16,5 @@
   */
 
 @function color($color, $tone: 'base') {
-    @return map-get(map-get($site-colors, $color), $tone);
+    @return map-get(map-get($hc-site-colors, $color), $tone);
 }

@@ -9,17 +9,17 @@
  *
  */
 @mixin buildGrid ($gutter: 0, $suffix: "") {
-    @if $enable-grid-classes {
+    @if $hc-enable-grid-classes {
         @include build($gutter, $suffix);
         @include build($gutter, $suffix, "push", "margin-left");
     } @else {
-        @warn "CSS grid classes are disabled. Please enable CSS grid classes using `$enable-grid-classes: true`";
+        @warn "CSS grid classes are disabled. Please enable CSS grid classes using `$hc-enable-grid-classes: true`";
     }
 }
 
 @mixin build ($gutter: 0, $suffix: "", $action: "span", $property: "width") {
-    @if $enable-grid-classes {
-        @each $grid-col in $grid-cols {
+    @if $hc-enable-grid-classes {
+        @each $grid-col in $hc-grid-cols {
             @for $i from 0 through $grid-col {
 
                 $total: 0;
@@ -27,13 +27,13 @@
                     $total: (100 / ($grid-col / $i)) * 1%;
                 }
 
-                %#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},
-                .#{$grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {
+                %#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},
+                .#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {
                     #{$property}: $total;
                 }
             }
         }
     } @else {
-        @warn "CSS grid classes are disabled. Please enable CSS grid classes using `$enable-grid-classes: true`";
+        @warn "CSS grid classes are disabled. Please enable CSS grid classes using `$hc-enable-grid-classes: true`";
     }
 }

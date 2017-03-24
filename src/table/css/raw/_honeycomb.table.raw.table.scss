@@ -4,10 +4,10 @@
 
 table {
     @include border();
-    border-color: $table-border-colour;
+    border-color: $hc-table-border-colour;
     width: 100%;
     vertical-align: top;
-    background-color: $table-background-colour;
+    background-color: $hc-table-background-colour;
 }
 
 /**
@@ -22,7 +22,7 @@ table caption {
 th, td {
     @include padding(0.5);
     @include border();
-    border-color: $table-border-colour;
+    border-color: $hc-table-border-colour;
     word-wrap: break-word;
     word-break: normal;
     vertical-align: top;
@@ -34,8 +34,8 @@ th, td {
 
 th, thead td {
     font-weight: bold;
-    color: $table-heading-colour;
-    background-color: $table-heading-background-colour;
+    color: $hc-table-heading-colour;
+    background-color: $hc-table-heading-background-colour;
 }
 
 /**

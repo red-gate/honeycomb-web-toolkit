@@ -13,12 +13,12 @@ h1,
 .alpha,
 %alpha,
 .main-heading  {
-    @include font-size($heading-size-1);
-    font-weight: $heading-size-1-font-weight;
+    @include font-size($hc-heading-size-1);
+    font-weight: $hc-heading-size-1-font-weight;
     color: color('grey', 9);
 
     @include responsive('small') {
-        @include font-size($heading-size-1-small);
+        @include font-size($hc-heading-size-1-small);
     }
 }
 
@@ -26,8 +26,8 @@ h1,
 h2,
 .beta,
 %beta {
-    @include font-size($heading-size-2);
-    font-weight: $heading-size-2-font-weight;
+    @include font-size($hc-heading-size-2);
+    font-weight: $hc-heading-size-2-font-weight;
     color: color('grey', 9);
 }
 
@@ -35,8 +35,8 @@ h2,
 h3,
 .gamma,
 %gamma {
-    @include font-size($heading-size-3);
-    font-weight: $heading-size-3-font-weight;
+    @include font-size($hc-heading-size-3);
+    font-weight: $hc-heading-size-3-font-weight;
     color: color('grey', 9);
 }
 
@@ -44,8 +44,8 @@ h3,
 h4,
 .delta,
 %delta {
-    @include font-size($heading-size-4);
-    font-weight: $heading-size-4-font-weight;
+    @include font-size($hc-heading-size-4);
+    font-weight: $hc-heading-size-4-font-weight;
     color: color('grey', 9);
 }
 
@@ -53,8 +53,8 @@ h4,
 h5,
 .epsilon,
 %epsilon {
-    @include font-size($heading-size-5);
-    font-weight: $heading-size-5-font-weight;
+    @include font-size($hc-heading-size-5);
+    font-weight: $hc-heading-size-5-font-weight;
     color: color('grey', 9);
 }
 
@@ -62,8 +62,8 @@ h5,
 h6,
 .zeta,
 %zeta {
-    @include font-size($heading-size-6);
-    font-weight: $heading-size-6-font-weight;
+    @include font-size($hc-heading-size-6);
+    font-weight: $hc-heading-size-6-font-weight;
     color: color('grey', 9);
     text-transform: uppercase;
     letter-spacing: 1px;

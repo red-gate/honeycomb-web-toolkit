@@ -4,10 +4,10 @@
  */
 
 @mixin responsive($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
+  @if map-has-key($hc-breakpoints, $breakpoint) {
 
-    $width: map-get($breakpoints, $breakpoint);
-    $declaration: "(#{$mqProperty} #{$width})";
+    $width: map-get($hc-breakpoints, $breakpoint);
+    $declaration: "(#{$hc-mqProperty} #{$width})";
     @media only screen and #{$declaration} {
       @content;
     }

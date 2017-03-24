@@ -6,13 +6,13 @@
 .button,
 %button {
     @include margin(0.5, bottom);
-    padding: $button-padding !important;
-    background-color: $button-background !important;
-    color: $button-color !important;
-    border-width: $button-border-width !important;
-    border-style: $button-border-style !important;
-    border-color: $button-border-color !important;
-    border-radius: $button-radius;
+    padding: $hc-button-padding !important;
+    background-color: $hc-button-background !important;
+    color: $hc-button-color !important;
+    border-width: $hc-button-border-width !important;
+    border-style: $hc-button-border-style !important;
+    border-color: $hc-button-border-color !important;
+    border-radius: $hc-button-radius;
     font-weight: 500;
     display: inline-block;
     -webkit-font-smoothing: antialiased;
@@ -25,11 +25,11 @@
     }
 
     &:hover {
-        background-color: $button-hover-background !important;
+        background-color: $hc-button-hover-background !important;
     }
 
     &:active {
-        background-color: $button-active-background !important;
+        background-color: $hc-button-active-background !important;
     }
 }
 
@@ -40,26 +40,26 @@ p:last-child .button:last-child {
 
 .button--large,
 %button--large {
-    @include font-size($button-font-size--large);
-    padding: $button-padding--large !important;
+    @include font-size($hc-button-font-size--large);
+    padding: $hc-button-padding--large !important;
 }
 
 .button--small,
 %button--small {
-    @include font-size($button-font-size--small);
-    padding: $button-padding--small !important;
+    @include font-size($hc-button-font-size--small);
+    padding: $hc-button-padding--small !important;
 }
 
 .button--x-small,
 %button--x-small {
-    @include font-size($button-font-size--x-small);
-    padding: $button-padding--x-small !important;
+    @include font-size($hc-button-font-size--x-small);
+    padding: $hc-button-padding--x-small !important;
 }
 
 .button--xx-small,
 %button--xx-small {
-    @include font-size($button-font-size--xx-small);
-    padding: $button-padding--xx-small !important;
+    @include font-size($hc-button-font-size--xx-small);
+    padding: $hc-button-padding--xx-small !important;
 }
 
 .button--full-width,
@@ -77,15 +77,15 @@ p:last-child .button:last-child {
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button--primary,
 %button--primary {
-    background-color: $button-primary-background !important;
-    color: $button-primary-color !important;
+    background-color: $hc-button-primary-background !important;
+    color: $hc-button-primary-color !important;
 
     &:hover {
-        background-color: $button-primary-hover-background !important;
+        background-color: $hc-button-primary-hover-background !important;
     }
 
     &:active {
-        background-color: $button-primary-active-background !important;
+        background-color: $hc-button-primary-active-background !important;
     }
 }
 
@@ -157,8 +157,8 @@ p:last-child .button:last-child {
 %button--disabled,
 [disabled] {
     &, &:hover, &:active {
-        background-color: $button-disabled-background !important;
-        color: $button-disabled-color !important;
+        background-color: $hc-button-disabled-background !important;
+        color: $hc-button-disabled-color !important;
         cursor: not-allowed;
     }
 }
@@ -186,7 +186,7 @@ p:last-child .button:last-child {
 .button--white {
     background-color: color('white') !important;
     border-color: color('white') !important;
-    color: $link-color !important;
+    color: $hc-link-color !important;
 
     &:hover {
         background-color: color('grey', 2) !important;
@@ -202,30 +202,30 @@ p:last-child .button:last-child {
 // Transparent button
 .button--transparent,
 %button--transparent {
-    background-color: $button-transparent-background !important;
-    color: $button-transparent-color !important;
+    background-color: $hc-button-transparent-background !important;
+    color: $hc-button-transparent-color !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
 
     &:hover {
-        background-color: $button-transparent-background !important;
-        color: $button-transparent-color !important;
+        background-color: $hc-button-transparent-background !important;
+        color: $hc-button-transparent-color !important;
     }
 
     &:active {
-        background-color: $button-transparent-background !important;
-        color: $button-transparent-active-color !important;
+        background-color: $hc-button-transparent-background !important;
+        color: $hc-button-transparent-active-color !important;
     }
 
     &--dark {
-        color: $button-transparent-dark-color !important;
+        color: $hc-button-transparent-dark-color !important;
 
         &:hover {
-            color: $button-transparent-dark-color !important;
+            color: $hc-button-transparent-dark-color !important;
         }
 
         &:active {
-            color: $button-transparent-dark-active-color !important;
+            color: $hc-button-transparent-dark-active-color !important;
         }
     }
 }

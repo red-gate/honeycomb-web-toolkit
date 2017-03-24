@@ -6,8 +6,8 @@
   $padding: inherit;
   $property: padding;
 
-  @if index($padding-whitelist, $scale) {
-    $padding: round($spacing-unit * $scale);
+  @if index($hc-padding-whitelist, $scale) {
+    $padding: round($hc-spacing-unit * $scale);
   } @else {
     @error "Scale '#{$scale}' is not a valid value for `padding`.";
     $padding: false;

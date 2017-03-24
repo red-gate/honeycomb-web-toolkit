@@ -6,39 +6,39 @@
 // As needed set a project-specific radius in /{project}/_settings.scss
 
 @mixin rounded () {
-  @include px-rem(border-radius, $corner-radius);
+  @include px-rem(border-radius, $hc-corner-radius);
 }
 
 @mixin rounded-top () {
-  @include px-rem(border-radius, $corner-radius, $corner-radius, 0, 0);
+  @include px-rem(border-radius, $hc-corner-radius, $hc-corner-radius, 0, 0);
 }
 
 @mixin rounded-bottom () {
-  @include px-rem(border-radius, 0, 0, $corner-radius, $corner-radius);
+  @include px-rem(border-radius, 0, 0, $hc-corner-radius, $hc-corner-radius);
 }
 
 @mixin rounded-left () {
-  @include px-rem(border-radius, $corner-radius, 0, 0, $corner-radius);
+  @include px-rem(border-radius, $hc-corner-radius, 0, 0, $hc-corner-radius);
 }
 
 @mixin rounded-right () {
-  @include px-rem(border-radius, 0, $corner-radius, $corner-radius, 0);
+  @include px-rem(border-radius, 0, $hc-corner-radius, $hc-corner-radius, 0);
 }
 
 @mixin rounded-top-left () {
-  @include px-rem(border-radius, $corner-radius, 0, 0, 0);
+  @include px-rem(border-radius, $hc-corner-radius, 0, 0, 0);
 }
 
 @mixin rounded-top-right () {
-  @include px-rem(border-radius, 0, $corner-radius, 0, 0);
+  @include px-rem(border-radius, 0, $hc-corner-radius, 0, 0);
 }
 
 @mixin rounded-bottom-right () {
-  @include px-rem(border-radius, 0, 0, $corner-radius, 0);
+  @include px-rem(border-radius, 0, 0, $hc-corner-radius, 0);
 }
 
 @mixin rounded-bottom-left () {
-  @include px-rem(border-radius, 0, 0, 0, $corner-radius);
+  @include px-rem(border-radius, 0, 0, 0, $hc-corner-radius);
 }
 
 // make the element circular

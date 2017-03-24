@@ -33,7 +33,7 @@
     @include padding(0.5, left);
     @include padding(0.5, right);
     width: 100%;
-    max-width: $container-width;
+    max-width: $hc-container-width;
     margin: auto;
 }
 

@@ -8,9 +8,9 @@
 * Build the grid and breakpoint grids.
 */
 
-@if $enable-grid-classes {
-    %#{$grid-class},
-    .#{$grid-class} {
+@if $hc-enable-grid-classes {
+    %#{$hc-grid-class},
+    .#{$hc-grid-class} {
         &:before, &:after {
             content: " ";
             display: table;
@@ -21,42 +21,42 @@
         }
     }
 
-    %#{$grid-class}__row,
-    .#{$grid-class}__row {
+    %#{$hc-grid-class}__row,
+    .#{$hc-grid-class}__row {
         @extend %clearfix !optional;
 
-        &.#{$grid-class}__row--no-gutter {
-            .#{$grid-class}__col {
+        &.#{$hc-grid-class}__row--no-gutter {
+            .#{$hc-grid-class}__col {
                 padding-left: 0;
                 padding-right: 0;
             }
         }
     }
 
-    %#{$grid-class}__col,
-    .#{$grid-class}__col {
+    %#{$hc-grid-class}__col,
+    .#{$hc-grid-class}__col {
         display: block;
         float: left;
-        padding-left: $grid-gutter;
-        padding-right: $grid-gutter;
+        padding-left: $hc-grid-gutter;
+        padding-right: $hc-grid-gutter;
 
-        &.#{$grid-class}__col--no-gutter {
+        &.#{$hc-grid-class}__col--no-gutter {
             padding-left: 0;
             padding-right: 0;
         }
 
-        &.#{$grid-class}__col--no-left-gutter {
+        &.#{$hc-grid-class}__col--no-left-gutter {
             padding-left: 0;
         }
 
-        &.#{$grid-class}__col--no-right-gutter {
+        &.#{$hc-grid-class}__col--no-right-gutter {
             padding-right: 0;
         }
     }
 
     @include responsive('small') {
-        %#{$grid-class} %#{$grid-class}__col,
-        .#{$grid-class} .#{$grid-class}__col {
+        %#{$hc-grid-class} %#{$hc-grid-class}__col,
+        .#{$hc-grid-class} .#{$hc-grid-class}__col {
             width: 100%;
             border: none;
         }
@@ -65,21 +65,21 @@
     /**
     * Build the default grid.
     */
-    @include buildGrid($grid-gutter);
+    @include buildGrid($hc-grid-gutter);
 
     /**
     * Build the grid at breakpoints, using Desktop first approach, like the
     * responsive mixin in the base module.
     */
-    $breakpoints: false !default;
-    @if $breakpoints {
-        @each $breakpoint in $breakpoints {
+    $hc-breakpoints: false !default;
+    @if $hc-breakpoints {
+        @each $breakpoint in $hc-breakpoints {
             $name: nth($breakpoint, 1);
             $width: nth($breakpoint, 2);
-            $declaration: "(#{$mqProperty} #{$width})";
+            $declaration: "(#{$hc-mqProperty} #{$width})";
 
             @media only screen and #{$declaration} {
-                @include buildGrid($grid-gutter, "--#{$name}");
+                @include buildGrid($hc-grid-gutter, "--#{$name}");
             }
         }
     }

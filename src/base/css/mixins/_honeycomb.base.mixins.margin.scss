@@ -6,8 +6,8 @@
   $margin: inherit;
   $property: margin;
 
-  @if index($margin-whitelist, $scale) {
-    $margin: round($spacing-unit * $scale);
+  @if index($hc-margin-whitelist, $scale) {
+    $margin: round($hc-spacing-unit * $scale);
   } @else {
     @error "Scale '#{$scale}' is not a valid value for `margin`.";
     $margin: false;

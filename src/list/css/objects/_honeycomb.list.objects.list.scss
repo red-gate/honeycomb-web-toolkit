@@ -158,7 +158,7 @@ li > .list--bare {
         @include padding(1, left);
 
         &:before {
-            font-size: $icon-font-size--large;
+            font-size: $hc-icon-font-size--large;
         }
     }
 }

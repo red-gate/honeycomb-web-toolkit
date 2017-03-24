@@ -1,8 +1,8 @@
-$checkbox-checked-color: color('green');
-$checkbox-unchecked-color: color('grey', 5);
-$checkbox-background-color: inherit;
-$checkbox-height: 30px;
-$checkbox-height-small: $checkbox-height / 3 * 2;
-$checkbox-font-color: inherit;
-$checkbox-duration: .4s;
-$checkbox-loading-icon-dir: "base/images/" !default;
+$hc-checkbox-checked-color: color('green');
+$hc-checkbox-unchecked-color: color('grey', 5);
+$hc-checkbox-background-color: inherit;
+$hc-checkbox-height: 30px;
+$hc-checkbox-height-small: $hc-checkbox-height / 3 * 2;
+$hc-checkbox-font-color: inherit;
+$hc-checkbox-duration: .4s;
+$hc-checkbox-loading-icon-dir: "base/images/" !default;
