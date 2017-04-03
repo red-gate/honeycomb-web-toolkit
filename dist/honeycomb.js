@@ -9,7 +9,7 @@ var sites = void 0;
 var settings = void 0;
 
 var init = function init() {
-    var s = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
+    var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
     if (s) {
         settings = s;
@@ -81,7 +81,7 @@ var initAccount = function initAccount(accountId) {
 
 // Track a page view.
 var trackPageView = function trackPageView() {
-    var url = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
+    var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
     if (url) {
         ga("send", "pageview", {
@@ -94,10 +94,10 @@ var trackPageView = function trackPageView() {
 
 // Track an event.
 var trackEvent = function trackEvent() {
-    var category = arguments.length <= 0 || arguments[0] === undefined ? "" : arguments[0];
-    var action = arguments.length <= 1 || arguments[1] === undefined ? "" : arguments[1];
-    var label = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
-    var value = arguments.length <= 3 || arguments[3] === undefined ? null : arguments[3];
+    var category = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+    var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+    var label = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+    var value = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
     ga("send", "event", category, action, label, value);
 };
@@ -259,7 +259,7 @@ exports.default = {
 },{}],6:[function(require,module,exports){
 'use strict';
 
-var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -268,7 +268,7 @@ Object.defineProperty(exports, "__esModule", {
 var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
     return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
 } : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
 };
 
 var _honeycombDocument = require('../../document/js/honeycomb.document.load-script');
@@ -301,7 +301,7 @@ var rearrangeNav = function rearrangeNav(carousel) {
 };
 
 var init = function init() {
-    var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     // If no jQuery then break;
     if (typeof jQuery === "undefined") {
@@ -652,7 +652,7 @@ var init = function init() {
 };
 
 var update = function update() {
-    var init = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
+    var init = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
     if (updateEls) {
 
@@ -797,8 +797,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var load = function load() {
-    var url = arguments.length <= 0 || arguments[0] === undefined ? false : arguments[0];
-    var callback = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+    var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+    var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
     if (url !== false) {
         (function () {
@@ -880,7 +880,7 @@ function _interopRequireDefault(obj) {
 
 // Toggle class when elements in/out of the viewport. (https://github.com/edwardcasbon/jquery.inViewport)
 var init = function init() {
-    var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     var vps = document.querySelectorAll(".js-vp");
     if (vps.length) {
@@ -926,7 +926,7 @@ var config = {};
 
 // Equalise heights amongst selected items (https://github.com/edwardcasbon/jquery.equalise)
 var init = function init() {
-	var cf = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	var cf = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
 	config = cf;
 
@@ -1381,7 +1381,7 @@ function _interopRequireDefault(obj) {
 }
 
 var init = function init() {
-    var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     var els = document.querySelectorAll(".js-lightbox, .js-lightbox--video, .js-lightbox--iframe, .js-lightbox--image, .js-lightbox--inline, .js-lightbox--ajax, .js-lightbox--swf, .js-lightbox--html");
     if (els.length) {
@@ -2038,7 +2038,7 @@ function _interopRequireDefault(obj) {
 
 // Initialise sticky element functionality. (https://github.com/edwardcasbon/jquery.sticky)
 var init = function init() {
-    var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     var els = document.querySelectorAll(".js-sticky");
     if (els.length) {
@@ -2123,7 +2123,7 @@ function _interopRequireDefault(obj) {
 }
 
 var init = function init() {
-    var config = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     // If IE7, bail!
     if (_honeycomb2.default.isIE7()) {
@@ -2428,7 +2428,7 @@ var videos = {};
 var analytics = void 0;
 
 var init = function init() {
-    var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     analytics = options.analytics || false;
     loadYouTubeIframeAPI();
