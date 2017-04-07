@@ -90,3 +90,29 @@ h1,
     border-color: color('grey', 3);
   }
 }
+
+
+/*------------------------------------*\
+    #SEPARATOR
+\*------------------------------------*/
+.text--separator {
+    @include font-size(12px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+
+    &:before, &:after {
+        content: " ";
+        display: inline-block;
+        width: 35%;
+        vertical-align: middle;
+        border-bottom: 1px dashed #ccc;
+        margin-left: -55%;
+        margin-right: 1em;
+    }
+
+    &:after {
+        margin-left: 1em;
+        margin-right: -55%;
+    }
+}
