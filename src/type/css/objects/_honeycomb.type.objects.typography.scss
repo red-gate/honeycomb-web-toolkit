@@ -97,6 +97,8 @@ h1,
 \*------------------------------------*/
 .text--separator {
     @include font-size(12px);
+    @include margin(1, "top");
+    @include margin(1, "bottom");
     text-transform: uppercase;
     letter-spacing: 2px;
     text-align: center;
