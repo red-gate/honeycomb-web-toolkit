@@ -16,6 +16,8 @@ h1,
     @include font-size($hc-heading-size-1);
     font-weight: $hc-heading-size-1-font-weight;
     color: color('grey', 9);
+    margin-top: $hc-heading-size-1-margin-top;
+    margin-bottom: $hc-heading-size-1-margin-bottom;
 
     @include responsive('small') {
         @include font-size($hc-heading-size-1-small);
@@ -29,6 +31,12 @@ h2,
     @include font-size($hc-heading-size-2);
     font-weight: $hc-heading-size-2-font-weight;
     color: color('grey', 9);
+    margin-top: $hc-heading-size-2-margin-top;
+    margin-bottom: $hc-heading-size-2-margin-bottom;
+
+    @include responsive('small') {
+        @include font-size($hc-heading-size-2-small);
+    }
 }
 
 
@@ -37,6 +45,8 @@ h3,
 %gamma {
     @include font-size($hc-heading-size-3);
     font-weight: $hc-heading-size-3-font-weight;
+    margin-top: $hc-heading-size-3-margin-top;
+    margin-bottom: $hc-heading-size-3-margin-bottom;
     color: color('grey', 9);
 }
 
@@ -46,6 +56,8 @@ h4,
 %delta {
     @include font-size($hc-heading-size-4);
     font-weight: $hc-heading-size-4-font-weight;
+    margin-top: $hc-heading-size-4-margin-top;
+    margin-bottom: $hc-heading-size-4-margin-bottom;
     color: color('grey', 9);
 }
 
@@ -55,6 +67,8 @@ h5,
 %epsilon {
     @include font-size($hc-heading-size-5);
     font-weight: $hc-heading-size-5-font-weight;
+    margin-top: $hc-heading-size-5-margin-top;
+    margin-bottom: $hc-heading-size-5-margin-bottom;
     color: color('grey', 9);
 }
 
@@ -70,20 +84,18 @@ h6,
 }
 
 
-
-/**
- * Heading and subheading styles
- * for when you want to mark up something to look like a heading.
- */
-
-.sub-heading {
+/* reduce subheading following an h1 */
+h1 + .sub-heading {
     @include font-size(24px);
-    color: color('grey', 7);
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 /* reduce subheading following an h2 */
 h2 + .sub-heading {
-    @include font-size(20px);
+    @include font-size(18px);
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 /* reduce subheading following an h3 */
