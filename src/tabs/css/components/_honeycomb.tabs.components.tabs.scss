@@ -12,7 +12,6 @@
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: color("grey", 3);
-    text-align: center;
 }
 
 .tabs {
@@ -22,9 +21,12 @@
     table-layout: fixed;
     list-style: none;
     width: 100%;
-    max-width: $hc-tabs-max-width;
-    max-width: px-rem($hc-tabs-max-width);
     overflow: hidden;
+    text-align: center;
+
+    &--left {
+        text-align: left;
+    }
 }
 
 .tabs li {
@@ -77,5 +79,6 @@
 }
 
 .tabbed__content {
-  @include padding(0.5);
+  @include padding(0.5, "top");
+  @include padding(0.5, "bottom");
 }
