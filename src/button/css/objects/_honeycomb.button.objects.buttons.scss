@@ -160,6 +160,11 @@ p:last-child .button:last-child {
         background-color: $hc-button-disabled-background !important;
         color: $hc-button-disabled-color !important;
         cursor: not-allowed;
+
+        &.button--primary {
+            background-color: $hc-button-primary-disabled-background !important;
+            color: $hc-button-disabled-primary-color !important;
+        }
     }
 }
 
