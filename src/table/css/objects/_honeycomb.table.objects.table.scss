@@ -23,20 +23,36 @@
 }
 
 /**
- * Double the padding in table cells.
+ * Halve/Double the padding in table cells.
  */
-.td-padded--loose {
-    @include padding(1);
-}
+th, td {
+	&.padded--tight {
+		@include padding(0.25);
+	}
 
-.td-padded-v--loose {
-    @include padding(1, top);
-    @include padding(1, bottom);
-}
+	&.padded-v--tight {
+		@include padding(0.25, 'top');
+		@include padding(0.25, 'bottom');
+	}
 
-.td-padded-h--loose {
-    @include padding(1, left);
-    @include padding(1, right);
+	&.padded-h--tight {
+		@include padding(0.25, 'left');
+		@include padding(0.25, 'right');
+	}
+
+	&.padded--loose {
+		@include padding(1);
+	}
+
+	&.padded-v--loose {
+		@include padding(1, 'top');
+		@include padding(1, 'bottom');
+	}
+
+	&.padded-h--loose {
+		@include padding(1, 'left');
+		@include padding(1, 'right');
+	}
 }
 
 
