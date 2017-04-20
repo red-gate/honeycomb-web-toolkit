@@ -18,6 +18,10 @@ hr
     @include margin(0.5, bottom);
 }
 
+hr {
+    @include margin(0.5, top);
+}
+
 p:last-child {
 	// remove bottom margin from last para in a section, to keep section top/bottom padding consistent
 	@include margin($hc-last-child-margin, bottom);
