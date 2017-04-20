@@ -8,6 +8,10 @@ const rearrangeNav = (carousel) => {
 
     // If pagination (nav)
     if (nav && leftButton && rightButton) {
+
+        // Give the pagination a class so can style.
+        nav.className = nav.className + " carousel-has-pagination";
+
         // move buttons inside <ul>
         nav.appendChild(rightButton);
         nav.appendChild(leftButton);
