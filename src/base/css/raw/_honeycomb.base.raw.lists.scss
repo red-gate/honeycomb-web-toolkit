@@ -11,7 +11,7 @@ ul, ol {
 }
 
 li, dd {
-  @include margin(0.5, bottom);
+  @include margin(0.25, bottom);
 }
 
 
