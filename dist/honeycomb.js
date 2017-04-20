@@ -259,17 +259,9 @@ exports.default = {
 },{}],6:[function(require,module,exports){
 'use strict';
 
-var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
-    return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
-} : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
-};
 
 var _honeycombDocument = require('../../document/js/honeycomb.document.load-script');
 
@@ -285,7 +277,8 @@ var rearrangeNav = function rearrangeNav(carousel) {
     var leftButton = carousel.querySelector('.slick-prev');
     var rightButton = carousel.querySelector('.slick-next');
 
-    if ((typeof nav === 'undefined' ? 'undefined' : _typeof(nav)) !== undefined && leftButton && rightButton) {
+    // If pagination (nav)
+    if (nav && leftButton && rightButton) {
         // move buttons inside <ul>
         nav.appendChild(rightButton);
         nav.appendChild(leftButton);
@@ -297,6 +290,14 @@ var rearrangeNav = function rearrangeNav(carousel) {
         // so we need to add it to the end of the list, and translate its position by working out the width of the nav, plus the width of the arrow
         var navWidth = (carousel.querySelectorAll('ul li').length - 1) * 30 + 130;
         leftButton.style.transform = 'translate(-' + navWidth + 'px, 0px)';
+    } else if (!nav && leftButton && rightButton) {
+
+        // No pagination dots (nav)
+        var buttonContainer = document.createElement("div");
+        buttonContainer.className = "carousel__button-container";
+        buttonContainer.appendChild(leftButton);
+        buttonContainer.appendChild(rightButton);
+        carousel.appendChild(buttonContainer);
     }
 };
 

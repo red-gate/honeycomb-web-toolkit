@@ -6,7 +6,8 @@ const rearrangeNav = (carousel) => {
     let leftButton = carousel.querySelector('.slick-prev');
     let rightButton = carousel.querySelector('.slick-next');
 
-    if (typeof nav !== undefined && leftButton && rightButton) {
+    // If pagination (nav)
+    if (nav && leftButton && rightButton) {
         // move buttons inside <ul>
         nav.appendChild(rightButton);
         nav.appendChild(leftButton);
@@ -18,6 +19,15 @@ const rearrangeNav = (carousel) => {
         // so we need to add it to the end of the list, and translate its position by working out the width of the nav, plus the width of the arrow
         let navWidth = ( carousel.querySelectorAll('ul li').length - 1 ) * 30 + 130;
         leftButton.style.transform = `translate(-${navWidth}px, 0px)`;
+    
+    } else if(!nav && leftButton && rightButton) {
+
+        // No pagination dots (nav)
+        const buttonContainer = document.createElement("div");
+        buttonContainer.className = "carousel__button-container";
+        buttonContainer.appendChild(leftButton);
+        buttonContainer.appendChild(rightButton);
+        carousel.appendChild(buttonContainer);
     }
 };
 
