@@ -82,11 +82,6 @@ module.exports = function(grunt) {
                     cwd: "src/icons",
                     dest: "dist/icons",
                     src: ["**/*.eot", "**/*.ttf", "**/*.woff"]
-                }, {
-                    expand: true,
-                    cwd: "src/carousel",
-                    dest: "dist/carousel",
-                    src: ["**/*.eot", "**/*.ttf", "**/*.woff"]
                 }]
             },
 
