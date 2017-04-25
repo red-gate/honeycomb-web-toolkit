@@ -26,7 +26,7 @@
             font-weight: bold;
         }
 
-        &.header--primary__icon {
+        &.header--primary__icon:not(.header--primary__menu-button) {
             @include padding(0.5, left);
             @include padding(0.5, right);
         }
