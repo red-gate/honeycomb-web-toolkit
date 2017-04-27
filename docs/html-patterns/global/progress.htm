@@ -1,0 +1,64 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+    <title>Style Guide - HTML pattern library - Global - Progress</title>
+    <meta name="description" content="Front-end Web Development, Design and Branding Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="" id="top-of-page">
+    <div class="page-wrapper">
+        <div class="band">
+            <div class="band__inner-container">
+                <h1>Progress</h1>
+
+                <div class="progress--bar">
+                    <span class="progress--bar__fill"></span>
+                </div>
+
+                <div class="padded--tight background-color--grey--8">
+                    <div class="progress--bar progress--bar--dark">
+                        <span class="progress--bar__fill"></span>
+                    </div>
+                </div>
+
+                <div class="progress--bar progress--bar--large">
+                    <span class="progress--bar__fill"></span>
+                </div>
+
+                <div class="progress--bar progress--bar--small">
+                    <span class="progress--bar__fill"></span>
+                </div>
+
+                <div class="progress--bar progress--bar--x-small">
+                    <span class="progress--bar__fill"></span>
+                </div>
+
+                <a class="button test" href="#">Test animation</a>
+
+            </div>
+        </div>
+    </div><!-- END .page-wrapper -->
+
+
+    <script>
+        var buttons = document.querySelectorAll(".test");
+        for(var i=0; i<buttons.length; i++) {
+            buttons[i].addEventListener("click", function(e){
+                e.preventDefault();
+                animateProgressBars();
+            });
+        }
+
+        function animateProgressBars (button) {
+            var fills = document.querySelectorAll(".progress--bar__fill");
+            for(var i=0; i<fills.length; i++) {
+                fills[i].style.width = generateRandomWidth() + "%";
+            }
+        }
+
+        function generateRandomWidth () {
+            return Math.random() * 100;
+        }
+    </script>
+
+<!--#include virtual="/docs/includes/footer/footer.htm" -->
+
+

@@ -1,0 +1,38 @@
+.progress--bar {
+    @include margin(0.5, "top");
+    @include margin(0.5, "bottom");
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: color("grey", 3);
+    border-radius: 100px;
+    overflow: hidden;
+    height: $hc-progress-bar-height;
+
+    &--dark {
+        background-color: color("white");
+    }
+
+    &--large {
+        height: $hc-progress-bar-height-large;
+    }
+
+    &--small {
+        height: $hc-progress-bar-height-small;
+    }
+
+    &--x-small {
+        height: $hc-progress-bar-height-x-small;
+    }
+
+    &__fill {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0%;
+        background-color: color("blue", 5);
+        transition: width $hc-progress-bar-duration linear;
+    }
+}
