@@ -1,0 +1,71 @@
+.progress--radial {
+    @include margin($hc-progress-radial-margin-top, "top");
+    @include margin($hc-progress-radial-margin-bottom, "bottom");
+    position: relative;
+    width: $hc-progress-radial-circle-size;
+    height: $hc-progress-radial-circle-size;
+    border-radius: 50%;
+    background-color: $hc-progress-radial-bar-color;
+    
+    // Safari fix.
+    clip-path: circle(50% at 50% 50%); 
+    overflow: hidden;
+
+    &__mask {
+        clip: rect(0px, $hc-progress-radial-circle-size, $hc-progress-radial-circle-size, $hc-progress-radial-circle-size/2);
+    }
+
+    &__fill, &__fill-fix {
+        background-color: $hc-progress-radial-fill-color;
+        border-radius: 50%;
+        clip: rect(0px, $hc-progress-radial-circle-size/2, $hc-progress-radial-circle-size, 0px);
+    }
+
+    &__mask, &__fill, &__fill-fix {
+        position: absolute;
+        width: $hc-progress-radial-circle-size;
+        height: $hc-progress-radial-circle-size;       
+        transition: transform $hc-progress-radial-duration;
+    }
+
+    @for $i from 1 through 100 {
+        &[data-progress="#{$i}"] {
+            $rotation: ($i / 100) * 180;
+
+            .progress--radial__mask--left, .progress--radial__fill {
+                transform: rotate($rotation + deg);
+            }
+
+            .progress--radial__fill-fix {
+                transform: rotate($rotation * 2 + deg);
+            }
+        }
+    }
+
+    &__center {
+        width: $hc-progress-radial-circle-size - ($hc-progress-radial-bar-size * 2);
+        height: $hc-progress-radial-circle-size - ($hc-progress-radial-bar-size * 2);
+        position: absolute;
+        display: block;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        background-color: color("white");
+        border-radius: 50%;
+    }
+
+    &__content {
+        @include font-size(28px);
+        position: relative;
+        display: block;
+        top: 50%;
+        left: 50%;       
+        transform: translate(-50%, -50%);     
+        color: color("grey", 7);
+
+        &__measure {
+            @include font-size(14px);
+        }
+    }
+}

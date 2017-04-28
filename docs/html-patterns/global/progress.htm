@@ -9,6 +9,7 @@
             <div class="band__inner-container">
                 <h1>Progress</h1>
 
+                <!-- PROGRESS BAR -->
                 <div class="progress--bar">
                     <span class="progress--bar__fill"></span>
                 </div>
@@ -31,8 +32,24 @@
                     <span class="progress--bar__fill"></span>
                 </div>
 
-                <a class="button test" href="#">Test animation</a>
+                <!-- RADIAL PROGRESS -->
+                <div class="progress--radial" data-progress="0">
+                    <div class="progress--radial__mask progress--radial__mask--left">
+                        <div class="progress--radial__fill"></div>
+                    </div>
 
+                    <div class="progress--radial__mask">
+                        <div class="progress--radial__fill"></div>
+                        <div class="progress--radial__fill-fix"></div>
+                    </div>
+
+                    <div class="progress--radial__center">
+                        <span class="progress--radial__content">0<span class="progress--radial__content__measure">%</span></span>
+                    </div>
+                </div>
+
+
+                <a class="button test" href="#">Test animation</a>
             </div>
         </div>
     </div><!-- END .page-wrapper -->
@@ -47,15 +64,25 @@
             });
         }
 
-        function animateProgressBars (button) {
-            var fills = document.querySelectorAll(".progress--bar__fill");
-            for(var i=0; i<fills.length; i++) {
-                fills[i].style.width = generateRandomWidth() + "%";
+        window.addEventListener("load", animateProgressBars);
+
+        function animateProgressBars () {
+            var bars = document.querySelectorAll(".progress--bar__fill");
+            var radials = document.querySelectorAll(".progress--radial");
+
+            for(var i=0; i<bars.length; i++) {
+                bars[i].style.width = generateRandomNumber() + "%";
+            }
+
+            for(var i=0; i<radials.length; i++) {
+                var num = generateRandomNumber();
+                radials[i].setAttribute("data-progress", num);
+                radials[i].querySelector(".progress--radial__content").innerHTML = num + "<span class=\"progress--radial__content__measure\">%</span>";
             }
         }
 
-        function generateRandomWidth () {
-            return Math.random() * 100;
+        function generateRandomNumber () {
+            return parseInt(Math.random() * 100);
         }
     </script>
 

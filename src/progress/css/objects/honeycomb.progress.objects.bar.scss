@@ -1,6 +1,6 @@
 .progress--bar {
-    @include margin(0.5, "top");
-    @include margin(0.5, "bottom");
+    @include margin($hc-progress-bar-margin-top, "top");
+    @include margin($hc-progress-bar-margin-bottom, "bottom");
     display: block;
     position: relative;
     width: 100%;
