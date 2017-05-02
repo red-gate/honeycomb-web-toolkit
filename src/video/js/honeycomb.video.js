@@ -144,10 +144,16 @@ let addInlineVideos = () => {
             };
 
             // playlist settings
-            let listId = videoContainer.getAttribute('data-video-list-id');
+            const listId = videoContainer.getAttribute('data-video-list-id');
             if (listId) {
                 playerSettings.playerVars.listType = 'playlist';
                 playerSettings.playerVars.list = listId;
+            }
+
+            // start time
+            const start = videoContainer.getAttribute('data-video-start-time');
+            if (start) {
+                playerSettings.playerVars.start = start;
             }
             
             // Replace the empty div with the video player iframe.
