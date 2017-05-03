@@ -100,24 +100,4 @@
     </div>
   </div><!-- END .page-wrapper -->
 
-
-    <script>
-        const as = document.querySelectorAll(".nav--vertical a");
-        for(let i=0; i<as.length; i++) {
-            let a = as[i];
-            let href = a.getAttribute("href");
-            if (!href) {
-                a.addEventListener("click", e => {
-                    e.preventDefault();
-
-                    if(a.parentElement.classList.contains("nav--vertical__collapse")) {
-                        a.parentElement.parentElement.parentElement.classList.toggle("nav--vertical--collapsed");
-                    } else {
-                        a.parentElement.classList.toggle("nav--vertical__active");
-                    }
-                });
-            }
-        }
-    </script>
-
   <!--#include virtual="/docs/includes/footer/footer.htm" -->

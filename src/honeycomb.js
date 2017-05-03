@@ -77,6 +77,9 @@ dropdown.init();
 import mobileMenu from './navigation/js/honeycomb.navigation.header';
 mobileMenu.init();
 
+import verticalNav from './navigation/js/honeycomb.navigation.vertical';
+verticalNav.init();
+
 // Notification
 import notifications from './notification/js/honeycomb.notification.block';
 notifications.init();
