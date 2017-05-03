@@ -3,60 +3,221 @@
 \*------------------------------------*/
 
 .nav--vertical {
-	@include padding(1, bottom);
-	@include margin(1, bottom);
-	background-color: $hc-nav-vertical-background-color;
 
-	h2 {
-		@include padding(0.5, top);
-		@include padding(1, left);
-		@include padding(0.5, bottom);
-		@include margin(0, bottom);
-		background-color: color('grey', 2);
-		border-right: 5px solid color('red', 'brand');
-		font-weight: bold;
-	}
-
-	ul {
-		@extend .list--bare;
-	}
-
-	li {
+	ul, li {
 		@include margin(0);
+		list-style: none;
+		position: relative;
+	}
 
-		li a {
-			@include padding(1.5, left);
-		}
+	ul ul {
+		display: none;
 	}
 
 	a {
-		@include padding(1, left);
-		@include padding(1, right);
-		@include padding(0.25, top);
-		@include padding(0.25, bottom);
-		color: $hc-nav-vertical-link-color;
-		font-weight: $hc-nav-vertical-link-font-weight;
-		position: relative;
+		@include padding(0.25);
+		@include padding(0.75, "left");
+		@include padding(0.75, "right");
+		@include font-size(14px, 20px);
 		display: block;
-		border-bottom: none;
+		position: relative;
+		border-left-width: 4px;
+		border-left-style: solid;
+		border-left-color: transparent;
+		cursor: pointer;
+	}
 
-		&:hover {
+	.nav--vertical__active {
+
+		& > ul {
+			display: block;
+		}
+
+		& > a {
+			font-weight: bold;
+		}
+	}
+
+	li li li a {
+		@include padding(1.5, "left");
+	}
+
+	& > ul > li > a {
+		@include font-size(16px, 20px);
+	}
+
+	&.nav--vertical--has-icons {
+		.nav--vertical__collapse {
+			display: block;
+		}
+
+		&.nav--vertical--collapsed {
+			overflow: hidden;
+			width: 54px;
+
+			& > ul {
+				width: 9999px;
+
+				ul {
+					display: none; // Hide sub nav's when menu collapsed.
+				}
+			}
+
+			.nav--vertical__collapse__icon {
+				@extend .icon--chevron-right;
+				margin-left: 15px;
+				left: 0;
+				right: auto;
+			}
+		}
+
+		& > ul > li > a {
+			background-repeat: no-repeat;
+			background-size: 16px 16px;
+			background-position: 15px 50%;
+		}
+
+		a {
+			@include padding(1.25, "left");
+		}
+
+		li li li a {
+			@include padding(2, "left");
+		}
+	}
+
+	.nav--vertical__toggle {
+		@extend .icon--chevron-down;
+		@include font-size(14px);
+		@include margin(0.5, "right");
+		display: block;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+	}
+
+	.nav--vertical__active > a > .nav--vertical__toggle {
+		@extend .icon--chevron-up;
+	}
+
+	.nav--vertical__toggle,
+	.nav--vertical__active > a > .nav--vertical__toggle {
+		&:before {
+			@include margin(0, "right");
+		}
+	}
+
+	.nav--vertical__collapse {
+		display: none; // Only show if nav has icons.
+		position: relative;
+
+		a {
+
+			&, &:hover {
+				color: transparent;
+				border-left-color: transparent;
+			}
+		}
+
+		.nav--vertical__collapse__icon {
+			@extend .icon--chevron-left;
+			@include margin(0.5, "right");
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+
+			&:before {
+				@include margin(0, "right");
+			}
+		}
+	}
+
+	// Colours.
+	& {
+		background-color: $hc-nav-vertical-background-color;	
+
+		a {
+			color: $hc-nav-vertical-link-color;
+
+			&:hover {
+				background-color: $hc-nav-vertical-link-background-color-hover;
+				color: $hc-nav-vertical-link-color-hover;
+				border-left-color: $hc-nav-vertical-link-border-color-hover;
+			}
+		}
+
+		.nav--vertical__active {
+
+			& > a {
+
+				&, &:hover {
+					background-color: $hc-nav-vertical-link-background-color-active;
+					color: $hc-nav-vertical-link-color-active;
+					border-left-color: $hc-nav-vertical-link-background-color-active;
+				}
+			}
+		}
+
+		ul {
+			background-color: $hc-nav-vertical-list-background-color;
+
+			ul {
+				background-color: $hc-nav-vertical-sublist-background-color;
+
+				ul {
+					background-color: $hc-nav-vertical-subsublist-background-color;
+				}
+			}
+		}
+
+		.nav--vertical__collapse__icon {
 			color: $hc-nav-vertical-link-color-hover;
-			background-color: color('grey', 2);
-		}
-
-		&.active {
-			background-color: $hc-nav-vertical-link-background-color-active;
-			color: $hc-nav-vertical-link-color-active;
-			font-weight: $hc-nav-vertical-link-font-weight-active;
 		}
 	}
-}
 
-.nav--vertical--right {
+	&--dark {
+		background-color: $hc-nav-vertical-dark-background-color;	
 
-	h2 {
-		border-left: 5px solid color('red', 'brand');
-		border-right: none;
+		a {
+			color: $hc-nav-vertical-dark-link-color;
+
+			&:hover {
+				background-color: $hc-nav-vertical-dark-link-background-color-hover;
+				color: $hc-nav-vertical-dark-link-color-hover;
+				border-left-color: $hc-nav-vertical-dark-link-border-color-hover;
+			}
+		}
+
+		.nav--vertical__active {
+
+			& > a {
+
+				&, &:hover {
+					background-color: $hc-nav-vertical-dark-link-background-color-active;
+					color: $hc-nav-vertical-dark-link-color-active;
+					border-left-color: $hc-nav-vertical-dark-link-background-color-active;
+				}
+			}
+		}
+
+		ul {
+			background-color: $hc-nav-vertical-dark-list-background-color;
+
+			ul {
+				background-color: $hc-nav-vertical-dark-sublist-background-color;
+
+				ul {
+					background-color: $hc-nav-vertical-dark-subsublist-background-color;
+				}
+			}
+		}
+
+		.nav--vertical__collapse__icon {
+			color: $hc-nav-vertical-dark-link-color-hover;
+		}
 	}
+
+
 }

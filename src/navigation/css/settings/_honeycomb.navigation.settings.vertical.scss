@@ -1,7 +1,31 @@
-$hc-nav-vertical-background-color: $hc-nav-bar-background-color !default;
-$hc-nav-vertical-link-color: $hc-nav-bar-link-color !default;
-$hc-nav-vertical-link-color-hover: $hc-nav-bar-link-color-hover !default;
-$hc-nav-vertical-link-color-active: $hc-nav-bar-link-color-active !default;
-$hc-nav-vertical-link-background-color-active: color('grey', 3) !default;
-$hc-nav-vertical-link-font-weight: $hc-nav-bar-link-font-weight !default;
-$hc-nav-vertical-link-font-weight-active: $hc-nav-bar-link-font-weight-active !default;
+// $hc-nav-vertical-background-color: $hc-nav-bar-background-color !default;
+// $hc-nav-vertical-link-color: $hc-nav-bar-link-color !default;
+// $hc-nav-vertical-link-color-hover: $hc-nav-bar-link-color-hover !default;
+// $hc-nav-vertical-link-color-active: $hc-nav-bar-link-color-active !default;
+// $hc-nav-vertical-link-background-color-active: color('grey', 3) !default;
+// $hc-nav-vertical-link-font-weight: $hc-nav-bar-link-font-weight !default;
+// $hc-nav-vertical-link-font-weight-active: $hc-nav-bar-link-font-weight-active !default;
+
+$hc-nav-vertical-background-color: color("white") !default;
+$hc-nav-vertical-link-color: color("grey", 7) !default;
+$hc-nav-vertical-link-color-hover: color("blue", 6) !default;
+$hc-nav-vertical-link-background-color-hover: color("grey", 2) !default;
+$hc-nav-vertical-link-border-color-hover: $hc-nav-vertical-link-color-hover !default;
+$hc-nav-vertical-link-background-color-active: $hc-nav-vertical-link-border-color-hover !default;
+$hc-nav-vertical-link-color-active: color("white") !default;
+$hc-nav-vertical-list-background-color: color("grey", 1) !default;
+$hc-nav-vertical-sublist-background-color: color("grey", 2) !default;
+$hc-nav-vertical-subsublist-background-color: color("grey", 3) !default;
+
+$hc-nav-vertical-dark-background-color: color("grey", 7) !default;
+$hc-nav-vertical-dark-link-color: color("grey", 3) !default;
+$hc-nav-vertical-dark-link-color-hover: color("white") !default;
+$hc-nav-vertical-dark-link-background-color-hover: color("black") !default;
+$hc-nav-vertical-dark-link-border-color-hover: $hc-nav-vertical-dark-link-color-hover !default;
+$hc-nav-vertical-dark-link-background-color-active: color("blue", 6) !default;
+$hc-nav-vertical-dark-link-color-active: color("white") !default;
+
+$hc-nav-vertical-dark-list-background-color: color("grey", 9) !default;
+$hc-nav-vertical-dark-sublist-background-color: color("grey", 8) !default;
+$hc-nav-vertical-dark-subsublist-background-color: color("grey", 7) !default;
+

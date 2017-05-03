@@ -13,69 +13,111 @@
         <h1 class="section-heading--honeycomb">Vertical navigation</h1>
 
         <div class="grid">
-            <div class="grid__col grid__col--span-4-of-12">
-                <nav class="nav--vertical">
+            <div class="grid__col grid__col--span-3-of-12">
+                <nav class="nav--vertical nav--vertical--has-icons">
                     <ul>
-                        <h2>Heading</h2>
-                        <li><a href="#band">Band</a></li>
-                        <li><a href="#blockquote">Blockquote</a></li>
-                        <li><a href="#icons">Icons</a>
+                        <li class="nav--vertical__collapse"><a>Collapse menu <span class="nav--vertical__collapse__icon"></span></a></li>
+                        <li><a style="background-image: url(/dist/base/images/cog.svg);">Elements</a>
                             <ul>
-                                <li><a href="#">A secondary list</a></li>
-                                <li><a href="#">A secondary list</a></li>
-                                <li><a href="#" class="active">A secondary list</a></li>
-                                <li><a href="#">A secondary list</a></li>
+                                <li><a>Grid</a></li>
+                                <li><a>Spacing</a></li>
+                                <li><a>Typography <span class="nav--vertical__toggle"></span></a>
+                                    <ul>
+                                        <li><a>Fonts</a></li>
+                                        <li><a>Kerning</a></li>
+                                        <li><a>Uppercase</a></li>
+                                        <li><a>Leading</a></li>
+                                        <li><a>Weight</a></li>
+                                    </ul>
+                                </li>
+                                <li><a>Colour</a></li>
+                                <li><a>Icons</a></li>
                             </ul>
                         </li>
-                        <li><a href="#lists">Lists</a></li>
-                    </ul>
-                </nav>
-
-                <nav class="nav--vertical">
-                    <h2>Heading</h2>
-                    <ul>
-                        <li><a href="#band">Band</a></li>
-                        <li><a href="#blockquote">Blockquote</a></li>
-                        <li><a href="#icons">Icons</a>
+                        <li><a style="background-image: url(/dist/base/images/db.svg);">Components</a>
                             <ul>
-                                <li><a href="#">A secondary list</a></li>
-                                <li><a href="#">A secondary list</a></li>
-                                <li><a href="#" class="active">A secondary list</a></li>
-                                <li><a href="#">A secondary list</a></li>
+                                <li><a>Components 1</a></li>
+                                <li><a>Components 2</a></li>
+                                <li><a>Components 3</a></li>
+                                <li><a>Components 4</a></li>
                             </ul>
                         </li>
-                        <li><a href="#lists">Lists</a></li>
+                        <li><a style="background-image: url(/dist/base/images/cog.svg);">Sections</a>
+                            <ul>
+                                <li><a href="#">Sections 1</a></li>
+                                <li><a>Sections 2</a></li>
+                                <li><a>Sections 3</a></li>
+                                <li><a>Sections 4</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>
-            <div class="grid__col grid__col--span-4-of-12 grid__col--push-4-of-12">
-                <nav class="nav--vertical nav--vertical--right">
+
+            <div class="grid__col grid__col--span-3-of-12 grid__col--push-1-of-12">
+                <nav class="nav--vertical nav--vertical--dark">
                     <ul>
-                        <h2>Heading</h2>
-                        <li><a href="#band">Band</a></li>
-                        <li><a href="#blockquote">Blockquote</a></li>
-                        <li><a href="#icons">Icons</a>
+                        <li><a>Elements</a>
                             <ul>
-                                <li><a href="#">A secondary list</a></li>
-                                <li><a href="#">A secondary list</a></li>
-                                <li><a href="#" class="active">A secondary list</a></li>
-                                <li><a href="#">A secondary list</a></li>
+                                <li><a>Grid</a></li>
+                                <li><a>Spacing</a></li>
+                                <li><a>Typography <span class="nav--vertical__toggle"></span></a>
+                                    <ul>
+                                        <li><a>Fonts</a></li>
+                                        <li><a>Kerning</a></li>
+                                        <li><a>Uppercase</a></li>
+                                        <li><a>Leading</a></li>
+                                        <li><a>Weight</a></li>
+                                    </ul>
+                                </li>
+                                <li><a>Colour</a></li>
+                                <li><a>Icons</a></li>
                             </ul>
                         </li>
-                        <li><a href="#lists">Lists</a></li>
+                        <li><a>Components</a>
+                            <ul>
+                                <li><a>Components 1</a></li>
+                                <li><a>Components 2</a></li>
+                                <li><a>Components 3</a></li>
+                                <li><a>Components 4</a></li>
+                            </ul>
+                        </li>
+                        <li><a>Sections</a>
+                            <ul>
+                                <li><a href="#">Sections 1</a></li>
+                                <li><a>Sections 2</a></li>
+                                <li><a>Sections 3</a></li>
+                                <li><a>Sections 4</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
 
-        <h2 class="section-heading--honeycomb">Example HTML</h2>
-        <!-- <p data-height="300" data-theme-id="0" data-slug-hash="bNYgap" data-default-tab="html" data-user="redgatewebteam" class='codepen'>See the Pen <a href='http://codepen.io/redgatewebteam/pen/bNYgap/'>Redgate - HTML - Global - Navigation - Pagination</a> by Redgate Web Team (<a href='http://codepen.io/redgatewebteam'>@redgatewebteam</a>) on <a href='http://codepen.io'>CodePen</a>.</p> -->
 
       </div>
     </div>
   </div><!-- END .page-wrapper -->
 
 
+    <script>
+        const as = document.querySelectorAll(".nav--vertical a");
+        for(let i=0; i<as.length; i++) {
+            let a = as[i];
+            let href = a.getAttribute("href");
+            if (!href) {
+                a.addEventListener("click", e => {
+                    e.preventDefault();
 
+                    if(a.parentElement.classList.contains("nav--vertical__collapse")) {
+                        a.parentElement.parentElement.parentElement.classList.toggle("nav--vertical--collapsed");
+                    } else {
+                        a.parentElement.classList.toggle("nav--vertical__active");
+                    }
+                });
+            }
+        }
+    </script>
 
   <!--#include virtual="/docs/includes/footer/footer.htm" -->
