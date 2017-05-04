@@ -21,8 +21,15 @@ pre {
   white-space: pre; // CSS2
   white-space: pre-wrap; // CSS 2.1
   word-wrap: break-word; // IE
-}
 
+  code {
+    @include padding(0.5);
+    background-color: color("grey", 1);
+    display: block;
+    overflow: auto;
+    white-space: pre;
+  }
+}
 
 hr {
   clear: both;
