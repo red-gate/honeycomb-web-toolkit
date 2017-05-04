@@ -24,7 +24,6 @@ pre {
 
   code {
     @include padding(0.5);
-    background-color: color("grey", 1);
     display: block;
     overflow: auto;
     white-space: pre;
