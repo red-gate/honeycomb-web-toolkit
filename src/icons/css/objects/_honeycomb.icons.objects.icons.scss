@@ -42,128 +42,146 @@
     font-size: 10rem;
 }
 
-
 /**
 * Standard icons.
 */
 
 %icon {
-    &:before {
+    &:before, &:after {
         font-family: "Redgate";
         font-size: $hc-icon-font-size;
         vertical-align: top;
+    }
+
+    &:before {
         @include margin(0.25, right);
+    }
+
+    &:after {
+        @include margin(0.25, left);
+        display: none;
+    }
+
+    &.icon--right {
+
+        &:before {
+            display: none;
+        }
+
+        &:after {
+            display: inline;
+        }
     }
 }
 
 .icon--email {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e611";
     }
 }
 
 .icon--phone {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e61d";
     }
 }
 
 .icon--pdf {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e60e";
     }
 }
 
 .icon--external {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e612";
     }
 }
 
 .icon--video {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e628";
     }
 }
 
 .icon--download {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e60f";
     }
 }
 
 .icon--chevron-down {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e605";
     }
 }
 
 .icon--chevron-up {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e608";
     }
 }
 
 .icon--chevron-left {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e606";
     }
 }
 
 .icon--chevron-right {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e607";
     }
 }
 
 .icon--plus {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e620";
     }
 }
 
 .icon--plus-circle {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e61f";
     }
 }
 
 .icon--minus {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e61c";
     }
 }
 
 .icon--comments {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e60b";
     }
 }
 
 .icon--tick {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e625";
     }
 }
 
 .icon--cross {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e60a";
     }
 }
@@ -174,357 +192,357 @@
 
 .icon--fail {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e62b";
     }
 }
 
 .icon--info {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e619";
     }
 }
 
 .icon--calendar {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e604";
     }
 }
 
 .icon--settings {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e624";
     }
 }
 
 .icon--user {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e626";
     }
 }
 
 .icon--users {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e627";
     }
 }
 
 .icon--globe {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e616";
     }
 }
 
 .icon--arrow-left {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e601";
     }
 }
 
 .icon--arrow-right {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e602";
     }
 }
 
 .icon--play-circle {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e61e";
     }
 }
 
 .icon--warning {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e629";
     }
 }
 
 .icon--bullet {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e603";
     }
 }
 
 .icon--shopping-cart {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e62a";
     }
 }
 
 .icon--server {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e900";
     }
 }
 
 .icon--more-actions-horizontal {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e906";
     }
 }
 
 .icon--more-actions-vertical {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e907";
     }
 }
 
 .icon--alert-silence {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e908";
     }
 }
 
 .icon--maintenance {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e909";
     }
 }
 
 .icon--print {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e90a";
     }
 }
 
 .icon--hide {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e90b";
     }
 }
 
 .icon--warning-octagon {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e90c";
     }
 }
 
 .icon--tag {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e90d";
     }
 }
 
 .icon--flag {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e901";
     }
 }
 
 .icon--minimize {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e90e";
     }
 }
 
 .icon--expand {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e90f";
     }
 }
 
 .icon--import {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e910";
     }
 }
 
 .icon--export {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e911";
     }
 }
 
 .icon--zoom-in {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e912";
     }
 }
 
 .icon--zoom-out {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e913";
     }
 }
 
 .icon--show {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e902";
     }
 }
 
 .icon--play {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e903";
     }
 }
 
 .icon--copydoc {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e904";
     }
 }
 
 .icon--dock {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e905";
     }
 }
 
 .icon--test-data {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e914";
     }
 }
 
 .icon--add-ons {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e800";
     }
 }
 
 .icon--pipeline {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e614";
     }
 }
 
 .icon--alert {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e600";
     }
 }
 
 .icon--clear-cross-circle {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e609";
     }
 }
 
 .icon--instance {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e61a";
     }
 }
 
 .icon--database {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e60c";
     }
 }
 
 .icon--delete {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e60d";
     }
 }
 
 .icon--edit {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e610";
     }
 }
 
 .icon--filter {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e613";
     }
 }
 
 .icon--folder-open {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e62c";
     }
 }
 
 .icon--folder {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e615";
     }
 }
 
 .icon--history {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e618";
     }
 }
 
 .icon--message-tick {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e61b";
     }
 }
 
 .icon--refresh {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e621";
     }
 }
 
 .icon--save {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e622";
     }
 }
 
 .icon--search {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e623";
     }
 }
 
 .icon--help-circle {
     @extend %icon;
-    &:before {
+    &:before, &:after {
         content: "\e617";
     }
 }
