@@ -27,7 +27,7 @@
 		cursor: pointer;
 	}
 
-	.nav--vertical__active {
+	.nav--vertical__active, .nav--vertical__active-parent {
 
 		& > ul {
 			display: block;
@@ -43,7 +43,7 @@
 	}
 
 	& > ul > li > a {
-		@include font-size(16px, 20px);
+		@include font-size(16px, 28px);
 	}
 
 	&.nav--vertical--has-icons {
@@ -157,6 +157,15 @@
 					color: $hc-nav-vertical-link-color-active;
 					border-left-color: $hc-nav-vertical-link-background-color-active;
 				}
+			}
+		}
+
+		.nav--vertical__active-parent {
+
+			& > a {
+				background-color: $hc-nav-vertical-link-background-color-hover;
+				color: $hc-nav-vertical-link-color-hover;
+				border-left-color: $hc-nav-vertical-link-border-color-hover;
 			}
 		}
 
