@@ -167,6 +167,14 @@
 				color: $hc-nav-vertical-link-color-hover;
 				border-left-color: $hc-nav-vertical-link-border-color-hover;
 			}
+
+			.nav--vertical__active-parent {
+				background-color: $hc-nav-vertical-subsublist-background-color;
+
+				& > a {
+					background-color: transparent;
+				}
+			}
 		}
 
 		ul {
@@ -208,6 +216,15 @@
 					color: $hc-nav-vertical-dark-link-color-active;
 					border-left-color: $hc-nav-vertical-dark-link-background-color-active;
 				}
+			}
+		}
+
+		.nav--vertical__active-parent {
+
+			& > a, .nav--vertical__active-parent {
+				background-color: $hc-nav-vertical-dark-link-background-color-hover;
+				color: $hc-nav-vertical-dark-link-color-hover;
+				border-left-color: $hc-nav-vertical-dark-link-border-color-hover;
 			}
 		}
 
