@@ -1,6 +1,3 @@
 // Lightbox
-@import 'settings/honeycomb.lightbox.settings.lightbox';
-
-@import '../vendor/jquery.fancybox';
-
-@import 'components/honeycomb.lightbox.components.lightbox';
+@import 'settings';
+@import 'rules';

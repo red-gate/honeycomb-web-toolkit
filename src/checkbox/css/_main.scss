@@ -1,6 +1,4 @@
 // Checkboxes
-@import 'settings/honeycomb.checkbox.settings.checkbox';
-
-@import 'mixins/honeycomb.checkbox.mixins.checkbox';
-
-@import 'objects/honeycomb.checkbox.objects.checkbox';
+@import 'settings';
+@import 'utilities';
+@import 'rules';

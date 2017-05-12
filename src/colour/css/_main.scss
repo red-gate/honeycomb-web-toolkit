@@ -1,14 +1,4 @@
 // Colour
-@import 'settings/honeycomb.colour.settings.colours';
-
-@import 'functions/honeycomb.colour.function.colour';
-
-@import 'snippets/honeycomb.colour.snippets.colour-schemes';
-
-@import 'raw/honeycomb.colour.raw.inline';
-@import 'raw/honeycomb.colour.raw.page';
-
-@import 'objects/honeycomb.colour.objects.borders';
-@import 'objects/honeycomb.colour.objects.colour-schemes';
-
-@import 'trumps/honeycomb.colour.trumps.colours';
+@import 'settings';
+@import 'utilities';
+@import 'rules';
