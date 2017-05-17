@@ -7,7 +7,7 @@ const init = ( config = {} ) => {
     if ( vps.length ) {
         if ( typeof jQuery.fn.inViewport !== "function" ) {
             if ( typeof config.url === "undefined" ) {
-                config.url = "/src/document/vendor/jquery.inViewport.min.js";
+                config.url = "document/vendor/jquery.inViewport.min.js";
             }
 
             loadScript.load( config.url, () => {

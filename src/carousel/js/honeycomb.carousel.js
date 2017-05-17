@@ -48,7 +48,7 @@ const init = ( config = {} ) => {
     if ( carousels.length ) {
         if ( typeof jQuery.fn.slick !== "function" ) {
             if ( typeof config.url === "undefined") {
-                config.url = "/src/carousel/vendor/slick/slick.min.js";
+                config.url = "carousel/vendor/slick/slick.min.js";
             }
 
             loadScript.load( config.url, () => {

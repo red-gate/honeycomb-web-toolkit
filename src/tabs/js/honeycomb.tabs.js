@@ -13,7 +13,7 @@ let init = ( config = {} ) => {
 
         if ( typeof jQuery.fn.tabs === "undefined") {
             if ( typeof config.url === "undefined" ) {
-                config.url = "/src/tabs/vendor/jquery.tabs.min.js";
+                config.url = "tabs/vendor/jquery.tabs.min.js";
             }
 
             loadScript.load( config.url, () => {

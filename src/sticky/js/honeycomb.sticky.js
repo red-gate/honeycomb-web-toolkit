@@ -7,7 +7,7 @@ const init = ( config = {} ) => {
     if ( els.length ) {
         if ( typeof jQuery.fn.sticky === "undefined" ) {
             if ( typeof config.url === "undefined") {
-                config.url = "/src/sticky/vendor/jquery.sticky.min.js";
+                config.url = "sticky/vendor/jquery.sticky.min.js";
             }
 
             loadScript.load( config.url, () => {

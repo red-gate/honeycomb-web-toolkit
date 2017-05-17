@@ -23,7 +23,7 @@ const equalise = () => {
 	if ( els.length ) {
 		if ( typeof jQuery.fn.equalise !== "function" ) {
 			if ( typeof config.url === "undefined") {
-                config.url = "/src/equalise/vendor/jquery.equalise.min.js";
+                config.url = "equalise/vendor/jquery.equalise.min.js";
             }
 
             loadScript.load( config.url, () => {

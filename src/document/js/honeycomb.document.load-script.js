@@ -1,8 +1,9 @@
 const load = ( url = false, callback = false ) => {
     if ( url !== false ) {
         let se = document.createElement( "script" );
+        const honeycombPath = (window.Honeycomb && window.Honeycomb.path) ? window.Honeycomb.path : '';
         se.type = "text/javascript";
-        se.src = url;
+        se.src = honeycombPath + url;
 
         let done = false;
 

@@ -5,7 +5,7 @@ const init = ( config = {} ) => {
     if ( els.length ) {
         if ( typeof jQuery.fancybox === "undefined" ) {
             if ( typeof config.url === "undefined") {
-                config.url = "/src/lightbox/vendor/jquery.fancybox.pack.js";
+                config.url = "lightbox/vendor/jquery.fancybox.pack.js";
             }
 
             loadScript.load( config.url, () => {
