@@ -19,15 +19,15 @@ This allows the project to be separated, managed and distributed easily, and all
 Grab the <code>dist</code> directory from the repo, and add it to your project.
 
 #### CSS
-Reference the compiled CSS in the head of your HTML document(s), e.g. <code><link rel="stylesheet" href="/assets/honeycomb/honeycomb.css"></code>
+Reference the compiled CSS in the head of your HTML document(s), e.g. 
+<code>\<link rel="stylesheet" href="/assets/honeycomb/honeycomb.css"></code>
 
 #### JavaScript
 If you're planning on using the JavaScript elements of Honeycomb, then you'll need to reference the compiled, minified JavaScript from your project, e.g. <code><script src="/assets/honeycomb/honeycomb.min.js"></code>.
 
 You'll also need to create a Honeycomb object, setting the path to your Honeycomb directory, so that the JavaScript can lazy load some of the vendor scripts it needs.
 
-<pre><code>
-window.Honeycomb = {
+<pre><code>window.Honeycomb = {
     'path': '/assets/honeycomb/'
 };
 </code></pre>
@@ -35,6 +35,11 @@ window.Honeycomb = {
 ### Build from source
 Firstly, make sure you've installed Node and NPM.
 
-Then, simply run <code>npm install git://github.com/red-gate/honeycomb-web-toolkit.git</code> to get the latest version. You can apply a version number to the end if you want a specific version, e.g. <code>npm install git://github.com/red-gate/honeycomb-web-toolkit.git#v1.2.3</code>.
+Then, simply run 
+<code>npm install git://github.com/red-gate/honeycomb-web-toolkit.git</code> 
+to get the latest version. 
+
+You can apply a version number to the end if you want a specific version, e.g. 
+<code>npm install git://github.com/red-gate/honeycomb-web-toolkit.git#v1.2.3</code>.
 
 This will add Honeycomb to your <code>node_modules</code> directory, where you can reference the Sass modules from.
