@@ -8,24 +8,33 @@ Honeycomb is designed to be the core foundation for a web project to be built fr
 ## Modules
 The building blocks and components have been separated into modules, to make it easier to maintain and separate concerns. Each module has a README that explains what the module is for, and the module dependencies it has.
 
-## Bower
-Honeycomb is packaged as a Bower package, and therefore can be distributed across projects using the Bower package manager (http://bower.io/, a package manager for the web).
+## NPM
+Honeycomb is packaged as an NPM package, and therefore can be distributed across projects using the Node package manager (NPM).
 
 This allows the project to be separated, managed and distributed easily, and allows developers to easily update their projects to the latest, or specific version, of Honeycomb.
 
-### Getting Honeycomb into your project
-Firstly, make sure you've installed Bower.
+## Getting Honeycomb into your project
 
-Once Bower is installed, add a bower.json manifest file into the root of your project and add the following json:
+### Use the pre-compiled version
+Grab the <code>dist</code> directory from the repo, and add it to your project.
 
-<pre><code>{
-    "name": "Your project name goes here",
-    "dependencies": {
-        "honeycomb": "git@github.com:red-gate/honeycomb-web-toolkit.git"
-    }
-}
+#### CSS
+Reference the compiled CSS in the head of your HTML document(s), e.g. <code><link rel="stylesheet" href="/assets/honeycomb/honeycomb.css"></code>
+
+#### JavaScript
+If you're planning on using the JavaScript elements of Honeycomb, then you'll need to reference the compiled, minified JavaScript from your project, e.g. <code><script src="/assets/honeycomb/honeycomb.min.js"></code>.
+
+You'll also need to create a Honeycomb object, setting the path to your Honeycomb directory, so that the JavaScript can lazy load some of the vendor scripts it needs.
+
+<pre><code>
+window.Honeycomb = {
+    'path': '/assets/honeycomb/'
+};
 </code></pre>
 
-Then, simply run <code>bower install</code>. Bower will grab the latest version of Honeycomb, and you should now see a new directory <code>bower_components</code> in your root directory. This will include the <code>honeycomb</code> directory, where all the Honeycomb code is kept.
+### Build from source
+Firstly, make sure you've installed Node and NPM.
 
-Please refer to the Honeycomb instructions ([Gulp instructions](GULP-README.md), other options coming soon) to learn how to use Honeycomb in your project.
+Then, simply run <code>npm install git://github.com/red-gate/honeycomb-web-toolkit.git</code> to get the latest version. You can apply a version number to the end if you want a specific version, e.g. <code>npm install git://github.com/red-gate/honeycomb-web-toolkit.git#v1.2.3</code>.
+
+This will add Honeycomb to your <code>node_modules</code> directory, where you can reference the Sass modules from.
