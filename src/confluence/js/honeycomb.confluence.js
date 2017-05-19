@@ -8,20 +8,18 @@ let sidebar = () => {
 	$(".confluence-sidebar ul").scrollTree({
     	'contextPath': window.contextPath,
       	'css': {
-          'ancestor': 'ancestor',
-          'current': 'active',
+          'ancestor': 'nav--vertical__active-parent',
+          'current': 'nav--vertical__active',
           'collapsed': 'collapsed',
           'expanded': 'expanded',
-          'toggle': 'toggle'
+          'toggle': 'nav--vertical__toggle'
         },
       	'renderChildLi': function (child, opts) {
           	let html = '<li class="' + opts.css[child.type] + '">';
           	html += '<a href="' + child.link + '" class="' + opts.css[child.type] + '">';
 
           	if ( typeof child.children !== 'undefined' ) {
-              	html += '<span class="' + opts.css.toggle + ' ' + opts.css.toggle + '--has-children"></span>';
-            } else {
-              	html += '<span class="' + opts.css.toggle + '"></span>';
+                html += '<span class="' + opts.css.toggle + '"></span>';
             }
 
           	html += child.title + '</a>';
