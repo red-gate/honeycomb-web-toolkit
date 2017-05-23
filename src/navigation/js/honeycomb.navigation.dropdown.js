@@ -8,11 +8,11 @@ let init = () => {
 };
 
 let addArrows = () => {
-    let $lis = $( selector ).find( 'li' );
+    let $lis = window.jQuery( selector ).find( 'li' );
     $lis.each( function() {
-        let $this = $( this );
+        let $this = window.jQuery( this );
         if ( ( $this.find( 'ul' ).length > 0 ) && ( $this.attr( 'data-arrow-added' ) !== 'true' ) ) {
-            let $a = $( '<a/>' ).attr( 'href', '#toggle' ).addClass( 'arrow' );
+            let $a = window.jQuery( '<a/>' ).attr( 'href', '#toggle' ).addClass( 'arrow' );
             $this.addClass( `dropdown ${classNameClosed}` );
             $this.attr( 'data-arrow-added', 'true' );
             $a.appendTo( $this );
@@ -21,9 +21,9 @@ let addArrows = () => {
 };
 
 let handle = () => {
-    let $body = $( 'body' );
+    let $body = window.jQuery( 'body' );
     $body.on( 'click', '.js-dropdown .arrow', function( e ) {
-        let $this = $( this );
+        let $this = window.jQuery( this );
         let $dropdown = $this.parent();
 
         e.preventDefault();

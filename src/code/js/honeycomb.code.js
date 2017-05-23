@@ -1,13 +1,13 @@
-let vendorUrl   = "//alexgorbatchev.com/pub/sh/current/";
-let scriptsDir  = "scripts/";
-let cssDir      = "styles/";
+let vendorUrl   = '//alexgorbatchev.com/pub/sh/current/';
+let scriptsDir  = 'scripts/';
+let cssDir      = 'styles/';
 
 let scripts = [
-    vendorUrl + scriptsDir + "shCore.js"
+    vendorUrl + scriptsDir + 'shCore.js'
 ];
 
 let styles = [
-    cssDir + "shThemeDefault.css"
+    cssDir + 'shThemeDefault.css'
 ];
 
 let samples = [];
@@ -41,7 +41,7 @@ let brushes = [
 ];
 
 let isCodeSample = ( sample ) => {
-    let search = "brush:";
+    let search = 'brush:';
     if ( sample.className.match( search ) ) {
         return true;
     }
@@ -50,16 +50,16 @@ let isCodeSample = ( sample ) => {
 };
 
 let loadStylesheet = ( sheet ) => {
-    let head = document.getElementsByTagName( "head" )[ 0 ];
-    let link = document.createElement( "link" );
-    link.rel = "stylesheet";
+    let head = document.getElementsByTagName( 'head' )[ 0 ];
+    let link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
     link.href = vendorUrl + sheet;
     head.appendChild(link);
 };
 
 let loadScript = ( src ) => {
-    let scriptNodes = document.getElementsByTagName( "script" )[ 0 ];
-    let script = document.createElement( "script" );
+    let scriptNodes = document.getElementsByTagName( 'script' )[ 0 ];
+    let script = document.createElement( 'script' );
     script.async = true;
     script.src = src;
     scriptNodes.parentNode.insertBefore( script, scriptNodes );
@@ -75,8 +75,8 @@ let loadBrush = ( brush ) => {
 };
 
 let getCodeSamples = () => {
-    let pres = document.getElementsByTagName( "pre" );
-    let scripts = document.getElementsByTagName( "script" );
+    let pres = document.getElementsByTagName( 'pre' );
+    let scripts = document.getElementsByTagName( 'script' );
     let samples = [];
 
     for ( let a = 0; a < pres.length; a++ ) {
@@ -120,11 +120,11 @@ let autoloadBrushes = () => {
 };
 
 let highlight = () => {
-    if ( typeof SyntaxHighlighter !== "undefined" ) {
-        SyntaxHighlighter.defaults.toolbar = false;
-        SyntaxHighlighter.defaults.gutter = false;
-        SyntaxHighlighter.defaults[ 'quick-code' ] = false;
-        SyntaxHighlighter.highlight();
+    if ( typeof window.SyntaxHighlighter !== 'undefined' ) {
+        window.SyntaxHighlighter.defaults.toolbar = false;
+        window.SyntaxHighlighter.defaults.gutter = false;
+        window.SyntaxHighlighter.defaults[ 'quick-code' ] = false;
+        window.SyntaxHighlighter.highlight();
     }
 };
 

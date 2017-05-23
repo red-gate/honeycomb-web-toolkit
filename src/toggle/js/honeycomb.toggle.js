@@ -1,63 +1,62 @@
-const hook = ".js-toggle";
-
-const activeClass = "active";
+const hook = '.js-toggle';
+const activeClass = 'active';
 
 let init = () => {
-    let toggles = document.querySelectorAll( hook );
-    if ( toggles.length > 0 ) {
-        for ( let tog of toggles ) {
+    let toggles = document.querySelectorAll(hook);
+    if (toggles.length > 0) {
+        for (let tog of toggles) {
 
             // Hide the toggle items.
-            let items = tog.querySelectorAll( `${hook}-item` );
-            for ( let i = 0; i < items.length; i++ ) {
-                items[ i ].style.display = "none";
+            let items = tog.querySelectorAll(`${hook}-item`);
+            for (let i = 0; i < items.length; i++) {
+                items[i].style.display = 'none';
             }
 
             // Show the first item.
-            items[ 0 ].style.display = "block";
+            items[0].style.display = 'block';
 
             // Add active state to the first nav item.
-            let as = tog.querySelectorAll( `${hook}-nav a` );
-            for ( let a of as ) {
-                a.classList.remove( activeClass );
+            let as = tog.querySelectorAll(`${hook}-nav a`);
+            for (let a of as) {
+                a.classList.remove(activeClass);
 
                 // Add toggle handler.
-                a.addEventListener( "click", ( e ) => {
+                a.addEventListener('click', e => {
                     e.preventDefault();
-                    toggle( e.target.getAttribute( "href" ) );
+                    toggle(e.target.getAttribute('href'));
                 });
             }
-            as[ 0 ].classList.add( activeClass );
+            as[0].classList.add(activeClass);
         }
     }
 };
 
-let toggle = ( target ) => {
+let toggle = target => {
 
     // Find the toggle.
-    target = target.startsWith( "#" ) ? target.substr( 1 ) : target;
-    let toggleItem = document.getElementById( target );
+    target = target.startsWith('#') ? target.substr(1) : target;
+    let toggleItem = document.getElementById(target);
     let toggle = toggleItem.parentNode;
-    while ( ! toggle.classList.contains( hook.substr( 1 ) ) ) {
+    while (!toggle.classList.contains(hook.substr(1))) {
         toggle = toggle.parentNode;
     }
 
     // Hide all the items.
-    let items = toggle.querySelectorAll( `${hook}-item` );
-    for ( let item of items ) {
-        item.style.display = "none";
+    let items = toggle.querySelectorAll(`${hook}-item`);
+    for (let item of items) {
+        item.style.display = 'none';
     }
 
     // Show the selected item.
-    toggleItem.style.display = "block";
+    toggleItem.style.display = 'block';
 
     // Update the active state.
-    let links = toggle.querySelectorAll( `${hook}-nav a` );
-    for ( let link of links ) {
-        link.classList.remove( activeClass );
+    let links = toggle.querySelectorAll(`${hook}-nav a`);
+    for (let link of links) {
+        link.classList.remove(activeClass);
 
-        if ( link.getAttribute( "href" ) === `#${target}` ) {
-            link.classList.add( activeClass );
+        if (link.getAttribute('href') === `#${target}`) {
+            link.classList.add(activeClass);
         }
     }
 };

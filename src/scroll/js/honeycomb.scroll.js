@@ -5,8 +5,8 @@ const init = () => {
 };
 
 const scrollOnClick = () => {
-    $( 'a.js-scroll-to' ).on( 'click', function( e ) {
-        const $this = $( this );
+    window.jQuery( 'a.js-scroll-to' ).on( 'click', function( e ) {
+        const $this = window.jQuery( this );
         const href = $this.attr( 'href' );
         const offset = parseInt( $this.attr( 'data-scroll-to-offset' ) || 0 );
         const focus = $this.attr( 'data-scroll-to-focus' ) || false;
@@ -14,11 +14,11 @@ const scrollOnClick = () => {
 
         if ( hash ) {
             e.preventDefault();
-            $( 'html, body' ).animate({
-                scrollTop: $( hash ).offset().top + offset
+            window.jQuery( 'html, body' ).animate({
+                scrollTop: window.jQuery( hash ).offset().top + offset
             }, 500, function() {
                 if ( focus ) {
-                    $( `#${focus}` ).focus();
+                    window.jQuery( `#${focus}` ).focus();
                 }
             });
         }
@@ -47,7 +47,7 @@ const isHashOnThisPage = ( href ) => {
 };
 
 const scrollBeforeSticky = () => {
-    window.addEventListener("load", () => {
+    window.addEventListener('load', () => {
         window.setTimeout(() => {
             if(window.location.hash && (window.pageYOffset > 0)) {
 
@@ -55,17 +55,17 @@ const scrollBeforeSticky = () => {
                 // any sticky items, and if so, scroll back the height
                 // of them.
                 // const elementToScrollTo = document.querySelector(window.location.hash);
-                const elementToScrollTo = $(window.location.hash);
-                const stickyItems = document.querySelectorAll(".js-sticky");
+                const elementToScrollTo = window.jQuery(window.location.hash);
+                const stickyItems = document.querySelectorAll('.js-sticky');
                 let heightToReverse = 0;
                 for(let i=0; i<stickyItems.length; i++) {
                     let sticky = stickyItems[i];
-                    if(sticky.className.match("sticking")) {
+                    if(sticky.className.match('sticking')) {
                         heightToReverse = heightToReverse + sticky.clientHeight;
                     }
                 }
 
-                $( 'html, body' ).animate({
+                window.jQuery('html, body').animate({
                     scrollTop: elementToScrollTo.offset().top - heightToReverse
                 }, 500);
 

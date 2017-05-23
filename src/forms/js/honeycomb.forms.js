@@ -9,7 +9,7 @@ const addElement = ( selector, type, atts ) => {
         const el = document.createElement(type);
         for(let a=0; a<atts.length; a++) {
             const attr = atts[a];
-            const value = ( typeof attr.value === "string" ) ? attr.value : fields[i].getAttribute(attr.value.dataAttribute);
+            const value = ( typeof attr.value === 'string' ) ? attr.value : fields[i].getAttribute(attr.value.dataAttribute);
 
             if(attr.attribute && value) {
                 el.setAttribute(attr.attribute, value);
@@ -20,26 +20,26 @@ const addElement = ( selector, type, atts ) => {
 };
 
 const addRequiredDot = () => {
-    addElement("form .js-required, form [required]", "span", [
+    addElement('form .js-required, form [required]', 'span', [
         {
-            attribute: "class",
-            value: "form__required-dot"
+            attribute: 'class',
+            value: 'form__required-dot'
         }, {
-            attribute: "title",
-            value: "This field is required"
+            attribute: 'title',
+            value: 'This field is required'
         }
     ]);
 };
 
 const addHelpIcon = () => {
-    addElement("form .js-help", "span", [
+    addElement('form .js-help', 'span', [
         {
-            attribute: "class",
-            value: "icon--help-circle form__help"
+            attribute: 'class',
+            value: 'icon--help-circle form__help'
         }, {
-            attribute: "title",
+            attribute: 'title',
             value: {
-                dataAttribute: "data-help-text"
+                dataAttribute: 'data-help-text'
             }
         }
     ]);

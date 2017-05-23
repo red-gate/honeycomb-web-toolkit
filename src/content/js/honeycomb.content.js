@@ -2,7 +2,7 @@ let updateEls = false;
 
 const init = () => {
 
-    let els = document.querySelectorAll( ".js-update-content" );
+    let els = document.querySelectorAll( '.js-update-content' );
     if ( els && window.breakpoints ) {
         updateEls = els;
         update( true );
@@ -44,7 +44,7 @@ const update = ( init = false ) => {
     }
 };
 
-window.addEventListener( "resize", () => {
+window.addEventListener( 'resize', () => {
     update();
 });
 

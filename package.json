@@ -10,7 +10,7 @@
     "images": "node scripts/images.js",
     "js:bundle": "node scripts/javascript/bundle.js",
     "js:minify": "node scripts/javascript/minify.js",
-    "js:lint": "node node_modules/eslint/bin/eslint src",
+    "js:lint": "node node_modules/eslint/bin/eslint src/**/js",
     "js:vendor": "node scripts/javascript/vendors.js",
     "js": "npm run js:bundle && npm run js:minify && npm run js:vendor",
     "build": "npm run clean && npm run css && npm run fonts && npm run images && npm run js"
