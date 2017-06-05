@@ -3,13 +3,12 @@
 \*------------------------------------*/
 
 blockquote {
-    text-align: center;
     -webkit-font-smoothing: antialiased;
+    font-style: italic;
+    @include margin(0.5, "left");
 
     p {
-        @include font-size(24px);
-        color: color("red");
-        font-weight: bold;
+        @include font-size(18px);
     }
 
     img {
@@ -33,15 +32,9 @@ blockquote {
         font-style: normal;
     }
 
-    &.blockquote--small {
-        p {
-            @include font-size(18px);
-        }
-    }
-
     &.blockquote--large {
         p {
-            @include font-size(36px);
+            @extend .beta;
         }
     }
 
