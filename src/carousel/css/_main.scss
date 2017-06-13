@@ -1,7 +1,3 @@
 // Carousel
-@import 'settings/honeycomb.carousel.settings';
-
-@import '../vendor/slick/slick-theme';
-@import '../vendor/slick/slick';
-
-@import 'objects/honeycomb.carousel.objects';
+@import 'settings';
+@import 'rules';

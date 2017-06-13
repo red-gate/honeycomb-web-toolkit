@@ -2,7 +2,7 @@
 let init = () => {
 
     // Get the filter.
-    let $filter = $(".js-filter");
+    let $filter = window.jQuery('.js-filter');
 
     // If there's no filter on the page then stop.
     if ( $filter.length === 0 ) {
@@ -10,18 +10,18 @@ let init = () => {
     }
 
     // When the update button is clicked, update the filter.
-    $filter.on( "click", ".js-filter__update", function() {
+    $filter.on( 'click", ".js-filter__update', function() {
         updateFilter.call( this );
     });
 
     // When any of the filter items are changed (selected/deselected), update
     // the filter.
-    $filter.on( "change", ".js-filter__item", function() {
+    $filter.on( 'change', '.js-filter__item', function() {
         updateFilter.call( this );
     });
 
     // When the reset button is clicked, reset the filter.
-    $filter.on( "click", ".js-filter__reset", function() {
+    $filter.on( 'click', '.js-filter__reset', function() {
         resetFilter.call( this );
     });
 
@@ -31,25 +31,25 @@ let init = () => {
 
 // Update the filter.
 let updateFilter = function () {
-    let $this           = $( this );
-    let $filter         = $this.parents( ".js-filter" );
-    let $items          = $filter.find( ".js-filter__item" );
-    let $content        = $( "[data-filter-content]" );
+    let $this           = window.jQuery( this );
+    let $filter         = $this.parents( '.js-filter' );
+    let $items          = $filter.find( '.js-filter__item' );
+    let $content        = window.jQuery( '[data-filter-content]' );
     let enabledItems    = [];
     let enabledContent  = [];
 
     // Get the enabled items.
     $items.each( function () {
-        let $this = $( this );
-        if ( $this.prop( "checked" ) ) {
-            enabledItems.push( $this.attr( "data-filter-term" ) );
+        let $this = window.jQuery( this );
+        if ( $this.prop( 'checked' ) ) {
+            enabledItems.push( $this.attr( 'data-filter-term' ) );
         }
     });
 
     // Show/Hide the relevant content.
     $content.each( function () {
-        let $this   = $( this );
-        let terms   = $this.attr( "data-filter-content" ).trim().split( " " );
+        let $this   = window.jQuery( this );
+        let terms   = $this.attr( 'data-filter-content' ).trim().split( ' ' );
         let show    = false;
 
         for ( let i = 0; i < terms.length; i++ ) {
@@ -69,7 +69,7 @@ let updateFilter = function () {
         duration: 250,
         complete: () => {
             $content.each( function () {
-                let $this = $( this );
+                let $this = window.jQuery( this );
                 let enabled = ( enabledContent.indexOf( $this.get( 0 ) ) !== -1 ) ? true : false;
 
                 if ( enabled ) {
@@ -88,11 +88,11 @@ let updateFilter = function () {
 };
 
 let resetFilter = function () {
-    let $this = $( this );
-    let $filter = $this.parents( ".js-filter" );
-    let $items = $filter.find( ".js-filter__item" );
+    let $this = window.jQuery( this );
+    let $filter = $this.parents( '.js-filter' );
+    let $items = $filter.find( '.js-filter__item' );
 
-    $items.prop( "checked", true );
+    $items.prop( 'checked', true );
 
     updateFilter.call( this );
 };

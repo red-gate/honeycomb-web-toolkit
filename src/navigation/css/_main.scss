@@ -1,12 +1,3 @@
 // Navigation
-@import 'settings/honeycomb.navigation.settings.bar';
-@import 'settings/honeycomb.navigation.settings.header';
-@import 'settings/honeycomb.navigation.settings.vertical';
-
-@import 'components/honeycomb.navigation.components.bar';
-@import 'components/honeycomb.navigation.components.breadcrumbs';
-@import 'components/honeycomb.navigation.components.burger';
-@import 'components/honeycomb.navigation.components.header';
-@import 'components/honeycomb.navigation.components.dropdown';
-@import 'components/honeycomb.navigation.components.pagination';
-@import 'components/honeycomb.navigation.components.vertical';
+@import 'settings';
+@import 'rules';

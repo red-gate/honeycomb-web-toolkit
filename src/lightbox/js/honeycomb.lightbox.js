@@ -1,11 +1,11 @@
-import loadScript from "../../document/js/honeycomb.document.load-script";
+import loadScript from '../../document/js/honeycomb.document.load-script';
 
 const init = ( config = {} ) => {
-    let els = document.querySelectorAll( ".js-lightbox, .js-lightbox--video, .js-lightbox--iframe, .js-lightbox--image, .js-lightbox--inline, .js-lightbox--ajax, .js-lightbox--swf, .js-lightbox--html" );
+    let els = document.querySelectorAll( '.js-lightbox, .js-lightbox--video, .js-lightbox--iframe, .js-lightbox--image, .js-lightbox--inline, .js-lightbox--ajax, .js-lightbox--swf, .js-lightbox--html' );
     if ( els.length ) {
-        if ( typeof jQuery.fancybox === "undefined" ) {
-            if ( typeof config.url === "undefined") {
-                config.url = "/src/lightbox/vendor/jquery.fancybox.pack.js";
+        if ( typeof window.jQuery.fancybox === 'undefined' ) {
+            if ( typeof config.url === 'undefined') {
+                config.url = 'lightbox/vendor/jquery.fancybox.pack.js';
             }
 
             loadScript.load( config.url, () => {
@@ -14,13 +14,13 @@ const init = ( config = {} ) => {
         } else {
             
             // Use BEM style modifiers to set type of content for lightbox.
-            jQuery( '.js-lightbox' ).fancybox();
-            jQuery( '.js-lightbox--video, .js-lightbox--iframe' ).fancybox( {type: 'iframe'} );
-            jQuery( '.js-lightbox--image' ).fancybox( {type: 'image'} );
-            jQuery( '.js-lightbox--inline' ).fancybox( {type: 'inline'} );
-            jQuery( '.js-lightbox--ajax' ).fancybox( {type: 'ajax'} );
-            jQuery( '.js-lightbox--swf' ).fancybox( {type: 'swf'} );
-            jQuery( '.js-lightbox--html' ).fancybox( {type: 'html'} );
+            window.jQuery( '.js-lightbox' ).fancybox();
+            window.jQuery( '.js-lightbox--video, .js-lightbox--iframe' ).fancybox( {type: 'iframe'} );
+            window.jQuery( '.js-lightbox--image' ).fancybox( {type: 'image'} );
+            window.jQuery( '.js-lightbox--inline' ).fancybox( {type: 'inline'} );
+            window.jQuery( '.js-lightbox--ajax' ).fancybox( {type: 'ajax'} );
+            window.jQuery( '.js-lightbox--swf' ).fancybox( {type: 'swf'} );
+            window.jQuery( '.js-lightbox--html' ).fancybox( {type: 'html'} );
         }    
     }
 };

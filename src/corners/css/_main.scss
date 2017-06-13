@@ -1,6 +1,4 @@
 // Corners
-@import 'settings/honeycomb.corners.settings.corners';
-
-@import 'snippets/honeycomb.corners.snippets.corners';
-
-@import 'objects/honeycomb.corners.objects.corners';
+@import 'settings';
+@import 'utilities';
+@import 'rules';

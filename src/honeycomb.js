@@ -12,7 +12,7 @@ import animationFade from './animation/js/honeycomb.animation.fade';
 animationFade.init();
 
 // Base.
-import { version, date, breakpoints } from './base/js/honeycomb.base';
+import { breakpoints } from './base/js/honeycomb.base';
 window.breakpoints = breakpoints;
 
 // Browser.
@@ -21,7 +21,7 @@ browser.init();
 
 // Carousel.
 import carousel from './carousel/js/honeycomb.carousel';
-window.addEventListener( "load", () => {
+window.addEventListener('load', () => {
     carousel.init();
 });
 
@@ -35,15 +35,11 @@ confluence.init();
 
 // Content.
 import content from './content/js/honeycomb.content';
-window.addEventListener( "load", () => {
+window.addEventListener('load', () => {
     content.init();
 });
 
-// Cookie
-import cookie from './cookie/js/honeycomb.cookie';
-
 // Document.
-import documentLocation from './document/js/honeycomb.document.location';
 import documentViewport from './document/js/honeycomb.document.viewport';
 documentViewport.init();
 
@@ -109,7 +105,7 @@ svg.init();
 // Tabs.
 import tabs from './tabs/js/honeycomb.tabs';
 tabs.init({
-	equalise: equalise.init
+    equalise: equalise.init
 });
 
 // Toggle.

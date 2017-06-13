@@ -5,8 +5,8 @@ let fadeInDuration = 2000;
 let init = () => {
     if ( typeof $ === 'undefined' ) return;
 
-    $('.js-animate--fade').each(function() {
-        let $this = $(this);
+    window.jQuery('.js-animate--fade').each(function() {
+        let $this = window.jQuery(this);
         if ( $this.find('.js-animate--fade__item').length > 1 ) {
             $this.find('.js-animate--fade__item').wrapAll('<div class=\"js-animate--fade__container\"/>');
             $this.find('.js-animate--fade__item').hide().first().show();
@@ -16,8 +16,8 @@ let init = () => {
 };
 
 let step = () => {
-    $('.js-animate--fade').each(function() {
-        let $band = $(this);
+    window.jQuery('.js-animate--fade').each(function() {
+        let $band = window.jQuery(this);
         let $current = $band.find('.js-animate--fade__item:visible');
         let $next = ($current.next('.js-animate--fade__item').length !== 0) ? $current.next('.js-animate--fade__item') : $band.find('.js-animate--fade__item').first();
 

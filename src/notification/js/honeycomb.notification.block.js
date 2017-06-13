@@ -1,10 +1,10 @@
 // Click handler for close buttons on statically built notifications.
 let init = () => {
-    $( 'body' ).on('click', '.notification--block .notification__close', function( e ) {
+    window.jQuery( 'body' ).on('click', '.notification--block .notification__close', function( e ) {
         e.preventDefault();
-        $( this ).parent().parent().slideUp({
+        window.jQuery( this ).parent().parent().slideUp({
             complete: function() {
-                $( this ).remove();
+                window.jQuery( this ).remove();
             }
         });
     });
@@ -30,7 +30,7 @@ let notification = function ( options ) {
         },
         content: '',
         duration: false,
-        container: $( 'body' )
+        container: window.jQuery( 'body' )
     };
 
     // Customised settings.
@@ -40,7 +40,7 @@ let notification = function ( options ) {
     this.init = function init() {
 
         // Generate the settings array (Merging default settings and user options).
-        $.extend( true, self.settings, self.defaults, self.options );
+        window.jQuery.extend( true, self.settings, self.defaults, self.options );
 
         // Build the notification.
         self.buildNotification();
@@ -80,21 +80,21 @@ let notification = function ( options ) {
                 '<div class="notification--block__inner-container">' +
                     '<figure class="notification__icon">';
 
-                        if ( self.settings.icon.type ) {
-                            if ( self.settings.icon.type === 'font' ) {
+        if ( self.settings.icon.type ) {
+            if ( self.settings.icon.type === 'font' ) {
 
-                                // Icon font
-                                notificationStr += '<span class="icon icon--' + self.settings.icon.src + '"></span>';
-                            } else if ( self.settings.icon.type === 'image' ) {
+                // Icon font
+                notificationStr += '<span class="icon icon--' + self.settings.icon.src + '"></span>';
+            } else if ( self.settings.icon.type === 'image' ) {
 
-                                // Image
-                                notificationStr += '<img src="' + self.settings.icon.src + '" alt=""/>';
-                            }
-                        } else {
-                            notificationStr += '<span class="icon icon--' + self.settings.type + '"></span>';
-                        }
+                // Image
+                notificationStr += '<img src="' + self.settings.icon.src + '" alt=""/>';
+            }
+        } else {
+            notificationStr += '<span class="icon icon--' + self.settings.type + '"></span>';
+        }
 
-                    notificationStr += '</figure>' +
+        notificationStr += '</figure>' +
                     '<a class="notification__close" href="#">X</a>' +
                     '<div class="notification__body">' +
                         '<p>' + this.settings.content + '</p>' +
@@ -103,7 +103,7 @@ let notification = function ( options ) {
             '</div>' +
         '</div>';
 
-        self.notification = $( notificationStr );
+        self.notification = window.jQuery( notificationStr );
     };
 
     // Close the notification.

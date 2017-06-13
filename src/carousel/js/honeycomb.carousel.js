@@ -1,4 +1,4 @@
-import loadScript from "../../document/js/honeycomb.document.load-script";
+import loadScript from '../../document/js/honeycomb.document.load-script';
 
 const rearrangeNav = (carousel) => {
     // selectors
@@ -10,7 +10,7 @@ const rearrangeNav = (carousel) => {
     if (nav && leftButton && rightButton) {
 
         // Give the pagination a class so can style.
-        nav.className = nav.className + " carousel-has-pagination";
+        nav.className = nav.className + ' carousel-has-pagination';
 
         // move buttons inside <ul>
         nav.appendChild(rightButton);
@@ -27,8 +27,8 @@ const rearrangeNav = (carousel) => {
     } else if(!nav && leftButton && rightButton) {
 
         // No pagination dots (nav)
-        const buttonContainer = document.createElement("div");
-        buttonContainer.className = "carousel__button-container";
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'carousel__button-container';
         buttonContainer.appendChild(leftButton);
         buttonContainer.appendChild(rightButton);
         carousel.appendChild(buttonContainer);
@@ -39,16 +39,16 @@ const rearrangeNav = (carousel) => {
 const init = ( config = {} ) => {
 
     // If no jQuery then break;
-    if ( typeof jQuery === "undefined" ) {
+    if ( typeof jQuery === 'undefined' ) {
         return;
     }
 
     let carousels = document.querySelectorAll( '.js-carousel' );
 
     if ( carousels.length ) {
-        if ( typeof jQuery.fn.slick !== "function" ) {
-            if ( typeof config.url === "undefined") {
-                config.url = "/src/carousel/vendor/slick/slick.min.js";
+        if ( typeof window.jQuery.fn.slick !== 'function' ) {
+            if ( typeof config.url === 'undefined') {
+                config.url = 'carousel/vendor/slick/slick.min.js';
             }
 
             loadScript.load( config.url, () => {
@@ -75,7 +75,7 @@ const init = ( config = {} ) => {
                 }
 
                 // Pagination / Dots.
-                if ( carousel.getAttribute( 'data-carousel-pagination' ) && carousel.getAttribute( 'data-carousel-pagination' ) === "false" ) {
+                if ( carousel.getAttribute( 'data-carousel-pagination' ) && carousel.getAttribute( 'data-carousel-pagination' ) === 'false' ) {
                     options.dots = false;
                 }
 
@@ -95,13 +95,13 @@ const init = ( config = {} ) => {
                 }
 
                 // rearrange nav
-                jQuery( carousel ).on('init', () => {
+                window.jQuery( carousel ).on('init', () => {
                     rearrangeNav(carousel);
                 });
 
-                jQuery( carousel ).slick( options );
+                window.jQuery( carousel ).slick( options );
 
-                jQuery( carousel ).css('visibility', 'inherit').css('height', 'auto');
+                window.jQuery( carousel ).css('visibility', 'inherit').css('height', 'auto');
             }
         }
     }
