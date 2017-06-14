@@ -1,0 +1,96 @@
+
+/* Base styles for the entire tooltip and default position*/
+.tooltip, [data-tooltip], .tooltip-top {
+  position: relative;
+  cursor: help;
+
+  /* Shared animations and properties */
+  &:before, &:after {
+    position: absolute;
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    -webkit-transition:
+            opacity 0.2s ease-in-out,
+            visibility 0.2s ease-in-out,
+            -webkit-transform 0.2s cubic-bezier(0.25, 0.1, 0.25 ,1);
+    -moz-transition:
+            opacity 0.2s ease-in-out,
+            visibility 0.2s ease-in-out,
+            -moz-transform 0.2s cubic-bezier(0.25, 0.1, 0.25 ,1);
+    transition:
+            opacity 0.2s ease-in-out,
+            visibility 0.2s ease-in-out,
+            transform 0.2s cubic-bezier(0.25, 0.1, 0.25 ,1);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform:    translate3d(0, 0, 0);
+    transform:         translate3d(0, 0, 0);
+    pointer-events: none;
+
+    bottom: 100%;
+    left: 0%;
+  }
+
+  /* Tooltip arrow specific */
+  &:before {
+    z-index: 1001;
+    border: 6px solid transparent;
+    background: transparent;
+    content: "";
+
+    margin-left: ($hc-tooltip-width / 2) - 5;
+    margin-bottom: -12px;
+    border-top-color: $hc-tooltip-background-color;
+  }
+
+  /* Content area specific */
+  &:after {
+    z-index: 1000;
+    padding: 8px;
+    width: $hc-tooltip-width;
+    background-color: $hc-tooltip-background-color;
+    color: $hc-tooltip-text-color;
+    content: attr(data-tooltip);
+    font-size: $hc-tooltip-font-size;
+    line-height: 1.2;
+    text-align:center;
+    border-radius: $hc-tooltip-border-radius;
+  }
+
+  /* Show and play animation on hover and focus */
+  &:hover:before, &:hover:after,
+  &:focus:before, &:focus:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+
+    -webkit-transform: translateY(-12px);
+    -moz-transform:    translateY(-12px);
+    transform:         translateY(-12px);
+  }
+}
+
+/* Overrides for bottom position */
+.tooltip-bottom {
+  &:before, &:after {
+    top: 100%;
+    bottom: auto;
+    left: 0%;
+  }
+
+  &:before {
+    margin-top: -12px;
+    margin-bottom: 0;
+    border-top-color: transparent;
+    border-bottom-color: $hc-tooltip-background-color;
+  }
+
+  &:hover:before, &:hover:after,
+  &:focus:before, &:focus:after {
+    -webkit-transform: translateY(12px);
+    -moz-transform:    translateY(12px);
+    transform:         translateY(12px);
+  }
+}
