@@ -15,5 +15,7 @@ a:hover.link-image {
     border: none;
 }
 a:hover.link-image {
-	opacity: 0.5;
+	&, & * {
+		opacity: 0.5;
+	}
 }
