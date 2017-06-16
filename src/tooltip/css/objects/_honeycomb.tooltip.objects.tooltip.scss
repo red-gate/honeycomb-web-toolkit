@@ -1,4 +1,4 @@
-.tooltip, [data-tooltip], .tooltip-top {
+.tooltip, [data-tooltip] {
     position: relative;
 
     &:not(a) {
@@ -52,7 +52,7 @@
 }
 
 /* Overrides for bottom position */
-.tooltip-bottom {
+.tooltip--bottom {
 
     &:before, &:after {
         top: 100%;
