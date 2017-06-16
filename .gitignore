@@ -197,3 +197,5 @@ FakesAssemblies/
 **/.idea/**/*.iml
 **/.idea/modules.xml
 **/.idea/inspectionProfiles
+**/.idea/misc.xml
+**/.idea/vcs.xml
