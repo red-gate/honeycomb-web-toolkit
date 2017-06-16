@@ -186,3 +186,16 @@ FakesAssemblies/
 
 # Visual Studio Code editor
 .vscode
+
+# Webstorm
+**/.idea/dictionaries
+**/.idea/watcherTasks.xml
+**/.idea/workspace.xml
+**/.idea/**/profiles_settings.xml
+*.DotSettings
+**/.idea/*.iml
+**/.idea/**/*.iml
+**/.idea/modules.xml
+**/.idea/inspectionProfiles
+**/.idea/misc.xml
+**/.idea/vcs.xml

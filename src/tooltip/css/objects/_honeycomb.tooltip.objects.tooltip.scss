@@ -1,0 +1,74 @@
+.tooltip, [data-tooltip], .tooltip-top {
+    position: relative;
+
+    &:not(a) {
+        cursor: help;
+    }
+
+    /* Shared animations and properties */
+    &:before, &:after {
+        position: absolute;
+        bottom: 100%;
+        left: 0%;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out,
+            visibility 0.2s ease-in-out,
+            transform 0.2s cubic-bezier(0.25, 0.1, 0.25 ,1);
+        transform: translate3d(0, 0, 0);
+        pointer-events: none;
+    }
+
+    /* Tooltip arrow specific */
+    &:before {
+        content: "";
+        z-index: 1001;
+        border: 6px solid transparent;
+        background: transparent;
+        margin-left: 10px;
+        margin-bottom: -12px;
+        border-top-color: $hc-tooltip-background-color;
+    }
+
+    /* Content area specific */
+    &:after {
+        @include padding(0.25);
+        @include font-size($hc-tooltip-font-size, $hc-tooltip-line-height);
+        content: attr(data-tooltip);
+        z-index: 1000;
+        max-width: $hc-tooltip-width;
+        background-color: $hc-tooltip-background-color;
+        color: $hc-tooltip-text-color;
+        border-radius: $hc-tooltip-border-radius;
+    }
+
+    /* Show and play animation on hover and focus */
+    &:hover:before, &:hover:after,
+    &:focus:before, &:focus:after {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(-12px);
+    }
+}
+
+/* Overrides for bottom position */
+.tooltip-bottom {
+
+    &:before, &:after {
+        top: 100%;
+        bottom: auto;
+        left: 0%;
+    }
+
+    &:before {
+        margin-top: -12px;
+        margin-bottom: 0;
+        border-top-color: transparent;
+        border-bottom-color: $hc-tooltip-background-color;
+    }
+
+    &:hover:before, &:hover:after,
+    &:focus:before, &:focus:after {
+        transform: translateY(12px);
+    }
+}

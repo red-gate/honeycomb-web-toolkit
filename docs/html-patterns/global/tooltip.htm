@@ -1,0 +1,44 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+<title>Honeycomb - HTML pattern library - Global - Tooltips</title>
+<meta name="description" content="Front-end Web Development and Design Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="guide" id="top-of-page">
+    <div class="page-wrapper">
+
+        <div class="band">
+            <div class="band__inner-container--tight">
+                <section class="card">
+                    <h1>Tooltips</h1>
+                    <p class="tooltip" data-tooltip="Hello, have a chicken! 🐔">This paragraph has a tooltip on it. Mouse over it.</p>
+                    <a href="#" class="tooltip" data-tooltip="This tooltip is slightly longer. Wrapping is handled nice and neatly, hooray!">Links can have tooltips too!</a>
+                    <div><span class="tooltip" data-tooltip="Did you know an ostrich's eye is bigger than its brain? That's pretty crazy.">Pretty much anything can have tooltips, actually. This is a span!</span></div>
+                </section>
+
+                <section class="card">
+                    <h1>Tooltip positions</h1>
+                    <p class="tooltip" data-tooltip="I'm a default position tooltip">.tooltip</p>
+                    <p class="tooltip-top" data-tooltip="I'm explicitly a top tooltip. You can specify me being on top if you prefer.">.tooltip-top</p>
+                    <p class="tooltip-bottom" data-tooltip="I'm a bottom tooltip. If there's not enough space on top, I can show up down here instead!">.tooltip-bottom</p>
+                </section>
+
+                <section class="card">
+                    <h1>Tooltip content</h1>
+                    <p class="tooltip-top">Tooltip data is defined by the <code>data-tooltip</code> property. Remember not to leave it empty like this one!</p>
+                    <p class="tooltip-top" data-tooltip="🥑 🍉 🍖 🌭 🍔 🍕 🍟 🌯 🍯 🍮 🍭 🍬 🍫 Βάλτε τα χρήματα στην τσάντα">You can use emojis, and utf-16 characters in your tooltips. Here's a set of emojis and a sentence in greek.</p>
+                </section>
+
+                <section class="card">
+                    <h1>TODO</h1>
+                    <ul>
+                        <li>Slightly better positioning of 'arrow' pseudo-element when on short elements</li>
+                        <li>Left and right positioned tooltips</li>
+                        <li>Width adjustment for short tooltips</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!--#include virtual="/docs/includes/footer/footer.htm" -->
