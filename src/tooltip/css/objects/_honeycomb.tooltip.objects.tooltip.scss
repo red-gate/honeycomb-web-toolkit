@@ -41,7 +41,6 @@
         background-color: $hc-tooltip-background-color;
         color: $hc-tooltip-text-color;
         content: attr(data-tooltip);
-        text-align:center;
         @include font-size($hc-tooltip-font-size, $hc-tooltip-line-height);
         border-radius: $hc-tooltip-border-radius;
     }
