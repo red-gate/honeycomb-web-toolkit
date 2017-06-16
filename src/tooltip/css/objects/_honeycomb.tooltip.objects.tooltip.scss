@@ -1,4 +1,3 @@
-/* Base styles for the entire tooltip and default position*/
 .tooltip, [data-tooltip], .tooltip-top {
     position: relative;
 
@@ -9,6 +8,8 @@
     /* Shared animations and properties */
     &:before, &:after {
         position: absolute;
+        bottom: 100%;
+        left: 0%;
         visibility: hidden;
         opacity: 0;
         transition: opacity 0.2s ease-in-out,
@@ -16,18 +17,14 @@
             transform 0.2s cubic-bezier(0.25, 0.1, 0.25 ,1);
         transform: translate3d(0, 0, 0);
         pointer-events: none;
-
-        bottom: 100%;
-        left: 0%;
     }
 
     /* Tooltip arrow specific */
     &:before {
+        content: "";
         z-index: 1001;
         border: 6px solid transparent;
         background: transparent;
-        content: "";
-
         margin-left: 10px;
         margin-bottom: -12px;
         border-top-color: $hc-tooltip-background-color;
@@ -35,13 +32,13 @@
 
     /* Content area specific */
     &:after {
-        z-index: 1000;
         @include padding(0.25);
+        @include font-size($hc-tooltip-font-size, $hc-tooltip-line-height);
+        content: attr(data-tooltip);
+        z-index: 1000;
         max-width: $hc-tooltip-width;
         background-color: $hc-tooltip-background-color;
         color: $hc-tooltip-text-color;
-        content: attr(data-tooltip);
-        @include font-size($hc-tooltip-font-size, $hc-tooltip-line-height);
         border-radius: $hc-tooltip-border-radius;
     }
 
@@ -56,6 +53,7 @@
 
 /* Overrides for bottom position */
 .tooltip-bottom {
+
     &:before, &:after {
         top: 100%;
         bottom: auto;
