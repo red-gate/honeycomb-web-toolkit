@@ -1,11 +1,10 @@
-a {
-  cursor: pointer !important;
-}
-
 /* Base styles for the entire tooltip and default position*/
 .tooltip, [data-tooltip], .tooltip-top {
   position: relative;
-  cursor: help;
+
+  &:not(a) {
+    cursor: help;
+  }
 
   /* Shared animations and properties */
   &:before, &:after {
