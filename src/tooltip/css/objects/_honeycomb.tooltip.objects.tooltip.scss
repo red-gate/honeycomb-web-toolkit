@@ -1,3 +1,6 @@
+a {
+  cursor: pointer !important;
+}
 
 /* Base styles for the entire tooltip and default position*/
 .tooltip, [data-tooltip], .tooltip-top {
@@ -8,24 +11,11 @@
   &:before, &:after {
     position: absolute;
     visibility: hidden;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
-    -webkit-transition:
-            opacity 0.2s ease-in-out,
-            visibility 0.2s ease-in-out,
-            -webkit-transform 0.2s cubic-bezier(0.25, 0.1, 0.25 ,1);
-    -moz-transition:
-            opacity 0.2s ease-in-out,
-            visibility 0.2s ease-in-out,
-            -moz-transform 0.2s cubic-bezier(0.25, 0.1, 0.25 ,1);
-    transition:
-            opacity 0.2s ease-in-out,
-            visibility 0.2s ease-in-out,
-            transform 0.2s cubic-bezier(0.25, 0.1, 0.25 ,1);
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform:    translate3d(0, 0, 0);
-    transform:         translate3d(0, 0, 0);
+    transition: opacity 0.2s ease-in-out,
+                visibility 0.2s ease-in-out,
+                transform 0.2s cubic-bezier(0.25, 0.1, 0.25 ,1);
+    transform: translate3d(0, 0, 0);
     pointer-events: none;
 
     bottom: 100%;
@@ -62,13 +52,8 @@
   &:hover:before, &:hover:after,
   &:focus:before, &:focus:after {
     visibility: visible;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
-
-    -webkit-transform: translateY(-12px);
-    -moz-transform:    translateY(-12px);
-    transform:         translateY(-12px);
+    transform: translateY(-12px);
   }
 }
 
@@ -89,8 +74,6 @@
 
   &:hover:before, &:hover:after,
   &:focus:before, &:focus:after {
-    -webkit-transform: translateY(12px);
-    -moz-transform:    translateY(12px);
-    transform:         translateY(12px);
+    transform: translateY(12px);
   }
 }
