@@ -36,8 +36,8 @@
     /* Content area specific */
     &:after {
         z-index: 1000;
-        padding: 8px;
         width: $hc-tooltip-width;
+        @include padding(0.25);
         background-color: $hc-tooltip-background-color;
         color: $hc-tooltip-text-color;
         content: attr(data-tooltip);
