@@ -72,3 +72,52 @@
         transform: translateY(12px);
     }
 }
+
+/* Overrides for left position */
+.tooltip--left {
+
+    &:before, &:after {
+        right: 100%;
+        bottom: 0%;
+        left: auto;
+    }
+
+    &:before {
+        margin-left: 0;
+        margin-right: -12px;
+        margin-bottom: 10px;
+        border-color: transparent;
+        border-left-color: $hc-tooltip-background-color;
+    }
+
+    &:after {
+        bottom: 0%;
+    }
+
+    &:hover:before, &:hover:after,
+    &:focus:before, &:focus:before {
+        transform: translateX(-12px);
+    }
+}
+
+/* Overrides for right position */
+.tooltip--right {
+    &:before, &:after {
+        left: 100%;
+        bottom: 0%;
+        right: auto;
+    }
+
+    &:before {
+        margin-left: 0;
+        margin-right: -12px;
+        margin-bottom: 10px;
+        border-color: transparent;
+        border-right-color: $hc-tooltip-background-color;
+    }
+
+    &:hover:before, &:hover:after,
+    &:focus:before, &:focus:before {
+        transform: translateX(12px);
+    }
+}
