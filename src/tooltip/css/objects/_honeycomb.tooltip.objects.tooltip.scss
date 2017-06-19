@@ -109,8 +109,8 @@
     }
 
     &:before {
-        margin-left: 0;
-        margin-right: -12px;
+        margin-left: -12px;
+        margin-right: 0;
         margin-bottom: 10px;
         border-color: transparent;
         border-right-color: $hc-tooltip-background-color;
