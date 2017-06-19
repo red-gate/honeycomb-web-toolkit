@@ -18,20 +18,22 @@
                 <section class="card">
                     <h1>Tooltip positions</h1>
                     <p class="tooltip" data-tooltip="I'm a default position tooltip">.tooltip</p>
-                    <p class="tooltip tooltip--bottom" data-tooltip="I'm a bottom tooltip. If there's not enough space on top, I can show up down here instead!">.tooltip-bottom</p>
+                    <p class="tooltip tooltip--bottom" data-tooltip="I'm a bottom tooltip. If there's not enough space on top, I can show up down here instead!">.tooltip--bottom</p>
+                    <p class="tooltip tooltip--left" data-tooltip="I'm on the left this time! 🐍 I have had it with all these 🐍 mother flipping 🐍 snakes on this 🐍 mother flipping tooltip! 🐍">.tooltip--left</p>
+                    <p class="tooltip tooltip--right" data-tooltip="It is WAY too hot right now. Air conditioning is love, air conditioning is life. 🙌" style="display:inline-block">.tooltip--right (width adjusted)</p>
+                    <p class="tooltip tooltip--right" data-tooltip="Unfortunately I'm all the way on the right due to the element's width :(">.tooltip--right (no adjustment)</p>
                 </section>
 
                 <section class="card">
                     <h1>Tooltip content</h1>
-                    <p class="tooltip-top">Tooltip data is defined by the <code>data-tooltip</code> property. Remember not to leave it empty like this one!</p>
-                    <p class="tooltip-top" data-tooltip="🥑 🍉 🍖 🌭 🍔 🍕 🍟 🌯 🍯 🍮 🍭 🍬 🍫 Βάλτε τα χρήματα στην τσάντα">You can use emojis, and utf-16 characters in your tooltips. Here's a set of emojis and a sentence in greek.</p>
+                    <p class="tooltip">Tooltip data is defined by the <code>data-tooltip</code> property. Remember not to leave it empty like this one!</p>
+                    <p class="tooltip" data-tooltip="🥑 🍉 🍖 🌭 🍔 🍕 🍟 🌯 🍯 🍮 🍭 🍬 🍫 Βάλτε τα χρήματα στην τσάντα">You can use emojis, and utf-16 characters in your tooltips. Here's a set of emojis and a sentence in greek.</p>
                 </section>
 
                 <section class="card">
                     <h1>TODO</h1>
                     <ul>
-                        <li>Slightly better positioning of 'arrow' pseudo-element when on short elements</li>
-                        <li>Left and right positioned tooltips</li>
+                        <li>Somehow have right-aligned tooltips, even though the element they belong to often stretches the width of the page.</li>
                         <li>Width adjustment for short tooltips</li>
                     </ul>
                 </section>

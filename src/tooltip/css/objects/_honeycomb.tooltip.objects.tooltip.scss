@@ -36,7 +36,7 @@
         @include font-size($hc-tooltip-font-size, $hc-tooltip-line-height);
         content: attr(data-tooltip);
         z-index: 1000;
-        width: $hc-tooltip-width;
+        width: $hc-tooltip-top-bottom-width;
         background-color: $hc-tooltip-background-color;
         color: $hc-tooltip-text-color;
         border-radius: $hc-tooltip-border-radius;
@@ -70,5 +70,58 @@
     &:hover:before, &:hover:after,
     &:focus:before, &:focus:after {
         transform: translateY(12px);
+    }
+}
+
+/* Overrides for left position */
+.tooltip--left {
+
+    &:before, &:after {
+        right: 100%;
+        bottom: 0%;
+        left: auto;
+    }
+
+    &:before {
+        margin-left: 0;
+        margin-right: -12px;
+        margin-bottom: 10px;
+        border-color: transparent;
+        border-left-color: $hc-tooltip-background-color;
+    }
+
+    &:after {
+        width: $hc-tooltip-left-right-width;
+    }
+
+    &:hover:before, &:hover:after,
+    &:focus:before, &:focus:before {
+        transform: translateX(-12px);
+    }
+}
+
+/* Overrides for right position */
+.tooltip--right {
+    &:before, &:after {
+        left: 100%;
+        bottom: 0%;
+        right: auto;
+    }
+
+    &:before {
+        margin-left: -12px;
+        margin-right: 0;
+        margin-bottom: 10px;
+        border-color: transparent;
+        border-right-color: $hc-tooltip-background-color;
+    }
+
+    &:after {
+        width: $hc-tooltip-left-right-width;
+    }
+
+    &:hover:before, &:hover:after,
+    &:focus:before, &:focus:before {
+        transform: translateX(12px);
     }
 }
