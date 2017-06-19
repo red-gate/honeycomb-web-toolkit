@@ -1,9 +1,57 @@
+$hc-nav-bar-height: 70px !default;
+$hc-nav-bar-link-font-weight: 500 !default;
+$hc-nav-bar-link-font-weight-active: bold !default;
+
+// Standard
 $hc-nav-bar-background-color: color('grey', 1) !default;
 $hc-nav-bar-background-color-hover: color('grey', 2) !default;
+$hc-nav-bar-background-color-active: transparent !default;
 $hc-nav-bar-link-color: color('grey', 5) !default;
 $hc-nav-bar-link-color-hover: color('grey', 7) !default;
 $hc-nav-bar-link-color-active: $hc-nav-bar-link-color-hover !default;
 $hc-nav-bar-link-border-color: transparent !default;
 $hc-nav-bar-link-border-color-active: color('red', 'brand') !default;
-$hc-nav-bar-link-font-weight: 500 !default;
-$hc-nav-bar-link-font-weight-active: bold !default; 
+$hc-nav-bar-heading-color: color('grey', 5) !default;
+$hc-nav-bar-heading-background-color: transparent !default;
+$hc-nav-bar-icon-background-color: color('grey', 2) !default;
+$hc-nav-bar-icon-background-color-hover: $hc-nav-bar-background-color-hover !default;
+$hc-nav-bar-menu-color: color('white') !default;
+$hc-nav-bar-menu-color-hover: $hc-nav-bar-menu-color !default;
+$hc-nav-bar-menu-background-color: color('blue', 6) !default;
+$hc-nav-bar-menu-background-color-hover: color('blue', 7) !default;
+
+// Light
+$hc-nav-bar-light-background-color: transparent !default;
+$hc-nav-bar-light-background-color-hover: color('grey', 2) !default;
+$hc-nav-bar-light-background-color-active: transparent !default;
+$hc-nav-bar-light-link-color: color('grey', 5) !default;
+$hc-nav-bar-light-link-color-hover: color('grey', 7) !default;
+$hc-nav-bar-light-link-color-active: $hc-nav-bar-link-color-hover !default;
+$hc-nav-bar-light-link-border-color: transparent !default;
+$hc-nav-bar-light-link-border-color-active: color('red', 'brand') !default;
+$hc-nav-bar-light-heading-color: color('grey', 5) !default;
+$hc-nav-bar-light-heading-background-color: transparent !default;
+$hc-nav-bar-light-icon-background-color: color('grey', 1) !default;
+$hc-nav-bar-light-icon-background-color-hover: $hc-nav-bar-light-background-color-hover !default;
+$hc-nav-bar-light-menu-color: color('white') !default;
+$hc-nav-bar-light-menu-color-hover: $hc-nav-bar-light-menu-color !default;
+$hc-nav-bar-light-menu-background-color: color('blue', 6) !default;
+$hc-nav-bar-light-menu-background-color-hover: color('blue', 7) !default;
+
+// Dark
+$hc-nav-bar-dark-background-color: color('black') !default;
+$hc-nav-bar-dark-background-color-hover: color('grey', 9) !default;
+$hc-nav-bar-dark-background-color-active: color('white') !default;
+$hc-nav-bar-dark-link-color: color('white') !default;
+$hc-nav-bar-dark-link-color-hover: color('white') !default;
+$hc-nav-bar-dark-link-color-active: color('grey', 7) !default;
+$hc-nav-bar-dark-link-border-color: transparent !default;
+$hc-nav-bar-dark-link-border-color-active: color('white') !default;
+$hc-nav-bar-dark-heading-color: color('white') !default;
+$hc-nav-bar-dark-heading-background-color: transparent !default;
+$hc-nav-bar-dark-icon-background-color: color('grey', 9) !default;
+$hc-nav-bar-dark-icon-background-color-hover: $hc-nav-bar-dark-background-color-hover !default;
+$hc-nav-bar-dark-menu-color: color('white') !default;
+$hc-nav-bar-dark-menu-color-hover: $hc-nav-bar-dark-menu-color !default;
+$hc-nav-bar-dark-menu-background-color: color('blue', 6) !default;
+$hc-nav-bar-dark-menu-background-color-hover: color('blue', 7) !default;
