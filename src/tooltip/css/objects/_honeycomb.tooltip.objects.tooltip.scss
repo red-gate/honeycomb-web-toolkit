@@ -91,7 +91,6 @@
     }
 
     &:after {
-        bottom: 0%;
         width: $hc-tooltip-left-right-width;
     }
 
@@ -115,6 +114,10 @@
         margin-bottom: 10px;
         border-color: transparent;
         border-right-color: $hc-tooltip-background-color;
+    }
+
+    &:after {
+        width: $hc-tooltip-left-right-width;
     }
 
     &:hover:before, &:hover:after,
