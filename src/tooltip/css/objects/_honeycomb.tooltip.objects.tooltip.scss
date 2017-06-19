@@ -36,7 +36,7 @@
         @include font-size($hc-tooltip-font-size, $hc-tooltip-line-height);
         content: attr(data-tooltip);
         z-index: 1000;
-        width: $hc-tooltip-width;
+        width: $hc-tooltip-top-bottom-width;
         background-color: $hc-tooltip-background-color;
         color: $hc-tooltip-text-color;
         border-radius: $hc-tooltip-border-radius;
@@ -92,6 +92,7 @@
 
     &:after {
         bottom: 0%;
+        width: $hc-tooltip-left-right-width;
     }
 
     &:hover:before, &:hover:after,
