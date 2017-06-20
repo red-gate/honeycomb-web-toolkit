@@ -45,6 +45,7 @@ $transition: all 0.5s;
         @include padding(0.5, left);
         @include padding(0.5, right);
         @include font-size($font-size);
+        float: left;
         min-height: $hc-navigation-minimum-height;
         line-height: $line-height;
         color: color('white');
@@ -200,6 +201,7 @@ $transition: all 0.5s;
 
 // MOBILE MENU
 .header--primary .header--primary__menu--mobile {
+    @extend %clearfix;
     @include padding(0.5, top);
     @include padding(0.5, bottom);
     display: none;
