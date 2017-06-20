@@ -1,10 +1,13 @@
 /* PRIMARY NAVIGATION */
+$transition: all 0.5s;
+
 .header--primary {
     position: relative;
     z-index: 20;
     min-height: $hc-navigation-minimum-height;
     line-height: $hc-navigation-minimum-height - $hc-navigation-border-width;
     overflow: visible;
+    transition: $transition;
 
     ul {
         &, li {
@@ -56,6 +59,10 @@
     .header--primary__company-logo-container {
         @include padding(0.5, left);
         @include padding(0.5, right);
+    }
+
+    .header--primary__icon {
+        margin-left: -4px; // To prevent space when display:inline.
     }
 
     .header--primary__menu-button {
@@ -115,12 +122,12 @@
             @include margin(0.5, left);
             @include padding(0);
             @include padding(0.5, left);
-            @include padding(2, right);
+            @include padding(0.5, right);
             display: inline-block;
             box-sizing: border-box;
             line-height: $hc-navigation-minimum-height - $hc-navigation-border-width;
             height: $hc-navigation-minimum-height;
-            width: 350px;
+            width: 210px;
             border: none;
             border-bottom-width: $hc-navigation-border-width;
             border-bottom-style: solid;
@@ -132,8 +139,8 @@
             @extend .icon--search;
             @include font-size(0px, 0);
             @include margin(0.25, 'right');
-            @include padding(0.25, 'left');
-            @include padding(0.25, 'right');
+            @include padding(0.5, 'left');
+            @include padding(0.5, 'right');
             background: none;
             border: none;
             display: inline-block;
@@ -147,8 +154,46 @@
             }
         }
 
+        [type="submit"] {
+            @include margin(0);
+            margin-left: -4px; // To prevent space when display:inline.
+            height: $hc-navigation-minimum-height;
+        }
+
         a.header--primary__search-button--mobile {
             position: relative;
+        }
+    }
+
+    .header--primary__container {
+        transition: $transition;
+        overflow: hidden;
+        height: $hc-navigation-minimum-height;
+    }
+
+    &.dropdown--open {
+        .header--primary__container {
+            overflow: visible;
+        }
+    }
+
+    &.js-header-primary-collapse {
+        position: relative;
+
+        .header--primary__menu--mobile {
+            position: absolute;
+            left: 0;
+            top: $hc-navigation-minimum-height;
+            width: 100%;
+        }
+    }
+
+    &--collapsed {
+        min-height: 0;
+
+        .header--primary__container {
+            height: 0;
+            overflow: hidden;
         }
     }
 }
@@ -231,6 +276,7 @@
     }
 
     .dropdown ul,
+    .header--primary__icon,
     .header--primary__menu-button,
     .header--primary__menu--mobile {
         background-color: color('grey', 9);
@@ -246,13 +292,15 @@
     }
 
     .header--primary__search-form {
+
         [type="search"], [type="text"] {
             background-color: color('grey', 9);
             color: color('white');
         }
 
         [type="submit"] {
-            background-color: color('grey', 7);
+            background-color: color('grey', 9);
+
             &:before {
                 color: color('white');
             }
@@ -291,6 +339,7 @@
     }
 
     .dropdown ul,
+    .header--primary__icon,
     .header--primary__menu-button,
     .header--primary__menu--mobile {
         background-color: color('grey', 3);

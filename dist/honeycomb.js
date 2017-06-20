@@ -1501,7 +1501,40 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var setupCollapse = function setupCollapse() {
+    var $headers = window.jQuery('.js-header-primary-collapse');
+
+    $headers.each(function (index, header) {
+        var $header = window.jQuery(header);
+        var $nav = $header.find('.header--primary__menu--mobile');
+        $header.wrapInner('<div class="header--primary__container"></div>');
+        $nav.appendTo($header);
+    });
+};
+
+var dropdownNotification = function dropdownNotification() {
+    var $headers = window.jQuery('.js-header-primary-collapse');
+    var openClassName = 'dropdown--open';
+
+    $headers.each(function () {
+        var $body = window.jQuery('body');
+
+        $body.on('click', '.header--primary__container .dropdown .arrow', function () {
+            var $arrow = window.jQuery(this);
+            var $header = $arrow.parents('.header--primary');
+            if ($arrow.parent('li').hasClass('open')) {
+                $header.addClass(openClassName);
+            } else {
+                $header.removeClass(openClassName);
+            }
+        });
+    });
+};
+
 var init = function init() {
+    setupCollapse();
+    dropdownNotification();
+
     var $body = window.jQuery('body');
 
     $body.on('click', '.header--primary__menu-button', function (e) {
