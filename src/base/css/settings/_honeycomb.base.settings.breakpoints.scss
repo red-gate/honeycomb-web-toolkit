@@ -11,16 +11,15 @@ $hc-responsive: true !default;
 
 /**
  * Set responsive breakpoints.
- * (Note: No large breakpoint needed, as large is the default as using desktop first
- * approach.)
  */
 
 $hc-breakpoints: (
-  "large": 9999px,
-  "medium": 768px,
-  "small": 480px
+  "max": 99999px,
+  "large": 1200px,
+  "medium": 950px,
+  "small": 600px,
+  "mini": 384px
 ) !default;
-
 
 /**
  * Set whether the breakpoints and media queries should run as desktop first.
