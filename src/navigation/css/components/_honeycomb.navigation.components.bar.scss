@@ -54,6 +54,7 @@
     @include font-size(24px, $hc-nav-bar-height);
     @include margin(0, top);
     @include margin(0, bottom);
+    @include margin(0.5, right);
     float: left;
 
     a {
