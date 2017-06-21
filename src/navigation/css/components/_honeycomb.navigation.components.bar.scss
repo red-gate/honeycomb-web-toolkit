@@ -34,11 +34,11 @@
     font-weight: $hc-nav-bar-link-font-weight;
     display: block;
     text-align: center;
+}
 
-    span {
-        @include font-size(12px);
-        display: block;
-    }
+.nav-bar ul a span {
+    @include font-size(12px);
+    display: block;
 }
 
 .nav-bar .active a {
