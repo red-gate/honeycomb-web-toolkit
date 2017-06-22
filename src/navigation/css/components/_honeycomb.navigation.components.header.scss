@@ -76,6 +76,7 @@ $transition: all 0.5s;
     }
 
     .header--primary__menu-button {
+        @include font-size(20px, false);
         background-image: url(#{$hc-navigation-menu-icon-open}.png);
         background-position: center;
         background-repeat: no-repeat;
