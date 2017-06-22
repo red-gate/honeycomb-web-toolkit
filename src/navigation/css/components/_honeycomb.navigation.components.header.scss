@@ -87,6 +87,10 @@ $transition: all 0.5s;
             color: transparent;
         }
 
+        &:after {
+            content: "M";
+        }
+
         .svg & {
             background-image: url(#{$hc-navigation-menu-icon-open}.svg);
         }
