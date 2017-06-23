@@ -40,6 +40,7 @@ input[type=checkbox].checkbox {
         opacity: 0.8;
     }
 
+    // checkbox shape
     &::before, &::after {
         box-sizing: border-box;
         position: absolute;
@@ -73,9 +74,24 @@ input[type=checkbox].checkbox {
         span {
             font-size: inherit;
             padding-top: 0 !important;
+            vertical-align: top;
+            margin-top: -4px;
         }
     }
 
+    
+    // for right-aligned text
+    &.checkbox--right {
+        margin-right: 0;
+        
+        span {
+            margin-left: -400px;
+            padding-right: 35px;
+        }
+    }
+
+
+    // loading state for ajax requests
     &.checkbox--loading {
         background-image: url(#{$hc-checkbox-loading-icon-dir}/spinny.gif);
         background-repeat: no-repeat;
