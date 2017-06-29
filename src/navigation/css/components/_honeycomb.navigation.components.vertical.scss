@@ -24,8 +24,26 @@
 		border-left-width: 4px;
 		border-left-style: solid;
 		border-left-color: transparent;
+		border-right-width: 4px;
+		border-right-style: solid;
+		border-right-color: transparent;
 		cursor: pointer;
 	}
+
+
+	// right-aligned nav
+	&.nav--vertical--right {
+		text-align: right;
+
+		a {
+			@include padding(1.5, "right");
+		}
+
+		li li li a {
+			@include padding(2, "right");
+		}
+	}
+
 
 	.nav--vertical__active, .nav--vertical__active-parent {
 
@@ -136,7 +154,7 @@
 
 	// Colours.
 	& {
-		background-color: $hc-nav-vertical-background-color;	
+		background-color: $hc-nav-vertical-background-color;
 
 		a {
 			color: $hc-nav-vertical-link-color;
@@ -192,6 +210,33 @@
 		.nav--vertical__collapse__icon {
 			color: $hc-nav-vertical-link-color-hover;
 		}
+
+
+		// border colours for right-aligned nav
+		&.nav--vertical--right {
+			a {
+				&:hover {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-link-border-color-hover;
+				}
+			}
+
+			.nav--vertical__active {
+				& > a {
+					&, &:hover {
+						border-left-color: transparent;
+						border-right-color: $hc-nav-vertical-link-background-color-active;
+					}
+				}
+			}
+
+			.nav--vertical__active-parent {
+				& > a {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-link-border-color-hover;
+				}
+			}
+		}
 	}
 
 	&--dark {
@@ -243,7 +288,37 @@
 		.nav--vertical__collapse__icon {
 			color: $hc-nav-vertical-dark-link-color-hover;
 		}
+
+		// border colours for right-aligned nav
+		&.nav--vertical--right {
+			a {
+				&:hover {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-dark-link-border-color-hover;
+				}
+			}
+
+			.nav--vertical__active {
+				& > a {
+					&, &:hover {
+						border-left-color: transparent;
+						border-right-color: $hc-nav-vertical-dark-link-background-color-active;
+					}
+				}
+			}
+
+			.nav--vertical__active-parent {
+				& > a {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-dark-link-border-color-hover;
+				}
+			}
+		}
 	}
 
 
+	// Light style nav 
+	// (used on www.simple-talk.com)
+	.nav-vertical--light {
+	}
 }
