@@ -104,6 +104,7 @@
     @include responsive("medium") {
         float: none !important;
         position: relative;
+        overflow: hidden;
 
         ul {
             overflow: scroll;
