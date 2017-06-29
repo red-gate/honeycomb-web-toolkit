@@ -99,6 +99,48 @@
     }
 }
 
+// horizontal scrolling nav at mobile widths
+.nav-bar--scrolling {
+    @include responsive("medium") {
+        float: none;
+
+        ul {
+            overflow: scroll;
+            white-space: nowrap;
+            max-width: 100%;
+
+            /* left/right-hand side fades */
+            &:after, &:before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                height: 50%;
+                width: 5%;
+            }
+            &:after {
+                right: -10px;
+                box-shadow: -13px 0px 20px 5px #fff;
+            }
+            &.scrolling:before {
+                left: -10px;
+                box-shadow: 13px 0px 20px 5px #fff;
+            }
+
+            li {
+                @include margin(0, left);
+                @include margin(0.5, right);
+                @include margin(0.5, top);
+                margin-bottom: 5px;
+                display: inline-block;
+
+                a {
+                    padding: 5px;
+                }
+            }
+        }
+    } 
+}
+
 // COLOURS
 .nav-bar {
     background-color: $hc-nav-bar-background-color;
