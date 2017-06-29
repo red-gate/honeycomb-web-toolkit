@@ -102,7 +102,7 @@
 // horizontal scrolling nav at mobile widths
 .nav-bar--scrolling {
     @include responsive("medium") {
-        float: none;
+        float: none !important;
 
         ul {
             overflow: scroll;
