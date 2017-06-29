@@ -103,6 +103,7 @@
 .nav-bar--scrolling {
     @include responsive("medium") {
         float: none !important;
+        position: relative;
 
         ul {
             overflow: scroll;
@@ -114,7 +115,7 @@
                 content: "";
                 display: inline-block;
                 position: absolute;
-                height: 50%;
+                height: 100%;
                 width: 5%;
             }
             &:after {
