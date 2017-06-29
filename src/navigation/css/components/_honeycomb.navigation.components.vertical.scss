@@ -317,8 +317,53 @@
 	}
 
 
-	// Light style nav 
-	// (used on www.simple-talk.com)
-	.nav-vertical--light {
+	// Lightweight style nav
+	// Used on www.simple-talk.com
+	// Classname is 'thin' instead of 'light' to avoid a false opposite with .nav--vertical--dark
+	&.nav--vertical--thin {
+		&, ul, li, li:hover, a, a:hover {
+			background-color: transparent;
+		}
+
+		a {
+			@include padding(0.5, 'right');
+			@include padding(0, 'top');
+			@include padding(0, 'bottom');
+			color: $hc-link-color;
+			border-left-color: $hc-nav-vertical-thin-link-border-color;
+
+			&:hover {
+				border-left-color: $hc-nav-vertical-thin-link-border-color-hover;
+				color: $hc-link-hover-color;
+			}
+		}
+
+		.nav--vertical__active {
+			a {
+				font-weight: bold;
+				border-left-color: $hc-nav-vertical-thin-link-border-color-active;
+			}
+		}
+
+		
+		// right-aligned thin nav
+		&.nav--vertical--right {
+			a {
+				border-left-color: transparent;
+				border-right-color: $hc-nav-vertical-thin-link-border-color;
+
+				&:hover {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-thin-link-border-color-hover;
+				}
+			}
+
+			.nav--vertical__active {
+				a {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-thin-link-border-color-active;
+				}
+			}
+		}
 	}
 }
