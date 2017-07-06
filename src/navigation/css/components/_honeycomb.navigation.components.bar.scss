@@ -139,9 +139,46 @@
                     padding: 5px;
                 }
             }
+            
+            // support for js-dropdown inside horizontal scrolling nav
+            &.js-dropdown { // the whole nav
+                position: static;
+
+                & > li {
+                    vertical-align: top;
+                }
+
+                .js-dropdown { // actual dropdowns
+                    padding-right: 20px;
+
+                    &.open {
+                        ul {
+                            position: relative;
+
+                            // prevent case where a long dropdown + sticky nav is taller than the screen
+                            max-height: 300px;
+                            @include responsive("small") {
+                                max-height: auto;
+                            }
+
+                            &:after {
+                                display: none;
+                            }
+
+                            li {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
     } 
 }
+
+
+
 
 // COLOURS
 .nav-bar {
