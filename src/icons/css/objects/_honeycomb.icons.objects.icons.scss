@@ -546,3 +546,34 @@
         content: "\e617";
     }
 }
+
+.icon--approved {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e919";
+    }
+}
+.icon--award {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e918";
+    }
+}
+.icon--clock {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e916";
+    }
+}
+.icon--map_pin {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e915";
+    }
+}
+.icon--rss {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e917";
+    }
+}
