@@ -11,16 +11,17 @@ let init = () => {
     window.jQuery( '.js-reveal' ).each( function () {
         let $this = window.jQuery( this );
 
-        if (!this.attr('data-reveal-open')) {
+        if (!$this.attr('data-reveal-open')) {
             $this.slideUp( 0 );
         }
     });
 
     window.jQuery( '.js-reveal-cta' ).each( function () {
+        let $this = window.jQuery( this );
 
         // Setup cta's.
         let $button = window.jQuery( this );
-        if (this.attr('data-reveal-open')) {
+        if ($this.attr('data-reveal-open')) {
             $button.attr( 'data-reveal-cta-close-html', $button.html() );
         } else {
             $button.attr( 'data-reveal-cta-open-html', $button.html() );
