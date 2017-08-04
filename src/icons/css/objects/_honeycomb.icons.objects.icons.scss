@@ -577,3 +577,21 @@
         content: "\e917";
     }
 }
+
+
+/**
+  * Product icons
+  */
+
+.icon--sql-monitor {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e91a";
+    }
+}
+.icon--sql-compare {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e91b";
+    }
+}
