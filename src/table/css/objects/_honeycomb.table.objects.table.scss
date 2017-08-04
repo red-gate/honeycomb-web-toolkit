@@ -20,6 +20,12 @@
 	tr.even, tr:nth-child(even) {
 		background: color('grey', 2);
 	}
+	thead th {
+		border-bottom-color: color('grey', 4);
+	}
+	th {
+		border-right-color: color('grey', 4);
+	}
 }
 
 /**
