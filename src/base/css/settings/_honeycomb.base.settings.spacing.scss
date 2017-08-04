@@ -16,10 +16,10 @@ $hc-spacing-unit--large: round($hc-spacing-unit * 2) !default;
 /**
  * White list of margin scales.
  */
-$hc-margin-whitelist: (-1, -0.5, -0.25, 0, 0.1, 0.25, 0.5, 0.6, 0.75, 0.8, 1, 1.2, 1.25, 1.5, 1.75, 2, 3, 4, 10) !default;
+$hc-margin-whitelist: (-2, -1.75, -1.5, -1.2, -1, -0.8, -0.6, -0.5, -0.25, -0.1, 0, 0.1, 0.25, 0.5, 0.6, 0.8, 1, 1.2, 1.5, 1.75, 2) !default;
 
 
 /**
  * White list of padding scales.
  */
-$hc-padding-whitelist: (0, 0.1, 0.25, 0.5, 0.6, 0.75, 0.8, 1, 1.2, 1.25, 1.5, 1.75, 2, 3, 4, 8, 10) !default;
+$hc-padding-whitelist: (0, 0.1, 0.25, 0.5, 0.6, 0.8, 1, 1.2, 1.5, 1.75, 2) !default;
