@@ -1808,14 +1808,22 @@ var init = function init() {
 
     window.jQuery('.js-reveal').each(function () {
         var $this = window.jQuery(this);
-        $this.slideUp(0);
+
+        if (!$this.attr('data-reveal-open')) {
+            $this.slideUp(0);
+        }
     });
 
     window.jQuery('.js-reveal-cta').each(function () {
+        var $this = window.jQuery(this);
 
         // Setup cta's.
         var $button = window.jQuery(this);
-        $button.attr('data-reveal-cta-open-html', $button.html());
+        if ($this.attr('data-reveal-open')) {
+            $button.attr('data-reveal-cta-close-html', $button.html());
+        } else {
+            $button.attr('data-reveal-cta-open-html', $button.html());
+        }
     }).on('click', function (e) {
 
         // On click, call toggle.

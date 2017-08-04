@@ -16,8 +16,8 @@
 
 	a {
 		@include padding(0.25);
-		@include padding(0.75, "left");
-		@include padding(0.75, "right");
+		@include padding(0.8, "left");
+		@include padding(0.8, "right");
 		@include font-size(14px, 20px);
 		display: block;
 		position: relative;
@@ -96,7 +96,7 @@
 		}
 
 		a {
-			@include padding(1.25, "left");
+			@include padding(1.2, "left");
 		}
 
 		li li li a {
