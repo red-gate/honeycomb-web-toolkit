@@ -45,6 +45,10 @@ thead th, .th-row th {
     border-right: 0;
     border-top: 0;
     border-bottom: 3px solid $hc-table-border-colour;
+
+    &:empty {
+        border-bottom: 0;
+    }
 }
 
 tr {
