@@ -7,9 +7,13 @@
 .table--striped {
 	tr.odd, tr:nth-child(odd) {
 		background: $hc-default-bg-color;
+
 	}
 	tr.even, tr:nth-child(even) {
 		background: color('grey', 1);
+	}
+	tr:hover {
+		background: color('grey', 2);
 	}
 }
 
@@ -19,6 +23,9 @@
 	}
 	tr.even, tr:nth-child(even) {
 		background: color('grey', 2);
+	}
+	tr:hover {
+		background: color('grey', 3);
 	}
 	thead th {
 		border-bottom-color: color('grey', 4);
