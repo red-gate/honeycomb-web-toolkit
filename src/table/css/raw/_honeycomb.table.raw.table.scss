@@ -41,7 +41,7 @@ th {
     text-align: left;
 }
 
-thead th {
+thead th, .th-row th {
     border-right: 0;
     border-top: 0;
     border-bottom: 3px solid $hc-table-border-colour;
