@@ -1,10 +1,11 @@
 // TODO add any extra documentation and an example
 
 // Mixin for adding margins to objects/components
-@mixin margin($scale: 1, $direction: all) {
+@mixin margin($scale: 1, $direction: all, $important: false) {
 
   $margin: inherit;
   $property: margin;
+  $flag: null;
 
   @if index($hc-margin-whitelist, $scale) {
     $margin: round($hc-spacing-unit * $scale);
@@ -20,9 +21,14 @@
     $property: margin-#{$direction};
   }
 
+  // Important flag.
+  @if $important {
+      $flag: !important;
+  }
+
   // Print the rule.
   @if $margin {
-    #{$property}: $margin;
-    #{$property}: px-rem($margin);
+    #{$property}: $margin $flag;
+    #{$property}: px-rem($margin) $flag;
   }
 }

@@ -1,10 +1,11 @@
 // TODO add any extra documentation and an example
 
 //  Mixin for adding padding to objects/components.
-@mixin padding($scale: 1, $direction: all) {
+@mixin padding($scale: 1, $direction: all, $important: false) {
 
   $padding: inherit;
   $property: padding;
+  $flag: null;
 
   @if index($hc-padding-whitelist, $scale) {
     $padding: round($hc-spacing-unit * $scale);
@@ -20,9 +21,14 @@
     $property: padding-#{$direction};
   }
 
+  // Important flag.
+  @if $important {
+      $flag: !important;
+  }
+
   // Print the rule.
   @if $padding {
-    #{$property}: $padding;
-    #{$property}: px-rem($padding);
+    #{$property}: $padding $flag;
+    #{$property}: px-rem($padding) $flag;
   }
 }
