@@ -51,11 +51,6 @@ thead th, .th-row th {
     }
 }
 
-tr {
-    &:hover {
-        background: color('grey', 1);
-    }
-}
 
 /**
  * Force table cells to all render at the same width.
