@@ -1,6 +1,6 @@
 {
   "name": "honeycomb",
-  "version": "7.12.4",
+  "version": "7.12.5",
   "scripts": {
     "clean": "node scripts/clean.js",
     "css:sass": "node scripts/css/sass.js",
