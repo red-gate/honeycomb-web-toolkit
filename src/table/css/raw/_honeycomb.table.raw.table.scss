@@ -46,7 +46,7 @@ thead th, .th-row th {
     border-top: 0;
     border-bottom: 3px solid $hc-table-border-colour;
 
-    &:empty {
+    &:first-of-type:empty {
         border-bottom: 0;
     }
 }
