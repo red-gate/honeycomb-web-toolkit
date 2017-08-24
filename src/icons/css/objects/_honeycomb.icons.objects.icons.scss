@@ -577,6 +577,32 @@
         content: "\e917";
     }
 }
+.icon--tick-circle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e91d";
+    }
+}
+.icon--lightbulb {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e91c";
+    }
+}
+.icon--lock {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92b";
+    }
+}
+.icon--stop {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92a";
+    }
+}
+
+
 
 
 /**
