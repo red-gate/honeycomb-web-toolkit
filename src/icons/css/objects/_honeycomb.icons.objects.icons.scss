@@ -609,15 +609,81 @@
   * Product icons
   */
 
-.icon--sql-monitor {
+.icon--dlm-dashboard {
     @extend %icon;
     &:before, &:after {
-        content: "\e91a";
+        content: "\e91e";
+    }
+}
+.icon--dlm-automation {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e929";
+    }
+}
+.icon--sql-backup {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e928";
     }
 }
 .icon--sql-compare {
     @extend %icon;
     &:before, &:after {
         content: "\e91b";
+    }
+}
+.icon--sql-comparison-sdk {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e927";
+    }
+}
+.icon--sql-data-compare {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e91f";
+    }
+}
+.icon--sql-dependency-tracker {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e926";
+    }
+}
+.icon--sql-doc {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e920";
+    }
+}
+.icon--sql-monitor {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e921";
+    }
+}
+.icon--sql-search {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e922";
+    }
+}
+.icon--sql-source-control {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e923";
+    }
+}
+.icon--sql-test {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e924";
+    }
+}
+.icon--sql-toolbelt {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e925";
     }
 }
