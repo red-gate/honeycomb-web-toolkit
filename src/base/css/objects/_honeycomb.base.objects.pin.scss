@@ -53,10 +53,10 @@
 
 .pin-to-right-of-middle {
   @include pin;
-  left: 52%;
+  left: 50%;
 }
 
 .pin-to-left-of-middle {
   @include pin;
-  right: 52%;
+  right: 50%;
 }
