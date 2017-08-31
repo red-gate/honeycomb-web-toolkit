@@ -601,7 +601,42 @@
         content: "\e92a";
     }
 }
-
+.icon--large-tiles {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92c";
+    }
+}
+.icon--small-tiles {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92d";
+    }
+}
+.icon--table-expand-small {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92e";
+    }
+}
+.icon--table-expand-medium {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92f";
+    }
+}
+.icon--table-expand-large {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e930";
+    }
+}
+.icon--target {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e931";
+    }
+}
 
 
 
@@ -685,5 +720,53 @@
     @extend %icon;
     &:before, &:after {
         content: "\e925";
+    }
+}
+.icon--sql-scripts-manager {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e932";
+    }
+}
+.icon--readyroll {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e933";
+    }
+}
+.icon--sql-multi-script {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e934";
+    }
+}
+.icon--sql-index-manager {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e935";
+    }
+}
+.icon--sql-code-guard {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e936";
+    }
+}
+.icon--sql-clone {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e937";
+    }
+}
+.icon--sql-data-generator {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e938";
+    }
+}
+.icon--sql-prompt {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e939";
     }
 }
