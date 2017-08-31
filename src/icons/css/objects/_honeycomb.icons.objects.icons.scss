@@ -722,6 +722,12 @@
         content: "\e925";
     }
 }
+.icon--data-platform-studio {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e925";
+    }
+}
 .icon--sql-scripts-manager {
     @extend %icon;
     &:before, &:after {
