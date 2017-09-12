@@ -31,6 +31,42 @@
 	}
 }
 
+
+
+/**
+  * Replicate the default table heading styles as a class, 
+  * so they're available for tables that have only been marked up 
+  * only using <td> elements (e.g. tables imported from Word)
+  */
+
+.table--headings-top {
+	tr:first-of-type td {
+		font-weight: bold;
+		color: $hc-table-heading-colour;
+		border-right: 0;
+		border-top: 0;
+		border-bottom: 3px solid $hc-table-border-colour;
+
+		&:first-of-type:empty {
+			border-bottom: 0;
+		}
+	}	
+}
+
+.table--headings-left {
+	tr td:first-of-type {
+		font-weight: bold;
+		color: $hc-table-heading-colour;
+		border-right: 3px solid $hc-table-border-colour;
+	}
+}
+
+.table--headings-top-left {
+	@extend .table--headings-top;
+	@extend .table--headings-left;
+}
+
+
 /**
  * Halve/Double the padding in table cells.
  */
