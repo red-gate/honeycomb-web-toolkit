@@ -680,6 +680,12 @@
         content: "\e91f";
     }
 }
+.icon--sql-data-masker {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e923";
+    }
+}
 .icon--sql-dependency-tracker {
     @extend %icon;
     &:before, &:after {
