@@ -680,7 +680,7 @@
         content: "\e91f";
     }
 }
-.icon--sql-data-masker {
+.icon--data-masker {
     @extend %icon;
     &:before, &:after {
         content: "\e923";
