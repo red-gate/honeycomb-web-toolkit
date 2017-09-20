@@ -88,6 +88,14 @@ li > .list--bare {
   }
 }
 
+// class to reset to default padding, for use with lists nested inside .list--padded 
+.list--default {
+  li {
+    @include padding(0);
+  }
+}
+
+
 // With dividers (Horizontal and Vertical)
 .list--dividers,
 %list--dividers {
