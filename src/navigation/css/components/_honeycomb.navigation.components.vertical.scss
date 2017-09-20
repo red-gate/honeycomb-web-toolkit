@@ -365,5 +365,60 @@
 				}
 			}
 		}
-	}
+    }
+
+    &.nav--vertical--minimal {
+        @include padding(0.25, 'bottom');
+        padding-top: 1px;
+        border-right: 5px solid color('grey', 3);
+
+        &, ul, li, li:hover, a, a:hover, .nav--vertical__active-parent .nav--vertical__active-parent {
+			background-color: transparent;
+        }
+
+        li li {
+            @include margin(0.6, 'left');
+        }
+
+        a, a:hover {
+            @include padding(0);
+            @include padding(0.6, 'left');
+            @include padding(0.5, 'right');
+            @include padding(0.25, 'top');
+            @include padding(0.25, 'bottom');
+            @include font-size(16px);
+            color: color('grey', 7);
+            border: none;
+        }
+
+        ul ul a, ul ul a:hover {
+            @include padding(0.5, 'left');
+            @include font-size(14px);
+        }
+
+        ul ul ul a, ul ul ul a:hover {
+            @include padding(0.25, 'left');
+        }
+
+        .nav--vertical__toggle {
+            right: auto;
+            left: 0;
+            top: 23px;
+
+            &:before {
+                content: "\e607";
+            }
+        }
+
+        .nav--vertical__active > a > .nav--vertical__toggle:before,
+        .nav--vertical__active-parent > a > .nav--vertical__toggle:before {
+            content: "\e605";
+        }
+
+        .nav--vertical__active > a {
+            border-right: 5px solid color('blue', 5);
+            color: color('blue', 5);
+            width: calc(100% + 5px);
+        }
+    }
 }

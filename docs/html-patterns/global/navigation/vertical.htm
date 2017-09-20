@@ -195,7 +195,13 @@
                  <nav class="nav--vertical nav--vertical--thin nav--vertical--right spaced-bottom">
                     <ul>
                         <li><a title="Item 1 A">Item 1 A</a></li>
-                        <li><a title="Item 1 B">Item 1 B</a></li>
+                        <li><a title="Item 1 B">Item 1 B</a>
+                        <ul>
+                            <li>Item 1 B 1</li>
+                            <li>Item 1 B 2</li>
+                            <li>Item 1 B 3</li>
+                            <li>Item 1 B 4</li>
+                        </ul></li>
                         <li><a title="Item 1 C">Item 1 C</a></li>
                         <li class="nav--vertical__active"><a title="Item 2">Item 2</a>
                         <li><a title="Item 1 D">Item 1 D</a></li>
@@ -245,7 +251,56 @@
 
 
     </div>
-</div>
+    </div>
+
+    <div class="band">
+        <div class="band__inner-container">
+
+            <div class="grid">
+                <div class="grid__col grid__col--span-3-of-12">
+                    <h1>nav--minimal</h1>
+
+                    <nav class="nav--vertical nav--vertical--minimal">
+                        <ul>
+                            <li><a>Elements <span class="nav--vertical__toggle"></span></a>
+                                <ul>
+                                    <li><a>Grid</a></li>
+                                    <li><a>Spacing</a></li>
+                                    <li><a>Typography <span class="nav--vertical__toggle"></span></a>
+                                        <ul>
+                                            <li><a>Fonts</a></li>
+                                            <li><a>Kerning</a></li>
+                                            <li><a>Uppercase</a></li>
+                                            <li><a>Leading</a></li>
+                                            <li><a>Weight</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a>Colour</a></li>
+                                    <li><a>Icons</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Components <span class="nav--vertical__toggle"></span></a>
+                                <ul>
+                                    <li><a>Components 1</a></li>
+                                    <li><a>Components 2</a></li>
+                                    <li><a>Components 3</a></li>
+                                    <li><a>Components 4</a></li>
+                                </ul>
+                            </li>
+                            <li><a>Sections <span class="nav--vertical__toggle"></span></a>
+                                <ul>
+                                    <li><a href="#">Sections 1</a></li>
+                                    <li><a>Sections 2</a></li>
+                                    <li><a>Sections 3</a></li>
+                                    <li><a>Sections 4</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
 </div><!-- END .page-wrapper -->
 
 <!--#include virtual="/docs/includes/footer/footer.htm" -->
