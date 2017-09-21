@@ -558,7 +558,7 @@ var notifications = function notifications() {
 
     // List of classes to add to.
     var classes = {
-        'confluence-information-macro': 'notification notification--block',
+        'confluence-information-macro': 'notification notification--block notification--block--minimal',
         'confluence-information-macro-tip': 'notification--success',
         'confluence-information-macro-note': 'notification--warning',
         'confluence-information-macro-information': 'notification--info',
