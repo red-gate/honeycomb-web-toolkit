@@ -45,7 +45,12 @@ input[type="radio"] {
 input[type="submit"] {
     @extend %button;
     width: auto;
+    
+    &.button--primary {
+        @extend %button--primary;
+    }
 }
+
 
 label {
     @include font-size(12px);
