@@ -70,4 +70,17 @@
             color: color('yellow');
         }
     }
+
+    /**
+     * Minimal notifications
+     */
+    &--minimal {
+        background-color: transparent;
+        border-left-width: 0;
+
+        .notification--block__inner-container {
+            @include padding(0, 'left');
+            @include padding(0, 'right');
+        }
+    }
 }
