@@ -19,10 +19,6 @@
         @include font-size(24px, false);
     }
 
-    p {
-        @include margin(0, bottom);
-    }
-
     /**
      * Info
      */
