@@ -79,6 +79,8 @@ verticalNav.init();
 // Notification
 import notifications from './notification/js/honeycomb.notification.block';
 notifications.init();
+window.Honeycomb = window.Honeycomb || {};
+window.Honeycomb.notifications = notifications;
 
 // Polyfills.
 import indexOf from './polyfill/js/honeycomb.polyfill.index-of';

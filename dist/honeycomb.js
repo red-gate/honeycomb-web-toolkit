@@ -1253,6 +1253,8 @@ _honeycombNavigation6.default.init();
 // Notification
 
 _honeycombNotification2.default.init();
+window.Honeycomb = window.Honeycomb || {};
+window.Honeycomb.notifications = _honeycombNotification2.default;
 
 // Polyfills.
 
@@ -1663,6 +1665,29 @@ var init = function init() {
     });
 };
 
+// Build the notification HTML.
+var buildNotification = function buildNotification(settings) {
+    var notificationStr = '<div class="notification notification--block notification--' + settings.type + '">' + '<div class="notification--block__inner-container">' + '<figure class="notification__icon">';
+
+    if (typeof settings.icon !== 'undefined' && settings.icon.type) {
+        if (settings.icon.type === 'font') {
+
+            // Icon font
+            notificationStr += '<span class="icon icon--' + settings.icon.src + '"></span>';
+        } else if (settings.icon.type === 'image') {
+
+            // Image
+            notificationStr += '<img src="' + settings.icon.src + '" alt=""/>';
+        }
+    } else {
+        notificationStr += '<span class="icon icon--' + settings.type + '"></span>';
+    }
+
+    notificationStr += '</figure>' + '<a class="notification__close" href="#">X</a>' + '<div class="notification__body">' + '<p>' + settings.content + '</p>' + '</div>' + '</div>' + '</div>' + '</div>';
+
+    return notificationStr;
+};
+
 /*
  * Notification block element
  * Usage: new Honeycomb.Notification.Block({type: 'info', 'content': 'My notification content goes here';});
@@ -1696,7 +1721,7 @@ var notification = function notification(options) {
         window.jQuery.extend(true, self.settings, self.defaults, self.options);
 
         // Build the notification.
-        self.buildNotification();
+        self.notification = window.jQuery(buildNotification(self.settings));
 
         // Show the notification.
         self.show();
@@ -1727,29 +1752,6 @@ var notification = function notification(options) {
         }
     };
 
-    // Build the notification HTML.
-    this.buildNotification = function buildNotification() {
-        var notificationStr = '<div class="notification notification--block notification--' + self.settings.type + '">' + '<div class="notification--block__inner-container">' + '<figure class="notification__icon">';
-
-        if (self.settings.icon.type) {
-            if (self.settings.icon.type === 'font') {
-
-                // Icon font
-                notificationStr += '<span class="icon icon--' + self.settings.icon.src + '"></span>';
-            } else if (self.settings.icon.type === 'image') {
-
-                // Image
-                notificationStr += '<img src="' + self.settings.icon.src + '" alt=""/>';
-            }
-        } else {
-            notificationStr += '<span class="icon icon--' + self.settings.type + '"></span>';
-        }
-
-        notificationStr += '</figure>' + '<a class="notification__close" href="#">X</a>' + '<div class="notification__body">' + '<p>' + this.settings.content + '</p>' + '</div>' + '</div>' + '</div>' + '</div>';
-
-        self.notification = window.jQuery(notificationStr);
-    };
-
     // Close the notification.
     this.close = function close() {
 
@@ -1773,7 +1775,8 @@ var notification = function notification(options) {
 
 exports.default = {
     init: init,
-    block: notification
+    block: notification,
+    buildNotification: buildNotification
 };
 
 },{}],22:[function(require,module,exports){
