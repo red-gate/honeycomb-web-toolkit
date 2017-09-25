@@ -524,15 +524,16 @@ var sidebar = function sidebar() {
             'ancestor': 'nav--vertical__active-parent',
             'current': 'nav--vertical__active',
             'collapsed': 'collapsed',
-            'expanded': 'expanded',
-            'toggle': 'nav--vertical__toggle'
+            'expanded': 'nav--vertical__active-parent',
+            'toggle': 'nav--vertical__toggle',
+            'normal': ''
         },
         'renderChildLi': function renderChildLi(child, opts) {
             var html = '<li class="' + opts.css[child.type] + '">';
             html += '<a href="' + child.link + '" class="' + opts.css[child.type] + '">';
 
             if (typeof child.children !== 'undefined') {
-                html += '<span class="' + opts.css.toggle + '"></span>';
+                html += '<span class="' + opts.css.toggle + ' ' + opts.css.toggle + '--has-children"></span>';
             }
 
             html += child.title + '</a>';
