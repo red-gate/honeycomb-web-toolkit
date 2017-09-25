@@ -1580,6 +1580,7 @@ var collapseClass = 'nav--vertical__collapse';
 var collapsedClass = 'nav--vertical--collapsed';
 var activeClass = 'nav--vertical__active';
 var parentActiveClass = 'nav--vertical__active-parent';
+var toggleClass = 'nav--vertical__toggle';
 
 var init = function init() {
     var navs = document.querySelectorAll('.nav--vertical');
@@ -1589,57 +1590,82 @@ var init = function init() {
 
         var as = nav.querySelectorAll('a');
 
-        var _loop2 = function _loop2(a) {
-            var a = as[a];
-            var href = a.getAttribute('href');
-            if (!href) {
-                a.addEventListener('click', function (e) {
-                    e.preventDefault();
+        var _loop2 = function _loop2(x) {
+            var a = as[x];
+            a.addEventListener('click', function (e) {
+                if (a.parentElement.className.match(collapseClass) !== null) {
+                    collapse(e, nav);
+                    return;
+                }
 
-                    if (a.parentElement.className.match(collapseClass) !== null) {
+                if (e.target.className.match(toggleClass) !== null) {
+                    toggle(e, a);
+                    return;
+                }
 
-                        // Toggle the collapsed state of the nav.
-                        if (nav.className.match(collapsedClass) === null) {
-                            nav.className = nav.className + (' ' + collapsedClass);
-                        } else {
-                            nav.className = nav.className.replace(collapsedClass, '');
-                        }
-                    } else if (a.parentElement.className.match(activeClass) !== null) {
+                var href = a.getAttribute('href');
+                if (!href) {
+                    toggle(e, a);
+                    update(e, nav, a);
+                    return;
+                } else {
 
-                        // Clicked on active item, so disable.
-                        a.parentElement.className = a.parentElement.className.replace(parentActiveClass, '').replace(activeClass, '');
-                    } else {
-
-                        // Remove all active and parent active classes.
-                        var items = nav.querySelectorAll('.' + activeClass + ', .' + parentActiveClass);
-                        for (var _i = 0; _i < items.length; _i++) {
-                            items[_i].className = items[_i].className.replace(parentActiveClass, '').replace(activeClass, '');
-                        }
-
-                        // Add active class to parent.
-                        a.parentElement.className = a.parentElement.className + (' ' + activeClass);
-
-                        // Add parent active class to parent list items.
-                        var el = a.parentElement.parentElement;
-                        while (el.className.match('nav--vertical') === null) {
-                            if (el.nodeName === 'LI') {
-                                el.className = el.className + (' ' + parentActiveClass);
-                            }
-
-                            el = el.parentElement;
-                        }
-                    }
-                });
-            }
+                    // Clicked on a link, so follow the link.
+                    return;
+                }
+            });
         };
 
-        for (var a = 0; a < as.length; a++) {
-            _loop2(a);
+        for (var x = 0; x < as.length; x++) {
+            _loop2(x);
         }
     };
 
     for (var i = 0; i < navs.length; i++) {
         _loop(i);
+    }
+};
+
+var toggle = function toggle(e, a) {
+    e.preventDefault();
+    var parent = a.parentElement;
+    if (parent.className.match(activeClass) !== null) {
+        parent.className = parent.className.replace(parentActiveClass, '').replace(activeClass, '');
+    } else {
+        parent.className = parent.className + (' ' + parentActiveClass);
+    }
+};
+
+var update = function update(e, nav, a) {
+    e.preventDefault();
+
+    // Remove all active classes.
+    var items = nav.querySelectorAll('.' + activeClass);
+    for (var i = 0; i < items.length; i++) {
+        var re = new RegExp(activeClass, 'g');
+        items[i].className = items[i].className.replace(re, '');
+    }
+
+    // Add active class to parent.
+    a.parentElement.className = a.parentElement.className + (' ' + activeClass);
+
+    // Add parent active class to parent list items.
+    var el = a.parentElement.parentElement;
+    while (el.className.match('nav--vertical') === null) {
+        if (el.nodeName === 'LI') {
+            el.className = el.className + (' ' + parentActiveClass);
+        }
+
+        el = el.parentElement;
+    }
+};
+
+var collapse = function collapse(e, nav) {
+    e.preventDefault();
+    if (nav.className.match(collapsedClass) === null) {
+        nav.className = nav.className + (' ' + collapsedClass);
+    } else {
+        nav.className = nav.className.replace(collapsedClass, '');
     }
 };
 
