@@ -15,29 +15,29 @@
 				<!-- Left aligned -->
 				<h2>Unchecked</h2>
 				<p>
-					<input type="checkbox" id="not-robot" class="checkbox">
-					<label for="not-robot" class="checkbox">
+					<input type="checkbox" id="not-robot" class="hc-checkbox">
+					<label for="not-robot" class="hc-checkbox">
 						<span>I am not a robot</span>
 					</label>
 				</p>
 				<h2>Checked</h2>
 				<p>
-					<input type="checkbox" id="robot" class="checkbox" checked>
-					<label for="robot" class="checkbox">
+					<input type="checkbox" id="robot" class="hc-checkbox" checked>
+					<label for="robot" class="hc-checkbox">
 						<span>I am a robot</span>
 					</label>
 				</p>
 				<h2>Loading state</h2>
 				<p>
-					<input type="checkbox" id="might-be-robot" class="checkbox">
-					<label for="might-be-robot" class="checkbox">
+					<input type="checkbox" id="might-be-robot" class="hc-checkbox">
+					<label for="might-be-robot" class="hc-checkbox">
 						<span>I might be a robot</span>
 					</label>
 				</p>
 				<h2>Small checkbox with loading state</h2>
 				<p>
-					<input type="checkbox" id="might-be-robot-small" class="checkbox">
-					<label for="might-be-robot-small" class="checkbox checkbox--small">
+					<input type="checkbox" id="might-be-robot-small" class="hc-checkbox">
+					<label for="might-be-robot-small" class="hc-checkbox hc-checkbox--small">
 						<span>I might be a small robot</span>
 					</label>
 				</p>
@@ -47,29 +47,29 @@
 			<div class="text--right">
 				<h2>Unchecked</h2>
 				<p>
-					<input type="checkbox" id="not-robot" class="checkbox">
-					<label for="not-robot" class="checkbox checkbox--right">
+					<input type="checkbox" id="not-robot" class="hc-checkbox">
+					<label for="not-robot" class="hc-checkbox hc-checkbox--right">
 						<span>I am not a robot</span>
 					</label>
 				</p>
 				<h2>Checked</h2>
 				<p>
-					<input type="checkbox" id="robot" class="checkbox" checked>
-					<label for="robot" class="checkbox checkbox--right">
+					<input type="checkbox" id="robot" class="hc-checkbox" checked>
+					<label for="robot" class="hc-checkbox hc-checkbox--right">
 						<span>I am a robot</span>
 					</label>
 				</p>
 				<h2>Loading state</h2>
 				<p>
-					<input type="checkbox" id="might-be-robot" class="checkbox">
-					<label for="might-be-robot" class="checkbox checkbox--right">
+					<input type="checkbox" id="might-be-robot" class="hc-checkbox">
+					<label for="might-be-robot" class="hc-checkbox hc-checkbox--right">
 						<span>I might be a robot</span>
 					</label>
 				</p>
 				<h2>Small checkbox with loading state</h2>
 				<p>
-					<input type="checkbox" id="might-be-robot-small" class="checkbox">
-					<label for="might-be-robot-small" class="checkbox checkbox--small checkbox--right">
+					<input type="checkbox" id="might-be-robot-small" class="hc-checkbox">
+					<label for="might-be-robot-small" class="hc-checkbox hc-checkbox--small hc-checkbox--right">
 						<span>I might be a small robot</span>
 					</label>
 				</p>
@@ -86,16 +86,16 @@
 		checkbox.addEventListener('change', function(event) {
 			if(checkbox.checked) {
 				checkbox.checked = false;
-				checkbox.classList.add('checkbox--loading');
+				checkbox.classList.add('hc-checkbox--loading');
 				setTimeout(function() {
-					checkbox.classList.remove('checkbox--loading');
+					checkbox.classList.remove('hc-checkbox--loading');
 					checkbox.checked = true;
 				}, 1000);
 			} else {
 				checkbox.checked = false;
-				checkbox.classList.add('checkbox--loading');
+				checkbox.classList.add('hc-checkbox--loading');
 				setTimeout(function() {
-					checkbox.classList.remove('checkbox--loading');
+					checkbox.classList.remove('hc-checkbox--loading');
 				}, 1000);
 			}
 			return false;

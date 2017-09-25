@@ -20,12 +20,12 @@
     100% { height: $hc-checkbox-height-small * 1.2; }
 }
 
-input[type=checkbox].checkbox {
+input[type=checkbox].hc-checkbox {
     display:none;
 }
 
 
-.checkbox {
+.hc-checkbox {
     @include checkboxDimensions();
 
     background-color: transparent;
@@ -68,7 +68,7 @@ input[type=checkbox].checkbox {
         width: 400px;
     }
 
-    &.checkbox--small {
+    &.hc-checkbox--small {
         @include checkboxDimensions($hc-checkbox-height-small);
         
         span {
@@ -81,7 +81,7 @@ input[type=checkbox].checkbox {
 
     
     // for right-aligned text
-    &.checkbox--right {
+    &.hc-checkbox--right {
         margin-right: 0;
         
         span {
@@ -92,7 +92,7 @@ input[type=checkbox].checkbox {
 
 
     // loading state for ajax requests
-    &.checkbox--loading {
+    &.hc-checkbox--loading {
         background-image: url(#{$hc-checkbox-loading-icon-dir}/spinny.gif);
         background-repeat: no-repeat;
 
@@ -102,20 +102,20 @@ input[type=checkbox].checkbox {
     }
 }
 
-input[type=checkbox].checkbox--loading + .checkbox {
-    @extend .checkbox--loading;
+input[type=checkbox].hc-checkbox--loading + .hc-checkbox {
+    @extend .hc-checkbox--loading;
 }
 
 
-input[type=checkbox]:checked + .checkbox, 
-.checkbox--checked {
+input[type=checkbox]:checked + .hc-checkbox, 
+.hc-checkbox--checked {
     border-color: $hc-checkbox-checked-color;
     
     &::after{
         height: $hc-checkbox-height * .5;
         animation: downstroke $hc-checkbox-duration/2 ease 0s forwards;
     }
-    &.checkbox--small::after {
+    &.hc-checkbox--small::after {
         height: $hc-checkbox-height-small * .5;
         animation: downstrokeSmall $hc-checkbox-duration/2 ease 0s forwards;
     }
@@ -124,7 +124,7 @@ input[type=checkbox]:checked + .checkbox,
         height: $hc-checkbox-height * 1.2;
         animation: upstroke $hc-checkbox-duration ease 0s forwards;
     }
-    &.checkbox--small::before{
+    &.hc-checkbox--small::before{
         height: $hc-checkbox-height-small * 1.2;
         animation: upstrokeSmall $hc-checkbox-duration ease 0s forwards;
     }
