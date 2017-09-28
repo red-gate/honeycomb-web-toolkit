@@ -17,10 +17,7 @@
     display: inline-block;
     -webkit-font-smoothing: antialiased;
     word-break: normal;
-
-    a {
-        text-decoration: none;
-    }
+    text-decoration: none;
 
     // IE7 support.
     .ie7 & {
