@@ -5,6 +5,8 @@
 
 .pagination {
     @include padding(0.25);
+    @include padding(0, 'left');
+    @include padding(0, 'right');
     @include clearfix();
     float: left;
     width: 100%;
