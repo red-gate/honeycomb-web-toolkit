@@ -370,7 +370,7 @@
     &.nav--vertical--minimal {
         @include padding(0.25, 'bottom');
         padding-top: 1px;
-        border-right: 5px solid color('grey', 3);
+        border-right: 5px solid color('grey', 2);
 
         &, ul, li, li:hover, a, a:hover, .nav--vertical__active-parent .nav--vertical__active-parent {
 			background-color: transparent;
@@ -384,8 +384,8 @@
             @include padding(0);
             @include padding(0.6, 'left');
             @include padding(0.5, 'right');
-            @include padding(0.25, 'top');
-            @include padding(0.25, 'bottom');
+            @include padding(0.1, 'top');
+            @include padding(0.1, 'bottom');
             @include font-size(16px);
             color: color('grey', 7);
             border: none;
@@ -399,7 +399,8 @@
         .nav--vertical__toggle {
             right: auto;
             left: 0;
-            top: 23px;
+			top: 17px;
+			color: color('grey', 6);
 
             &:before {
                 content: "\e607";
@@ -413,7 +414,7 @@
 
         .nav--vertical__active > a {
             border-right: 5px solid color('blue', 5);
-            color: color('blue', 5);
+            color: color('blue', 6);
             width: calc(100% + 5px);
         }
     }
