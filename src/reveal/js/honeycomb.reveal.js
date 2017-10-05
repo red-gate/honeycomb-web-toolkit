@@ -5,9 +5,6 @@ let animationEnd;
 
 let init = () => {
 
-    animationStart = new CustomEvent('js-reveal-animation-start');
-    animationEnd = new CustomEvent('js-reveal-animation-end');
-
     window.jQuery( '.js-reveal' ).each( function () {
         let $this = window.jQuery( this );
 
@@ -87,8 +84,6 @@ let open = ( button, callback ) => {
     if ( $content.is( '.js-reveal' ) ) {
         let $buttons = window.jQuery( '.js-reveal-cta[href=\"' + hash + '\"]' );
 
-        button.dispatchEvent(animationStart);
-
         $content.slideDown({
             duration: 250,
             complete: () => {
@@ -108,8 +103,6 @@ let open = ( button, callback ) => {
                 if ( typeof callback === 'function' ) {
                     callback.call( this );
                 }
-
-                button.dispatchEvent(animationEnd);
             }
         });
     }
@@ -122,8 +115,6 @@ let close = ( button, callback ) => {
 
     if ( $content.is( '.js-reveal' ) ) {
         let $buttons = window.jQuery( '.js-reveal-cta[href=\"' + hash + '\"]' );
-
-        button.dispatchEvent(animationStart);
 
         $content.slideUp({
             duration: 250,
@@ -144,8 +135,6 @@ let close = ( button, callback ) => {
                 if ( typeof callback === 'function' ) {
                     callback.call( this );
                 }
-
-                button.dispatchEvent(animationEnd);
             }
         });
     }

@@ -1870,9 +1870,6 @@ var animationEnd = void 0;
 
 var init = function init() {
 
-    animationStart = new CustomEvent('js-reveal-animation-start');
-    animationEnd = new CustomEvent('js-reveal-animation-end');
-
     window.jQuery('.js-reveal').each(function () {
         var $this = window.jQuery(this);
 
@@ -1952,8 +1949,6 @@ var open = function open(button, callback) {
     if ($content.is('.js-reveal')) {
         var $buttons = window.jQuery('.js-reveal-cta[href=\"' + hash + '\"]');
 
-        button.dispatchEvent(animationStart);
-
         $content.slideDown({
             duration: 250,
             complete: function complete() {
@@ -1973,8 +1968,6 @@ var open = function open(button, callback) {
                 if (typeof callback === 'function') {
                     callback.call(undefined);
                 }
-
-                button.dispatchEvent(animationEnd);
             }
         });
     }
@@ -1987,8 +1980,6 @@ var close = function close(button, callback) {
 
     if ($content.is('.js-reveal')) {
         var $buttons = window.jQuery('.js-reveal-cta[href=\"' + hash + '\"]');
-
-        button.dispatchEvent(animationStart);
 
         $content.slideUp({
             duration: 250,
@@ -2009,8 +2000,6 @@ var close = function close(button, callback) {
                 if (typeof callback === 'function') {
                     callback.call(undefined);
                 }
-
-                button.dispatchEvent(animationEnd);
             }
         });
     }
