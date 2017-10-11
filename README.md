@@ -92,4 +92,10 @@ Name: SSINC-htm
     
 Click OK and restart IIS. 
 
-Once your webserver is configured, point it at the root of the honeycomb web toolkit repository. 
+### Building and serving the honeycomb dev site
+
+Once your webserver is configured, point it at the `/dist` directory in the honeycomb web toolkit repository. 
+
+Build the toolkit:
+`
+npm install && npm run build`
