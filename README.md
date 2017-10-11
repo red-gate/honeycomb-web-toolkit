@@ -51,30 +51,45 @@ To work on the Honeycomb web toolkit locally, you'll need Node and NPM.
 You'll also need a webserver configured to parse Server Side Includes in `.htm` files. 
 
 ### Setting up Server Side Includes in Apache
+
 In `apache/conf/httpd.conf`, find `<IfModule mime_module>`.
 
 Within that module you should find some lines about server-side includes:
-    ```# To parse .shtml files for server-side includes (SSI):
+
+    ```
+    # To parse .shtml files for server-side includes (SSI):
     # (You will also need to add "Includes" to the "Options" directive.)
     AddType text/html .shtml
-    AddOutputFilter INCLUDES .shtml```
+    AddOutputFilter INCLUDES .shtml
+    ```
 
 Add ` .htm` after both instances of `.shtml`, so the new rule looks like this:
-    ```# To parse .shtml files for server-side includes (SSI):
+
+    ```
+    # To parse .shtml files for server-side includes (SSI):
     # (You will also need to add "Includes" to the "Options" directive.)
     AddType text/html .shtml .htm
-    AddOutputFilter INCLUDES .shtml .htm```
+    AddOutputFilter INCLUDES .shtml .htm
+    ```
     
 Restart Apache.
     
 ### Setting up Server Side Includes in IIS
+
 In IIS Manager, go to your Honeycomb Web Toolkit site (or set one up). 
+
 Open Handler Mappings. 
+
 Click **Add Module Mapping...**
+
 Configure the new module:
-    Request path: `*.htm`
-    Module: ServerSideIncludeModule
-    Name: SSINC-htm
+
+```
+Request path: *.htm
+Module: ServerSideIncludeModule
+Name: SSINC-htm
+```
+    
 Click OK and restart IIS. 
 
 Once your webserver is configured, point it at the root of the honeycomb web toolkit repository. 
