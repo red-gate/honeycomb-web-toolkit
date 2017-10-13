@@ -1,8 +1,5 @@
 // Reveal - Hide/Show content.
 
-let animationStart;
-let animationEnd;
-
 let init = () => {
 
     window.jQuery( '.js-reveal' ).each( function () {

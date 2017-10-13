@@ -1865,9 +1865,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 // Reveal - Hide/Show content.
 
-var animationStart = void 0;
-var animationEnd = void 0;
-
 var init = function init() {
 
     window.jQuery('.js-reveal').each(function () {
