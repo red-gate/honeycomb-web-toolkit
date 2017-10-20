@@ -5,6 +5,11 @@ const init = () => {
 };
 
 const scrollOnClick = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error('Honeycomb: jQuery not found, so scroll functionality won\'t work as expected');
+        return;
+    }
+
     window.jQuery( 'a.js-scroll-to' ).on( 'click', function( e ) {
         const $this = window.jQuery( this );
         const href = $this.attr( 'href' );

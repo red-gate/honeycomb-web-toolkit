@@ -8,6 +8,11 @@ let init = () => {
 };
 
 let addArrows = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error( 'Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected' );
+        return;
+    }
+    
     let $lis = window.jQuery( selector ).find( 'li' );
     $lis.each( function() {
         let $this = window.jQuery( this );
@@ -21,6 +26,11 @@ let addArrows = () => {
 };
 
 let handle = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error( 'Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected' );
+        return;
+    }
+    
     let $body = window.jQuery( 'body' );
     $body.on( 'click', '.js-dropdown .arrow', function( e ) {
         let $this = window.jQuery( this );

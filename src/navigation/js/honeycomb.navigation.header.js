@@ -1,4 +1,9 @@
 const setupCollapse = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        return;
+    }
+    
     const $headers = window.jQuery('.js-header-primary-collapse');
 
     $headers.each((index, header) => {
@@ -10,6 +15,11 @@ const setupCollapse = () => {
 };
 
 const dropdownNotification = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        return;
+    }
+    
     const $headers = window.jQuery('.js-header-primary-collapse');
     const openClassName = 'dropdown--open';
 
@@ -32,6 +42,11 @@ let init = () => {
     setupCollapse();
     dropdownNotification();
 
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        return;
+    }
+    
     let $body = window.jQuery('body');
 
     $body.on('click', '.header--primary__menu-button', function(e) {

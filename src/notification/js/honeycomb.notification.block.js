@@ -1,5 +1,10 @@
 // Click handler for close buttons on statically built notifications.
 let init = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error( 'Honeycomb: jQuery not found, so notifications won\t work as expected' );
+        return;
+    }
+
     window.jQuery( 'body' ).on('click', '.notification--block .notification__close', function( e ) {
         e.preventDefault();
         window.jQuery( this ).parent().parent().slideUp({

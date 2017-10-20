@@ -1,5 +1,9 @@
 // Filter (Hide/Show) content on a page.
-let init = () => {
+const init = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error( 'Honeycomb: jQuery not found, so filter functionality won\'t work as expected' );
+        return;
+    }
 
     // Get the filter.
     let $filter = window.jQuery('.js-filter');

@@ -1,6 +1,10 @@
 // Reveal - Hide/Show content.
 
 let init = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error('Honeycomb: jQuery not found, so reveal functionality won\'t work as expected');
+        return;
+    }
 
     window.jQuery( '.js-reveal' ).each( function () {
         let $this = window.jQuery( this );

@@ -1,5 +1,10 @@
 let sidebar = () => {
 
+    if ( typeof window.jQuery === 'undefined') {
+        window.console.error( 'Honeycomb: jQuery not found, so the scrollTree plugin won\'t be loaded' );
+        return;
+    }
+
     if ( typeof window.jQuery.fn.scrollTree === 'undefined' ) {
         window.console.error( 'Honeycomb: The scrollTree plugin hasn\'t been installed correctly. - Plugin undefined' );
         return;
@@ -32,6 +37,11 @@ let sidebar = () => {
 };
 
 let lightbox = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error( 'Honeycomb: jQuery not found, so lightbox functionality won\'t work' );
+        return;
+    }
+
     window.jQuery('.confluence-embedded-image').each(function(){
         let $this = window.jQuery(this);
         let $parent = $this.parent().get(0);
@@ -46,6 +56,10 @@ let lightbox = () => {
 };
 
 let notifications = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error( 'Honeycomb: jQuery not found, so notification functionality won\'t work as expected' );
+        return;
+    }
 
     // List of classes to add to.
     let classes = {
@@ -87,6 +101,11 @@ let notifications = () => {
 };
 
 let toc = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.error( 'Honeycomb: jQuery not found, so TOC functionality won\'t work as expected' );
+        return;
+    }
+
     window.jQuery('.toc-macro').each(function(){
         let $this = window.jQuery(this);
         let defaults = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
