@@ -131,11 +131,26 @@ const toc = () => {
     });
 };
 
+const tables = () => {
+    const tables = document.querySelectorAll('table');
+    for (var i=0; i<tables.length; i++) {
+        const table = tables[i];
+        const wrapper = table.parentElement;
+
+        if (wrapper.className === 'table-wrap') {
+            if (table.clientWidth > wrapper.clientWidth) {
+                table.className += ' table--fixed';
+            }
+        }
+    }
+};
+
 const init = () => {
     sidebar();
     lightbox();
     notifications();
     toc();
+    tables();
 };
 
 export default {
