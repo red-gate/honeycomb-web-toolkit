@@ -165,6 +165,16 @@ const convertIds = () => {
     }
 };
 
+const displayVersions = () => {
+    const version = window.Confluence.Space.key.replace(/[^0-9]/g, '');
+    if ((version !== '') && (parseInt(version) > 1)) {
+        const oldVersions = document.querySelector('.js-older-versions');
+        if (oldVersions) {
+            oldVersions.style.display = 'block';
+        }
+    }
+};
+
 const init = () => {
     sidebar();
     lightbox();
@@ -172,6 +182,7 @@ const init = () => {
     toc();
     tables();
     convertIds();
+    displayVersions();
 };
 
 export default {
