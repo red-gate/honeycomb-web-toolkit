@@ -29,10 +29,6 @@ window.addEventListener('load', () => {
 import code from './code/js/honeycomb.code';
 code.init();
 
-// Confluence.
-import confluence from './confluence/js/honeycomb.confluence';
-confluence.init();
-
 // Content.
 import content from './content/js/honeycomb.content';
 window.addEventListener('load', () => {
@@ -119,3 +115,7 @@ import video from './video/js/honeycomb.video';
 video.init({
     analytics: googleAnalytics
 });
+
+// Confluence. (Only import Confluence styling for Confluence themes.)
+// import confluence from './confluence/js/honeycomb.confluence';
+// confluence.init();
