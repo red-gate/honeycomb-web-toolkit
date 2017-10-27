@@ -9,24 +9,44 @@ input, select, textarea, label {
 
 input, select, textarea {
     @include border();
-    @include margin(0.5, bottom);
     @include padding(0.25);
     display: inline-block;
     width: 90%; // Fallback if calc rule below fails.
     width: calc(100% - 30px);
     border-radius: 5px;
+    border-color: color('grey', 5);
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-    border: none;
-    width: auto;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    position: relative;
     display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid color('grey', 7);
+    vertical-align: text-top;
 
     // IE7 support.
     .ie7 & {
         zoom: 1;
         display: inline;
+    }
+
+    &:checked {
+        background: color('blue', 6);
+        border-color: color('blue', 6);
+    }
+
+    &:disabled, &.disabled {
+        border-color: color('grey', 4);
+        background-color: transparent !important;
+
+        & + label {
+            color: color('grey', 4);
+        }
     }
 
     & + label {
@@ -42,6 +62,29 @@ input[type="radio"] {
     }
 }
 
+input[type="checkbox"] {
+    border-radius: 2px;
+
+    &:checked {
+        &:after {
+            content: "\e625";
+            color: color('white');
+            font-family: "Redgate";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+
+input[type="radio"] {
+    border-radius: 50%;
+
+    &:checked {
+        box-shadow: inset 0px 0px 0px 3px color('white');
+    }
+}
+
 input[type="submit"] {
     @extend %button;
     width: auto;
@@ -53,8 +96,7 @@ input[type="submit"] {
 
 
 label {
-    @include font-size(12px);
-    @include px-rem(letter-spacing, 1);
-    text-transform: uppercase;
+    @include font-size(16px);
+    @include margin(0.1, 'bottom');
     font-weight: bold;
 }
