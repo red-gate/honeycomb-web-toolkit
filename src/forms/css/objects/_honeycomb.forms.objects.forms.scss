@@ -3,10 +3,6 @@
     &__field-container {
         @include margin(0.6, 'bottom');
 
-        &:last-child {
-            @include margin(0, 'bottom');
-        }
-
         &--error {
             .form__error-message {
                 display: block;
