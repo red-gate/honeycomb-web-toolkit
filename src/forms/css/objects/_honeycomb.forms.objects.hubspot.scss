@@ -11,6 +11,12 @@
     &[type="checkbox"] {
         margin-right: 10px;
     }
+
+    &.error {
+        &:not([type="checkbox"]):not([type="radio"]) {
+            border: 2px solid color('red', 5);
+        }
+    }
 }
 
 .hs-form {
@@ -46,7 +52,13 @@
     }
 
     .hs-error-msgs {
-        color: color('red', 'brand');
+        @include margin(0, 'left');
+
+        &, label {
+            @include margin(0.1, 'top');
+            color: color('red', 'brand');
+            font-weight: normal;
+        }
     }
 }
 
