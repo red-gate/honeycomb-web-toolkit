@@ -1,0 +1,56 @@
+.step-indicators {
+    @include margin(0);
+    @include margin(0.5, 'bottom');
+    @include padding(0);
+    @include font-size(14px);
+    list-style: none;
+    text-transform: uppercase;
+
+    &, a {
+        color: color('grey', 5);
+    }
+
+    li {
+        @include margin(0);
+        @include margin(1.2, 'right');
+        display: inline-block;
+        position: relative;
+
+        &:after {
+            @include font-size(24px, false);
+            content: '\e607';
+            font-family: 'Redgate';
+            position: absolute;
+            right: -38px;
+            color: color('grey', 5);
+        }
+
+        &:last-child:after {
+            display: none;
+        }
+    }
+
+    &--no-arrows {
+
+        li {
+            @include margin(0.6, 'right');
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    &--active {
+        @include padding(0.25, 'left');
+        @include padding(0.25, 'right');
+        @include padding(0.1, 'top');
+        @include padding(0.1, 'bottom');
+        background-color: color('blue', 6);
+        border-radius: 100px;
+
+        &, a {
+            color: color('white');
+        }
+    }
+}
