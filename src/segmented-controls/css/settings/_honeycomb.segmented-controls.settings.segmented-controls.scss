@@ -1,0 +1,24 @@
+$hc-segmented-controls-radius: 10px !default;
+$hc-segmented-controls-text-color: color('grey', 6) !default;
+$hc-segmented-controls-border-width: 2px !default;
+$hc-segmented-controls-border-color: color('grey', 6) !default;
+$hc-segmented-controls-active-color: $hc-segmented-controls-border-color !default;
+$hc-segmented-controls-hover-color: color('grey', 3) !default;
+$hc-segmented-controls-primary-active-color: color('blue', 6) !default;
+
+$hc-segmented-controls-padding: $hc-button-padding !default;
+$hc-segmented-controls-padding--large: $hc-button-padding--large !default;
+$hc-segmented-controls-padding--small: $hc-button-padding--small !default;
+$hc-segmented-controls-padding--x-small: $hc-button-padding--x-small !default;
+$hc-segmented-controls-padding--xx-small: $hc-button-padding--xx-small !default;
+
+$hc-segmented-controls-font-size--large: $hc-button-font-size--large !default;
+$hc-segmented-controls-font-size--small: $hc-button-font-size--small !default;
+$hc-segmented-controls-font-size--x-small: $hc-button-font-size--x-small !default;
+$hc-segmented-controls-font-size--xx-small: $hc-button-font-size--xx-small !default;
+
+$hc-segmented-controls-image-size: 20px !default;
+$hc-segmented-controls-image-size--large: 25px !default;
+$hc-segmented-controls-image-size--small: 15px !default;
+$hc-segmented-controls-image-size--x-small: 11px !default;
+$hc-segmented-controls-image-size--xx-small: 7px !default;

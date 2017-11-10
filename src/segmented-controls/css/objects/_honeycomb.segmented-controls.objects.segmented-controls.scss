@@ -1,0 +1,122 @@
+.segmented-controls {
+    @include margin(0);
+    @include margin(1, 'bottom'); // For testing purposes.
+    @include padding(0);
+    list-style: none;
+
+    li {
+        @include margin(0);
+        @include margin(-0.1, 'left');
+        display: inline-block;
+    }
+
+    a {
+        color: $hc-segmented-controls-text-color;
+        border-width: $hc-segmented-controls-border-width;
+        border-style: solid;
+        border-color: $hc-segmented-controls-border-color;
+        border-right-width: 0;
+        display: block;
+        padding: $hc-segmented-controls-padding;
+
+        &:hover {
+            background-color: $hc-segmented-controls-hover-color;
+        }
+    }
+
+    li:first-child a {
+        border-top-left-radius: $hc-segmented-controls-radius;
+        border-bottom-left-radius: $hc-segmented-controls-radius;
+    }
+
+    li:last-child a {
+        border-top-right-radius: $hc-segmented-controls-radius;
+        border-bottom-right-radius: $hc-segmented-controls-radius;
+        border-right-width: $hc-segmented-controls-border-width;
+    }
+
+    &--active {
+        
+        a, a:hover {
+            background-color: $hc-segmented-controls-active-color;
+            border-color: $hc-segmented-controls-active-color;
+            color: color('white');
+        }
+
+        & + li {
+            a {
+                border-left-color: $hc-segmented-controls-active-color;
+            }
+        }
+    }
+
+    &--primary &--active {
+
+        a {
+            background-color: $hc-segmented-controls-primary-active-color;
+            border-color: $hc-segmented-controls-primary-active-color;
+        }
+
+        & + li {
+            a {
+                border-left-color: $hc-segmented-controls-primary-active-color;
+            }
+        }
+    }
+
+    img {
+        max-height: $hc-segmented-controls-image-size;
+    }
+
+
+    // Sizes and padding
+    &--xx-small {
+
+        a {
+            padding: $hc-segmented-controls-padding--xx-small;
+            @include font-size($hc-segmented-controls-font-size--xx-small);
+        }
+
+        img {
+            max-height: $hc-segmented-controls-image-size--xx-small;
+        }
+    }
+
+    &--x-small {
+        
+        a {
+            padding: $hc-segmented-controls-padding--x-small;
+            @include font-size($hc-segmented-controls-font-size--x-small);
+        }
+
+        img {
+            max-height: $hc-segmented-controls-image-size--x-small;
+        }
+    }
+
+    &--small {
+
+        a {
+            padding: $hc-segmented-controls-padding--small;
+            @include font-size($hc-segmented-controls-font-size--small);
+        }
+
+        img {
+            max-height: $hc-segmented-controls-image-size--small;
+        }
+    }
+
+    &--large {
+
+        a {
+            padding: $hc-segmented-controls-padding--large;
+            @include font-size($hc-segmented-controls-font-size--large);
+        }
+
+        img {
+            max-height: $hc-segmented-controls-image-size--large;
+        }
+    }
+}
+
+
