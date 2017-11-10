@@ -94,7 +94,7 @@ Click OK and restart IIS.
 
 ### Building and serving the honeycomb dev site
 
-Once your webserver is configured, point it at the `/dist` directory in the honeycomb web toolkit repository. 
+Once your webserver is configured, point it at the `/` directory in the honeycomb web toolkit repository, start the webserver, and point your browser at the `/docs` directory. 
 
 Build the toolkit:
 `
