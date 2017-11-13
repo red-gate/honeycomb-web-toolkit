@@ -60,6 +60,10 @@ input[type="radio"] {
             display: inline;
         }
     }
+
+    &:hover, & + label:hover {
+        cursor: pointer;
+    }
 }
 
 input[type="checkbox"] {
