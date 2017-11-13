@@ -51,8 +51,10 @@ input[type="radio"] {
 
     & + label {
         @include margin(1, right);
+        @include padding(0.1, 'left');
         font-weight: normal;
         display: inline-block;
+        transform: translateY(2px);
 
         // IE7 support.
         .ie7 & {
