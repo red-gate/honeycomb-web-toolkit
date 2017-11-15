@@ -3,9 +3,17 @@
 	@include padding(0.25, 'right');
 	@include margin(0.25, 'right');
 	@include font-size(12px);
-	display: inline;
+	display: inline-block;
 	font-weight: bold;
 	text-transform: uppercase;
+
+	&--ghost {
+		background-color: transparent;
+		border-width: 1px;
+		border-style: solid;
+		border-radius: 100px;
+		text-transform: none;
+	}
 }
 
 .label-list {
