@@ -15,6 +15,10 @@
         background-color: $base-color !important;
     }
 
+    .border-color--#{$color} {
+        border-color: $base-color !important;
+    }
+
     .color-code--#{$color}:after {
         content: '#{$base-color}' !important;
     }
@@ -26,6 +30,10 @@
 
         .background-color--#{$color}--#{$shade} {
             background-color: $code !important;
+        }
+
+        .border-color--#{$color}--#{$shade} {
+            border-color: $code !important;
         }
 
         .color-code--#{$color}--#{$shade}:after {
