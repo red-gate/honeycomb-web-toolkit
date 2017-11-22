@@ -72,3 +72,21 @@
         transform: translateY(12px);
     }
 }
+
+/* Overrides for light scheme */
+.tooltip--light {
+
+    &:before {
+        border-top-color: $hc-tooltip-background-color--light;
+    }
+
+    &:after {
+        background-color: $hc-tooltip-background-color--light;
+        color: $hc-tooltip-text-color--light;
+    }
+
+    &.tooltip--bottom:before {
+        border-top-color: transparent;
+        border-bottom-color: $hc-tooltip-background-color--light;
+    }
+}

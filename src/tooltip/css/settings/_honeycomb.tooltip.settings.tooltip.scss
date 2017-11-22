@@ -1,6 +1,8 @@
 $hc-tooltip-width: 300px !default;
 $hc-tooltip-text-color: color('white') !default;
-$hc-tooltip-background-color: color('black') !default;
-$hc-tooltip-border-radius: 8px !default;
+$hc-tooltip-text-color--light: color('grey', 9) !default;
+$hc-tooltip-background-color: color('grey', 9) !default;
+$hc-tooltip-background-color--light: color('grey', 2) !default;
+$hc-tooltip-border-radius: 7px !default;
 $hc-tooltip-font-size: 14px !default;
 $hc-tooltip-line-height: 20px !default;
