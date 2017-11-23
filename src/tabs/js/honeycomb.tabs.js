@@ -98,7 +98,7 @@ let init = ( config = {} ) => {
                 let googleMap = tab.getAttribute('data-tabs-google-map');
 
                 if ( equalHeights || googleMap ) {
-                    options.onTabChange = function(equalHeights, googleMap, config) {
+                    options.onTabChange = function() {
 
                         if (equalHeights) {
                             config.equalise();
