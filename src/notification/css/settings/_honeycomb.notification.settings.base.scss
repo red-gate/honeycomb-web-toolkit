@@ -1,0 +1,11 @@
+$hc-notification-background-color: color('grey', 1) !default;
+$hc-notification-font-size: 16px !default;
+$hc-notification-border-width: 10 !default;
+$hc-notification-text-color: color('grey', 7) !default;
+$hc-notification-icon-margin: 15px !default;
+
+$hc-notification-color: color('grey', 9) !default;
+$hc-notification-color--info: color('blue') !default;
+$hc-notification-color--fail: color('red') !default;
+$hc-notification-color--success: color('green') !default;
+$hc-notification-color--warning: color('yellow') !default;
