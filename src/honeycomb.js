@@ -103,7 +103,8 @@ svg.init();
 // Tabs.
 import tabs from './tabs/js/honeycomb.tabs';
 tabs.init({
-    equalise: equalise.init
+    equalise: equalise.init,
+    googleMap: googleMap.init
 });
 
 // Toggle.

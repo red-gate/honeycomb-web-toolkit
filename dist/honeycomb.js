@@ -1149,7 +1149,8 @@ _honeycomb25.default.init();
 // Tabs.
 
 _honeycomb27.default.init({
-    equalise: _honeycomb11.default.init
+    equalise: _honeycomb11.default.init,
+    googleMap: _honeycombMaps2.default.init
 });
 
 // Toggle.
@@ -2212,10 +2213,23 @@ var init = function init() {
                         options.reloadAjax = reloadAjax === 'true';
                     }
 
-                    // Equal heights
+                    // Tab change callbacks
                     var equalHeights = tab.getAttribute('data-tabs-equal-heights');
-                    if (equalHeights) {
-                        options.onTabChange = config.equalise;
+                    var googleMap = tab.getAttribute('data-tabs-google-map');
+
+                    if (equalHeights || googleMap) {
+                        options.onTabChange = function (equalHeights, googleMap, config) {
+
+                            if (equalHeights) {
+                                config.equalise();
+                            }
+
+                            if (googleMap) {
+                                config.googleMap({
+                                    callback: 'window.initMap'
+                                });
+                            }
+                        };
                     }
 
                     // Apply tabs plugin.
