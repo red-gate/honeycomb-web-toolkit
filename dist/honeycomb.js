@@ -2148,8 +2148,7 @@ var init = function init() {
             var _iteratorError = undefined;
 
             try {
-
-                for (var _iterator = tabbed[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var _loop = function _loop() {
                     var tab = _step.value;
 
                     var options = {
@@ -2218,7 +2217,7 @@ var init = function init() {
                     var googleMap = tab.getAttribute('data-tabs-google-map');
 
                     if (equalHeights || googleMap) {
-                        options.onTabChange = function (equalHeights, googleMap, config) {
+                        options.onTabChange = function () {
 
                             if (equalHeights) {
                                 config.equalise();
@@ -2239,6 +2238,10 @@ var init = function init() {
                     if (typeof config.callback === 'function') {
                         config.callback.call();
                     }
+                };
+
+                for (var _iterator = tabbed[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    _loop();
                 }
             } catch (err) {
                 _didIteratorError = true;
