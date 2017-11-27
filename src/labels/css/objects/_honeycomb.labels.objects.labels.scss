@@ -1,18 +1,60 @@
 .label {
-	@include padding(0.25, 'left');
-	@include padding(0.25, 'right');
 	@include margin(0.25, 'right');
-	@include font-size(12px);
+	@include font-size($hc-label-font-size);
 	display: inline-block;
-	font-weight: bold;
-	text-transform: uppercase;
-
+	border-radius: $hc-label-border-radius;
+	padding: $hc-label-padding;
+	
 	&--ghost {
 		background-color: transparent;
 		border-width: 1px;
 		border-style: solid;
-		border-radius: 100px;
-		text-transform: none;
+	}
+
+	&__counter {
+		@include font-size($hc-label-counter-font-size, $hc-label-counter-size);
+		position: relative;
+		display: inline-block;
+		width: $hc-label-counter-size;
+		height: $hc-label-counter-size;
+		text-align: center;
+		border-radius: 50%;
+		margin-left: $hc-label-counter-left-margin;
+		margin-right: $hc-label-counter-right-margin;
+		top: -1px;
+	}
+
+	&__dismiss {
+		@include font-size($hc-label-dismiss-font-size, 0);
+		@include margin(0.25, 'left');
+		position: relative;
+		top: 2px;
+
+		&, &:hover {
+			color: $hc-label-dismiss-color;
+		}
+
+		&:before {
+			font-family: 'Redgate';
+			content: '\e60a';
+		}
+	}
+
+	&--small {
+		@include font-size($hc-label-font-size--small, $hc-label-font-size--small);
+		padding: $hc-label-padding--small;
+
+		.label__counter {
+			@include font-size($hc-label-counter-font-size--small, ($hc-label-counter-size--small + 4px));
+			width: $hc-label-counter-size--small;
+			height: $hc-label-counter-size--small;
+			margin-left: $hc-label-counter-left-margin--small;
+			top: 0;
+		}
+
+		.label__dismiss:before {
+			@include font-size($hc-label-dismiss-font-size--small, false);
+		}
 	}
 }
 

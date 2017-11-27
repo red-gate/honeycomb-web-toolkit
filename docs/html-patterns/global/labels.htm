@@ -13,12 +13,11 @@
 
             <h1>Labels</h1>
 
-            <h3>A cat</h3>
-            <img src="http://placekitten.com/g/300/300" alt="">
             <p>
-                <span class="label scheme--red">kitten</span>
+                <span class="label scheme--red">One</span>
                 <span class="label scheme--darkest-blue">cat</span>
                 <span class="label scheme--lightest-blue">plantpot</span>
+                <span class="label label--small scheme--lightest-blue">small</span>
 
                 <span class="label label--ghost color--blue--6 border-color--blue--6">Beta</span>
             </p>
@@ -32,14 +31,32 @@
 
             <a class="label label--ghost color--red--6 border-color--red--6" href="#">Beta</a>
 
-            <div class="label label--file label--file--large">filename.csv<a href="#" class="label--file__dismiss"></a></div>
-            <div class="label label--file">filename.csv<a href="#" class="label--file__dismiss"></a></div>
-            <div class="label label--file label--file--small">filename.csv<a href="#" class="label--file__dismiss"></a></div>
+            <div class="label label--file label--large">filename.csv<a href="#" class="label__dismiss"></a></div>
+            <div class="label label--file">filename.csv<a href="#" class="label__dismiss"></a></div>
+            <div class="label label--file label--small">filename.csv<a href="#" class="label__dismiss"></a></div>
 
             <div class="spaced-v">
-              <div class="label label--file">filename.csv<a href="#" class="label--file__dismiss"></a></div>
-              <div class="label label--file">filename.csv<a href="#" class="label--file__dismiss"></a></div>
-              <div class="label label--file">filename.csv<a href="#" class="label--file__dismiss"></a></div>
+              <div class="label label--file">filename.csv<a href="#" class="label__dismiss"></a></div>
+              <div class="label label--file">filename.csv<a href="#" class="label__dismiss"></a></div>
+              <div class="label label--file">filename.csv<a href="#" class="label__dismiss"></a></div>
+            </div>
+
+            <div class="spaced-v">
+              <div class="label background-color--red color--white">One<a href="#" class="label__dismiss"></a></div>
+              <div class="label background-color--blue color--white">Three<a href="#" class="label__dismiss"></a></div>
+              <div class="label background-color--blue--1 color--grey--9">Three<a href="#" class="label__dismiss"></a></div>
+
+              <div class="label label--small background-color--blue color--white">Small<a href="#" class="label__dismiss"></a></div>
+            </div>
+
+            <div class="spaced-v">
+              <div class="label background-color--red color--white"><span class="label__counter background-color--white color--red">12</span> One</div>
+              <div class="label background-color--blue color--white"><span class="label__counter background-color--white color--blue">5</span> Three</div>
+              <div class="label background-color--blue--1 color--grey--9"><span class="label__counter background-color--grey--9 color--blue--1">8</span> Three</div>
+              <div class="label background-color--grey--9 color--white"><span class="label__counter background-color--white color--grey--9">99</span> Changes</div>
+              <a href="#" class="label background-color--grey--9 color--white"><span class="label__counter background-color--white color--grey--9">99</span> Changes</a>
+
+              <a href="#" class="label label--small background-color--grey--9 color--white"><span class="label__counter background-color--white color--grey--9">99</span> Changes</a>
             </div>
 
           </div>
