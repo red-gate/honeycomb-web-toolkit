@@ -1,5 +1,5 @@
 .label {
-	@include margin(0.25, 'right');
+	@include margin(0.1, 'right');
 	@include font-size($hc-label-font-size);
 	display: inline-block;
 	border-radius: $hc-label-border-radius;
