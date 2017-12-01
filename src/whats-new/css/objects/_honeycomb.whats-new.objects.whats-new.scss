@@ -28,6 +28,7 @@
         @include margin(0);
         @include padding(0);
         list-style: none;
+        overflow: auto;
 
         & > li {
             @include margin(0);
@@ -115,7 +116,7 @@
     &:after {
         content: ' ';
         position: absolute;
-        width: 98%;
+        width: 50%;
         height: 20px;
         top: 0;
         left: 50%;
