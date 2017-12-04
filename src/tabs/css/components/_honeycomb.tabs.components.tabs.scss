@@ -34,11 +34,6 @@
     position: relative;
     display: inline-block;
     width: auto;
-    border-bottom-width: $hc-tabs-border-width;
-    border-bottom-style: solid;
-    border-bottom-color: transparent;
-    overflow: hidden;
-    transform: translate(0, 12px);
 
     @include responsive("medium") {
         display: block;
