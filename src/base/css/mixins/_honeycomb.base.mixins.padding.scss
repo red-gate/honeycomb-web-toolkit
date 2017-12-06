@@ -17,7 +17,7 @@
         @include padding(1, right);
     }
 
-    .padded-v #{$suffix}{
+    .padded-v#{$suffix}{
         @include padding(1, top);
         @include padding(1, bottom);
     }
