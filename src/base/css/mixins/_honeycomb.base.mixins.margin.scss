@@ -1,34 +1,154 @@
-// TODO add any extra documentation and an example
+// Build the margin rules, with optional suffix
+@mixin buildMargin($suffix: "") {
+    .spaced#{$suffix} {
+        @include margin(1);
+    }
+
+    .spaced-h#{$suffix} {
+        @include margin(1, left);
+        @include margin(1, right);
+    }
+
+    .spaced-left#{$suffix} {
+        @include margin(1, left);
+    }
+
+    .spaced-right#{$suffix} {
+        @include margin(1, right);
+    }
+
+    .spaced-v#{$suffix} {
+        @include margin(1, top);
+        @include margin(1, bottom);
+    }
+
+    .spaced-top#{$suffix} {
+        @include margin(1, top);
+    }
+
+    .spaced-bottom#{$suffix} {
+        @include margin(1, bottom);
+    }
+
+    .spaced--tight#{$suffix} {
+        @include margin(0.5);
+    }
+
+    .spaced-h--tight#{$suffix} {
+        @include margin(0.5, left);
+        @include margin(0.5, right);
+    }
+
+    .spaced-left--tight#{$suffix} {
+        @include margin(0.5, left);
+    }
+
+    .spaced-right--tight#{$suffix} {
+        @include margin(0.5, right);
+    }
+
+    .spaced-v--tight#{$suffix} {
+        @include margin(0.5, top);
+        @include margin(0.5, bottom);
+    }
+
+    .spaced-top--tight#{$suffix} {
+        @include margin(0.5, top);
+    }
+
+    .spaced-bottom--tight#{$suffix} {
+        @include margin(0.5, bottom);
+    }
+
+    .spaced--loose#{$suffix} {
+        @include margin(2);
+    }
+
+    .spaced-h--loose#{$suffix} {
+        @include margin(2, left);
+        @include margin(2, right);
+    }
+
+    .spaced-left--loose#{$suffix} {
+        @include margin(2, left);
+    }
+
+    .spaced-right--loose#{$suffix} {
+        @include margin(2, right);
+    }
+
+    .spaced-v--loose#{$suffix} {
+        @include margin(2, top);
+        @include margin(2, bottom);
+    }
+
+    .spaced-top--loose#{$suffix} {
+        @include margin(2, top);
+    }
+
+    .spaced-bottom--loose#{$suffix} {
+        @include margin(2, bottom);
+    }
+
+    .spaced--none#{$suffix} {
+        @include margin(0);
+    }
+
+    .spaced-h--none#{$suffix} {
+        @include margin(0, left);
+        @include margin(0, right);
+    }
+
+    .spaced-left--none#{$suffix} {
+        @include margin(0, left);
+    }
+
+    .spaced-right--none#{$suffix} {
+        @include margin(0, right);
+    }
+
+    .spaced-v--none#{$suffix} {
+        @include margin(0, top);
+        @include margin(0, bottom);
+    }
+
+    .spaced-top--none#{$suffix} {
+        @include margin(0, top);
+    }
+
+    .spaced-bottom--none#{$suffix} {
+        @include margin(0, bottom);
+    }
+}
 
 // Mixin for adding margins to objects/components
 @mixin margin($scale: 1, $direction: all, $important: false) {
-
-  $margin: inherit;
-  $property: margin;
-  $flag: null;
-
-  @if index($hc-margin-whitelist, $scale) {
-    $margin: round($hc-spacing-unit * $scale);
-  } @else {
-    @error "Scale '#{$scale}' is not a valid value for `margin`.";
-    $margin: false;
-  }
-
-  // Determine the direction.
-  @if $direction == "all" {
+    $margin: inherit;
     $property: margin;
-  } @else {
-    $property: margin-#{$direction};
-  }
+    $flag: null;
 
-  // Important flag.
-  @if $important {
-      $flag: !important;
-  }
+    @if index($hc-margin-whitelist, $scale) {
+        $margin: round($hc-spacing-unit * $scale);
+    } @else {
+        @error "Scale '#{$scale}' is not a valid value for `margin`.";
+        $margin: false;
+    }
 
-  // Print the rule.
-  @if $margin {
-    #{$property}: $margin $flag;
-    #{$property}: px-rem($margin) $flag;
-  }
+    // Determine the direction.
+    @if $direction == "all" {
+        $property: margin;
+    } @else {
+        $property: margin-#{$direction};
+    }
+
+    // Important flag.
+    @if $important {
+        $flag: !important;
+    }
+
+    // Print the rule.
+    @if $margin {
+        #{$property}: $margin $flag;
+        #{$property}: px-rem($margin) $flag;
+    }
 }
