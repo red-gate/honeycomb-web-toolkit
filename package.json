@@ -26,7 +26,8 @@
     "glob": "^7.1.1",
     "node-sass": "^4.5.2",
     "postcss-cli": "^4.0.0",
-    "uglify-js": "^3.0.6"
+    "uglify-js": "^3.0.6",
+    "zip-folder": "^1.0.0"
   },
   "browserify": {
     "transform": [
