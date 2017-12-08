@@ -1,5 +1,5 @@
 // Extra tasks when building on TeamCity.
-require("zip-folder");
+const zipFolder = require("zip-folder");
 require("request");
 const pkg = require('../package.json');
 
