@@ -9,4 +9,7 @@ if (!process.env.BUILD_COUNTER) {
 }
 
 // Set the build version from package.json, plus the build counter to uniquify it
+console.log("Build number set OK");
 console.warn("##teamcity[buildNumber '" + pkg.version + "." + process.env.BUILD_COUNTER + "']");
+
+console.log("teamcity.js complete");
