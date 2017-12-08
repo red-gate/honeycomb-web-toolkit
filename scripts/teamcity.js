@@ -1,6 +1,7 @@
 // Extra tasks when building on TeamCity.
 const zipFolder = require("zip-folder");
-require("request");
+const fs = require("fs");
+const request = require("request");
 const pkg = require('../package.json');
 
 // Check we have the BUILD_COUNTER environment variable set - if not, we're probably not running in TC, or
