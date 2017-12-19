@@ -1,5 +1,5 @@
 {
-  "name": "honeycomb",
+  "name": "honeycomb-web-toolkit",
   "version": "9.7.2",
   "scripts": {
     "clean": "node scripts/clean.js",
