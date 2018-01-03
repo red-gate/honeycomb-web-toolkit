@@ -1,6 +1,6 @@
 // Reveal - Hide/Show content.
 
-let init = () => {
+let init = ( callback ) => {
     if (typeof window.jQuery === 'undefined') {
         window.console.error('Honeycomb: jQuery not found, so reveal functionality won\'t work as expected');
         return;
@@ -51,7 +51,7 @@ let init = () => {
                     // If the content is visible (should only be 1), then close and open.
                     if ( $groupContent.is( ':visible' ) ) {
                         close( groupButton, function () {
-                            open( that );
+                            open( that, callback );
                         });
                     } else {
 
@@ -62,17 +62,17 @@ let init = () => {
 
                 // No revealed content is open, so go ahead and open.
                 if ( closed === $groupButtons.length ) {
-                    open( that );
+                    open( that, callback );
                 }
             } else {
 
                 // Not in a group.
-                open( this );
+                open( this, callback );
             }
         } else {
 
             // Close content.
-            close( this );
+            close( this, callback );
         }
     });
 };
