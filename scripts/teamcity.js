@@ -34,9 +34,15 @@ zipFolder("dist", pkgFilename, function(err) {
 
 		// Upload the resulting package to Octopus
 		const packagesEndpoint = process.env.OCTOPUS_URL + "/api/packages/raw";
-		fs.createReadStream(pkgFilename).pipe(request({
+
+		var octopus_post_form = {
+			data: fs.createReadStream(pkgFilename),
+		};
+
+		request({
 			url: packagesEndpoint,
 			method: "POST",
+			formData: octopus_post_form,
 			headers: {
 				"X-Octopus-ApiKey": process.env.OCTOPUS_API_KEY
 			}
@@ -48,7 +54,7 @@ zipFolder("dist", pkgFilename, function(err) {
 				console.error("Octopus upload failed", err, " status code ", response.statusCode);
 				process.exit(1);
 			}
-		}));
+		});
 	}
 });
 
