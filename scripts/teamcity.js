@@ -45,7 +45,7 @@ zipFolder("dist", pkgFilename, function(err) {
 			if (!err && response.statusCode == 200) {
 				console.log("Package uploaded to Octopus");
 			} else {
-				console.error("Octopus upload failed", err, " status code ", statusCode);
+				console.error("Octopus upload failed", err, " status code ", response.statusCode);
 				process.exit(1);
 			}
 		}));
