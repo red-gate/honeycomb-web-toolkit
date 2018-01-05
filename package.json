@@ -1,6 +1,6 @@
 {
-  "name": "honeycomb",
-  "version": "9.7.2",
+  "name": "honeycomb-web-toolkit",
+  "version": "10.0.0",
   "scripts": {
     "clean": "node scripts/clean.js",
     "css:sass": "node scripts/css/sass.js",
