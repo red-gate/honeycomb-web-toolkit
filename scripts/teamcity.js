@@ -36,7 +36,7 @@ zipFolder("dist", pkgFilename, function(err) {
 		const packagesEndpoint = process.env.OCTOPUS_URL + "/api/packages/raw";
 		fs.createReadStream(pkgFilename).pipe(request({
 			url: packagesEndpoint,
-			method: "PUT",
+			method: "POST",
 			headers: {
 				"X-Octopus-ApiKey": process.env.OCTOPUS_API_KEY
 			}
