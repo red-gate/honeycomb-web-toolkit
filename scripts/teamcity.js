@@ -20,11 +20,11 @@ if (!process.env.OCTOPUS_API_KEY) {
 }
 
 // Set the build version from package.json, plus the build counter to uniquify it
-console.log("Build number set OK");
-console.warn("##teamcity[buildNumber '" + pkg.version + "." + process.env.BUILD_COUNTER + "']");
+var packageVersion = pkg.version + "." + process.env.BUILD_COUNTER;
+console.warn("##teamcity[buildNumber '" + packageVersion + "']");
 
 // Zip up the dist folder
-const pkgFilename = "RedGate.HoneycombWebToolkit." + pkg.version + ".zip";
+const pkgFilename = "RedGate.HoneycombWebToolkit." + packageVersion + ".zip";
 zipFolder("dist", pkgFilename, function(err) {
 	if(err) {
 		console.error("Failed to zip output package", err);
