@@ -9,7 +9,7 @@ let init = () => {
 
 let addArrows = () => {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error( 'Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected' );
+        window.console.warn( 'Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected' );
         return;
     }
     
@@ -27,7 +27,7 @@ let addArrows = () => {
 
 let handle = () => {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error( 'Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected' );
+        window.console.warn( 'Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected' );
         return;
     }
     

@@ -1,6 +1,6 @@
 const setupCollapse = () => {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
         return;
     }
     
@@ -16,7 +16,7 @@ const setupCollapse = () => {
 
 const dropdownNotification = () => {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
         return;
     }
     
@@ -43,7 +43,7 @@ let init = () => {
     dropdownNotification();
 
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
         return;
     }
     

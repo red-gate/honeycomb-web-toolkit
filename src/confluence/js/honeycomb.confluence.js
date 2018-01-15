@@ -1,12 +1,12 @@
 const sidebar = () => {
 
     if ( typeof window.jQuery === 'undefined') {
-        window.console.error( 'Honeycomb: jQuery not found, so the scrollTree plugin won\'t be loaded' );
+        window.console.warn( 'Honeycomb: jQuery not found, so the scrollTree plugin won\'t be loaded' );
         return;
     }
 
     if ( typeof window.jQuery.fn.scrollTree === 'undefined' ) {
-        window.console.error( 'Honeycomb: The scrollTree plugin hasn\'t been installed correctly. - Plugin undefined' );
+        window.console.warn( 'Honeycomb: The scrollTree plugin hasn\'t been installed correctly. - Plugin undefined' );
         return;
     }
 
@@ -38,7 +38,7 @@ const sidebar = () => {
 
 const lightbox = () => {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error( 'Honeycomb: jQuery not found, so lightbox functionality won\'t work' );
+        window.console.warn( 'Honeycomb: jQuery not found, so lightbox functionality won\'t work' );
         return;
     }
 
@@ -57,7 +57,7 @@ const lightbox = () => {
 
 const notifications = () => {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error( 'Honeycomb: jQuery not found, so notification functionality won\'t work as expected' );
+        window.console.warn( 'Honeycomb: jQuery not found, so notification functionality won\'t work as expected' );
         return;
     }
 
@@ -102,7 +102,7 @@ const notifications = () => {
 
 const toc = () => {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error( 'Honeycomb: jQuery not found, so TOC functionality won\'t work as expected' );
+        window.console.warn( 'Honeycomb: jQuery not found, so TOC functionality won\'t work as expected' );
         return;
     }
 

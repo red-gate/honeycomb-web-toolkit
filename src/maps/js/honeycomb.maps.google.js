@@ -2,7 +2,7 @@ let $maps;
 
 let init = ( options ) => {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error( 'Honeycomb: jQuery not found, so maps functionality won\'t work as expected' );
+        window.console.warn( 'Honeycomb: jQuery not found, so maps functionality won\'t work as expected' );
         return;
     }
 

@@ -12,7 +12,7 @@ var init = function init() {
 
     // If the account ID is not set, then don't carry on.
     if (!accountId || accountId === 'UA-XXX') {
-        window.console.error('Honeycomb: Google Analytics account ID is not set, therefore the Google Analytics script will not be loaded.');
+        window.console.warn('Honeycomb: Google Analytics account ID is not set, therefore the Google Analytics script will not be loaded.');
         return false;
     }
 
@@ -778,7 +778,7 @@ Object.defineProperty(exports, "__esModule", {
 // Filter (Hide/Show) content on a page.
 var init = function init() {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so filter functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so filter functionality won\'t work as expected');
         return;
     }
 
@@ -1223,7 +1223,7 @@ var $maps = void 0;
 
 var init = function init(options) {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so maps functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so maps functionality won\'t work as expected');
         return;
     }
 
@@ -1345,7 +1345,7 @@ var init = function init() {
 
 var addArrows = function addArrows() {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected');
         return;
     }
 
@@ -1363,7 +1363,7 @@ var addArrows = function addArrows() {
 
 var handle = function handle() {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected');
         return;
     }
 
@@ -1394,7 +1394,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var setupCollapse = function setupCollapse() {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
         return;
     }
 
@@ -1410,7 +1410,7 @@ var setupCollapse = function setupCollapse() {
 
 var dropdownNotification = function dropdownNotification() {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
         return;
     }
 
@@ -1437,7 +1437,7 @@ var init = function init() {
     dropdownNotification();
 
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
         return;
     }
 
@@ -1586,7 +1586,7 @@ Object.defineProperty(exports, "__esModule", {
 // Click handler for close buttons on statically built notifications.
 var init = function init() {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so notifications won\t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so notifications won\t work as expected');
         return;
     }
 
@@ -1773,9 +1773,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 // Reveal - Hide/Show content.
 
-var init = function init() {
+var init = function init(callback) {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so reveal functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so reveal functionality won\'t work as expected');
         return;
     }
 
@@ -1824,7 +1824,7 @@ var init = function init() {
                     // If the content is visible (should only be 1), then close and open.
                     if ($groupContent.is(':visible')) {
                         close(groupButton, function () {
-                            open(that);
+                            open(that, callback);
                         });
                     } else {
 
@@ -1835,17 +1835,17 @@ var init = function init() {
 
                 // No revealed content is open, so go ahead and open.
                 if (closed === $groupButtons.length) {
-                    open(that);
+                    open(that, callback);
                 }
             } else {
 
                 // Not in a group.
-                open(this);
+                open(this, callback);
             }
         } else {
 
             // Close content.
-            close(this);
+            close(this, callback);
         }
     });
 };
@@ -1946,7 +1946,7 @@ var init = function init() {
 
 var scrollOnClick = function scrollOnClick() {
     if (typeof window.jQuery === 'undefined') {
-        window.console.error('Honeycomb: jQuery not found, so scroll functionality won\'t work as expected');
+        window.console.warn('Honeycomb: jQuery not found, so scroll functionality won\'t work as expected');
         return;
     }
 
