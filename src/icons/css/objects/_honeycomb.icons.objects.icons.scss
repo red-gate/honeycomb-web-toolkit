@@ -54,11 +54,11 @@
     }
 
     &:before {
-        @include margin(0.25, right);
+        @include margin($hc-icon-margin, right);
     }
 
     &:after {
-        @include margin(0.25, left);
+        @include margin($hc-icon-margin, left);
         display: none;
     }
 
