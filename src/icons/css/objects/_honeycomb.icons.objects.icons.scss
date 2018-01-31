@@ -782,3 +782,15 @@
         content: "\e939";
     }
 }
+.icon--sql-estate-manager {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e93c";
+    }
+}
+.icon--sql-change-automation {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e93b";
+    }
+}
