@@ -50,34 +50,3 @@ thead th, .th-row th {
         border-bottom: 0;
     }
 }
-
-
-/**
- * Force table cells to all render at the same width.
- */
-.table-grid {
-    table-layout: fixed;
-}
-
-/**
- * Responsive table styles
- */
-.table--responsive {
-    @include responsive("medium") {
-        thead {
-            display: none; /* Hide the table heading row */
-        }
-
-        th, td {
-            float: left;
-            clear: both;
-            width: 100%;
-            text-align: center;
-        }
-
-        td:before {
-            content: attr(title); /* Add the column heading to the cell */
-            display: block;
-        }
-    }
-}
