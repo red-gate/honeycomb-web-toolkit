@@ -1,18 +1,14 @@
 .nav-bar {
 
-    background-color: $hc-nav-bar-background-color;
-
-    &--light {
-        background-color: transparent;
-        border-bottom: 1px solid color('grey', 2);
-    }
-
     ul {
         @extend %list--horizontal;
         @include margin(0, bottom);
+        display: inline-block;
 
         li {
             @include margin(0, 'bottom');
+            margin-left: -4px; // To prevent space when display:inline.
+            vertical-align: middle;
         }
     }
 }
@@ -23,6 +19,7 @@
 
 .nav-bar--center {
     @extend .text--center;
+
     ul {
         @extend .display--inline;
         margin-left: auto;
@@ -31,27 +28,295 @@
 }
 
 .nav-bar a {
+    @include padding(0.5);
     border-bottom-width: 4px;
     border-bottom-style: solid;
-    border-bottom-color: $hc-nav-bar-link-border-color;
     font-weight: $hc-nav-bar-link-font-weight;
-    color: $hc-nav-bar-link-color;
     display: block;
+    text-align: center;
+}
 
-    @include padding(0.5);
-
-    &:hover {
-        color: $hc-nav-bar-link-color-hover;
-        background-color: $hc-nav-bar-background-color-hover;
-    }
+.nav-bar ul a span {
+    @include font-size(12px);
+    display: block;
 }
 
 .nav-bar .active a {
-    border-bottom-color: $hc-nav-bar-link-border-color-active;
-    color: $hc-nav-bar-link-color-active;
     font-weight: $hc-nav-bar-link-font-weight-active;
 }
 
 .nav-bar .button {
     @include margin(0, bottom);
+    @include margin(0.25, left);
+}
+
+.nav-bar__heading {
+    @include font-size(24px, $hc-nav-bar-height);
+    @include margin(0, top);
+    @include margin(0, bottom);
+    @include margin(0.5, right);
+    float: left;
+
+    a {
+        &, &:hover {
+            @include padding(0);
+            @include margin(0);
+            border: none;
+        }
+    }
+}
+
+.nav-bar__icon {
+    height: $hc-nav-bar-height;
+}
+
+.nav-bar__menu-button {
+    @include padding(0);
+    height: $hc-nav-bar-height;
+
+    &[class*="icon--"]:before {
+        @include margin(0, 'right');
+    }
+}
+
+.nav-bar--has-captions {
+
+    ul a {
+        @include padding(0.25, 'top');
+        @include padding(0.25, 'bottom');
+        line-height: 24px;
+    }
+
+    .nav-bar__icon {
+        @include padding(0, 'top');
+        @include padding(0, 'bottom');
+        line-height: $hc-nav-bar-height;
+        border: none;
+    }
+
+    .nav-bar__menu-button {
+        @include padding(0.5);
+    }
+}
+
+// horizontal scrolling nav at mobile widths
+.nav-bar--scrolling {
+    @include responsive("medium") {
+        float: none !important;
+        position: relative;
+        overflow: hidden;
+
+        ul {
+            overflow: scroll;
+            white-space: nowrap;
+            max-width: 100%;
+
+            /* left/right-hand side fades */
+            &:after, &:before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                height: 100%;
+                width: 5%;
+            }
+            &:after {
+                right: -5%;
+                box-shadow: -13px 0px 20px 5px #fff;
+            }
+            &.scrolling:before {
+                left: -5%;
+                box-shadow: 13px 0px 20px 5px #fff;
+            }
+
+            li {
+                @include margin(0, left);
+                @include margin(0.5, right);
+                @include margin(0.5, top);
+                margin-bottom: 5px;
+                display: inline-block;
+
+                a {
+                    padding: 5px;
+                }
+            }
+            
+            // support for js-dropdown inside horizontal scrolling nav
+            &.js-dropdown { // the whole nav
+                position: static;
+
+                & > li {
+                    vertical-align: top;
+                }
+
+                .js-dropdown { // actual dropdowns
+                    padding-right: 20px;
+
+                    &.open {
+                        ul {
+                            position: relative;
+
+                            // prevent case where a long dropdown + sticky nav is taller than the screen
+                            max-height: 300px;
+                            @include responsive("small") {
+                                max-height: auto;
+                            }
+
+                            &:after {
+                                display: none;
+                            }
+
+                            li {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    } 
+}
+
+
+
+
+// COLOURS
+.nav-bar {
+    background-color: $hc-nav-bar-background-color;
+
+    a {
+        border-bottom-color: $hc-nav-bar-link-border-color;
+        color: $hc-nav-bar-link-color;
+
+        &:hover {
+            color: $hc-nav-bar-link-color-hover;
+            background-color: $hc-nav-bar-background-color-hover;
+        }
+    }
+
+    .active a {
+        background-color: $hc-nav-bar-background-color-active;
+        border-bottom-color: $hc-nav-bar-link-border-color-active;
+        color: $hc-nav-bar-link-color-active;
+    }
+
+    .nav-bar__heading {
+        a, a:hover {
+            color: $hc-nav-bar-heading-color;
+            background-color: $hc-nav-bar-heading-background-color;
+        }
+    }
+
+    .nav-bar__icon {
+        background-color: $hc-nav-bar-icon-background-color;
+
+        &:hover {
+            background-color: $hc-nav-bar-icon-background-color-hover;
+        }
+    }
+
+    .nav-bar__menu-button {
+        color: $hc-nav-bar-menu-color;
+        background-color: $hc-nav-bar-menu-background-color;
+
+        &:hover {
+            color: $hc-nav-bar-menu-color-hover;
+            background-color: $hc-nav-bar-menu-background-color-hover;
+        }
+    }
+}
+
+.nav-bar--light {
+    border-bottom: 1px solid color('grey', 2);
+    background-color: $hc-nav-bar-light-background-color;
+
+    a {
+        border-bottom-color: $hc-nav-bar-light-link-border-color;
+        color: $hc-nav-bar-light-link-color;
+
+        &:hover {
+            color: $hc-nav-bar-light-link-color-hover;
+            background-color: $hc-nav-bar-light-background-color-hover;
+        }
+    }
+
+    .active a {
+        background-color: $hc-nav-bar-light-background-color-active;
+        border-bottom-color: $hc-nav-bar-light-link-border-color-active;
+        color: $hc-nav-bar-light-link-color-active;
+    }
+
+    .nav-bar__heading {
+        a, a:hover {
+            color: $hc-nav-bar-light-heading-color;
+            background-color: $hc-nav-bar-light-heading-background-color;
+        }
+    }
+
+    .nav-bar__icon {
+        background-color: $hc-nav-bar-light-icon-background-color;
+
+        &:hover {
+            background-color: $hc-nav-bar-light-icon-background-color-hover;
+        }
+    }
+
+    .nav-bar__menu-button {
+        color: $hc-nav-bar-light-menu-color;
+        background-color: $hc-nav-bar-light-menu-background-color;
+
+        &:hover {
+            color: $hc-nav-bar-light-menu-color-hover;
+            background-color: $hc-nav-bar-light-menu-background-color-hover;
+        }
+    }
+}
+
+.nav-bar--dark {
+    background-color: $hc-nav-bar-dark-background-color;
+
+    a {
+        border-bottom-color: $hc-nav-bar-dark-link-border-color;
+        color: $hc-nav-bar-dark-link-color;
+
+        &:hover {
+            color: $hc-nav-bar-dark-link-color-hover;
+            background-color: $hc-nav-bar-dark-background-color-hover;
+        }
+    }
+
+    .active a {
+        background-color: $hc-nav-bar-dark-background-color-active;
+        border-bottom-color: $hc-nav-bar-dark-link-border-color-active;
+        color: $hc-nav-bar-dark-link-color-active;
+
+        span {
+            color: color('red');
+        }
+    }
+
+    .nav-bar__heading {
+        a, a:hover {
+            color: $hc-nav-bar-dark-heading-color;
+            background-color: $hc-nav-bar-dark-heading-background-color;
+        }
+    }
+
+    .nav-bar__icon {
+        background-color: $hc-nav-bar-dark-icon-background-color;
+
+        &:hover {
+            background-color: $hc-nav-bar-dark-icon-background-color-hover;
+        }
+    }
+
+    .nav-bar__menu-button {
+        color: $hc-nav-bar-dark-menu-color;
+        background-color: $hc-nav-bar-dark-menu-background-color;
+
+        &:hover {
+            color: $hc-nav-bar-dark-menu-color-hover;
+            background-color: $hc-nav-bar-dark-menu-background-color-hover;
+        }
+    }
 }

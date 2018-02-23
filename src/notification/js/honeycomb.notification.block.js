@@ -1,5 +1,10 @@
 // Click handler for close buttons on statically built notifications.
 let init = () => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn( 'Honeycomb: jQuery not found, so notifications won\t work as expected' );
+        return;
+    }
+
     window.jQuery( 'body' ).on('click', '.notification--block .notification__close', function( e ) {
         e.preventDefault();
         window.jQuery( this ).parent().parent().slideUp({
@@ -8,6 +13,38 @@ let init = () => {
             }
         });
     });
+};
+
+// Build the notification HTML.
+let buildNotification = function ( settings ) {
+    let notificationStr = '<div class="notification notification--block notification--' + settings.type + '">' +
+            '<div class="notification--block__inner-container">' +
+                '<figure class="notification__icon">';
+
+    if ( typeof settings.icon !== 'undefined' && settings.icon.type ) {
+        if ( settings.icon.type === 'font' ) {
+
+            // Icon font
+            notificationStr += '<span class="icon icon--' + settings.icon.src + '"></span>';
+        } else if ( settings.icon.type === 'image' ) {
+
+            // Image
+            notificationStr += '<img src="' + settings.icon.src + '" alt=""/>';
+        }
+    } else {
+        notificationStr += '<span class="icon icon--' + settings.type + '"></span>';
+    }
+
+    notificationStr += '</figure>' +
+                '<a class="notification__close" href="#">X</a>' +
+                '<div class="notification__body">' +
+                    '<p>' + settings.content + '</p>' +
+                '</div>' +
+            '</div>' +
+        '</div>' +
+    '</div>';
+
+    return notificationStr;
 };
 
 /*
@@ -43,7 +80,7 @@ let notification = function ( options ) {
         window.jQuery.extend( true, self.settings, self.defaults, self.options );
 
         // Build the notification.
-        self.buildNotification();
+        self.notification = window.jQuery( buildNotification(self.settings) );
 
         // Show the notification.
         self.show();
@@ -74,39 +111,7 @@ let notification = function ( options ) {
         }
     };
 
-    // Build the notification HTML.
-    this.buildNotification = function buildNotification () {
-        let notificationStr = '<div class="notification notification--block notification--' + self.settings.type + '">' +
-                '<div class="notification--block__inner-container">' +
-                    '<figure class="notification__icon">';
-
-        if ( self.settings.icon.type ) {
-            if ( self.settings.icon.type === 'font' ) {
-
-                // Icon font
-                notificationStr += '<span class="icon icon--' + self.settings.icon.src + '"></span>';
-            } else if ( self.settings.icon.type === 'image' ) {
-
-                // Image
-                notificationStr += '<img src="' + self.settings.icon.src + '" alt=""/>';
-            }
-        } else {
-            notificationStr += '<span class="icon icon--' + self.settings.type + '"></span>';
-        }
-
-        notificationStr += '</figure>' +
-                    '<a class="notification__close" href="#">X</a>' +
-                    '<div class="notification__body">' +
-                        '<p>' + this.settings.content + '</p>' +
-                    '</div>' +
-                '</div>' +
-            '</div>' +
-        '</div>';
-
-        self.notification = window.jQuery( notificationStr );
-    };
-
-    // Close the notification.
+     // Close the notification.
     this.close = function close () {
 
         // Slide up the notification, then remove it from the DOM.
@@ -129,5 +134,6 @@ let notification = function ( options ) {
 
 export default {
     init: init,
-    block: notification
+    block: notification,
+    buildNotification: buildNotification
 };

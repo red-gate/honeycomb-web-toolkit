@@ -1,0 +1,17 @@
+.card {
+    @include padding($hc-card-padding);
+    background-color: $hc-card-background-color;
+    color: $hc-card-text-color;
+    box-shadow: $hc-card-shadow-distance $hc-card-shadow-color;
+    border-radius: $hc-card-border-radius;
+
+    &--light {
+        background-color: $hc-card-background-color--light;
+    }
+
+    &--dark {
+        background-color: $hc-card-background-color--dark;
+        box-shadow: $hc-card-shadow-distance $hc-card-shadow-color--dark;
+        color: $hc-card-text-color--dark;
+    }
+}

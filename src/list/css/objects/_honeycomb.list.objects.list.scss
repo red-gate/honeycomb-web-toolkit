@@ -88,6 +88,14 @@ li > .list--bare {
   }
 }
 
+// class to reset to default padding, for use with lists nested inside .list--padded 
+.list--default {
+  li {
+    @include padding(0);
+  }
+}
+
+
 // With dividers (Horizontal and Vertical)
 .list--dividers,
 %list--dividers {
@@ -131,7 +139,7 @@ li > .list--bare {
 
     & > li {
         @extend %icon;
-        @include padding(0.75, left);
+        @include padding(0.8, left);
         position: relative;
 
         &:before {

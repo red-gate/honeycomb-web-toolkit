@@ -12,7 +12,7 @@ var init = function init() {
 
     // If the account ID is not set, then don't carry on.
     if (!accountId || accountId === 'UA-XXX') {
-        window.console.error('Honeycomb: Google Analytics account ID is not set, therefore the Google Analytics script will not be loaded.');
+        window.console.warn('Honeycomb: Google Analytics account ID is not set, therefore the Google Analytics script will not be loaded.');
         return false;
     }
 
@@ -380,7 +380,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":10}],7:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":9}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -511,133 +511,6 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var sidebar = function sidebar() {
-
-    if (typeof window.jQuery.fn.scrollTree === 'undefined') {
-        window.console.error('Honeycomb: The scrollTree plugin hasn\'t been installed correctly. - Plugin undefined');
-        return;
-    }
-
-    window.jQuery('.confluence-sidebar ul').scrollTree({
-        'contextPath': window.contextPath,
-        'css': {
-            'ancestor': 'nav--vertical__active-parent',
-            'current': 'nav--vertical__active',
-            'collapsed': 'collapsed',
-            'expanded': 'expanded',
-            'toggle': 'nav--vertical__toggle'
-        },
-        'renderChildLi': function renderChildLi(child, opts) {
-            var html = '<li class="' + opts.css[child.type] + '">';
-            html += '<a href="' + child.link + '" class="' + opts.css[child.type] + '">';
-
-            if (typeof child.children !== 'undefined') {
-                html += '<span class="' + opts.css.toggle + '"></span>';
-            }
-
-            html += child.title + '</a>';
-            html += '</li>';
-
-            return html;
-        }
-    });
-};
-
-var lightbox = function lightbox() {
-    window.jQuery('.confluence-embedded-image').each(function () {
-        var $this = window.jQuery(this);
-        var $parent = $this.parent().get(0);
-        if ($parent.nodeName !== 'A') {
-            var $a = window.jQuery('<a/>').addClass('lightbox link-image js-lightbox').attr('href', $this.attr('src')).attr('rel', 'lightbox');
-            $this.wrap($a);
-        }
-    });
-};
-
-var notifications = function notifications() {
-
-    // List of classes to add to.
-    var classes = {
-        'confluence-information-macro': 'notification notification--block',
-        'confluence-information-macro-tip': 'notification--success',
-        'confluence-information-macro-note': 'notification--warning',
-        'confluence-information-macro-information': 'notification--info',
-        'confluence-information-macro-warning': 'notification--fail',
-        'confluence-information-macro-body': 'notification__body',
-        'confluence-information-macro-icon': 'notification__icon'
-    };
-
-    var icons = {
-        'info': 'icon--info',
-        'success': 'icon--success',
-        'fail': 'icon--fail',
-        'warning': 'icon--warning'
-    };
-
-    // Loop through and add the classes.
-    for (var c in classes) {
-        window.jQuery('.' + c).addClass(classes[c]);
-    }
-
-    // Add the inner container.
-    window.jQuery('.confluence-information-macro').wrapInner('<div class="notification--block__inner-container"></div>');
-
-    // Loop through adding in notification icons.
-    window.jQuery('.confluence-information-macro').each(function () {
-        var $this = window.jQuery(this);
-        for (var i in icons) {
-            if ($this.hasClass('notification--' + i)) {
-                var _c = 'icon ' + icons[i];
-                var $span = window.jQuery('<span/>').addClass(_c);
-                $span.prependTo($this.find('.confluence-information-macro-icon'));
-            }
-        }
-    });
-};
-
-var toc = function toc() {
-    window.jQuery('.toc-macro').each(function () {
-        var $this = window.jQuery(this);
-        var defaults = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-        var headings = $this.data('headerelements').toLowerCase().split(',');
-        var excludedHeadings = [];
-
-        for (var i = 0; i < defaults.length; i++) {
-            if (headings.indexOf(defaults[i]) === -1) {
-                excludedHeadings.push(defaults[i]);
-            }
-        }
-
-        // Exclude H1 headings by default.
-        excludedHeadings.push('h1');
-
-        // Convert array to string.
-        excludedHeadings = excludedHeadings.join(', ');
-
-        $this.toc({
-            exclude: excludedHeadings,
-            numerate: false
-        });
-    });
-};
-
-var init = function init() {
-    sidebar();
-    lightbox();
-    notifications();
-    toc();
-};
-
-exports.default = {
-    init: init
-};
-
-},{}],9:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 var updateEls = false;
 
 var init = function init() {
@@ -756,7 +629,7 @@ exports.default = {
     init: init
 };
 
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -794,7 +667,7 @@ exports.default = {
     load: load
 };
 
-},{}],11:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -838,7 +711,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":10}],12:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":9}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -896,7 +769,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":10}],13:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":9}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -904,6 +777,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 // Filter (Hide/Show) content on a page.
 var init = function init() {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn('Honeycomb: jQuery not found, so filter functionality won\'t work as expected');
+        return;
+    }
 
     // Get the filter.
     var $filter = window.jQuery('.js-filter');
@@ -1005,7 +882,7 @@ exports.default = {
     init: init
 };
 
-},{}],14:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1058,7 +935,7 @@ exports.default = {
     init: init
 };
 
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 var _honeycombAnalytics = require('./analytics/js/honeycomb.analytics.google');
@@ -1087,33 +964,29 @@ var _honeycomb6 = require('./code/js/honeycomb.code');
 
 var _honeycomb7 = _interopRequireDefault(_honeycomb6);
 
-var _honeycomb8 = require('./confluence/js/honeycomb.confluence');
+var _honeycomb8 = require('./content/js/honeycomb.content');
 
 var _honeycomb9 = _interopRequireDefault(_honeycomb8);
-
-var _honeycomb10 = require('./content/js/honeycomb.content');
-
-var _honeycomb11 = _interopRequireDefault(_honeycomb10);
 
 var _honeycombDocument = require('./document/js/honeycomb.document.viewport');
 
 var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
 
-var _honeycomb12 = require('./equalise/js/honeycomb.equalise');
+var _honeycomb10 = require('./equalise/js/honeycomb.equalise');
+
+var _honeycomb11 = _interopRequireDefault(_honeycomb10);
+
+var _honeycomb12 = require('./filter/js/honeycomb.filter');
 
 var _honeycomb13 = _interopRequireDefault(_honeycomb12);
 
-var _honeycomb14 = require('./filter/js/honeycomb.filter');
+var _honeycomb14 = require('./forms/js/honeycomb.forms');
 
 var _honeycomb15 = _interopRequireDefault(_honeycomb14);
 
-var _honeycomb16 = require('./forms/js/honeycomb.forms');
+var _honeycomb16 = require('./lightbox/js/honeycomb.lightbox');
 
 var _honeycomb17 = _interopRequireDefault(_honeycomb16);
-
-var _honeycomb18 = require('./lightbox/js/honeycomb.lightbox');
-
-var _honeycomb19 = _interopRequireDefault(_honeycomb18);
 
 var _honeycombMaps = require('./maps/js/honeycomb.maps.google');
 
@@ -1143,33 +1016,33 @@ var _honeycombPolyfill3 = require('./polyfill/js/honeycomb.polyfill.custom-event
 
 var _honeycombPolyfill4 = _interopRequireDefault(_honeycombPolyfill3);
 
-var _honeycomb20 = require('./reveal/js/honeycomb.reveal');
+var _honeycomb18 = require('./reveal/js/honeycomb.reveal');
+
+var _honeycomb19 = _interopRequireDefault(_honeycomb18);
+
+var _honeycomb20 = require('./scroll/js/honeycomb.scroll');
 
 var _honeycomb21 = _interopRequireDefault(_honeycomb20);
 
-var _honeycomb22 = require('./scroll/js/honeycomb.scroll');
+var _honeycomb22 = require('./sticky/js/honeycomb.sticky');
 
 var _honeycomb23 = _interopRequireDefault(_honeycomb22);
 
-var _honeycomb24 = require('./sticky/js/honeycomb.sticky');
+var _honeycomb24 = require('./svg/js/honeycomb.svg');
 
 var _honeycomb25 = _interopRequireDefault(_honeycomb24);
 
-var _honeycomb26 = require('./svg/js/honeycomb.svg');
+var _honeycomb26 = require('./tabs/js/honeycomb.tabs');
 
 var _honeycomb27 = _interopRequireDefault(_honeycomb26);
 
-var _honeycomb28 = require('./tabs/js/honeycomb.tabs');
+var _honeycomb28 = require('./toggle/js/honeycomb.toggle');
 
 var _honeycomb29 = _interopRequireDefault(_honeycomb28);
 
-var _honeycomb30 = require('./toggle/js/honeycomb.toggle');
+var _honeycomb30 = require('./video/js/honeycomb.video');
 
 var _honeycomb31 = _interopRequireDefault(_honeycomb30);
-
-var _honeycomb32 = require('./video/js/honeycomb.video');
-
-var _honeycomb33 = _interopRequireDefault(_honeycomb32);
 
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
@@ -1205,14 +1078,10 @@ window.addEventListener('load', function () {
 
 _honeycomb7.default.init();
 
-// Confluence.
-
-_honeycomb9.default.init();
-
 // Content.
 
 window.addEventListener('load', function () {
-    _honeycomb11.default.init();
+    _honeycomb9.default.init();
 });
 
 // Document.
@@ -1221,19 +1090,19 @@ _honeycombDocument2.default.init();
 
 // Equalise.
 
-_honeycomb13.default.init();
+_honeycomb11.default.init();
 
 // Filter.
 
-_honeycomb15.default.init();
+_honeycomb13.default.init();
 
 // Forms.
 
-_honeycomb17.default.init();
+_honeycomb15.default.init();
 
 // Lightbox.
 
-_honeycomb19.default.init();
+_honeycomb17.default.init();
 
 // Google map.
 
@@ -1253,6 +1122,8 @@ _honeycombNavigation6.default.init();
 // Notification
 
 _honeycombNotification2.default.init();
+window.Honeycomb = window.Honeycomb || {};
+window.Honeycomb.notifications = _honeycombNotification2.default;
 
 // Polyfills.
 
@@ -1261,37 +1132,42 @@ _honeycombNotification2.default.init();
 
 // Reveal.
 
-_honeycomb21.default.init();
+_honeycomb19.default.init();
 
 // Scroll.
 
-_honeycomb23.default.init();
+_honeycomb21.default.init();
 
 // Sticky.
 
-_honeycomb25.default.init();
+_honeycomb23.default.init();
 
 // SVG.
 
-_honeycomb27.default.init();
+_honeycomb25.default.init();
 
 // Tabs.
 
-_honeycomb29.default.init({
-    equalise: _honeycomb13.default.init
+_honeycomb27.default.init({
+    equalise: _honeycomb11.default.init,
+    googleMap: _honeycombMaps2.default.init
 });
 
 // Toggle.
 
-_honeycomb31.default.init();
+_honeycomb29.default.init();
 
 // Video.
 
-_honeycomb33.default.init({
+_honeycomb31.default.init({
     analytics: _honeycombAnalytics2.default
 });
 
-},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./code/js/honeycomb.code":7,"./confluence/js/honeycomb.confluence":8,"./content/js/honeycomb.content":9,"./document/js/honeycomb.document.viewport":11,"./equalise/js/honeycomb.equalise":12,"./filter/js/honeycomb.filter":13,"./forms/js/honeycomb.forms":14,"./lightbox/js/honeycomb.lightbox":16,"./maps/js/honeycomb.maps.google":17,"./navigation/js/honeycomb.navigation.dropdown":18,"./navigation/js/honeycomb.navigation.header":19,"./navigation/js/honeycomb.navigation.vertical":20,"./notification/js/honeycomb.notification.block":21,"./polyfill/js/honeycomb.polyfill.custom-event":22,"./polyfill/js/honeycomb.polyfill.index-of":23,"./reveal/js/honeycomb.reveal":24,"./scroll/js/honeycomb.scroll":25,"./sticky/js/honeycomb.sticky":26,"./svg/js/honeycomb.svg":27,"./tabs/js/honeycomb.tabs":28,"./toggle/js/honeycomb.toggle":29,"./video/js/honeycomb.video":30}],16:[function(require,module,exports){
+// Confluence. (Only import Confluence styling for Confluence themes.)
+// import confluence from './confluence/js/honeycomb.confluence';
+// confluence.init();
+
+},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./code/js/honeycomb.code":7,"./content/js/honeycomb.content":8,"./document/js/honeycomb.document.viewport":10,"./equalise/js/honeycomb.equalise":11,"./filter/js/honeycomb.filter":12,"./forms/js/honeycomb.forms":13,"./lightbox/js/honeycomb.lightbox":15,"./maps/js/honeycomb.maps.google":16,"./navigation/js/honeycomb.navigation.dropdown":17,"./navigation/js/honeycomb.navigation.header":18,"./navigation/js/honeycomb.navigation.vertical":19,"./notification/js/honeycomb.notification.block":20,"./polyfill/js/honeycomb.polyfill.custom-event":21,"./polyfill/js/honeycomb.polyfill.index-of":22,"./reveal/js/honeycomb.reveal":23,"./scroll/js/honeycomb.scroll":24,"./sticky/js/honeycomb.sticky":25,"./svg/js/honeycomb.svg":26,"./tabs/js/honeycomb.tabs":27,"./toggle/js/honeycomb.toggle":28,"./video/js/honeycomb.video":29}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1337,7 +1213,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":10}],17:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":9}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1346,6 +1222,11 @@ Object.defineProperty(exports, "__esModule", {
 var $maps = void 0;
 
 var init = function init(options) {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn('Honeycomb: jQuery not found, so maps functionality won\'t work as expected');
+        return;
+    }
+
     $maps = window.jQuery('.js-google-map');
 
     if ($maps.length > 0) {
@@ -1447,7 +1328,7 @@ exports.default = {
     initialiseMap: initialiseMap
 };
 
-},{}],18:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1463,6 +1344,11 @@ var init = function init() {
 };
 
 var addArrows = function addArrows() {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn('Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected');
+        return;
+    }
+
     var $lis = window.jQuery(selector).find('li');
     $lis.each(function () {
         var $this = window.jQuery(this);
@@ -1476,6 +1362,11 @@ var addArrows = function addArrows() {
 };
 
 var handle = function handle() {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn('Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected');
+        return;
+    }
+
     var $body = window.jQuery('body');
     $body.on('click', '.js-dropdown .arrow', function (e) {
         var $this = window.jQuery(this);
@@ -1495,13 +1386,61 @@ exports.default = {
     addArrows: addArrows
 };
 
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var setupCollapse = function setupCollapse() {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        return;
+    }
+
+    var $headers = window.jQuery('.js-header-primary-collapse');
+
+    $headers.each(function (index, header) {
+        var $header = window.jQuery(header);
+        var $nav = $header.find('.header--primary__menu--mobile');
+        $header.wrapInner('<div class="header--primary__container"></div>');
+        $nav.appendTo($header);
+    });
+};
+
+var dropdownNotification = function dropdownNotification() {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        return;
+    }
+
+    var $headers = window.jQuery('.js-header-primary-collapse');
+    var openClassName = 'dropdown--open';
+
+    $headers.each(function () {
+        var $body = window.jQuery('body');
+
+        $body.on('click', '.header--primary__container .dropdown .arrow', function () {
+            var $arrow = window.jQuery(this);
+            var $header = $arrow.parents('.header--primary');
+            if ($arrow.parent('li').hasClass('open')) {
+                $header.addClass(openClassName);
+            } else {
+                $header.removeClass(openClassName);
+            }
+        });
+    });
+};
+
 var init = function init() {
+    setupCollapse();
+    dropdownNotification();
+
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn('Honeycomb: jQuery not found, so header functionality won\'t work as expected');
+        return;
+    }
+
     var $body = window.jQuery('body');
 
     $body.on('click', '.header--primary__menu-button', function (e) {
@@ -1535,12 +1474,18 @@ exports.default = {
     init: init
 };
 
-},{}],20:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var collapseClass = 'nav--vertical__collapse';
+var collapsedClass = 'nav--vertical--collapsed';
+var activeClass = 'nav--vertical__active';
+var parentActiveClass = 'nav--vertical__active-parent';
+var toggleClass = 'nav--vertical__toggle';
+
 var init = function init() {
     var navs = document.querySelectorAll('.nav--vertical');
 
@@ -1549,24 +1494,34 @@ var init = function init() {
 
         var as = nav.querySelectorAll('a');
 
-        var _loop2 = function _loop2(a) {
-            var a = as[a];
-            var href = a.getAttribute('href');
-            if (!href) {
-                a.addEventListener('click', function (e) {
-                    e.preventDefault();
+        var _loop2 = function _loop2(x) {
+            var a = as[x];
+            a.addEventListener('click', function (e) {
+                if (a.parentElement.className.match(collapseClass) !== null) {
+                    collapse(e, nav);
+                    return;
+                }
 
-                    if (a.parentElement.classList.contains('nav--vertical__collapse')) {
-                        nav.classList.toggle('nav--vertical--collapsed');
-                    } else {
-                        a.parentElement.classList.toggle('nav--vertical__active');
-                    }
-                });
-            }
+                if (e.target.className.match(toggleClass) !== null) {
+                    toggle(e, a);
+                    return;
+                }
+
+                var href = a.getAttribute('href');
+                if (!href) {
+                    toggle(e, a);
+                    update(e, nav, a);
+                    return;
+                } else {
+
+                    // Clicked on a link, so follow the link.
+                    return;
+                }
+            });
         };
 
-        for (var a = 0; a < as.length; a++) {
-            _loop2(a);
+        for (var x = 0; x < as.length; x++) {
+            _loop2(x);
         }
     };
 
@@ -1575,11 +1530,54 @@ var init = function init() {
     }
 };
 
+var toggle = function toggle(e, a) {
+    e.preventDefault();
+    var parent = a.parentElement;
+    if (parent.className.match(activeClass) !== null) {
+        parent.className = parent.className.replace(parentActiveClass, '').replace(activeClass, '');
+    } else {
+        parent.className = parent.className + (' ' + parentActiveClass);
+    }
+};
+
+var update = function update(e, nav, a) {
+    e.preventDefault();
+
+    // Remove all active classes.
+    var items = nav.querySelectorAll('.' + activeClass);
+    for (var i = 0; i < items.length; i++) {
+        var re = new RegExp(activeClass, 'g');
+        items[i].className = items[i].className.replace(re, '');
+    }
+
+    // Add active class to parent.
+    a.parentElement.className = a.parentElement.className + (' ' + activeClass);
+
+    // Add parent active class to parent list items.
+    var el = a.parentElement.parentElement;
+    while (el.className.match('nav--vertical') === null) {
+        if (el.nodeName === 'LI') {
+            el.className = el.className + (' ' + parentActiveClass);
+        }
+
+        el = el.parentElement;
+    }
+};
+
+var collapse = function collapse(e, nav) {
+    e.preventDefault();
+    if (nav.className.match(collapsedClass) === null) {
+        nav.className = nav.className + (' ' + collapsedClass);
+    } else {
+        nav.className = nav.className.replace(collapsedClass, '');
+    }
+};
+
 exports.default = {
     init: init
 };
 
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1587,6 +1585,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 // Click handler for close buttons on statically built notifications.
 var init = function init() {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn('Honeycomb: jQuery not found, so notifications won\t work as expected');
+        return;
+    }
+
     window.jQuery('body').on('click', '.notification--block .notification__close', function (e) {
         e.preventDefault();
         window.jQuery(this).parent().parent().slideUp({
@@ -1595,6 +1598,29 @@ var init = function init() {
             }
         });
     });
+};
+
+// Build the notification HTML.
+var buildNotification = function buildNotification(settings) {
+    var notificationStr = '<div class="notification notification--block notification--' + settings.type + '">' + '<div class="notification--block__inner-container">' + '<figure class="notification__icon">';
+
+    if (typeof settings.icon !== 'undefined' && settings.icon.type) {
+        if (settings.icon.type === 'font') {
+
+            // Icon font
+            notificationStr += '<span class="icon icon--' + settings.icon.src + '"></span>';
+        } else if (settings.icon.type === 'image') {
+
+            // Image
+            notificationStr += '<img src="' + settings.icon.src + '" alt=""/>';
+        }
+    } else {
+        notificationStr += '<span class="icon icon--' + settings.type + '"></span>';
+    }
+
+    notificationStr += '</figure>' + '<a class="notification__close" href="#">X</a>' + '<div class="notification__body">' + '<p>' + settings.content + '</p>' + '</div>' + '</div>' + '</div>' + '</div>';
+
+    return notificationStr;
 };
 
 /*
@@ -1630,7 +1656,7 @@ var notification = function notification(options) {
         window.jQuery.extend(true, self.settings, self.defaults, self.options);
 
         // Build the notification.
-        self.buildNotification();
+        self.notification = window.jQuery(buildNotification(self.settings));
 
         // Show the notification.
         self.show();
@@ -1661,29 +1687,6 @@ var notification = function notification(options) {
         }
     };
 
-    // Build the notification HTML.
-    this.buildNotification = function buildNotification() {
-        var notificationStr = '<div class="notification notification--block notification--' + self.settings.type + '">' + '<div class="notification--block__inner-container">' + '<figure class="notification__icon">';
-
-        if (self.settings.icon.type) {
-            if (self.settings.icon.type === 'font') {
-
-                // Icon font
-                notificationStr += '<span class="icon icon--' + self.settings.icon.src + '"></span>';
-            } else if (self.settings.icon.type === 'image') {
-
-                // Image
-                notificationStr += '<img src="' + self.settings.icon.src + '" alt=""/>';
-            }
-        } else {
-            notificationStr += '<span class="icon icon--' + self.settings.type + '"></span>';
-        }
-
-        notificationStr += '</figure>' + '<a class="notification__close" href="#">X</a>' + '<div class="notification__body">' + '<p>' + this.settings.content + '</p>' + '</div>' + '</div>' + '</div>' + '</div>';
-
-        self.notification = window.jQuery(notificationStr);
-    };
-
     // Close the notification.
     this.close = function close() {
 
@@ -1707,10 +1710,11 @@ var notification = function notification(options) {
 
 exports.default = {
     init: init,
-    block: notification
+    block: notification,
+    buildNotification: buildNotification
 };
 
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1718,6 +1722,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 // polyfill for window.CustomEvent
 // from https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+
+// this gets used by honeycomb.tabs and honeycomb.reveal
+// honeycomb.reveal fires a CustomEvent which honeycomb.tabs listens for, so that honeycomb.tabs can unset/reset its fixed heights
+
 var CustomEvent = function CustomEvent() {
     if (typeof window.CustomEvent !== 'function') {
         CustomEvent.prototype = window.Event.prototype;
@@ -1732,7 +1740,7 @@ var CustomEvent = function CustomEvent() {
 
 exports.default = CustomEvent;
 
-},{}],23:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1757,7 +1765,7 @@ var indexOf = function indexOf() {
 
 exports.default = indexOf;
 
-},{}],24:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1765,24 +1773,30 @@ Object.defineProperty(exports, "__esModule", {
 });
 // Reveal - Hide/Show content.
 
-var animationStart = void 0;
-var animationEnd = void 0;
-
-var init = function init() {
-
-    animationStart = new CustomEvent('js-reveal-animation-start');
-    animationEnd = new CustomEvent('js-reveal-animation-end');
+var init = function init(callback) {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn('Honeycomb: jQuery not found, so reveal functionality won\'t work as expected');
+        return;
+    }
 
     window.jQuery('.js-reveal').each(function () {
         var $this = window.jQuery(this);
-        $this.slideUp(0);
+
+        if (!$this.attr('data-reveal-open')) {
+            $this.slideUp(0);
+        }
     });
 
     window.jQuery('.js-reveal-cta').each(function () {
+        var $this = window.jQuery(this);
 
         // Setup cta's.
         var $button = window.jQuery(this);
-        $button.attr('data-reveal-cta-open-html', $button.html());
+        if ($this.attr('data-reveal-open')) {
+            $button.attr('data-reveal-cta-close-html', $button.html());
+        } else {
+            $button.attr('data-reveal-cta-open-html', $button.html());
+        }
     }).on('click', function (e) {
 
         // On click, call toggle.
@@ -1810,7 +1824,7 @@ var init = function init() {
                     // If the content is visible (should only be 1), then close and open.
                     if ($groupContent.is(':visible')) {
                         close(groupButton, function () {
-                            open(that);
+                            open(that, callback);
                         });
                     } else {
 
@@ -1821,17 +1835,17 @@ var init = function init() {
 
                 // No revealed content is open, so go ahead and open.
                 if (closed === $groupButtons.length) {
-                    open(that);
+                    open(that, callback);
                 }
             } else {
 
                 // Not in a group.
-                open(this);
+                open(this, callback);
             }
         } else {
 
             // Close content.
-            close(this);
+            close(this, callback);
         }
     });
 };
@@ -1843,8 +1857,6 @@ var open = function open(button, callback) {
 
     if ($content.is('.js-reveal')) {
         var $buttons = window.jQuery('.js-reveal-cta[href=\"' + hash + '\"]');
-
-        button.dispatchEvent(animationStart);
 
         $content.slideDown({
             duration: 250,
@@ -1865,8 +1877,6 @@ var open = function open(button, callback) {
                 if (typeof callback === 'function') {
                     callback.call(undefined);
                 }
-
-                button.dispatchEvent(animationEnd);
             }
         });
     }
@@ -1879,8 +1889,6 @@ var close = function close(button, callback) {
 
     if ($content.is('.js-reveal')) {
         var $buttons = window.jQuery('.js-reveal-cta[href=\"' + hash + '\"]');
-
-        button.dispatchEvent(animationStart);
 
         $content.slideUp({
             duration: 250,
@@ -1901,8 +1909,6 @@ var close = function close(button, callback) {
                 if (typeof callback === 'function') {
                     callback.call(undefined);
                 }
-
-                button.dispatchEvent(animationEnd);
             }
         });
     }
@@ -1926,7 +1932,7 @@ exports.default = {
     close: close
 };
 
-},{}],25:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1939,6 +1945,11 @@ var init = function init() {
 };
 
 var scrollOnClick = function scrollOnClick() {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn('Honeycomb: jQuery not found, so scroll functionality won\'t work as expected');
+        return;
+    }
+
     window.jQuery('a.js-scroll-to').on('click', function (e) {
         var $this = window.jQuery(this);
         var href = $this.attr('href');
@@ -2011,7 +2022,7 @@ exports.default = {
     init: init
 };
 
-},{}],26:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2064,7 +2075,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":10}],27:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":9}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2093,7 +2104,7 @@ exports.default = {
     init: init
 };
 
-},{}],28:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2137,8 +2148,7 @@ var init = function init() {
             var _iteratorError = undefined;
 
             try {
-
-                for (var _iterator = tabbed[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var _loop = function _loop() {
                     var tab = _step.value;
 
                     var options = {
@@ -2202,10 +2212,23 @@ var init = function init() {
                         options.reloadAjax = reloadAjax === 'true';
                     }
 
-                    // Equal heights
+                    // Tab change callbacks
                     var equalHeights = tab.getAttribute('data-tabs-equal-heights');
-                    if (equalHeights) {
-                        options.onTabChange = config.equalise;
+                    var googleMap = tab.getAttribute('data-tabs-google-map');
+
+                    if (equalHeights || googleMap) {
+                        options.onTabChange = function () {
+
+                            if (equalHeights) {
+                                config.equalise();
+                            }
+
+                            if (googleMap) {
+                                config.googleMap({
+                                    callback: 'window.initMap'
+                                });
+                            }
+                        };
                     }
 
                     // Apply tabs plugin.
@@ -2215,6 +2238,10 @@ var init = function init() {
                     if (typeof config.callback === 'function') {
                         config.callback.call();
                     }
+                };
+
+                for (var _iterator = tabbed[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    _loop();
                 }
             } catch (err) {
                 _didIteratorError = true;
@@ -2238,7 +2265,7 @@ exports.default = {
     init: init
 };
 
-},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":10}],29:[function(require,module,exports){
+},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":9}],28:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2396,7 +2423,7 @@ exports.default = {
     init: init
 };
 
-},{}],30:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2641,4 +2668,4 @@ exports.default = {
     videos: videos
 };
 
-},{}]},{},[15]);
+},{}]},{},[14]);

@@ -7,10 +7,12 @@
 .table--striped {
 	tr.odd, tr:nth-child(odd) {
 		background: $hc-default-bg-color;
+
 	}
 	tr.even, tr:nth-child(even) {
 		background: color('grey', 1);
 	}
+
 }
 
 .table--striped-grey {
@@ -20,7 +22,50 @@
 	tr.even, tr:nth-child(even) {
 		background: color('grey', 2);
 	}
+
+	thead th {
+		border-bottom-color: color('grey', 4);
+	}
+	th {
+		border-right-color: color('grey', 4);
+	}
 }
+
+
+
+/**
+  * Replicate the default table heading styles as a class, 
+  * so they're available for tables that have only been marked up 
+  * only using <td> elements (e.g. tables imported from Word)
+  */
+
+.table--headings-top {
+	tr:first-of-type td {
+		font-weight: bold;
+		color: $hc-table-heading-colour;
+		border-right: 0;
+		border-top: 0;
+		border-bottom: 3px solid $hc-table-border-colour;
+
+		&:first-of-type:empty {
+			border-bottom: 0;
+		}
+	}	
+}
+
+.table--headings-left {
+	tr td:first-of-type {
+		font-weight: bold;
+		color: $hc-table-heading-colour;
+		border-right: 3px solid $hc-table-border-colour;
+	}
+}
+
+.table--headings-top-left {
+	@extend .table--headings-top;
+	@extend .table--headings-left;
+}
+
 
 /**
  * Halve/Double the padding in table cells.
@@ -77,4 +122,47 @@ th, td {
 	th, td {
 		vertical-align: middle;
 	}
+}
+
+.table--row-hover {
+	tr:hover {
+		background: color('grey', 1);
+	}
+
+	&.table--striped {
+		tr:hover {
+			background: color('grey', 2);
+		}
+	}
+
+	&.table--striped-grey {
+		tr:hover {
+			background: color('grey', 3);
+		}
+	}
+}
+
+.table--fixed {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.table--responsive {
+    @include responsive("medium") {
+        thead {
+            display: none; /* Hide the table heading row */
+        }
+
+        th, td {
+            float: left;
+            clear: both;
+            width: 100%;
+            text-align: center;
+        }
+
+        td:before {
+            content: attr(title); /* Add the column heading to the cell */
+            display: block;
+        }
+    }
 }

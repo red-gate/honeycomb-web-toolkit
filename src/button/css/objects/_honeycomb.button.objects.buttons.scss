@@ -17,6 +17,7 @@
     display: inline-block;
     -webkit-font-smoothing: antialiased;
     word-break: normal;
+    text-decoration: none !important;
 
     // IE7 support.
     .ie7 & {
@@ -66,6 +67,8 @@ p:last-child .button:last-child {
 %button--full-width {
     display: block;
     text-align: center;
+    width: 90% !important; // Fallback if calc rule below fails.
+    width: calc(100% - 30px) !important;
 }
 
 .button--inline,

@@ -8,140 +8,23 @@
  * For example, <div class="grid__row col-spaced-v">, gives a grid row 'standard' vertical margin.
  */
 
-/**
- * Normal margin.
- */
-.spaced {
-    @include margin(1);
-}
-
-
-.spaced-h {
-    @include margin(1, left);
-    @include margin(1, right);
-}
-
-.spaced-left {
-    @include margin(1, left);
-}
-
-.spaced-right {
-    @include margin(1, right);
-}
-
-
-.spaced-v {
-    @include margin(1, top);
-    @include margin(1, bottom);
-}
-
-.spaced-top {
-    @include margin(1, top);
-}
-
-.spaced-bottom {
-    @include margin(1, bottom);
-}
+@include buildMargin();
 
 /**
- * Less margin.
+ * Build the margin classes at breakpoints, using Desktop first approach, like the
+ * responsive mixin in the base module.
  */
-.spaced--tight {
-    @include margin(0.5);
-}
+@if $hc-responsive {
+    $hc-breakpoints: false !default;
+    @if $hc-breakpoints {
+        @each $breakpoint in $hc-breakpoints {
+            $name: nth($breakpoint, 1);
+            $width: nth($breakpoint, 2);
+            $declaration: "(#{$hc-mqProperty} #{$width})";
 
-
-.spaced-h--tight {
-    @include margin(0.5, left);
-    @include margin(0.5, right);
-}
-
-.spaced-left--tight {
-    @include margin(0.5, left);
-}
-
-.spaced-right--tight {
-    @include margin(0.5, right);
-}
-
-
-.spaced-v--tight {
-    @include margin(0.5, top);
-    @include margin(0.5, bottom);
-}
-
-.spaced-top--tight {
-    @include margin(0.5, top);
-}
-
-.spaced-bottom--tight {
-    @include margin(0.5, bottom);
-}
-
-/**
- * More margin
- */
-.spaced--loose {
-    @include margin(2);
-}
-
-
-.spaced-h--loose {
-    @include margin(2, left);
-    @include margin(2, right);
-}
-
-.spaced-left--loose {
-    @include margin(2, left);
-}
-
-.spaced-right--loose {
-    @include margin(2, right);
-}
-
-
-.spaced-v--loose {
-    @include margin(2, top);
-    @include margin(2, bottom);
-}
-
-.spaced-top--loose {
-    @include margin(2, top);
-}
-
-.spaced-bottom--loose {
-    @include margin(2, bottom);
-}
-
-/**
- * No margin
- */
-.spaced--none {
-    @include margin(0);
-}
-
-.spaced-h--none {
-    @include margin(0, left);
-    @include margin(0, right);
-}
-
-.spaced-left--none {
-    @include margin(0, left);
-}
-
-.spaced-right--none {
-    @include margin(0, right);
-}
-
-.spaced-v--none {
-    @include margin(0, top);
-    @include margin(0, bottom);
-}
-
-.spaced-top--none {
-    @include margin(0, top);
-}
-
-.spaced-bottom--none {
-    @include margin(0, bottom);
+            @media only screen and #{$declaration} {
+                @include buildMargin("--#{$name}");
+            }
+        }
+    }
 }

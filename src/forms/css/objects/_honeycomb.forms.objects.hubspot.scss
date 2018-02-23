@@ -5,14 +5,26 @@
     width: 100% !important;
     &[type="checkbox"],
     &[type="radio"] {
-        width: auto !important;
+        width: 20px !important;
+        height: 20px;
     }
     &[type="checkbox"] {
         margin-right: 10px;
     }
+
+    &.error {
+        &:not([type="checkbox"]):not([type="radio"]) {
+            border: 2px solid color('red', 5);
+        }
+    }
 }
 
 .hs-form {
+
+    &-field {
+        @extend .form__field-container;
+    }
+
     fieldset {
         max-width: none !important;
     }
@@ -20,16 +32,12 @@
         list-style-type: none;
     }
     .multi-container {
-        @include margin(0.25, top);
         @include margin(0, left);
         list-style: none;
 
-        li {
-            @include margin(0.25, bottom);
-        }
-
         label {
             font-weight: normal;
+
             input {
                 @include margin(0.25, right);
             }
@@ -44,7 +52,13 @@
     }
 
     .hs-error-msgs {
-        color: color('red', 'brand');
+        @include margin(0, 'left');
+
+        &, label {
+            @include margin(0.1, 'top');
+            color: color('red', 'brand');
+            font-weight: normal;
+        }
     }
 }
 

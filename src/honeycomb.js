@@ -29,10 +29,6 @@ window.addEventListener('load', () => {
 import code from './code/js/honeycomb.code';
 code.init();
 
-// Confluence.
-import confluence from './confluence/js/honeycomb.confluence';
-confluence.init();
-
 // Content.
 import content from './content/js/honeycomb.content';
 window.addEventListener('load', () => {
@@ -79,6 +75,8 @@ verticalNav.init();
 // Notification
 import notifications from './notification/js/honeycomb.notification.block';
 notifications.init();
+window.Honeycomb = window.Honeycomb || {};
+window.Honeycomb.notifications = notifications;
 
 // Polyfills.
 import indexOf from './polyfill/js/honeycomb.polyfill.index-of';
@@ -105,7 +103,8 @@ svg.init();
 // Tabs.
 import tabs from './tabs/js/honeycomb.tabs';
 tabs.init({
-    equalise: equalise.init
+    equalise: equalise.init,
+    googleMap: googleMap.init
 });
 
 // Toggle.
@@ -117,3 +116,7 @@ import video from './video/js/honeycomb.video';
 video.init({
     analytics: googleAnalytics
 });
+
+// Confluence. (Only import Confluence styling for Confluence themes.)
+// import confluence from './confluence/js/honeycomb.confluence';
+// confluence.init();

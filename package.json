@@ -1,6 +1,11 @@
 {
-  "name": "honeycomb",
-  "version": "0.1.0",
+  "name": "honeycomb-web-toolkit",
+  "version": "10.0.11",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/red-gate/honeycomb-web-toolkit"
+  },
+  "license": "Apache-2.0",
   "scripts": {
     "clean": "node scripts/clean.js",
     "css:sass": "node scripts/css/sass.js",
@@ -13,6 +18,7 @@
     "js:lint": "node node_modules/eslint/bin/eslint src/**/js",
     "js:vendor": "node scripts/javascript/vendors.js",
     "js": "npm run js:lint && npm run js:bundle && npm run js:minify && npm run js:vendor",
+    "teamcity": "node scripts/teamcity.js",
     "build": "npm run clean && npm run css && npm run fonts && npm run images && npm run js"
   },
   "devDependencies": {
@@ -25,7 +31,8 @@
     "glob": "^7.1.1",
     "node-sass": "^4.5.2",
     "postcss-cli": "^4.0.0",
-    "uglify-js": "^3.0.6"
+    "uglify-js": "^3.0.6",
+    "zip-folder": "^1.0.0"
   },
   "browserify": {
     "transform": [

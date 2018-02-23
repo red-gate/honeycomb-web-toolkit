@@ -21,15 +21,15 @@
         }
 
         a {
-            @include padding(0.75, left);
-            @include padding(0.75, right);
+            @include padding(0.8, left);
+            @include padding(0.8, right);
             @include padding(0.25, bottom);
             display: block;
         }
     }
 
     & > a {
-        @include padding(0.75, right);
+        @include padding(0.8, right);
     }
 
     &.closed > ul {

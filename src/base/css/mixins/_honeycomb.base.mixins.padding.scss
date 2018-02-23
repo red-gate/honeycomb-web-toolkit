@@ -1,10 +1,132 @@
-// TODO add any extra documentation and an example
+// Build the padding rules, with optional suffix
+@mixin buildPadding($suffix: "") {
+    .padded#{$suffix} {
+        @include padding(1);
+    }
+
+    .padded-h#{$suffix} {
+        @include padding(1, left);
+        @include padding(1, right);
+    }
+
+    .padded-left#{$suffix} {
+        @include padding(1, left);
+    }
+
+    .padded-right#{$suffix} {
+        @include padding(1, right);
+    }
+
+    .padded-v#{$suffix}{
+        @include padding(1, top);
+        @include padding(1, bottom);
+    }
+
+    .padded-top#{$suffix} {
+        @include padding(1, top);
+    }
+
+    .padded-bottom#{$suffix} {
+        @include padding(1, bottom);
+    }
+
+    .padded--tight#{$suffix} {
+        @include padding(0.5);
+    }
+
+    .padded-h--tight#{$suffix} {
+        @include padding(0.5, left);
+        @include padding(0.5, right);
+    }
+
+    .padded-left--tight#{$suffix} {
+        @include padding(0.5, left);
+    }
+
+    .padded-right--tight#{$suffix} {
+        @include padding(0.5, right);
+    }
+
+    .padded-v--tight#{$suffix} {
+        @include padding(0.5, top);
+        @include padding(0.5, bottom);
+    }
+
+    .padded-top--tight#{$suffix} {
+        @include padding(0.5, top);
+    }
+
+    .padded-bottom--tight#{$suffix} {
+        @include padding(0.5, bottom);
+    }
+
+    .padded--loose#{$suffix} {
+        @include padding(2);
+    }
+
+    .padded-h--loose#{$suffix} {
+        @include padding(2, left);
+        @include padding(2, right);
+    }
+
+    .padded-left--loose#{$suffix} {
+        @include padding(2, left);
+    }
+
+    .padded-right--loose#{$suffix} {
+        @include padding(2, right);
+    }
+
+    .padded-v--loose#{$suffix} {
+        @include padding(2, top);
+        @include padding(2, bottom);
+    }
+
+    .padded-top--loose#{$suffix} {
+        @include padding(2, top);
+    }
+
+    .padded-bottom--loose#{$suffix} {
+        @include padding(2, bottom);
+    }
+
+    .padded--none#{$suffix} {
+        @include padding(0);
+    }
+
+    .padded-h--none#{$suffix} {
+        @include padding(0, left);
+        @include padding(0, right);
+    }
+
+    .padded-left--none#{$suffix} {
+        @include padding(0, left);
+    }
+
+    .padded-right--none#{$suffix} {
+        @include padding(0, right);
+    }
+
+    .padded-v--none#{$suffix} {
+        @include padding(0, top);
+        @include padding(0, bottom);
+    }
+
+    .padded-top--none#{$suffix} {
+        @include padding(0, top);
+    }
+
+    .padded-bottom--none#{$suffix} {
+        @include padding(0, bottom);
+    }
+}
 
 //  Mixin for adding padding to objects/components.
-@mixin padding($scale: 1, $direction: all) {
+@mixin padding($scale: 1, $direction: all, $important: false) {
 
   $padding: inherit;
   $property: padding;
+  $flag: null;
 
   @if index($hc-padding-whitelist, $scale) {
     $padding: round($hc-spacing-unit * $scale);
@@ -20,9 +142,14 @@
     $property: padding-#{$direction};
   }
 
+  // Important flag.
+  @if $important {
+      $flag: !important;
+  }
+
   // Print the rule.
   @if $padding {
-    #{$property}: $padding;
-    #{$property}: px-rem($padding);
+    #{$property}: $padding $flag;
+    #{$property}: px-rem($padding) $flag;
   }
 }

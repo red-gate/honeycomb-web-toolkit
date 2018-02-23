@@ -43,3 +43,59 @@ You can apply a version number to the end if you want a specific version, e.g.
 <code>npm install git://github.com/red-gate/honeycomb-web-toolkit.git#v1.2.3</code>.
 
 This will add Honeycomb to your <code>node_modules</code> directory, where you can reference the Sass modules from.
+
+## Setting up a local dev environment
+
+To work on the Honeycomb web toolkit locally, you'll need Node and NPM. 
+
+You'll also need a webserver configured to parse Server Side Includes in `.htm` files. 
+
+### Setting up Server Side Includes in Apache
+
+In `apache/conf/httpd.conf`, find `<IfModule mime_module>`.
+
+Within that module you should find some lines about server-side includes:
+
+    ```
+    # To parse .shtml files for server-side includes (SSI):
+    # (You will also need to add "Includes" to the "Options" directive.)
+    AddType text/html .shtml
+    AddOutputFilter INCLUDES .shtml
+    ```
+
+Add ` .htm` after both instances of `.shtml`, so the new rule looks like this:
+
+    ```
+    # To parse .shtml files for server-side includes (SSI):
+    # (You will also need to add "Includes" to the "Options" directive.)
+    AddType text/html .shtml .htm
+    AddOutputFilter INCLUDES .shtml .htm
+    ```
+    
+Restart Apache.
+    
+### Setting up Server Side Includes in IIS
+
+In IIS Manager, go to your Honeycomb Web Toolkit site (or set one up). 
+
+Open Handler Mappings. 
+
+Click **Add Module Mapping...**
+
+Configure the new module:
+
+```
+Request path: *.htm
+Module: ServerSideIncludeModule
+Name: SSINC-htm
+```
+    
+Click OK and restart IIS. 
+
+### Building and serving the honeycomb dev site
+
+Once your webserver is configured, point it at the `/` directory in the honeycomb web toolkit repository, start the webserver, and point your browser at the `/docs` directory. 
+
+Build the toolkit:
+`
+npm install && npm run build`

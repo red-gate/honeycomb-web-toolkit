@@ -7,165 +7,23 @@
  * Padding options, for things like grid columns and rows, etc.
  * For example, <div class="grid__row col-padded-v">, gives a grid row 'standard' vertical padding.
  */
+ @include buildPadding();
 
 /**
- * Normal padding.
+ * Build the padding classes at breakpoints, using Desktop first approach, like the
+ * responsive mixin in the base module.
  */
-.padded {
-    @include padding(1);
-}
+@if $hc-responsive {
+    $hc-breakpoints: false !default;
+    @if $hc-breakpoints {
+        @each $breakpoint in $hc-breakpoints {
+            $name: nth($breakpoint, 1);
+            $width: nth($breakpoint, 2);
+            $declaration: "(#{$hc-mqProperty} #{$width})";
 
-
-.padded-h {
-    @include padding(1, left);
-    @include padding(1, right);
-}
-
-.padded-left {
-    @include padding(1, left);
-}
-
-.padded-right {
-    @include padding(1, right);
-}
-
-
-.padded-v {
-    @include padding(1, top);
-    @include padding(1, bottom);
-}
-
-.padded-top {
-    @include padding(1, top);
-}
-
-.padded-bottom {
-    @include padding(1, bottom);
-}
-
-/**
- * Less padded.
- */
-.padded--tight {
-    @include padding(0.5);
-}
-
-
-.padded-h--tight {
-    @include padding(0.5, left);
-    @include padding(0.5, right);
-}
-
-.padded-left--tight {
-    @include padding(0.5, left);
-}
-
-.padded-right--tight {
-    @include padding(0.5, right);
-}
-
-
-.padded-v--tight {
-    @include padding(0.5, top);
-    @include padding(0.5, bottom);
-}
-
-.padded-top--tight {
-    @include padding(0.5, top);
-}
-
-.padded-bottom--tight {
-    @include padding(0.5, bottom);
-}
-
-/**
- * More padded
- */
-.padded--loose {
-    @include padding(2);
-    @include responsive("medium") {
-        @include padding(1);
+            @media only screen and #{$declaration} {
+                @include buildPadding("--#{$name}");
+            }
+        }
     }
-}
-
-.padded-h--loose {
-    @include padding(2, left);
-    @include padding(2, right);
-    @include responsive("medium") {
-        @include padding(1, left);
-        @include padding(1, right);
-    }
-}
-
-.padded-left--loose {
-    @include padding(2, left);
-    @include responsive("medium") {
-        @include padding(1, left);
-    }
-}
-
-.padded-right--loose {
-    @include padding(2, right);
-    @include responsive("medium") {
-        @include padding(1, right);
-    }
-}
-
-
-.padded-v--loose {
-    @include padding(2, top);
-    @include padding(2, bottom);
-    @include responsive("medium") {
-        @include padding(1, top);
-        @include padding(1, bottom);
-    }
-}
-
-.padded-top--loose {
-    @include padding(2, top);
-    @include responsive("medium") {
-        @include padding(1, top);
-    }
-}
-
-.padded-bottom--loose {
-    @include padding(2, bottom);
-    @include responsive("medium") {
-        @include padding(1, bottom);
-    }
-}
-
-/**
- * No padding
- */
-.padded--none {
-    @include padding(0);
-}
-
-
-.padded-h--none {
-    @include padding(0, left);
-    @include padding(0, right);
-}
-
-.padded-left--none {
-    @include padding(0, left);
-}
-
-.padded-right--none {
-    @include padding(0, right);
-}
-
-
-.padded-v--none {
-    @include padding(0, top);
-    @include padding(0, bottom);
-}
-
-.padded-top--none {
-    @include padding(0, top);
-}
-
-.padded-bottom--none {
-    @include padding(0, bottom);
 }

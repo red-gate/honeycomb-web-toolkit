@@ -5,9 +5,17 @@
 
 .pagination {
     @include padding(0.25);
+    @include padding(0, 'left');
+    @include padding(0, 'right');
     @include clearfix();
     float: left;
     width: 100%;
+}
+
+.pagination__prev:before,
+.pagination__next:after {
+    font-family: "Redgate";
+    vertical-align: top;
 }
 
 .pagination__prev {
@@ -18,7 +26,6 @@
 
     &:before {
         content: "\e606";
-        font-family: "Redgate";
         @include margin(0.25, right);
     }
 }
@@ -31,7 +38,6 @@
 
     &:after {
         content: "\e607";
-        font-family: "Redgate";
         @include margin(0.25, left);
     }
 }

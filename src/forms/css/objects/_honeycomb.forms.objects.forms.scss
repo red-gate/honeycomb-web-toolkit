@@ -1,8 +1,33 @@
 .form {
 
+    &__field-container {
+        @include margin(0.6, 'bottom');
+
+        &--error {
+            .form__error-message {
+                display: block;
+            }
+
+            input {
+                border-width: 2px;
+                border-color: color('red', 5);
+            }
+        }
+    }
+
     &__help-text {
-        @include margin(0.25, "bottom");
+        @include margin(0.1, "bottom");
         color: color("grey", 5);
+
+        label + & {
+            @include margin(-0.1, 'top');
+        }
+    }
+
+    &__error-message {
+        @include margin(0.1, 'top');
+        display: none;
+        color: color('red', 5);
     }
 
     &__required-dot {

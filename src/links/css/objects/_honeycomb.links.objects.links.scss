@@ -14,8 +14,17 @@ a:active.link-image,
 a:hover.link-image {
     border: none;
 }
+
+a.link-image * {
+	transition: opacity 0.3s ease;
+}
+
 a:hover.link-image {
-	&, & * {
+	& {
 		opacity: 0.7;
+
+		* {
+			opacity: inherit;
+		}
 	}
 }

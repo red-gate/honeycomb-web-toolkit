@@ -1,0 +1,9 @@
+.aui-lozenge {
+    @extend .label;
+    display: inline-block;
+}
+
+.aui-lozenge-success {
+    background-color: color('green', 6);
+    color: color('white');
+}

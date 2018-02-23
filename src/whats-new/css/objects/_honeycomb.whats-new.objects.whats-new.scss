@@ -1,0 +1,158 @@
+.whats-new-widget {
+    display: block;
+    position: relative;
+    width: $hc-whats-new-width;
+    max-width: 100%;
+    background-color: $hc-whats-new-background-color;
+    border-radius: $hc-whats-new-border-radius;
+    border-style: solid;
+    border-width: $hc-whats-new-border-width;
+    border-color: $hc-whats-new-border-color;
+    box-shadow: 0px 0px 4px $hc-whats-new-shadow-color;
+
+    h2 {
+        @include font-size($hc-whats-new-heading-font-size);
+        @include margin(0.1, 'bottom');
+        font-weight: bold;
+
+        .label--ghost {
+            transform: translateY(-2px);
+        }
+    }
+
+    p {
+        @include margin(0, 'bottom');
+    }
+
+    & > ul {
+        @include margin(0);
+        @include padding(0);
+        list-style: none;
+        overflow: auto;
+
+        & > li {
+            @include margin(0);
+            @include padding(0.5);
+            border-bottom-style: solid;
+            border-bottom-width: $hc-whats-new-item-border-width;
+            border-bottom-color: $hc-whats-new-item-border-color;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    .whats-new-widget__actions {
+        @include margin(0);
+        @include padding(0);
+        list-style: none;
+
+        li {
+            @include margin(0);
+            @include margin(0.5, 'right');
+            display: inline-block;
+        }
+    }
+
+    footer {
+        @include padding(0.5, 'top');
+        @include padding(0.5, 'bottom');
+        background-color: color('grey', 1);
+        border-bottom-left-radius: $hc-whats-new-border-radius;
+        border-bottom-right-radius: $hc-whats-new-border-radius;
+
+        ul {
+            @include margin(0);
+            @include padding(0);
+            list-style: none;
+            text-align: center;
+        }
+
+        li {
+            @include margin(0);
+            @include margin(0.5, 'left');
+            @include margin(0.5, 'right');
+            display: inline-block;
+        }
+    }
+
+    &:before {
+        content: ' ';
+        position: absolute;
+        display: block;
+        top: -2px;
+        left: 50%;
+        transform: rotate(45deg) translateX(-50%);
+        width: 25px;
+        height: 25px;
+        background-color: $hc-whats-new-background-color;
+
+        border-top-style: solid;
+        border-top-width: $hc-whats-new-border-width;
+        border-top-color: $hc-whats-new-border-color;
+
+        border-left-style: solid;
+        border-left-width: $hc-whats-new-border-width;
+        border-left-color: $hc-whats-new-border-color;
+
+        box-shadow: 0px 0px 4px $hc-whats-new-shadow-color;
+
+    }
+
+    &--arrow-left {
+
+        &:before {
+            left: 40px;
+        }
+    }
+
+    &--arrow-right {
+
+        &:before {
+            left: auto;
+            right: 40px;
+        }
+    }
+
+    &:after {
+        content: ' ';
+        position: absolute;
+        width: 50%;
+        height: 20px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $hc-whats-new-background-color;
+    }
+
+    &--small {
+        @include font-size($hc-whats-new-font-size--small);
+        width: $hc-whats-new-width--small;
+
+        h2 {
+            @include font-size($hc-whats-new-heading-font-size--small);
+        }
+
+        & > ul > li {
+            @include padding(0.25);
+        }
+
+        footer {
+            @include padding(0.25, 'top');
+            @include padding(0.25, 'bottom');
+            @include font-size($hc-whats-new-footer-font-size--small);
+    
+            li {
+                @include margin(0.25, 'left');
+                @include margin(0.25, 'right');
+            }
+        }
+
+        &:before {
+            top: -2px;
+            left: 50%;
+            width: 15px;
+            height: 15px;   
+        }
+
+    }
+}

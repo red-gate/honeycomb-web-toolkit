@@ -1,37 +1,44 @@
 .notification--block {
-
     border: none;
     @include padding(0);
     @include border-left;
-    @include px-rem('border-left-width', 15);
+    @include px-rem('border-left-width', $hc-notification-border-width);
 
     .notification--block__inner-container {
         margin: auto;
-        @include padding(0.5);
+        padding: $hc-notification-block-padding;
     }
 
     .notification__close {
-        border-bottom: none;
+        @include font-size(0px, 0);
         display: block;
+        width: $hc-notification-block-close-size;
+        height: $hc-notification-block-close-size;
+        transition: none;
+        color: transparent;
+        border-bottom: none;
+
+        &:before {
+            @include font-size($hc-notification-block-close-size);
+            font-family: 'Redgate';
+            content: '\e60a';
+            color: $hc-notification-block-close-color;
+        }
     }
 
     .notification__icon {
-        @include font-size(24px, false);
-    }
-
-    p {
-        @include margin(0, bottom);
+        @include font-size($hc-notification-block-icon-size, false);
     }
 
     /**
      * Info
      */
     &.notification--info {
-        border-color: color('blue');
+        border-color: $hc-notification-color--info;
 
         .notification__close,
         .notification__icon {
-            color: color('blue');
+            color: $hc-notification-color--info;
         }
     }
 
@@ -39,11 +46,11 @@
      * Fail
      */
     &.notification--fail {
-        border-color: color('red');
+        border-color: $hc-notification-color--fail;
 
         .notification__close,
         .notification__icon {
-            color: color('red');
+            color: $hc-notification-color--fail;
         }
     }
 
@@ -51,11 +58,11 @@
      * Success
      */
     &.notification--success {
-        border-color: color('green');
+        border-color: $hc-notification-color--success;
 
         .notification__close,
         .notification__icon {
-            color: color('green');
+            color: $hc-notification-color--success;
         }
     }
 
@@ -63,11 +70,29 @@
      * Warning
      */
     &.notification--warning {
-        border-color: color('yellow');
+        border-color: $hc-notification-color--warning;
 
         .notification__close,
         .notification__icon {
-            color: color('yellow');
+            color: $hc-notification-color--warning;
+        }
+    }
+
+    /**
+     * Minimal notifications
+     */
+    &--minimal {
+        @include px-rem('border-width', 1);
+        @include px-rem('border-left-width', $hc-notification-border-width);
+        background-color: transparent;
+        border-style: solid;
+
+        .notification--block__inner-container {
+            padding: $hc-notification-block--minimal-padding;
+        }
+
+        .notification__icon {
+            display: none;
         }
     }
 }

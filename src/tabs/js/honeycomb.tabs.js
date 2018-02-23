@@ -93,11 +93,25 @@ let init = ( config = {} ) => {
                     options.reloadAjax = reloadAjax === 'true';
                 }
 
-                // Equal heights
+                // Tab change callbacks
                 let equalHeights = tab.getAttribute('data-tabs-equal-heights');
-                if (equalHeights) {
-                    options.onTabChange = config.equalise;
+                let googleMap = tab.getAttribute('data-tabs-google-map');
+
+                if ( equalHeights || googleMap ) {
+                    options.onTabChange = function() {
+
+                        if (equalHeights) {
+                            config.equalise();
+                        }
+
+                        if (googleMap) {
+                            config.googleMap({
+                                callback: 'window.initMap'
+                            });
+                        }
+                    };
                 }
+
 
                 // Apply tabs plugin.
                 window.jQuery(tab).tabs(options);

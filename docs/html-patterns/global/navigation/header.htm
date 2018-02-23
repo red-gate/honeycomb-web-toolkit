@@ -23,9 +23,9 @@
 
 
     <div class="spaced-bottom--loose">
-        <div class="band header--primary">
+        <div class="band header--primary js-header-primary-collapse">
             <nav>
-                <a href="/" class="header--primary__app-logo-container"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/redgate-logo--white.svg" alt="" width="94" height="23"></a>
+                <a href="/" class="header--primary__app-logo-container"><img src="http://www.red-gate.com/assets/images/global/redgate-logo--white.svg" alt="" width="94" height="23"></a>
 
 
                 <span class="hide-on-medium">
@@ -50,22 +50,117 @@
                     		</ul>
                     	</li>
                         <li><a href="x">Quotes</a></li>
-                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/search.png" alt="Search"></a></li>
-                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
+                        <li><a href="x" class="header--primary__icon active"><img src="http://www.red-gate.com/assets/images/global/header/search.png" alt="Search"></a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
                     </ul>
                     <!-- <a href="/" class="header--primary__company-logo-container"><img src="/docs/images/header/redgate-logo-black.png" width="75" class="js-svg"></a> -->
                 </span>
 
 
-                <span class="hide-on-large show-on-medium float-right">
+                <span class="hide-on-max show-on-medium float-right">
                     <ul>
-                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/search.png" alt="Search"></a></li>
-                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
-                        <li><a href="x" class="header--primary__icon header--primary__menu-button">Menu</a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/images/global/header/search.png" alt="Search"></a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
+                        <li><a href="x" class="header--primary__icon header--primary__menu-button"></a></li>
                     </ul>
                 </span>
 
-                <ul class="header--primary__menu--mobile js-dropdown">
+                <ul class="header--primary__menu--mobile js-dropdown" data-position="70">
+                    <li>
+                        <a href="#item">Item 1</a>
+                        <ul>
+                            <li><a href="#item">Item 1 A</a></li>
+                            <li><a href="#item">Item 1 B</a></li>
+                            <li><a href="#item">Item 1 C</a></li>
+                            <li><a href="#item">Item 1 D</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#item">Item 2</a>
+                        <ul>
+                            <li><a href="#item">Item 2 A</a></li>
+                            <li>
+                                <a href="#item">Item 2 B</a>
+                                <ul>
+                                    <li><a href="#item">Item 2 B 1</a></li>
+                                    <li><a href="#item">Item 2 B 2</a></li>
+                                    <li><a href="#item">Item 2 B 3</a></li>
+                                    <li><a href="#item">Item 2 B 4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#item">Item 2 C</a></li>
+                            <li><a href="#item">Item 2 D</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#item">Item 3</a></li>
+                    <li><a href="#item">Item 4</a></li>
+                </ul>
+
+            </nav>
+        </div>
+
+        <nav class="nav-bar">
+                <div class="band__inner-container padded--none">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/sql/">SQL</a></li>
+                        <li class="active"><a href="/dotnet/">.NET</a></li>
+                        <li><a href="/cloud/">Cloud</a></li>
+                        <li><a href="/sysadmin/">Sysadmin</a></li>
+                        <li><a href="/opinion/">Opinion</a></li>
+                        <li><a href="/books/">Books</a></li>
+                        <li><a href="/blogs/">Blogs</a></li>
+                    </ul>
+                </div>
+            </nav>
+    </div>
+
+
+    <div class="spaced-bottom--loose">
+        <div class="band header--primary js-header-primary-collapse">
+            <nav>
+                <a href="/" class="header--primary__app-logo-container"><img src="http://www.red-gate.com/assets/images/global/redgate-logo--white.svg" alt="" width="94" height="23"></a>
+
+
+                <span class="hide-on-medium">
+                    <ul>
+                        <li><a href="x">Products</a></li>
+                        <li><a href="x" class="active">DLM</a></li>
+                        <li><a href="x">Support</a></li>
+                        <li><a href="x">Our company</a></li>
+                    </ul>
+                </span>
+
+                <span class="hide-on-medium float-right">
+                    <ul class="dropdown js-dropdown">
+                        <!-- <li><a href="x">My account</a></li> -->
+                        <li class=""><a href="/Dynamic/account?ref=account-nav">My account</a>
+                    		<ul>
+                                <li><a href="#">Serial numbers</a></li>
+                                <li><a href="#">My quotes</a> </li>
+                                <li><a href="#">Manage details</a></li>
+                                <li><a href="#">Change password</a></li>
+                    			<li><a href="#">Log out</a></li>
+                    		</ul>
+                    	</li>
+                        <li><a href="x">Quotes</a></li>
+                        <li><a href="x" class="header--primary__icon icon--search"></a></li>
+                        <li><a href="x" class="header--primary__icon active"><span class="icon--shopping-cart"></span></a></li>
+                        <li><a href="x" class="header--primary__icon"><span class="icon--user"></span></a></li>
+                    </ul>
+                    <!-- <a href="/" class="header--primary__company-logo-container"><img src="/docs/images/header/redgate-logo-black.png" width="75" class="js-svg"></a> -->
+                </span>
+
+
+                <span class="hide-on-max show-on-medium float-right">
+                    <ul>
+                        <li><a href="x" class="header--primary__icon icon--search"></a></li>
+                        <li><a href="x" class="header--primary__icon active"><span class="icon--shopping-cart"></span></a></li>
+                        <li><a href="x" class="header--primary__icon header--primary__menu-button"></a></li>
+                    </ul>
+                </span>
+
+                <ul class="header--primary__menu--mobile js-dropdown" data-position="70">
                     <li>
                         <a href="#item">Item 1</a>
                         <ul>
@@ -123,7 +218,7 @@
     <div class="spaced-bottom--loose">
         <div class="band header--primary header--primary--light">
             <nav>
-                <a href="/" class="header--primary__app-logo-container"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/redgate-logo--white.svg" alt="" width="94" height="23"></a>
+                <a href="/" class="header--primary__app-logo-container"><img src="http://www.red-gate.com/assets/images/global/redgate-logo--white.svg" alt="" width="94" height="23"></a>
 
 
                 <span class="hide-on-medium">
@@ -147,18 +242,18 @@
                     		</ul>
                     	</li>
                         <li><a href="x">Quotes</a></li>
-                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/search.png" alt="Search"></a></li>
-                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/images/global/header/search.png" alt="Search"></a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
                     </ul>
                     <a href="/" class="header--primary__company-logo-container"><img src="/docs/images/header/redgate-logo-black.png" width="75" class="js-svg"></a>
                 </span>
 
 
-                <span class="hide-on-large show-on-medium float-right">
+                <span class="hide-on-max show-on-medium float-right">
                     <ul>
-                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/search.png" alt="Search"></a></li>
-                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
-                        <li><a href="x" class="header--primary__icon header--primary__menu-button">Menu</a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/images/global/header/search.png" alt="Search"></a></li>
+                        <li><a href="x" class="header--primary__icon"><img src="http://www.red-gate.com/assets/images/global/header/cart.png" alt="Shopping cart"></a></li>
+                        <li><a href="x" class="header--primary__icon header--primary__menu-button"></a></li>
                     </ul>
                 </span>
 
@@ -219,7 +314,7 @@
     <div class="spaced-bottom--loose">
         <div class="band header--primary">
             <nav>
-                <a href="/" class="header--primary__app-logo-container"><img src="http://www.red-gate.com/assets/INTERIM/assets/images/global/redgate-logo--white.svg" alt="" width="94" height="23"></a>
+                <a href="/" class="header--primary__app-logo-container"><img src="http://www.red-gate.com/assets/images/global/redgate-logo--white.svg" alt="" width="94" height="23"></a>
 
                 <span class="hide-on-medium">
                     <ul>
@@ -234,9 +329,9 @@
                 </span>
 
 
-                <span class="hide-on-large show-on-medium float-right">
+                <span class="hide-on-max show-on-medium float-right">
                     <ul>
-                        <li><a href="x" class="header--primary__icon header--primary__menu-button">Menu</a></li>
+                        <li><a href="x" class="header--primary__icon header--primary__menu-button"></a></li>
                     </ul>
                 </span>
 
@@ -281,9 +376,9 @@
                 </span>
 
 
-                <span class="hide-on-large show-on-medium float-right">
+                <span class="hide-on-max show-on-medium float-right">
                     <ul>
-                        <li><a href="x" class="header--primary__icon header--primary__menu-button">Menu</a></li>
+                        <li><a href="x" class="header--primary__icon header--primary__menu-button"></a></li>
                     </ul>
                 </span>
 

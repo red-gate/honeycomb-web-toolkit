@@ -1,0 +1,37 @@
+.label--file {
+    @include font-size($hc-label-file-font-size);
+    padding: $hc-label-file-padding-vertical $hc-label-file-padding-horizontal;
+    background-color: $hc-label-file-background-color;
+    border-radius: $hc-label-file-border-radius;
+    color: $hc-label-file-text-color;
+
+    &:before {
+        @include font-size($hc-label-file-icon-font-size, false);
+        @include margin(0.1, 'right');
+        content: '\e60e';
+        font-family: 'Redgate';
+        position: relative;
+        top: 2px;
+    }
+
+    &.label--large {
+        padding: $hc-label-file-padding-vertical--large $hc-label-file-padding-horizontal--large;
+
+        &:before {
+            @include font-size($hc-label-file-icon-font-size--large, false);
+        }
+    }
+
+    &.label--small {
+        padding: $hc-label-file-padding-vertical--small $hc-label-file-padding-horizontal--small;
+
+        &:before {
+            @include font-size($hc-label-file-icon-font-size--small, false);
+        }
+    }
+
+    .label__dismiss {
+        @include margin(0.5, 'left');
+        top: 1px;
+    }
+}

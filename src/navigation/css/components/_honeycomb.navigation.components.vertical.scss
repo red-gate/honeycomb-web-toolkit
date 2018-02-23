@@ -16,16 +16,34 @@
 
 	a {
 		@include padding(0.25);
-		@include padding(0.75, "left");
-		@include padding(0.75, "right");
+		@include padding(0.8, "left");
+		@include padding(0.8, "right");
 		@include font-size(14px, 20px);
 		display: block;
 		position: relative;
 		border-left-width: 4px;
 		border-left-style: solid;
 		border-left-color: transparent;
+		border-right-width: 4px;
+		border-right-style: solid;
+		border-right-color: transparent;
 		cursor: pointer;
 	}
+
+
+	// right-aligned nav
+	&.nav--vertical--right {
+		text-align: right;
+
+		a {
+			@include padding(1.5, "right");
+		}
+
+		li li li a {
+			@include padding(2, "right");
+		}
+	}
+
 
 	.nav--vertical__active, .nav--vertical__active-parent {
 
@@ -78,7 +96,7 @@
 		}
 
 		a {
-			@include padding(1.25, "left");
+			@include padding(1.2, "left");
 		}
 
 		li li li a {
@@ -136,7 +154,7 @@
 
 	// Colours.
 	& {
-		background-color: $hc-nav-vertical-background-color;	
+		background-color: $hc-nav-vertical-background-color;
 
 		a {
 			color: $hc-nav-vertical-link-color;
@@ -192,6 +210,33 @@
 		.nav--vertical__collapse__icon {
 			color: $hc-nav-vertical-link-color-hover;
 		}
+
+
+		// border colours for right-aligned nav
+		&.nav--vertical--right {
+			a {
+				&:hover {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-link-border-color-hover;
+				}
+			}
+
+			.nav--vertical__active {
+				& > a {
+					&, &:hover {
+						border-left-color: transparent;
+						border-right-color: $hc-nav-vertical-link-background-color-active;
+					}
+				}
+			}
+
+			.nav--vertical__active-parent {
+				& > a {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-link-border-color-hover;
+				}
+			}
+		}
 	}
 
 	&--dark {
@@ -243,7 +288,134 @@
 		.nav--vertical__collapse__icon {
 			color: $hc-nav-vertical-dark-link-color-hover;
 		}
+
+		// border colours for right-aligned nav
+		&.nav--vertical--right {
+			a {
+				&:hover {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-dark-link-border-color-hover;
+				}
+			}
+
+			.nav--vertical__active {
+				& > a {
+					&, &:hover {
+						border-left-color: transparent;
+						border-right-color: $hc-nav-vertical-dark-link-background-color-active;
+					}
+				}
+			}
+
+			.nav--vertical__active-parent {
+				& > a {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-dark-link-border-color-hover;
+				}
+			}
+		}
 	}
 
 
+	// Lightweight style nav
+	// Used on www.simple-talk.com
+	// Classname is 'thin' instead of 'light' to avoid a false opposite with .nav--vertical--dark
+	&.nav--vertical--thin {
+		&, ul, li, li:hover, a, a:hover {
+			background-color: transparent;
+		}
+
+		a {
+			@include padding(0.5, 'right');
+			@include padding(0, 'top');
+			@include padding(0, 'bottom');
+			color: $hc-link-color;
+			border-left-color: $hc-nav-vertical-thin-link-border-color;
+
+			&:hover {
+				border-left-color: $hc-nav-vertical-thin-link-border-color-hover;
+				color: $hc-link-hover-color;
+			}
+		}
+
+		.nav--vertical__active {
+			a {
+				font-weight: bold;
+				border-left-color: $hc-nav-vertical-thin-link-border-color-active;
+			}
+		}
+
+		
+		// right-aligned thin nav
+		&.nav--vertical--right {
+			a {
+				border-left-color: transparent;
+				border-right-color: $hc-nav-vertical-thin-link-border-color;
+
+				&:hover {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-thin-link-border-color-hover;
+				}
+			}
+
+			.nav--vertical__active {
+				a {
+					border-left-color: transparent;
+					border-right-color: $hc-nav-vertical-thin-link-border-color-active;
+				}
+			}
+		}
+    }
+
+    &.nav--vertical--minimal {
+        @include padding(0.25, 'bottom');
+        padding-top: 1px;
+        border-right: 5px solid color('grey', 2);
+
+        &, ul, li, li:hover, a, a:hover, .nav--vertical__active-parent .nav--vertical__active-parent {
+			background-color: transparent;
+        }
+
+        li li {
+            @include margin(0.6, 'left');
+        }
+
+        a, a:hover {
+            @include padding(0);
+            @include padding(0.6, 'left');
+            @include padding(0.5, 'right');
+            @include padding(0.1, 'top');
+            @include padding(0.1, 'bottom');
+            @include font-size(16px);
+            color: color('grey', 7);
+            border: none;
+        }
+
+        ul ul a, ul ul a:hover {
+            @include padding(0.5, 'left');
+            @include font-size(14px);
+        }
+
+        .nav--vertical__toggle {
+            right: auto;
+            left: 0;
+			top: 17px;
+			color: color('grey', 6);
+
+            &:before {
+                content: "\e607";
+            }
+        }
+
+        .nav--vertical__active > a > .nav--vertical__toggle:before,
+        .nav--vertical__active-parent > a > .nav--vertical__toggle:before {
+            content: "\e605";
+        }
+
+        .nav--vertical__active > a {
+            border-right: 5px solid color('blue', 5);
+            color: color('blue', 6);
+            width: calc(100% + 5px);
+        }
+    }
 }

@@ -3,8 +3,6 @@
 \*------------------------------------*/
 
 table {
-    @include border();
-    border-color: $hc-table-border-colour;
     width: 100%;
     vertical-align: top;
     background-color: $hc-table-background-colour;
@@ -21,7 +19,8 @@ table caption {
 
 th, td {
     @include padding(0.5);
-    @include border();
+    @include border-top();
+    @include border-bottom();
     border-color: $hc-table-border-colour;
     word-wrap: break-word;
     word-break: normal;
@@ -35,39 +34,19 @@ th, td {
 th, thead td {
     font-weight: bold;
     color: $hc-table-heading-colour;
-    background-color: $hc-table-heading-background-colour;
 }
 
-/**
- * Force table cells to all render at the same width.
- */
-.table-grid {
-    table-layout: fixed;
+th {
+    border-right: 3px solid $hc-table-border-colour;
+    text-align: left;
 }
 
-/**
- * Responsive table styles
- */
-.table--responsive {
-    @include responsive("medium") {
-        thead {
-            display: none; /* Hide the table heading row */
-        }
+thead th, .th-row th {
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 3px solid $hc-table-border-colour;
 
-        th, td {
-            float: left;
-            clear: both;
-            width: 100%;
-            text-align: center;
-        }
-
-        td:first-child {
-            margin-top: 1rem;
-        }
-
-        td:before {
-            content: attr(title); /* Add the column heading to the cell */
-            display: block;
-        }
+    &:first-of-type:empty {
+        border-bottom: 0;
     }
 }

@@ -10,11 +10,19 @@
 
 
 /*------------------------------------*\
-    #REDGATE FONT
+    #TEXT FAMILY
 \*------------------------------------*/
+
+.text--simple-talk {
+    font-family: 'Roboto Slab', serif;
+}
 
 .text--redgate {
   font-family: redgate-type;
+}
+
+.text--default-family {
+  font-family: $hc-font-family !important;
 }
 
 

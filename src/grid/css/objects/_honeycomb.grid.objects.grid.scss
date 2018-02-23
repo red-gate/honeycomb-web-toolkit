@@ -58,6 +58,7 @@
         %#{$hc-grid-class} %#{$hc-grid-class}__col,
         .#{$hc-grid-class} .#{$hc-grid-class}__col {
             width: 100%;
+            margin-left: 0;
             border: none;
         }
     }

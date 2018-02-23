@@ -1,23 +1,29 @@
 // Reveal - Hide/Show content.
 
-let animationStart;
-let animationEnd;
-
-let init = () => {
-
-    animationStart = new CustomEvent('js-reveal-animation-start');
-    animationEnd = new CustomEvent('js-reveal-animation-end');
+let init = ( callback ) => {
+    if (typeof window.jQuery === 'undefined') {
+        window.console.warn('Honeycomb: jQuery not found, so reveal functionality won\'t work as expected');
+        return;
+    }
 
     window.jQuery( '.js-reveal' ).each( function () {
         let $this = window.jQuery( this );
-        $this.slideUp( 0 );
+
+        if (!$this.attr('data-reveal-open')) {
+            $this.slideUp( 0 );
+        }
     });
 
     window.jQuery( '.js-reveal-cta' ).each( function () {
+        let $this = window.jQuery( this );
 
         // Setup cta's.
         let $button = window.jQuery( this );
-        $button.attr( 'data-reveal-cta-open-html', $button.html() );
+        if ($this.attr('data-reveal-open')) {
+            $button.attr( 'data-reveal-cta-close-html', $button.html() );
+        } else {
+            $button.attr( 'data-reveal-cta-open-html', $button.html() );
+        }
     }).on( 'click', function( e ) {
 
         // On click, call toggle.
@@ -45,7 +51,7 @@ let init = () => {
                     // If the content is visible (should only be 1), then close and open.
                     if ( $groupContent.is( ':visible' ) ) {
                         close( groupButton, function () {
-                            open( that );
+                            open( that, callback );
                         });
                     } else {
 
@@ -56,17 +62,17 @@ let init = () => {
 
                 // No revealed content is open, so go ahead and open.
                 if ( closed === $groupButtons.length ) {
-                    open( that );
+                    open( that, callback );
                 }
             } else {
 
                 // Not in a group.
-                open( this );
+                open( this, callback );
             }
         } else {
 
             // Close content.
-            close( this );
+            close( this, callback );
         }
     });
 };
@@ -78,8 +84,6 @@ let open = ( button, callback ) => {
 
     if ( $content.is( '.js-reveal' ) ) {
         let $buttons = window.jQuery( '.js-reveal-cta[href=\"' + hash + '\"]' );
-
-        button.dispatchEvent(animationStart);
 
         $content.slideDown({
             duration: 250,
@@ -100,8 +104,6 @@ let open = ( button, callback ) => {
                 if ( typeof callback === 'function' ) {
                     callback.call( this );
                 }
-
-                button.dispatchEvent(animationEnd);
             }
         });
     }
@@ -114,8 +116,6 @@ let close = ( button, callback ) => {
 
     if ( $content.is( '.js-reveal' ) ) {
         let $buttons = window.jQuery( '.js-reveal-cta[href=\"' + hash + '\"]' );
-
-        button.dispatchEvent(animationStart);
 
         $content.slideUp({
             duration: 250,
@@ -136,8 +136,6 @@ let close = ( button, callback ) => {
                 if ( typeof callback === 'function' ) {
                     callback.call( this );
                 }
-
-                button.dispatchEvent(animationEnd);
             }
         });
     }
