@@ -1,16 +1,17 @@
 {
   "name": "honeycomb-web-toolkit",
-  "version": "10.0.12",
+  "version": "10.1.0",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/red-gate/honeycomb-web-toolkit"
+    "type": "git",
+    "url": "https://github.com/red-gate/honeycomb-web-toolkit"
   },
   "license": "Apache-2.0",
   "scripts": {
     "clean": "node scripts/clean.js",
     "css:sass": "node scripts/css/sass.js",
     "css:autoprefixer": "node node_modules/postcss-cli/bin/postcss --no-map true --use autoprefixer -c scripts/css -r dist/honeycomb.css",
-    "css": "npm run css:sass && npm run css:autoprefixer",
+    "css:cheatsheet": "node scripts/css/docs.js",
+    "css": "npm run css:sass && npm run css:autoprefixer && npm run css:cheatsheet",
     "fonts": "node scripts/fonts.js",
     "images": "node scripts/images.js",
     "js:bundle": "node scripts/javascript/bundle.js",
@@ -29,7 +30,8 @@
     "eslint": "^3.19.0",
     "fs-extra": "^3.0.1",
     "glob": "^7.1.1",
-    "node-sass": "^4.5.2",
+    "handlebars": "^4.0.11",
+    "node-sass": "^4.7.2",
     "postcss-cli": "^4.0.0",
     "uglify-js": "^3.0.6",
     "zip-folder": "^1.0.0"
