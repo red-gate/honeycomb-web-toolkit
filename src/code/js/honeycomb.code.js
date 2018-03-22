@@ -1,4 +1,4 @@
-let vendorUrl   = 'https://alexgorbatchev.com/pub/sh/current/';
+let vendorUrl   = 'https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/';
 let scriptsDir  = 'scripts/';
 let cssDir      = 'styles/';
 

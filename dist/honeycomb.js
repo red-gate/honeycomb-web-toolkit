@@ -386,7 +386,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var vendorUrl = 'https://alexgorbatchev.com/pub/sh/current/';
+var vendorUrl = 'https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/';
 var scriptsDir = 'scripts/';
 var cssDir = 'styles/';
 
