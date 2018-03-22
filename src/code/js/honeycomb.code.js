@@ -1,4 +1,4 @@
-let vendorUrl   = '//alexgorbatchev.com/pub/sh/current/';
+let vendorUrl   = 'https://alexgorbatchev.com/pub/sh/current/';
 let scriptsDir  = 'scripts/';
 let cssDir      = 'styles/';
 

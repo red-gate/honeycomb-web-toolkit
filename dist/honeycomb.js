@@ -386,7 +386,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var vendorUrl = '//alexgorbatchev.com/pub/sh/current/';
+var vendorUrl = 'https://alexgorbatchev.com/pub/sh/current/';
 var scriptsDir = 'scripts/';
 var cssDir = 'styles/';
 
