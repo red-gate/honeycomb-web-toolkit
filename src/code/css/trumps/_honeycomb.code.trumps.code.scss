@@ -1,3 +1,9 @@
+.syntaxhighlighter {
+    @include padding(0.5);
+    border-top: 1px solid color('grey', 3);
+    border-bottom: 1px solid color('grey', 3);
+}
+
 .syntaxhighlighter .code {
     white-space: nowrap;
 }
