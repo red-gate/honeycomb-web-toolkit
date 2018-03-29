@@ -35,10 +35,7 @@ const loadVendorScript = config => {
         config.url = 'code/vendor/syntaxhighlighter.js';
     }
 
-    loadScript.load(config.url, () => {
-        const myConsole = console;
-        myConsole.log('Syntax Highlighter script loaded');
-    });
+    loadScript.load(config.url);
 };
 
 const loadVendorStyle = config => {
@@ -46,10 +43,7 @@ const loadVendorStyle = config => {
         config.style = 'code/vendor/theme.css';
     }
 
-    loadStyle.load(config.style, () => {
-        const myConsole = console;
-        myConsole.log('Syntax Highlighter style loaded');
-    });
+    loadStyle.load(config.style);
 };
 
 const init = ( config = {} ) => {

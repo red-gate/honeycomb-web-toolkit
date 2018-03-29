@@ -433,10 +433,7 @@ var loadVendorScript = function loadVendorScript(config) {
         config.url = 'code/vendor/syntaxhighlighter.js';
     }
 
-    _honeycombDocument2.default.load(config.url, function () {
-        var myConsole = console;
-        myConsole.log('Syntax Highlighter script loaded');
-    });
+    _honeycombDocument2.default.load(config.url);
 };
 
 var loadVendorStyle = function loadVendorStyle(config) {
@@ -444,10 +441,7 @@ var loadVendorStyle = function loadVendorStyle(config) {
         config.style = 'code/vendor/theme.css';
     }
 
-    _honeycombDocument4.default.load(config.style, function () {
-        var myConsole = console;
-        myConsole.log('Syntax Highlighter style loaded');
-    });
+    _honeycombDocument4.default.load(config.style);
 };
 
 var init = function init() {
