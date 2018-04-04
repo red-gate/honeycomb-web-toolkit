@@ -25,6 +25,10 @@ window.addEventListener('load', () => {
     carousel.init();
 });
 
+// Chart.
+import chart from './chart/js/honeycomb.chart';
+chart.init();
+
 // Code
 import code from './code/js/honeycomb.code';
 code.init();

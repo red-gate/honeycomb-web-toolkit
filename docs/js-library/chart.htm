@@ -1,0 +1,51 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+<title>Honeycomb - JavaScript library - Chart</title>
+<meta name="description" content="Front-end Web Development and Design Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="" id="top-of-page">
+<div class="page-wrapper">
+    <div class="band">
+        <div class="band__inner-container--tight">
+            <h1>Chart</h1>
+
+            <h2>Line chart</h2>
+
+            <div class="grid">
+                <div class="grid__col grid__col--span-6-of-12">
+                    <p>Chart with no data supplied:</p>
+                    <div class="js-chart"></div>
+                </div>
+
+                <div class="grid__col grid__col--span-6-of-12">
+                    <p>Chart with data supplied inline, using <code>data-source</code> attribute:</p>
+                    <canvas class="js-chart" data-type="line" data-source="LineChartData"></canvas>
+                    <script>
+                        var LineChartData = {
+                            labels: ["April", "May", "June"],
+                            dataSets: [{
+                                label: '2013',
+                                data: [1, 10, 5],
+                                colour: '204, 0, 0'
+                            }, {
+                                label: '2014',
+                                data: [4, 14, 24],
+                                colour: '60, 133, 223'
+                            }, {
+                                label: '2015',
+                                data: [10, 20, 3],
+                                colour: '26, 172, 30'
+                            }]
+                        };
+                    </script>
+                </div>
+
+                <div class="grid__col grid__col--span-6-of-12">
+                    <p>Chart with data supplied via ajax, using <code>data-url</code> attribute:</p>
+                    <div class="js-chart" data-url="/docs/js-library/chart.json"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- END .page-wrapper -->
+<!--#include virtual="/docs/includes/footer/footer.htm" -->

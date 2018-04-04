@@ -1,0 +1,16 @@
+{
+    "labels": ["July", "August", "September"],
+    "dataSets": [{
+        "label": "2010",
+        "data": [10, 100, 50],
+        "colour": "204, 0, 0"
+    }, {
+        "label": "2011",
+        "data": [40, 140, 204],
+        "colour": "60, 133, 223"
+    }, {
+        "label": "2012",
+        "data": [104, 200, 30],
+        "colour": "26, 172, 30"
+    }]
+}

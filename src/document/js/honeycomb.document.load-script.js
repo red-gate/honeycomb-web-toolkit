@@ -3,7 +3,7 @@ const load = ( url = false, callback = false ) => {
         let se = document.createElement( 'script' );
         const honeycombPath = (window.Honeycomb && window.Honeycomb.path) ? window.Honeycomb.path : '';
         se.type = 'text/javascript';
-        se.src = honeycombPath + url;
+        se.src = (url.match('://') !== null) ? url : honeycombPath + url;
 
         let done = false;
 
