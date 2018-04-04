@@ -794,3 +794,9 @@
         content: "\e93b";
     }
 }
+.icon--sql-provision {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e925";
+    }
+}
