@@ -61,7 +61,31 @@
                     ></div>
                 </div>
             </div>
+
+            <div class="text--center">
+                <button class="js-button-toggle button">Toggle random dataset</button>
+            </div>
         </div>
     </div>
 </div><!-- END .page-wrapper -->
+
+<script>
+    const toggleButton = document.querySelector('.js-button-toggle');
+
+    const toggle = () => {
+        window.Honeycomb.charts.forEach(chart => {
+            const randomDatasetNumber = Math.floor(Math.random() * chart.data.datasets.length);
+            const dataset = chart.data.datasets[randomDatasetNumber];
+            window.console.info(`Toggling dataset: ${dataset.label}`);
+            if (dataset.hidden !== true) {
+                dataset.hidden = true;
+            } else {
+                dataset.hidden = false;
+            }
+            chart.update();
+        });
+    };
+
+    toggleButton.addEventListener('click', toggle);
+</script>
 <!--#include virtual="/docs/includes/footer/footer.htm" -->

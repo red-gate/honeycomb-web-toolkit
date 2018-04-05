@@ -527,17 +527,20 @@ var renderChart = function renderChart(chart) {
             return false;
         }
 
-        new window.Chart(chart.getContext('2d'), {
+        window.Honeycomb.charts.push(new window.Chart(chart.getContext('2d'), {
             type: type,
             data: config,
             options: options
-        });
+        }));
     });
 };
 
 var setGlobalSettings = function setGlobalSettings() {
     window.Chart.defaults.global.defaultFontFamily = 'Roboto';
     window.Chart.defaults.global.legend.position = 'bottom';
+
+    window.Honeycomb = window.Honeycomb || {};
+    window.Honeycomb.charts = window.Honeycomb.charts || [];
 };
 
 var getData = function getData(chart) {

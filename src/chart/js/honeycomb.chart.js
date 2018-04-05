@@ -141,17 +141,20 @@ const renderChart = chart => {
             return false;
         }
 
-        new window.Chart(chart.getContext('2d'), {
+        window.Honeycomb.charts.push(new window.Chart(chart.getContext('2d'), {
             type,
             data: config,
             options
-        });
+        }));
     });
 };
 
 const setGlobalSettings = () => {
     window.Chart.defaults.global.defaultFontFamily = 'Roboto';
     window.Chart.defaults.global.legend.position = 'bottom';
+
+    window.Honeycomb = window.Honeycomb || {};
+    window.Honeycomb.charts = window.Honeycomb.charts || [];
 };
 
 const getData = chart => {
