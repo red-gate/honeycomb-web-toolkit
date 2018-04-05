@@ -75,7 +75,10 @@ const renderChart = chart => {
             return false;
         }
 
-        const type = chart.getAttribute('data-type') || 'bar';
+        const type = chart.getAttribute('data-chart-type') || 'bar';
+        const stacked = (chart.getAttribute('data-chart-stacked') === 'true') ? true : false;
+        const verticalGridlines = (chart.getAttribute('data-chart-vertical-gridLines') === 'false') ? false : true;
+        const horizontalGridlines = (chart.getAttribute('data-chart-horizontal-gridLines') === 'false') ? false : true;
 
         const config = {
             labels: data.labels,
@@ -101,6 +104,37 @@ const renderChart = chart => {
                 };
             })
         };
+
+        const options = {};
+
+        // Stacked bar chart.
+        if (type === 'bar' && stacked) {
+            options.scales = options.scales || {};
+
+            options.scales.xAxes = options.scales.xAxes || [];
+            options.scales.xAxes[0] = options.scales.xAxes[0] || {};
+            options.scales.xAxes[0].stacked = true;
+
+            options.scales.yAxes = options.scales.yAxes || [];
+            options.scales.yAxes[0] = options.scales.yAxes[0] || {};
+            options.scales.yAxes[0].stacked = true;
+        }
+
+        // Gridlines (on by default).
+        if (!verticalGridlines) {
+            options.scales = options.scales || {};
+            options.scales.xAxes = options.scales.xAxes || [];
+            options.scales.xAxes[0] = options.scales.xAxes[0] || {};
+            options.scales.xAxes[0].gridLines = options.scales.xAxes[0].gridLines || {};
+            options.scales.xAxes[0].gridLines.display = false;
+        }
+        if (!horizontalGridlines) {
+            options.scales = options.scales || {};
+            options.scales.yAxes = options.scales.yAxes || [];
+            options.scales.yAxes[0] = options.scales.yAxes[0] || {};
+            options.scales.yAxes[0].gridLines = options.scales.yAxes[0].gridLines || {};
+            options.scales.yAxes[0].gridLines.display = false;
+        }
         
         if (typeof chart.getContext !== 'function') {
             window.console.warn('Honeycomb: The chart element doesn\'t have a context, so therefore will not render.');
@@ -109,7 +143,8 @@ const renderChart = chart => {
 
         new window.Chart(chart.getContext('2d'), {
             type,
-            data: config
+            data: config,
+            options
         });
     });
 };
@@ -123,13 +158,13 @@ const getData = chart => {
     const $deferred = window.jQuery.Deferred();
 
     // Get data from inline JavaScript.
-    if (chart.hasAttribute('data-source')) {
-        const dataSource = chart.getAttribute('data-source');
+    if (chart.hasAttribute('data-chart-source')) {
+        const dataSource = chart.getAttribute('data-chart-source');
         $deferred.resolve((typeof window[dataSource] !== 'undefined') ? window[dataSource] : (typeof this[dataSource] !== 'undefined') ? this[dataSource] : null);
 
     // Get data from an ajax request (JSON).
-    } else if (chart.hasAttribute('data-url')) {
-        const dataSource = chart.getAttribute('data-url');
+    } else if (chart.hasAttribute('data-chart-url')) {
+        const dataSource = chart.getAttribute('data-chart-url');
         window.jQuery.getJSON(dataSource, data => {
             $deferred.resolve(data);
         });

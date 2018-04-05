@@ -19,7 +19,7 @@
 
                 <div class="grid__col grid__col--span-6-of-12">
                     <p>Chart with data supplied inline, using <code>data-source</code> attribute:</p>
-                    <canvas class="js-chart" data-type="line" data-source="LineChartData"></canvas>
+                    <canvas class="js-chart" data-chart-type="line" data-chart-source="LineChartData"></canvas>
                     <script>
                         var LineChartData = {
                             labels: ["April", "May", "June"],
@@ -42,7 +42,23 @@
 
                 <div class="grid__col grid__col--span-6-of-12">
                     <p>Chart with data supplied via ajax, using <code>data-url</code> attribute:</p>
-                    <div class="js-chart" data-url="/docs/js-library/chart.json"></div>
+                    <div class="js-chart" data-chart-url="/docs/js-library/chart.json"></div>
+                </div>
+
+                <div class="grid__col grid__col--span-6-of-12">
+                    <p>Chart with data supplied via ajax, using <code>data-url</code> attribute, and stacked:</p>
+                    <div class="js-chart" data-chart-url="/docs/js-library/chart.json" data-chart-stacked="true"></div>
+                </div>
+
+                <div class="grid__col grid__col--span-6-of-12">
+                    <p>Chart with data supplied via ajax, using <code>data-url</code> attribute, and stacked, without gridlines:</p>
+                    <div 
+                        class="js-chart" 
+                        data-chart-url="/docs/js-library/chart.json" 
+                        data-chart-stacked="true" 
+                        data-chart-vertical-gridlines="false" 
+                        data-chart-horizontal-gridlines="false"
+                    ></div>
                 </div>
             </div>
         </div>
