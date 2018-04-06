@@ -1,6 +1,6 @@
 // Extra tasks when building on TeamCity.
 const zipFolder = require("zip-folder");
-const fs = require("fs");
+const fs = require("fs-extra");
 const request = require("request");
 const pkg = require('../package.json');
 
@@ -64,6 +64,11 @@ if (!fs.existsSync("npm-dist")){
 }
 
 // TODO: copy the stuff we want in the npm package into npm-dist
+// src and .npmignore and package.json
+fs.copySync("src", "npm-dist/src");
+fs.copySync(".npmignore", "npm-dist/.npmignore");
+fs.copySync("package.json", "npm-dist/package.json");
+
 
 // Zip up the dist folder
 const npmPkgFilename = "RedGate.HoneycombWebToolkit.Npm." + packageVersion + ".zip";
