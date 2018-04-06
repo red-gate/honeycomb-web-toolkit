@@ -5,7 +5,7 @@
     position: relative;
 
     ul {
-        @include padding(0.5, top);
+        @include padding(0.25, top);
         @include padding(0.25, bottom);
         display: block;
         position: absolute;
@@ -23,7 +23,8 @@
         a {
             @include padding(0.8, left);
             @include padding(0.8, right);
-            @include padding(0.25, bottom);
+            @include padding(0.1, bottom);
+            @include padding(0.1, top);
             display: block;
         }
     }
