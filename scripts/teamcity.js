@@ -19,48 +19,52 @@ if (!process.env.OCTOPUS_API_KEY) {
 	process.exit(1);
 }
 
+const packageAndPost = (folderPath, archivePath) => {
+    zipFolder(folderPath, archivePath, err => {
+        if (err) {
+            console.error('Failed to zip output package', err);
+            process.exit(1);
+        } else {
+            console.log('Created zipped package');
+    
+            // Upload the resulting package to Octopus
+            const packagesEndpoint = `${process.env.OCTOPUS_URL}/api/packages/raw`;
+    
+            const octopus_post_form = {
+                data: fs.createReadStream(archivePath),
+            };
+    
+            request({
+                url: packagesEndpoint,
+                method: 'POST',
+                formData: octopus_post_form,
+                headers: {
+                    'X-Octopus-ApiKey': process.env.OCTOPUS_API_KEY
+                }
+            }, (err, response, body) => {
+                // Upload callback
+                if (!err && response.statusCode == 201) {
+                    console.log('Package uploaded to Octopus');
+                } else {
+                    console.error('Octopus upload failed', err, `status code: ${response.statusCode}`);
+                    process.exit(1);
+                }
+            });
+        }
+    });
+};
+
 // Set the build version from package.json, plus the build counter to uniquify it
-var packageVersion = pkg.version + "." + process.env.BUILD_COUNTER;
-console.warn("##teamcity[buildNumber '" + packageVersion + "']");
+const packageVersion = `${pkg.version}.${process.env.BUILD_COUNTER}`;
+console.warn(`##teamcity[buildNumber '${packageVersion}']`);
 
 // Zip up the dist folder for CDN use
-const cdnPkgFilename = "RedGate.HoneycombWebToolkit." + packageVersion + ".zip";
-zipFolder("dist", cdnPkgFilename, function(err) {
-	if(err) {
-		console.error("Failed to zip output package", err);
-		process.exit(1);
-	} else {
-		console.log("Created zipped package");
-
-		// Upload the resulting package to Octopus
-		const packagesEndpoint = process.env.OCTOPUS_URL + "/api/packages/raw";
-
-		var octopus_post_form = {
-			data: fs.createReadStream(cdnPkgFilename),
-		};
-
-		request({
-			url: packagesEndpoint,
-			method: "POST",
-			formData: octopus_post_form,
-			headers: {
-				"X-Octopus-ApiKey": process.env.OCTOPUS_API_KEY
-			}
-		}, function(err, response, body) {
-			// Upload callback
-			if (!err && response.statusCode == 201) {
-				console.log("Package uploaded to Octopus");
-			} else {
-				console.error("Octopus upload failed", err, " status code ", response.statusCode);
-				process.exit(1);
-			}
-		});
-	}
-});
+const cdnPkgFilename = `RedGate.HoneycombWebToolkit.${packageVersion}.zip`;
+packageAndPost('dist', cdnPkgFilename);
 
 // Build up the npm-dist folder with stuff we want in the package we send to npmjs.com
-if (!fs.existsSync("npm-dist")){
-    fs.mkdirSync("npm-dist");
+if (!fs.existsSync('npm-dist')) {
+    fs.mkdirSync('npm-dist');
 }
 
 // Copy the stuff we want in the npm package into npm-dist
@@ -71,40 +75,8 @@ fs.copySync('.npmignore', `${npmDistDir}/.npmignore`);
 fs.copySync('.babelrc', `${npmDistDir}/.babelrc`);
 fs.copySync('.license.pdf', `${npmDistDir}/license.pdf`);
 
-
 // Zip up the dist folder
-const npmPkgFilename = "RedGate.HoneycombWebToolkit.Npm." + packageVersion + ".zip";
-zipFolder("npm-dist", npmPkgFilename, function(err) {
-	if(err) {
-		console.error("Failed to zip output package", err);
-		process.exit(1);
-	} else {
-		console.log("Created zipped package");
+const npmPkgFilename = `RedGate.HoneycombWebToolkit.Npm.${packageVersion}.zip`;
+packageAndPost('npm-dist', npmPkgFilename);
 
-		// Upload the resulting package to Octopus
-		const packagesEndpoint = process.env.OCTOPUS_URL + "/api/packages/raw";
-
-		var octopus_post_form = {
-			data: fs.createReadStream(npmPkgFilename),
-		};
-
-		request({
-			url: packagesEndpoint,
-			method: "POST",
-			formData: octopus_post_form,
-			headers: {
-				"X-Octopus-ApiKey": process.env.OCTOPUS_API_KEY
-			}
-		}, function(err, response, body) {
-			// Upload callback
-			if (!err && response.statusCode == 201) {
-				console.log("Package uploaded to Octopus");
-			} else {
-				console.error("Octopus upload failed", err, " status code ", response.statusCode);
-				process.exit(1);
-			}
-		});
-	}
-});
-
-console.log("teamcity.js complete");
+console.log('teamcity.js complete');
