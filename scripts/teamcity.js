@@ -63,7 +63,7 @@ if (!fs.existsSync("npm-dist")){
     fs.mkdirSync("npm-dist");
 }
 
-// TODO: copy the stuff we want in the npm package into npm-dist
+// Copy the stuff we want in the npm package into npm-dist
 const npmDistDir = 'npm-dist';
 fs.copySync('src', `${npmDistDir}/src`);
 fs.copySync('package.json', `${npmDistDir}/package.json`);
