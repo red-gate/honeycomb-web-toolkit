@@ -64,10 +64,12 @@ if (!fs.existsSync("npm-dist")){
 }
 
 // TODO: copy the stuff we want in the npm package into npm-dist
-// src and .npmignore and package.json
-fs.copySync("src", "npm-dist/src");
-fs.copySync(".npmignore", "npm-dist/.npmignore");
-fs.copySync("package.json", "npm-dist/package.json");
+const npmDistDir = 'npm-dist';
+fs.copySync('src', `${npmDistDir}/src`);
+fs.copySync('package.json', `${npmDistDir}/package.json`);
+fs.copySync('.npmignore', `${npmDistDir}/.npmignore`);
+fs.copySync('.babelrc', `${npmDistDir}/.babelrc`);
+fs.copySync('.license.pdf', `${npmDistDir}/license.pdf`);
 
 
 // Zip up the dist folder
