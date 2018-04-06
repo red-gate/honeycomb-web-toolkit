@@ -23,9 +23,9 @@ if (!process.env.OCTOPUS_API_KEY) {
 var packageVersion = pkg.version + "." + process.env.BUILD_COUNTER;
 console.warn("##teamcity[buildNumber '" + packageVersion + "']");
 
-// Zip up the dist folder
-const pkgFilename = "RedGate.HoneycombWebToolkit." + packageVersion + ".zip";
-zipFolder("dist", pkgFilename, function(err) {
+// Zip up the dist folder for CDN use
+const cdnPkgFilename = "RedGate.HoneycombWebToolkit." + packageVersion + ".zip";
+zipFolder("dist", cdnPkgFilename, function(err) {
 	if(err) {
 		console.error("Failed to zip output package", err);
 		process.exit(1);
@@ -36,7 +36,49 @@ zipFolder("dist", pkgFilename, function(err) {
 		const packagesEndpoint = process.env.OCTOPUS_URL + "/api/packages/raw";
 
 		var octopus_post_form = {
-			data: fs.createReadStream(pkgFilename),
+			data: fs.createReadStream(cdnPkgFilename),
+		};
+
+		request({
+			url: packagesEndpoint,
+			method: "POST",
+			formData: octopus_post_form,
+			headers: {
+				"X-Octopus-ApiKey": process.env.OCTOPUS_API_KEY
+			}
+		}, function(err, response, body) {
+			// Upload callback
+			if (!err && response.statusCode == 201) {
+				console.log("Package uploaded to Octopus");
+			} else {
+				console.error("Octopus upload failed", err, " status code ", response.statusCode);
+				process.exit(1);
+			}
+		});
+	}
+});
+
+// Build up the npm-dist folder with stuff we want in the package we send to npmjs.com
+if (!fs.existsSync("npm-dist")){
+    fs.mkdirSync("npm-dist");
+}
+
+// TODO: copy the stuff we want in the npm package into npm-dist
+
+// Zip up the dist folder
+const npmPkgFilename = "RedGate.HoneycombWebToolkit.Npm." + packageVersion + ".zip";
+zipFolder("npm-dist", npmPkgFilename, function(err) {
+	if(err) {
+		console.error("Failed to zip output package", err);
+		process.exit(1);
+	} else {
+		console.log("Created zipped package");
+
+		// Upload the resulting package to Octopus
+		const packagesEndpoint = process.env.OCTOPUS_URL + "/api/packages/raw";
+
+		var octopus_post_form = {
+			data: fs.createReadStream(npmPkgFilename),
 		};
 
 		request({
