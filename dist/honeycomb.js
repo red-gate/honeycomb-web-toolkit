@@ -1309,6 +1309,9 @@ _honeycomb7.default.init();
 // Chat.
 
 _honeycombChat2.default.init();
+window.Honeycomb = window.Honeycomb || {};
+window.Honeycomb.Chat = window.Honeycomb.Chat || {};
+window.Honeycomb.Chat.Intercom = _honeycombChat2.default;
 
 // Code
 

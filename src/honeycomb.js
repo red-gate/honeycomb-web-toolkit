@@ -32,6 +32,9 @@ chart.init();
 // Chat.
 import intercom from './chat/js/honeycomb.chat.intercom';
 intercom.init();
+window.Honeycomb = window.Honeycomb || {};
+window.Honeycomb.Chat = window.Honeycomb.Chat || {};
+window.Honeycomb.Chat.Intercom = intercom;
 
 // Code
 import code from './code/js/honeycomb.code';
