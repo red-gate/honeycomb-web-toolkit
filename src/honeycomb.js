@@ -29,6 +29,10 @@ window.addEventListener('load', () => {
 import chart from './chart/js/honeycomb.chart';
 chart.init();
 
+// Chat.
+import intercom from './chat/js/honeycomb.chat.intercom';
+intercom.init();
+
 // Code
 import code from './code/js/honeycomb.code';
 code.init();
