@@ -800,3 +800,9 @@
         content: "\e925";
     }
 }
+.icon--home {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e93d";
+    }
+}
