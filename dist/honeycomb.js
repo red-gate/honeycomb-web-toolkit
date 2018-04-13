@@ -469,58 +469,8 @@ var renderChart = function renderChart(chart) {
         }
 
         var type = chart.getAttribute('data-chart-type') || 'bar';
-        var stacked = chart.getAttribute('data-chart-stacked') === 'true' ? true : false;
-        var verticalGridlines = chart.getAttribute('data-chart-vertical-gridLines') === 'false' ? false : true;
-        var horizontalGridlines = chart.getAttribute('data-chart-horizontal-gridLines') === 'false' ? false : true;
-
-        var config = {
-            labels: data.labels,
-            datasets: data.dataSets.map(function (dataSet) {
-                return {
-                    label: dataSet.label,
-                    data: dataSet.data,
-                    borderWidth: 1,
-                    backgroundColor: type === 'doughnut' || type === 'pie' || type === 'polarArea' ? data.dataSets.map(function (ds) {
-                        return 'rgba(' + getColour(ds) + ', 0.25)';
-                    }) : 'rgba(' + getColour(dataSet) + ', 0.25)',
-
-                    borderColor: type === 'doughnut' || type === 'pie' || type === 'polarArea' ? data.dataSets.map(function (ds) {
-                        return 'rgb(' + getColour(ds) + ')';
-                    }) : 'rgb(' + getColour(dataSet) + ')'
-                };
-            })
-        };
-
-        var options = {};
-
-        // Stacked bar chart.
-        if (type === 'bar' && stacked) {
-            options.scales = options.scales || {};
-
-            options.scales.xAxes = options.scales.xAxes || [];
-            options.scales.xAxes[0] = options.scales.xAxes[0] || {};
-            options.scales.xAxes[0].stacked = true;
-
-            options.scales.yAxes = options.scales.yAxes || [];
-            options.scales.yAxes[0] = options.scales.yAxes[0] || {};
-            options.scales.yAxes[0].stacked = true;
-        }
-
-        // Gridlines (on by default).
-        if (!verticalGridlines) {
-            options.scales = options.scales || {};
-            options.scales.xAxes = options.scales.xAxes || [];
-            options.scales.xAxes[0] = options.scales.xAxes[0] || {};
-            options.scales.xAxes[0].gridLines = options.scales.xAxes[0].gridLines || {};
-            options.scales.xAxes[0].gridLines.display = false;
-        }
-        if (!horizontalGridlines) {
-            options.scales = options.scales || {};
-            options.scales.yAxes = options.scales.yAxes || [];
-            options.scales.yAxes[0] = options.scales.yAxes[0] || {};
-            options.scales.yAxes[0].gridLines = options.scales.yAxes[0].gridLines || {};
-            options.scales.yAxes[0].gridLines.display = false;
-        }
+        var config = setConfig(chart, data);
+        var options = setOptions(chart);
 
         if (typeof chart.getContext !== 'function') {
             window.console.warn('Honeycomb: The chart element doesn\'t have a context, so therefore will not render.');
@@ -533,6 +483,79 @@ var renderChart = function renderChart(chart) {
             options: options
         }));
     });
+};
+
+var setConfig = function setConfig(chart, data) {
+    var type = chart.getAttribute('data-chart-type') || 'bar';
+    var colourOpacity = chart.hasAttribute('data-chart-colour-opacity') ? chart.getAttribute('data-chart-colour-opacity') : 0.25;
+
+    var config = {
+        labels: data.labels,
+        datasets: data.dataSets.map(function (dataSet) {
+            return {
+                label: dataSet.label,
+                data: dataSet.data,
+                borderWidth: 1,
+                backgroundColor: type === 'doughnut' || type === 'pie' || type === 'polarArea' ? data.dataSets.map(function (ds) {
+                    return 'rgba(' + getColour(ds) + ', ' + colourOpacity + ')';
+                }) : 'rgba(' + getColour(dataSet) + ', ' + colourOpacity + ')',
+
+                borderColor: type === 'doughnut' || type === 'pie' || type === 'polarArea' ? data.dataSets.map(function (ds) {
+                    return 'rgb(' + getColour(ds) + ')';
+                }) : 'rgb(' + getColour(dataSet) + ')'
+            };
+        })
+    };
+
+    return config;
+};
+
+var setOptions = function setOptions(chart) {
+    var type = chart.getAttribute('data-chart-type') || 'bar';
+    var stacked = chart.getAttribute('data-chart-stacked') === 'true' ? true : false;
+    var verticalGridlines = chart.getAttribute('data-chart-vertical-gridLines') === 'false' ? false : true;
+    var horizontalGridlines = chart.getAttribute('data-chart-horizontal-gridLines') === 'false' ? false : true;
+    var legendPosition = chart.hasAttribute('data-chart-legend-position') ? chart.getAttribute('data-chart-legend-position') : false;
+
+    var options = {};
+
+    // Stacked bar chart.
+    if (type === 'bar' && stacked) {
+        options.scales = options.scales || {};
+
+        options.scales.xAxes = options.scales.xAxes || [];
+        options.scales.xAxes[0] = options.scales.xAxes[0] || {};
+        options.scales.xAxes[0].stacked = true;
+
+        options.scales.yAxes = options.scales.yAxes || [];
+        options.scales.yAxes[0] = options.scales.yAxes[0] || {};
+        options.scales.yAxes[0].stacked = true;
+    }
+
+    // Gridlines (on by default).
+    if (!verticalGridlines) {
+        options.scales = options.scales || {};
+        options.scales.xAxes = options.scales.xAxes || [];
+        options.scales.xAxes[0] = options.scales.xAxes[0] || {};
+        options.scales.xAxes[0].gridLines = options.scales.xAxes[0].gridLines || {};
+        options.scales.xAxes[0].gridLines.display = false;
+    }
+    if (!horizontalGridlines) {
+        options.scales = options.scales || {};
+        options.scales.yAxes = options.scales.yAxes || [];
+        options.scales.yAxes[0] = options.scales.yAxes[0] || {};
+        options.scales.yAxes[0].gridLines = options.scales.yAxes[0].gridLines || {};
+        options.scales.yAxes[0].gridLines.display = false;
+    }
+
+    // Legend position.
+    if (legendPosition) {
+        options.legend = options.legend || {};
+        options.legend.display = true;
+        options.legend.position = legendPosition;
+    }
+
+    return options;
 };
 
 var setGlobalSettings = function setGlobalSettings() {

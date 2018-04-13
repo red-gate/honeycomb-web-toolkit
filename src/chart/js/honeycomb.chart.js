@@ -76,66 +76,9 @@ const renderChart = chart => {
         }
 
         const type = chart.getAttribute('data-chart-type') || 'bar';
-        const stacked = (chart.getAttribute('data-chart-stacked') === 'true') ? true : false;
-        const verticalGridlines = (chart.getAttribute('data-chart-vertical-gridLines') === 'false') ? false : true;
-        const horizontalGridlines = (chart.getAttribute('data-chart-horizontal-gridLines') === 'false') ? false : true;
+        const config = setConfig(chart, data);
+        const options = setOptions(chart);
 
-        const config = {
-            labels: data.labels,
-            datasets: data.dataSets.map(dataSet => {
-                return {
-                    label: dataSet.label,
-                    data: dataSet.data,
-                    borderWidth: 1,
-                    backgroundColor: (type === 'doughnut' || type === 'pie' || type === 'polarArea') ? 
-                        data.dataSets.map(ds => {
-                            return `rgba(${getColour(ds)}, 0.25)`;
-                        }) :
-                        
-                        `rgba(${getColour(dataSet)}, 0.25)`,
-
-                    borderColor: (type === 'doughnut' || type === 'pie' || type === 'polarArea') ? 
-                        data.dataSets.map(ds => {
-                            return `rgb(${getColour(ds)})`;
-                        })
-                        : 
-                        
-                        `rgb(${getColour(dataSet)})`
-                };
-            })
-        };
-
-        const options = {};
-
-        // Stacked bar chart.
-        if (type === 'bar' && stacked) {
-            options.scales = options.scales || {};
-
-            options.scales.xAxes = options.scales.xAxes || [];
-            options.scales.xAxes[0] = options.scales.xAxes[0] || {};
-            options.scales.xAxes[0].stacked = true;
-
-            options.scales.yAxes = options.scales.yAxes || [];
-            options.scales.yAxes[0] = options.scales.yAxes[0] || {};
-            options.scales.yAxes[0].stacked = true;
-        }
-
-        // Gridlines (on by default).
-        if (!verticalGridlines) {
-            options.scales = options.scales || {};
-            options.scales.xAxes = options.scales.xAxes || [];
-            options.scales.xAxes[0] = options.scales.xAxes[0] || {};
-            options.scales.xAxes[0].gridLines = options.scales.xAxes[0].gridLines || {};
-            options.scales.xAxes[0].gridLines.display = false;
-        }
-        if (!horizontalGridlines) {
-            options.scales = options.scales || {};
-            options.scales.yAxes = options.scales.yAxes || [];
-            options.scales.yAxes[0] = options.scales.yAxes[0] || {};
-            options.scales.yAxes[0].gridLines = options.scales.yAxes[0].gridLines || {};
-            options.scales.yAxes[0].gridLines.display = false;
-        }
-        
         if (typeof chart.getContext !== 'function') {
             window.console.warn('Honeycomb: The chart element doesn\'t have a context, so therefore will not render.');
             return false;
@@ -147,6 +90,86 @@ const renderChart = chart => {
             options
         }));
     });
+};
+
+const setConfig = ( chart, data ) => {
+    const type = chart.getAttribute('data-chart-type') || 'bar';
+    const colourOpacity = (chart.hasAttribute('data-chart-colour-opacity')) ? chart.getAttribute('data-chart-colour-opacity') : 0.25;
+
+    const config = {
+        labels: data.labels,
+        datasets: data.dataSets.map(dataSet => {
+            return {
+                label: dataSet.label,
+                data: dataSet.data,
+                borderWidth: 1,
+                backgroundColor: (type === 'doughnut' || type === 'pie' || type === 'polarArea') ? 
+                    data.dataSets.map(ds => {
+                        return `rgba(${getColour(ds)}, ${colourOpacity})`;
+                    }) :
+                    
+                    `rgba(${getColour(dataSet)}, ${colourOpacity})`,
+
+                borderColor: (type === 'doughnut' || type === 'pie' || type === 'polarArea') ? 
+                    data.dataSets.map(ds => {
+                        return `rgb(${getColour(ds)})`;
+                    })
+                    : 
+                    
+                    `rgb(${getColour(dataSet)})`
+            };
+        })
+    };
+
+    return config;
+};
+
+const setOptions = chart => {
+    const type = chart.getAttribute('data-chart-type') || 'bar';
+    const stacked = (chart.getAttribute('data-chart-stacked') === 'true') ? true : false;
+    const verticalGridlines = (chart.getAttribute('data-chart-vertical-gridLines') === 'false') ? false : true;
+    const horizontalGridlines = (chart.getAttribute('data-chart-horizontal-gridLines') === 'false') ? false : true;
+    const legendPosition = (chart.hasAttribute('data-chart-legend-position')) ? chart.getAttribute('data-chart-legend-position') : false;
+
+    const options = {};
+
+    // Stacked bar chart.
+    if (type === 'bar' && stacked) {
+        options.scales = options.scales || {};
+
+        options.scales.xAxes = options.scales.xAxes || [];
+        options.scales.xAxes[0] = options.scales.xAxes[0] || {};
+        options.scales.xAxes[0].stacked = true;
+
+        options.scales.yAxes = options.scales.yAxes || [];
+        options.scales.yAxes[0] = options.scales.yAxes[0] || {};
+        options.scales.yAxes[0].stacked = true;
+    }
+
+    // Gridlines (on by default).
+    if (!verticalGridlines) {
+        options.scales = options.scales || {};
+        options.scales.xAxes = options.scales.xAxes || [];
+        options.scales.xAxes[0] = options.scales.xAxes[0] || {};
+        options.scales.xAxes[0].gridLines = options.scales.xAxes[0].gridLines || {};
+        options.scales.xAxes[0].gridLines.display = false;
+    }
+    if (!horizontalGridlines) {
+        options.scales = options.scales || {};
+        options.scales.yAxes = options.scales.yAxes || [];
+        options.scales.yAxes[0] = options.scales.yAxes[0] || {};
+        options.scales.yAxes[0].gridLines = options.scales.yAxes[0].gridLines || {};
+        options.scales.yAxes[0].gridLines.display = false;
+    }
+
+    // Legend position.
+    if (legendPosition) {
+        options.legend = options.legend || {};
+        options.legend.display = true;
+        options.legend.position = legendPosition;
+    }
+
+    return options;
 };
 
 const setGlobalSettings = () => {
