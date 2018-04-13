@@ -37,6 +37,10 @@
 
     @include responsive("medium") {
         display: block;
+        overflow: hidden;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: color("grey", 3);
     }
 
     &.active {
