@@ -130,6 +130,7 @@ const setOptions = chart => {
     const verticalGridlines = (chart.getAttribute('data-chart-vertical-gridLines') === 'false') ? false : true;
     const horizontalGridlines = (chart.getAttribute('data-chart-horizontal-gridLines') === 'false') ? false : true;
     const legendPosition = (chart.hasAttribute('data-chart-legend-position')) ? chart.getAttribute('data-chart-legend-position') : false;
+    const legendOnClick = (chart.hasAttribute('data-chart-legend-click')) ? chart.getAttribute('data-chart-legend-click') : false;
 
     const options = {};
 
@@ -167,6 +168,12 @@ const setOptions = chart => {
         options.legend = options.legend || {};
         options.legend.display = true;
         options.legend.position = legendPosition;
+    }
+
+    // Legend callback.
+    if (legendOnClick !== 'true') {
+        options.legend = options.legend || {};
+        options.legend.onClick = () => {};
     }
 
     return options;

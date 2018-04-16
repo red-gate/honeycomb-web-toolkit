@@ -516,6 +516,7 @@ var setOptions = function setOptions(chart) {
     var verticalGridlines = chart.getAttribute('data-chart-vertical-gridLines') === 'false' ? false : true;
     var horizontalGridlines = chart.getAttribute('data-chart-horizontal-gridLines') === 'false' ? false : true;
     var legendPosition = chart.hasAttribute('data-chart-legend-position') ? chart.getAttribute('data-chart-legend-position') : false;
+    var legendOnClick = chart.hasAttribute('data-chart-legend-click') ? chart.getAttribute('data-chart-legend-click') : false;
 
     var options = {};
 
@@ -553,6 +554,12 @@ var setOptions = function setOptions(chart) {
         options.legend = options.legend || {};
         options.legend.display = true;
         options.legend.position = legendPosition;
+    }
+
+    // Legend callback.
+    if (legendOnClick !== 'true') {
+        options.legend = options.legend || {};
+        options.legend.onClick = function () {};
     }
 
     return options;
