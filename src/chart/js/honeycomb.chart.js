@@ -10,7 +10,7 @@ const colours = [
     '118, 118, 118',    // Grey
 ];
 
-const init = () => {
+const init = ( config = {} ) => {
     const charts = document.querySelectorAll('.js-chart');
     if (charts.length > 0) {
         if (typeof window.Chart === 'function') {
@@ -21,7 +21,11 @@ const init = () => {
                 renderChart(chart);
             }
         } else {
-            loadScript.load('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js', init);
+            if (typeof config.url === 'undefined') {
+                config.url = 'chart/vendor/chart.js.2.4.0.min.js';
+            }
+
+            loadScript.load(config.url, init);
         }
     }
 };

@@ -404,6 +404,8 @@ var colours = ['204, 0, 0', // Red
 '118, 118, 118'];
 
 var init = function init() {
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
     var charts = document.querySelectorAll('.js-chart');
     if (charts.length > 0) {
         if (typeof window.Chart === 'function') {
@@ -414,7 +416,11 @@ var init = function init() {
                 renderChart(chart);
             }
         } else {
-            _honeycombDocument2.default.load('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js', init);
+            if (typeof config.url === 'undefined') {
+                config.url = 'chart/vendor/chart.js.2.4.0.min.js';
+            }
+
+            _honeycombDocument2.default.load(config.url, init);
         }
     }
 };
