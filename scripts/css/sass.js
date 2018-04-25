@@ -2,9 +2,16 @@ const path = require('path');
 const fs = require('fs-extra');
 const sass = require('node-sass');
 const pkg = require('../../package.json');
+let script = 'honeycomb';
+
+// check for overriding arguments
+if( process.argv[2] ) {
+    script = process.argv[2];
+}
+
 const css = `${pkg.project.dist}/honeycomb.css`;
 sass.render({
-    file: `${pkg.project.src}/honeycomb.scss`,
+    file: `${pkg.project.src}/${script}.scss`,
     outputStyle: 'compressed',
     outFile: css
 }, ( err, result ) => {

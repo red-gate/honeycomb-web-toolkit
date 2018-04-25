@@ -1,0 +1,71 @@
+/* Styles for Zuora payment iframe */
+
+
+#HostedPageForm {
+
+    
+    /**
+      * Form field layout
+      */
+
+    .form-group {
+        @extend .form__field-container;
+    }
+
+    #form-element-creditCardType {
+        overflow: auto;
+    }
+
+    // override fixed width set by zuora
+    .select-input {
+        width: inherit;
+    }
+
+    // Set field containers to inline-block, so they don't push the required dot onto a new line
+    .field-set, .image-cvv-position, .form-element-creditCardState span {
+        display: inline-block;
+    }
+
+
+    /**
+      * Required dots
+      */
+
+    .form-element.required:after {
+        content: '';
+        @extend .form__required-dot;
+    }
+
+
+    /**
+      * Button styles
+      */
+
+    #submitButton {
+        @extend .button;
+        @extend .button--primary;
+    }
+
+
+    /**
+      * Error styles
+      */
+
+    .error-field {
+        @extend .zeta;
+        color: #cc0000;
+    }
+    .tooltip {
+        display: none;
+    }
+
+    
+    /**
+      * Hide help text from the old layout
+      */
+
+    .required-desc {
+        display: none;
+    }
+
+}
