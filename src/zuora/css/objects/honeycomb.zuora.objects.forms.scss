@@ -3,7 +3,7 @@
 
 #HostedPageForm {
 
-    
+
     /**
       * Form field layout
       */
@@ -22,7 +22,7 @@
     }
 
     // Set field containers to inline-block, so they don't push the required dot onto a new line
-    .field-set, .image-cvv-position, .form-element-creditCardState span {
+    .field-set, .image-cvv-position {
         display: inline-block;
     }
 
@@ -34,6 +34,10 @@
     .form-element.required:after {
         content: '';
         @extend .form__required-dot;
+    }
+
+    #form-element-creditCardState span[style="display: block;"] {
+        display: inline-block !important;
     }
 
 
@@ -59,11 +63,11 @@
         display: none;
     }
 
-    
+
     /**
       * Hide help text from the old layout
       */
-
+    
     .required-desc {
         display: none;
     }
