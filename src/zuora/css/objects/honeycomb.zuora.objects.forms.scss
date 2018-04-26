@@ -16,6 +16,10 @@
         overflow: auto;
     }
 
+    .spacer {
+        height: 20px;
+    }
+
     // override fixed width set by zuora
     .select-input {
         width: inherit;
