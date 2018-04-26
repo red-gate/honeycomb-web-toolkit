@@ -55,7 +55,7 @@
       * Error styles
       */
 
-    .error-field {
+    .error, .error-field {
         @extend .zeta;
         color: #cc0000;
     }
