@@ -1,6 +1,6 @@
 {
   "name": "honeycomb-web-toolkit",
-  "version": "10.6.0",
+  "version": "10.7.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/red-gate/honeycomb-web-toolkit"
@@ -21,7 +21,10 @@
     "js:vendor": "node scripts/javascript/vendors.js",
     "js": "npm run js:lint && npm run js:bundle && npm run js:minify && npm run js:vendor",
     "teamcity": "node scripts/teamcity.js",
-    "build": "npm run clean && npm run css && npm run fonts && npm run images && npm run js"
+    "build": "npm run clean && npm run css && npm run fonts && npm run images && npm run js",
+    "zuora:sass": "node scripts/css/sass.js zuora",
+    "zuora:css": "npm run zuora:sass && npm run css:autoprefixer && npm run css:vendor && npm run css:cheatsheet",
+    "zuora:build" : "npm run clean && npm run zuora:css && npm run fonts && npm run images && npm run js"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.0",
