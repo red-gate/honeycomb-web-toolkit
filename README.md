@@ -99,3 +99,15 @@ Once your webserver is configured, point it at the `/` directory in the honeycom
 Build the toolkit:
 `
 npm install && npm run build`
+
+
+### Custom build for Zuora 
+
+To run a custom build of Honeycomb for Zuora, run:
+
+```
+npm install 
+npm run zuora:build
+```
+
+The minified Zuora stylesheet will then build to `/dist/honeycomb.css`.
