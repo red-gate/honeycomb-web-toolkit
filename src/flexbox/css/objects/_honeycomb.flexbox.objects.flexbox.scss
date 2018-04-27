@@ -1,0 +1,97 @@
+.flex {
+    display: flex;
+}
+
+/**
+ * Flex direction options
+ */
+.flex-direction--row {
+    flex-direction: row;
+}
+
+.flex-direction--row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-direction--column {
+    flex-direction: column;
+}
+
+.flex-direction--column-reverse {
+    flex-direction: column-reverse;
+}
+
+/**
+ * Flex wrapping options
+ */
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+/**
+ * Flex alignment options (cross axis)
+ */
+.flex-align--stretch {
+    align-items: stretch;
+}
+
+.flex-align--start {
+    align-items: flex-start;
+}
+
+.flex-align--end {
+    align-items: flex-end;
+}
+
+.flex-align--center {
+    align-items: center;
+}
+
+/**
+ * Flex justify options (main axis)
+ */
+.flex-justify--start {
+    justify-content: flex-start;
+}
+
+.flex-justify--end {
+    justify-content: flex-end;
+}
+
+.flex-justify--center {
+    justify-content: center;
+}
+
+.flex-justify--space-around {
+    justify-content: space-around;
+}
+
+.flex-justify--space-between {
+    justify-content: space-between;
+}
+
+.flex-justify--space-evenly {
+    justify-content: space-evenly;
+}
+
+/**
+ * Flex grow/shrink options
+ */
+.flex-grow {
+    flex-grow: 1;
+}
+
+.flex-shrink {
+    flex-shrink: 1;
+}
+
+/**
+ * Flex order
+ */
+[flex-order] {
+    order: attr(data-flex-order);
+}
