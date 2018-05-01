@@ -1,0 +1,43 @@
+.expand-container, [data-macro-name="expand"] {
+    
+    .expand-control {
+        cursor: pointer;
+        color: $hc-link-color;
+
+        &:hover {
+            color: $hc-link-hover-color;
+        }
+
+        &:before {
+            @include margin(0, 'right', true);
+        }
+    }
+
+    .expand-content {
+        @include margin(0.25, 'top');
+    }
+
+    .expand-control-icon {
+        display: none;
+    }
+
+    &.expand-hidden {
+        .expand-control {
+            @extend .icon--chevron-right;
+        }
+        
+        .expand-content {
+            display: none;
+        }
+    }
+
+    &.expand-revealed {
+        .expand-control {
+            @extend .icon--chevron-down;
+        }
+        
+        .expand-content {
+            display: block;
+        }
+    }
+}
