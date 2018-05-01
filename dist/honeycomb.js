@@ -434,6 +434,30 @@ var getRandomColour = function getRandomColour() {
     return colours[randomNumber];
 };
 
+var setBackgroundColour = function setBackgroundColour(type, opacity, dataSets, dataSet) {
+    if (type === 'doughnut' || type === 'pie' || type === 'polarArea') {
+        return dataSets.map(function (ds) {
+            return 'rgba(' + getColour(ds) + ', ' + opacity + ')';
+        });
+    }
+
+    if (type === 'scatter') {
+        return 'rgba(0, 0, 0, 0)';
+    }
+
+    return 'rgba(' + getColour(dataSet) + ', ' + opacity + ')';
+};
+
+var setBorderColour = function setBorderColour(type, opacity, dataSets, dataSet) {
+    if (type === 'doughnut' || type === 'pie' || type === 'polarArea') {
+        return dataSets.map(function (ds) {
+            return 'rgb(' + getColour(ds) + ')';
+        });
+    }
+
+    return 'rgb(' + getColour(dataSet) + ')';
+};
+
 var ensureIsCanvas = function ensureIsCanvas(chart) {
     var chartNodeName = chart.nodeName.toLowerCase();
 
@@ -502,13 +526,8 @@ var setConfig = function setConfig(chart, data) {
                 label: dataSet.label,
                 data: dataSet.data,
                 borderWidth: 1,
-                backgroundColor: type === 'doughnut' || type === 'pie' || type === 'polarArea' ? data.dataSets.map(function (ds) {
-                    return 'rgba(' + getColour(ds) + ', ' + colourOpacity + ')';
-                }) : 'rgba(' + getColour(dataSet) + ', ' + colourOpacity + ')',
-
-                borderColor: type === 'doughnut' || type === 'pie' || type === 'polarArea' ? data.dataSets.map(function (ds) {
-                    return 'rgb(' + getColour(ds) + ')';
-                }) : 'rgb(' + getColour(dataSet) + ')'
+                backgroundColor: setBackgroundColour(type, colourOpacity, data.dataSets, dataSet),
+                borderColor: setBorderColour(type, colourOpacity, data.dataSets, dataSet)
             };
         })
     };

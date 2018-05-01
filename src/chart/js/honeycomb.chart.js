@@ -39,6 +39,30 @@ const getRandomColour = () => {
     return colours[randomNumber];
 };
 
+const setBackgroundColour = ( type, opacity, dataSets, dataSet ) => {
+    if (type === 'doughnut' || type === 'pie' || type === 'polarArea') {
+        return dataSets.map(ds => {
+            return `rgba(${getColour(ds)}, ${opacity})`;
+        });
+    }
+
+    if (type === 'scatter') {
+        return 'rgba(0, 0, 0, 0)';
+    }
+
+    return `rgba(${getColour(dataSet)}, ${opacity})`;
+};
+
+const setBorderColour = ( type, opacity, dataSets, dataSet ) => {
+    if (type === 'doughnut' || type === 'pie' || type === 'polarArea') {
+        return dataSets.map(ds => {
+            return `rgb(${getColour(ds)})`;
+        });
+    }
+
+    return `rgb(${getColour(dataSet)})`;
+};
+
 const ensureIsCanvas = chart => {
     const chartNodeName = chart.nodeName.toLowerCase();
     
@@ -107,20 +131,8 @@ const setConfig = ( chart, data ) => {
                 label: dataSet.label,
                 data: dataSet.data,
                 borderWidth: 1,
-                backgroundColor: (type === 'doughnut' || type === 'pie' || type === 'polarArea') ? 
-                    data.dataSets.map(ds => {
-                        return `rgba(${getColour(ds)}, ${colourOpacity})`;
-                    }) :
-                    
-                    `rgba(${getColour(dataSet)}, ${colourOpacity})`,
-
-                borderColor: (type === 'doughnut' || type === 'pie' || type === 'polarArea') ? 
-                    data.dataSets.map(ds => {
-                        return `rgb(${getColour(ds)})`;
-                    })
-                    : 
-                    
-                    `rgb(${getColour(dataSet)})`
+                backgroundColor: setBackgroundColour(type, colourOpacity, data.dataSets, dataSet),
+                borderColor: setBorderColour(type, colourOpacity, data.dataSets, dataSet)
             };
         })
     };
