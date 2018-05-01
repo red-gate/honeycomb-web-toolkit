@@ -49,6 +49,10 @@ input[type="radio"] {
         }
     }
 
+    &:disabled:checked, &.disabled:checked {
+        background-color: color('grey', 2) !important;
+    }
+
     & + label {
         @include margin(1, right);
         @include padding(0.1, 'left');
