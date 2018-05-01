@@ -1,0 +1,226 @@
+<!--#include virtual="/docs/includes/head/head-start.htm" -->
+    <title>Honeycomb - JavaScript library - Chart</title>
+    <meta name="description" content="Front-end Web Development and Design Guidelines for redgate.com.">
+<!--#include virtual="/docs/includes/head/head-end.htm" -->
+
+<body class="" id="top-of-page">
+<div class="page-wrapper">
+    <div class="band">
+        <div class="band__inner-container--tightx">
+            <h1>Chart</h1>
+
+            <div class="grid flex flex-wrap flex-align--center">
+                <div class="grid__col grid__col--span-3-of-12">
+                    <div class="padded--tight spaced--tight border-color--grey--4 border">
+                        <h2>Line chart</h2>
+                        <canvas class="js-chart" data-chart-type="line" data-chart-source="LineChartData" data-chart-legend-position="right"></canvas>
+                        <script>
+                            var LineChartData = {
+                                labels: ["April", "May", "June"],
+                                dataSets: [{
+                                    label: '2013',
+                                    data: [1, 10, 5],
+                                    colour: '204, 0, 0'
+                                }, {
+                                    label: '2014',
+                                    data: [4, 14, 24],
+                                    colour: '60, 133, 223'
+                                }, {
+                                    label: '2015',
+                                    data: [10, 20, 3],
+                                    colour: '26, 172, 30'
+                                }]
+                            };
+                        </script>
+                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-3-of-12">
+                    <div class="padded--tight spaced--tight border-color--grey--4 border">
+                        <h2>Bar chart</h2>
+                        <canvas class="js-chart" data-chart-type="bar" data-chart-source="BarChartData" data-chart-legend-position="right"></canvas>
+                        <script>
+                            var BarChartData = {
+                                labels: ["April", "May", "June"],
+                                dataSets: [{
+                                    label: '2013',
+                                    data: [1, 10, 5],
+                                    colour: '204, 0, 0'
+                                }, {
+                                    label: '2014',
+                                    data: [4, 14, 24],
+                                    colour: '60, 133, 223'
+                                }, {
+                                    label: '2015',
+                                    data: [10, 20, 3],
+                                    colour: '26, 172, 30'
+                                }]
+                            };
+                        </script>
+                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-3-of-12">
+                    <div class="padded--tight spaced--tight border-color--grey--4 border">
+                        <h2>Bar chart (Stacked)</h2>
+                        <canvas class="js-chart" data-chart-type="bar" data-chart-source="StackedBarChartData" data-chart-stacked="true" data-chart-legend-position="right"></canvas>
+                        <script>
+                            var StackedBarChartData = {
+                                labels: ["April", "May", "June"],
+                                dataSets: [{
+                                    label: '2013',
+                                    data: [1, 10, 5],
+                                    colour: '204, 0, 0'
+                                }, {
+                                    label: '2014',
+                                    data: [4, 14, 24],
+                                    colour: '60, 133, 223'
+                                }, {
+                                    label: '2015',
+                                    data: [10, 20, 3],
+                                    colour: '26, 172, 30'
+                                }]
+                            };
+                        </script>
+                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-3-of-12">
+                    <div class="padded--tight spaced--tight border-color--grey--4 border">
+                        <h2>Pie chart</h2>
+                        <div class="padded-h--loose">
+                            <canvas class="js-chart" data-chart-type="pie" data-chart-source="PieChartData" data-chart-legend-position="right"></canvas>
+                            <script>
+                                var PieChartData = {
+                                    labels: ["April", "May", "June"],
+                                    dataSets: [{
+                                        label: '2013',
+                                        data: [1, 10, 5],
+                                        colour: '204, 0, 0'
+                                    }, {
+                                        label: '2014',
+                                        data: [4, 14, 24],
+                                        colour: '60, 133, 223'
+                                    }, {
+                                        label: '2015',
+                                        data: [10, 20, 3],
+                                        colour: '26, 172, 30'
+                                    }]
+                                };
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-3-of-12">
+                    <div class="padded--tight spaced--tight border-color--grey--4 border">
+                        <h2>Doughnut chart</h2>
+                        <div class="padded-h--loose">
+                            <canvas class="js-chart" data-chart-type="doughnut" data-chart-source="DoughnutChartData" data-chart-legend-position="right"></canvas>
+                            <script>
+                                var DoughnutChartData = {
+                                    labels: ["April", "May", "June"],
+                                    dataSets: [{
+                                        label: '2013',
+                                        data: [1, 10, 5],
+                                        colour: '204, 0, 0'
+                                    }, {
+                                        label: '2014',
+                                        data: [4, 14, 24],
+                                        colour: '60, 133, 223'
+                                    }, {
+                                        label: '2015',
+                                        data: [10, 20, 3],
+                                        colour: '26, 172, 30'
+                                    }]
+                                };
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-3-of-12">
+                    <div class="padded--tight spaced--tight border-color--grey--4 border">
+                        <h2>Radar chart</h2>
+                        <canvas class="js-chart" data-chart-type="radar" data-chart-source="RadarChartData" data-chart-legend-position="right"></canvas>
+                        <script>
+                            var RadarChartData = {
+                                labels: ["April", "May", "June"],
+                                dataSets: [{
+                                    label: '2013',
+                                    data: [1, 10, 5],
+                                    colour: '204, 0, 0'
+                                }, {
+                                    label: '2014',
+                                    data: [4, 14, 24],
+                                    colour: '60, 133, 223'
+                                }, {
+                                    label: '2015',
+                                    data: [10, 20, 3],
+                                    colour: '26, 172, 30'
+                                }]
+                            };
+                        </script>
+                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-3-of-12">
+                    <div class="padded--tight spaced--tight border-color--grey--4 border">
+                        <h2>Polar area chart</h2>
+                        <div class="padded-h--loose">
+                            <canvas class="js-chart" data-chart-type="polarArea" data-chart-source="PolarChartData" data-chart-legend-position="right"></canvas>
+                            <script>
+                                var PolarChartData = {
+                                    labels: ["April", "May", "June"],
+                                    dataSets: [{
+                                        label: '2013',
+                                        data: [1, 10, 5],
+                                        colour: '204, 0, 0'
+                                    }, {
+                                        label: '2014',
+                                        data: [4, 14, 24],
+                                        colour: '60, 133, 223'
+                                    }, {
+                                        label: '2015',
+                                        data: [10, 20, 3],
+                                        colour: '26, 172, 30'
+                                    }]
+                                };
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-3-of-12">
+                    <div class="padded--tight spaced--tight border-color--grey--4 border">
+                        <h2>Bubble chart</h2>
+                        <canvas class="js-chart" data-chart-type="bubble" data-chart-source="BubbleChartData" data-chart-legend-position="right"></canvas>
+                        <script>
+                            var BubbleChartData = {
+                                labels: ["April", "May", "June"],
+                                dataSets: [{
+                                    label: '2013',
+                                    data: [{x: 1, y: 1, r: 5}, {x: 10, y: 10, r: 5}, {x: 5, y: 5, r: 5}],
+                                    colour: '204, 0, 0'
+                                }, {
+                                    label: '2014',
+                                    data: [{x: 4, y: 4, r: 5}, {x: 14, y: 14, r: 5}, {x: 24, y: 24, r: 5}],
+                                    colour: '60, 133, 223'
+                                }, {
+                                    label: '2015',
+                                    data: [{x: 10, y: 10, r: 5}, {x: 20, y: 20, r: 5}, {x: 3, y: 3, r: 5}],
+                                    colour: '26, 172, 30'
+                                }]
+                            };
+                        </script>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div><!-- END .page-wrapper -->
+
+<!--#include virtual="/docs/includes/footer/footer.htm" -->
