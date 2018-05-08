@@ -147,6 +147,10 @@ const setOptions = chart => {
     const horizontalGridlines = (chart.getAttribute('data-chart-horizontal-gridLines') === 'false') ? false : true;
     const legendPosition = (chart.hasAttribute('data-chart-legend-position')) ? chart.getAttribute('data-chart-legend-position') : false;
     const legendOnClick = (chart.hasAttribute('data-chart-legend-click')) ? chart.getAttribute('data-chart-legend-click') : false;
+    const legend = (chart.hasAttribute('data-chart-legend')) ? chart.getAttribute('data-chart-legend') : true;
+    const animation = (chart.hasAttribute('data-chart-animation')) ? chart.getAttribute('data-chart-animation') : true;
+    const verticalAxis = (chart.getAttribute('data-chart-vertical-axis')) ? chart.getAttribute('data-chart-vertical-axis') : true;
+    const horizontalAxis = (chart.getAttribute('data-chart-horizontal-axis')) ? chart.getAttribute('data-chart-horizontal-axis') : true;
 
     const options = {};
 
@@ -179,6 +183,12 @@ const setOptions = chart => {
         options.scales.yAxes[0].gridLines.display = false;
     }
 
+    // Legend.
+    if (legend === 'false') {
+        options.legend = options.legend || {};
+        options.legend.display = false;
+    }
+
     // Legend position.
     if (legendPosition) {
         options.legend = options.legend || {};
@@ -190,6 +200,28 @@ const setOptions = chart => {
     if (legendOnClick !== 'true') {
         options.legend = options.legend || {};
         options.legend.onClick = () => {};
+    }
+
+    // Animation.
+    if (animation === 'false') {
+        options.animation = options.animation || {};
+        options.animation.duration = 0;
+    }
+
+    // Vertical axis
+    if (verticalAxis === 'false') {
+        options.scales = options.scales || {};
+        options.scales.xAxes = options.scales.xAxes || [];
+        options.scales.xAxes[0] = options.scales.xAxes[0] || {};
+        options.scales.xAxes[0].display = false;
+    }
+
+    // Horizontal axis
+    if (horizontalAxis === 'false') {
+        options.scales = options.scales || {};
+        options.scales.yAxes = options.scales.yAxes || [];
+        options.scales.yAxes[0] = options.scales.yAxes[0] || {};
+        options.scales.yAxes[0].display = false;
     }
 
     return options;
