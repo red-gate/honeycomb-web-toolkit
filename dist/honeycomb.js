@@ -546,7 +546,7 @@ var setOptions = function setOptions(chart) {
     var options = {};
 
     // Stacked bar chart.
-    if (type === 'bar' && stacked) {
+    if ((type === 'bar' || type === 'horizontalBar') && stacked) {
         options.scales = options.scales || {};
 
         options.scales.xAxes = options.scales.xAxes || [];
