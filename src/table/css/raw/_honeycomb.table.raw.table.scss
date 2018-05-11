@@ -20,7 +20,7 @@ table caption {
 th, td {
     @include border-top();
     @include border-bottom();
-    padding: $hc-table-padding;
+    padding: $hc-table-padding-vertical $hc-table-padding-horizontal;
     border-color: $hc-table-border-colour;
     word-wrap: break-word;
     word-break: normal;

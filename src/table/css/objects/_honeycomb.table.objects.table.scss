@@ -72,44 +72,44 @@
  */
 th, td {
 	&.padded--tight {
-        padding: $hc-table-padding-tight;
+        padding: $hc-table-padding-vertical-tight $hc-table-padding-horizontal-tight;
 	}
 
 	&.padded-v--tight {
-        padding-top: $hc-table-padding-tight;
-        padding-bottom: $hc-table-padding-tight;
+        padding-top: $hc-table-padding-vertical-tight;
+        padding-bottom: $hc-table-padding-vertical-tight;
 	}
 
 	&.padded-h--tight {
-        padding-left: $hc-table-padding-tight;
-        padding-right: $hc-table-padding-tight;
+        padding-left: $hc-table-padding-horizontal-tight;
+        padding-right: $hc-table-padding-horizontal-tight;
 	}
 
 	&.padded--loose {
-        padding: $hc-table-padding-loose;
+        padding: $hc-table-padding-vertical-loose $hc-table-padding-horizontal-loose;
 	}
 
 	&.padded-v--loose {
-        padding-top: $hc-table-padding-loose;
-        padding-bottom: $hc-table-padding-loose;
+        padding-top: $hc-table-padding-vertical-loose;
+        padding-bottom: $hc-table-padding-vertical-loose;
 	}
 
 	&.padded-h--loose {
-        padding-left: $hc-table-padding-loose;
-        padding-right: $hc-table-padding-loose;
+        padding-left: $hc-table-padding-horizontal-loose;
+        padding-right: $hc-table-padding-horizontal-loose;
 	}
 }
 
 
 .table--tight {
 	th, td {
-        padding: $hc-table-padding-tight;
+        padding: $hc-table-padding-vertical-tight $hc-table-padding-horizontal-tight;
 	}
 }
 
 .table--loose {
     th, td {
-        padding: $hc-table-padding-loose;
+        padding: $hc-table-padding-vertical-loose $hc-table-padding-horizontal-loose;
     }
 }
 
