@@ -23,7 +23,7 @@ Reference the compiled CSS in the head of your HTML document(s), e.g.
 <code>\<link rel="stylesheet" href="/assets/honeycomb/honeycomb.css"></code>
 
 #### JavaScript
-If you're planning on using the JavaScript elements of Honeycomb, then you'll need to reference the compiled, minified JavaScript from your project, e.g. <code><script src="/assets/honeycomb/honeycomb.min.js"></code>.
+If you're planning on using the JavaScript elements of Honeycomb, then you'll need to reference the compiled, minified JavaScript from your project, e.g. <code><script src="/assets/honeycomb/honeycomb.min.js"></script></code>.
 
 You'll also need to create a Honeycomb object, setting the path to your Honeycomb directory, so that the JavaScript can lazy load some of the vendor scripts it needs.
 
@@ -111,3 +111,6 @@ npm run zuora:build
 ```
 
 The minified Zuora stylesheet will then build to `/dist/honeycomb.css`.
+
+## Contributing to the web toolkit
+To contribute to the web toolkit project, please create a Pull Request and let us know on the #honeycomb Slack channel. We'll then review the Pull Request and work with you to get it merged into master.
