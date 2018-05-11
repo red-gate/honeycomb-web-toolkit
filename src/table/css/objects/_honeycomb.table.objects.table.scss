@@ -72,39 +72,45 @@
  */
 th, td {
 	&.padded--tight {
-		@include padding(0.25);
+        padding: $hc-table-padding-tight;
 	}
 
 	&.padded-v--tight {
-		@include padding(0.25, 'top');
-		@include padding(0.25, 'bottom');
+        padding-top: $hc-table-padding-tight;
+        padding-bottom: $hc-table-padding-tight;
 	}
 
 	&.padded-h--tight {
-		@include padding(0.25, 'left');
-		@include padding(0.25, 'right');
+        padding-left: $hc-table-padding-tight;
+        padding-right: $hc-table-padding-tight;
 	}
 
 	&.padded--loose {
-		@include padding(1);
+        padding: $hc-table-padding-loose;
 	}
 
 	&.padded-v--loose {
-		@include padding(1, 'top');
-		@include padding(1, 'bottom');
+        padding-top: $hc-table-padding-loose;
+        padding-bottom: $hc-table-padding-loose;
 	}
 
 	&.padded-h--loose {
-		@include padding(1, 'left');
-		@include padding(1, 'right');
+        padding-left: $hc-table-padding-loose;
+        padding-right: $hc-table-padding-loose;
 	}
 }
 
 
 .table--tight {
 	th, td {
-		padding: 3px;
+        padding: $hc-table-padding-tight;
 	}
+}
+
+.table--loose {
+    th, td {
+        padding: $hc-table-padding-loose;
+    }
 }
 
 .table--light {

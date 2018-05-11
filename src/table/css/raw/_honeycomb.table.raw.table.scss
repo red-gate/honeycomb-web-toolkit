@@ -18,9 +18,9 @@ table caption {
 }
 
 th, td {
-    @include padding(0.5);
     @include border-top();
     @include border-bottom();
+    padding: $hc-table-padding;
     border-color: $hc-table-border-colour;
     word-wrap: break-word;
     word-break: normal;
