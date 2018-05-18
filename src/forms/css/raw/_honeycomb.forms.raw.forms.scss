@@ -106,7 +106,6 @@ input[type="submit"] {
 
 
 label {
-    @include font-size(16px);
     @include margin(0.1, 'bottom');
     font-weight: bold;
 }

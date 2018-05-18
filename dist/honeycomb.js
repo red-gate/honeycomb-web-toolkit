@@ -2984,6 +2984,9 @@ var getOptions = function getOptions(video) {
 
 // Add the video when the iframe API library has loaded.
 window.onYouTubeIframeAPIReady = function () {
+    // set ready flag for use in React apps
+    window.youTubeIframeAPIReady = true;
+
     addInlineVideos();
 };
 
