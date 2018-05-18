@@ -4,6 +4,7 @@ nav.breadcrumbs {
 
     ul {
         @include margin(0, left);
+        @include margin(0, bottom);
     }
 
     li {
