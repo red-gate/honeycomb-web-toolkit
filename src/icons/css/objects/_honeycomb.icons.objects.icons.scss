@@ -656,6 +656,12 @@
         content: "\e929";
     }
 }
+.icon--sql-change-automation {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e929";
+    }
+}
 .icon--sql-backup {
     @extend %icon;
     &:before, &:after {
