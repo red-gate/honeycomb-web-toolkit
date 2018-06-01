@@ -806,3 +806,129 @@
         content: "\e93d";
     }
 }
+.icon--sort-arrows {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e93e";
+    }
+}
+.icon--processes {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e93f";
+    }
+}
+.icon--arrow-drop-up {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e940";
+    }
+}
+.icon--arrow-drop-down {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e941";
+    }
+}
+.icon--arrow-right-link {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e942";
+    }
+}
+.icon--arrow-left-link {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e943";
+    }
+}
+.icon--arrow-up-link {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e944";
+    }
+}
+.icon--arrow-down-link {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e945";
+    }
+}
+.icon--merge-branch {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e946";
+    }
+}
+.icon--branch {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e947";
+    }
+}
+.icon--azure {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e948";
+    }
+}
+.icon--server-cluster {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e949";
+    }
+}
+.icon--database-image {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94a";
+    }
+}
+.icon--database-clone {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94b";
+    }
+}
+.icon--blocked {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94c";
+    }
+}
+.icon--availability-group {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94d";
+    }
+}
+.icon--metrics {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94e";
+    }
+}
+.icon--database-file {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94f";
+    }
+}
+.icon--table {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e950";
+    }
+}
+.icon--column {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e951";
+    }
+}
+.icon--dashboard {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e952";
+    }
+}

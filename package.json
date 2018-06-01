@@ -1,6 +1,6 @@
 {
   "name": "honeycomb-web-toolkit",
-  "version": "10.8.15",
+  "version": "10.8.16",
   "repository": {
     "type": "git",
     "url": "https://github.com/red-gate/honeycomb-web-toolkit"
@@ -24,7 +24,7 @@
     "build": "npm run clean && npm run css && npm run fonts && npm run images && npm run js",
     "zuora:sass": "node scripts/css/sass.js zuora",
     "zuora:css": "npm run zuora:sass && npm run css:autoprefixer && npm run css:vendor && npm run css:cheatsheet",
-    "zuora:build" : "npm run clean && npm run zuora:css && npm run fonts && npm run images && npm run js"
+    "zuora:build": "npm run clean && npm run zuora:css && npm run fonts && npm run images && npm run js"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.0",
