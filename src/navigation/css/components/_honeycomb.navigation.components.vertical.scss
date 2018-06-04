@@ -35,6 +35,11 @@
 	&.nav--vertical--right {
 		text-align: right;
 
+		& > ul > li > a:before {
+			left: auto;
+			right: 18px;
+		}
+
 		a {
 			@include padding(1.5, "right");
 		}
@@ -46,7 +51,6 @@
 
 
 	.nav--vertical__active, .nav--vertical__active-parent {
-
 		& > ul {
 			display: block;
 		}
@@ -62,7 +66,7 @@
 
 	& > ul > li > a {
 		@include font-size(16px, 28px);
-	}
+	} 
 
 	&.nav--vertical--has-icons {
 		.nav--vertical__collapse {
@@ -90,6 +94,12 @@
 		}
 
 		& > ul > li > a {
+			&:before {
+				position: absolute;
+				left: 14px;
+				z-index: 1;
+			}
+
 			background-repeat: no-repeat;
 			background-size: 16px 16px;
 			background-position: 15px 50%;
@@ -313,6 +323,17 @@
 					border-right-color: $hc-nav-vertical-dark-link-border-color-hover;
 				}
 			}
+		}
+	}
+
+	&--has-icons {
+		& > ul > li > a:before {
+			color: $hc-nav-vertical-link-color;
+		}
+	}
+	&--has-icons.nav--vertical--dark {
+		& > ul > li > a:before {
+			color: $hc-nav-vertical-dark-link-color;
 		}
 	}
 
