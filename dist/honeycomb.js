@@ -2830,6 +2830,7 @@ var addInlineVideos = function addInlineVideos() {
                 // Append empty div which will get replaced by video.
                 var videoDiv = document.createElement('div');
                 videoDiv.setAttribute('id', videoId + '-' + videoCounter);
+                videoContainer.innerHTML = '';
                 videoContainer.appendChild(videoDiv);
 
                 // Get the options (data attributes)
