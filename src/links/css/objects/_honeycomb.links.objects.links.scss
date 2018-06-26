@@ -19,12 +19,6 @@ a.link-image * {
 	transition: opacity 0.3s ease;
 }
 
-a:hover.link-image {
-	& {
-		opacity: 0.7;
-
-		* {
-			opacity: inherit;
-		}
-	}
+a:hover.link-image * {
+	opacity: 0.7;
 }
