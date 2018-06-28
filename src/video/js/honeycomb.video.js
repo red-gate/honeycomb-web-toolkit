@@ -86,7 +86,7 @@ let addInlineVideos = () => {
                 events: {
                     onStateChange: ( event ) => {
 
-                        if (typeof window.onYTPlayerStateChange === function) {
+                        if (typeof window.onYTPlayerStateChange === 'function') {
                             window.onYTPlayerStateChange(event);
                         }
 
