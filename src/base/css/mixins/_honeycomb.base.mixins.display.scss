@@ -1,0 +1,19 @@
+@mixin buildDisplayRule($bp: "") {
+    .display--inline#{$bp} {
+        display: inline !important;
+        display: inline-block !important;
+        width: auto !important;
+    }
+    
+    .display--block#{$bp} {
+        display: block !important;
+    }
+    
+    .display--table#{$bp} {
+        display: table !important;
+    }
+
+    .display--flex#{$bp} {
+        display: flex !important;
+    }
+}

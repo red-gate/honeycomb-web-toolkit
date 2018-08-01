@@ -2852,6 +2852,10 @@ var addInlineVideos = function addInlineVideos() {
                     events: {
                         onStateChange: function onStateChange(event) {
 
+                            if (typeof window.onYTPlayerStateChange === 'function') {
+                                window.onYTPlayerStateChange(event);
+                            }
+
                             // Reset the video ID.
                             videoId = event.target.getVideoData().video_id;
 

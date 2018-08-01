@@ -1,13 +1,16 @@
-.display--inline {
-    display: inline !important;
-    display: inline-block !important;
-    width: auto !important;
-}
+@include buildDisplayRule();
 
-.display--block {
-    display: block !important;
-}
+@if $hc-responsive {
+    $hc-breakpoints: false !default;
+    @if $hc-breakpoints {
+        @each $breakpoint in $hc-breakpoints {
+            $name: nth($breakpoint, 1);
+            $width: nth($breakpoint, 2);
+            $declaration: "(#{$hc-mqProperty} #{$width})";
 
-.display--table {
-	display: table !important;
+            @media only screen and #{$declaration} {
+                @include buildDisplayRule("--#{$name}");
+            }
+        }
+    }
 }
