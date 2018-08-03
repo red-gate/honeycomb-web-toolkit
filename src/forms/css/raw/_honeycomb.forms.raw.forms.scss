@@ -134,3 +134,13 @@ select {
         @include padding(0.25, 'bottom');
     }
 }
+
+// Data list dropdown arrow, which only displays in Chrome.
+input[list]::-webkit-calendar-picker-indicator {
+    color: transparent;
+    background-color: transparent;
+    background-position: center;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiA4LjI3IiB3aWR0aD0iMTIiIGhlaWdodD0iOC4yNyI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMCAyLjI3bDIuMjctMi4yNyAzLjczIDMuNzMgMy43My0zLjczIDIuMjcgMi4yNy02IDYtNi02eiIvPjwvc3ZnPg==); // Base64 encoded SVG.
+    background-repeat: no-repeat;
+    background-size: 1em;
+}

@@ -14,7 +14,7 @@
 
         <form method="get" action="">
             <fieldset>
-                <div class="grid__col grid__col--span-6-of-12">
+                <div class="grid__col grid__col--span-4-of-12">
                     <div class="form__field-container">
                         <label for="title">Title</label>
                         <select name="title" id="title">
@@ -26,7 +26,22 @@
                         </select>
                     </div>
                 </div>
-                <div class="grid__col grid__col--span-6-of-12">
+
+                <div class="grid__col grid__col--span-4-of-12">
+                    <div class="form__field-container">
+                        <label for="datalist">Datalist</label>
+                        <input list="flavours" id="datalist" name="datalist"/>
+                        <datalist id="flavours">
+                            <option value="Chocolate">
+                            <option value="Coconut">
+                            <option value="Mint">
+                            <option value="Strawberry">
+                            <option value="Vanilla">
+                        </datalist>
+                    </div>
+                </div>
+
+                <div class="grid__col grid__col--span-4-of-12">
                     <div class="form__field-container">
                         <label for="surname">Surname</label>
                         <input type="text" name="surname" id="surname" placeholder="Casbon" class="js-help" data-help-text="Help text to go here">
