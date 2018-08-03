@@ -3,18 +3,18 @@ form, fieldset {
     border: none;
 }
 
-input, select, textarea, label {
-    display: block;
-}
-
 input, select, textarea {
     @include border();
-    @include padding(0.25);
+    padding: 10px; // Set padding explicitly because of IE rounding to 2 decimal places only.
     display: inline-block;
     width: 90%; // Fallback if calc rule below fails.
     width: calc(100% - 30px);
     border-radius: 5px;
     border-color: color('grey', 5);
+}
+
+input, select {
+    line-height: normal; // Normalize sets line height of input to 'normal', let's keep it the same for selects also.
 }
 
 input[type="checkbox"],
@@ -107,5 +107,30 @@ input[type="submit"] {
 
 label {
     @include margin(0.1, 'bottom');
+    display: block;
     font-weight: bold;
+}
+
+select {
+    appearance: none;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiA4LjI3IiB3aWR0aD0iMTIiIGhlaWdodD0iOC4yNyI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMCAyLjI3bDIuMjctMi4yNyAzLjczIDMuNzMgMy43My0zLjczIDIuMjcgMi4yNy02IDYtNi02eiIvPjwvc3ZnPg==); // Base64 encoded SVG.
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    background-size: 1em;
+
+    &::-ms-expand {
+        display: none; // Hide arrow in IE 10.
+    }
+
+    // Hack to get select to display same height in all browsers.
+    // All browsers, apart from Chrome are displaying the select
+    // box as 2px taller, so we reduce the padding by default,
+    // and override the padding for Chrome only.
+    padding-top: 9px;
+    padding-bottom: 9px;
+    @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+        // Chrome only CSS.
+        @include padding(0.25, 'top');
+        @include padding(0.25, 'bottom');
+    }
 }
