@@ -932,3 +932,15 @@
         content: "\e952";
     }
 }
+.icon--azure-database {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e954";
+    }
+}
+.icon--arrow-circle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e953";
+    }
+}

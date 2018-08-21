@@ -329,6 +329,12 @@
               <div class="grid__col grid__col--span-3-of-12">
                   <p class="icon--dashboard">Dashboard</p>
               </div>
+              <div class="grid__col grid__col--span-3-of-12">
+                  <p class="icon--azure-database">Azure database</p>
+              </div>
+              <div class="grid__col grid__col--span-3-of-12">
+                  <p class="icon--arrow-circle">Arrow circle</p>
+              </div>
 
 
           <h2 class="padded-top clearfix">Product icons</h2>
