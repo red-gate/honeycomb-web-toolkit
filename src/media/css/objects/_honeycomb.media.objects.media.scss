@@ -58,7 +58,8 @@
     .media, .media--chunky {
         .media__image, .media__image--right {
             float: none;
-            margin: 0;
+            margin-top: 0;
+            margin-left: 0;
         }
 
         .video-container {
