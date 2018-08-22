@@ -335,6 +335,15 @@
               <div class="grid__col grid__col--span-3-of-12">
                   <p class="icon--arrow-circle">Arrow circle</p>
               </div>
+              <div class="grid__col grid__col--span-3-of-12">
+                  <p class="icon--circle">Circle</p>
+              </div>
+              <div class="grid__col grid__col--span-3-of-12">
+                  <p class="icon--star-circle">Star circle</p>
+              </div>
+              <div class="grid__col grid__col--span-3-of-12">
+                  <p class="icon--script">Script</p>
+              </div>
 
 
           <h2 class="padded-top clearfix">Product icons</h2>

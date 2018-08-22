@@ -944,3 +944,21 @@
         content: "\e953";
     }
 }
+.icon--circle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e956";
+    }
+}
+.icon--star-circle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e955";
+    }
+}
+.icon--script {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e957";
+    }
+}
