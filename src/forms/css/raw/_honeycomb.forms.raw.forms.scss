@@ -112,6 +112,7 @@ label {
 }
 
 select {
+    @include padding(1.2, 'right');
     -webkit-appearance: none;
     -moz-appearance: none;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiA4LjI3IiB3aWR0aD0iMTIiIGhlaWdodD0iOC4yNyI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMCAyLjI3bDIuMjctMi4yNyAzLjczIDMuNzMgMy43My0zLjczIDIuMjcgMi4yNy02IDYtNi02eiIvPjwvc3ZnPg==); // Base64 encoded SVG.
@@ -138,6 +139,7 @@ select {
 
 // Data list dropdown arrow, which only displays in Chrome.
 input[list]::-webkit-calendar-picker-indicator {
+    @include margin(0.25, 'left');
     color: transparent;
     background-color: transparent;
     background-position: center;
