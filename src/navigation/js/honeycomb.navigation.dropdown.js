@@ -32,7 +32,7 @@ let handle = () => {
     }
     
     let $body = window.jQuery( 'body' );
-    $body.on( 'click', '.js-dropdown .arrow', function( e ) {
+    $body.on( 'click', '.js-dropdown a[href="#toggle"]', function( e ) {
         let $this = window.jQuery( this );
         let $dropdown = $this.parent();
 
