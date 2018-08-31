@@ -1,0 +1,26 @@
+%sort-column {
+	&:before {
+		display: none;
+	}
+
+	&:after {
+		display: inline;
+		float: right;
+		margin-bottom: 1px;
+	}
+
+	&:hover {
+		@extend %sorted-column;
+	}
+
+	cursor: pointer;
+}
+
+%sorted-column {
+	border-bottom-color: color('blue', 5) !important;
+	border-bottom-width: 4px;
+	color: color('blue', 5);
+	&:after{
+		margin-bottom: 0;
+	}
+}
