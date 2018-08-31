@@ -172,3 +172,22 @@ th, td {
         }
     }
 }
+
+th {
+	&.sort-column {
+		@extend %sort-column;
+		@extend .icon--sort-arrows;
+	}
+
+	&.sort-column--asc {
+		@extend %sort-column;
+		@extend %sorted-column;
+		@extend .icon--arrow-drop-up;
+	}
+
+	&.sort-column--desc {
+		@extend %sort-column;
+		@extend %sorted-column;
+		@extend .icon--arrow-drop-down;
+	}
+}
