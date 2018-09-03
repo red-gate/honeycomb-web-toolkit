@@ -1,0 +1,55 @@
+input[type="submit"], button {
+    @extend %button;
+    
+    &.button--large {
+        @extend %button--large;
+    }
+
+    &.button--small {
+        @extend %button--small;
+    }
+
+    &.button--x-small {
+        @extend %button--x-small;
+    }
+
+    &.button--xx-small {
+        @extend %button--xx-small;
+    }
+
+    &.button--inline {
+        @extend %button--inline;
+    }
+
+    &.button--primary {
+        @extend %button--primary;
+    }
+
+    &.button--download {
+        @extend %button--download;
+    }
+
+    &.button--more {
+        @extend %button--more;
+    }
+
+    &.button--buy {
+        @extend %button--buy;
+    }
+
+    &[disabled], &.button--disabled {
+        @extend %button--disabled;
+    }
+
+    &.button--red {
+        @extend %button--red;
+    }
+
+    &.button--white {
+        @extend %button--white;
+    }
+
+    &.button--transparent {
+        @extend %button--transparent;
+    }
+}
