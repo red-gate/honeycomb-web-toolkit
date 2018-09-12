@@ -27,6 +27,12 @@
     height: 50px;
     vertical-align: middle;
 
+    &[type="button"] {
+        padding: 0 !important; // Override default button styles.
+        background-color: transparent !important; // Override default button styles.
+        color: transparent !important; // Override default button styles.
+    }
+
     &:before {
         content: "";
         width: 20px;
@@ -71,7 +77,13 @@
     li {
         vertical-align: middle;
 
-       &.slick-active button::before {
+        button {
+            padding: 5px !important; // Override default button styles.
+            background-color: transparent !important; // Override default button styles.
+            color: transparent !important; // Override default button styles.
+        }
+
+        &.slick-active button::before {
             color: color('red', 5);
         }
 
