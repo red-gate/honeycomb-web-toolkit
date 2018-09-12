@@ -109,6 +109,14 @@ let setupTrackingAlias = () => {
     for ( let i = 0; i < els.length; i++ ) {
         els[i].addEventListener( 'click', ( e ) => {
             let target = e.target;
+
+            // Ensure that the target is the element with the tracking info,
+            // rather than a child of it. E.g. image within a link would be target
+            // rather than the link. This prevents that from happening.
+            while (!target.hasAttribute('data-ga-track')) {
+                target = target.parentElement;
+            }
+
             let category = target.getAttribute( 'data-ga-track-category' ) || null;
             let action = target.getAttribute( 'data-ga-track-action' ) || null;
             let label = target.getAttribute( 'data-ga-track-label' ) || null;

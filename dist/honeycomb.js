@@ -123,6 +123,14 @@ var setupTrackingAlias = function setupTrackingAlias() {
     for (var i = 0; i < els.length; i++) {
         els[i].addEventListener('click', function (e) {
             var target = e.target;
+
+            // Ensure that the target is the element with the tracking info,
+            // rather than a child of it. E.g. image within a link would be target
+            // rather than the link. This prevents that from happening.
+            while (!target.hasAttribute('data-ga-track')) {
+                target = target.parentElement;
+            }
+
             var category = target.getAttribute('data-ga-track-category') || null;
             var action = target.getAttribute('data-ga-track-action') || null;
             var label = target.getAttribute('data-ga-track-label') || null;
@@ -1694,7 +1702,7 @@ var handle = function handle() {
     }
 
     var $body = window.jQuery('body');
-    $body.on('click', '.js-dropdown .arrow', function (e) {
+    $body.on('click', '.js-dropdown a[href="#toggle"]', function (e) {
         var $this = window.jQuery(this);
         var $dropdown = $this.parent();
 
