@@ -62,6 +62,15 @@ $transition: all 0.5s;
         @include padding(0.5, right);
     }
 
+    .header--primary__app-logo-container,
+    .header--primary__app-name-container,
+    .header--primary__company-logo-container {
+
+        img, svg {
+            vertical-align: middle;
+        }
+    }
+
     .header--primary__icon {
         margin-left: -4px; // To prevent space when display:inline.
 
