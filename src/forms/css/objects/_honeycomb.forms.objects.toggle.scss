@@ -1,0 +1,71 @@
+$hc-toggle-width: 40px !default;
+$hc-toggle-height: 20px !default;
+$hc-toggle-switch-width: 14px !default;
+$hc-toggle-switch-height: $hc-toggle-switch-width !default;
+$hc-toggle-switch-space: 3px !default;
+$hc-toggle-transition-duration: 0.25s !default;
+$hc-toggle-background-color: color('grey', 6) !default;
+$hc-toggle-background-color-active: color('blue') !default;
+$hc-toggle-background-color-disabled: color('grey', 3) !default;
+$hc-toggle-foreground-color: color('white') !default;
+
+.toggle-container {
+    position: relative;
+    display: inline-block;
+    top: 3px;
+    
+    // Replicating the default 'label next to a checkbox' styles.
+    & + label {
+        @include margin(1, right);
+        @include padding(0.1, 'left');
+        font-weight: normal;
+        display: inline-block;
+        transform: translateY(2px);
+    }
+
+    input[type="checkbox"].toggle {
+        display: block;
+        width: $hc-toggle-width;
+        height: $hc-toggle-height;
+        border: none;
+        border-radius: 100px;
+        background-color: $hc-toggle-background-color;
+
+        &:checked {
+            background-color: $hc-toggle-background-color-active;
+        }
+
+        &:disabled, &.disabled {
+            background-color: $hc-toggle-background-color-disabled !important;
+        }
+
+        &:after {
+            display: none; // Disable the tick that's added to a default Honycomb checkbox.
+        }
+
+        & + label {
+            @include margin(0);
+            position: absolute;
+            display: block;
+            width: $hc-toggle-switch-width;
+            height: $hc-toggle-switch-height;
+            background-color: $hc-toggle-foreground-color;
+            border-radius: 100%;
+            left: $hc-toggle-switch-space;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &:checked + label {
+            left: calc(100% - #{($hc-toggle-switch-width + $hc-toggle-switch-space)});
+        }
+
+        &, & + label {
+            transition: all $hc-toggle-transition-duration;
+        }
+
+        &::-ms-check {
+            display: none;
+        }
+    }
+}
