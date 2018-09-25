@@ -139,7 +139,9 @@ const tables = () => {
     for (var i=0; i<tables.length; i++) {
         const table = tables[i];
         const wrapper = table.parentElement;
-        if (wrapper.className === 'table-wrap' && wrapper.parentElement.className.match('highlight') === null) {
+        const onPhotoBoard = document.querySelector('body').className.match('id-11863182');
+
+        if (wrapper.className === 'table-wrap' && wrapper.parentElement.className.match('highlight') === null && !onPhotoBoard) {
             if (table.clientWidth > wrapper.clientWidth) {
                 table.className += ' table--fixed';
             }
