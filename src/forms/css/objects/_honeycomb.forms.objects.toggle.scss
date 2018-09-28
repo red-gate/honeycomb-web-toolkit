@@ -23,6 +23,14 @@ $hc-toggle-foreground-color: color('white') !default;
         transform: translateY(2px);
     }
 
+    &--disabled + label {
+        color: $hc-forms-disabled-color;
+    }
+
+    &--disabled input[type="checkbox"].toggle {
+        background-color: $hc-toggle-background-color-disabled !important;
+    }
+
     input[type="checkbox"].toggle {
         display: block;
         width: $hc-toggle-width;

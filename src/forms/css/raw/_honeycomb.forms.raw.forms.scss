@@ -43,7 +43,7 @@ input[type="radio"] {
         background-color: transparent !important;
 
         & + label {
-            color: color('grey', 4);
+            color: $hc-forms-disabled-color;
         }
     }
 
