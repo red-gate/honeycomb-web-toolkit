@@ -32,10 +32,10 @@ h4 a,
 h5 a,
 .main-heading a,
 .sub-heading a {
-    color: color('grey', 9);
+    color: $hc-heading-size-1-link-color;
 
     &:hover {
-        color: color('black');
+        color: $hc-heading-size-1-link-hover-color;
         opacity: 0.5;
     }
     &.color--blue:hover {
