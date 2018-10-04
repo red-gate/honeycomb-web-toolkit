@@ -149,8 +149,7 @@ exports.default = {
     trackPageView: trackPageView,
     trackEvent: trackEvent,
     setCustomVariable: setCustomVariable,
-    accountId: accountId,
-    setupTrackingAlias: setupTrackingAlias
+    accountId: accountId
 };
 
 },{}],2:[function(require,module,exports){
