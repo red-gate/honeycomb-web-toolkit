@@ -135,5 +135,6 @@ export default {
     trackPageView,
     trackEvent,
     setCustomVariable,
-    accountId
+    accountId,
+    setupTrackingAlias
 };
