@@ -119,7 +119,9 @@ var trackYouTubeViews = function trackYouTubeViews() {
 // Use data-attributes instead. Keeps HTML nicer and easy to update in the
 // future).
 var setupTrackingAlias = function setupTrackingAlias() {
-    var els = document.querySelectorAll('[data-ga-track]');
+    var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document;
+
+    var els = element.querySelectorAll('[data-ga-track]');
     for (var i = 0; i < els.length; i++) {
         els[i].addEventListener('click', function (e) {
             var target = e.target;
@@ -149,7 +151,8 @@ exports.default = {
     trackPageView: trackPageView,
     trackEvent: trackEvent,
     setCustomVariable: setCustomVariable,
-    accountId: accountId
+    accountId: accountId,
+    setupTrackingAlias: setupTrackingAlias
 };
 
 },{}],2:[function(require,module,exports){

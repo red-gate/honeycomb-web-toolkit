@@ -104,8 +104,8 @@ let trackYouTubeViews = () => {
 // Click track (helper for instead of onclick="ga(send...)".
 // Use data-attributes instead. Keeps HTML nicer and easy to update in the
 // future).
-let setupTrackingAlias = () => {
-    let els = document.querySelectorAll( '[data-ga-track]' );
+let setupTrackingAlias = (element = document) => {
+    let els = element.querySelectorAll( '[data-ga-track]' );
     for ( let i = 0; i < els.length; i++ ) {
         els[i].addEventListener( 'click', ( e ) => {
             let target = e.target;
@@ -135,5 +135,6 @@ export default {
     trackPageView,
     trackEvent,
     setCustomVariable,
-    accountId
+    accountId,
+    setupTrackingAlias
 };
