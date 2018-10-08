@@ -65,7 +65,7 @@
 // Fix for calendar widget
 // Otherwise on www.red-gate.com it overlaps the sticky secondary nav, and underlaps the footer
 .hs-datepicker {
-    position: relative !important;
+    position: static !important;
 
     .pika-label {
         position: static !important; 
