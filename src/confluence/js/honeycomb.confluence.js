@@ -20,7 +20,7 @@ const init = () => {
     Code.init();
     
     Nav.init();
-    window.addEventListener('resize', nav.init);
+    window.addEventListener('resize', Nav.init);
 
     LatestVersionNotification.init();
     Expand.init();
