@@ -1,6 +1,6 @@
 {
   "name": "honeycomb-web-toolkit",
-  "version": "10.8.46",
+  "version": "10.9.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/red-gate/honeycomb-web-toolkit"
@@ -13,6 +13,8 @@
     "css:cheatsheet": "node scripts/css/docs.js",
     "css:vendor": "node scripts/css/vendors.js",
     "css": "npm run css:sass && npm run css:autoprefixer && npm run css:vendor && npm run css:cheatsheet",
+    "css:zuora": "npm run sass:zuora && npm run css:autoprefixer && npm run css:vendor && npm run css:cheatsheet",
+    "sass:zuora": "node scripts/css/sass.js zuora",
     "fonts": "node scripts/fonts.js",
     "images": "node scripts/images.js",
     "js:bundle": "node scripts/javascript/bundle.js",
@@ -22,9 +24,7 @@
     "js": "npm run js:lint && npm run js:bundle && npm run js:minify && npm run js:vendor",
     "teamcity": "node scripts/teamcity.js",
     "build": "npm run clean && npm run css && npm run fonts && npm run images && npm run js",
-    "zuora:sass": "node scripts/css/sass.js zuora",
-    "zuora:css": "npm run zuora:sass && npm run css:autoprefixer && npm run css:vendor && npm run css:cheatsheet",
-    "zuora:build": "npm run clean && npm run zuora:css && npm run fonts && npm run images && npm run js"
+    "build:zuora": "npm run clean && npm run css:zuora && npm run fonts && npm run images && npm run js"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.0",

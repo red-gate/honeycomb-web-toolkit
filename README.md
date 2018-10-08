@@ -107,7 +107,7 @@ To run a custom build of Honeycomb for Zuora, run:
 
 ```
 npm install 
-npm run zuora:build
+npm run build:zuora
 ```
 
 The minified Zuora stylesheet will then build to `/dist/honeycomb.css`.
