@@ -9,6 +9,7 @@ import Code from './honeycomb.confluence.code';
 import Nav from './honeycomb.confluence.nav';
 import LatestVersionNotification from './honeycomb.confluence.latestVersionNotification';
 import Expand from './honeycomb.confluence.expand';
+import TaskList from './honeycomb.confluence.tasklist';
 
 const init = () => {
     Sidebar.init();
@@ -25,6 +26,7 @@ const init = () => {
 
     LatestVersionNotification.init();
     Expand.init();
+    TaskList.init();
 };
 
 export default {
