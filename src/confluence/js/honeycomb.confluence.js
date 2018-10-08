@@ -8,6 +8,7 @@ import DisplayVersions from './honeycomb.confluence.displayVersions';
 import Code from './honeycomb.confluence.code';
 import Nav from './honeycomb.confluence.nav';
 import LatestVersionNotification from './honeycomb.confluence.latestVersionNotification';
+import Expand from './honeycomb.confluence.expand';
 
 const init = () => {
     Sidebar.init();
