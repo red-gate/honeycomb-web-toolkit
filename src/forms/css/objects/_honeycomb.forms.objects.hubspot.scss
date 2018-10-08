@@ -68,7 +68,7 @@
     position: static !important;
 
     .pika-label {
-        position: static !important; 
+        z-index: 10 !important;
     }
 }
 
