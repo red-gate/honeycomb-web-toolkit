@@ -1500,10 +1500,6 @@ _honeycomb33.default.init({
     analytics: _honeycombAnalytics2.default
 });
 
-// Confluence. (Only import Confluence styling for Confluence themes.)
-// import confluence from './confluence/js/honeycomb.confluence';
-// confluence.init();
-
 },{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./chart/js/honeycomb.chart":7,"./chat/js/honeycomb.chat.intercom":8,"./code/js/honeycomb.code":9,"./content/js/honeycomb.content":10,"./document/js/honeycomb.document.viewport":13,"./equalise/js/honeycomb.equalise":14,"./filter/js/honeycomb.filter":15,"./forms/js/honeycomb.forms":16,"./lightbox/js/honeycomb.lightbox":18,"./maps/js/honeycomb.maps.google":19,"./navigation/js/honeycomb.navigation.dropdown":20,"./navigation/js/honeycomb.navigation.header":21,"./navigation/js/honeycomb.navigation.vertical":22,"./notification/js/honeycomb.notification.block":23,"./polyfill/js/honeycomb.polyfill.custom-event":24,"./polyfill/js/honeycomb.polyfill.index-of":25,"./reveal/js/honeycomb.reveal":26,"./scroll/js/honeycomb.scroll":27,"./sticky/js/honeycomb.sticky":28,"./svg/js/honeycomb.svg":29,"./tabs/js/honeycomb.tabs":30,"./toggle/js/honeycomb.toggle":31,"./video/js/honeycomb.video":32}],18:[function(require,module,exports){
 'use strict';
 
