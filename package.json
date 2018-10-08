@@ -13,8 +13,8 @@
     "css:cheatsheet": "node scripts/css/docs.js",
     "css:vendor": "node scripts/css/vendors.js",
     "css": "npm run css:sass && npm run css:autoprefixer && npm run css:vendor && npm run css:cheatsheet",
-    "css:zuora": "npm run sass:zuora && npm run css:autoprefixer && npm run css:vendor && npm run css:cheatsheet",
-    "sass:zuora": "node scripts/css/sass.js zuora",
+    "css:zuora": "npm run css:sass zuora && npm run css:autoprefixer && npm run css:vendor && npm run css:cheatsheet",
+    "css:confluence": "npm run css:sass confluence && npm run css:autoprefixer && npm run css:vendor && npm run css:cheatsheet",
     "fonts": "node scripts/fonts.js",
     "images": "node scripts/images.js",
     "js:bundle": "node scripts/javascript/bundle.js",
@@ -22,9 +22,11 @@
     "js:lint": "node node_modules/eslint/bin/eslint src/**/js",
     "js:vendor": "node scripts/javascript/vendors.js",
     "js": "npm run js:lint && npm run js:bundle && npm run js:minify && npm run js:vendor",
+    "js:confluence": "npm run js:lint && npm run js:bundle confluence && npm run js:minify && npm run js:vendor",
     "teamcity": "node scripts/teamcity.js",
     "build": "npm run clean && npm run css && npm run fonts && npm run images && npm run js",
-    "build:zuora": "npm run clean && npm run css:zuora && npm run fonts && npm run images && npm run js"
+    "build:zuora": "npm run clean && npm run css:zuora && npm run fonts && npm run images && npm run js",
+    "build:confluence": "npm run clean && npm run css:confluence && npm run fonts && npm run images && npm run js:confluence"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.0",
