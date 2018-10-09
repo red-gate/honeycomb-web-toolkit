@@ -962,3 +962,15 @@
         content: "\e957";
     }
 }
+.icon--elastic-pool {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e958";
+    }
+}
+.icon--schema {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e959";
+    }
+}
