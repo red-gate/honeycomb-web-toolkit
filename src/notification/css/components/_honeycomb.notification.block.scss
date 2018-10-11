@@ -1,3 +1,8 @@
+@keyframes dismiss {
+    from { transform: scaleY(1) }
+    to   { transform: scaleY(0) }
+}
+
 .notification--block {
     border: none;
     @include padding(0);
@@ -24,6 +29,12 @@
             content: '\e60a';
             color: $hc-notification-block-close-color;
         }
+    }
+
+    .notification--dismissed {
+        -webkit-animation: dismiss 500ms;
+        -moz-animation: dismiss 500ms;
+        animation: dismiss 500ms;
     }
 
     .notification__icon {
