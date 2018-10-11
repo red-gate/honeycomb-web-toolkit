@@ -31,14 +31,16 @@
         }
     }
 
-    .notification--dismissed {
+    
+    .notification__icon {
+        @include font-size($hc-notification-block-icon-size, false);
+    }
+
+    // dismissal animation
+    &.notification--dismissed {
         -webkit-animation: dismiss 500ms;
         -moz-animation: dismiss 500ms;
         animation: dismiss 500ms;
-    }
-
-    .notification__icon {
-        @include font-size($hc-notification-block-icon-size, false);
     }
 
     /**
