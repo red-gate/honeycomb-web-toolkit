@@ -974,3 +974,9 @@
         content: "\e959";
     }
 }
+.icon--backup-database {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e95a";
+    }
+}
