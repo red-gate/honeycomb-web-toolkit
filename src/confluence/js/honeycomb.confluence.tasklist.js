@@ -16,23 +16,23 @@ const toggleTaskState = (task, tasklistId) => {
     task.classList.toggle('checked');
 
     // POST request body
-    const body = `{ "status" : "${status}", "trigger" : "VIEW_PAGE" }`; 
+    const body = `{ 'status' : '${status}', 'trigger' : 'VIEW_PAGE' }`; 
 
     fetch(taskEndpoint, {
-        "credentials": "include",
-        "headers": {
-            "accept": "application/json, text/javascript, */*; q=0.01",
-            "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
-            "cache-control": "no-cache",
-            "content-type": "application/json",
-            "pragma": "no-cache",
-            "x-requested-with": "XMLHttpRequest"
+        'credentials': 'include',
+        'headers': {
+            'accept': 'application/json, text/javascript, */*; q=0.01',
+            'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+            'cache-control': 'no-cache',
+            'content-type': 'application/json',
+            'pragma': 'no-cache',
+            'x-requested-with': 'XMLHttpRequest'
         },
-        "referrer": window.location.href,
-        "referrerPolicy": "no-referrer-when-downgrade",
-        "body": body,
-        "method": "POST",
-        "mode": "cors"
+        'referrer': window.location.href,
+        'referrerPolicy': 'no-referrer-when-downgrade',
+        'body': body,
+        'method': 'POST',
+        'mode': 'cors'
     });
 };
 
