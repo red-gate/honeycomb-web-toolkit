@@ -214,16 +214,14 @@ p:last-child .button:last-child {
 %button--transparent {
     background-color: $hc-button-transparent-background !important;
     color: $hc-button-transparent-color !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
 
     &:hover {
-        background-color: $hc-button-transparent-background !important;
+        background-color: $hc-button-transparent-hover-background !important;
         color: $hc-button-transparent-color !important;
     }
 
     &:active {
-        background-color: $hc-button-transparent-background !important;
+        background-color: $hc-button-transparent-hover-background !important;
         color: $hc-button-transparent-active-color !important;
     }
 

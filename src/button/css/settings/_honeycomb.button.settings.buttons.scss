@@ -17,11 +17,12 @@ $hc-button-font-size--x-small:     14px !default;
 $hc-button-font-size--xx-small:    12px !default;
 
 // Background
-$hc-button-background:             color('grey', 3) !default;
-$hc-button-hover-background:       color('grey', 4) !default;
-$hc-button-active-background:      color('grey', 5) !default;
-$hc-button-disabled-background:    color('grey', 2) !default;
-$hc-button-transparent-background: transparent !default;
+$hc-button-background:                      color('grey', 3) !default;
+$hc-button-hover-background:                color('grey', 4) !default;
+$hc-button-active-background:               color('grey', 5) !default;
+$hc-button-disabled-background:             color('grey', 2) !default;
+$hc-button-transparent-background:          transparent !default;
+$hc-button-transparent-hover-background:    color('grey', 2) !default;
 
 $hc-button-primary-background:             color('blue', 6) !default;
 $hc-button-primary-hover-background:       color('blue', 7) !default;
