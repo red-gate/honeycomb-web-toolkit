@@ -123,6 +123,8 @@ const renderChart = chart => {
 const setConfig = ( chart, data ) => {
     const type = chart.getAttribute('data-chart-type') || 'bar';
     const colourOpacity = (chart.hasAttribute('data-chart-colour-opacity')) ? chart.getAttribute('data-chart-colour-opacity') : 0.25;
+    const borderWidth = (chart.hasAttribute('data-chart-border-width')) ? chart.getAttribute('data-chart-border-width') : 1;
+    const pointRadius = (chart.hasAttribute('data-chart-point-radius')) ? chart.getAttribute('data-chart-point-radius') : 3;
 
     const config = {
         labels: data.labels,
@@ -130,9 +132,10 @@ const setConfig = ( chart, data ) => {
             return {
                 label: dataSet.label,
                 data: dataSet.data,
-                borderWidth: 1,
+                borderWidth: borderWidth,
                 backgroundColor: setBackgroundColour(type, colourOpacity, data.dataSets, dataSet),
-                borderColor: setBorderColour(type, colourOpacity, data.dataSets, dataSet)
+                borderColor: setBorderColour(type, colourOpacity, data.dataSets, dataSet),
+                pointRadius: pointRadius
             };
         })
     };

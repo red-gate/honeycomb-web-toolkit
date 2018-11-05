@@ -529,6 +529,8 @@ var renderChart = function renderChart(chart) {
 var setConfig = function setConfig(chart, data) {
     var type = chart.getAttribute('data-chart-type') || 'bar';
     var colourOpacity = chart.hasAttribute('data-chart-colour-opacity') ? chart.getAttribute('data-chart-colour-opacity') : 0.25;
+    var borderWidth = chart.hasAttribute('data-chart-border-width') ? chart.getAttribute('data-chart-border-width') : 1;
+    var pointRadius = chart.hasAttribute('data-chart-point-radius') ? chart.getAttribute('data-chart-point-radius') : 3;
 
     var config = {
         labels: data.labels,
@@ -536,9 +538,10 @@ var setConfig = function setConfig(chart, data) {
             return {
                 label: dataSet.label,
                 data: dataSet.data,
-                borderWidth: 1,
+                borderWidth: borderWidth,
                 backgroundColor: setBackgroundColour(type, colourOpacity, data.dataSets, dataSet),
-                borderColor: setBorderColour(type, colourOpacity, data.dataSets, dataSet)
+                borderColor: setBorderColour(type, colourOpacity, data.dataSets, dataSet),
+                pointRadius: pointRadius
             };
         })
     };
