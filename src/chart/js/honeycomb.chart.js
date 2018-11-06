@@ -154,6 +154,7 @@ const setOptions = chart => {
     const animation = (chart.hasAttribute('data-chart-animation')) ? chart.getAttribute('data-chart-animation') : true;
     const verticalAxis = (chart.getAttribute('data-chart-vertical-axis')) ? chart.getAttribute('data-chart-vertical-axis') : true;
     const horizontalAxis = (chart.getAttribute('data-chart-horizontal-axis')) ? chart.getAttribute('data-chart-horizontal-axis') : true;
+    const tooltips = (chart.hasAttribute('data-chart-tooltips')) ? chart.getAttribute('data-chart-tooltips') : null;
 
     const options = {};
 
@@ -225,6 +226,12 @@ const setOptions = chart => {
         options.scales.yAxes = options.scales.yAxes || [];
         options.scales.yAxes[0] = options.scales.yAxes[0] || {};
         options.scales.yAxes[0].display = false;
+    }
+
+    // Tooltips
+    if (tooltips && tooltips === 'false') {
+        options.tooltips = options.tooltips || {};
+        options.tooltips.enabled = false;
     }
 
     return options;

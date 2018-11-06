@@ -560,6 +560,7 @@ var setOptions = function setOptions(chart) {
     var animation = chart.hasAttribute('data-chart-animation') ? chart.getAttribute('data-chart-animation') : true;
     var verticalAxis = chart.getAttribute('data-chart-vertical-axis') ? chart.getAttribute('data-chart-vertical-axis') : true;
     var horizontalAxis = chart.getAttribute('data-chart-horizontal-axis') ? chart.getAttribute('data-chart-horizontal-axis') : true;
+    var tooltips = chart.hasAttribute('data-chart-tooltips') ? chart.getAttribute('data-chart-tooltips') : null;
 
     var options = {};
 
@@ -631,6 +632,12 @@ var setOptions = function setOptions(chart) {
         options.scales.yAxes = options.scales.yAxes || [];
         options.scales.yAxes[0] = options.scales.yAxes[0] || {};
         options.scales.yAxes[0].display = false;
+    }
+
+    // Tooltips
+    if (tooltips && tooltips === 'false') {
+        options.tooltips = options.tooltips || {};
+        options.tooltips.enabled = false;
     }
 
     return options;
