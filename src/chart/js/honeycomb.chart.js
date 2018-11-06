@@ -135,7 +135,8 @@ const setConfig = ( chart, data ) => {
                 borderWidth: borderWidth,
                 backgroundColor: setBackgroundColour(type, colourOpacity, data.dataSets, dataSet),
                 borderColor: setBorderColour(type, colourOpacity, data.dataSets, dataSet),
-                pointRadius: pointRadius
+                pointRadius: pointRadius,
+                pointHoverRadius: pointRadius
             };
         })
     };
