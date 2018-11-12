@@ -55,6 +55,14 @@ const init = ( config = {} ) => {
                 init();
             });
         } else {
+            const onInitEvent = document.createEvent('Event');
+            const onBeforeChangeEvent = document.createEvent('Event');
+            const onAfterChangeEvent = document.createEvent('Event');
+
+            onInitEvent.initEvent('onCarouselInit', true, true);
+            onBeforeChangeEvent.initEvent('onCarouselBeforeChange', true, true);
+            onAfterChangeEvent.initEvent('onCarouselAfterChange', true, true);
+
             for ( let i = 0; i < carousels.length; i++ ) {
                 let carousel = carousels[ i ];
                 let options = {
@@ -97,6 +105,38 @@ const init = ( config = {} ) => {
                 // rearrange nav
                 window.jQuery( carousel ).on('init', () => {
                     rearrangeNav(carousel);
+                });
+
+                // Dispatch init event.
+                window.jQuery( carousel ).on('init', slick => {
+                    onInitEvent.carousel = {
+                        carousel: slick.target
+                    };
+                    carousel.dispatchEvent(onInitEvent);
+                });
+
+                // Dispatch beforeChange event.
+                window.jQuery( carousel ).on('beforeChange', ( slick, currentSlide ) => {
+                    onBeforeChangeEvent.carousel = {
+                        carousel: slick.target,
+                        current: {
+                            index: currentSlide.currentSlide,
+                            element: slick.target.querySelector('.slick-slide[data-slick-index="' + currentSlide.currentSlide + '"]')
+                        }
+                    };
+                    carousel.dispatchEvent(onBeforeChangeEvent);
+                });
+
+                // Dispatch afterChange event.
+                window.jQuery( carousel ).on('afterChange', ( slick, currentSlide ) => {
+                    onAfterChangeEvent.carousel = {
+                        carousel: slick.target,
+                        current: {
+                            index: currentSlide.currentSlide,
+                            element: slick.target.querySelector('.slick-slide[data-slick-index="' + currentSlide.currentSlide + '"]')
+                        }
+                    };
+                    carousel.dispatchEvent(onAfterChangeEvent);
                 });
 
                 window.jQuery( carousel ).slick( options );

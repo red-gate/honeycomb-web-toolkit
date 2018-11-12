@@ -331,58 +331,100 @@ var init = function init() {
                 init();
             });
         } else {
-            var _loop = function _loop(i) {
-                var carousel = carousels[i];
-                var options = {
-                    autoplaySpeed: 4000,
-                    dotsClass: 'slick-dots carousel__pagination',
-                    adaptiveHeight: false,
-                    dots: true
+            (function () {
+                var onInitEvent = document.createEvent('Event');
+                var onBeforeChangeEvent = document.createEvent('Event');
+                var onAfterChangeEvent = document.createEvent('Event');
+
+                onInitEvent.initEvent('onCarouselInit', true, true);
+                onBeforeChangeEvent.initEvent('onCarouselBeforeChange', true, true);
+                onAfterChangeEvent.initEvent('onCarouselAfterChange', true, true);
+
+                var _loop = function _loop(i) {
+                    var carousel = carousels[i];
+                    var options = {
+                        autoplaySpeed: 4000,
+                        dotsClass: 'slick-dots carousel__pagination',
+                        adaptiveHeight: false,
+                        dots: true
+                    };
+
+                    // Arrows.
+                    if (carousel.getAttribute('data-carousel-arrows')) {
+                        options.arrows = carousel.getAttribute('data-carousel-arrows') === 'true';
+                    }
+
+                    // Autoplay
+                    if (carousel.getAttribute('data-carousel-autoplay')) {
+                        options.autoplay = carousel.getAttribute('data-carousel-autoplay') === 'true';
+                    }
+
+                    // Pagination / Dots.
+                    if (carousel.getAttribute('data-carousel-pagination') && carousel.getAttribute('data-carousel-pagination') === 'false') {
+                        options.dots = false;
+                    }
+
+                    // Fade.
+                    if (carousel.getAttribute('data-carousel-fade')) {
+                        options.fade = carousel.getAttribute('data-carousel-fade') === 'true';
+                    }
+
+                    // Adaptive Height (Automatically update height)
+                    if (carousel.getAttribute('data-carousel-auto-height')) {
+                        options.adaptiveHeight = carousel.getAttribute('data-carousel-auto-height') === 'true';
+                    }
+
+                    // Autoplay speed.
+                    if (carousel.getAttribute('data-carousel-autoplay-speed')) {
+                        options.autoplaySpeed = carousel.getAttribute('data-carousel-autoplay-speed');
+                    }
+
+                    // rearrange nav
+                    window.jQuery(carousel).on('init', function () {
+                        rearrangeNav(carousel);
+                    });
+
+                    // Dispatch init event.
+                    window.jQuery(carousel).on('init', function (slick) {
+                        onInitEvent.carousel = {
+                            carousel: slick.target
+                        };
+                        carousel.dispatchEvent(onInitEvent);
+                    });
+
+                    // Dispatch beforeChange event.
+                    window.jQuery(carousel).on('beforeChange', function (slick, currentSlide) {
+                        onBeforeChangeEvent.carousel = {
+                            carousel: slick.target,
+                            current: {
+                                index: currentSlide.currentSlide,
+                                element: slick.target.querySelector('.slick-slide[data-slick-index="' + currentSlide.currentSlide + '"]')
+                            }
+                        };
+                        carousel.dispatchEvent(onBeforeChangeEvent);
+                    });
+
+                    // Dispatch afterChange event.
+                    window.jQuery(carousel).on('afterChange', function (slick, currentSlide) {
+                        onAfterChangeEvent.carousel = {
+                            carousel: slick.target,
+                            current: {
+                                index: currentSlide.currentSlide,
+                                element: slick.target.querySelector('.slick-slide[data-slick-index="' + currentSlide.currentSlide + '"]')
+                            }
+                        };
+                        carousel.dispatchEvent(onAfterChangeEvent);
+                    });
+
+                    window.jQuery(carousel).slick(options);
+
+                    window.jQuery(carousel).css('visibility', 'inherit').css('height', 'auto');
                 };
 
-                // Arrows.
-                if (carousel.getAttribute('data-carousel-arrows')) {
-                    options.arrows = carousel.getAttribute('data-carousel-arrows') === 'true';
+                for (var i = 0; i < carousels.length; i++) {
+                    _loop(i);
                 }
-
-                // Autoplay
-                if (carousel.getAttribute('data-carousel-autoplay')) {
-                    options.autoplay = carousel.getAttribute('data-carousel-autoplay') === 'true';
-                }
-
-                // Pagination / Dots.
-                if (carousel.getAttribute('data-carousel-pagination') && carousel.getAttribute('data-carousel-pagination') === 'false') {
-                    options.dots = false;
-                }
-
-                // Fade.
-                if (carousel.getAttribute('data-carousel-fade')) {
-                    options.fade = carousel.getAttribute('data-carousel-fade') === 'true';
-                }
-
-                // Adaptive Height (Automatically update height)
-                if (carousel.getAttribute('data-carousel-auto-height')) {
-                    options.adaptiveHeight = carousel.getAttribute('data-carousel-auto-height') === 'true';
-                }
-
-                // Autoplay speed.
-                if (carousel.getAttribute('data-carousel-autoplay-speed')) {
-                    options.autoplaySpeed = carousel.getAttribute('data-carousel-autoplay-speed');
-                }
-
-                // rearrange nav
-                window.jQuery(carousel).on('init', function () {
-                    rearrangeNav(carousel);
-                });
-
-                window.jQuery(carousel).slick(options);
-
-                window.jQuery(carousel).css('visibility', 'inherit').css('height', 'auto');
-            };
-
-            for (var i = 0; i < carousels.length; i++) {
-                _loop(i);
-            }
+            })();
         }
     }
 };
