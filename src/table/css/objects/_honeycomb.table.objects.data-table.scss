@@ -50,15 +50,15 @@
         background-color: $hc-data-table-hover-background-colour;
     }
 
-    tr.clickable:hover td,
-    td.clickable:hover {
+    tr.data-table__clickable:hover td,
+    td.data-table__clickable:hover {
         border-bottom-style: solid;
         border-top-color: $hc-data-table-clickable-hover-border-colour;
         border-bottom-color: $hc-data-table-clickable-hover-border-colour;
         cursor: pointer;
     }
 
-    tr.selected td {
+    tr.data-table__selected td {
         background-color: $hc-data-table-selected-background-colour;
     }
 }
