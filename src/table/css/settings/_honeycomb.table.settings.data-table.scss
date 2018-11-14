@@ -1,0 +1,59 @@
+// Font sizes.
+$hc-data-table-font-size: 14px !default;
+
+// Padding values.
+$hc-data-table-cell-padding-left: 5px !default;
+$hc-data-table-cell-padding-right: 30px !default;
+$hc-data-table-cell-padding-top: 6px !default;
+$hc-data-table-cell-padding-bottom: 5px !default;
+$hc-data-table-loose-cell-padding-top: 12px !default;
+$hc-data-table-loose-cell-padding-bottom: 11px !default;
+$hc-data-table-tight-cell-padding-top: 4px !default;
+$hc-data-table-tight-cell-padding-bottom: 3px !default;
+$hc-data-table-extra-tight-cell-padding-top: 1px !default;
+$hc-data-table-extra-tight-cell-padding-bottom: 0 !default;
+
+// Border colours.
+$hc-data-table-border-colour: $hc-table-border-colour !default;
+$hc-data-table-meta-border-colour: $hc-data-table-border-colour !default;
+$hc-data-table-clickable-hover-border-colour: color('blue', 6) !default;
+
+// Border widths.
+$hc-data-table-border-width: 1px !default;
+$hc-data-table-heading-border-width: 2px !default;
+$hc-data-table-meta-border-width: $hc-data-table-heading-border-width !default;
+
+// Background colours.
+$hc-data-table-hover-background-colour: color('grey', 1) !default;
+$hc-data-table-selected-background-colour: color('blue', 1) !default;
+
+// Table meta settings.
+$hc-data-table-meta-font-size: $hc-data-table-font-size !default;
+$hc-data-table-meta-padding-top-ratio: 0.25 !default;
+$hc-data-table-meta-padding-bottom-ratio: $hc-data-table-meta-padding-top-ratio !default;
+$hc-data-table-meta-padding-left-ratio: 0.1 !default;
+$hc-data-table-meta-padding-right-ratio: $hc-data-table-meta-padding-left-ratio !default;
+$hc-data-table-meta-item-margin-ratio: 1.5 !default;
+$hc-data-table-meta-page-x-of-y-input-width: 35px !default;
+$hc-data-table-meta-pagination-arrow-font-size: 24px !default;
+$hc-data-table-meta-pagination-arrow-colour: $hc-default-text-color !default;
+$hc-data-table-meta-pagination-link-colour: $hc-default-text-color !default;
+$hc-data-table-meta-pagination-page-padding: 8px !default;
+$hc-data-table-meta-pagination-page-spacing-ratio: 0.1 !default;
+$hc-data-table-meta-pagination-active-link-colour: color('white') !default;
+$hc-data-table-meta-pagination-active-link-background-colour: color('grey', 5) !default;
+
+// Sortable settings.
+$hc-data-table-sortable-icon-size: 18px !default;
+$hc-data-table-sortable-hover-background-colour: $hc-data-table-hover-background-colour !default;
+$hc-data-table-sortable-hover-border-colour: $hc-data-table-clickable-hover-border-colour !default;
+$hc-data-table-sortable-icon-hover-colour: color('blue', 6) !default;
+$hc-data-table-sortable-sorted-icon-colour: $hc-data-table-sortable-icon-hover-colour !default;
+
+// Collapsable settings.
+$hc-data-table-collapsable-header-hover-background-colour: $hc-data-table-hover-background-colour !default;
+$hc-data-table-collapsable-header-hover-colour: color('blue', 6) !default;
+$hc-data-table-collapsable-header-padding-top-ratio: 0.25 !default;
+$hc-data-table-collapsable-header-padding-bottom-ratio: $hc-data-table-collapsable-header-padding-top-ratio;
+$hc-data-table-collapsable-header-icon-margin-ratio: 0.25 !default;
+$hc-data-table-collapsable-header-icon-font-size: 18px !default;
