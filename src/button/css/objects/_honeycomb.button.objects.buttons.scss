@@ -179,14 +179,14 @@ p:last-child .button:last-child {
     color: color('white') !important;
 
     &:hover {
-        background-color: color('red', 5) !important;
+        background-color: color('red', 6) !important;
         border-color: color('red', 6) !important;
         color: color('white') !important;
     }
 
     &:active {
-        background-color: color('red', 6) !important;
-        border-color: color('red', 6) !important;
+        background-color: color('red', 7) !important;
+        border-color: color('red', 7) !important;
         color: color('white') !important;
     }
 }
