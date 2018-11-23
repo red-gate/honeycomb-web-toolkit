@@ -7,10 +7,16 @@
  */
 
 $hc-font-size: 16px !default;
+@if $hc-mode == app {
+    $hc-font-size: 14px;
+}
 
 $hc-font-family: "Roboto", "Helvetica Neue", Arial, Sans-serif !default;
 
 $hc-line-height: $hc-font-size+10 !default;
+@if $hc-mode == app {
+    $hc-line-height: $hc-font-size+8;
+}
 
 // Font directory, relative to the src CSS.
 $hc-font-dir: "type/vendor/" !default;
@@ -21,11 +27,34 @@ $hc-font-dir: "type/vendor/" !default;
 \*------------------------------------*/
 
 $hc-heading-size-1: 36px !default;
+@if $hc-mode == app {
+    $hc-heading-size-1: 24px;
+}
+
 $hc-heading-size-2: 24px !default;
+@if $hc-mode == app {
+    $hc-heading-size-2: 20px;
+}
+
 $hc-heading-size-3: 18px !default;
+@if $hc-mode == app {
+    $hc-heading-size-3: 16px;
+}
+
 $hc-heading-size-4: 16px !default;
+@if $hc-mode == app {
+    $hc-heading-size-4: 14px;
+}
+
 $hc-heading-size-5: 14px !default;
+@if $hc-mode == app {
+    $hc-heading-size-5: 12px;
+}
+
 $hc-heading-size-6: 12px !default;
+@if $hc-mode == app {
+    $hc-heading-size-6: 10px;
+}
 
 $hc-heading-size-1-small: 30px !default;
 $hc-heading-size-2-small: 22px !default;

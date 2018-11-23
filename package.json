@@ -1,6 +1,6 @@
 {
   "name": "honeycomb-web-toolkit",
-  "version": "10.12.3",
+  "version": "10.13.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/red-gate/honeycomb-web-toolkit"
@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "node scripts/clean.js",
     "css:sass": "node scripts/css/sass.js",
-    "css:autoprefixer": "node node_modules/postcss-cli/bin/postcss --no-map true --use autoprefixer -c scripts/css -r dist/honeycomb.css",
+    "css:autoprefixer": "node node_modules/postcss-cli/bin/postcss dist/**/*.css --no-map true --use autoprefixer -c scripts/css --dir dist",
     "css:cheatsheet": "node scripts/css/docs.js",
     "css:vendor": "node scripts/css/vendors.js",
     "css": "npm run css:sass && npm run css:autoprefixer && npm run css:vendor && npm run css:cheatsheet",

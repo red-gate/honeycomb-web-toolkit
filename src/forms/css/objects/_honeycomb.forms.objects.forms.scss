@@ -1,7 +1,7 @@
 .form {
 
     &__field-container {
-        @include margin(0.6, 'bottom');
+        @include margin($hc-forms-field-container-margin-bottom-ratio, 'bottom');
 
         &--error {
             .form__error-message {
@@ -9,55 +9,55 @@
             }
 
             input, textarea {
-                border-width: 2px;
-                border-color: color('red', 5);
+                border-width: $hc-forms-input-error-border-width;
+                border-color: $hc-forms-input-error-border-colour;
             }
         }
     }
 
     &__help-text {
-        @include margin(0.1, "bottom");
-        color: color("grey", 5);
+        @include margin($hc-forms-help-text-margin-bottom-ratio, "bottom");
+        color: $hc-forms-help-text-colour;
 
         label + & {
-            @include margin(-0.1, 'top');
+            @include margin(-$hc-forms-help-text-margin-bottom-ratio, 'top');
         }
     }
 
     &__error-message {
-        @include margin(0.1, 'top');
+        @include margin($hc-forms-error-message-margin-top-ratio, 'top');
         display: none;
-        color: color('red', 5);
+        color: $hc-forms-error-message-colour;
     }
 
     &__required-dot {
         @extend .rounded--circle;
-        @include margin(0.25, "left");
+        @include margin($hc-forms-required-dot-margin-left-ratio, "left");
         display: inline-block;
-        width: 10px;
-        height: 10px;
-        background-color: color("grey", 5);
+        width: $hc-forms-required-dot-width;
+        height: $hc-forms-required-dot-height;
+        background-color: $hc-forms-required-dot-background-colour;
 
         textarea + & {
-            @include margin(0.25, "top");
+            @include margin($hc-forms-required-dot-margin-left-ratio, "top");
             vertical-align: top;
         }
     }
 
     &__help {
-        @include margin(0.25, "left");
+        @include margin($hc-forms-help-icon-margin-left-ratio, "left");
         display: inline-block;
-        width: 20px;
-        height: 20px;
-        color: color("grey", 5);
+        width: $hc-forms-help-icon-width;
+        height: $hc-forms-help-icon-height;
+        color: $hc-forms-help-icon-colour;
 
         &::before {
             @include margin(0);
-            @include font-size(20px, 20px);
+            @include font-size($hc-forms-help-icon-width, $hc-forms-help-icon-width);
         }
 
         textarea + & {
-            @include margin(0.25, "top");
+            @include margin($hc-forms-help-icon-margin-left-ratio, "top");
             vertical-align: top;
         }
     }
@@ -65,4 +65,35 @@
 
 .label--disabled {
     color: $hc-forms-disabled-color;
+}
+
+/**
+ * Sizes
+ */
+.input--large,
+.select--large,
+%input--large,
+%select--large {
+    padding: $hc-forms-input-padding-large;
+}
+
+.input--small,
+.select--small,
+%input--small,
+%select--small {
+    padding: $hc-forms-input-padding-small;
+}
+
+.input--x-small,
+.select--x-small,
+%input--x-small,
+%select--x-small {
+    padding: $hc-forms-input-padding-extra-small;
+}
+
+.input--xx-small,
+.select--xx-small,
+%input--xx-small,
+%select--xx-small {
+    padding: $hc-forms-input-padding-extra-extra-small;
 }

@@ -1,13 +1,32 @@
 $hc-label-file-font-size: 16px !default;
+@if $hc-mode == app {
+    $hc-label-file-font-size: 14px;
+}
+
 $hc-label-file-icon-font-size: 19px !default;
+@if $hc-mode == app {
+    $hc-label-file-icon-font-size: 16px;
+}
+
 $hc-label-file-icon-font-size--large: 20px !default;
 $hc-label-file-icon-font-size--small: 16px !default;
 $hc-label-file-background-color: color('blue', 1) !default;
 $hc-label-file-text-color: color('blue', 7) !default;
 $hc-label-file-border-radius: 4px !default;
 $hc-label-file-padding-horizontal: 10px !default;
+@if $hc-mode == app {
+    $hc-label-file-padding-horizontal: 5px;
+}
+
 $hc-label-file-padding-vertical: 5px !default;
+@if $hc-mode == app {
+    $hc-label-file-padding-vertical: 2px;
+}
+
 $hc-label-file-padding-horizontal--small: $hc-label-file-padding-horizontal !default;
 $hc-label-file-padding-vertical--small: 2px !default;
 $hc-label-file-padding-horizontal--large: $hc-label-file-padding-horizontal !default;
 $hc-label-file-padding-vertical--large: 9px !default;
+@if $hc-mode == app {
+    $hc-label-file-padding-vertical--large: 5px;
+}

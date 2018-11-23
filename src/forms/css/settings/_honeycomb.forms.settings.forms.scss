@@ -1,0 +1,98 @@
+// Input, Select, Textarea.
+$hc-forms-input-padding: 10px !default;
+@if $hc-mode == app {
+    $hc-forms-input-padding: 9px;
+}
+
+$hc-forms-input-padding-large: 12px $hc-forms-input-padding !default;
+$hc-forms-input-padding-small: 7px $hc-forms-input-padding !default;
+$hc-forms-input-padding-extra-small: 5px $hc-forms-input-padding !default;
+$hc-forms-input-padding-extra-extra-small: 3px $hc-forms-input-padding !default;
+
+$hc-forms-input-meta-allowance: 30px !default;
+$hc-forms-input-border-radius: 5px !default;
+$hc-forms-input-border-colour: color('grey', 5) !default;
+
+// Checkbox and radio.
+$hc-forms-checkbox-width: 20px !default;
+@if $hc-mode == app {
+    $hc-forms-checkbox-width: 16px;
+}
+
+$hc-forms-checkbox-height: $hc-forms-checkbox-width !default;
+$hc-forms-checkbox-border-width: 2px !default;
+$hc-forms-checkbox-border-colour: color('grey', 6) !default;
+$hc-forms-checkbox-border-radius: 2px !default;
+$hc-forms-checkbox-vertical-alignment: text-top;
+@if $hc-mode == app {
+    $hc-forms-checkbox-vertical-alignment: middle;
+}
+
+$hc-forms-checkbox-checked-background-colour: color('blue', 6) !default;
+$hc-forms-checkbox-checked-border-colour: color('blue', 6) !default;
+$hc-forms-checkbox-tick-font-size: $hc-font-size !default;
+@if $hc-mode == app {
+    $hc-forms-checkbox-tick-font-size: 12px;
+}
+
+$hc-forms-checkbox-disabled-border-colour: color('grey', 4) !default;
+$hc-forms-checkbox-disabled-background-colour: transparent !default;
+$hc-forms-checkbox-disabled-checked-background-colour: color('grey', 2) !default;
+$hc-forms-checkbox-label-margin-ratio: 1 !default;
+$hc-forms-checkbox-label-padding-ratio: 0.1 !default;
+
+// Radio.
+$hc-forms-radio-border-radius: 50% !default;
+
+// Labels.
+$hc-forms-label-margin-bottom-ratio: 0.1 !default;
+
+// Select.
+$hc-forms-select-padding-right-ratio: 1.2 !default;
+$hc-forms-select-background-position: calc(100% - 20px) center !default;
+@if $hc-mode == app {
+    $hc-forms-select-background-position: calc(100% - 10px) center;
+}
+
+$hc-forms-select-background-size: 1em !default;
+@if $hc-mode == app {
+    $hc-forms-select-background-size: 0.75em;
+}
+
+$hc-forms-select-padding-top: $hc-forms-input-padding - 1px !default;
+$hc-forms-select-padding-bottom: $hc-forms-select-padding-top !default;
+
+// Data list.
+$hc-forms-datalist-arrow-margin-left-ratio: 0.25 !default;
+$hc-forms-datalist-arrow-background-position: center !default;
+$hc-forms-datalist-arrow-background-size: 1em !default;
+
+// Generic.
+$hc-forms-disabled-color: color("grey", 4) !default;
+
+// Field containers.
+$hc-forms-field-container-margin-bottom-ratio: 0.6 !default;
+
+// Error state.
+$hc-forms-input-error-border-width: 2px !default;
+$hc-forms-input-error-border-colour: color('red', 5) !default;
+
+// Help text.
+$hc-forms-help-text-margin-bottom-ratio: 0.1 !default;
+$hc-forms-help-text-colour: color("grey", 5) !default;
+
+// Error message.
+$hc-forms-error-message-margin-top-ratio: 0.1 !default;
+$hc-forms-error-message-colour: color('red', 5) !default;
+
+// Required dot.
+$hc-forms-required-dot-margin-left-ratio: 0.25 !default;
+$hc-forms-required-dot-width: 10px !default;
+$hc-forms-required-dot-height: $hc-forms-required-dot-width !default;
+$hc-forms-required-dot-background-colour: color("grey", 5) !default;
+
+// Help icon
+$hc-forms-help-icon-margin-left-ratio: 0.25 !default;
+$hc-forms-help-icon-width: 20px !default;
+$hc-forms-help-icon-height: $hc-forms-help-icon-width !default;
+$hc-forms-help-icon-colour: color('grey', 5) !default;

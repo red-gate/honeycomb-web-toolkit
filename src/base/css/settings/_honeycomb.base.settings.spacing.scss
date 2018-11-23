@@ -4,6 +4,9 @@
 
 $hc-spacing-index: 16px !default; // font-size
 $hc-spacing-multiplier: 2.5 !default;
+@if $hc-mode == app {
+    $hc-spacing-multiplier: 1.25;
+}
 
 /**
  * Spacing units - based off $line-height.

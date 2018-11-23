@@ -11,6 +11,8 @@
         padding-top: $hc-data-table-cell-padding-top;
         padding-bottom: $hc-data-table-cell-padding-bottom;
         border-color: $hc-data-table-border-colour;
+        vertical-align: $hc-data-table-cell-vertical-alignment;
+        height: $hc-data-table-cell-min-height;
     }
 
     th {
@@ -27,6 +29,7 @@
         th, td {
             padding-top: $hc-data-table-loose-cell-padding-top;
             padding-bottom: $hc-data-table-loose-cell-padding-bottom;
+            height: $hc-data-table-loose-cell-min-height;
         }
     }
 
@@ -35,6 +38,7 @@
         th, td {
             padding-top: $hc-data-table-tight-cell-padding-top;
             padding-bottom: $hc-data-table-tight-cell-padding-bottom;
+            height: $hc-data-table-tight-cell-min-height;
         }
     }
 
@@ -43,6 +47,7 @@
         th, td {
             padding-top: $hc-data-table-extra-tight-cell-padding-top;
             padding-bottom: $hc-data-table-extra-tight-cell-padding-bottom;
+            height: $hc-data-table-extra-tight-cell-min-height;
         }
     }
 
@@ -266,4 +271,23 @@ td.data-table__sortable {
     &--open ~ tr {
         display: table-row;
     }
+}
+
+// Elements inside of data tables
+.data-table input:not([type=checkbox]):not([type=radio]) {
+    @extend %input--x-small;
+}
+
+.data-table select {
+    @extend %select--x-small;
+}
+
+.data-table--tight input:not([type=checkbox]):not([type=radio]),
+.data-table--extra-tight input:not([type=checkbox]):not([type=radio]) {
+    @extend %input--xx-small;
+}
+
+.data-table--tight select,
+.data-table--extra-tight select {
+    @extend %select--xx-small;
 }

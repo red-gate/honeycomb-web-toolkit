@@ -1,0 +1,26 @@
+$hc-toggle-width: 40px !default;
+@if $hc-mode == app {
+    $hc-toggle-width: 28px;
+}
+
+$hc-toggle-height: 20px !default;
+@if $hc-mode == app {
+    $hc-toggle-height: 16px;
+}
+
+$hc-toggle-border-radius: 100px !default;
+$hc-toggle-switch-width: 14px !default;
+@if $hc-mode == app {
+    $hc-toggle-switch-width: 10px;
+}
+
+$hc-toggle-switch-height: $hc-toggle-switch-width !default;
+$hc-toggle-switch-space: 3px !default;
+$hc-toggle-switch-margin-ratio: 0 !default;
+$hc-toggle-transition-duration: 0.25s !default;
+$hc-toggle-background-color: color('grey', 6) !default;
+$hc-toggle-background-color-active: color('blue') !default;
+$hc-toggle-background-color-disabled: color('grey', 3) !default;
+$hc-toggle-foreground-color: color('white') !default;
+$hc-toggle-container-top-margin: 3px !default;
+$hc-toggle-label-top-margin: 2px !default;

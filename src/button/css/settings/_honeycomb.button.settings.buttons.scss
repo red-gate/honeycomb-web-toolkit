@@ -3,18 +3,53 @@
 \*------------------------------------*/
 
 // Padding
-$hc-button-padding:                12px 18px !default;
-$hc-button-padding--large:         15px 20px !default;
-$hc-button-padding--small:         8px 16px !default;
-$hc-button-padding--x-small:       5px 16px !default;
-$hc-button-padding--xx-small:      3px 6px !default;
+$hc-button-padding: 12px 18px !default;
+@if $hc-mode == app {
+    $hc-button-padding: 6px 20px;
+}
+
+$hc-button-padding--large: 15px 20px !default;
+@if $hc-mode == app {
+    $hc-button-padding--large: 8px 20px;
+}
+
+$hc-button-padding--small: 8px 16px !default;
+@if $hc-mode == app {
+    $hc-button-padding--small: 4px 18px;
+}
+
+$hc-button-padding--x-small: 5px 16px !default;
+@if $hc-mode == app {
+    $hc-button-padding--x-small: 3px 18px;
+}
+
+$hc-button-padding--xx-small: 3px 6px !default;
+@if $hc-mode == app {
+    $hc-button-padding--xx-small: 2px 12px;
+}
 
 // Font size
-$hc-button-font-size:              $hc-font-size !default;
-$hc-button-font-size--large:       18px !default;
-$hc-button-font-size--small:       16px !default;
-$hc-button-font-size--x-small:     14px !default;
-$hc-button-font-size--xx-small:    12px !default;
+$hc-button-font-size: $hc-font-size !default;
+
+$hc-button-font-size--large: 18px !default;
+@if $hc-mode == app {
+    $hc-button-font-size--large: 16px;
+}
+
+$hc-button-font-size--small: 16px !default;
+@if $hc-mode == app {
+    $hc-button-font-size--small: 14px;
+}
+
+$hc-button-font-size--x-small: 14px !default;
+@if $hc-mode == app {
+    $hc-button-font-size--x-small: 12px;
+}
+
+$hc-button-font-size--xx-small: 12px !default;
+@if $hc-mode == app {
+    $hc-button-font-size--xx-small: 10px;
+}
 
 // Background
 $hc-button-background:                      color('grey', 3) !default;

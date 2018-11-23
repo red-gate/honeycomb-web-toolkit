@@ -1,26 +1,15 @@
-$hc-toggle-width: 40px !default;
-$hc-toggle-height: 20px !default;
-$hc-toggle-switch-width: 14px !default;
-$hc-toggle-switch-height: $hc-toggle-switch-width !default;
-$hc-toggle-switch-space: 3px !default;
-$hc-toggle-transition-duration: 0.25s !default;
-$hc-toggle-background-color: color('grey', 6) !default;
-$hc-toggle-background-color-active: color('blue') !default;
-$hc-toggle-background-color-disabled: color('grey', 3) !default;
-$hc-toggle-foreground-color: color('white') !default;
-
 .toggle-container {
     position: relative;
     display: inline-block;
-    top: 3px;
+    top: $hc-toggle-container-top-margin;
     
     // Replicating the default 'label next to a checkbox' styles.
     & + label {
-        @include margin(1, right);
-        @include padding(0.1, 'left');
+        @include margin($hc-forms-checkbox-label-margin-ratio, right);
+        @include padding($hc-forms-checkbox-label-padding-ratio, 'left');
         font-weight: normal;
         display: inline-block;
-        transform: translateY(2px);
+        transform: translateY($hc-toggle-label-top-margin);
     }
 
     &--disabled + label {
@@ -36,7 +25,7 @@ $hc-toggle-foreground-color: color('white') !default;
         width: $hc-toggle-width;
         height: $hc-toggle-height;
         border: none;
-        border-radius: 100px;
+        border-radius: $hc-toggle-border-radius;
         background-color: $hc-toggle-background-color;
 
         &:checked {
@@ -52,7 +41,7 @@ $hc-toggle-foreground-color: color('white') !default;
         }
 
         & + label {
-            @include margin(0);
+            @include margin($hc-toggle-switch-margin-ratio);
             position: absolute;
             display: block;
             width: $hc-toggle-switch-width;

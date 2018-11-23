@@ -1,16 +1,23 @@
 // Font sizes.
 $hc-data-table-font-size: 14px !default;
 
+// Vertical alignment.
+$hc-data-table-cell-vertical-alignment: middle;
+
 // Padding values.
+$hc-data-table-cell-min-height: 36px !default;
 $hc-data-table-cell-padding-left: 5px !default;
 $hc-data-table-cell-padding-right: 30px !default;
-$hc-data-table-cell-padding-top: 6px !default;
-$hc-data-table-cell-padding-bottom: 5px !default;
-$hc-data-table-loose-cell-padding-top: 12px !default;
-$hc-data-table-loose-cell-padding-bottom: 11px !default;
-$hc-data-table-tight-cell-padding-top: 4px !default;
-$hc-data-table-tight-cell-padding-bottom: 3px !default;
-$hc-data-table-extra-tight-cell-padding-top: 1px !default;
+$hc-data-table-cell-padding-top: 0 !default;
+$hc-data-table-cell-padding-bottom: 0 !default;
+$hc-data-table-loose-cell-min-height: 48px !default;
+$hc-data-table-loose-cell-padding-top: 0 !default;
+$hc-data-table-loose-cell-padding-bottom: 0 !default;
+$hc-data-table-tight-cell-min-height: 32px !default;
+$hc-data-table-tight-cell-padding-top: 0 !default;
+$hc-data-table-tight-cell-padding-bottom: 0 !default;
+$hc-data-table-extra-tight-cell-min-height: 26px !default;
+$hc-data-table-extra-tight-cell-padding-top: 0 !default;
 $hc-data-table-extra-tight-cell-padding-bottom: 0 !default;
 
 // Border colours.

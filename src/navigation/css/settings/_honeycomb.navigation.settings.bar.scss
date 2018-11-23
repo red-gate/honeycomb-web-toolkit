@@ -1,4 +1,18 @@
 $hc-nav-bar-height: 70px !default;
+@if $hc-mode == app {
+    $hc-nav-bar-height: 46px;
+}
+
+$hc-nav-bar-heading-font-size: 24px !default;
+@if $hc-mode == app {
+    $hc-nav-bar-heading-font-size: 16px;
+}
+
+$hc-nav-bar-link-padding: 20px !default;
+@if $hc-mode == app {
+    $hc-nav-bar-link-padding: 13px 20px 9px;
+}
+
 $hc-nav-bar-link-font-weight: 500 !default;
 $hc-nav-bar-link-font-weight-active: bold !default;
 

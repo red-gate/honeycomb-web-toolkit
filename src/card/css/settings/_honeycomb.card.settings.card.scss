@@ -1,4 +1,8 @@
 $hc-card-padding: 0.25 !default;
+@if $hc-mode == app {
+    $hc-card-padding: 0.5;
+}
+
 $hc-card-background-color: color('grey', 1) !default;
 $hc-card-background-color--light: color('white') !default;
 $hc-card-background-color--dark: color('grey', 8) !default;

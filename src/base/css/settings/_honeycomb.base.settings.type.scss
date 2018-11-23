@@ -1,0 +1,4 @@
+$hc-font-size: 16px !default;
+@if $hc-mode == app {
+    $hc-font-size: 14px;
+}

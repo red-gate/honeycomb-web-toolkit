@@ -4,7 +4,7 @@
     $px: strip-unit($px);
 
     // Do the calc.
-    $rem: (($px/$hc-spacing-index) * 1px) + rem;
+    $rem: (($px/$hc-font-size) * 1px) + rem;
 
     // Return the rem.
     @return $rem;

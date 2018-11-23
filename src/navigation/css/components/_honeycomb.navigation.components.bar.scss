@@ -28,7 +28,7 @@
 }
 
 .nav-bar a {
-    @include padding(0.5);
+    padding: $hc-nav-bar-link-padding;
     border-bottom-width: 4px;
     border-bottom-style: solid;
     font-weight: $hc-nav-bar-link-font-weight;
@@ -51,7 +51,7 @@
 }
 
 .nav-bar__heading {
-    @include font-size(24px, $hc-nav-bar-height);
+    @include font-size($hc-nav-bar-heading-font-size, $hc-nav-bar-height);
     @include margin(0, top);
     @include margin(0, bottom);
     @include margin(0.5, right);

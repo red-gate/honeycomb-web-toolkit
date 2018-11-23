@@ -5,12 +5,12 @@ form, fieldset {
 
 input, select, textarea {
     @include border();
-    padding: 10px; // Set padding explicitly because of IE rounding to 2 decimal places only.
+    padding: $hc-forms-input-padding; // Set padding explicitly because of IE rounding to 2 decimal places only.
     display: inline-block;
     width: 90%; // Fallback if calc rule below fails.
-    width: calc(100% - 30px);
-    border-radius: 5px;
-    border-color: color('grey', 5);
+    width: calc(100% - #{$hc-forms-input-meta-allowance});
+    border-radius: $hc-forms-input-border-radius;
+    border-color: $hc-forms-input-border-colour;
 }
 
 input, select {
@@ -22,10 +22,12 @@ input[type="radio"] {
     appearance: none;
     position: relative;
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid color('grey', 6);
-    vertical-align: text-top;
+    width: $hc-forms-checkbox-width;
+    height: $hc-forms-checkbox-height;
+    border-style: solid;
+    border-width: $hc-forms-checkbox-border-width;
+    border-color: $hc-forms-checkbox-border-colour;
+    vertical-align: $hc-forms-checkbox-vertical-alignment;
 
     // IE7 support.
     .ie7 & {
@@ -34,13 +36,13 @@ input[type="radio"] {
     }
 
     &:checked {
-        background: color('blue', 6);
-        border-color: color('blue', 6);
+        background: $hc-forms-checkbox-checked-background-colour;
+        border-color: $hc-forms-checkbox-checked-border-colour;
     }
 
     &:disabled, &.disabled {
-        border-color: color('grey', 4);
-        background-color: transparent !important;
+        border-color: $hc-forms-checkbox-disabled-border-colour;
+        background-color: $hc-forms-checkbox-disabled-background-colour !important;
 
         & + label {
             color: $hc-forms-disabled-color;
@@ -48,12 +50,12 @@ input[type="radio"] {
     }
 
     &:disabled:checked, &.disabled:checked {
-        background-color: color('grey', 2) !important;
+        background-color: $hc-forms-checkbox-disabled-checked-background-colour !important;
     }
 
     & + label {
-        @include margin(1, right);
-        @include padding(0.1, 'left');
+        @include margin($hc-forms-checkbox-label-margin-ratio, right);
+        @include padding($hc-forms-checkbox-label-padding-ratio, 'left');
         font-weight: normal;
         display: inline-block;
         transform: translateY(2px);
@@ -71,10 +73,11 @@ input[type="radio"] {
 }
 
 input[type="checkbox"] {
-    border-radius: 2px;
+    border-radius: $hc-forms-checkbox-border-radius;
 
     &:checked {
         &:after {
+            @include font-size($hc-forms-checkbox-tick-font-size, false);
             content: "\e625";
             color: color('white');
             font-family: "Redgate";
@@ -86,7 +89,7 @@ input[type="checkbox"] {
 }
 
 input[type="radio"] {
-    border-radius: 50%;
+    border-radius: $hc-forms-radio-border-radius;
 
     &:checked {
         box-shadow: inset 0px 0px 0px 3px color('white');
@@ -94,18 +97,18 @@ input[type="radio"] {
 }
 
 label {
-    @include margin(0.1, 'bottom');
+    @include margin($hc-forms-label-margin-bottom-ratio, 'bottom');
     display: block;
     font-weight: bold;
 }
 
 select {
-    @include padding(1.2, 'right');
+    @include padding($hc-forms-select-padding-right-ratio, 'right');
     appearance: none;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiA4LjI3IiB3aWR0aD0iMTIiIGhlaWdodD0iOC4yNyI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMCAyLjI3bDIuMjctMi4yNyAzLjczIDMuNzMgMy43My0zLjczIDIuMjcgMi4yNy02IDYtNi02eiIvPjwvc3ZnPg==); // Base64 encoded SVG.
     background-repeat: no-repeat;
-    background-position: calc(100% - 20px) center;
-    background-size: 1em;
+    background-position: $hc-forms-select-background-position;
+    background-size: $hc-forms-select-background-size;
 
     &::-ms-expand {
         display: none; // Hide arrow in IE 10.
@@ -115,22 +118,22 @@ select {
     // All browsers, apart from Chrome are displaying the select
     // box as 2px taller, so we reduce the padding by default,
     // and override the padding for Chrome only.
-    padding-top: 9px;
-    padding-bottom: 9px;
+    padding-top: $hc-forms-select-padding-top;
+    padding-bottom: $hc-forms-select-padding-bottom;
     @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
         // Chrome only CSS.
-        @include padding(0.25, 'top');
-        @include padding(0.25, 'bottom');
+        padding-top: $hc-forms-input-padding;
+        padding-bottom: $hc-forms-input-padding;
     }
 }
 
 // Data list dropdown arrow, which only displays in Chrome.
 input[list]::-webkit-calendar-picker-indicator {
-    @include margin(0.25, 'left');
+    @include margin($hc-forms-datalist-arrow-margin-left-ratio, 'left');
     color: transparent;
     background-color: transparent;
-    background-position: center;
+    background-position: $hc-forms-datalist-arrow-background-position;
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiA4LjI3IiB3aWR0aD0iMTIiIGhlaWdodD0iOC4yNyI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMCAyLjI3bDIuMjctMi4yNyAzLjczIDMuNzMgMy43My0zLjczIDIuMjcgMi4yNy02IDYtNi02eiIvPjwvc3ZnPg==); // Base64 encoded SVG.
     background-repeat: no-repeat;
-    background-size: 1em;
+    background-size: $hc-forms-datalist-arrow-background-size;
 }

@@ -1,6 +1,10 @@
 $hc-notification-background-color: color('grey', 1) !default;
 $hc-notification-font-size: $hc-font-size !default;
 $hc-notification-border-width: 10 !default;
+@if $hc-mode == app {
+    $hc-notification-border-width: 5;
+}
+
 $hc-notification-text-color: color('grey', 7) !default;
 $hc-notification-icon-margin: 15px !default;
 

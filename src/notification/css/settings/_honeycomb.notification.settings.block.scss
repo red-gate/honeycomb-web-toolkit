@@ -1,5 +1,21 @@
 $hc-notification-block-padding: 17px 15px !default;
+@if $hc-mode == app {
+    $hc-notification-block-padding: 10px;
+}
+
 $hc-notification-block--minimal-padding: 16px 15px 16px 20px !default;
+@if $hc-mode == app {
+    $hc-notification-block--minimal-padding: $hc-notification-block-padding;
+}
+
 $hc-notification-block-icon-size: 18px !default;
+@if $hc-mode == app {
+    $hc-notification-block-icon-size: 16px;
+}
+
 $hc-notification-block-close-size: 16px !default;
+@if $hc-mode == app {
+    $hc-notification-block-close-size: 14px;
+}
+
 $hc-notification-block-close-color: color('grey', 8) !default;
