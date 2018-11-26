@@ -1,13 +1,13 @@
 /*------------------------------------*\
     #DROPDOWN NAVIGATION
 \*------------------------------------*/
-.dropdown {
+.dropdown, .js-dropdown {
     position: relative;
 
     ul {
         @include padding(0.25, top);
         @include padding(0.25, bottom);
-        display: block;
+        display: none;
         position: absolute;
         top: 100%;
         left: -1rem;
@@ -31,6 +31,10 @@
 
     & > a {
         @include padding(0.8, right);
+    }
+
+    &.open > ul {
+        display: block;
     }
 
     &.closed > ul {
