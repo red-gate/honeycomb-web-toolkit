@@ -26,6 +26,10 @@
     &--left {
         justify-content: flex-start;
     }
+
+    @include responsive('medium') {
+        display: block;
+    }
 }
 
 .tabs li {
