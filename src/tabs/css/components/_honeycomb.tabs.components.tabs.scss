@@ -17,15 +17,14 @@
 .tabs {
     clear: both;
     margin: auto;
-    display: table;
-    table-layout: fixed;
+    display: flex;
+    justify-content: center;
     list-style: none;
-    width: 100%;
     overflow: hidden;
     text-align: center;
 
     &--left {
-        text-align: left;
+        justify-content: flex-start;
     }
 }
 
