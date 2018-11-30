@@ -74,45 +74,164 @@
     }
 }
 
-.icon--email {
+.icon--add-ons {
     @extend %icon;
     &:before, &:after {
-        content: "\e611";
+        content: "\e800";
     }
 }
 
-.icon--phone {
+.icon--alert {
     @extend %icon;
     &:before, &:after {
-        content: "\e61d";
+        content: "\e600";
     }
 }
 
-.icon--pdf {
+.icon--alert-silence {
     @extend %icon;
     &:before, &:after {
-        content: "\e60e";
+        content: "\e908";
     }
 }
 
-.icon--external {
+.icon--approved {
     @extend %icon;
     &:before, &:after {
-        content: "\e612";
+        content: "\e919";
     }
 }
 
-.icon--video {
+.icon--arrow-circle {
     @extend %icon;
     &:before, &:after {
-        content: "\e628";
+        content: "\e953";
     }
 }
 
-.icon--download {
+.icon--arrow-down-link {
     @extend %icon;
     &:before, &:after {
-        content: "\e60f";
+        content: "\e945";
+    }
+}
+
+.icon--arrow-drop-down {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e941";
+    }
+}
+
+.icon--arrow-drop-up {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e940";
+    }
+}
+
+.icon--arrow-left {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e601";
+    }
+}
+
+.icon--arrow-left-link {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e943";
+    }
+}
+
+.icon--arrow-right {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e602";
+    }
+}
+
+.icon--arrow-right-link {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e942";
+    }
+}
+
+.icon--arrow-up-link {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e944";
+    }
+}
+
+.icon--availability-group {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94d";
+    }
+}
+
+.icon--award {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e918";
+    }
+}
+
+.icon--azure {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e948";
+    }
+}
+
+.icon--azure-database {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e954";
+    }
+}
+
+.icon--backup-database {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e95a";
+    }
+}
+
+.icon--blocked {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94c";
+    }
+}
+
+.icon--branch {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e947";
+    }
+}
+
+.icon--briefcase {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e95b";
+    }
+}
+
+.icon--bullet {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e603";
+    }
+}
+
+.icon--calendar {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e604";
     }
 }
 
@@ -120,13 +239,6 @@
     @extend %icon;
     &:before, &:after {
         content: "\e605";
-    }
-}
-
-.icon--chevron-up {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e608";
     }
 }
 
@@ -144,24 +256,38 @@
     }
 }
 
-.icon--plus {
+.icon--chevron-up {
     @extend %icon;
     &:before, &:after {
-        content: "\e620";
+        content: "\e608";
     }
 }
 
-.icon--plus-circle {
+.icon--circle {
     @extend %icon;
     &:before, &:after {
-        content: "\e61f";
+        content: "\e956";
     }
 }
 
-.icon--minus {
+.icon--clear-cross-circle {
     @extend %icon;
     &:before, &:after {
-        content: "\e61c";
+        content: "\e609";
+    }
+}
+
+.icon--clock {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e916";
+    }
+}
+
+.icon--column {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e951";
     }
 }
 
@@ -172,10 +298,10 @@
     }
 }
 
-.icon--tick {
+.icon--copydoc {
     @extend %icon;
     &:before, &:after {
-        content: "\e625";
+        content: "\e904";
     }
 }
 
@@ -186,8 +312,102 @@
     }
 }
 
-.icon--success {
-    @extend .icon--tick;
+.icon--dashboard {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e952";
+    }
+}
+
+.icon--database {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e60c";
+    }
+}
+
+.icon--database-clone {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94b";
+    }
+}
+
+.icon--database-file {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94f";
+    }
+}
+
+.icon--database-image {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94a";
+    }
+}
+
+.icon--delete {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e60d";
+    }
+}
+
+.icon--dock {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e905";
+    }
+}
+
+.icon--download {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e60f";
+    }
+}
+
+.icon--edit {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e610";
+    }
+}
+
+.icon--elastic-pool {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e958";
+    }
+}
+
+.icon--email {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e611";
+    }
+}
+
+.icon--expand {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e90f";
+    }
+}
+
+.icon--export {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e911";
+    }
+}
+
+.icon--external {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e612";
+    }
 }
 
 .icon--fail {
@@ -197,38 +417,31 @@
     }
 }
 
-.icon--info {
+.icon--filter {
     @extend %icon;
     &:before, &:after {
-        content: "\e619";
+        content: "\e613";
     }
 }
 
-.icon--calendar {
+.icon--flag {
     @extend %icon;
     &:before, &:after {
-        content: "\e604";
+        content: "\e901";
     }
 }
 
-.icon--settings {
+.icon--folder {
     @extend %icon;
     &:before, &:after {
-        content: "\e624";
+        content: "\e615";
     }
 }
 
-.icon--user {
+.icon--folder-open {
     @extend %icon;
     &:before, &:after {
-        content: "\e626";
-    }
-}
-
-.icon--users {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e627";
+        content: "\e62c";
     }
 }
 
@@ -239,52 +452,122 @@
     }
 }
 
-.icon--arrow-left {
+.icon--help-circle {
     @extend %icon;
     &:before, &:after {
-        content: "\e601";
+        content: "\e617";
     }
 }
 
-.icon--arrow-right {
+.icon--hide {
     @extend %icon;
     &:before, &:after {
-        content: "\e602";
+        content: "\e90b";
     }
 }
 
-.icon--play-circle {
+.icon--history {
     @extend %icon;
     &:before, &:after {
-        content: "\e61e";
+        content: "\e618";
     }
 }
 
-.icon--warning {
+.icon--home {
     @extend %icon;
     &:before, &:after {
-        content: "\e629";
+        content: "\e93d";
     }
 }
 
-.icon--bullet {
+.icon--import {
     @extend %icon;
     &:before, &:after {
-        content: "\e603";
+        content: "\e910";
     }
 }
 
-.icon--shopping-cart {
+.icon--info {
     @extend %icon;
     &:before, &:after {
-        content: "\e62a";
+        content: "\e619";
     }
 }
 
-.icon--server {
+.icon--instance {
     @extend %icon;
     &:before, &:after {
-        content: "\e900";
+        content: "\e61a";
+    }
+}
+
+.icon--large-tiles {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92c";
+    }
+}
+
+.icon--lightbulb {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e91c";
+    }
+}
+
+.icon--lock {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92b";
+    }
+}
+
+.icon--maintenance {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e909";
+    }
+}
+
+.icon--map_pin {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e915";
+    }
+}
+
+.icon--merge-branch {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e946";
+    }
+}
+
+.icon--message-tick {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e61b";
+    }
+}
+
+.icon--metrics {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e94e";
+    }
+}
+
+.icon--minimize {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e90e";
+    }
+}
+
+.icon--minus {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e61c";
     }
 }
 
@@ -302,17 +585,52 @@
     }
 }
 
-.icon--alert-silence {
+.icon--pdf {
     @extend %icon;
     &:before, &:after {
-        content: "\e908";
+        content: "\e60e";
     }
 }
 
-.icon--maintenance {
+.icon--phone {
     @extend %icon;
     &:before, &:after {
-        content: "\e909";
+        content: "\e61d";
+    }
+}
+
+.icon--pipeline {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e614";
+    }
+}
+
+.icon--play {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e903";
+    }
+}
+
+.icon--play-circle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e61e";
+    }
+}
+
+.icon--plus {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e620";
+    }
+}
+
+.icon--plus-circle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e61f";
     }
 }
 
@@ -323,17 +641,147 @@
     }
 }
 
-.icon--hide {
+.icon--processes {
     @extend %icon;
     &:before, &:after {
-        content: "\e90b";
+        content: "\e93f";
     }
 }
 
-.icon--warning-octagon {
+.icon--refresh {
     @extend %icon;
     &:before, &:after {
-        content: "\e90c";
+        content: "\e621";
+    }
+}
+
+.icon--rss {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e917";
+    }
+}
+
+.icon--save {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e622";
+    }
+}
+
+.icon--schema {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e959";
+    }
+}
+
+.icon--script {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e957";
+    }
+}
+
+.icon--search {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e623";
+    }
+}
+
+.icon--server {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e900";
+    }
+}
+
+.icon--server-cluster {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e949";
+    }
+}
+
+.icon--settings {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e624";
+    }
+}
+
+.icon--shopping-cart {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e62a";
+    }
+}
+
+.icon--show {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e902";
+    }
+}
+
+.icon--small-tiles {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92d";
+    }
+}
+
+.icon--sort-arrows {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e93e";
+    }
+}
+
+.icon--star-circle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e955";
+    }
+}
+
+.icon--stop {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92a";
+    }
+}
+
+.icon--success {
+    @extend .icon--tick;
+}
+
+.icon--table {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e950";
+    }
+}
+
+.icon--table-expand-large {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e930";
+    }
+}
+
+.icon--table-expand-medium {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92f";
+    }
+}
+
+.icon--table-expand-small {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e92e";
     }
 }
 
@@ -344,38 +792,66 @@
     }
 }
 
-.icon--flag {
+.icon--target {
     @extend %icon;
     &:before, &:after {
-        content: "\e901";
+        content: "\e931";
     }
 }
 
-.icon--minimize {
+.icon--test-data {
     @extend %icon;
     &:before, &:after {
-        content: "\e90e";
+        content: "\e914";
     }
 }
 
-.icon--expand {
+.icon--tick {
     @extend %icon;
     &:before, &:after {
-        content: "\e90f";
+        content: "\e625";
     }
 }
 
-.icon--import {
+.icon--tick-circle {
     @extend %icon;
     &:before, &:after {
-        content: "\e910";
+        content: "\e91d";
     }
 }
 
-.icon--export {
+.icon--user {
     @extend %icon;
     &:before, &:after {
-        content: "\e911";
+        content: "\e626";
+    }
+}
+
+.icon--users {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e627";
+    }
+}
+
+.icon--video {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e628";
+    }
+}
+
+.icon--warning {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e629";
+    }
+}
+
+.icon--warning-octagon {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e90c";
     }
 }
 
@@ -393,256 +869,29 @@
     }
 }
 
-.icon--show {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e902";
-    }
-}
-
-.icon--play {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e903";
-    }
-}
-
-.icon--copydoc {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e904";
-    }
-}
-
-.icon--dock {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e905";
-    }
-}
-
-.icon--test-data {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e914";
-    }
-}
-
-.icon--add-ons {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e800";
-    }
-}
-
-.icon--pipeline {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e614";
-    }
-}
-
-.icon--alert {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e600";
-    }
-}
-
-.icon--clear-cross-circle {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e609";
-    }
-}
-
-.icon--instance {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e61a";
-    }
-}
-
-.icon--database {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e60c";
-    }
-}
-
-.icon--delete {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e60d";
-    }
-}
-
-.icon--edit {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e610";
-    }
-}
-
-.icon--filter {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e613";
-    }
-}
-
-.icon--folder-open {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e62c";
-    }
-}
-
-.icon--folder {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e615";
-    }
-}
-
-.icon--history {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e618";
-    }
-}
-
-.icon--message-tick {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e61b";
-    }
-}
-
-.icon--refresh {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e621";
-    }
-}
-
-.icon--save {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e622";
-    }
-}
-
-.icon--search {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e623";
-    }
-}
-
-.icon--help-circle {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e617";
-    }
-}
-
-.icon--approved {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e919";
-    }
-}
-.icon--award {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e918";
-    }
-}
-.icon--clock {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e916";
-    }
-}
-.icon--map_pin {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e915";
-    }
-}
-.icon--rss {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e917";
-    }
-}
-.icon--tick-circle {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e91d";
-    }
-}
-.icon--lightbulb {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e91c";
-    }
-}
-.icon--lock {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e92b";
-    }
-}
-.icon--stop {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e92a";
-    }
-}
-.icon--large-tiles {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e92c";
-    }
-}
-.icon--small-tiles {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e92d";
-    }
-}
-.icon--table-expand-small {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e92e";
-    }
-}
-.icon--table-expand-medium {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e92f";
-    }
-}
-.icon--table-expand-large {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e930";
-    }
-}
-.icon--target {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e931";
-    }
-}
-
-
-
 /**
-  * Product icons
-  */
+ * Product icons
+ */
+.icon--data-masker {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e923";
+    }
+}
+
+.icon--data-platform-studio {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e925";
+    }
+}
+
+.icon--dlm-automation {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e929";
+    }
+}
 
 .icon--dlm-dashboard {
     @extend %icon;
@@ -650,333 +899,164 @@
         content: "\e91e";
     }
 }
-.icon--dlm-automation {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e929";
-    }
-}
-.icon--sql-backup {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e928";
-    }
-}
-.icon--sql-compare {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e91b";
-    }
-}
-.icon--sql-comparison-sdk {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e927";
-    }
-}
-.icon--sql-data-compare {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e91f";
-    }
-}
-.icon--data-masker {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e923";
-    }
-}
-.icon--sql-dependency-tracker {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e926";
-    }
-}
-.icon--sql-doc {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e920";
-    }
-}
-.icon--sql-monitor {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e921";
-    }
-}
-.icon--sql-search {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e922";
-    }
-}
-.icon--sql-source-control {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e93a";
-    }
-}
-.icon--sql-test {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e924";
-    }
-}
-.icon--sql-toolbelt {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e925";
-    }
-}
-.icon--data-platform-studio {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e925";
-    }
-}
-.icon--sql-scripts-manager {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e932";
-    }
-}
+
 .icon--readyroll {
     @extend %icon;
     &:before, &:after {
         content: "\e933";
     }
 }
-.icon--sql-multi-script {
+
+.icon--sql-backup {
     @extend %icon;
     &:before, &:after {
-        content: "\e934";
+        content: "\e928";
     }
 }
-.icon--sql-index-manager {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e935";
-    }
-}
-.icon--sql-code-guard {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e936";
-    }
-}
-.icon--sql-clone {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e937";
-    }
-}
-.icon--sql-data-generator {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e938";
-    }
-}
-.icon--sql-prompt {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e939";
-    }
-}
-.icon--sql-estate-manager {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e93c";
-    }
-}
+
 .icon--sql-change-automation {
     @extend %icon;
     &:before, &:after {
         content: "\e93b";
     }
 }
+
+.icon--sql-clone {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e937";
+    }
+}
+
+.icon--sql-code-guard {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e936";
+    }
+}
+
+.icon--sql-compare {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e91b";
+    }
+}
+
+.icon--sql-comparison-sdk {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e927";
+    }
+}
+
+.icon--sql-data-catalog {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e95c";
+    }
+}
+
+.icon--sql-data-compare {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e91f";
+    }
+}
+
+.icon--sql-data-generator {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e938";
+    }
+}
+
+.icon--sql-dependency-tracker {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e926";
+    }
+}
+
+.icon--sql-doc {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e920";
+    }
+}
+
+.icon--sql-estate-manager {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e93c";
+    }
+}
+
+.icon--sql-index-manager {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e935";
+    }
+}
+
+.icon--sql-monitor {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e921";
+    }
+}
+
+.icon--sql-multi-script {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e934";
+    }
+}
+
+.icon--sql-prompt {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e939";
+    }
+}
+
 .icon--sql-provision {
     @extend %icon;
     &:before, &:after {
         content: "\e925";
     }
 }
-.icon--home {
+
+.icon--sql-scripts-manager {
     @extend %icon;
     &:before, &:after {
-        content: "\e93d";
+        content: "\e932";
     }
 }
-.icon--sort-arrows {
+
+.icon--sql-search {
     @extend %icon;
     &:before, &:after {
-        content: "\e93e";
+        content: "\e922";
     }
 }
-.icon--processes {
+
+.icon--sql-source-control {
     @extend %icon;
     &:before, &:after {
-        content: "\e93f";
+        content: "\e93a";
     }
 }
-.icon--arrow-drop-up {
+
+.icon--sql-test {
     @extend %icon;
     &:before, &:after {
-        content: "\e940";
+        content: "\e924";
     }
 }
-.icon--arrow-drop-down {
+
+.icon--sql-toolbelt {
     @extend %icon;
     &:before, &:after {
-        content: "\e941";
-    }
-}
-.icon--arrow-right-link {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e942";
-    }
-}
-.icon--arrow-left-link {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e943";
-    }
-}
-.icon--arrow-up-link {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e944";
-    }
-}
-.icon--arrow-down-link {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e945";
-    }
-}
-.icon--merge-branch {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e946";
-    }
-}
-.icon--branch {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e947";
-    }
-}
-.icon--azure {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e948";
-    }
-}
-.icon--server-cluster {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e949";
-    }
-}
-.icon--database-image {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e94a";
-    }
-}
-.icon--database-clone {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e94b";
-    }
-}
-.icon--blocked {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e94c";
-    }
-}
-.icon--availability-group {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e94d";
-    }
-}
-.icon--metrics {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e94e";
-    }
-}
-.icon--database-file {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e94f";
-    }
-}
-.icon--table {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e950";
-    }
-}
-.icon--column {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e951";
-    }
-}
-.icon--dashboard {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e952";
-    }
-}
-.icon--azure-database {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e954";
-    }
-}
-.icon--arrow-circle {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e953";
-    }
-}
-.icon--circle {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e956";
-    }
-}
-.icon--star-circle {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e955";
-    }
-}
-.icon--script {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e957";
-    }
-}
-.icon--elastic-pool {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e958";
-    }
-}
-.icon--schema {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e959";
-    }
-}
-.icon--backup-database {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e95a";
+        content: "\e925";
     }
 }
