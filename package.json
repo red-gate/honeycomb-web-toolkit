@@ -1,6 +1,6 @@
 {
   "name": "honeycomb-web-toolkit",
-  "version": "10.13.5",
+  "version": "10.13.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/red-gate/honeycomb-web-toolkit"
@@ -40,7 +40,7 @@
     "node-sass": "^4.11.0",
     "postcss-cli": "^4.1.1",
     "uglify-js": "^3.4.9",
-    "zip-folder": "^1.0.0"
+    "zip-a-folder": "0.0.6"
   },
   "browserify": {
     "transform": [

@@ -1,5 +1,5 @@
 // Extra tasks when building on TeamCity.
-const zipFolder = require("zip-folder");
+const zipFolder = require("zip-a-folder");
 const fs = require("fs");
 const request = require("request");
 const pkg = require('../package.json');
@@ -25,7 +25,7 @@ console.warn("##teamcity[buildNumber '" + packageVersion + "']");
 
 // Zip up the dist folder
 const pkgFilename = "RedGate.HoneycombWebToolkit." + packageVersion + ".zip";
-zipFolder("dist", pkgFilename, function(err) {
+zipFolder.zipFolder("dist", pkgFilename, function(err) {
 	if(err) {
 		console.error("Failed to zip output package", err);
 		process.exit(1);
