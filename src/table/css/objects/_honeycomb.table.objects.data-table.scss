@@ -83,6 +83,7 @@
     border-bottom-style: solid;
     border-top-color: $hc-data-table-meta-border-colour;
     border-bottom-color: $hc-data-table-meta-border-colour;
+    min-height: $hc-data-table-meta-min-height;
 
     .data-table__meta__left,
     .data-table__meta__right {
@@ -280,6 +281,18 @@ td.data-table__sortable {
 
 .data-table select {
     @extend %select--x-small;
+}
+
+.data-table {
+    .button, button, [type=submit] {
+        @extend %button--xx-small;
+    }
+}
+
+.data-table__meta {
+    .button, button, [type=submit] {
+        @extend %button--x-small;
+    }
 }
 
 .data-table--tight input:not([type=checkbox]):not([type=radio]),

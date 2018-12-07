@@ -40,6 +40,11 @@ $hc-data-table-meta-padding-top-ratio: 0.25 !default;
 $hc-data-table-meta-padding-bottom-ratio: $hc-data-table-meta-padding-top-ratio !default;
 $hc-data-table-meta-padding-left-ratio: 0.1 !default;
 $hc-data-table-meta-padding-right-ratio: $hc-data-table-meta-padding-left-ratio !default;
+$hc-data-table-meta-min-height: 58px !default;
+@if $hc-mode == app {
+    $hc-data-table-meta-min-height: 52px;
+}
+
 $hc-data-table-meta-item-margin-ratio: 1.5 !default;
 $hc-data-table-meta-page-x-of-y-input-width: 35px !default;
 $hc-data-table-meta-pagination-arrow-font-size: 24px !default;

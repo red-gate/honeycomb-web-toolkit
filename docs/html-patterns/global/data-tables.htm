@@ -266,54 +266,270 @@
                     </tbody>
                 </table>
 
-<div class="spaced-v--loose">
-                <h2>Collapsable rows</h2>
-                <p>Collapsable rows using multiple <code>tbody</code> elements.</p>
-                <table class="data-table">
-                    <thead>
-                        <th>Col 1</th><th>Col 2</th><th>Col 3</th><th>Col 4</th>
-                    </thead>
-                    <tbody>
-                        <!-- <tr class="data-table__collapsable-header">
-                            <th colspan="4">Category</th>
-                        </tr> -->
-                        <tr>
-                            <td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
-                        </tr>
-                        <tr>
-                            <td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr class="data-table__collapsable-header">
-                            <th colspan="4">Category</th>
-                        </tr>
-                        <tr>
-                            <td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
-                        </tr>
-                        <tr>
-                            <td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
-                        </tr>
-                        <tr>
-                            <td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr class="data-table__collapsable-header">
-                            <th colspan="4">Category</th>
-                        </tr>
-                        <tr>
-                            <td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
-                        </tr>
-                        <tr>
-                            <td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
-                        </tr>
-                        <tr>
-                            <td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
-                        </tr>
-                    </tbody>
-                </table>
-</div>
+                <div class="spaced-v--loose">
+                    <h2>Collapsable rows</h2>
+                    <p>Collapsable rows using multiple <code>tbody</code> elements.</p>
+                    <table class="data-table">
+                        <thead>
+                            <th>Col 1</th><th>Col 2</th><th>Col 3</th><th>Col 4</th>
+                        </thead>
+                        <tbody>
+                            <!-- <tr class="data-table__collapsable-header">
+                                <th colspan="4">Category</th>
+                            </tr> -->
+                            <tr>
+                                <td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="data-table__collapsable-header">
+                                <th colspan="4">Category</th>
+                            </tr>
+                            <tr>
+                                <td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr class="data-table__collapsable-header">
+                                <th colspan="4">Category</th>
+                            </tr>
+                            <tr>
+                                <td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="spaced-v--loose padded-v--loose">
+
+                    <div class="data-table__meta">
+                        <div class="data-table__meta__left">
+                            <p>1-50 of 5695 items</p>
+                            <p class="text--bold">1 item selected</p>
+                            <a class="button button--primary" href="#">Apply selected suggestions</a>
+                        </div>
+    
+                        <div class="data-table__meta__right">
+                            <div class="data-table__meta__items-per-page">
+                                <p>Items per page:</p>
+                                <select>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>40</option>
+                                </select>
+                            </div>
+    
+                            <div class="data-table__meta__page-x-of-y">
+                                <p>Page:</p>
+                                <input type="text" value="1"/>
+                                <p>of 114</p>
+                            </div>
+    
+                            <nav class="data-table__meta__pagination">
+                                <a class="pagination__prev" href="#"></a>
+                                <a class="pagination__next" href="#"></a>
+                            </nav>
+                        </div>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <th><input type="checkbox"/></th><th>Header 1</th><th>Header 2</th><th>Header 3</th><th>Header 4</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"/></td><td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 5, Col 1</td><td>Row 5, Col 2</td><td>Row 5, Col 3</td><td>Row 5, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 6, Col 1</td><td>Row 6, Col 2</td><td>Row 6, Col 3</td><td>Row 6, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/></td><td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
+                            </tr>
+                            <tr class="data-table__selected">
+                                <td><input type="checkbox" checked/><td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 5, Col 1</td><td>Row 5, Col 2</td><td>Row 5, Col 3</td><td>Row 5, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 6, Col 1</td><td>Row 6, Col 2</td><td>Row 6, Col 3</td><td>Row 6, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/></td><td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 5, Col 1</td><td>Row 5, Col 2</td><td>Row 5, Col 3</td><td>Row 5, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 6, Col 1</td><td>Row 6, Col 2</td><td>Row 6, Col 3</td><td>Row 6, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/></td><td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 5, Col 1</td><td>Row 5, Col 2</td><td>Row 5, Col 3</td><td>Row 5, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 6, Col 1</td><td>Row 6, Col 2</td><td>Row 6, Col 3</td><td>Row 6, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/></td><td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 5, Col 1</td><td>Row 5, Col 2</td><td>Row 5, Col 3</td><td>Row 5, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 6, Col 1</td><td>Row 6, Col 2</td><td>Row 6, Col 3</td><td>Row 6, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/></td><td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 5, Col 1</td><td>Row 5, Col 2</td><td>Row 5, Col 3</td><td>Row 5, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 6, Col 1</td><td>Row 6, Col 2</td><td>Row 6, Col 3</td><td>Row 6, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/></td><td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 5, Col 1</td><td>Row 5, Col 2</td><td>Row 5, Col 3</td><td>Row 5, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 6, Col 1</td><td>Row 6, Col 2</td><td>Row 6, Col 3</td><td>Row 6, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/></td><td>Row 1, Col 1</td><td>Row 1, Col 2</td><td>Row 1, Col 3</td><td>Row 1, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 2, Col 1</td><td>Row 2, Col 2</td><td>Row 2, Col 3</td><td>Row 2, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 3, Col 1</td><td>Row 3, Col 2</td><td>Row 3, Col 3</td><td>Row 3, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 4, Col 1</td><td>Row 4, Col 2</td><td>Row 4, Col 3</td><td>Row 4, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 5, Col 1</td><td>Row 5, Col 2</td><td>Row 5, Col 3</td><td>Row 5, Col 4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"/><td>Row 6, Col 1</td><td>Row 6, Col 2</td><td>Row 6, Col 3</td><td>Row 6, Col 4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="data-table__meta">
+                        <div class="data-table__meta__left">
+                            <p>1-50 of 5695 items</p>
+                            <p class="text--bold">1 item selected</p>
+                        </div>
+    
+                        <div class="data-table__meta__right">
+                            <div class="data-table__meta__items-per-page">
+                                <p>Items per page:</p>
+                                <select>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>40</option>
+                                </select>
+                            </div>
+    
+                            <div class="data-table__meta__page-x-of-y">
+                                <p>Page:</p>
+                                <input type="text" value="1"/>
+                                <p>of 114</p>
+                            </div>
+    
+                            <nav class="data-table__meta__pagination">
+                                <a class="pagination__prev" href="#"></a>
+                                <a class="pagination__next" href="#"></a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
         </div>
