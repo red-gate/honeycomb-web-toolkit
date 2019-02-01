@@ -1765,6 +1765,34 @@ var handle = function handle() {
             $dropdown.addClass(classNameOpen).removeClass(classNameClosed);
         }
     });
+
+    // close all open dropdowns when clicking elsewhere in the document
+    document.querySelector('body').addEventListener('click', function (event) {
+        // Only proceed if there are any open dropdowns
+        if (document.querySelector('.dropdown.' + classNameOpen)) {
+            // check if click event is inside a dropdown
+            var activeDropdown = void 0;
+            var parent = event.target.parentElement;
+            while (parent !== null) {
+                if (parent.classList.contains('dropdown')) {
+                    activeDropdown = parent;
+                    break;
+                }
+                parent = parent.parentElement;
+            }
+
+            // close all open dropdowns except for the active one
+            var dropdowns = document.querySelectorAll('.dropdown');
+            for (var i = 0; i < dropdowns.length; i++) {
+                var dropdown = dropdowns[i];
+
+                if (dropdown !== activeDropdown && dropdown.classList.contains(classNameOpen)) {
+                    dropdown.classList.remove(classNameOpen);
+                    dropdown.classList.add(classNameClosed);
+                }
+            }
+        }
+    });
 };
 
 exports.default = {

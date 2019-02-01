@@ -43,6 +43,34 @@ let handle = () => {
             $dropdown.addClass( classNameOpen ).removeClass( classNameClosed );
         }
     });
+
+    // close all open dropdowns when clicking elsewhere in the document
+    document.querySelector('body').addEventListener('click', event => {
+        // Only proceed if there are any open dropdowns
+        if ( document.querySelector(`.dropdown.${classNameOpen}`) ) {
+            // check if click event is inside a dropdown
+            let activeDropdown;
+            let parent = event.target.parentElement;
+            while (parent !== null) {
+                if (parent.classList.contains('dropdown')) {
+                    activeDropdown = parent;
+                    break;
+                }
+                parent = parent.parentElement;
+            }
+
+            // close all open dropdowns except for the active one
+            const dropdowns = document.querySelectorAll('.dropdown');
+            for (let i = 0; i < dropdowns.length; i++) {
+                const dropdown = dropdowns[i];
+                
+                if ( dropdown !== activeDropdown && dropdown.classList.contains(classNameOpen) ) {
+                    dropdown.classList.remove(classNameOpen);
+                    dropdown.classList.add(classNameClosed);
+                }
+            }
+        }
+    });
 };
 
 export default {
