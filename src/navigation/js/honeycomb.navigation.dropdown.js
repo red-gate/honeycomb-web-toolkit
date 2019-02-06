@@ -25,6 +25,30 @@ let addArrows = () => {
     });
 };
 
+// check if a specified dropdown is a parent of an event target
+const dropdownIsActive = (dropdown, target) => {
+    let parentDropdowns = [];
+    let parent = target.parentElement;
+
+    // list all dropdowns found in the event target's ancestors
+    while (parent !== null) {
+        if (parent.classList.contains('dropdown')) {
+            parentDropdowns.push(parent);
+        }
+        parent = parent.parentElement;
+    }
+
+    // return true if the specified dropdown is an event target ancestor
+    for (let i = 0; i < parentDropdowns.length; i++) {
+        const parentDropdown = parentDropdowns[i];
+        if (dropdown === parentDropdown) {
+            return true;
+        }
+    }
+
+    return false;
+};
+
 let handle = () => {
     if (typeof window.jQuery === 'undefined') {
         window.console.warn( 'Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected' );
@@ -48,23 +72,16 @@ let handle = () => {
     document.querySelector('body').addEventListener('click', event => {
         // Only proceed if there are any open dropdowns
         if ( document.querySelector(`.dropdown.${classNameOpen}`) ) {
-            // check if click event is inside a dropdown
-            let activeDropdown;
-            let parent = event.target.parentElement;
-            while (parent !== null) {
-                if (parent.classList.contains('dropdown')) {
-                    activeDropdown = parent;
-                    break;
-                }
-                parent = parent.parentElement;
-            }
-
-            // close all open dropdowns except for the active one
             const dropdowns = document.querySelectorAll('.dropdown');
+            const target = event.target;
+
+            // loop through all dropdowns
             for (let i = 0; i < dropdowns.length; i++) {
                 const dropdown = dropdowns[i];
+                const dropdownIsOpen = dropdown.classList.contains(classNameOpen);
                 
-                if ( dropdown !== activeDropdown && dropdown.classList.contains(classNameOpen) ) {
+                // close open, inactive dropdowns
+                if ( !dropdownIsActive(dropdown, target) && dropdownIsOpen ) {
                     dropdown.classList.remove(classNameOpen);
                     dropdown.classList.add(classNameClosed);
                 }
