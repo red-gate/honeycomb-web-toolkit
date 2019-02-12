@@ -11,6 +11,7 @@ input, select, textarea {
     width: calc(100% - #{$hc-forms-input-meta-allowance});
     border-radius: $hc-forms-input-border-radius;
     border-color: $hc-forms-input-border-colour;
+    background-color: #fff;
 }
 
 input, select {
@@ -109,7 +110,6 @@ select {
     background-repeat: no-repeat;
     background-position: $hc-forms-select-background-position;
     background-size: $hc-forms-select-background-size;
-    background-color: #fff;
 
     &::-ms-expand {
         display: none; // Hide arrow in IE 10.
