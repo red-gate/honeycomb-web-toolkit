@@ -109,6 +109,7 @@ select {
     background-repeat: no-repeat;
     background-position: $hc-forms-select-background-position;
     background-size: $hc-forms-select-background-size;
+    background-color: #fff;
 
     &::-ms-expand {
         display: none; // Hide arrow in IE 10.
