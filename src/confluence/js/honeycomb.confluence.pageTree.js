@@ -4,7 +4,7 @@
 const buildPageTreeMacro = pageTreeMacro => {
     const domain = document.location.protocol + '//' + document.location.hostname;
     const requestIdUrl = pageTreeMacro.querySelector('[name="treeRequestId"]').getAttribute('value');
-    const hasRoot = !!pageTreeMacro.querySelector('[name="noRoot"]').getAttribute('value')
+    const hasRoot = !!pageTreeMacro.querySelector('[name="noRoot"]').getAttribute('value');
     const pageId = pageTreeMacro.querySelector('[name="rootPageId"]').getAttribute('value');
     const treeId = pageTreeMacro.querySelector('[name="treeId"]').getAttribute('value');
     const startDepth = pageTreeMacro.querySelector('[name="startDepth"]').getAttribute('value');
