@@ -571,6 +571,13 @@
     }
 }
 
+.icon--minus-circle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e95d";
+    }
+}
+
 .icon--more-actions-horizontal {
     @extend %icon;
     &:before, &:after {
