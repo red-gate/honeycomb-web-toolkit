@@ -339,7 +339,7 @@
 
 
 	// Lightweight style nav
-	// Used on www.simple-talk.com
+	// Used on www.simple-talk.com and www.red-gate.com/hub/product-learning
 	// Classname is 'thin' instead of 'light' to avoid a false opposite with .nav--vertical--dark
 	&.nav--vertical--thin {
 		&, ul, li, li:hover, a, a:hover {
@@ -362,7 +362,8 @@
 		.nav--vertical__active {
 			a {
 				font-weight: bold;
-				border-left-color: $hc-nav-vertical-thin-link-border-color-active;
+				border-left-color: color('red', 'brand');
+				color: #000;
 			}
 		}
 
@@ -382,7 +383,7 @@
 			.nav--vertical__active {
 				a {
 					border-left-color: transparent;
-					border-right-color: $hc-nav-vertical-thin-link-border-color-active;
+					border-right-color: color('red', 'brand');
 				}
 			}
 		}
