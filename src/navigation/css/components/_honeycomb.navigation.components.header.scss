@@ -330,7 +330,7 @@ $transition: all 0.5s;
         }
 
         [type="submit"] {
-            background-color: color('grey', 9);
+            background-color: color('grey', 9) !important;
 
             &:before {
                 color: color('white');
