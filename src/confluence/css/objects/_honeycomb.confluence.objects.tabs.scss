@@ -1,0 +1,28 @@
+.aui-tabs {
+    @extend .tabbed;
+}
+
+.tabs-menu {
+    @extend .tabs;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: color("grey", 3);
+    justify-content: flex-start;
+}
+
+.menu-item.active-tab {
+    font-weight: bold;
+
+    a::after {
+        top: calc(100% - 4px);
+    }
+}
+
+.tabs-pane {
+    @extend .tabbed__content;
+    display: none;
+
+    &.active-pane {
+        display: block;
+    }
+}
