@@ -26,15 +26,15 @@ ul.sharing {
 		background-image: url(#{$hc-sharing-images-dir}/facebook.png);
 	}
 
-	&--google-plus {
-		background-image: url(#{$hc-sharing-images-dir}/google-plus.png);
-	}
-
 	&--linked-in {
 		background-image: url(#{$hc-sharing-images-dir}/linked-in.png);
 	}
 
 	&--twitter {
 		background-image: url(#{$hc-sharing-images-dir}/twitter.png);
+	}
+
+	&--print {
+		background-image: url(#{$hc-sharing-images-dir}/print.png);
 	}
 }
