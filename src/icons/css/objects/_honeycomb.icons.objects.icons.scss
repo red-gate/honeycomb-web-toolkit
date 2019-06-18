@@ -848,6 +848,13 @@
     }
 }
 
+.icon--virtual-machine {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e95e";
+    }
+} 
+
 .icon--warning {
     @extend %icon;
     &:before, &:after {
