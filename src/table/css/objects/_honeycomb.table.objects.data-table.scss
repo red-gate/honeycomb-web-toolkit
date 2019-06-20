@@ -110,17 +110,7 @@
     .data-table__meta__items-per-page {
         
         select {
-            @include padding(0);
-            @include margin(0.1, 'left');
-            padding-right: 15px;
-            display: inline-block;
-            width: auto;
-            border: none;
-            font-weight: bold;
-            background-color: transparent;
-            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI1IiB2aWV3Qm94PSIwIDAgOSA1IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZGVmcz48cGF0aCBkPSJNNi40OTQgOC45NTVsMy43NzMgMy43NzMgMy43NzMtMy43NzNjLjA4LS4wODIuMTMtLjE5NS4xMy0uMzE4IDAtLjI1MS0uMjA0LS40NTUtLjQ1NS0uNDU1aC02Ljg5N2MtLjI1MSAwLS40NTUuMjA0LS40NTUuNDU1IDAgLjEyNC4wNS4yMzYuMTMuMzE4eiIgaWQ9ImEiLz48L2RlZnM+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYgLTgpIiBmaWxsPSJub25lIj48bWFzaz48dXNlIHhsaW5rOmhyZWY9IiNhIi8+PC9tYXNrPjx1c2UgZmlsbD0iIzM3MzczNyIgeGxpbms6aHJlZj0iI2EiLz48L2c+PC9zdmc+);
-            background-size: 10px;
-            background-position: 100%;
+            @extend .select--bare;
         }
     }
 
