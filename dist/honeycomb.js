@@ -2860,6 +2860,33 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _slicedToArray = function () {
+    function sliceIterator(arr, i) {
+        var _arr = [];var _n = true;var _d = false;var _e = undefined;try {
+            for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+                _arr.push(_s.value);if (i && _arr.length === i) break;
+            }
+        } catch (err) {
+            _d = true;_e = err;
+        } finally {
+            try {
+                if (!_n && _i["return"]) _i["return"]();
+            } finally {
+                if (_d) throw _e;
+            }
+        }return _arr;
+    }return function (arr, i) {
+        if (Array.isArray(arr)) {
+            return arr;
+        } else if (Symbol.iterator in Object(arr)) {
+            return sliceIterator(arr, i);
+        } else {
+            throw new TypeError("Invalid attempt to destructure non-iterable instance");
+        }
+    };
+}();
+
 // Default options for video playback.
 var options = {
     autohide: 1,
@@ -2893,7 +2920,7 @@ var loadPlayerAPIs = function loadPlayerAPIs() {
 
         if (videoId) {
             // If video is already loaded, skip.
-            // NB we look for the iframe for the specific video, because in React we may be reusing an old VideoPlayer component.
+            // We look for the iframe for the specific video, because in React we may be reusing an old VideoPlayer component.
             if (videoContainer.querySelector('iframe[id^="' + videoId + '"]')) {
                 continue;
             }
@@ -2928,9 +2955,7 @@ var isVimeoId = function isVimeoId(id) {
         return false;
     }
 
-    var retVal = !!id.match(/^[0-9]*$/);
-
-    return retVal;
+    return !!id.match(/^[0-9]*$/);
 };
 
 // calculate second values for 10%, 20% etc. for event tracking
@@ -2944,18 +2969,102 @@ var calculatePercentages = function calculatePercentages(duration) {
     return percentages;
 };
 
-var trackVideoEvent = function trackVideoEvent(event, videoId, value) {
+var trackVideoEvent = function trackVideoEvent(videoId, value) {
     if (analytics) {
         analytics.trackEvent('Video', videoId + ' - ' + document.location.pathname, value);
     }
 };
 
 // we want to track a special event when we hit either 20% or 30 seconds through the video, whichever is longer
-var trackGoal = function trackGoal(event, videoId) {
-    trackVideoEvent(event, videoId, 'goal');
+var trackGoal = function trackGoal(videoId) {
+    trackVideoEvent(videoId, 'goal');
     return true;
 };
 
+// add event listeners to the Vimeo player
+var attachVimeoPlayerEventListeners = function attachVimeoPlayerEventListeners(player, videoId, goalTracked) {
+    var pauseEventsAttached = false;
+
+    player.on('play', function (data) {
+        var percentages = calculatePercentages(data.duration);
+
+        if (!pauseEventsAttached) {
+            player.on('pause', function (data) {
+                handleStopEvent(goalTracked, percentages, data.seconds, videoId);
+            });
+
+            player.on('ended', function (data) {
+                handleStopEvent(goalTracked, percentages, data.seconds, videoId);
+            });
+
+            pauseEventsAttached = true;
+        }
+
+        handlePlayEvent(videoId, player);
+    });
+};
+
+// Handler for Play event
+// Track an event when a video starts playing
+var handlePlayEvent = function handlePlayEvent(videoId, player) {
+    var iframe = void 0;
+
+    // get iframe from player 
+    if (typeof player.getIframe === 'function') {
+        // youtube method
+        iframe = player.getIframe();
+    } else {
+        // vimeo method
+        iframe = player.element;
+    }
+
+    if (!iframe.hasAttribute('data-ga-tracked') && analytics) {
+        var container = iframe.parentElement;
+
+        if (container.hasAttribute('data-ga-track')) {
+
+            // Track the video in GA (Google Analytics).
+            var category = container.getAttribute('data-ga-track-category') || null;
+            var action = container.getAttribute('data-ga-track-action') || null;
+            var label = container.getAttribute('data-ga-track-label') || null;
+            var value = container.getAttribute('data-ga-track-value') || null;
+
+            // Call the tracking event.
+            analytics.trackEvent(category, action, label, value);
+        }
+
+        // Add a tracked data attribute to prevent from tracking multiple times.
+        iframe.setAttribute('data-ga-tracked', true);
+
+        trackVideoEvent(videoId, '0%');
+    }
+};
+
+// Handler for Stop or Pause event
+// Track events when we have passed our set duration markers
+var handleStopEvent = function handleStopEvent(goalTracked, percentages, currentTime, videoId) {
+    // check goal conditions
+    if (!goalTracked) {
+        if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
+            goalTracked = trackGoal(event, videoId);
+        } else if (currentTime > 30 && percentages['20%'] < 30) {
+            goalTracked = trackGoal(event, videoId);
+        }
+    }
+
+    // check what percentages the playhead has passed
+    for (var i in percentages) {
+        if (currentTime > percentages[i]) {
+            trackVideoEvent(videoId, i);
+            delete percentages[i];
+        }
+    }
+
+    return [goalTracked, percentages];
+};
+
+// Search the document for video containers, 
+// and load any video players that need loading. 
 var addInlineVideos = function addInlineVideos() {
     var videoCounter = 0;
     var videoContainers = document.querySelectorAll('.js-video-container');
@@ -2994,11 +3103,12 @@ var addInlineVideos = function addInlineVideos() {
                 var playerSettings = void 0;
 
                 if (isVimeoId(videoId)) {
-
                     // Vimeo player settings
                     playerSettings = {
                         id: videoId,
-                        width: 640
+                        width: 640,
+                        autoplay: _options.autoplay,
+                        loop: _options.loop || false
                     };
                 } else {
 
@@ -3018,7 +3128,6 @@ var addInlineVideos = function addInlineVideos() {
                         },
                         events: {
                             onStateChange: function onStateChange(event) {
-
                                 if (typeof window.onYTPlayerStateChange === 'function') {
                                     window.onYTPlayerStateChange(event);
                                 }
@@ -3027,54 +3136,21 @@ var addInlineVideos = function addInlineVideos() {
                                 videoId = event.target.getVideoData().video_id;
 
                                 if (event.data === window.YT.PlayerState.PLAYING) {
-
-                                    // Video playing.
-                                    var iframe = event.target.getIframe();
-
                                     duration = duration || event.target.getDuration();
                                     percentages = percentages || calculatePercentages(duration);
 
-                                    if (!iframe.hasAttribute('data-ga-tracked') && analytics) {
-                                        var container = iframe.parentElement;
-
-                                        if (container.hasAttribute('data-ga-track')) {
-
-                                            // Track the video in GA (Google Analytics).
-                                            var category = container.getAttribute('data-ga-track-category') || null;
-                                            var action = container.getAttribute('data-ga-track-action') || null;
-                                            var label = container.getAttribute('data-ga-track-label') || null;
-                                            var value = container.getAttribute('data-ga-track-value') || null;
-
-                                            // Call the tracking event.
-                                            analytics.trackEvent(category, action, label, value);
-                                        }
-
-                                        // Add a tracked data attribute to prevent from tracking multiple times.
-                                        iframe.setAttribute('data-ga-tracked', true);
-
-                                        trackVideoEvent(event, videoId, '0%');
-                                    }
+                                    handlePlayEvent(videoId, event.target);
                                 }
 
                                 if (event.data === window.YT.PlayerState.PAUSED || event.data === window.YT.PlayerState.ENDED) {
                                     currentTime = event.target.getCurrentTime();
 
-                                    // check goal conditions
-                                    if (!goalTracked) {
-                                        if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
-                                            goalTracked = trackGoal(event, videoId);
-                                        } else if (currentTime > 30 && percentages['20%'] < 30) {
-                                            goalTracked = trackGoal(event, videoId);
-                                        }
-                                    }
+                                    var _handleStopEvent = handleStopEvent(goalTracked, percentages, currentTime, videoId);
 
-                                    // check what percentages the playhead has passed
-                                    for (var i in percentages) {
-                                        if (currentTime > percentages[i]) {
-                                            trackVideoEvent(event, videoId, i);
-                                            delete percentages[i];
-                                        }
-                                    }
+                                    var _handleStopEvent2 = _slicedToArray(_handleStopEvent, 2);
+
+                                    goalTracked = _handleStopEvent2[0];
+                                    percentages = _handleStopEvent2[1];
                                 }
                             }
                         }
@@ -3098,8 +3174,13 @@ var addInlineVideos = function addInlineVideos() {
                 if (isVimeoId(videoId)) {
                     // load vimeo player
                     if (window.Vimeo && typeof window.Vimeo.Player === 'function') {
-                        videos[videoId + '-' + videoCounter] = new window.Vimeo.Player(videoId + '-' + videoCounter, playerSettings);
+                        // create player
+                        var player = new window.Vimeo.Player(videoId + '-' + videoCounter, playerSettings);
+                        videos[videoId + '-' + videoCounter] = player;
                         videoContainer.setAttribute('data-video-loaded', 'true');
+
+                        // add event listeners 
+                        attachVimeoPlayerEventListeners(player, videoId, goalTracked);
                     }
                 } else {
                     // load youtube player
