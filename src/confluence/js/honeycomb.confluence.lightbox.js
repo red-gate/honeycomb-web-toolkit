@@ -6,8 +6,17 @@ const init = () => {
 
     window.jQuery('.confluence-embedded-image').each(function(){
         let $this = window.jQuery(this);
-        let $parent = $this.parent().get(0);
-        if ( $parent.nodeName !== 'A' ) {
+        let $parents = $this.parents();
+        let imageIsLinked = false;
+
+        // Loop through parents to make sure image is not wrapped in a link
+        $parents.each( ( index, $parent ) => {
+            if ( $parent.nodeName === 'A' ) {
+                imageIsLinked = true;
+            }
+        });
+
+        if ( ! imageIsLinked ) {
             let $a = window.jQuery('<a/>')
             .addClass('lightbox link-image js-lightbox')
             .attr('href', $this.attr('src'))
