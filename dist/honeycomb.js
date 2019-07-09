@@ -2877,17 +2877,60 @@ var init = function init() {
     var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     analytics = options.analytics || false;
-    loadYouTubeIframeAPI();
+
+    loadPlayerAPIs();
+    addInlineVideos();
 };
 
-var loadYouTubeIframeAPI = function loadYouTubeIframeAPI() {
-    var videoContainer = document.querySelectorAll('.js-video-container');
-    if (videoContainer.length > 0) {
-        var tag = document.createElement('script');
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        tag.src = 'https://www.youtube.com/iframe_api';
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// Load the Youtube and Vimeo player APIs as required
+var loadPlayerAPIs = function loadPlayerAPIs() {
+    var videoContainers = document.querySelectorAll('.js-video-container');
+
+    for (var i = 0; i < videoContainers.length; i++) {
+        var videoContainer = videoContainers[i];
+
+        var videoId = videoContainer.getAttribute('data-video-id');
+
+        if (videoId) {
+            // If video is already loaded, skip.
+            // NB we look for the iframe for the specific video, because in React we may be reusing an old VideoPlayer component.
+            if (videoContainer.querySelector('iframe[id^="' + videoId + '"]')) {
+                continue;
+            }
+
+            if (isVimeoId(videoId)) {
+                // Load Vimeo player API
+                loadScript('https://player.vimeo.com/api/player.js');
+            } else {
+                // Load Youtube player API
+                loadScript('https://www.youtube.com/iframe_api');
+            }
+        }
     }
+};
+
+// Load a script, if it has not already been added to the DOM
+var loadScript = function loadScript(src) {
+    if (document.querySelector('script[src="' + src + '"')) {
+        return;
+    }
+
+    var tag = document.createElement('script');
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    tag.src = src;
+    tag.onload = addInlineVideos;
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+};
+
+// If the video ID is only numbers, treat it as a Vimeo ID
+var isVimeoId = function isVimeoId(id) {
+    if (typeof id !== 'string') {
+        return false;
+    }
+
+    var retVal = !!id.match(/^[0-9]*$/);
+
+    return retVal;
 };
 
 // calculate second values for 10%, 20% etc. for event tracking
@@ -2925,6 +2968,13 @@ var addInlineVideos = function addInlineVideos() {
             var videoContainer = _step.value;
 
             var videoId = videoContainer.getAttribute('data-video-id');
+
+            // If video is already loaded, skip.
+            // NB we look for the iframe for the specific video, because in React we may be reusing an old VideoPlayer component.
+            if (videoContainer.querySelector('iframe[id^="' + videoId + '"]')) {
+                return 'continue';
+            }
+
             var duration = void 0;
             var currentTime = void 0;
             var percentages = void 0;
@@ -2941,98 +2991,123 @@ var addInlineVideos = function addInlineVideos() {
                 // Get the options (data attributes)
                 var _options = getOptions(videoContainer);
 
-                var playerSettings = {
-                    width: 640,
-                    height: 360,
-                    videoId: videoId,
-                    playerVars: {
-                        rel: 0,
-                        autohide: _options.autohide,
-                        autoplay: _options.autoplay,
-                        controls: _options.controls,
-                        showinfo: _options.showinfo,
-                        loop: _options.loop,
-                        enablejsapi: 1
-                    },
-                    events: {
-                        onStateChange: function onStateChange(event) {
+                var playerSettings = void 0;
 
-                            if (typeof window.onYTPlayerStateChange === 'function') {
-                                window.onYTPlayerStateChange(event);
-                            }
+                if (isVimeoId(videoId)) {
 
-                            // Reset the video ID.
-                            videoId = event.target.getVideoData().video_id;
+                    // Vimeo player settings
+                    playerSettings = {
+                        id: videoId,
+                        width: 640
+                    };
+                } else {
 
-                            if (event.data === window.YT.PlayerState.PLAYING) {
+                    // YouTube player settings
+                    playerSettings = {
+                        width: 640,
+                        height: 360,
+                        videoId: videoId,
+                        playerVars: {
+                            rel: 0,
+                            autohide: _options.autohide,
+                            autoplay: _options.autoplay,
+                            controls: _options.controls,
+                            showinfo: _options.showinfo,
+                            loop: _options.loop,
+                            enablejsapi: 1
+                        },
+                        events: {
+                            onStateChange: function onStateChange(event) {
 
-                                // Video playing.
-                                var iframe = event.target.getIframe();
-
-                                duration = duration || event.target.getDuration();
-                                percentages = percentages || calculatePercentages(duration);
-
-                                if (!iframe.hasAttribute('data-ga-tracked') && analytics) {
-                                    var container = iframe.parentElement;
-
-                                    if (container.hasAttribute('data-ga-track')) {
-
-                                        // Track the video in GA (Google Analytics).
-                                        var category = container.getAttribute('data-ga-track-category') || null;
-                                        var action = container.getAttribute('data-ga-track-action') || null;
-                                        var label = container.getAttribute('data-ga-track-label') || null;
-                                        var value = container.getAttribute('data-ga-track-value') || null;
-
-                                        // Call the tracking event.
-                                        analytics.trackEvent(category, action, label, value);
-                                    }
-
-                                    // Add a tracked data attribute to prevent from tracking multiple times.
-                                    iframe.setAttribute('data-ga-tracked', true);
-
-                                    trackVideoEvent(event, videoId, '0%');
-                                }
-                            }
-
-                            if (event.data === window.YT.PlayerState.PAUSED || event.data === window.YT.PlayerState.ENDED) {
-                                currentTime = event.target.getCurrentTime();
-
-                                // check goal conditions
-                                if (!goalTracked) {
-                                    if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
-                                        goalTracked = trackGoal(event, videoId);
-                                    } else if (currentTime > 30 && percentages['20%'] < 30) {
-                                        goalTracked = trackGoal(event, videoId);
-                                    }
+                                if (typeof window.onYTPlayerStateChange === 'function') {
+                                    window.onYTPlayerStateChange(event);
                                 }
 
-                                // check what percentages the playhead has passed
-                                for (var i in percentages) {
-                                    if (currentTime > percentages[i]) {
-                                        trackVideoEvent(event, videoId, i);
-                                        delete percentages[i];
+                                // Reset the video ID.
+                                videoId = event.target.getVideoData().video_id;
+
+                                if (event.data === window.YT.PlayerState.PLAYING) {
+
+                                    // Video playing.
+                                    var iframe = event.target.getIframe();
+
+                                    duration = duration || event.target.getDuration();
+                                    percentages = percentages || calculatePercentages(duration);
+
+                                    if (!iframe.hasAttribute('data-ga-tracked') && analytics) {
+                                        var container = iframe.parentElement;
+
+                                        if (container.hasAttribute('data-ga-track')) {
+
+                                            // Track the video in GA (Google Analytics).
+                                            var category = container.getAttribute('data-ga-track-category') || null;
+                                            var action = container.getAttribute('data-ga-track-action') || null;
+                                            var label = container.getAttribute('data-ga-track-label') || null;
+                                            var value = container.getAttribute('data-ga-track-value') || null;
+
+                                            // Call the tracking event.
+                                            analytics.trackEvent(category, action, label, value);
+                                        }
+
+                                        // Add a tracked data attribute to prevent from tracking multiple times.
+                                        iframe.setAttribute('data-ga-tracked', true);
+
+                                        trackVideoEvent(event, videoId, '0%');
+                                    }
+                                }
+
+                                if (event.data === window.YT.PlayerState.PAUSED || event.data === window.YT.PlayerState.ENDED) {
+                                    currentTime = event.target.getCurrentTime();
+
+                                    // check goal conditions
+                                    if (!goalTracked) {
+                                        if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
+                                            goalTracked = trackGoal(event, videoId);
+                                        } else if (currentTime > 30 && percentages['20%'] < 30) {
+                                            goalTracked = trackGoal(event, videoId);
+                                        }
+                                    }
+
+                                    // check what percentages the playhead has passed
+                                    for (var i in percentages) {
+                                        if (currentTime > percentages[i]) {
+                                            trackVideoEvent(event, videoId, i);
+                                            delete percentages[i];
+                                        }
                                     }
                                 }
                             }
                         }
+                    };
+
+                    // playlist settings
+                    var listId = videoContainer.getAttribute('data-video-list-id');
+                    if (listId) {
+                        playerSettings.playerVars.listType = 'playlist';
+                        playerSettings.playerVars.list = listId;
                     }
-                };
 
-                // playlist settings
-                var listId = videoContainer.getAttribute('data-video-list-id');
-                if (listId) {
-                    playerSettings.playerVars.listType = 'playlist';
-                    playerSettings.playerVars.list = listId;
-                }
-
-                // start time
-                var start = videoContainer.getAttribute('data-video-start-time');
-                if (start) {
-                    playerSettings.playerVars.start = start;
+                    // start time
+                    var start = videoContainer.getAttribute('data-video-start-time');
+                    if (start) {
+                        playerSettings.playerVars.start = start;
+                    }
                 }
 
                 // Replace the empty div with the video player iframe.
-                videos[videoId + '-' + videoCounter] = new window.YT.Player(videoId + '-' + videoCounter, playerSettings);
+                if (isVimeoId(videoId)) {
+                    // load vimeo player
+                    if (window.Vimeo && typeof window.Vimeo.Player === 'function') {
+                        videos[videoId + '-' + videoCounter] = new window.Vimeo.Player(videoId + '-' + videoCounter, playerSettings);
+                        videoContainer.setAttribute('data-video-loaded', 'true');
+                    }
+                } else {
+                    // load youtube player
+                    if (window.YT && typeof window.YT.Player === 'function') {
+                        videos[videoId + '-' + videoCounter] = new window.YT.Player(videoId + '-' + videoCounter, playerSettings);
+                        videoContainer.setAttribute('data-video-loaded', 'true');
+                    }
+                }
             }
 
             // Increase the counter.
@@ -3040,7 +3115,9 @@ var addInlineVideos = function addInlineVideos() {
         };
 
         for (var _iterator = videoContainers[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            _loop();
+            var _ret = _loop();
+
+            if (_ret === 'continue') continue;
         }
     } catch (err) {
         _didIteratorError = true;
@@ -3092,11 +3169,8 @@ var getOptions = function getOptions(video) {
     return options;
 };
 
-// Add the video when the iframe API library has loaded.
+// Add the video when the YouTube iframe API library has loaded.
 window.onYouTubeIframeAPIReady = function () {
-    // set ready flag for use in React apps
-    window.youTubeIframeAPIReady = true;
-
     addInlineVideos();
 };
 
