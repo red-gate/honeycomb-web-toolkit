@@ -116,16 +116,16 @@ const trackVideoEventsSoFar = (goalTracked, percentages, currentTime, videoId) =
 
 
 // Handler for Unstarted event
-const handleUnstartedEvent = () => {
+const handleUnstartedEvent = (videoId, duration) => {
     if ( typeof window.onVideoPlayerStateChange === 'function' ) {
-        window.onVideoPlayerStateChange('unstarted');
+        window.onVideoPlayerStateChange('unstarted', videoId, duration);
     }
 };
 
 
 // Handler for Play event
 // Track an event when a video starts playing
-const handlePlayEvent = (videoId, player) => {
+const handlePlayEvent = (videoId, duration, player ) => {
     let iframe; 
 
     // get iframe from player 
@@ -159,23 +159,23 @@ const handlePlayEvent = (videoId, player) => {
     }
 
     if ( typeof window.onVideoPlayerStateChange === 'function' ) {
-        window.onVideoPlayerStateChange('play');
+        window.onVideoPlayerStateChange('play', videoId, duration);
     }
 };
 
 // Handler for Pause event
-const handlePauseEvent = (goalTracked, percentages, currentTime, videoId) => {
+const handlePauseEvent = (videoId, duration, currentTime, goalTracked, percentages ) => {
     if ( typeof window.onVideoPlayerStateChange === 'function' ) {
-        window.onVideoPlayerStateChange('pause');
+        window.onVideoPlayerStateChange('pause', videoId, duration);
     }
 
     return trackVideoEventsSoFar(goalTracked, percentages, currentTime, videoId);
 };
 
 // Handler for Stop event
-const handleStopEvent = (goalTracked, percentages, currentTime, videoId) => {
+const handleStopEvent = (videoId, duration, currentTime, goalTracked, percentages ) => {
     if ( typeof window.onVideoPlayerStateChange === 'function' ) {
-        window.onVideoPlayerStateChange('ended');
+        window.onVideoPlayerStateChange('ended', videoId, duration);
     }
 
     return trackVideoEventsSoFar(goalTracked, percentages, currentTime, videoId);
@@ -186,22 +186,27 @@ const handleStopEvent = (goalTracked, percentages, currentTime, videoId) => {
 const attachVimeoPlayerEventListeners = (player, videoId, goalTracked) => {
     let pauseEventsAttached = false;
 
+
+    player.on('loaded', data => {
+        handleUnstartedEvent( videoId, data.duration );
+    });
+
     player.on('play', data => {
         const percentages = calculatePercentages( data.duration );
 
         if ( ! pauseEventsAttached ) {
             player.on('pause', data => {
-                handlePauseEvent( goalTracked, percentages, data.seconds, videoId);
+                handlePauseEvent( videoId, data.duration, data.seconds, goalTracked, percentages );
             });
         
             player.on('ended', data => {
-                handlePauseEvent( goalTracked, percentages, data.seconds, videoId);
+                handleStopEvent( videoId, data.duration, data.seconds, goalTracked, percentages );
             });
 
             pauseEventsAttached = true;
         }
 
-        handlePlayEvent( videoId, player );
+        handlePlayEvent( videoId, data.duration, player );
     });
 };
 
@@ -267,30 +272,30 @@ const addInlineVideos = () => {
                     },
                     events: {
                         onStateChange: ( event ) => {
-                            // Reset the video ID and current time
+                            // Reset the video ID, current time and duration
                             videoId = event.target.getVideoData().video_id;
                             currentTime = event.target.getCurrentTime();
+                            duration = duration || event.target.getDuration();
 
                             // Unstarted event
                             if ( event.data === window.YT.PlayerState.UNSTARTED ) {
-                                handleUnstartedEvent();
+                                handleUnstartedEvent(videoId, duration);
                             }
 
                             // Play events
                             if ( event.data === window.YT.PlayerState.PLAYING ) {
-                                duration = duration || event.target.getDuration();
                                 percentages = percentages || calculatePercentages(duration);
-                                handlePlayEvent(videoId, event.target);
+                                handlePlayEvent(videoId, duration, event.target);
                             }
 
                             // Pause events
                             if ( event.data === window.YT.PlayerState.PAUSED ) {
-                                [goalTracked, percentages] = handlePauseEvent(goalTracked, percentages, currentTime, videoId);
+                                [goalTracked, percentages] = handlePauseEvent( videoId, duration, currentTime, goalTracked, percentages );
                             }
 
                             // End events
                             if ( event.data === window.YT.PlayerState.ENDED ) {
-                                [goalTracked, percentages] = handleStopEvent(goalTracked, percentages, currentTime, videoId);
+                                [goalTracked, percentages] = handleStopEvent( videoId, duration, currentTime, goalTracked, percentages );
                             }
                         }
                     }
