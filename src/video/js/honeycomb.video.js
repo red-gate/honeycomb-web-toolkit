@@ -175,7 +175,7 @@ const handlePauseEvent = (goalTracked, percentages, currentTime, videoId) => {
 // Handler for Stop event
 const handleStopEvent = (goalTracked, percentages, currentTime, videoId) => {
     if ( typeof window.onVideoPlayerStateChange === 'function' ) {
-        window.onVideoPlayerStateChange('stop');
+        window.onVideoPlayerStateChange('ended');
     }
 
     return trackVideoEventsSoFar(goalTracked, percentages, currentTime, videoId);
