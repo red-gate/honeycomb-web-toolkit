@@ -70,9 +70,13 @@ const scrollBeforeSticky = () => {
                     }
                 }
 
-                window.jQuery('html, body').animate({
-                    scrollTop: elementToScrollTo.offset().top - heightToReverse
-                }, 500);
+                // It's possible for offset to be undefined, so check it exists
+                const offset = elementToScrollTo.offset();
+                if (offset) {
+                    window.jQuery('html, body').animate({
+                        scrollTop: offset.top - heightToReverse
+                    }, 500);
+                }
 
             }
         }, 1000);
