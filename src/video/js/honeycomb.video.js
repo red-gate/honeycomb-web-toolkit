@@ -92,27 +92,34 @@ const trackGoal = ( videoId ) => {
     return true;
 };
 
-// add event listeners to the Vimeo player
-const attachVimeoPlayerEventListeners = (player, videoId, goalTracked) => {
-    let pauseEventsAttached = false;
-
-    player.on('play', data => {
-        const percentages = calculatePercentages( data.duration );
-
-        if ( ! pauseEventsAttached ) {
-            player.on('pause', data => {
-                handleStopEvent( goalTracked, percentages, data.seconds, videoId);
-            });
-        
-            player.on('ended', data => {
-                handleStopEvent( goalTracked, percentages, data.seconds, videoId);
-            });
-
-            pauseEventsAttached = true;
+// Track events when we have passed our set duration markers
+const trackVideoEventsSoFar = (goalTracked, percentages, currentTime, videoId) => {
+    // check goal conditions
+    if (!goalTracked) {
+        if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
+            goalTracked = trackGoal(event, videoId);
+        } else if (currentTime > 30 && percentages['20%'] < 30) {
+            goalTracked = trackGoal(event, videoId);
         }
+    }
 
-        handlePlayEvent( videoId, player );
-    });
+    // check what percentages the playhead has passed
+    for (let i in percentages) {
+        if (currentTime > percentages[i]) {
+            trackVideoEvent(videoId, i);
+            delete percentages[i];
+        }
+    }
+
+    return [goalTracked, percentages];
+};
+
+
+// Handler for Unstarted event
+const handleUnstartedEvent = () => {
+    if ( typeof window.onVideoPlayerStateChange === 'function' ) {
+        window.onVideoPlayerStateChange('unstarted');
+    }
 };
 
 
@@ -150,30 +157,54 @@ const handlePlayEvent = (videoId, player) => {
 
         trackVideoEvent(videoId, '0%');
     }
+
+    if ( typeof window.onVideoPlayerStateChange === 'function' ) {
+        window.onVideoPlayerStateChange('play');
+    }
 };
 
-// Handler for Stop or Pause event
-// Track events when we have passed our set duration markers
+// Handler for Pause event
+const handlePauseEvent = (goalTracked, percentages, currentTime, videoId) => {
+    if ( typeof window.onVideoPlayerStateChange === 'function' ) {
+        window.onVideoPlayerStateChange('pause');
+    }
+
+    return trackVideoEventsSoFar(goalTracked, percentages, currentTime, videoId);
+};
+
+// Handler for Stop event
 const handleStopEvent = (goalTracked, percentages, currentTime, videoId) => {
-    // check goal conditions
-    if (!goalTracked) {
-        if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
-            goalTracked = trackGoal(event, videoId);
-        } else if (currentTime > 30 && percentages['20%'] < 30) {
-            goalTracked = trackGoal(event, videoId);
-        }
+    if ( typeof window.onVideoPlayerStateChange === 'function' ) {
+        window.onVideoPlayerStateChange('stop');
     }
 
-    // check what percentages the playhead has passed
-    for (let i in percentages) {
-        if (currentTime > percentages[i]) {
-            trackVideoEvent(videoId, i);
-            delete percentages[i];
-        }
-    }
-
-    return [goalTracked, percentages];
+    return trackVideoEventsSoFar(goalTracked, percentages, currentTime, videoId);
 };
+
+
+// add event listeners to the Vimeo player
+const attachVimeoPlayerEventListeners = (player, videoId, goalTracked) => {
+    let pauseEventsAttached = false;
+
+    player.on('play', data => {
+        const percentages = calculatePercentages( data.duration );
+
+        if ( ! pauseEventsAttached ) {
+            player.on('pause', data => {
+                handlePauseEvent( goalTracked, percentages, data.seconds, videoId);
+            });
+        
+            player.on('ended', data => {
+                handlePauseEvent( goalTracked, percentages, data.seconds, videoId);
+            });
+
+            pauseEventsAttached = true;
+        }
+
+        handlePlayEvent( videoId, player );
+    });
+};
+
 
 // Search the document for video containers, 
 // and load any video players that need loading. 
@@ -236,23 +267,29 @@ const addInlineVideos = () => {
                     },
                     events: {
                         onStateChange: ( event ) => {
-                            if (typeof window.onYTPlayerStateChange === 'function') {
-                                window.onYTPlayerStateChange(event);
+                            // Reset the video ID and current time
+                            videoId = event.target.getVideoData().video_id;
+                            currentTime = event.target.getCurrentTime();
+
+                            // Unstarted event
+                            if ( event.data === window.YT.PlayerState.UNSTARTED ) {
+                                handleUnstartedEvent();
                             }
 
-                            // Reset the video ID.
-                            videoId = event.target.getVideoData().video_id;
-
+                            // Play events
                             if ( event.data === window.YT.PlayerState.PLAYING ) {
                                 duration = duration || event.target.getDuration();
                                 percentages = percentages || calculatePercentages(duration);
-
                                 handlePlayEvent(videoId, event.target);
                             }
 
-                            if (event.data === window.YT.PlayerState.PAUSED || event.data === window.YT.PlayerState.ENDED) {
-                                currentTime = event.target.getCurrentTime();
+                            // Pause events
+                            if ( event.data === window.YT.PlayerState.PAUSED ) {
+                                [goalTracked, percentages] = handlePauseEvent(goalTracked, percentages, currentTime, videoId);
+                            }
 
+                            // End events
+                            if ( event.data === window.YT.PlayerState.ENDED ) {
                                 [goalTracked, percentages] = handleStopEvent(goalTracked, percentages, currentTime, videoId);
                             }
                         }
