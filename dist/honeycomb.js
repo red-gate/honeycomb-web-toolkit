@@ -2985,32 +2985,38 @@ var trackGoal = function trackGoal(videoId) {
     return true;
 };
 
-// add event listeners to the Vimeo player
-var attachVimeoPlayerEventListeners = function attachVimeoPlayerEventListeners(player, videoId, goalTracked) {
-    var pauseEventsAttached = false;
-
-    player.on('play', function (data) {
-        var percentages = calculatePercentages(data.duration);
-
-        if (!pauseEventsAttached) {
-            player.on('pause', function (data) {
-                handleStopEvent(goalTracked, percentages, data.seconds, videoId);
-            });
-
-            player.on('ended', function (data) {
-                handleStopEvent(goalTracked, percentages, data.seconds, videoId);
-            });
-
-            pauseEventsAttached = true;
+// Track events when we have passed our set duration markers
+var trackVideoEventsSoFar = function trackVideoEventsSoFar(goalTracked, percentages, currentTime, videoId) {
+    // check goal conditions
+    if (!goalTracked) {
+        if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
+            goalTracked = trackGoal(event, videoId);
+        } else if (currentTime > 30 && percentages['20%'] < 30) {
+            goalTracked = trackGoal(event, videoId);
         }
+    }
 
-        handlePlayEvent(videoId, player);
-    });
+    // check what percentages the playhead has passed
+    for (var i in percentages) {
+        if (currentTime > percentages[i]) {
+            trackVideoEvent(videoId, i);
+            delete percentages[i];
+        }
+    }
+
+    return [goalTracked, percentages];
+};
+
+// Handler for Unstarted event
+var handleUnstartedEvent = function handleUnstartedEvent(videoId, duration) {
+    if (typeof window.onVideoPlayerStateChange === 'function') {
+        window.onVideoPlayerStateChange('unstarted', videoId, duration);
+    }
 };
 
 // Handler for Play event
 // Track an event when a video starts playing
-var handlePlayEvent = function handlePlayEvent(videoId, player) {
+var handlePlayEvent = function handlePlayEvent(videoId, duration, player) {
     var iframe = void 0;
 
     // get iframe from player 
@@ -3042,29 +3048,55 @@ var handlePlayEvent = function handlePlayEvent(videoId, player) {
 
         trackVideoEvent(videoId, '0%');
     }
+
+    if (typeof window.onVideoPlayerStateChange === 'function') {
+        window.onVideoPlayerStateChange('play', videoId, duration);
+    }
 };
 
-// Handler for Stop or Pause event
-// Track events when we have passed our set duration markers
-var handleStopEvent = function handleStopEvent(goalTracked, percentages, currentTime, videoId) {
-    // check goal conditions
-    if (!goalTracked) {
-        if (currentTime > percentages['20%'] && percentages['20%'] > 30) {
-            goalTracked = trackGoal(event, videoId);
-        } else if (currentTime > 30 && percentages['20%'] < 30) {
-            goalTracked = trackGoal(event, videoId);
-        }
+// Handler for Pause event
+var handlePauseEvent = function handlePauseEvent(videoId, duration, currentTime, goalTracked, percentages) {
+    if (typeof window.onVideoPlayerStateChange === 'function') {
+        window.onVideoPlayerStateChange('pause', videoId, duration);
     }
 
-    // check what percentages the playhead has passed
-    for (var i in percentages) {
-        if (currentTime > percentages[i]) {
-            trackVideoEvent(videoId, i);
-            delete percentages[i];
-        }
+    return trackVideoEventsSoFar(goalTracked, percentages, currentTime, videoId);
+};
+
+// Handler for Stop event
+var handleStopEvent = function handleStopEvent(videoId, duration, currentTime, goalTracked, percentages) {
+    if (typeof window.onVideoPlayerStateChange === 'function') {
+        window.onVideoPlayerStateChange('ended', videoId, duration);
     }
 
-    return [goalTracked, percentages];
+    return trackVideoEventsSoFar(goalTracked, percentages, currentTime, videoId);
+};
+
+// add event listeners to the Vimeo player
+var attachVimeoPlayerEventListeners = function attachVimeoPlayerEventListeners(player, videoId, goalTracked) {
+    var pauseEventsAttached = false;
+
+    player.on('loaded', function (data) {
+        handleUnstartedEvent(videoId, data.duration);
+    });
+
+    player.on('play', function (data) {
+        var percentages = calculatePercentages(data.duration);
+
+        if (!pauseEventsAttached) {
+            player.on('pause', function (data) {
+                handlePauseEvent(videoId, data.duration, data.seconds, goalTracked, percentages);
+            });
+
+            player.on('ended', function (data) {
+                handleStopEvent(videoId, data.duration, data.seconds, goalTracked, percentages);
+            });
+
+            pauseEventsAttached = true;
+        }
+
+        handlePlayEvent(videoId, data.duration, player);
+    });
 };
 
 // Search the document for video containers, 
@@ -3132,24 +3164,35 @@ var addInlineVideos = function addInlineVideos() {
                         },
                         events: {
                             onStateChange: function onStateChange(event) {
-                                if (typeof window.onYTPlayerStateChange === 'function') {
-                                    window.onYTPlayerStateChange(event);
-                                }
-
-                                // Reset the video ID.
+                                // Reset the video ID, current time and duration
                                 videoId = event.target.getVideoData().video_id;
+                                currentTime = event.target.getCurrentTime();
+                                duration = duration || event.target.getDuration();
 
-                                if (event.data === window.YT.PlayerState.PLAYING) {
-                                    duration = duration || event.target.getDuration();
-                                    percentages = percentages || calculatePercentages(duration);
-
-                                    handlePlayEvent(videoId, event.target);
+                                // Unstarted event
+                                if (event.data === window.YT.PlayerState.UNSTARTED) {
+                                    handleUnstartedEvent(videoId, duration);
                                 }
 
-                                if (event.data === window.YT.PlayerState.PAUSED || event.data === window.YT.PlayerState.ENDED) {
-                                    currentTime = event.target.getCurrentTime();
+                                // Play events
+                                if (event.data === window.YT.PlayerState.PLAYING) {
+                                    percentages = percentages || calculatePercentages(duration);
+                                    handlePlayEvent(videoId, duration, event.target);
+                                }
 
-                                    var _handleStopEvent = handleStopEvent(goalTracked, percentages, currentTime, videoId);
+                                // Pause events
+                                if (event.data === window.YT.PlayerState.PAUSED) {
+                                    var _handlePauseEvent = handlePauseEvent(videoId, duration, currentTime, goalTracked, percentages);
+
+                                    var _handlePauseEvent2 = _slicedToArray(_handlePauseEvent, 2);
+
+                                    goalTracked = _handlePauseEvent2[0];
+                                    percentages = _handlePauseEvent2[1];
+                                }
+
+                                // End events
+                                if (event.data === window.YT.PlayerState.ENDED) {
+                                    var _handleStopEvent = handleStopEvent(videoId, duration, currentTime, goalTracked, percentages);
 
                                     var _handleStopEvent2 = _slicedToArray(_handleStopEvent, 2);
 
