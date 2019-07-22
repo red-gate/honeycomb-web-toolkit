@@ -662,6 +662,13 @@
     }
 }
 
+.icon--reset {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e95f";
+    }
+}
+
 .icon--rss {
     @extend %icon;
     &:before, &:after {
