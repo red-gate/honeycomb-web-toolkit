@@ -1,0 +1,21 @@
+/**
+  * A shimmer animation for use on placeholder layouts.
+  *
+  * Based on https://codepen.io/yunusekim/pen/XaBoNZ
+  */
+
+.shimmer {
+    animation-duration: 1.7s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: shimmerAnimate;
+    background: color('grey', 1); // Fallback
+    background: linear-gradient(to right, color('grey', 1) 2%, color('grey', 3) 18%, color('grey', 1) 33%);
+    background-size: 1300px; // Animation Area
+    
+    @keyframes shimmerAnimate {
+        0%{ background-position: -650px 0; }
+        100%{ background-position: 650px 0; }
+    }
+}
