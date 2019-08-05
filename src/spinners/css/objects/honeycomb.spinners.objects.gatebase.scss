@@ -22,6 +22,10 @@
     }
 }
 
+.gatebase--red {
+    background-color: color('red', 'brand');
+}
+
 .spinner--gatebase {
     animation: gatebase-spin 1.3s infinite ease-in-out both;
 
