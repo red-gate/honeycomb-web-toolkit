@@ -209,6 +209,24 @@ p:last-child .button:last-child {
     }
 }
 
+// Black button
+.button--black,
+%button--black {
+    background-color: color('grey', 7) !important;
+    border-color: color('grey', 7) !important;
+    color: color('white') !important;
+
+    &:hover {
+        background-color: color('grey', 9) !important;
+        border-color: color('grey', 9) !important;
+    }
+
+    &:active {
+        background-color: color('black') !important;
+        border-color: color('black') !important;
+    }
+}
+
 // Transparent button
 .button--transparent,
 %button--transparent {
