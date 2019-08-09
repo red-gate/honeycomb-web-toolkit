@@ -1,16 +1,17 @@
 /*------------------------------------*\
-    #PADDING
+ #MARGIN
 \*------------------------------------*/
 
 
 /**
- * Padding options, for things like grid columns and rows, etc.
- * For example, <div class="grid__row col-padded-v">, gives a grid row 'standard' vertical padding.
+ * Margin options, for things like grid columns and rows, etc.
+ * For example, <div class="grid__row col-spaced-v">, gives a grid row 'standard' vertical margin.
  */
- @include buildPadding();
+
+@include buildMargin("", true);
 
 /**
- * Build the padding classes at breakpoints, using Desktop first approach, like the
+ * Build the margin classes at breakpoints, using Desktop first approach, like the
  * responsive mixin in the base module.
  */
 @if $hc-responsive {
@@ -22,7 +23,7 @@
             $declaration: "(#{$hc-mqProperty} #{$width})";
 
             @media only screen and #{$declaration} {
-                @include buildPadding("--#{$name}");
+                @include buildMargin("--#{$name}", true);
             }
         }
     }

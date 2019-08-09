@@ -1,123 +1,123 @@
 // Build the padding rules, with optional suffix
-@mixin buildPadding($suffix: "") {
+@mixin buildPadding($suffix: "", $important: false) {
     .padded#{$suffix} {
-        @include padding(1);
+        @include padding(1, all, $important);
     }
 
     .padded-h#{$suffix} {
-        @include padding(1, left);
-        @include padding(1, right);
+        @include padding(1, left, $important);
+        @include padding(1, right, $important);
     }
 
     .padded-left#{$suffix} {
-        @include padding(1, left);
+        @include padding(1, left, $important);
     }
 
     .padded-right#{$suffix} {
-        @include padding(1, right);
+        @include padding(1, right, $important);
     }
 
     .padded-v#{$suffix}{
-        @include padding(1, top);
-        @include padding(1, bottom);
+        @include padding(1, top, $important);
+        @include padding(1, bottom, $important);
     }
 
     .padded-top#{$suffix} {
-        @include padding(1, top);
+        @include padding(1, top, $important);
     }
 
     .padded-bottom#{$suffix} {
-        @include padding(1, bottom);
+        @include padding(1, bottom, $important);
     }
 
     .padded--tight#{$suffix} {
-        @include padding(0.5);
+        @include padding(0.5, all, $important);
     }
 
     .padded-h--tight#{$suffix} {
-        @include padding(0.5, left);
-        @include padding(0.5, right);
+        @include padding(0.5, left, $important);
+        @include padding(0.5, right, $important);
     }
 
     .padded-left--tight#{$suffix} {
-        @include padding(0.5, left);
+        @include padding(0.5, left, $important);
     }
 
     .padded-right--tight#{$suffix} {
-        @include padding(0.5, right);
+        @include padding(0.5, right, $important);
     }
 
     .padded-v--tight#{$suffix} {
-        @include padding(0.5, top);
-        @include padding(0.5, bottom);
+        @include padding(0.5, top, $important);
+        @include padding(0.5, bottom, $important);
     }
 
     .padded-top--tight#{$suffix} {
-        @include padding(0.5, top);
+        @include padding(0.5, top, $important);
     }
 
     .padded-bottom--tight#{$suffix} {
-        @include padding(0.5, bottom);
+        @include padding(0.5, bottom, $important);
     }
 
     .padded--loose#{$suffix} {
-        @include padding(2);
+        @include padding(2, all, $important);
     }
 
     .padded-h--loose#{$suffix} {
-        @include padding(2, left);
-        @include padding(2, right);
+        @include padding(2, left, $important);
+        @include padding(2, right, $important);
     }
 
     .padded-left--loose#{$suffix} {
-        @include padding(2, left);
+        @include padding(2, left, $important);
     }
 
     .padded-right--loose#{$suffix} {
-        @include padding(2, right);
+        @include padding(2, right, $important);
     }
 
     .padded-v--loose#{$suffix} {
-        @include padding(2, top);
-        @include padding(2, bottom);
+        @include padding(2, top, $important);
+        @include padding(2, bottom, $important);
     }
 
     .padded-top--loose#{$suffix} {
-        @include padding(2, top);
+        @include padding(2, top, $important);
     }
 
     .padded-bottom--loose#{$suffix} {
-        @include padding(2, bottom);
+        @include padding(2, bottom, $important);
     }
 
     .padded--none#{$suffix} {
-        @include padding(0);
+        @include padding(0, all, $important);
     }
 
     .padded-h--none#{$suffix} {
-        @include padding(0, left);
-        @include padding(0, right);
+        @include padding(0, left, $important);
+        @include padding(0, right, $important);
     }
 
     .padded-left--none#{$suffix} {
-        @include padding(0, left);
+        @include padding(0, left, $important);
     }
 
     .padded-right--none#{$suffix} {
-        @include padding(0, right);
+        @include padding(0, right, $important);
     }
 
     .padded-v--none#{$suffix} {
-        @include padding(0, top);
-        @include padding(0, bottom);
+        @include padding(0, top, $important);
+        @include padding(0, bottom, $important);
     }
 
     .padded-top--none#{$suffix} {
-        @include padding(0, top);
+        @include padding(0, top, $important);
     }
 
     .padded-bottom--none#{$suffix} {
-        @include padding(0, bottom);
+        @include padding(0, bottom, $important);
     }
 }
 

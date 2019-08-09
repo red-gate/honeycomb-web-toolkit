@@ -1,123 +1,123 @@
 // Build the margin rules, with optional suffix
-@mixin buildMargin($suffix: "") {
+@mixin buildMargin($suffix: "", $important: false) {
     .spaced#{$suffix} {
-        @include margin(1);
+        @include margin(1, all, $important);
     }
 
     .spaced-h#{$suffix} {
-        @include margin(1, left);
-        @include margin(1, right);
+        @include margin(1, left, $important);
+        @include margin(1, right, $important);
     }
 
     .spaced-left#{$suffix} {
-        @include margin(1, left);
+        @include margin(1, left, $important);
     }
 
     .spaced-right#{$suffix} {
-        @include margin(1, right);
+        @include margin(1, right, $important);
     }
 
     .spaced-v#{$suffix} {
-        @include margin(1, top);
-        @include margin(1, bottom);
+        @include margin(1, top, $important);
+        @include margin(1, bottom, $important);
     }
 
     .spaced-top#{$suffix} {
-        @include margin(1, top);
+        @include margin(1, top, $important);
     }
 
     .spaced-bottom#{$suffix} {
-        @include margin(1, bottom);
+        @include margin(1, bottom, $important);
     }
 
     .spaced--tight#{$suffix} {
-        @include margin(0.5);
+        @include margin(0.5, all, $important);
     }
 
     .spaced-h--tight#{$suffix} {
-        @include margin(0.5, left);
-        @include margin(0.5, right);
+        @include margin(0.5, left, $important);
+        @include margin(0.5, right, $important);
     }
 
     .spaced-left--tight#{$suffix} {
-        @include margin(0.5, left);
+        @include margin(0.5, left, $important);
     }
 
     .spaced-right--tight#{$suffix} {
-        @include margin(0.5, right);
+        @include margin(0.5, right, $important);
     }
 
     .spaced-v--tight#{$suffix} {
-        @include margin(0.5, top);
-        @include margin(0.5, bottom);
+        @include margin(0.5, top, $important);
+        @include margin(0.5, bottom, $important);
     }
 
     .spaced-top--tight#{$suffix} {
-        @include margin(0.5, top);
+        @include margin(0.5, top, $important);
     }
 
     .spaced-bottom--tight#{$suffix} {
-        @include margin(0.5, bottom);
+        @include margin(0.5, bottom, $important);
     }
 
     .spaced--loose#{$suffix} {
-        @include margin(2);
+        @include margin(2, all, $important);
     }
 
     .spaced-h--loose#{$suffix} {
-        @include margin(2, left);
-        @include margin(2, right);
+        @include margin(2, left, $important);
+        @include margin(2, right, $important);
     }
 
     .spaced-left--loose#{$suffix} {
-        @include margin(2, left);
+        @include margin(2, left, $important);
     }
 
     .spaced-right--loose#{$suffix} {
-        @include margin(2, right);
+        @include margin(2, right, $important);
     }
 
     .spaced-v--loose#{$suffix} {
-        @include margin(2, top);
-        @include margin(2, bottom);
+        @include margin(2, top, $important);
+        @include margin(2, bottom, $important);
     }
 
     .spaced-top--loose#{$suffix} {
-        @include margin(2, top);
+        @include margin(2, top, $important);
     }
 
     .spaced-bottom--loose#{$suffix} {
-        @include margin(2, bottom);
+        @include margin(2, bottom, $important);
     }
 
     .spaced--none#{$suffix} {
-        @include margin(0);
+        @include margin(0, all, $important);
     }
 
     .spaced-h--none#{$suffix} {
-        @include margin(0, left);
-        @include margin(0, right);
+        @include margin(0, left, $important);
+        @include margin(0, right, $important);
     }
 
     .spaced-left--none#{$suffix} {
-        @include margin(0, left);
+        @include margin(0, left, $important);
     }
 
     .spaced-right--none#{$suffix} {
-        @include margin(0, right);
+        @include margin(0, right, $important);
     }
 
     .spaced-v--none#{$suffix} {
-        @include margin(0, top);
-        @include margin(0, bottom);
+        @include margin(0, top, $important);
+        @include margin(0, bottom, $important);
     }
 
     .spaced-top--none#{$suffix} {
-        @include margin(0, top);
+        @include margin(0, top, $important);
     }
 
     .spaced-bottom--none#{$suffix} {
-        @include margin(0, bottom);
+        @include margin(0, bottom, $important);
     }
 }
 
