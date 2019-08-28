@@ -3029,7 +3029,7 @@ var handlePlayEvent = function handlePlayEvent(videoId, duration, player) {
     }
 
     if (!iframe.hasAttribute('data-ga-tracked') && analytics) {
-        var container = iframe.parentElement;
+        var container = isVimeoId(videoId) ? iframe.parentElement.parentElement : iframe.parentElement;
 
         if (container.hasAttribute('data-ga-track')) {
 

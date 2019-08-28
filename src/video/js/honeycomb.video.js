@@ -138,7 +138,7 @@ const handlePlayEvent = (videoId, duration, player ) => {
     }
 
     if (!iframe.hasAttribute('data-ga-tracked') && analytics) {
-        let container = iframe.parentElement;
+        const container = (isVimeoId(videoId)) ? iframe.parentElement.parentElement : iframe.parentElement;
 
         if (container.hasAttribute('data-ga-track')) {
 
