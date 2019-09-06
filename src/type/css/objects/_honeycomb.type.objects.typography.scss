@@ -89,6 +89,11 @@ h1,
     @extend .text--highlight;
     border-color: color('grey', 3);
   }
+
+  &--blue {
+    @extend .text--highlight;
+    border-color: color('blue', 3);
+  }
 }
 
 
