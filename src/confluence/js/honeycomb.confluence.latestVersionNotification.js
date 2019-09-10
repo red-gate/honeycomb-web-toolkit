@@ -51,9 +51,15 @@ const displayNotification = ( latestSpace, docLink ) => {
 };
 
 const init = () => {
-    const link = document.querySelector('.js-older-versions a');
-    if (link) {
-        checkForLatestVersion(link.href);
+
+    // Only check for latest version if there's a version number in the space key.
+    if (window.Confluence && window.Confluence.Space && window.Confluence.Space.key) {
+        if (window.Confluence.Space.key.match(/[0-9]/ig) !== null) {
+            const link = document.querySelector('.js-older-versions a');
+            if (link) {
+                checkForLatestVersion(link.href);
+            }
+        }
     }
 };
 
