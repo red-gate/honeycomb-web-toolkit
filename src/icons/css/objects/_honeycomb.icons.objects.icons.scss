@@ -109,6 +109,13 @@
     }
 }
 
+.icon--arrow-circle-down {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e960";
+    }
+}
+
 .icon--arrow-down-link {
     @extend %icon;
     &:before, &:after {
@@ -893,7 +900,14 @@
 /**
  * Product icons
  */
-.icon--data-masker {
+.icon--data-compare-for-oracle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e963";
+    }
+}
+
+ .icon--data-masker {
     @extend %icon;
     &:before, &:after {
         content: "\e923";
@@ -925,6 +939,20 @@
     @extend %icon;
     &:before, &:after {
         content: "\e933";
+    }
+}
+
+.icon--schema-compare-for-oracle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e962";
+    }
+}
+
+.icon--source-control-for-oracle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e961";
     }
 }
 
