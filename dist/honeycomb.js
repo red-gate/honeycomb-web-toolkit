@@ -2942,7 +2942,7 @@ var loadPlayerAPIs = function loadPlayerAPIs() {
 
 // Load a script, if it has not already been added to the DOM
 var loadScript = function loadScript(src) {
-    if (document.querySelector('script[src="' + src + '"')) {
+    if (document.querySelector('script[src="' + src + '"]')) {
         return;
     }
 

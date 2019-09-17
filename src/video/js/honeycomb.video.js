@@ -47,7 +47,7 @@ const loadPlayerAPIs = () => {
 
 // Load a script, if it has not already been added to the DOM
 const loadScript = src => {
-    if ( document.querySelector(`script[src="${src}"`) ) {
+    if ( document.querySelector(`script[src="${src}"]`) ) {
         return;
     }
 
