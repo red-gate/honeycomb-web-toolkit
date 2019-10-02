@@ -50,7 +50,7 @@
     &:before, &:after {
         font-family: "Redgate";
         font-size: $hc-icon-font-size;
-        vertical-align: top;
+        vertical-align: $hc-icon-vertical-alignment;
     }
 
     &:before {
