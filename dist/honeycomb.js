@@ -971,6 +971,7 @@ Object.defineProperty(exports, "__esModule", {
 var load = function load() {
     var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
     var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var attrs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
     if (url !== false) {
         var se = document.createElement('script');
@@ -990,6 +991,11 @@ var load = function load() {
                 }
             }
         };
+
+        // Custom attributes.
+        for (var prop in attrs) {
+            se[prop] = attrs[prop];
+        }
 
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(se, s);

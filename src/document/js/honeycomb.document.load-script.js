@@ -1,4 +1,4 @@
-const load = ( url = false, callback = false ) => {
+const load = ( url = false, callback = false, attrs = {} ) => {
     if ( url !== false ) {
         let se = document.createElement( 'script' );
         const honeycombPath = (window.Honeycomb && window.Honeycomb.path) ? window.Honeycomb.path : '';
@@ -17,6 +17,11 @@ const load = ( url = false, callback = false ) => {
                 }
             }
         };
+
+        // Custom attributes.
+        for ( let prop in attrs ) {
+            se[prop] = attrs[prop];
+        }
 
         let s = document.getElementsByTagName( 'script' )[ 0 ];
         s.parentNode.insertBefore( se, s );
