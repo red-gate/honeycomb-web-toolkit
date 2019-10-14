@@ -346,35 +346,35 @@ const addInlineVideos = () => {
 const getOptions = video => {
 
     // Copy the defaults.
-    let options = Object.assign({}, options);
+    let optionsCopy = Object.assign({}, options);
 
     // Autohide.
     if (video.hasAttribute('data-video-auto-hide')) {
-        options.autohide = video.getAttribute('data-video-auto-hide');
+        optionsCopy.autohide = video.getAttribute('data-video-auto-hide');
     }
 
     // Autoplay.
     if (video.hasAttribute('data-video-auto-play')) {
-        options.autoplay = video.getAttribute('data-video-auto-play');
+        optionsCopy.autoplay = video.getAttribute('data-video-auto-play');
     }
 
     // Controls.
     if (video.hasAttribute('data-video-controls')) {
-        options.controls = video.getAttribute('data-video-controls');
+        optionsCopy.controls = video.getAttribute('data-video-controls');
     }
 
     // Show info.
     if (video.hasAttribute('data-video-show-info')) {
-        options.showinfo = video.getAttribute('data-video-show-info');
+        optionsCopy.showinfo = video.getAttribute('data-video-show-info');
     }
 
     // Loop.
     if (video.hasAttribute('data-video-loop')) {
-        options.loop = video.getAttribute('data-video-loop');
+        optionsCopy.loop = video.getAttribute('data-video-loop');
     }
 
     // Return the options object.
-    return options;
+    return optionsCopy;
 };
 
 // Add the video when the YouTube iframe API library has loaded.
