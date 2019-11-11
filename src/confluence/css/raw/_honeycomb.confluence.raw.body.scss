@@ -1,0 +1,7 @@
+// Confluence loads in styles in the head some time after the main content, which causes a flicker. 
+// To prevent the flicker we set body { display: none; } in the document head, and unset that rule 
+// here when the full stylesheet loads. 
+
+html body {
+    display: block;
+}
