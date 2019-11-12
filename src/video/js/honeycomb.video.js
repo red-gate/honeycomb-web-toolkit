@@ -45,6 +45,32 @@ const loadPlayerAPIs = () => {
     }
 };
 
+// Error handler for loading scripts 
+// Useful if e.g. youtube is blocked 
+// Written as a longhand function instead of an arrow function to preserve the this keyword.
+const loadScriptHandleError = function() {
+    console.error(`${this.src} failed to load`);
+    
+    if ( this.src.match('youtube') ) {
+        let videoContainers = document.querySelectorAll('.js-video-container');
+        for (let videoContainer of videoContainers) {
+            videoContainer.innerHTML = `
+                <div class="notification notification--block notification--fail spaced">
+                    <div class="notification--block__inner-container">
+                        <figure class="notification__icon">
+                            <span class="icon icon--fail"></span>
+                        </figure>
+                        <div class="notification__body">
+                            <p class="gamma">We could not reach youtube.com</p>
+                            <p>youtube.com may currently be down, or may be blocked by your network.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+};
+
 // Load a script, if it has not already been added to the DOM
 const loadScript = src => {
     if ( document.querySelector(`script[src="${src}"]`) ) {
@@ -55,6 +81,7 @@ const loadScript = src => {
     const firstScriptTag = document.getElementsByTagName('script')[0];
     tag.src = src;
     tag.onload = addInlineVideos;
+    tag.onerror = loadScriptHandleError;
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 };
 
