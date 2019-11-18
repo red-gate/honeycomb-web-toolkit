@@ -1,6 +1,19 @@
 .expand-container, [data-macro-name="expand"] {
-    
+    @include margin(0.25, 'bottom');
+
+    .expand-content {
+        &.expand-hidden {
+            display: none;
+            opacity: 0;
+        }
+    }
+
+    .expand-control-icon {
+        display: none;
+    }
+
     .expand-control {
+        @extend .icon--chevron-down;
         cursor: pointer;
         color: $hc-link-color;
 
@@ -11,33 +24,9 @@
         &:before {
             @include margin(0, 'right', true);
         }
-    }
 
-    .expand-content {
-        @include margin(0.25, 'top');
-    }
-
-    .expand-control-icon {
-        display: none;
-    }
-
-    &.expand-hidden {
-        .expand-control {
+        &.expand-hidden {
             @extend .icon--chevron-right;
-        }
-        
-        .expand-content {
-            display: none;
-        }
-    }
-
-    &.expand-revealed {
-        .expand-control {
-            @extend .icon--chevron-down;
-        }
-        
-        .expand-content {
-            display: block;
         }
     }
 }
