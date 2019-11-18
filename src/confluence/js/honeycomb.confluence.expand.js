@@ -18,42 +18,26 @@ const setupContainers = () => {
         const control = container.querySelector('.expand-control');
         const content = container.querySelector('.expand-content');
         if (!control && !content) return;
-
-        if (content.classList.contains(classNames.hidden)) {
-            container.classList.add(classNames.hidden);
-            content.classList.remove(classNames.hidden);
-        } else {
-            container.classList.add(classNames.revealed);
-            content.classList.remove(classNames.revealed);
-        }
-
-        addHandler(control, container);
+        
+        updateControl(control, content);
+        addHandler(control, content);
     }
 };
 
-const addHandler = ( control, container ) => {
-    control.addEventListener('click', e => {
-        e.preventDefault();
-        toggle(container);
+const addHandler = ( control, content ) => {
+    control.addEventListener('click', () => {
+        window.setTimeout(() => {
+            updateControl(control, content);        
+        }, 100);
     });
 };
 
-const toggle = container => {
-    if (container.classList.contains(classNames.hidden)) {
-        reveal(container);
-    } else if (container.classList.contains(classNames.revealed)) {
-        hide(container);
+const updateControl = ( control, content ) => {
+    if (content.classList.contains(classNames.hidden)) {
+        control.classList.add(classNames.hidden);
+    } else {
+        control.classList.remove(classNames.hidden);
     }
-};
-
-const reveal = container => {
-    container.classList.remove(classNames.hidden);
-    container.classList.add(classNames.revealed);
-};
-
-const hide = container => {
-    container.classList.remove(classNames.revealed);
-    container.classList.add(classNames.hidden);
 };
 
 export default {
