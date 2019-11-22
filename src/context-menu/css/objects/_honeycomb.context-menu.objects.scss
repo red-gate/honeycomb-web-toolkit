@@ -1,7 +1,37 @@
+.js-context-menu {
+    position: relative;
+}
+
 .js-context-menu__list {
-    display: none;
+    @extend .list--bare;
+    position: absolute;
+    display: block; 
+    overflow: hidden;
+    top: 25px;
+    left: 25px;
+    transform: scale(0, 0);
+    transform-origin: top left;
+    z-index: 10;
+    transition: 0.3s all ease-in-out;
+    background-color: #fff;
+    box-shadow: 0 0 0px color('grey', 4); // blur at 0, invisible
+
+    li {
+        margin-bottom: 0;
+    }
+
+    a {
+        @include padding(0.1);
+        display: block;
+
+        &:hover {
+            color: #fff;
+            background-color: $hc-link-hover-color;
+        }
+    }
 }
 
 .js-context-menu--open .js-context-menu__list {
-    display: block;
+    transform: scale(1, 1);
+    box-shadow: 0 0 10px color('grey', 4);
 }
