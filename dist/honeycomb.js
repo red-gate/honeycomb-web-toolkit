@@ -969,9 +969,9 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var init = function init() {
-    // add event listeners
     var els = document.querySelectorAll('.js-context-menu');
 
+    // Add event handlers
     if (els.length) {
         for (var i = 0; i < els.length; i++) {
             var el = els[i];
@@ -982,19 +982,27 @@ var init = function init() {
     }
 };
 
+// Handler for clicking on the context menu control
 var handleContextMenuControlClick = function handleContextMenuControlClick(event) {
+    event.preventDefault();
+
+    // Toggle context menu open state
     var contextMenu = event.target.closest('.js-context-menu');
     contextMenu.classList.toggle('js-context-menu--open');
 };
 
+// Handler for clicking away from the context menu
 var handleClickAway = function handleClickAway(event) {
     var openContextMenus = document.querySelectorAll('.js-context-menu--open');
 
-    // Close all open context menus not containing the click target
+    // Close all open context menus when clicking away
     for (var i = 0; i < openContextMenus.length; i++) {
         var openContextMenu = openContextMenus[i];
+        var control = openContextMenu.querySelector('.js-context-menu__control');
+        var list = openContextMenu.querySelector('.js-context-menu__list');
 
-        if (!openContextMenu.contains(event.target)) {
+        // make sure the user is not clicking on the context menu control or list
+        if (!(control.contains(event.target) || list.contains(event.target))) {
             openContextMenu.classList.remove('js-context-menu--open');
         }
     }

@@ -25,11 +25,14 @@ const handleContextMenuControlClick = event => {
 const handleClickAway = event => {
     const openContextMenus = document.querySelectorAll('.js-context-menu--open');
 
-    // Close all open context menus not containing the click target
+    // Close all open context menus when clicking away
     for ( let i = 0; i < openContextMenus.length; i++ ) {
         const openContextMenu = openContextMenus[i];
+        const control = openContextMenu.querySelector('.js-context-menu__control');
+        const list = openContextMenu.querySelector('.js-context-menu__list');
         
-        if ( ! openContextMenu.contains(event.target) ) {
+        // make sure the user is not clicking on the context menu control or list
+        if ( ! ( control.contains(event.target) || list.contains(event.target) ) ) {
             openContextMenu.classList.remove('js-context-menu--open');
         }
     }
