@@ -4,6 +4,7 @@
 
 .js-context-menu__list {
     @extend .list--bare;
+    @extend .rounded;
     position: absolute;
     display: block; 
     overflow: hidden;
@@ -21,7 +22,7 @@
     }
 
     a {
-        @include padding(0.1);
+        @include padding(0.25);
         display: block;
 
         &:hover {
