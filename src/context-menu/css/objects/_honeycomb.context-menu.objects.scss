@@ -1,0 +1,7 @@
+.js-context-menu__list {
+    display: none;
+}
+
+.js-context-menu--open .js-context-menu__list {
+    display: block;
+}

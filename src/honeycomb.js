@@ -46,6 +46,10 @@ window.addEventListener('load', () => {
     content.init();
 });
 
+// Context menu
+import contextMenu from './context-menu/js/honeycomb.context-menu';
+contextMenu.init();
+
 // Document.
 import documentViewport from './document/js/honeycomb.document.viewport';
 documentViewport.init();

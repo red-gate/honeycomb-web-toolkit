@@ -433,7 +433,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":11}],7:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":12}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -721,7 +721,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":11}],8:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":12}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -759,7 +759,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":11}],9:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":12}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -838,7 +838,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":11,"../../document/js/honeycomb.document.load-style":12}],10:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":12,"../../document/js/honeycomb.document.load-style":13}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -968,6 +968,48 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var init = function init() {
+    // add event listeners
+    var els = document.querySelectorAll('.js-context-menu');
+
+    if (els.length) {
+        for (var i = 0; i < els.length; i++) {
+            var el = els[i];
+            el.querySelector('.js-context-menu__control').addEventListener('click', handleContextMenuControlClick);
+        }
+
+        document.addEventListener('click', handleClickAway);
+    }
+};
+
+var handleContextMenuControlClick = function handleContextMenuControlClick(event) {
+    var contextMenu = event.target.closest('.js-context-menu');
+    contextMenu.classList.toggle('js-context-menu--open');
+};
+
+var handleClickAway = function handleClickAway(event) {
+    var openContextMenus = document.querySelectorAll('.js-context-menu--open');
+
+    // Close all open context menus not containing the click target
+    for (var i = 0; i < openContextMenus.length; i++) {
+        var openContextMenu = openContextMenus[i];
+
+        if (!openContextMenu.contains(event.target)) {
+            openContextMenu.classList.remove('js-context-menu--open');
+        }
+    }
+};
+
+exports.default = {
+    init: init
+};
+
+},{}],12:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 var load = function load() {
     var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
     var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
@@ -1006,7 +1048,7 @@ exports.default = {
     load: load
 };
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1044,7 +1086,7 @@ exports.default = {
     load: load
 };
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1088,7 +1130,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":11}],14:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":12}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1146,7 +1188,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":11}],15:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":12}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1259,7 +1301,7 @@ exports.default = {
     init: init
 };
 
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1312,7 +1354,7 @@ exports.default = {
     init: init
 };
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 var _honeycombAnalytics = require('./analytics/js/honeycomb.analytics.google');
@@ -1353,25 +1395,29 @@ var _honeycomb10 = require('./content/js/honeycomb.content');
 
 var _honeycomb11 = _interopRequireDefault(_honeycomb10);
 
+var _honeycomb12 = require('./context-menu/js/honeycomb.context-menu');
+
+var _honeycomb13 = _interopRequireDefault(_honeycomb12);
+
 var _honeycombDocument = require('./document/js/honeycomb.document.viewport');
 
 var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
 
-var _honeycomb12 = require('./equalise/js/honeycomb.equalise');
-
-var _honeycomb13 = _interopRequireDefault(_honeycomb12);
-
-var _honeycomb14 = require('./filter/js/honeycomb.filter');
+var _honeycomb14 = require('./equalise/js/honeycomb.equalise');
 
 var _honeycomb15 = _interopRequireDefault(_honeycomb14);
 
-var _honeycomb16 = require('./forms/js/honeycomb.forms');
+var _honeycomb16 = require('./filter/js/honeycomb.filter');
 
 var _honeycomb17 = _interopRequireDefault(_honeycomb16);
 
-var _honeycomb18 = require('./lightbox/js/honeycomb.lightbox');
+var _honeycomb18 = require('./forms/js/honeycomb.forms');
 
 var _honeycomb19 = _interopRequireDefault(_honeycomb18);
+
+var _honeycomb20 = require('./lightbox/js/honeycomb.lightbox');
+
+var _honeycomb21 = _interopRequireDefault(_honeycomb20);
 
 var _honeycombMaps = require('./maps/js/honeycomb.maps.google');
 
@@ -1401,33 +1447,33 @@ var _honeycombPolyfill3 = require('./polyfill/js/honeycomb.polyfill.custom-event
 
 var _honeycombPolyfill4 = _interopRequireDefault(_honeycombPolyfill3);
 
-var _honeycomb20 = require('./reveal/js/honeycomb.reveal');
-
-var _honeycomb21 = _interopRequireDefault(_honeycomb20);
-
-var _honeycomb22 = require('./scroll/js/honeycomb.scroll');
+var _honeycomb22 = require('./reveal/js/honeycomb.reveal');
 
 var _honeycomb23 = _interopRequireDefault(_honeycomb22);
 
-var _honeycomb24 = require('./sticky/js/honeycomb.sticky');
+var _honeycomb24 = require('./scroll/js/honeycomb.scroll');
 
 var _honeycomb25 = _interopRequireDefault(_honeycomb24);
 
-var _honeycomb26 = require('./svg/js/honeycomb.svg');
+var _honeycomb26 = require('./sticky/js/honeycomb.sticky');
 
 var _honeycomb27 = _interopRequireDefault(_honeycomb26);
 
-var _honeycomb28 = require('./tabs/js/honeycomb.tabs');
+var _honeycomb28 = require('./svg/js/honeycomb.svg');
 
 var _honeycomb29 = _interopRequireDefault(_honeycomb28);
 
-var _honeycomb30 = require('./toggle/js/honeycomb.toggle');
+var _honeycomb30 = require('./tabs/js/honeycomb.tabs');
 
 var _honeycomb31 = _interopRequireDefault(_honeycomb30);
 
-var _honeycomb32 = require('./video/js/honeycomb.video');
+var _honeycomb32 = require('./toggle/js/honeycomb.toggle');
 
 var _honeycomb33 = _interopRequireDefault(_honeycomb32);
+
+var _honeycomb34 = require('./video/js/honeycomb.video');
+
+var _honeycomb35 = _interopRequireDefault(_honeycomb34);
 
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
@@ -1480,25 +1526,29 @@ window.addEventListener('load', function () {
     _honeycomb11.default.init();
 });
 
+// Context menu
+
+_honeycomb13.default.init();
+
 // Document.
 
 _honeycombDocument2.default.init();
 
 // Equalise.
 
-_honeycomb13.default.init();
+_honeycomb15.default.init();
 
 // Filter.
 
-_honeycomb15.default.init();
+_honeycomb17.default.init();
 
 // Forms.
 
-_honeycomb17.default.init();
+_honeycomb19.default.init();
 
 // Lightbox.
 
-_honeycomb19.default.init();
+_honeycomb21.default.init();
 
 // Google map.
 
@@ -1528,38 +1578,38 @@ window.Honeycomb.notifications = _honeycombNotification2.default;
 
 // Reveal.
 
-_honeycomb21.default.init();
+_honeycomb23.default.init();
 
 // Scroll.
 
-_honeycomb23.default.init();
+_honeycomb25.default.init();
 
 // Sticky.
 
-_honeycomb25.default.init();
+_honeycomb27.default.init();
 
 // SVG.
 
-_honeycomb27.default.init();
+_honeycomb29.default.init();
 
 // Tabs.
 
-_honeycomb29.default.init({
-    equalise: _honeycomb13.default.init,
+_honeycomb31.default.init({
+    equalise: _honeycomb15.default.init,
     googleMap: _honeycombMaps2.default.init
 });
 
 // Toggle.
 
-_honeycomb31.default.init();
+_honeycomb33.default.init();
 
 // Video.
 
-_honeycomb33.default.init({
+_honeycomb35.default.init({
     analytics: _honeycombAnalytics2.default
 });
 
-},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./chart/js/honeycomb.chart":7,"./chat/js/honeycomb.chat.intercom":8,"./code/js/honeycomb.code":9,"./content/js/honeycomb.content":10,"./document/js/honeycomb.document.viewport":13,"./equalise/js/honeycomb.equalise":14,"./filter/js/honeycomb.filter":15,"./forms/js/honeycomb.forms":16,"./lightbox/js/honeycomb.lightbox":18,"./maps/js/honeycomb.maps.google":19,"./navigation/js/honeycomb.navigation.dropdown":20,"./navigation/js/honeycomb.navigation.header":21,"./navigation/js/honeycomb.navigation.vertical":22,"./notification/js/honeycomb.notification.block":23,"./polyfill/js/honeycomb.polyfill.custom-event":24,"./polyfill/js/honeycomb.polyfill.index-of":25,"./reveal/js/honeycomb.reveal":26,"./scroll/js/honeycomb.scroll":27,"./sticky/js/honeycomb.sticky":28,"./svg/js/honeycomb.svg":29,"./tabs/js/honeycomb.tabs":30,"./toggle/js/honeycomb.toggle":31,"./video/js/honeycomb.video":32}],18:[function(require,module,exports){
+},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./chart/js/honeycomb.chart":7,"./chat/js/honeycomb.chat.intercom":8,"./code/js/honeycomb.code":9,"./content/js/honeycomb.content":10,"./context-menu/js/honeycomb.context-menu":11,"./document/js/honeycomb.document.viewport":14,"./equalise/js/honeycomb.equalise":15,"./filter/js/honeycomb.filter":16,"./forms/js/honeycomb.forms":17,"./lightbox/js/honeycomb.lightbox":19,"./maps/js/honeycomb.maps.google":20,"./navigation/js/honeycomb.navigation.dropdown":21,"./navigation/js/honeycomb.navigation.header":22,"./navigation/js/honeycomb.navigation.vertical":23,"./notification/js/honeycomb.notification.block":24,"./polyfill/js/honeycomb.polyfill.custom-event":25,"./polyfill/js/honeycomb.polyfill.index-of":26,"./reveal/js/honeycomb.reveal":27,"./scroll/js/honeycomb.scroll":28,"./sticky/js/honeycomb.sticky":29,"./svg/js/honeycomb.svg":30,"./tabs/js/honeycomb.tabs":31,"./toggle/js/honeycomb.toggle":32,"./video/js/honeycomb.video":33}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1605,7 +1655,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":11}],19:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":12}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1720,7 +1770,7 @@ exports.default = {
     initialiseMap: initialiseMap
 };
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1823,7 +1873,7 @@ exports.default = {
     addArrows: addArrows
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1911,7 +1961,7 @@ exports.default = {
     init: init
 };
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2014,7 +2064,7 @@ exports.default = {
     init: init
 };
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2151,7 +2201,7 @@ exports.default = {
     buildNotification: buildNotification
 };
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2177,7 +2227,7 @@ var CustomEvent = function CustomEvent() {
 
 exports.default = CustomEvent;
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2202,7 +2252,7 @@ var indexOf = function indexOf() {
 
 exports.default = indexOf;
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2369,7 +2419,7 @@ exports.default = {
     close: close
 };
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2463,7 +2513,7 @@ exports.default = {
     init: init
 };
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2516,7 +2566,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":11}],29:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":12}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2545,7 +2595,7 @@ exports.default = {
     init: init
 };
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2706,7 +2756,7 @@ exports.default = {
     init: init
 };
 
-},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":11}],31:[function(require,module,exports){
+},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":12}],32:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2864,7 +2914,7 @@ exports.default = {
     init: init
 };
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2946,6 +2996,41 @@ var loadPlayerAPIs = function loadPlayerAPIs() {
     }
 };
 
+// Error handler for loading scripts 
+// Useful if e.g. youtube is blocked 
+// Written as a longhand function instead of an arrow function to preserve the this keyword.
+var loadScriptHandleError = function loadScriptHandleError() {
+    console.error(this.src + ' failed to load');
+
+    if (this.src.match('youtube')) {
+        var videoContainers = document.querySelectorAll('.js-video-container');
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            for (var _iterator = videoContainers[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var videoContainer = _step.value;
+
+                videoContainer.innerHTML = '\n                <div class="notification notification--block notification--fail spaced">\n                    <div class="notification--block__inner-container">\n                        <figure class="notification__icon">\n                            <span class="icon icon--fail"></span>\n                        </figure>\n                        <div class="notification__body">\n                            <p class="gamma">We could not reach youtube.com</p>\n                            <p>youtube.com may currently be down, or may be blocked by your network.</p>\n                        </div>\n                    </div>\n                </div>\n            ';
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+    }
+};
+
 // Load a script, if it has not already been added to the DOM
 var loadScript = function loadScript(src) {
     if (document.querySelector('script[src="' + src + '"]')) {
@@ -2956,6 +3041,7 @@ var loadScript = function loadScript(src) {
     var firstScriptTag = document.getElementsByTagName('script')[0];
     tag.src = src;
     tag.onload = addInlineVideos;
+    tag.onerror = loadScriptHandleError;
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 };
 
@@ -3110,13 +3196,13 @@ var attachVimeoPlayerEventListeners = function attachVimeoPlayerEventListeners(p
 var addInlineVideos = function addInlineVideos() {
     var videoCounter = 0;
     var videoContainers = document.querySelectorAll('.js-video-container');
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
+    var _iteratorNormalCompletion2 = true;
+    var _didIteratorError2 = false;
+    var _iteratorError2 = undefined;
 
     try {
         var _loop = function _loop() {
-            var videoContainer = _step.value;
+            var videoContainer = _step2.value;
 
             var videoId = videoContainer.getAttribute('data-video-id');
 
@@ -3248,22 +3334,22 @@ var addInlineVideos = function addInlineVideos() {
             videoCounter++;
         };
 
-        for (var _iterator = videoContainers[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        for (var _iterator2 = videoContainers[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
             var _ret = _loop();
 
             if (_ret === 'continue') continue;
         }
     } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
+        _didIteratorError2 = true;
+        _iteratorError2 = err;
     } finally {
         try {
-            if (!_iteratorNormalCompletion && _iterator.return) {
-                _iterator.return();
+            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                _iterator2.return();
             }
         } finally {
-            if (_didIteratorError) {
-                throw _iteratorError;
+            if (_didIteratorError2) {
+                throw _iteratorError2;
             }
         }
     }
@@ -3315,4 +3401,4 @@ exports.default = {
     videos: videos
 };
 
-},{}]},{},[17]);
+},{}]},{},[18]);
