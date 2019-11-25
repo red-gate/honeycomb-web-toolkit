@@ -980,15 +980,46 @@ var init = function init() {
 
         document.addEventListener('click', handleClickAway);
     }
+
+    // Close context menus when resizing window (rather than recalculating positioning)
+    window.addEventListener('resize', closeMenus);
+};
+
+// Close all context menus
+var closeMenus = function closeMenus() {
+    var els = document.querySelectorAll('.js-context-menu--open');
+    if (els.length) {
+        for (var i = 0; i < els.length; i++) {
+            els[i].classList.remove('js-context-menu--open');
+        }
+    }
 };
 
 // Handler for clicking on the context menu control
 var handleContextMenuControlClick = function handleContextMenuControlClick(event) {
     event.preventDefault();
+    var contextMenu = event.target.closest('.js-context-menu');
+
+    // reset position 
+    setOffset(contextMenu);
 
     // Toggle context menu open state
-    var contextMenu = event.target.closest('.js-context-menu');
     contextMenu.classList.toggle('js-context-menu--open');
+};
+
+var setOffset = function setOffset(contextMenu) {
+    var contextMenuList = contextMenu.querySelector('.js-context-menu__list');
+    var contextMenuControl = contextMenu.querySelector('.js-context-menu__control');
+
+    var left = void 0;
+    if (contextMenu.classList.contains('js-context-menu--right')) {
+        left = contextMenuControl.offsetLeft - contextMenuControl.offsetWidth;
+    } else {
+        left = contextMenuControl.offsetLeft + 20;
+    }
+
+    contextMenuList.style.left = left + 'px';
+    console.log('setting offset left ' + left + ' for ' + contextMenuList);
 };
 
 // Handler for clicking away from the context menu
