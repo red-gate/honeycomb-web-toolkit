@@ -36,3 +36,12 @@
     transform: scale(1, 1);
     box-shadow: 0 0 10px color('grey', 4);
 }
+
+.js-context-menu--right {
+    .js-context-menu__list {
+        text-align: right;
+        transform-origin: top right;
+        left: unset;
+        right: 25px;
+    }
+}
