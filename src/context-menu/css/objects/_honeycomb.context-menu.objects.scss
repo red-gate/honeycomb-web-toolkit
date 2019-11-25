@@ -8,22 +8,26 @@
     position: absolute;
     display: block; 
     overflow: hidden;
+    min-width: 150px;
     top: 25px;
     left: 25px;
     transform: scale(0, 0);
     transform-origin: top left;
     z-index: 10;
-    transition: 0.3s all ease-in-out;
+    transition: transform 0.3s ease-in-out;
     background-color: #fff;
     box-shadow: 0 0 0px color('grey', 4); // blur at 0, invisible
+    text-align: left;
 
     li {
+        display: list-item;
         margin-bottom: 0;
     }
 
     a {
         @include padding(0.25);
         display: block;
+        color: $hc-link-color;
 
         &:hover {
             color: #fff;
@@ -41,7 +45,5 @@
     .js-context-menu__list {
         text-align: right;
         transform-origin: top right;
-        left: unset;
-        right: 25px;
     }
 }
