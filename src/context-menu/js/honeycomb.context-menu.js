@@ -30,16 +30,18 @@ function getOffset(el) {
     const rect = el.getBoundingClientRect();
     const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+    return { 
+        top: rect.top + scrollTop, 
+        left: rect.left + scrollLeft,
+        height: rect.height,
+        width: rect.width
+    };
 }
 
 // Handler for clicking on the context menu control
 const handleContextMenuControlClick = event => {
     event.preventDefault();
     const contextMenu = event.target.closest('.js-context-menu');
-
-    // // reset position for the list
-    // setOffset(contextMenu);
 
     // Toggle context menu open state
     if ( contextMenu.classList.contains('js-context-menu--open') ) {
@@ -61,9 +63,17 @@ const openMenu = contextMenu => {
     const contextMenuListCopy = contextMenu.querySelector('.js-context-menu__list').cloneNode(true);
     const control = contextMenu.querySelector('.js-context-menu__control');
     const offset = getOffset( control );
+    
+    const top = offset.top + offset.height + 10;
+    let left = offset.left + 20;
 
-    contextMenuListCopy.style.top = `${offset.top}px`;
-    contextMenuListCopy.style.left = `${offset.left}px`;
+    if ( contextMenu.classList.contains('js-context-menu--right') ) {
+        contextMenuListCopy.classList.add('js-context-menu__list--right');
+        left -= offset.width + 20;
+    }
+
+    contextMenuListCopy.style.top = `${top}px`;
+    contextMenuListCopy.style.left = `${left}px`;
     document.body.appendChild(contextMenuListCopy);
     contextMenuListCopy.classList.add('js-context-menu__list--open');
 

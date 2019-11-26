@@ -1000,16 +1000,18 @@ function getOffset(el) {
     var rect = el.getBoundingClientRect();
     var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
     var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+    return {
+        top: rect.top + scrollTop,
+        left: rect.left + scrollLeft,
+        height: rect.height,
+        width: rect.width
+    };
 }
 
 // Handler for clicking on the context menu control
 var handleContextMenuControlClick = function handleContextMenuControlClick(event) {
     event.preventDefault();
     var contextMenu = event.target.closest('.js-context-menu');
-
-    // // reset position for the list
-    // setOffset(contextMenu);
 
     // Toggle context menu open state
     if (contextMenu.classList.contains('js-context-menu--open')) {
@@ -1029,18 +1031,22 @@ var openMenu = function openMenu(contextMenu) {
     // The copied node is destroyed when we close the menu. 
     var contextMenuListCopy = contextMenu.querySelector('.js-context-menu__list').cloneNode(true);
     var control = contextMenu.querySelector('.js-context-menu__control');
-    console.log(control);
-
     var offset = getOffset(control);
 
-    console.log(offset);
+    var top = offset.top + offset.height + 10;
+    var left = offset.left + 20;
 
-    contextMenuListCopy.style.top = offset.top + 'px';
-    contextMenuListCopy.style.left = offset.left + 'px';
+    if (contextMenu.classList.contains('js-context-menu--right')) {
+        contextMenuListCopy.classList.add('js-context-menu__list--right');
+        left -= offset.width + 20;
+    }
+
+    contextMenuListCopy.style.top = top + 'px';
+    contextMenuListCopy.style.left = left + 'px';
     document.body.appendChild(contextMenuListCopy);
     contextMenuListCopy.classList.add('js-context-menu__list--open');
 
-    // create unique identifier 
+    // create unique identifier to associate the context menu with the floating element 
     var id = Date.now() + Math.random();
     contextMenu.setAttribute('data-context-menu-id', id);
     contextMenuListCopy.setAttribute('data-context-menu-id', id);
@@ -1057,22 +1063,6 @@ var closeMenu = function closeMenu(contextMenu) {
             openList.parentElement.removeChild(openList);
         }
     }
-};
-
-// Calculate the horizontal offset for the context menu floating list,
-// based on the position of the control
-var setOffset = function setOffset(contextMenu) {
-    var contextMenuList = contextMenu.querySelector('.js-context-menu__list');
-    var contextMenuControl = contextMenu.querySelector('.js-context-menu__control');
-
-    var left = void 0;
-    if (contextMenu.classList.contains('js-context-menu--right')) {
-        left = contextMenuControl.offsetLeft - contextMenuControl.offsetWidth;
-    } else {
-        left = contextMenuControl.offsetLeft + 20;
-    }
-
-    contextMenuList.style.left = left + 'px';
 };
 
 // Handler for clicking away from the context menu
