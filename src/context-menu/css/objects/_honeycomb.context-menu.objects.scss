@@ -36,7 +36,7 @@
     }
 }
 
-.js-context-menu--open .js-context-menu__list {
+.js-context-menu__list--open {
     transform: scale(1, 1);
     box-shadow: 0 0 10px color('grey', 4);
 }

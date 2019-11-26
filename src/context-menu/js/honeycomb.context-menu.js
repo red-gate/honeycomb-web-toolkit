@@ -9,10 +9,10 @@ const init = () => {
         }
 
         document.addEventListener('click', handleClickAway);
-    }
 
-    // Close context menus when resizing window (rather than recalculating positioning)
-    window.addEventListener('resize', closeMenus);
+        // Close context menus when resizing window (rather than recalculating positioning)
+        window.addEventListener('resize', closeMenus);
+    }
 };
 
 // Close all context menus
@@ -20,44 +20,76 @@ const closeMenus = () => {
     const els = document.querySelectorAll( '.js-context-menu--open' );
     if ( els.length ) {
         for ( let i = 0; i < els.length; i++ ) {
-            els[i].classList.remove('js-context-menu--open');
+            closeMenu( els[i] );
         }
     }
 };
+
+// Get the position of an element relative to the document
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+}
 
 // Handler for clicking on the context menu control
 const handleContextMenuControlClick = event => {
     event.preventDefault();
     const contextMenu = event.target.closest('.js-context-menu');
 
-    // reset position for the list
-    setOffset(contextMenu);
+    // // reset position for the list
+    // setOffset(contextMenu);
 
     // Toggle context menu open state
-    contextMenu.classList.toggle('js-context-menu--open'); 
-};
-
-// Calculate the horizontal offset for the context menu floating list,
-// based on the position of the control
-const setOffset = contextMenu => {
-    const contextMenuList = contextMenu.querySelector('.js-context-menu__list');
-    const contextMenuControl = contextMenu.querySelector('.js-context-menu__control');
-
-    let left;
-    if ( contextMenu.classList.contains('js-context-menu--right') ) {
-        left = contextMenuControl.offsetLeft - contextMenuControl.offsetWidth;
+    if ( contextMenu.classList.contains('js-context-menu--open') ) {
+        closeMenu(contextMenu);
     } else {
-        left = contextMenuControl.offsetLeft + 20;
+        openMenu(contextMenu);
     }
 
-    contextMenuList.style.left = `${left}px`;
-    
+};
+
+const openMenu = contextMenu => {
+    contextMenu.classList.add('js-context-menu--open');
+
+    // In order to overlay the context menu list over the other document content
+    // and avoid problems with parent container overflow,
+    // we create a copy of the context menu list and append it to the body, 
+    // absolutely positioned in the correct position. 
+    // The copied node is destroyed when we close the menu. 
+    const contextMenuListCopy = contextMenu.querySelector('.js-context-menu__list').cloneNode(true);
+    const control = contextMenu.querySelector('.js-context-menu__control');
+    const offset = getOffset( control );
+
+    contextMenuListCopy.style.top = `${offset.top}px`;
+    contextMenuListCopy.style.left = `${offset.left}px`;
+    document.body.appendChild(contextMenuListCopy);
+    contextMenuListCopy.classList.add('js-context-menu__list--open');
+
+    // create unique identifier to associate the context menu with the floating element 
+    const id = Date.now() + Math.random();
+    contextMenu.setAttribute('data-context-menu-id', id);
+    contextMenuListCopy.setAttribute('data-context-menu-id', id);
+};
+
+const closeMenu = contextMenu => {
+    contextMenu.classList.remove('js-context-menu--open');
+
+    // remove any open lists from the body
+    const id = contextMenu.getAttribute('data-context-menu-id');
+    if ( id ) {
+        const openList = document.querySelector(`.js-context-menu__list[data-context-menu-id="${id}"`);
+        if ( openList ) {
+            openList.parentElement.removeChild(openList);
+        }
+    }
 };
 
 // Handler for clicking away from the context menu
 const handleClickAway = event => {
     const openContextMenus = document.querySelectorAll('.js-context-menu--open');
-
+    
     // Close all open context menus when clicking away
     for ( let i = 0; i < openContextMenus.length; i++ ) {
         const openContextMenu = openContextMenus[i];
@@ -66,7 +98,7 @@ const handleClickAway = event => {
         
         // make sure the user is not clicking on the context menu control or list
         if ( ! ( control.contains(event.target) || list.contains(event.target) ) ) {
-            openContextMenu.classList.remove('js-context-menu--open');
+            closeMenu(openContextMenu);
         }
     }
 
