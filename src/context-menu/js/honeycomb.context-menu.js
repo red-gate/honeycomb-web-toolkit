@@ -1,9 +1,24 @@
 const init = () => {
-    const els = document.querySelectorAll( '.js-context-menu' );
-    
+    const els = document.querySelectorAll('.js-context-menu');
+
     // Add event handlers
-    if ( els.length ) {
-        for ( let i = 0; i < els.length; i++ ) {
+    if (els.length) {
+
+        // Polyfill Element.prototype.closest for IE
+        if (!Element.prototype.closest) {
+            Element.prototype.matches = Element.prototype.msMatchesSelector;
+            Element.prototype.closest = function(s) {
+                var el = this;
+
+                do {
+                    if (el.matches(s)) return el;
+                    el = el.parentElement || el.parentNode;
+                } while (el !== null && el.nodeType === 1);
+                return null;
+            };
+        }
+
+        for (let i = 0; i < els.length; i++) {
             const el = els[i];
             el.querySelector('.js-context-menu__control').addEventListener('click', handleContextMenuControlClick);
         }
@@ -82,7 +97,7 @@ const closeMenu = contextMenu => {
     // remove any open lists from the body
     const id = contextMenu.getAttribute('data-context-menu-id');
     if ( id ) {
-        const openList = document.querySelector(`.js-context-menu__list[data-context-menu-id="${id}"`);
+        const openList = document.querySelector(`.js-context-menu__list[data-context-menu-id='${id}'`);
         if ( openList ) {
             openList.parentElement.removeChild(openList);
         }

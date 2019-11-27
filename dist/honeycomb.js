@@ -973,6 +973,21 @@ var init = function init() {
 
     // Add event handlers
     if (els.length) {
+
+        // Polyfill Element.prototype.closest for IE
+        if (!Element.prototype.closest) {
+            Element.prototype.matches = Element.prototype.msMatchesSelector;
+            Element.prototype.closest = function (s) {
+                var el = this;
+
+                do {
+                    if (el.matches(s)) return el;
+                    el = el.parentElement || el.parentNode;
+                } while (el !== null && el.nodeType === 1);
+                return null;
+            };
+        }
+
         for (var i = 0; i < els.length; i++) {
             var el = els[i];
             el.querySelector('.js-context-menu__control').addEventListener('click', handleContextMenuControlClick);
@@ -982,16 +997,6 @@ var init = function init() {
 
         // Close context menus when resizing window (rather than recalculating positioning)
         window.addEventListener('resize', closeMenus);
-    }
-};
-
-// Close all context menus
-var closeMenus = function closeMenus() {
-    var els = document.querySelectorAll('.js-context-menu--open');
-    if (els.length) {
-        for (var i = 0; i < els.length; i++) {
-            closeMenu(els[i]);
-        }
     }
 };
 
@@ -1033,7 +1038,7 @@ var openMenu = function openMenu(contextMenu) {
     var control = contextMenu.querySelector('.js-context-menu__control');
     var offset = getOffset(control);
 
-    // Set position
+    // Set position and classes
     var top = offset.top + offset.height + 10;
     var left = offset.left + 20;
 
@@ -1045,19 +1050,7 @@ var openMenu = function openMenu(contextMenu) {
     contextMenuListCopy.style.top = top + 'px';
     contextMenuListCopy.style.left = left + 'px';
 
-    // watch for DOM changes so we know when the menu has been addded, 
-    // and we can add the animation class
-    // const observer = new MutationObserver(function(mutations) {
-    //     mutations.forEach(function(m) {
-    //         if ( m.addedNodes.length ) {
-    //             // Animate the menu open
-
-    //             // unhook MutationObserver
-    //             observer.disconnect();
-    //         }
-    //     });
-    // });
-    // observer.observe(document.body, { childList: true, subtree: true });
+    contextMenuListCopy.classList.add('js-context-menu__list--open');
 
     // create unique identifier to associate the context menu with the floating element 
     var id = Date.now() + Math.random();
@@ -1065,15 +1058,7 @@ var openMenu = function openMenu(contextMenu) {
     contextMenuListCopy.setAttribute('data-context-menu-id', id);
 
     // Add menu to DOM
-    contextMenuListCopy.classList.add('js-context-menu__list--open');
     document.body.appendChild(contextMenuListCopy);
-};
-
-// Sleep helper function 
-var sleep = function sleep(time) {
-    return new Promise(function (resolve) {
-        return setTimeout(resolve, time);
-    });
 };
 
 var closeMenu = function closeMenu(contextMenu) {
@@ -1082,14 +1067,19 @@ var closeMenu = function closeMenu(contextMenu) {
     // remove any open lists from the body
     var id = contextMenu.getAttribute('data-context-menu-id');
     if (id) {
-        var openList = document.querySelector('.js-context-menu__list[data-context-menu-id="' + id + '"');
+        var openList = document.querySelector('.js-context-menu__list[data-context-menu-id=\'' + id + '\'');
         if (openList) {
-            openList.classList.remove('js-context-menu__list--open');
+            openList.parentElement.removeChild(openList);
+        }
+    }
+};
 
-            // Wait for close animation, then remove node
-            sleep(200).then(function () {
-                openList.parentElement.removeChild(openList);
-            });
+// Close all context menus
+var closeMenus = function closeMenus() {
+    var els = document.querySelectorAll('.js-context-menu--open');
+    if (els.length) {
+        for (var i = 0; i < els.length; i++) {
+            closeMenu(els[i]);
         }
     }
 };
