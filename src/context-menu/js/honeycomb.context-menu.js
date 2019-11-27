@@ -15,16 +15,6 @@ const init = () => {
     }
 };
 
-// Close all context menus
-const closeMenus = () => {
-    const els = document.querySelectorAll( '.js-context-menu--open' );
-    if ( els.length ) {
-        for ( let i = 0; i < els.length; i++ ) {
-            closeMenu( els[i] );
-        }
-    }
-};
-
 // Get the position of an element relative to the document
 function getOffset(el) {
     const rect = el.getBoundingClientRect();
@@ -49,7 +39,6 @@ const handleContextMenuControlClick = event => {
     } else {
         openMenu(contextMenu);
     }
-
 };
 
 const openMenu = contextMenu => {
@@ -63,7 +52,8 @@ const openMenu = contextMenu => {
     const contextMenuListCopy = contextMenu.querySelector('.js-context-menu__list').cloneNode(true);
     const control = contextMenu.querySelector('.js-context-menu__control');
     const offset = getOffset( control );
-    
+
+    // Set position and classes
     const top = offset.top + offset.height + 10;
     let left = offset.left + 20;
 
@@ -74,13 +64,16 @@ const openMenu = contextMenu => {
 
     contextMenuListCopy.style.top = `${top}px`;
     contextMenuListCopy.style.left = `${left}px`;
-    document.body.appendChild(contextMenuListCopy);
+
     contextMenuListCopy.classList.add('js-context-menu__list--open');
 
     // create unique identifier to associate the context menu with the floating element 
     const id = Date.now() + Math.random();
     contextMenu.setAttribute('data-context-menu-id', id);
     contextMenuListCopy.setAttribute('data-context-menu-id', id);
+    
+    // Add menu to DOM
+    document.body.appendChild(contextMenuListCopy);
 };
 
 const closeMenu = contextMenu => {
@@ -92,6 +85,16 @@ const closeMenu = contextMenu => {
         const openList = document.querySelector(`.js-context-menu__list[data-context-menu-id="${id}"`);
         if ( openList ) {
             openList.parentElement.removeChild(openList);
+        }
+    }
+};
+
+// Close all context menus
+const closeMenus = () => {
+    const els = document.querySelectorAll( '.js-context-menu--open' );
+    if ( els.length ) {
+        for ( let i = 0; i < els.length; i++ ) {
+            closeMenu( els[i] );
         }
     }
 };

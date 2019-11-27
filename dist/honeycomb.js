@@ -1033,6 +1033,7 @@ var openMenu = function openMenu(contextMenu) {
     var control = contextMenu.querySelector('.js-context-menu__control');
     var offset = getOffset(control);
 
+    // Set position
     var top = offset.top + offset.height + 10;
     var left = offset.left + 20;
 
@@ -1043,13 +1044,36 @@ var openMenu = function openMenu(contextMenu) {
 
     contextMenuListCopy.style.top = top + 'px';
     contextMenuListCopy.style.left = left + 'px';
-    document.body.appendChild(contextMenuListCopy);
-    contextMenuListCopy.classList.add('js-context-menu__list--open');
+
+    // watch for DOM changes so we know when the menu has been addded, 
+    // and we can add the animation class
+    // const observer = new MutationObserver(function(mutations) {
+    //     mutations.forEach(function(m) {
+    //         if ( m.addedNodes.length ) {
+    //             // Animate the menu open
+
+    //             // unhook MutationObserver
+    //             observer.disconnect();
+    //         }
+    //     });
+    // });
+    // observer.observe(document.body, { childList: true, subtree: true });
 
     // create unique identifier to associate the context menu with the floating element 
     var id = Date.now() + Math.random();
     contextMenu.setAttribute('data-context-menu-id', id);
     contextMenuListCopy.setAttribute('data-context-menu-id', id);
+
+    // Add menu to DOM
+    contextMenuListCopy.classList.add('js-context-menu__list--open');
+    document.body.appendChild(contextMenuListCopy);
+};
+
+// Sleep helper function 
+var sleep = function sleep(time) {
+    return new Promise(function (resolve) {
+        return setTimeout(resolve, time);
+    });
 };
 
 var closeMenu = function closeMenu(contextMenu) {
@@ -1060,7 +1084,12 @@ var closeMenu = function closeMenu(contextMenu) {
     if (id) {
         var openList = document.querySelector('.js-context-menu__list[data-context-menu-id="' + id + '"');
         if (openList) {
-            openList.parentElement.removeChild(openList);
+            openList.classList.remove('js-context-menu__list--open');
+
+            // Wait for close animation, then remove node
+            sleep(200).then(function () {
+                openList.parentElement.removeChild(openList);
+            });
         }
     }
 };
