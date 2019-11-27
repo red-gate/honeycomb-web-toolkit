@@ -1031,10 +1031,10 @@ var openMenu = function openMenu(contextMenu) {
 
     // In order to overlay the context menu list over the other document content
     // and avoid problems with parent container overflow,
-    // we create a copy of the context menu list and append it to the body, 
+    // we move the context menu list up to the body, 
     // absolutely positioned in the correct position. 
-    // The copied node is destroyed when we close the menu. 
-    var contextMenuListCopy = contextMenu.querySelector('.js-context-menu__list').cloneNode(true);
+    // We replace the list in its original parent when the menu is closed. 
+    var contextMenuList = contextMenu.querySelector('.js-context-menu__list');
     var control = contextMenu.querySelector('.js-context-menu__control');
     var offset = getOffset(control);
 
@@ -1043,33 +1043,34 @@ var openMenu = function openMenu(contextMenu) {
     var left = offset.left + 20;
 
     if (contextMenu.classList.contains('js-context-menu--right')) {
-        contextMenuListCopy.classList.add('js-context-menu__list--right');
+        contextMenuList.classList.add('js-context-menu__list--right');
         left -= offset.width + 20;
     }
 
-    contextMenuListCopy.style.top = top + 'px';
-    contextMenuListCopy.style.left = left + 'px';
+    contextMenuList.style.top = top + 'px';
+    contextMenuList.style.left = left + 'px';
 
-    contextMenuListCopy.classList.add('js-context-menu__list--open');
+    contextMenuList.classList.add('js-context-menu__list--open');
 
     // create unique identifier to associate the context menu with the floating element 
     var id = Date.now() + Math.random();
     contextMenu.setAttribute('data-context-menu-id', id);
-    contextMenuListCopy.setAttribute('data-context-menu-id', id);
+    contextMenuList.setAttribute('data-context-menu-id', id);
 
     // Add menu to DOM
-    document.body.appendChild(contextMenuListCopy);
+    document.body.appendChild(contextMenuList);
 };
 
 var closeMenu = function closeMenu(contextMenu) {
     contextMenu.classList.remove('js-context-menu--open');
 
-    // remove any open lists from the body
+    // remove any floating open lists from the body and replace them in their parent container
     var id = contextMenu.getAttribute('data-context-menu-id');
     if (id) {
-        var openList = document.querySelector('.js-context-menu__list[data-context-menu-id=\'' + id + '\'');
-        if (openList) {
-            openList.parentElement.removeChild(openList);
+        var floatingList = document.querySelector('.js-context-menu__list[data-context-menu-id="' + id + '"');
+        if (floatingList) {
+            floatingList.classList.remove('js-context-menu__list--open');
+            contextMenu.appendChild(floatingList);
         }
     }
 };
@@ -1092,7 +1093,8 @@ var handleClickAway = function handleClickAway(event) {
     for (var i = 0; i < openContextMenus.length; i++) {
         var openContextMenu = openContextMenus[i];
         var control = openContextMenu.querySelector('.js-context-menu__control');
-        var list = openContextMenu.querySelector('.js-context-menu__list');
+        var id = openContextMenu.getAttribute('data-context-menu-id');
+        var list = document.querySelector('.js-context-menu__list[data-context-menu-id="' + id + '"]');
 
         // make sure the user is not clicking on the context menu control or list
         if (!(control.contains(event.target) || list.contains(event.target))) {
