@@ -6,18 +6,20 @@
     @extend .list--bare;
     @extend .rounded;
     position: absolute;
-    display: block; 
+    display: none; 
     overflow: hidden;
     min-width: 150px;
     top: 25px;
     left: 25px;
-    transform: scale(0, 0);
     transform-origin: top left;
     z-index: 10;
-    transition: transform 0.3s ease-in-out;
     background-color: #fff;
-    box-shadow: 0 0 0px color('grey', 4); // blur at 0, invisible
     text-align: left;
+
+    &.js-context-menu__list--right {
+        text-align: right;
+        transform-origin: top right;
+    }
 
     li {
         display: list-item;
@@ -36,14 +38,21 @@
     }
 }
 
-.js-context-menu--open .js-context-menu__list {
-    transform: scale(1, 1);
-    box-shadow: 0 0 10px color('grey', 4);
+.js-context-menu__list--open {
+    display: block;
+    animation-duration: 0.2s;
+    animation-name: open;
+    box-shadow: 0 0 10px rgba(182, 182, 182, 1);
 }
 
-.js-context-menu--right {
-    .js-context-menu__list {
-        text-align: right;
-        transform-origin: top right;
-    }
+@keyframes open {
+  from {
+    transform: scale(0, 0);
+    box-shadow: 0 0 10px rgba(182, 182, 182, 0);
+  }
+
+  to {
+    transform: scale(1, 1);
+    box-shadow: 0 0 10px rgba(182, 182, 182, 1);
+  }
 }
