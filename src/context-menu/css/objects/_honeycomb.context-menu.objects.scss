@@ -1,5 +1,11 @@
 .js-context-menu {
     position: relative;
+
+    // Moving the list node can affect the last-child, which can cause spacing side-effects with paragraphs.
+    // To avoid that we unset all paragraph spacing here. 
+    p, p:last-child {
+        @include margin(0, 'bottom');
+    }
 }
 
 .js-context-menu__list {
