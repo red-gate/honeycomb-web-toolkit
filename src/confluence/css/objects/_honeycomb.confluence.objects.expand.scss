@@ -8,7 +8,7 @@
         }
     }
 
-    .expand-control-icon {
+    .expand-icon {
         display: none;
     }
 
@@ -22,10 +22,10 @@
         }
 
         &:before {
-            @include margin(0, 'right', true);
+            @include margin(0.1, 'right', true);
         }
 
-        &.expand-hidden {
+        &.expand-content-hidden {
             @extend .icon--chevron-right;
         }
     }

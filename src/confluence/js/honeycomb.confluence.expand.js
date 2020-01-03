@@ -1,6 +1,7 @@
 const classNames = {
     hidden: 'expand-hidden',
-    revealed: 'expand-revealed'
+    revealed: 'expand-revealed',
+    contentHidden: 'expand-content-hidden',
 };
 
 let containers = null;
@@ -34,9 +35,9 @@ const addHandler = ( control, content ) => {
 
 const updateControl = ( control, content ) => {
     if (content.classList.contains(classNames.hidden)) {
-        control.classList.add(classNames.hidden);
+        control.classList.add(classNames.contentHidden);
     } else {
-        control.classList.remove(classNames.hidden);
+        control.classList.remove(classNames.contentHidden);
     }
 };
 
