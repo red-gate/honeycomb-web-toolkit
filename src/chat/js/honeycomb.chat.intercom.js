@@ -19,7 +19,7 @@ const init = callback => {
                 i.q.push(args);
             };
             window.Intercom = i;
-            loadScript.load(`https://widget.intercom.io/widget/${window.intercomSettings.app_id}`, init);
+            loadScript.load(`https://widget.intercom.io/widget/${window.intercomSettings.app_id}`, init.bind(this, callback));
         }
     }
 };

@@ -755,7 +755,7 @@ var init = function init(callback) {
                 i.q.push(args);
             };
             window.Intercom = i;
-            _honeycombDocument2.default.load('https://widget.intercom.io/widget/' + window.intercomSettings.app_id, init);
+            _honeycombDocument2.default.load('https://widget.intercom.io/widget/' + window.intercomSettings.app_id, init.bind(undefined, callback));
         }
     }
 };
