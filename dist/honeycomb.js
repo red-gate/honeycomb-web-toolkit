@@ -736,11 +736,16 @@ function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var init = function init() {
+var init = function init(callback) {
     if (typeof window.intercomSettings !== 'undefined') {
         if (typeof window.Intercom !== 'undefined') {
             window.Intercom('reattach_activator');
             window.Intercom('update', window.intercomSettings);
+
+            // Execute init callback if there is one, and it's a function.
+            if (callback && typeof callback === 'function') {
+                callback.call(undefined);
+            }
         } else {
             var i = function i() {
                 i.c(arguments);
@@ -3103,7 +3108,7 @@ var loadPlayerAPIs = function loadPlayerAPIs() {
 // Useful if e.g. youtube is blocked 
 // Written as a longhand function instead of an arrow function to preserve the this keyword.
 var loadScriptHandleError = function loadScriptHandleError() {
-    console.error(this.src + ' failed to load');
+    window.console.error(this.src + ' failed to load');
 
     if (this.src.match('youtube')) {
         var videoContainers = document.querySelectorAll('.js-video-container');

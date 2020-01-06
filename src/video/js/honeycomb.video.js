@@ -49,7 +49,7 @@ const loadPlayerAPIs = () => {
 // Useful if e.g. youtube is blocked 
 // Written as a longhand function instead of an arrow function to preserve the this keyword.
 const loadScriptHandleError = function() {
-    console.error(`${this.src} failed to load`);
+    window.console.error(`${this.src} failed to load`);
     
     if ( this.src.match('youtube') ) {
         let videoContainers = document.querySelectorAll('.js-video-container');
