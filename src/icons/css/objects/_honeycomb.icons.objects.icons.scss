@@ -907,7 +907,8 @@
     }
 }
 
- .icon--data-masker {
+ .icon--data-masker,
+ .icon--data-masker-for-oracle {
     @extend %icon;
     &:before, &:after {
         content: "\e923";
