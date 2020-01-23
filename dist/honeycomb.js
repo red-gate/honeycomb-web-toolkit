@@ -1735,6 +1735,12 @@ function _interopRequireDefault(obj) {
 var init = function init() {
     var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
+    window.addEventListener('load', initLightbox.bind(undefined, config));
+};
+
+var initLightbox = function initLightbox() {
+    var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
     var els = document.querySelectorAll('.js-lightbox, .js-lightbox--video, .js-lightbox--iframe, .js-lightbox--image, .js-lightbox--inline, .js-lightbox--ajax, .js-lightbox--swf, .js-lightbox--html');
     if (els.length) {
         if (typeof window.jQuery.fancybox === 'undefined') {
@@ -1743,7 +1749,7 @@ var init = function init() {
             }
 
             _honeycombDocument2.default.load(config.url, function () {
-                init();
+                initLightbox();
             });
         } else {
 
