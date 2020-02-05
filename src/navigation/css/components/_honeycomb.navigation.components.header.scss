@@ -500,6 +500,10 @@
         height: 100%;
     }
 
+    &, &__container, nav {
+        width: 100%;
+    }
+
     ul, li {
         @include margin(0);
         list-style: none;
@@ -511,7 +515,9 @@
     }
 
     &__app-logo-container {
+        @extend .text--redgate;
         @include margin(0.5, 'right');
+        @include font-size(24px);
         display: flex;
         flex-shrink: 0;
         align-items: center;
@@ -538,7 +544,6 @@
         @include margin(0, 'bottom');
         @include font-size(22px);
         display: flex;
-        flex-shrink: 0;
         align-items: center;
     }
 
@@ -550,6 +555,10 @@
         display: flex;
         flex-shrink: 0;
         align-items: center;
+    }
+
+    .float-right {
+        margin-left: auto;
     }
 
     ul a {
@@ -573,17 +582,14 @@
 
     &__icon {
         width: 70px;
+        flex-shrink: 0;
+        justify-content: center;
+        align-items: center;
 
         &:before, :before {
             @include font-size(24px);
         }
     }
-
-    // Stretch anything that's not float right, or the app logo/container/strapline, so
-    // that the items that need to appear on the right do.
-    // nav > :not(.float-right):not(.header--primary__app-logo-container):not(.header--primary__app-name-container):not(.header--primary__strapline) {
-    //     flex-grow: 1;
-    // }
 
     .dropdown .arrow {
         top: 25px;
@@ -602,6 +608,10 @@
             text-align: left;
             border-bottom-style: solid;
             border-bottom-width: 1px;
+
+            &:last-of-type {
+                border-bottom-width: 0;
+            }
         }
 
         a {
@@ -620,11 +630,108 @@
         }
     }
 
-}
+    form {
+        @include margin(0.5, 'left');
+    }
 
-// MOBILE MENU.
-.header--primary__menu--mobile {
-    display: none !important; // FOR NOW.
+    input[type="text"], input[type="search"] {
+        @include padding(0.5, 'left');
+        @include padding(0.5, 'right');
+        border: none;
+        border-radius: 0;
+        width: 200px;
+    }
+
+    input[type="submit"], button {
+        border: none;
+        border-radius: 0;
+
+        [class^="icon--"] {
+            &:before, :before {
+                @include font-size(24px);
+            }
+        }
+    }
+
+    // MOBILE MENU.
+    .header--primary__menu--mobile {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        z-index: 10;
+        border-bottom-style: solid;
+        border-bottom-width: 4px;
+
+        .mobile-nav--open & {
+            display: block;
+        }
+        
+        * {
+            display: block; // Reset from flex.
+        }
+
+        [class^="icon--"] {
+            @include margin(0.1, 'right');
+            display: inline-block;
+        }
+
+        &, li {
+            text-align: left;
+        }
+
+        li {
+            border-top-style: solid;
+            border-top-width: 1px;
+            border-bottom-width: 0 !important;
+        }
+
+        & > li:first-of-type {
+            border-top-width: 0;       
+        }
+
+        a {
+            @include padding(0.5, 'left');
+            @include padding(0.5, 'right');
+            padding-top: 11px;
+            padding-bottom: 11px;
+            border: none;
+        }
+
+        li li a {
+            @include padding(1, 'left'); // Indentation.
+        }
+
+        li li li a {
+            @include padding(1.5, 'left'); // Further indentation.
+        }
+
+        .dropdown {
+            
+            ul {
+                position: relative;
+                width: 100%;
+                left: 0;
+            }
+
+            .arrow {
+                @include padding(0.5, 'left');
+                @include padding(0.5, 'right');
+                top: 12px;
+                right: 15px;
+
+                &:before {
+                    @include font-size(24px);
+                }
+            }
+
+            &.open > a {
+                font-weight: bold;
+            }
+        }
+    }
 }
 
 // COLOURS.
@@ -633,7 +740,7 @@
 
     &__app-logo-container {
         background-color: color('red');
-        color: color('white');
+        color: color('white') !important;
     }
 
     &__app-name-container {
@@ -695,6 +802,47 @@
 
         .mobile-nav--open & {
             background-color: color('grey', 9);
+        }
+    }
+
+    input[type="text"], input[type="search"] {
+        background-color: color('grey', 9);
+        color: color('white');
+    }
+
+    input[type="submit"], button {
+        background-color: color('grey', 9) !important;
+        color: color('white') !important;
+
+        &:hover {
+            background-color: color('red') !important;
+        }
+    }
+
+    .header--primary__menu--mobile {
+        border-bottom-color: color('red');
+
+        &, ul {
+            background-color: color('grey', 9);
+        }
+
+        li {
+            border-top-color: color('grey', 7);
+        }
+
+        .dropdown.open {
+
+            &, ul {
+                background-color: color('black');
+            }
+        
+            & > a {
+                color: color('white');
+            }
+        }
+
+        .active {
+            background-color: color('red');
         }
     }
 }

@@ -78,14 +78,14 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#item">Item 2</a>
+                        <a href="#item"><span class="icon--shopping-cart"></span> Item 2</a>
                         <ul>
                             <li><a href="#item">Item 2 A</a></li>
                             <li>
                                 <a href="#item">Item 2 B</a>
                                 <ul>
                                     <li><a href="#item">Item 2 B 1</a></li>
-                                    <li><a href="#item">Item 2 B 2</a></li>
+                                    <li><a href="#item" class="active">Item 2 B 2</a></li>
                                     <li><a href="#item">Item 2 B 3</a></li>
                                     <li><a href="#item">Item 2 B 4</a></li>
                                 </ul>
@@ -428,6 +428,35 @@
                     <form role="search" method="get" action="http://local.simple-talk.com/" class="header--primary__search-form">
                         <input type="search" placeholder="Search ..." value="" name="s" title="Search for:">
                         <button type="submit">Search</button>
+                    </form>
+                </span>
+
+            </nav>
+        </div>
+    </div>
+
+    <div class="spaced-bottom--loose">
+        <div class="band header--primary">
+            <nav>
+                <a href="/" class="header--primary__app-logo-container">
+                    <span class="icon--sql-toolbelt"></span>
+                </a>
+
+                <a href="/" class="header--primary__app-name-container">
+                    Simple Talk
+                </a>
+
+                <p class="header--primary__strapline">A technical journal and community hub from Redgate</p>
+
+                <span class="float-right hide-on-medium">
+                    <ul>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Log in</a></li>
+                    </ul>
+
+                    <form role="search" method="get" action="http://local.simple-talk.com/" class="header--primary__search-form">
+                        <input type="search" placeholder="Search ..." value="" name="s" title="Search for:">
+                        <button type="submit" class="header--primary__icon"><span class="icon--search"></span></button>
                     </form>
                 </span>
 
