@@ -3,4 +3,4 @@ $hc-navigation-border-width: 4px !default;
 $hc-navigation-images-dir: "navigation/images/" !default;
 $hc-navigation-menu-icon-open: $hc-navigation-images-dir + "menu" !default; // png/svg depending on class.
 $hc-navigation-menu-icon-close: $hc-navigation-images-dir + "menu--close" !default; // png/svg depending on class.
-$hc-navigation-transition: "all 0.5s" !default;
+$hc-navigation-transition: all 0.5s !default;

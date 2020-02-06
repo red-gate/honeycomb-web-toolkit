@@ -489,6 +489,7 @@
     position: relative;
     height: $hc-navigation-minimum-height !important;
     overflow: visible;
+    transition: $hc-navigation-transition;
 
     * {
         display: flex;
@@ -651,6 +652,12 @@
                 @include font-size(24px);
             }
         }
+    }
+
+    // Collapsed - For Hub area.
+    &--collapsed {
+        height: 0 !important;
+        overflow: hidden;
     }
 
     // MOBILE MENU.

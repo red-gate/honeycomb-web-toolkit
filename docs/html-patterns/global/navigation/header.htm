@@ -20,7 +20,7 @@
     </div>
 
     <div class="spaced-bottom--loose">
-        <div class="band header--primary js-header-primary-collapse">
+        <div class="band header--primary js-header-primary-collapse header--primary--collapsed">
             <nav>
                 <a href="/" class="header--primary__app-logo-container"><img src="http://www.red-gate.com/assets/images/global/redgate-logo--white.svg" alt=""></a>
 
@@ -467,7 +467,19 @@
 
   </div><!-- END .page-wrapper -->
 
-
+<script>
+    window.collapse = function() {
+        var primaryNav = document.querySelectorAll('.js-header-primary-collapse');
+        for (var i=0; i<primaryNav.length; i++) {
+            var nav = primaryNav[i];
+            if (nav.classList.contains('header--primary--collapsed')) {
+                nav.classList.remove('header--primary--collapsed');
+            } else {
+                nav.classList.add('header--primary--collapsed');
+            }
+        }
+    };
+</script>
 
 
   <!--#include virtual="/docs/includes/footer/footer.htm" -->
