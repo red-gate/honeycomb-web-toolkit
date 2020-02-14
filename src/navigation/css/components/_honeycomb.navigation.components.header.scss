@@ -717,6 +717,10 @@
             @include padding(1.5, 'left'); // Further indentation.
         }
 
+        .active-parent {
+            font-weight: bold;
+        }
+
         .dropdown {
             
             ul {
@@ -734,10 +738,6 @@
                 &:before {
                     @include font-size(24px);
                 }
-            }
-
-            &.open > a {
-                font-weight: bold;
             }
         }
     }
@@ -852,6 +852,10 @@
 
         .active {
             background-color: color('red');
+        }
+
+        .active-parent {
+            color: color('white');
         }
     }
 }
