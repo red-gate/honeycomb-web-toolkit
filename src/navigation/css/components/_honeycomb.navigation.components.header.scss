@@ -490,6 +490,7 @@
     height: $hc-navigation-minimum-height !important;
     overflow: visible;
     transition: $hc-navigation-transition;
+    z-index: 20;
 
     * {
         display: flex;
@@ -695,7 +696,8 @@
             border-bottom-width: 0 !important;
         }
 
-        & > li:first-of-type {
+        & > li:first-of-type,
+        & > ul > li:first-of-type {
             border-top-width: 0;       
         }
 
