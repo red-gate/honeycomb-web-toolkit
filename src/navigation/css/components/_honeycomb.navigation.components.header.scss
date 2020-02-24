@@ -659,6 +659,11 @@
     &--collapsed {
         height: 0 !important;
         overflow: hidden;
+
+        // Make overflow visible so that the mobile nav can be seen.
+        .mobile-nav--open & {
+            overflow: visible;
+        }
     }
 
     // MOBILE MENU.
