@@ -2,6 +2,8 @@
     position: relative;
     overflow: visible;
     z-index: 20;
+    height: $hc-navigation-minimum-height !important;
+    transition: $hc-navigation-transition;
 
     * {
         display: flex;
@@ -19,7 +21,6 @@
 
     &__container {
         height: $hc-navigation-minimum-height;
-        // overflow: visible;
         transition: $hc-navigation-transition;
     }
 
@@ -40,19 +41,22 @@
         display: flex;
         flex-shrink: 0;
         align-items: center;
-        padding-left: 17px;
-        padding-right: 17px;
+        padding-left: $hc-navigation-app-logo-padding;
+        padding-right: $hc-navigation-app-logo-padding;
 
         img {
-            height: 36px; // 36px for Redgate logo
-            height: 30px; // 30px for icon square -- Go figure!
+            height: $hc-navigation-app-logo-height;
+        }
+
+        &--redgate img {
+            height: $hc-navigation-app-redgate-logo-height;
         }
     }
 
     &__app-name-container {
         @extend .text--redgate;
         @include margin(0.5, 'right');
-        @include font-size(22px);
+        @include font-size($hc-navigation-branding-font-size);
         display: flex;
         flex-shrink: 0;
         align-items: center;
@@ -61,7 +65,7 @@
     &__strapline {
         @include margin(0.5, 'right');
         @include margin(0, 'bottom');
-        @include font-size(22px);
+        @include font-size($hc-navigation-branding-font-size);
         display: flex;
         align-items: center;
     }
@@ -70,14 +74,14 @@
         @extend .text--redgate;
         @include margin(0.5, 'left');
         @include margin(0.5, 'right');
-        @include font-size(22px);
+        @include font-size($hc-navigation-branding-font-size);
         display: flex;
         flex-shrink: 0;
         align-items: center;
     }
 
     .float-right {
-        margin-left: auto;
+        margin-left: auto; // Now we're using flexbox we set margin-left to auto to snap it to the right.
     }
 
     ul a {
@@ -85,13 +89,13 @@
         height: 100%;
         align-items: center;
         justify-content: center;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: $hc-navigation-link-padding;
+        padding-right: $hc-navigation-link-padding;
         border-bottom-style: solid;
-        border-bottom-width: $hc-navigation-border-width;
+        border-bottom-width: $hc-navigation-link-border-width;
         border-bottom-color: transparent;
         border-top-style: solid;
-        border-top-width: $hc-navigation-border-width;
+        border-top-width: $hc-navigation-link-border-width;
         border-top-color: transparent;
     }
 
@@ -100,13 +104,13 @@
     }
 
     &__icon {
-        width: 70px;
+        width: $hc-navigation-icon-width;
         flex-shrink: 0;
         justify-content: center;
         align-items: center;
 
         &:before, :before {
-            @include font-size(24px);
+            @include font-size($hc-navigation-icon-font-size);
         }
     }
 
@@ -170,6 +174,12 @@
                 @include font-size(24px);
             }
         }
+    }
+
+    // Primary headers that collapse have a inner container, and the
+    // height is set to that rather than this.
+    &.js-header-primary-collapse {
+        height: auto !important;
     }
 
     // Collapsed - For Hub area.
