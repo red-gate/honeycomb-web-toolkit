@@ -487,9 +487,7 @@
 
 .header--primary {
     position: relative;
-    height: $hc-navigation-minimum-height !important;
     overflow: visible;
-    transition: $hc-navigation-transition;
     z-index: 20;
 
     * {
@@ -504,6 +502,12 @@
 
     &, &__container, nav {
         width: 100%;
+    }
+
+    &__container {
+        height: $hc-navigation-minimum-height;
+        // overflow: visible;
+        transition: $hc-navigation-transition;
     }
 
     ul, li {
@@ -657,13 +661,16 @@
 
     // Collapsed - For Hub area.
     &--collapsed {
-        height: 0 !important;
-        overflow: hidden;
+
+        .header--primary__container {
+            height: 0;
+            overflow: hidden;
+        }
 
         // Make overflow visible so that the mobile nav can be seen.
-        .mobile-nav--open & {
-            overflow: visible;
-        }
+        // .mobile-nav--open & {
+        //     overflow: visible;
+        // }
 
         // Display the menu mobile below the collapsed nav.
         .header--primary__menu--mobile {
