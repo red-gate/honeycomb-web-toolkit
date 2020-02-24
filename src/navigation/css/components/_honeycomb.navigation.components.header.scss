@@ -664,6 +664,11 @@
         .mobile-nav--open & {
             overflow: visible;
         }
+
+        // Display the menu mobile below the collapsed nav.
+        .header--primary__menu--mobile {
+            top: $hc-navigation-minimum-height !important;
+        }
     }
 
     // MOBILE MENU.
