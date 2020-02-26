@@ -115,11 +115,11 @@
     }
 
     .dropdown .arrow {
-        top: 25px;
-        right: -12px;
+        top: $hc-navigation-dropdown-arrow-position-top;
+        right: $hc-navigation-dropdown-arrow-position-right;
 
         &:before {
-            @include font-size(14px);
+            @include font-size($hc-navigation-dropdown-arrow-font-size);
         }
     }
 
@@ -130,7 +130,7 @@
         li {
             text-align: left;
             border-bottom-style: solid;
-            border-bottom-width: 1px;
+            border-bottom-width: $hc-navigation-dropdown-list-item-border-width;
 
             &:last-of-type {
                 border-bottom-width: 0;
@@ -138,9 +138,9 @@
         }
 
         a {
-            @include padding(0.25);
-            @include padding(0.5, 'left');
-            @include padding(0.5, 'right');
+            @include padding($hc-navigation-dropdown-list-item-padding-ratio-vertical);
+            @include padding($hc-navigation-dropdown-list-item-padding-ratio-horizontal, 'left');
+            @include padding($hc-navigation-dropdown-list-item-padding-ratio-horizontal, 'right');
             border: 0;
         }
     }
@@ -154,15 +154,15 @@
     }
 
     form {
-        @include margin(0.5, 'left');
+        @include margin($hc-navigation-form-margin-ratio-left, 'left');
     }
 
     input[type="text"], input[type="search"] {
-        @include padding(0.5, 'left');
-        @include padding(0.5, 'right');
+        @include padding($hc-navigation-text-input-padding-ratio-horizontal, 'left');
+        @include padding($hc-navigation-text-input-padding-ratio-horizontal, 'right');
         border: none;
         border-radius: 0;
-        width: 200px;
+        width: $hc-navigation-text-input-width;
     }
 
     input[type="submit"], button {
@@ -171,7 +171,7 @@
 
         [class^="icon--"] {
             &:before, :before {
-                @include font-size(24px);
+                @include font-size($hc-navigation-icon-font-size);
             }
         }
     }
