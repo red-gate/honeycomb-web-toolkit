@@ -111,6 +111,7 @@
 
         &:before, :before {
             @include font-size($hc-navigation-icon-font-size);
+            @include margin($hc-navigation-icon-margin-ratio-right, 'right');
         }
     }
 
