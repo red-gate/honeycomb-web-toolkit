@@ -179,7 +179,7 @@
 
     // Primary headers that collapse have a inner container, and the
     // height is set to that rather than this.
-    &.js-header-primary-collapse {
+    &--has-inner-container {
         height: auto !important;
     }
 
