@@ -206,7 +206,7 @@
         height: auto;
         z-index: 10;
         border-bottom-style: solid;
-        border-bottom-width: 4px;
+        border-bottom-width: $hc-navigation-mobile-menu-border-bottom-width;
 
         .mobile-nav--open & {
             display: block;
@@ -217,7 +217,7 @@
         }
 
         [class^="icon--"] {
-            @include margin(0.1, 'right');
+            @include margin($hc-navigation-mobile-menu-icon-margin-ratio-right, 'right');
             display: inline-block;
         }
 
@@ -227,7 +227,7 @@
 
         li {
             border-top-style: solid;
-            border-top-width: 1px;
+            border-top-width: $hc-navigation-mobile-menu-item-border-width;
             border-bottom-width: 0 !important;
         }
 
@@ -237,19 +237,21 @@
         }
 
         a {
-            @include padding(0.5, 'left');
-            @include padding(0.5, 'right');
-            padding-top: 11px;
-            padding-bottom: 11px;
+            @include padding($hc-navigation-mobile-menu-item-padding-ratio-horizontal, 'left');
+            @include padding($hc-navigation-mobile-menu-item-padding-ratio-horizontal, 'right');
+            @include padding($hc-navigation-mobile-menu-item-padding-ratio-vertical, 'top');
+            @include padding($hc-navigation-mobile-menu-item-padding-ratio-vertical, 'bottom');
+            // padding-top: 11px;
+            // padding-bottom: 11px;
             border: none;
         }
 
         li li a {
-            @include padding(1, 'left'); // Indentation.
+            @include padding(($hc-navigation-mobile-menu-item-padding-ratio-horizontal * 2), 'left'); // Indentation.
         }
 
         li li li a {
-            @include padding(1.5, 'left'); // Further indentation.
+            @include padding(($hc-navigation-mobile-menu-item-padding-ratio-horizontal * 3), 'left'); // Further indentation.
         }
 
         .active-parent {
@@ -267,11 +269,11 @@
             .arrow {
                 @include padding(0.5, 'left');
                 @include padding(0.5, 'right');
-                top: 12px;
-                right: 15px;
+                top: $hc-navigation-mobile-menu-arrow-position-top;
+                right: $hc-navigation-mobile-menu-arrow-position-right;
 
                 &:before {
-                    @include font-size(24px);
+                    @include font-size($hc-navigation-mobile-menu-arrow-icon-font-size);
                 }
             }
         }
