@@ -44,6 +44,10 @@
         padding-left: $hc-navigation-app-logo-padding;
         padding-right: $hc-navigation-app-logo-padding;
 
+        @include responsive('large') {
+            @include margin(0.25, 'right');
+        }
+
         img {
             height: $hc-navigation-app-logo-height;
         }
@@ -60,6 +64,10 @@
         display: flex;
         flex-shrink: 0;
         align-items: center;
+
+        @include responsive('large') {
+            @include margin(0.25, 'right');
+        }
     }
 
     &__strapline {
@@ -68,6 +76,10 @@
         @include font-size($hc-navigation-branding-font-size);
         display: flex;
         align-items: center;
+
+        @include responsive('large') {
+            @include margin(0.25, 'right');
+        }
     }
 
     &__company-logo-container {
@@ -78,6 +90,11 @@
         display: flex;
         flex-shrink: 0;
         align-items: center;
+
+        @include responsive('large') {
+            @include margin(0.25, 'left');
+            @include margin(0.25, 'right');
+        }
     }
 
     .float-right {
@@ -97,6 +114,11 @@
         border-top-style: solid;
         border-top-width: $hc-navigation-link-border-width;
         border-top-color: transparent;
+
+        @include responsive('large') {
+            padding-left: $hc-navigation-link-padding-tight;
+            padding-right: $hc-navigation-link-padding-tight;
+        }
     }
 
     .active {
