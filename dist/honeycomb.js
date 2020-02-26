@@ -2005,6 +2005,7 @@ var setupCollapse = function setupCollapse() {
         var $header = window.jQuery(header);
         var $nav = $header.find('.header--primary__menu--mobile');
         $header.wrapInner('<div class="header--primary__container"></div>');
+        $header.addClass('header--primary--has-inner-container');
         $nav.appendTo($header);
     });
 };
