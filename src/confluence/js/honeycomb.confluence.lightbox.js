@@ -18,9 +18,9 @@ const init = () => {
 
         if ( ! imageIsLinked ) {
             let $a = window.jQuery('<a/>')
-            .addClass('lightbox link-image js-lightbox')
-            .attr('href', $this.attr('src'))
-            .attr('rel', 'lightbox');
+                .addClass('lightbox link-image js-lightbox')
+                .attr('href', $this.attr('src'))
+                .attr('rel', 'lightbox');
             $this.wrap($a);
         }
     });

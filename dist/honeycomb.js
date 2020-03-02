@@ -191,7 +191,7 @@ var init = function init() {
     window.jQuery('.js-animate--fade').each(function () {
         var $this = window.jQuery(this);
         if ($this.find('.js-animate--fade__item').length > 1) {
-            $this.find('.js-animate--fade__item').wrapAll('<div class=\"js-animate--fade__container\"/>');
+            $this.find('.js-animate--fade__item').wrapAll('<div class="js-animate--fade__container"/>');
             $this.find('.js-animate--fade__item').hide().first().show();
             setInterval(step, interval);
         }
@@ -2416,7 +2416,7 @@ var init = function init(callback) {
             if (group) {
 
                 // In a group. Close all group content first.
-                var $groupButtons = window.jQuery('.js-reveal-cta[data-reveal-group=\"' + group + '\"]');
+                var $groupButtons = window.jQuery('.js-reveal-cta[data-reveal-group="' + group + '"]');
                 var closed = 0;
 
                 for (var i = 0; i < $groupButtons.length; i++) {
@@ -2458,7 +2458,7 @@ var open = function open(button, callback) {
     var $content = window.jQuery(hash);
 
     if ($content.is('.js-reveal')) {
-        var $buttons = window.jQuery('.js-reveal-cta[href=\"' + hash + '\"]');
+        var $buttons = window.jQuery('.js-reveal-cta[href="' + hash + '"]');
 
         $content.slideDown({
             duration: 250,
@@ -2490,7 +2490,7 @@ var close = function close(button, callback) {
     var $content = window.jQuery(hash);
 
     if ($content.is('.js-reveal')) {
-        var $buttons = window.jQuery('.js-reveal-cta[href=\"' + hash + '\"]');
+        var $buttons = window.jQuery('.js-reveal-cta[href="' + hash + '"]');
 
         $content.slideUp({
             duration: 250,

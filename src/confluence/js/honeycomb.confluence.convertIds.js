@@ -6,7 +6,7 @@ const init = () => {
     for (var i=0; i<els.length; i++) {
         let id = false;
         const el = els[i];
-        const cls = el.getAttribute('class').match(/id--[a-z0-9\-]*/ig);
+        const cls = el.getAttribute('class').match(/id--[a-z0-9-]*/ig);
         if (cls) {
             const c = cls[0];
             id = c.replace('id--', '');
