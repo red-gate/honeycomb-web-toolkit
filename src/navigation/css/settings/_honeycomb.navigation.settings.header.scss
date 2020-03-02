@@ -1,5 +1,40 @@
 $hc-navigation-minimum-height: 70px !default;
-$hc-navigation-border-width: 5px !default;
-$hc-navigation-images-dir: "navigation/images/" !default;
-$hc-navigation-menu-icon-open: $hc-navigation-images-dir + "menu" !default; // png/svg depending on class.
-$hc-navigation-menu-icon-close: $hc-navigation-images-dir + "menu--close" !default; // png/svg depending on class.
+$hc-navigation-transition: all 0.5s !default;
+
+$hc-navigation-link-border-width: 4px !default;
+$hc-navigation-link-padding: 20px !default;
+$hc-navigation-link-padding-tight: 10px !default;
+
+$hc-navigation-app-logo-padding: 17px !default;
+$hc-navigation-app-logo-height: 36px !default;
+$hc-navigation-app-redgate-logo-height: 30px !default;
+
+$hc-navigation-branding-font-size: 22px !default;
+
+$hc-navigation-icon-width: 70px !default;
+$hc-navigation-icon-font-size: 24px !default;
+$hc-navigation-icon-margin-ratio-right: 0 !default;
+
+$hc-navigation-dropdown-arrow-position-top: 25px !default;
+$hc-navigation-dropdown-arrow-position-right: -12px !default;
+$hc-navigation-dropdown-arrow-font-size: 14px !default;
+
+$hc-navigation-dropdown-list-item-border-width: 1px !default;
+$hc-navigation-dropdown-list-item-padding-ratio-vertical: 0.25 !default;
+$hc-navigation-dropdown-list-item-padding-ratio-horizontal: 0.5 !default;
+
+$hc-navigation-form-margin-ratio-left: 0.5 !default;
+
+$hc-navigation-text-input-padding-ratio-horizontal: 0.5 !default;
+$hc-navigation-text-input-width: 200px !default;
+
+$hc-navigation-mobile-menu-border-bottom-width: 4px !default;
+$hc-navigation-mobile-menu-icon-margin-ratio-right: 0.1 !default;
+
+$hc-navigation-mobile-menu-item-border-width: 1px !default;
+$hc-navigation-mobile-menu-item-padding-ratio-horizontal: 0.5 !default;
+$hc-navigation-mobile-menu-item-padding-ratio-vertical: 0.25 !default;
+
+$hc-navigation-mobile-menu-arrow-position-top: 12px !default;
+$hc-navigation-mobile-menu-arrow-position-right: 15px !default;
+$hc-navigation-mobile-menu-arrow-icon-font-size: $hc-navigation-icon-font-size !default;
