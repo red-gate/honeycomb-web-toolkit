@@ -66,6 +66,12 @@ filter.init();
 import forms from './forms/js/honeycomb.forms';
 forms.init();
 
+// Marketo forms.
+import marketo from './forms/js/honeycomb.forms.marketo';
+marketo.init();
+window.Honeycomb = window.Honeycomb || {};
+window.Honeycomb.Marketo = marketo;
+
 // Lightbox.
 import lightbox from './lightbox/js/honeycomb.lightbox';
 lightbox.init();

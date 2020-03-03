@@ -1,0 +1,89 @@
+form[id^="mktoForm_"] {
+    // Hold space open for form to minimise layout jumping
+    min-height: 320px;
+
+    &.mktoFormSubmitted--successful {
+        min-height: auto; // Remove min-height after form successfully submitted.
+    }
+}
+
+.mktoFormRow {
+    @extend .form__field-container;
+    @include margin(0, 'bottom');
+}
+
+@media only screen and (min-width: 1200px) {
+    .mktoFormRow {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.mktoFormCol {
+    @include margin(0.6, 'bottom');
+    flex-grow: 1;
+}
+
+.mktoLabel {
+    display: flex;
+}
+
+.mktoAsterix {
+    display: none;
+    order: 1;
+}
+
+.mktoFieldWrap {
+    // We set these containers as flex so that we can reorder 
+    // .mktoCheckboxList headings above the lists themselves.
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mktoField {
+    color: color('grey', 7);
+}
+
+.mktoRequiredField .mktoAsterix {
+    display: block;
+}
+
+.mktoButton[type="submit"] {
+    @extend %button--primary;
+}
+
+.mktoInvalid {
+    border-width: $hc-forms-input-error-border-width;
+    border-color: $hc-forms-input-error-border-colour;
+}
+
+.mktoErrorMsg {
+    @include margin($hc-forms-error-message-margin-top-ratio, 'top');
+    color: $hc-forms-error-message-colour;
+}
+
+.mktoCheckboxList {
+    @include margin(0.1, 'right');
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+
+    label {
+        @include margin(0, 'right', true);
+
+        // Get the checkboxes onto individual lines, instead of inline.
+        flex-basis: calc(100% - 20px); // 20px is the width of the input
+    }
+
+    & + label {
+        display: inline-block;
+
+        // The HTML for .mktoCheckboxList has the heading following the list, 
+        // so we need to reorder the elements.
+        order: -1;
+
+        .mktoAsterix {
+            float: right;
+        }
+    }
+}
