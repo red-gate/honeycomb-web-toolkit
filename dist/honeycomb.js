@@ -1465,6 +1465,231 @@ exports.default = {
 },{}],18:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.defaults = undefined;
+
+var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+                target[key] = source[key];
+            }
+        }
+    }return target;
+}; // import loadScript from 'honeycomb-web-toolkit/src/document/js/honeycomb.document.load-script';
+
+
+var _honeycombDocument = require('../../document/js/honeycomb.document.load-script');
+
+var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
+
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : { default: obj };
+}
+
+/**
+ * The default form settings.
+ * 
+ * Exported so they can be imported by the React implementation.
+ */
+var defaults = exports.defaults = {
+    callback: function callback() {},
+    formId: '',
+    formsJavaScriptUrl: 'https://content.red-gate.com/js/forms2/js/forms2.min.js',
+    munchkinId: '808-ITG-788',
+    rootUrl: '//content.red-gate.com',
+    success: {
+        callback: null,
+        message: null
+    }
+};
+
+/**
+ * Create a custom config object by merging the default 
+ * with the user supplied config.
+ * 
+ * @param {object} c The user supplied config.
+ * @return {object} The defaults merged with the user supplied config.
+ */
+var createConfig = function createConfig(c) {
+    return _extends({}, defaults, c);
+};
+
+var removeDefaultStyles = function removeDefaultStyles() {
+
+    // Remove all the Marketo form stylesheets and embedded style tags.
+    var formStyles = document.querySelectorAll('\n        .mktoForm style,\n        link#mktoForms2BaseStyle,\n        link#mktoForms2ThemeStyle,\n        link#mktoFontUrl\n    ');
+    for (var i = 0; i < formStyles.length; i++) {
+        var style = formStyles[i];
+        if (Object.prototype.hasOwnProperty.call(style, 'remove')) {
+            style.remove();
+        } else {
+            style.parentElement.removeChild(style);
+        }
+    }
+
+    // Remove all the Marketo form embedded style attributes.
+    var formElements = document.querySelectorAll('\n        .mktoForm,\n        .mktoForm *\n    ');
+    for (var _i = 0; _i < formElements.length; _i++) {
+        var formElement = formElements[_i];
+        formElement.removeAttribute('style');
+    }
+};
+
+/**
+ * Check the config to find out if the form has custom 
+ * success functionality or not.
+ * 
+ * @param {object} config The config object, to check for custom success values against.
+ * @return {bool} Whether the form has custom success functionality or not.
+ */
+var hasCustomSuccess = function hasCustomSuccess(config) {
+    var customSuccess = false;
+
+    // Is there a custom success callback?
+    if (config.success.callback !== null && typeof config.success.callback !== 'undefined') {
+        customSuccess = true;
+    }
+
+    // Is there a custom success message?
+    if (config.success.message !== null && typeof config.success.message !== 'undefined') {
+        customSuccess = true;
+    }
+
+    return customSuccess;
+};
+
+/*
+ * Format checkboxes so that the label is alongside the input.
+ * 
+ * @param {HTMLElement} form The Marketo form being formatted.
+ */
+var formatCheckboxes = function formatCheckboxes(form) {
+    var checkboxes = form.querySelectorAll('.mktoCheckboxList');
+    if (checkboxes) {
+        for (var i = 0; i < checkboxes.length; i++) {
+            var checkbox = checkboxes[i];
+            checkbox.parentElement.insertBefore(checkbox, checkbox.parentElement.firstChild);
+        }
+    }
+};
+
+var create = function create(c) {
+
+    // Get the config for the form.
+    var config = createConfig(c);
+
+    // Load the Marketo form script, and once loaded, load the 
+    // form, and apply any callbacks.
+    // See API documentation at https://developers.marketo.com/javascript-api/forms/api-reference/ .
+    _honeycombDocument2.default.load(config.formsJavaScriptUrl, function () {
+        if (typeof window.MktoForms2 === 'undefined') return;
+
+        // If there's no form ID, then don't go any further.
+        if (config.formId === '') return;
+
+        window.MktoForms2.loadForm(config.rootUrl, config.munchkinId, config.formId, function (marketoForm) {
+            var marketoFormElement = marketoForm.getFormElem().get(0);
+
+            removeDefaultStyles();
+            formatCheckboxes(marketoFormElement);
+
+            if (typeof config.callback === 'function') {
+                config.callback.call(undefined, marketoForm);
+            }
+
+            if (hasCustomSuccess(config)) {
+                marketoForm.onSuccess(function (formValues, followUpUrl) {
+                    var $form = marketoForm.getFormElem(); // $form is a jQuery object.
+
+                    // If there's a callback, and it's a function, then call it, passing 
+                    // in the form values so that they can be used client side if needed.
+                    if (typeof config.success.callback === 'function') {
+                        config.success.callback.call(undefined, marketoForm, formValues, followUpUrl);
+                    }
+
+                    // If there's a custom message, then replace the form wit this message.
+                    if (config.success.message !== null) {
+                        $form.html(config.success.message);
+                    }
+
+                    // Add a class to describe the form has been successfully submitted.
+                    $form.addClass('mktoFormSubmitted mktoFormSubmitted--successful');
+
+                    // Return false to stop the form from reloading the page.
+                    return false;
+                });
+            }
+
+            marketoForm.onValidate(function (successful) {
+                if (!successful) {
+                    marketoForm.submittable(false);
+                } else {
+
+                    // Do some custom validation.
+
+                    // Get the fields and their values from the form.
+                    var fields = marketoForm.vals();
+
+                    // Custom object for storing info about the fail.
+                    var fail = {
+                        isFail: false,
+                        message: '',
+                        element: null
+                    };
+
+                    // Email validation.
+                    if (typeof fields.Email !== 'undefined') {
+
+                        // Email regex provided by https://regex101.com/r/L9Z2N0/1.
+                        // Check that the format is {something}@{something}.{something}.
+                        var emailRegex = /\S+@\S+\.\S+/;
+
+                        if (emailRegex.test(fields.Email) === false) {
+                            fail.isFail = true;
+                            fail.message = 'Please enter a valid email address.';
+                            fail.element = marketoForm.getFormElem().find('input[name="Email"]');
+                        }
+                    }
+
+                    // If form validation fails.
+                    if (fail.isFail) {
+
+                        // Stop the form from being submittable.
+                        marketoForm.submittable(false);
+
+                        // Show an error message against the invalid field.
+                        marketoForm.showErrorMessage(fail.message, fail.element);
+
+                        // Display the field as invalid using the Marketo class.
+                        fail.element.get(0).classList.add('mktoInvalid');
+                    } else {
+
+                        // All is good, continue as normal.
+                        marketoForm.submittable(true);
+                    }
+                }
+            });
+        });
+    });
+};
+
+var init = function init(callback) {
+    if (typeof callback === 'function') {
+        callback.call(undefined);
+    }
+};
+
+exports.default = {
+    create: create,
+    init: init
+};
+
+},{"../../document/js/honeycomb.document.load-script":12}],19:[function(require,module,exports){
+'use strict';
+
 var _honeycombAnalytics = require('./analytics/js/honeycomb.analytics.google');
 
 var _honeycombAnalytics2 = _interopRequireDefault(_honeycombAnalytics);
@@ -1522,6 +1747,10 @@ var _honeycomb17 = _interopRequireDefault(_honeycomb16);
 var _honeycomb18 = require('./forms/js/honeycomb.forms');
 
 var _honeycomb19 = _interopRequireDefault(_honeycomb18);
+
+var _honeycombForms = require('./forms/js/honeycomb.forms.marketo');
+
+var _honeycombForms2 = _interopRequireDefault(_honeycombForms);
 
 var _honeycomb20 = require('./lightbox/js/honeycomb.lightbox');
 
@@ -1654,6 +1883,12 @@ _honeycomb17.default.init();
 
 _honeycomb19.default.init();
 
+// Marketo forms.
+
+_honeycombForms2.default.init();
+window.Honeycomb = window.Honeycomb || {};
+window.Honeycomb.Marketo = _honeycombForms2.default;
+
 // Lightbox.
 
 _honeycomb21.default.init();
@@ -1717,7 +1952,7 @@ _honeycomb35.default.init({
     analytics: _honeycombAnalytics2.default
 });
 
-},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./chart/js/honeycomb.chart":7,"./chat/js/honeycomb.chat.intercom":8,"./code/js/honeycomb.code":9,"./content/js/honeycomb.content":10,"./context-menu/js/honeycomb.context-menu":11,"./document/js/honeycomb.document.viewport":14,"./equalise/js/honeycomb.equalise":15,"./filter/js/honeycomb.filter":16,"./forms/js/honeycomb.forms":17,"./lightbox/js/honeycomb.lightbox":19,"./maps/js/honeycomb.maps.google":20,"./navigation/js/honeycomb.navigation.dropdown":21,"./navigation/js/honeycomb.navigation.header":22,"./navigation/js/honeycomb.navigation.vertical":23,"./notification/js/honeycomb.notification.block":24,"./polyfill/js/honeycomb.polyfill.custom-event":25,"./polyfill/js/honeycomb.polyfill.index-of":26,"./reveal/js/honeycomb.reveal":27,"./scroll/js/honeycomb.scroll":28,"./sticky/js/honeycomb.sticky":29,"./svg/js/honeycomb.svg":30,"./tabs/js/honeycomb.tabs":31,"./toggle/js/honeycomb.toggle":32,"./video/js/honeycomb.video":33}],19:[function(require,module,exports){
+},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./chart/js/honeycomb.chart":7,"./chat/js/honeycomb.chat.intercom":8,"./code/js/honeycomb.code":9,"./content/js/honeycomb.content":10,"./context-menu/js/honeycomb.context-menu":11,"./document/js/honeycomb.document.viewport":14,"./equalise/js/honeycomb.equalise":15,"./filter/js/honeycomb.filter":16,"./forms/js/honeycomb.forms":17,"./forms/js/honeycomb.forms.marketo":18,"./lightbox/js/honeycomb.lightbox":20,"./maps/js/honeycomb.maps.google":21,"./navigation/js/honeycomb.navigation.dropdown":22,"./navigation/js/honeycomb.navigation.header":23,"./navigation/js/honeycomb.navigation.vertical":24,"./notification/js/honeycomb.notification.block":25,"./polyfill/js/honeycomb.polyfill.custom-event":26,"./polyfill/js/honeycomb.polyfill.index-of":27,"./reveal/js/honeycomb.reveal":28,"./scroll/js/honeycomb.scroll":29,"./sticky/js/honeycomb.sticky":30,"./svg/js/honeycomb.svg":31,"./tabs/js/honeycomb.tabs":32,"./toggle/js/honeycomb.toggle":33,"./video/js/honeycomb.video":34}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1769,7 +2004,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":12}],20:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":12}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1884,7 +2119,7 @@ exports.default = {
     initialiseMap: initialiseMap
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1987,7 +2222,7 @@ exports.default = {
     addArrows: addArrows
 };
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2076,7 +2311,7 @@ exports.default = {
     init: init
 };
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2179,7 +2414,7 @@ exports.default = {
     init: init
 };
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2316,7 +2551,7 @@ exports.default = {
     buildNotification: buildNotification
 };
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2342,7 +2577,7 @@ var CustomEvent = function CustomEvent() {
 
 exports.default = CustomEvent;
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2367,7 +2602,7 @@ var indexOf = function indexOf() {
 
 exports.default = indexOf;
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2534,7 +2769,7 @@ exports.default = {
     close: close
 };
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2628,7 +2863,7 @@ exports.default = {
     init: init
 };
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2681,7 +2916,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":12}],30:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":12}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2710,7 +2945,7 @@ exports.default = {
     init: init
 };
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2871,7 +3106,7 @@ exports.default = {
     init: init
 };
 
-},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":12}],32:[function(require,module,exports){
+},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":12}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3029,7 +3264,7 @@ exports.default = {
     init: init
 };
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3516,4 +3751,4 @@ exports.default = {
     videos: videos
 };
 
-},{}]},{},[18]);
+},{}]},{},[19]);
