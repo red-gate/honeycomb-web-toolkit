@@ -7,6 +7,10 @@
 
 .slick-slider {
     margin-bottom: 60px;
+
+    &.slick-dotted {
+        margin-bottom: 60px;
+    }
 }
 
 /* vertically center slides, for when they have varying heights */
@@ -68,7 +72,7 @@
 /* Navigation dots */
 .slick-dots {
     @include margin(0, "left");
-    bottom: -60px;
+    bottom: -40px;
 
     &.carousel-has-pagination {
         right: -50px;
