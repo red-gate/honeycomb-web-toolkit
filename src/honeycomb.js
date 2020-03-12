@@ -46,6 +46,10 @@ window.addEventListener('load', () => {
     content.init();
 });
 
+// Context menu
+import contextMenu from './context-menu/js/honeycomb.context-menu';
+contextMenu.init();
+
 // Document.
 import documentViewport from './document/js/honeycomb.document.viewport';
 documentViewport.init();
@@ -61,6 +65,12 @@ filter.init();
 // Forms.
 import forms from './forms/js/honeycomb.forms';
 forms.init();
+
+// Marketo forms.
+import marketo from './forms/js/honeycomb.forms.marketo';
+marketo.init();
+window.Honeycomb = window.Honeycomb || {};
+window.Honeycomb.Marketo = marketo;
 
 // Lightbox.
 import lightbox from './lightbox/js/honeycomb.lightbox';

@@ -392,7 +392,7 @@
     &.nav--vertical--minimal {
         @include padding(0.25, 'bottom');
         padding-top: 1px;
-        border-right: 5px solid color('grey', 2);
+        border-right: 2px solid color('grey', 2);
 
         &, ul, li, li:hover, a, a:hover, .nav--vertical__active-parent .nav--vertical__active-parent {
 			background-color: transparent;
@@ -435,9 +435,7 @@
         }
 
         .nav--vertical__active > a {
-            border-right: 5px solid color('blue', 5);
             color: color('blue', 6);
-            width: calc(100% + 5px);
         }
     }
 }

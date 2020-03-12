@@ -1,0 +1,64 @@
+.js-context-menu {
+    position: relative;
+
+    // Moving the list node can affect the last-child, which can cause spacing side-effects with paragraphs.
+    // To avoid that we unset all paragraph spacing here. 
+    p, p:last-child {
+        @include margin(0, 'bottom');
+    }
+}
+
+.js-context-menu__list {
+    @extend .list--bare;
+    @extend .rounded;
+    position: absolute;
+    display: none; 
+    overflow: hidden;
+    min-width: 150px;
+    top: 25px;
+    left: 25px;
+    transform-origin: top left;
+    z-index: 10;
+    background-color: #fff;
+    text-align: left;
+
+    &.js-context-menu__list--right {
+        text-align: right;
+        transform-origin: top right;
+    }
+
+    li {
+        display: list-item;
+        margin-bottom: 0;
+    }
+
+    a {
+        @include padding(0.25);
+        display: block;
+        color: $hc-link-color;
+
+        &:hover {
+            color: #fff;
+            background-color: $hc-link-hover-color;
+        }
+    }
+}
+
+.js-context-menu__list--open {
+    display: block;
+    animation-duration: 0.2s;
+    animation-name: open;
+    box-shadow: 0 0 10px rgba(182, 182, 182, 1);
+}
+
+@keyframes open {
+  from {
+    transform: scale(0, 0);
+    box-shadow: 0 0 10px rgba(182, 182, 182, 0);
+  }
+
+  to {
+    transform: scale(1, 1);
+    box-shadow: 0 0 10px rgba(182, 182, 182, 1);
+  }
+}

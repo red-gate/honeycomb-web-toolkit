@@ -111,7 +111,7 @@ let notification = function ( options ) {
         }
     };
 
-     // Close the notification.
+    // Close the notification.
     this.close = function close () {
 
         // Slide up the notification, then remove it from the DOM.

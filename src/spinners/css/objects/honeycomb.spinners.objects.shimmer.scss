@@ -13,9 +13,27 @@
     background: color('grey', 1); // Fallback
     background: linear-gradient(to right, color('grey', 1) 2%, color('grey', 2) 18%, color('grey', 1) 33%);
     background-size: 1300px; // Animation Area
-    
+
     @keyframes shimmerAnimate {
         0%{ background-position: -650px 0; }
         100%{ background-position: 650px 0; }
+    }
+}
+
+button.shimmer, .button.shimmer {
+    cursor: default !important;
+    min-width: 120px;
+}
+
+/**
+  * Adjustments for different colour schemes
+  */
+.scheme--lightest-grey {
+    button.shimmer, .button.shimmer {
+        background: linear-gradient(to right, color('grey', 2) 2%, color('grey', 3) 18%, color('grey', 2) 33%) center/1300px;
+
+        &, &:hover {
+            color: color('grey', 3) !important;
+        }
     }
 }

@@ -73,6 +73,7 @@
 .nav-bar__menu-button {
     @include padding(0);
     height: $hc-nav-bar-height;
+    min-width: $hc-nav-bar-button-width;
 
     &[class*="icon--"]:before {
         @include margin(0, 'right');

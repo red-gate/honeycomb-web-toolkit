@@ -8,7 +8,7 @@ let init = () => {
     window.jQuery('.js-animate--fade').each(function() {
         let $this = window.jQuery(this);
         if ( $this.find('.js-animate--fade__item').length > 1 ) {
-            $this.find('.js-animate--fade__item').wrapAll('<div class=\"js-animate--fade__container\"/>');
+            $this.find('.js-animate--fade__item').wrapAll('<div class="js-animate--fade__container"/>');
             $this.find('.js-animate--fade__item').hide().first().show();
             setInterval(step, interval);
         }

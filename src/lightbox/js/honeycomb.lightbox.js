@@ -1,6 +1,10 @@
 import loadScript from '../../document/js/honeycomb.document.load-script';
 
 const init = ( config = {} ) => {
+    window.addEventListener('load', initLightbox.bind(this, config));
+};
+
+const initLightbox = ( config = {} ) => {
     let els = document.querySelectorAll( '.js-lightbox, .js-lightbox--video, .js-lightbox--iframe, .js-lightbox--image, .js-lightbox--inline, .js-lightbox--ajax, .js-lightbox--swf, .js-lightbox--html' );
     if ( els.length ) {
         if ( typeof window.jQuery.fancybox === 'undefined' ) {
@@ -9,7 +13,7 @@ const init = ( config = {} ) => {
             }
 
             loadScript.load( config.url, () => {
-                init();
+                initLightbox();
             });
         } else {
             

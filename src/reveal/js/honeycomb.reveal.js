@@ -41,7 +41,7 @@ let init = ( callback ) => {
             if ( group ) {
 
                 // In a group. Close all group content first.
-                let $groupButtons = window.jQuery( '.js-reveal-cta[data-reveal-group=\"' + group + '\"]' );
+                let $groupButtons = window.jQuery( '.js-reveal-cta[data-reveal-group="' + group + '"]' );
                 let closed = 0;
 
                 for ( let i = 0; i < $groupButtons.length; i++ ) {
@@ -83,7 +83,7 @@ let open = ( button, callback ) => {
     let $content = window.jQuery( hash );
 
     if ( $content.is( '.js-reveal' ) ) {
-        let $buttons = window.jQuery( '.js-reveal-cta[href=\"' + hash + '\"]' );
+        let $buttons = window.jQuery( '.js-reveal-cta[href="' + hash + '"]' );
 
         $content.slideDown({
             duration: 250,
@@ -115,7 +115,7 @@ let close = ( button, callback ) => {
     let $content = window.jQuery( hash );
 
     if ( $content.is( '.js-reveal' ) ) {
-        let $buttons = window.jQuery( '.js-reveal-cta[href=\"' + hash + '\"]' );
+        let $buttons = window.jQuery( '.js-reveal-cta[href="' + hash + '"]' );
 
         $content.slideUp({
             duration: 250,
