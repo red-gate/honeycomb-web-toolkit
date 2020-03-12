@@ -22,7 +22,7 @@
     "js:lint": "node node_modules/eslint/bin/eslint src/**/*.js",
     "js:vendor": "node scripts/javascript/vendors.js",
     "js": "npm run js:bundle && npm run js:minify && npm run js:vendor",
-    "js:confluence": "npm run js:lint && npm run js:bundle confluence && npm run js:minify && npm run js:vendor",
+    "js:confluence": "npm run js:bundle confluence && npm run js:minify && npm run js:vendor",
     "teamcity": "node scripts/teamcity.js",
     "build": "npm run clean && npm run css && npm run fonts && npm run images && npm run js",
     "build:zuora": "npm run clean && npm run css:zuora && npm run fonts && npm run images && npm run js",
