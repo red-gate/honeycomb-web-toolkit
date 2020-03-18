@@ -1979,7 +1979,7 @@ var initLightbox = function initLightbox() {
     if (els.length) {
         if (typeof window.jQuery.fancybox === 'undefined') {
             if (typeof config.url === 'undefined') {
-                config.url = 'lightbox/vendor/jquery.fancybox.pack.js';
+                config.url = 'lightbox/vendor/jquery.fancybox.min.js';
             }
 
             _honeycombDocument2.default.load(config.url, function () {
