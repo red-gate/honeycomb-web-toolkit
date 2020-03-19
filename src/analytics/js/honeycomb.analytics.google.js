@@ -65,15 +65,14 @@ let initAccount = ( accountId ) => {
 
     if ( sites ) {
         window.ga( 'create', accountId, 'auto', { 'allowLinker': true } );
-
-        if ( optimizeContainerId ) {
-            window.ga('require', optimizeContainerId);
-        }
-
         window.ga( 'require', 'linker' );
         window.ga( 'linker:autoLink', sites );
     } else {
         window.ga( 'create', accountId, 'auto' );
+    }
+
+    if ( optimizeContainerId ) {
+        window.ga('require', optimizeContainerId);
     }
 };
 
