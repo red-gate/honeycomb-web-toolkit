@@ -1,5 +1,6 @@
 let accountId;
 let sites;
+let optimizeContainerId;
 
 let init = ( s = false ) => {
 
@@ -35,6 +36,10 @@ let setSites = ( s ) => {
     sites = s;
 };
 
+let setOptimizeId = ( id ) => {
+    optimizeContainerId = id;
+};
+
 // Add the Google Analytics script to the page.
 // Expanded out the isogram iife.
 let addScript = () => {
@@ -64,6 +69,10 @@ let initAccount = ( accountId ) => {
         window.ga( 'linker:autoLink', sites );
     } else {
         window.ga( 'create', accountId, 'auto' );
+    }
+
+    if ( optimizeContainerId ) {
+        window.ga('require', optimizeContainerId);
     }
 };
 
@@ -132,6 +141,7 @@ export default {
     init,
     setAccountId,
     setSites,
+    setOptimizeId,
     trackPageView,
     trackEvent,
     setCustomVariable,
