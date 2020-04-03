@@ -22,6 +22,7 @@ form[id^="mktoForm_"] {
 .mktoFormCol {
     @include margin(0.6, 'bottom');
     flex-grow: 1;
+    flex-basis: 100%;
 }
 
 .mktoLabel {
