@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var accountId = void 0;
 var sites = void 0;
+var optimizeContainerId = void 0;
 
 var init = function init() {
     var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
@@ -42,6 +43,10 @@ var setSites = function setSites(s) {
     sites = s;
 };
 
+var setOptimizeId = function setOptimizeId(id) {
+    optimizeContainerId = id;
+};
+
 // Add the Google Analytics script to the page.
 // Expanded out the isogram iife.
 var addScript = function addScript() {
@@ -71,6 +76,10 @@ var initAccount = function initAccount(accountId) {
         window.ga('linker:autoLink', sites);
     } else {
         window.ga('create', accountId, 'auto');
+    }
+
+    if (optimizeContainerId) {
+        window.ga('require', optimizeContainerId);
     }
 };
 
@@ -148,6 +157,7 @@ exports.default = {
     init: init,
     setAccountId: setAccountId,
     setSites: setSites,
+    setOptimizeId: setOptimizeId,
     trackPageView: trackPageView,
     trackEvent: trackEvent,
     setCustomVariable: setCustomVariable,
