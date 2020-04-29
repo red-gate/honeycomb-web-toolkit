@@ -1,4 +1,5 @@
 let accountId;
+let crossDomainAccountId;
 let sites;
 let optimizeContainerId;
 
@@ -14,7 +15,7 @@ let init = ( s = false ) => {
     addScript();
 
     // Init the analytics accounts.
-    initAccount( accountId );
+    initAccount( accountId, crossDomainAccountId );
 
     // Track a page view.
     if ( s.trackPageView !== false ) {
@@ -28,15 +29,19 @@ let init = ( s = false ) => {
     trackYouTubeViews();
 };
 
-let setAccountId = ( accId ) => {
+let setAccountId = accId => {
     accountId = accId;
 };
 
-let setSites = ( s ) => {
+let setCrossDomainAccountId = accId => {
+    crossDomainAccountId = accId;
+};
+
+let setSites = s => {
     sites = s;
 };
 
-let setOptimizeId = ( id ) => {
+let setOptimizeId = id => {
     optimizeContainerId = id;
 };
 
@@ -58,17 +63,22 @@ let addScript = () => {
 };
 
 // Initialise the account, with the account ID.
-let initAccount = ( accountId ) => {
+let initAccount = (accountId, crossDomainAccountId) => {
     if ( ! accountId || ( accountId === 'UA-XXX' ) ) {
         return false;
     }
 
-    if ( sites ) {
-        window.ga( 'create', accountId, 'auto', { 'allowLinker': true } );
+    // Create the tracker for the individual property.
+    // allowLinker defaults to 'false'
+    window.ga( 'create', accountId, 'auto' ); 
+    
+    // Create the cross-domain tracker, and set it to allow cross-domain linker parameters.
+    // Also enable the auto-linker and pass in a list of sites.
+    // Our implementation of multiple trackers follows this guide: https://www.simoahava.com/gtm-tips/cross-domain-tracking-with-multiple-ga-trackers/
+    if ( crossDomainAccountId && sites ) {
+        window.ga( 'create', crossDomainAccountId, { name: 'crossDomain', cookieName: '_crossDomainGa', 'allowLinker': true } );
         window.ga( 'require', 'linker' );
         window.ga( 'linker:autoLink', sites );
-    } else {
-        window.ga( 'create', accountId, 'auto' );
     }
 
     if ( optimizeContainerId ) {
@@ -140,6 +150,7 @@ let setupTrackingAlias = (element = document) => {
 export default {
     init,
     setAccountId,
+    setCrossDomainAccountId,
     setSites,
     setOptimizeId,
     trackPageView,
