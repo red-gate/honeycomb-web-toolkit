@@ -1,7 +1,9 @@
 let accountId;
-let crossDomainAccountId;
 let sites;
 let optimizeContainerId;
+let crossDomainAccountId;
+let crossDomain = false;
+let crossDomainTrackerName = 'crossDomain';
 
 let init = ( s = false ) => {
 
@@ -34,6 +36,7 @@ let setAccountId = accId => {
 };
 
 let setCrossDomainAccountId = accId => {
+    crossDomain = true;
     crossDomainAccountId = accId;
 };
 
@@ -76,9 +79,9 @@ let initAccount = (accountId, crossDomainAccountId) => {
     // Also enable the auto-linker and pass in a list of sites.
     // Our implementation of multiple trackers follows this guide: https://www.simoahava.com/gtm-tips/cross-domain-tracking-with-multiple-ga-trackers/
     if ( crossDomainAccountId && sites ) {
-        window.ga( 'create', crossDomainAccountId, { name: 'crossDomain', cookieName: '_crossDomainGa', 'allowLinker': true } );
-        window.ga( 'crossDomain.require', 'linker' );
-        window.ga( 'crossDomain.linker:autoLink', sites );
+        window.ga( 'create', crossDomainAccountId, { name: crossDomainTrackerName, cookieName: '_crossDomainGa', 'allowLinker': true } );        
+        window.ga( `${crossDomainTrackerName}.require`, 'linker' );
+        window.ga( `${crossDomainTrackerName}.linker:autoLink`, sites );
     }
 
     if ( optimizeContainerId ) {
@@ -86,23 +89,25 @@ let initAccount = (accountId, crossDomainAccountId) => {
     }
 };
 
-// Track a page view.
+// Track a page view on all trackers.
 let trackPageView = ( url = false ) => {
-    if( url ) {
-        window.ga( 'send', 'pageview', {
-            'page': url
-        } );
-    } else {
-        window.ga( 'send', 'pageview' );
+    const options = url ? { page : url } : {};
+    
+    // Track pageview for the default tracker
+    window.ga( 'send', 'pageview', options );
+
+    // Track pageview for the crossdomain tracker, if set
+    if ( crossDomain ) {
+        window.ga( `${crossDomainTrackerName}.send`, 'pageview', options );
     }
 };
 
-// Track an event.
+// Track an event on the default tracker
 let trackEvent = ( category = '', action = '', label = null, value = null ) => {
     window.ga( 'send', 'event', category, action, label, value );
 };
 
-// Set a custom variable.
+// Set a custom variable on the default tracker
 let setCustomVariable = ( index, name, value ) => {
     let options = {};
     options[ 'dimension' + index ] = value;
