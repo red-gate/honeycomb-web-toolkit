@@ -77,8 +77,8 @@ let initAccount = (accountId, crossDomainAccountId) => {
     // Our implementation of multiple trackers follows this guide: https://www.simoahava.com/gtm-tips/cross-domain-tracking-with-multiple-ga-trackers/
     if ( crossDomainAccountId && sites ) {
         window.ga( 'create', crossDomainAccountId, { name: 'crossDomain', cookieName: '_crossDomainGa', 'allowLinker': true } );
-        window.ga( 'require', 'linker' );
-        window.ga( 'linker:autoLink', sites );
+        window.ga( 'crossDomain.require', 'linker' );
+        window.ga( 'crossDomain.linker:autoLink', sites );
     }
 
     if ( optimizeContainerId ) {
