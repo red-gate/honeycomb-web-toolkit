@@ -19,6 +19,7 @@
     -webkit-font-smoothing: antialiased;
     word-break: normal;
     text-decoration: none !important;
+    transition: all 0.3s ease;
 
     // IE7 support.
     .ie7 & {
