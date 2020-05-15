@@ -291,6 +291,13 @@
     }
 }
 
+.icon--cloud-server {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e966";
+    }
+}
+
 .icon--column {
     @extend %icon;
     &:before, &:after {

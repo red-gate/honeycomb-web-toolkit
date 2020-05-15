@@ -7,6 +7,9 @@ Object.defineProperty(exports, "__esModule", {
 var accountId = void 0;
 var sites = void 0;
 var optimizeContainerId = void 0;
+var crossDomainAccountId = void 0;
+var crossDomain = false;
+var crossDomainTrackerName = 'crossDomain';
 
 var init = function init() {
     var s = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
@@ -21,7 +24,7 @@ var init = function init() {
     addScript();
 
     // Init the analytics accounts.
-    initAccount(accountId);
+    initAccount(accountId, crossDomainAccountId);
 
     // Track a page view.
     if (s.trackPageView !== false) {
@@ -37,6 +40,11 @@ var init = function init() {
 
 var setAccountId = function setAccountId(accId) {
     accountId = accId;
+};
+
+var setCrossDomainAccountId = function setCrossDomainAccountId(accId) {
+    crossDomain = true;
+    crossDomainAccountId = accId;
 };
 
 var setSites = function setSites(s) {
@@ -65,17 +73,22 @@ var addScript = function addScript() {
 };
 
 // Initialise the account, with the account ID.
-var initAccount = function initAccount(accountId) {
+var initAccount = function initAccount(accountId, crossDomainAccountId) {
     if (!accountId || accountId === 'UA-XXX') {
         return false;
     }
 
-    if (sites) {
-        window.ga('create', accountId, 'auto', { 'allowLinker': true });
-        window.ga('require', 'linker');
-        window.ga('linker:autoLink', sites);
-    } else {
-        window.ga('create', accountId, 'auto');
+    // Create the tracker for the individual property.
+    // allowLinker defaults to 'false'
+    window.ga('create', accountId, 'auto');
+
+    // Create the cross-domain tracker, and set it to allow cross-domain linker parameters.
+    // Also enable the auto-linker and pass in a list of sites.
+    // Our implementation of multiple trackers follows this guide: https://www.simoahava.com/gtm-tips/cross-domain-tracking-with-multiple-ga-trackers/
+    if (crossDomainAccountId && sites) {
+        window.ga('create', crossDomainAccountId, { name: crossDomainTrackerName, cookieName: '_crossDomainGa', 'allowLinker': true });
+        window.ga(crossDomainTrackerName + '.require', 'linker');
+        window.ga(crossDomainTrackerName + '.linker:autoLink', sites);
     }
 
     if (optimizeContainerId) {
@@ -83,20 +96,22 @@ var initAccount = function initAccount(accountId) {
     }
 };
 
-// Track a page view.
+// Track a page view on all trackers.
 var trackPageView = function trackPageView() {
     var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
-    if (url) {
-        window.ga('send', 'pageview', {
-            'page': url
-        });
-    } else {
-        window.ga('send', 'pageview');
+    var options = url ? { page: url } : {};
+
+    // Track pageview for the default tracker
+    window.ga('send', 'pageview', options);
+
+    // Track pageview for the crossdomain tracker, if set
+    if (crossDomain) {
+        window.ga(crossDomainTrackerName + '.send', 'pageview', options);
     }
 };
 
-// Track an event.
+// Track an event on the default tracker
 var trackEvent = function trackEvent() {
     var category = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
     var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
@@ -106,7 +121,7 @@ var trackEvent = function trackEvent() {
     window.ga('send', 'event', category, action, label, value);
 };
 
-// Set a custom variable.
+// Set a custom variable on the default tracker
 var setCustomVariable = function setCustomVariable(index, name, value) {
     var options = {};
     options['dimension' + index] = value;
@@ -156,6 +171,7 @@ var setupTrackingAlias = function setupTrackingAlias() {
 exports.default = {
     init: init,
     setAccountId: setAccountId,
+    setCrossDomainAccountId: setCrossDomainAccountId,
     setSites: setSites,
     setOptimizeId: setOptimizeId,
     trackPageView: trackPageView,
