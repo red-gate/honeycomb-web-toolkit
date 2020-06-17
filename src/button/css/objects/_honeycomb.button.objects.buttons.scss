@@ -130,23 +130,23 @@ p:last-child .button:last-child {
 }
 
 
-// Green "buy now" buttons with a shoping cart icon before the button text
+// Green "buy now" buttons with a shopping cart icon before the button text
 // These colors are !important as they should always apply no matter what color schemes they are nested in.
 .button--buy,
 %button--buy {
-    background-color: color('green', 5) !important;
-    border-color: color('green', 6) !important;
+    background-color: color('grey', 7) !important;
+    border-color: color('grey', 7) !important;
     color: color('white') !important;
 
     &:hover {
-        background-color: color('green', 6) !important;
-        border-color: color('green', 7) !important;
+        background-color: color('grey', 6) !important;
+        border-color: color('grey', 6) !important;
         color: color('white') !important;
     }
 
     &:active {
-        background-color: color('green', 7) !important;
-        border-color: color('green', 7) !important;
+        background-color: color('grey', 5) !important;
+        border-color: color('grey', 5) !important;
     }
 
     &:before {
