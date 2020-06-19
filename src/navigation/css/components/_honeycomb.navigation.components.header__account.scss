@@ -1,0 +1,43 @@
+/**
+  * Buy Now link in header
+  */
+  .header--primary .header__buy-now {
+    height: 40px;
+    margin: 15px 0;
+    border-radius: 4px;
+
+    color: color('white') !important;
+    background-color: color('black') !important;
+
+    &:hover {
+        background-color: color('grey', 9) !important;
+    }
+
+    &:active {
+        background-color: color('grey', 7) !important;
+    }
+
+    // Hide Buy Now button when active
+    &.active {
+        display: none;
+    }
+
+    // Fudge to prevent elements colliding just before we hit the large breakpoint
+    @media only screen and (max-width: 1300px) {
+        font-size: 14px;
+        padding: 8px 16px !important;
+    }
+}
+
+// Smaller quotes link
+.header--primary .header__quotes {
+    font-size: 14px;
+}
+
+// Hide quotes and buy now link in collapsed header to prevent overlapping with Hub nav
+.header--primary--collapsed {
+    .header__buy-now,
+    .header__quotes {
+        display: none;
+    }
+}
