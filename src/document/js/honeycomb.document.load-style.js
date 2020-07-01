@@ -1,4 +1,4 @@
-const load = ( url = false, callback = false ) => {
+const load = ( url = false, callback = false, attrs = {} ) => {
     if (url !== false) {
         let link = document.createElement('link');
         const honeycombPath = (window.Honeycomb && window.Honeycomb.path) ? window.Honeycomb.path : '';
@@ -13,10 +13,15 @@ const load = ( url = false, callback = false ) => {
                 done = true;
 
                 if (typeof callback === 'function') {
-                    callback.apply();
+                    callback.apply(this);
                 }
             }
         };
+
+        // Custom attributes.
+        for ( let prop in attrs ) {
+            link[prop] = attrs[prop];
+        }
 
         let head = document.getElementsByTagName('head')[0];
         head.appendChild(link);
