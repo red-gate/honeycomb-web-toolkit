@@ -1191,6 +1191,7 @@ Object.defineProperty(exports, "__esModule", {
 var load = function load() {
     var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
     var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var attrs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
     if (url !== false) {
         var link = document.createElement('link');
@@ -1206,10 +1207,15 @@ var load = function load() {
                 done = true;
 
                 if (typeof callback === 'function') {
-                    callback.apply();
+                    callback.apply(this);
                 }
             }
         };
+
+        // Custom attributes.
+        for (var prop in attrs) {
+            link[prop] = attrs[prop];
+        }
 
         var head = document.getElementsByTagName('head')[0];
         head.appendChild(link);
