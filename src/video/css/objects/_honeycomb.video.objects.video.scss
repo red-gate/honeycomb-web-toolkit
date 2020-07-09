@@ -1,3 +1,4 @@
+.js-video-container, 
 .video-container {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 ratio */
@@ -5,7 +6,10 @@
     overflow: hidden;
 }
 
-.video-container iframe, iframe.video, iframe.js-background-video__video {
+.js-video-container iframe,
+.video-container iframe, 
+iframe.video, 
+iframe.js-background-video__video {
     position: absolute;
     top: 0;
     left: 0;
