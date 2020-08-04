@@ -1,4 +1,4 @@
-const load = ( url = false, callback = false, attrs = {} ) => {
+const load = ( url = false, callback = false, attrs = {}, errorCallback = false ) => {
     if ( url !== false ) {
         let se = document.createElement( 'script' );
         const honeycombPath = (window.Honeycomb && window.Honeycomb.path) ? window.Honeycomb.path : '';
@@ -17,6 +17,10 @@ const load = ( url = false, callback = false, attrs = {} ) => {
                 }
             }
         };
+
+        if ( typeof errorCallback === 'function' ) {
+            se.onerror = errorCallback;
+        }
 
         // Custom attributes.
         for ( let prop in attrs ) {
