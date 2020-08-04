@@ -1,4 +1,5 @@
 import loadScript from '../../document/js/honeycomb.document.load-script';
+import { trackEvent } from '../../analytics/js/honeycomb.analytics.google';
 
 /**
  * The default form settings.
@@ -78,6 +79,18 @@ const hasCustomSuccess = config => {
     }
 
     return customSuccess;
+};
+
+
+/**
+ * Error logging if the script fails to load 
+ * 
+ * Sends an event to Google Analytics
+ */
+const handleError = () => {
+    if ( typeof trackEvent !== 'function' ) return false;
+
+    trackEvent( 'Marketo', 'Marketo forms javascript failed to load', window.location.path );
 };
 
 /*
@@ -197,7 +210,7 @@ const create = c => {
                 });
             }
         );
-    });
+    }, {}, handleError);
 };
 
 const init = callback => {
