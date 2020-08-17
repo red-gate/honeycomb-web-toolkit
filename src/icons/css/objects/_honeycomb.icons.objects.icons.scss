@@ -1117,3 +1117,10 @@
         content: "\e925";
     }
 }
+
+.icon--redgate-change-control {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e925";
+    }
+}
