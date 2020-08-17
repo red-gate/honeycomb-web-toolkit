@@ -1148,6 +1148,7 @@ var load = function load() {
     var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
     var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     var attrs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var errorCallback = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
 
     if (url !== false) {
         var se = document.createElement('script');
@@ -1167,6 +1168,10 @@ var load = function load() {
                 }
             }
         };
+
+        if (typeof errorCallback === 'function') {
+            se.onerror = errorCallback;
+        }
 
         // Custom attributes.
         for (var prop in attrs) {
@@ -1516,6 +1521,8 @@ var _honeycombDocument = require('../../document/js/honeycomb.document.load-scri
 
 var _honeycombDocument2 = _interopRequireDefault(_honeycombDocument);
 
+var _honeycombAnalytics = require('../../analytics/js/honeycomb.analytics.google');
+
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -1590,6 +1597,17 @@ var hasCustomSuccess = function hasCustomSuccess(config) {
     }
 
     return customSuccess;
+};
+
+/**
+ * Error logging if the script fails to load 
+ * 
+ * Sends an event to Google Analytics
+ */
+var handleError = function handleError() {
+    if (typeof _honeycombAnalytics.trackEvent !== 'function') return false;
+
+    (0, _honeycombAnalytics.trackEvent)('Marketo', 'Marketo forms javascript failed to load', window.location.path);
 };
 
 /*
@@ -1704,7 +1722,7 @@ var create = function create(c) {
                 }
             });
         });
-    });
+    }, {}, handleError);
 };
 
 var init = function init(callback) {
@@ -1718,7 +1736,7 @@ exports.default = {
     init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":12}],19:[function(require,module,exports){
+},{"../../analytics/js/honeycomb.analytics.google":1,"../../document/js/honeycomb.document.load-script":12}],19:[function(require,module,exports){
 'use strict';
 
 var _honeycombAnalytics = require('./analytics/js/honeycomb.analytics.google');
