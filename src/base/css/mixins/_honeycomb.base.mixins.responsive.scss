@@ -9,7 +9,7 @@
 
       $width: map-get($hc-breakpoints, $breakpoint);
       $declaration: "(#{$hc-mqProperty} #{$width})";
-      @media only screen and #{$declaration} {
+      @media #{$declaration} {
         @content;
       }
 

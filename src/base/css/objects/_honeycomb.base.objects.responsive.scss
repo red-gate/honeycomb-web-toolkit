@@ -6,7 +6,7 @@ $hc-breakpoints: false !default;
             $width: nth($breakpoint, 2);
             $declaration: "(#{$hc-mqProperty} #{$width})";
 
-            @media only screen and #{$declaration} {
+            @media #{$declaration} {
                 .show-on-#{$name} {
                     display: inline-block !important;
                 }

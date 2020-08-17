@@ -12,7 +12,7 @@ form[id^="mktoForm_"] {
     @include margin(0, 'bottom');
 }
 
-@media only screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
     .mktoFormRow {
         display: flex;
         flex-direction: row;
