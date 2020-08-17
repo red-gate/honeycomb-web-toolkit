@@ -8,7 +8,7 @@
             $width: nth($breakpoint, 2);
             $declaration: "(#{$hc-mqProperty} #{$width})";
 
-            @media only screen and #{$declaration} {
+            @media #{$declaration} {
                 @include buildDisplayRule("--#{$name}");
             }
         }

@@ -81,7 +81,7 @@
                 $width: nth($breakpoint, 2);
                 $declaration: "(#{$hc-mqProperty} #{$width})";
 
-                @media only screen and #{$declaration} {
+                @media #{$declaration} {
                     @include buildGrid($hc-grid-gutter, "--#{$name}");
                 }
             }
