@@ -1,6 +1,7 @@
 let selector = '.js-dropdown';
 let classNameOpen = 'open';
 let classNameClosed = 'closed';
+let classNameNoArrow = 'dropdown--no-arrow';
 
 let init = () => {
     addArrows();
@@ -16,6 +17,8 @@ let addArrows = () => {
     let $lis = window.jQuery( selector ).find( 'li' );
     $lis.each( function() {
         let $this = window.jQuery( this );
+        if ( $this.hasClass(classNameNoArrow) ) return;
+        
         if ( ( $this.find( 'ul' ).length > 0 ) && ( $this.attr( 'data-arrow-added' ) !== 'true' ) ) {
             let $a = window.jQuery( '<a/>' ).attr( 'href', '#toggle' ).addClass( 'arrow' );
             $this.addClass( `dropdown ${classNameClosed}` );
