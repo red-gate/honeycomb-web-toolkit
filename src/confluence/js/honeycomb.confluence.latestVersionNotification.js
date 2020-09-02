@@ -31,7 +31,8 @@ const getSpaceFromUrl = url => {
     a.href = url;
     const splits = a.pathname.split('/');
     const space = (splits[0] === '') ? splits[1] : splits[0];
-    return space;
+    const version = space.match(/\d+/g);
+    return ( version !== null ) ? version[0] : null;
 };
 
 const displayNotification = ( latestSpace, docLink ) => {
