@@ -10,35 +10,39 @@
 }
 
 @mixin rounded-top () {
-  @include px-rem(border-radius, $hc-corner-radius, $hc-corner-radius, 0, 0);
+  @include px-rem(border-top-left-radius, $hc-corner-radius);
+  @include px-rem(border-top-right-radius, $hc-corner-radius);
 }
 
 @mixin rounded-bottom () {
-  @include px-rem(border-radius, 0, 0, $hc-corner-radius, $hc-corner-radius);
+  @include px-rem(border-bottom-left-radius, $hc-corner-radius);
+  @include px-rem(border-bottom-right-radius, $hc-corner-radius);
 }
 
 @mixin rounded-left () {
-  @include px-rem(border-radius, $hc-corner-radius, 0, 0, $hc-corner-radius);
+  @include px-rem(border-top-left-radius, $hc-corner-radius);
+  @include px-rem(border-bottom-left-radius, $hc-corner-radius);
 }
 
 @mixin rounded-right () {
-  @include px-rem(border-radius, 0, $hc-corner-radius, $hc-corner-radius, 0);
+  @include px-rem(border-top-right-radius, $hc-corner-radius);
+  @include px-rem(border-bottom-right-radius, $hc-corner-radius);
 }
 
 @mixin rounded-top-left () {
-  @include px-rem(border-radius, $hc-corner-radius, 0, 0, 0);
+  @include px-rem(border-top-left-radius, $hc-corner-radius);
 }
 
 @mixin rounded-top-right () {
-  @include px-rem(border-radius, 0, $hc-corner-radius, 0, 0);
+  @include px-rem(border-top-right-radius, $hc-corner-radius);
 }
 
 @mixin rounded-bottom-right () {
-  @include px-rem(border-radius, 0, 0, $hc-corner-radius, 0);
+  @include px-rem(border-bottom-right-radius, $hc-corner-radius);
 }
 
 @mixin rounded-bottom-left () {
-  @include px-rem(border-radius, 0, 0, 0, $hc-corner-radius);
+  @include px-rem(border-bottom-left-radius, $hc-corner-radius);
 }
 
 // make the element circular
