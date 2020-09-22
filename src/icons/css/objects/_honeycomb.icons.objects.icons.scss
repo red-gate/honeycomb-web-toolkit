@@ -1138,3 +1138,10 @@
         content: "\e925";
     }
 }
+
+.icon--redgate-deploy {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e925";
+    }
+}
