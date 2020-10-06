@@ -183,7 +183,7 @@ const create = c => {
                             // Check that the format is acceptable to Salesforce (only valid salesforce characters, single @, at least one . character in domain).
                             const emailRegex = RegExp('^[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$') ;
 
-                            if (emailRegex.test(fields.Email) === false) {
+                            if (emailRegex.test(fields.Email.toLowerCase()) === false) {
                                 fail.isFail = true;
                                 fail.message = 'Please enter a valid email address.';
                                 fail.element = marketoForm.getFormElem().find('input[name="Email"]');
