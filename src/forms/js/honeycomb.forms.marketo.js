@@ -179,11 +179,11 @@ const create = c => {
                         // Email validation.
                         if (typeof fields.Email !== 'undefined') {
 
-                            // Email regex provided by https://regex101.com/r/L9Z2N0/1.
-                            // Check that the format is {something}@{something}.{something}.
-                            const emailRegex = /\S+@\S+\.\S+/;
+                            // Email regex provided by https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/using_regular_expressions_to_validate_email_addresses.htm.
+                            // Check that the format is acceptable to Salesforce (only valid salesforce characters, single @, at least one . character in domain).
+                            const emailRegex = RegExp('^[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$') ;
 
-                            if (emailRegex.test(fields.Email) === false) {
+                            if (emailRegex.test(fields.Email.toLowerCase()) === false) {
                                 fail.isFail = true;
                                 fail.message = 'Please enter a valid email address.';
                                 fail.element = marketoForm.getFormElem().find('input[name="Email"]');
