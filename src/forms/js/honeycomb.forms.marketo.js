@@ -199,13 +199,12 @@ const create = c => {
                             // Show an error message against the invalid field.
                             marketoForm.showErrorMessage(fail.message, fail.element);
 
-                            // Display the field as invalid using the Marketo class and scroll to the highest erroring field.
-                            fail.element.get(0).classList.add('mktoInvalid');
+                            //Scroll to the highest erroring field.
+                            const invalidSection = fail.element.get(0).previousSibling;
+                            invalidSection.scrollIntoView(true);
 
-                            const invalidSection = getElementsByClass('mktoInvalid');
-                            if (invalidSection) {
-                                invalidSection.scrollIntoView();
-                            } 
+                            // Display the field as invalid using the Marketo class.
+                            fail.element.get(0).classList.add('mktoInvalid');
                             
                         } else {
 
