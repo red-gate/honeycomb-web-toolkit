@@ -201,7 +201,7 @@ const create = c => {
 
                             //Scroll to the highest erroring field.
                             const invalidSection = fail.element.get(0).previousSibling;
-                            invalidSection.scrollIntoView(true);
+                            invalidSection.scrollIntoView({ block: 'center' });
 
                             // Display the field as invalid using the Marketo class.
                             fail.element.get(0).classList.add('mktoInvalid');
