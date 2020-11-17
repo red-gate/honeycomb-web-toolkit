@@ -627,6 +627,13 @@
     }
 }
 
+.icon--pin {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e96a";
+    }
+}
+
 .icon--pipeline {
     @extend %icon;
     &:before, &:after {
@@ -852,6 +859,13 @@
     @extend %icon;
     &:before, &:after {
         content: "\e91d";
+    }
+}
+
+.icon--unpin {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e969";
     }
 }
 
@@ -1136,5 +1150,12 @@
     @extend %icon;
     &:before, &:after {
         content: "\e925";
+    }
+}
+
+.icon--flyway {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e968";
     }
 }
