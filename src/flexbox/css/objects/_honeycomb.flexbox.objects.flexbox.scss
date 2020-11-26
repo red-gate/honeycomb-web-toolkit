@@ -51,6 +51,26 @@
     align-items: center;
 }
 
+.flex-align-content--space-between {
+    align-content: space-between;
+}
+.flex-align-content--start {
+    align-content: flex-start;
+}
+.flex-align-self--start {
+    align-self: flex-start;
+}
+.flex-align-self--end {
+    align-self: flex-end;
+}
+.flex-align-items--baseline {
+    align-items: baseline;
+}
+.flex-align-items--center {
+    align-items: center;
+}
+
+
 /**
  * Flex justify options (main axis)
  */
@@ -88,6 +108,17 @@
 .flex-shrink {
     flex-shrink: 1;
 }
+
+/**
+ * Flex basis
+ */ 
+.flex-basis-0 {
+    flex-basis: 0%; /* Setting flex-basis: auto causes container overflow in IE11 */
+}
+.flex-basis-100 {
+    flex-basis: 100%;
+}
+
 
 /**
  * Flex order
