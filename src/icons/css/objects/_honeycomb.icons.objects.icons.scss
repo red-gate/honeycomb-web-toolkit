@@ -613,6 +613,13 @@
     }
 }
 
+.icon--pause {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e96b";
+    }
+}
+
 .icon--pdf {
     @extend %icon;
     &:before, &:after {
