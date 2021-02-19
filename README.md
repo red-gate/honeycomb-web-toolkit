@@ -102,6 +102,7 @@ npm install && npm run build`
 
 
 ### Custom build for Zuora 
+The resultant stylesheet is used within the Zuora payment view that we embed in our payment page.
 
 To run a custom build of Honeycomb for Zuora, run:
 
