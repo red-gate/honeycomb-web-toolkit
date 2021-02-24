@@ -14,6 +14,7 @@
 .pagination__prev {
     @extend .icon--arrow-left-link;
     order: 1;
+    margin-right: auto;
 
     &:before {
         @include margin(0.1, 'right');
@@ -24,6 +25,7 @@
     @extend .icon--arrow-right-link;
     @extend .icon--right;
     order: 3;
+    margin-left: auto;
     text-align: right;
 
     &:after {
@@ -46,12 +48,6 @@
         @include margin(0.1, 'left');
         @include margin(0.1, 'right');
     }
-}
-
-.pagination__prev,
-.pagination__next,
-.pagination__index {
-    @extend .flex-grow;
 }
 
 .pagination__prev,
