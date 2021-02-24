@@ -50,6 +50,12 @@
 
 .pagination__prev,
 .pagination__next,
+.pagination__index {
+    @extend .flex-grow;
+}
+
+.pagination__prev,
+.pagination__next,
 .pagination__index a {
     @extend %button;
     @extend %button--transparent;
