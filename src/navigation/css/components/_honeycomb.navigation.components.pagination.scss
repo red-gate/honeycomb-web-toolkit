@@ -4,63 +4,86 @@
 
 
 .pagination {
-    @include padding(0.25);
-    @include padding(0, 'left');
-    @include padding(0, 'right');
     @include clearfix();
-    float: left;
-    width: 100%;
-}
-
-.pagination__prev:before,
-.pagination__next:after {
-    font-family: "Redgate";
-    vertical-align: top;
+    @include margin(0.5, 'top');
+    @include margin(0.5, 'bottom');
+    display: flex;
+    flex-direction: row;
 }
 
 .pagination__prev {
-    border:none;
-    float: left;
-    font-weight: bold;
-    text-align: left;
+    @extend .icon--arrow-left-link;
+    order: 1;
+    margin-right: auto;
 
     &:before {
-        content: "\e606";
-        @include margin(0.25, right);
+        @include margin(0.1, 'right');
     }
 }
 
 .pagination__next {
-    border: none;
-    float: right;
-    font-weight: bold;
+    @extend .icon--arrow-right-link;
+    @extend .icon--right;
+    order: 3;
+    margin-left: auto;
     text-align: right;
 
     &:after {
-        content: "\e607";
-        @include margin(0.25, left);
+        @include margin(0.1, 'left');
     }
 }
 
 .pagination__index {
-    margin: 0 auto;
-    list-style: none;
+    @include margin(0);
+    display: flex;
+    flex-wrap: wrap;
+    order: 2;
+    flex-grow: 1;
     text-align: center;
+    list-style: none;
+    justify-content: center;
 
     li {
-        @include padding(0.25, left);
-        @include padding(0.25, right);
-        display: inline-block;
+        @include margin(0);
+        @include margin(0.1, 'left');
+        @include margin(0.1, 'right');
+    }
+}
 
-        // IE7 support.
-        .ie7 & {
-            zoom: 1;
-            display: inline;
-        }
+.pagination__prev,
+.pagination__next,
+.pagination__index a {
+    @extend %button;
+    @extend %button--transparent;
+}
+
+.pagination__index--active a {
+    &:link, &:visited, &:hover, &:active {
+        background-color: $hc-pagination-active-background-color !important;
+        color: $hc-pagination-active-color !important;
+    }
+}
+
+.pagination__index__more {
+    @extend %button;
+    @extend %button--transparent;
+
+    &:hover {
+        background-color: transparent !important;
+    }
+}
+
+@include responsive('medium') {
+    
+    .pagination {
+        flex-direction: column;
     }
 
-    a {
-        border:none;
-        font-weight: bold;
+    .pagination__prev {
+        @include margin(0.25, 'bottom');
+    }
+
+    .pagination__next {
+        @include margin(0.25, 'top');
     }
 }
