@@ -57,8 +57,8 @@
 
 .pagination__index--active a {
     &:link, &:visited, &:hover, &:active {
-        background-color: color('red') !important;
-        color: color('white') !important;
+        background-color: $hc-pagination-active-background-color !important;
+        color: $hc-pagination-active-color !important;
     }
 }
 
