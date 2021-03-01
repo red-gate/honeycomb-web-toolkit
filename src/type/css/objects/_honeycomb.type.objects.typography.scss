@@ -51,6 +51,14 @@ h1,
           @include font-size(32px);
         }
     }
+
+    &.h1--extra-large {
+      @include font-size(50px);
+
+      @include responsive('small') {
+        @include font-size(40px);
+      }
+  }
 }
 
 /* Display fonts. Super large font sizes. Use with .text--normal for some nice big display fonts for pull quotes and ting.  */
