@@ -9,9 +9,12 @@ $hc-forms-input-padding-small: 7px $hc-forms-input-padding !default;
 $hc-forms-input-padding-extra-small: 5px $hc-forms-input-padding !default;
 $hc-forms-input-padding-extra-extra-small: 3px $hc-forms-input-padding !default;
 
+$hc-forms-input-margin: 0 !default;
+
 $hc-forms-input-meta-allowance: 30px !default;
 $hc-forms-input-border-radius: 5px !default;
 $hc-forms-input-border-colour: color('grey', 5) !default;
+$hc-forms-input-width: calc(100% - #{$hc-forms-input-meta-allowance}) !default;
 
 // Checkbox and radio.
 $hc-forms-checkbox-width: 20px !default;
@@ -20,6 +23,7 @@ $hc-forms-checkbox-width: 20px !default;
 }
 
 $hc-forms-checkbox-height: $hc-forms-checkbox-width !default;
+$hc-forms-checkbox-margin: 0 !default;
 $hc-forms-checkbox-border-width: 2px !default;
 $hc-forms-checkbox-border-colour: color('grey', 6) !default;
 $hc-forms-checkbox-border-radius: 2px !default;
