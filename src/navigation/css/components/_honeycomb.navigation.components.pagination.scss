@@ -55,11 +55,22 @@
 .pagination__index a {
     @extend %button;
     @extend %button--transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.pagination__index a {
+    &:hover, &:active, &:focus {
+        background-color: $hc-pagination-hover-background-color !important;
+        background-image: url($hc-pagination-hover-background-image);
+        color: $hc-pagination-hover-color !important;
+    }
 }
 
 .pagination__index--active a {
     &:link, &:visited, &:hover, &:active {
         background-color: $hc-pagination-active-background-color !important;
+        background-image: url($hc-pagination-active-background-image);
         color: $hc-pagination-active-color !important;
     }
 }

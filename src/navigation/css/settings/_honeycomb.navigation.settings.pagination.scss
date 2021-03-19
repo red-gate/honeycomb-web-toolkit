@@ -1,2 +1,7 @@
-$hc-pagination-active-background-color: color('red');
-$hc-pagination-active-color: color('white');
+$hc-pagination-images-dir: 'navigation/images/' !default;
+$hc-pagination-hover-background-color: transparent !default;
+$hc-pagination-hover-color: color('grey', 7) !default;
+$hc-pagination-hover-background-image: $hc-pagination-images-dir + 'pagination-gatebase--hover.svg' !default;
+$hc-pagination-active-background-color: transparent !default;
+$hc-pagination-active-color: color('white') !default;
+$hc-pagination-active-background-image: $hc-pagination-images-dir + 'pagination-gatebase--active.svg' !default;
