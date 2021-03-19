@@ -20,7 +20,10 @@ let addArrows = () => {
         if ( $this.hasClass(classNameNoArrow) ) return;
         
         if ( ( $this.find( 'ul' ).length > 0 ) && ( $this.attr( 'data-arrow-added' ) !== 'true' ) ) {
-            let $a = window.jQuery( '<a/>' ).attr( 'href', '#toggle' ).addClass( 'arrow' );
+            let $a = window.jQuery( '<a/>' )
+                .attr( 'href', '#toggle' )
+                .attr( 'tabindex', '-1' ) // Remove the dropdown arrow from the tab index, as it just duplicates the original anchor
+                .addClass( 'arrow' );
             $this.addClass( `dropdown ${classNameClosed}` );
             $this.attr( 'data-arrow-added', 'true' );
             $a.appendTo( $this );
