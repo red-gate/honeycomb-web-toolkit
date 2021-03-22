@@ -410,6 +410,20 @@
     }
 }
 
+.icon--emoji-sad {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e970";
+    }
+}
+
+.icon--emoji-happy {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e96f";
+    }
+}
+
 .icon--expand {
     @extend %icon;
     &:before, &:after {
@@ -554,6 +568,13 @@
     @extend %icon;
     &:before, &:after {
         content: "\e915";
+    }
+}
+
+.icon--medium-tiles {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e96c";
     }
 }
 
@@ -785,6 +806,20 @@
     @extend %icon;
     &:before, &:after {
         content: "\e93e";
+    }
+}
+
+.icon--sort-arrows-by-name {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e96e";
+    }
+}
+
+.icon--sort-arrows-by-size {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e96d";
     }
 }
 
