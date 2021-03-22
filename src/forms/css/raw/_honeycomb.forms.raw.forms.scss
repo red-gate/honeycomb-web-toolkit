@@ -6,9 +6,9 @@ form, fieldset {
 input, select, textarea {
     @include border();
     padding: $hc-forms-input-padding; // Set padding explicitly because of IE rounding to 2 decimal places only.
+    margin: $hc-forms-input-margin;
     display: inline-block;
-    width: 90%; // Fallback if calc rule below fails.
-    width: calc(100% - #{$hc-forms-input-meta-allowance});
+    width: $hc-forms-input-width;
     border-radius: $hc-forms-input-border-radius;
     border-color: $hc-forms-input-border-colour;
     background-color: #fff;
@@ -25,6 +25,7 @@ input[type="radio"] {
     display: inline-block;
     width: $hc-forms-checkbox-width;
     height: $hc-forms-checkbox-height;
+    margin: $hc-forms-checkbox-margin;
     border-style: solid;
     border-width: $hc-forms-checkbox-border-width;
     border-color: $hc-forms-checkbox-border-colour;

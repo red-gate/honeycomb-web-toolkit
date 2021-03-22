@@ -23,6 +23,14 @@ form[id^="mktoForm_"] {
     @include margin(0.6, 'bottom');
     flex-grow: 1;
     flex-basis: 100%;
+
+    & + & {
+        @include padding(0.6, 'left'); // Space out columns.
+
+        @include responsive('large') {
+            @include padding(0, 'left');
+        }
+    }
 }
 
 .mktoLabel {
