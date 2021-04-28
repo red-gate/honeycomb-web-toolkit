@@ -10,7 +10,7 @@ $hc-forms-input-padding-extra-small: 5px $hc-forms-input-padding !default;
 $hc-forms-input-padding-extra-extra-small: 3px $hc-forms-input-padding !default;
 
 $hc-forms-input-meta-allowance: 30px !default;
-$hc-forms-input-margin: 0 -#{$hc-forms-input-meta-allowance} 0 0 !default;
+$hc-forms-input-margin: 0 !default;
 $hc-forms-input-border-radius: 5px !default;
 $hc-forms-input-border-colour: color('grey', 5) !default;
 $hc-forms-input-width: 100% !default;
@@ -89,13 +89,13 @@ $hc-forms-error-message-margin-top-ratio: 0.1 !default;
 $hc-forms-error-message-colour: color('red', 5) !default;
 
 // Required dot.
-$hc-forms-required-dot-margin-left-ratio: 0 !default;
+$hc-forms-required-dot-margin-left-ratio: -0.8 !default;
 $hc-forms-required-dot-width: 10px !default;
 $hc-forms-required-dot-height: $hc-forms-required-dot-width !default;
 $hc-forms-required-dot-background-colour: color("grey", 5) !default;
 
 // Help icon
-$hc-forms-help-icon-margin-left-ratio: 0 !default;
+$hc-forms-help-icon-margin-left-ratio: -0.8 !default;
 $hc-forms-help-icon-width: 20px !default;
 $hc-forms-help-icon-height: $hc-forms-help-icon-width !default;
 $hc-forms-help-icon-colour: color('grey', 5) !default;
