@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs-extra');
-const sass = require('node-sass');
+const sass = require('sass');
 const pkg = require('../../package.json');
 
 let scripts = [
