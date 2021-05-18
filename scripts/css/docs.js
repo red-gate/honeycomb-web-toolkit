@@ -1,4 +1,4 @@
-const sass = require('node-sass');
+const sass = require('sass');
 const fs = require('fs');
 const handlebars = require('handlebars');
 const pkg = require('../../package.json');
