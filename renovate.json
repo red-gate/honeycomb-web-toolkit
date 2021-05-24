@@ -1,7 +1,6 @@
 {
   "extends": [
-    "config:base",
-    "github>red-gate/renovate-config"
+    "config:base"
   ],
   "masterIssue": true,
   "labels": ["dependencies"]
