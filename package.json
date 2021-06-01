@@ -42,7 +42,7 @@
     "postcss-cli": "7.1.0",
     "sass": "1.32.13",
     "uglify-js": "3.4.9",
-    "zip-a-folder": "0.0.6"
+    "zip-a-folder": "0.1.0"
   },
   "peerDependencies": {
     "jquery": "^3.5.0"
