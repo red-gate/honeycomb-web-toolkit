@@ -29,9 +29,9 @@
     "build:confluence": "npm run clean && npm run css:confluence && npm run fonts && npm run images && npm run js:confluence"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
     "autoprefixer": "10.2.6",
-    "babel-plugin-transform-object-rest-spread": "6.26.0",
-    "babel-preset-es2015": "6.24.1",
     "babelify": "10.0.0",
     "browserify": "17.0.0",
     "eslint": "7.27.0",
