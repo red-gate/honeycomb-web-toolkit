@@ -3,6 +3,6 @@
 \*------------------------------------*/
 
 html {
-  font-size: ($hc-font-size/16px)*100%;
+  font-size: math.div($hc-font-size, 16px)*100%;
   -webkit-font-smoothing: antialiased;
 }

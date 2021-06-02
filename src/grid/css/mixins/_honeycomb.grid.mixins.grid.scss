@@ -24,7 +24,7 @@
 
                 $total: 0;
                 @if $i != 0 {
-                    $total: (100 / ($grid-col / $i)) * 1%;
+                    $total: math.div(100, math.div($grid-col, $i)) * 1%;
                 }
 
                 %#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},

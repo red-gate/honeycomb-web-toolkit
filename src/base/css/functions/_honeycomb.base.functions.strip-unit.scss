@@ -1,4 +1,4 @@
 // Function to strip unit.
 @function strip-unit($number) {
-    @return $number / ($number * 0 + 1);
+    @return math.div($number, $number * 0 + 1);
 }

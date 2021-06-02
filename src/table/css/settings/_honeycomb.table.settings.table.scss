@@ -7,5 +7,5 @@ $hc-table-padding-horizontal: $hc-spacing-unit--small !default;
 $hc-table-padding-vertical: $hc-spacing-unit--small !default;
 $hc-table-padding-horizontal-loose: $hc-table-padding-horizontal * 2 !default;
 $hc-table-padding-vertical-loose: $hc-table-padding-vertical * 2 !default;
-$hc-table-padding-horizontal-tight: $hc-table-padding-horizontal / 5 !default;
-$hc-table-padding-vertical-tight: $hc-table-padding-vertical / 5 !default;
+$hc-table-padding-horizontal-tight: math.div($hc-table-padding-horizontal, 5) !default;
+$hc-table-padding-vertical-tight: math.div($hc-table-padding-vertical, 5) !default;

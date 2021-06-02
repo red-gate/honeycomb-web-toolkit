@@ -12,8 +12,8 @@ $hc-spacing-multiplier: 2.5 !default;
  * Spacing units - based off $line-height.
  */
 $hc-spacing-unit: $hc-spacing-index * $hc-spacing-multiplier !default;
-$hc-spacing-unit--small: round($hc-spacing-unit / 2) !default;
-$hc-spacing-unit--large: round($hc-spacing-unit * 2) !default;
+$hc-spacing-unit--small: math.round(math.div($hc-spacing-unit, 2)) !default;
+$hc-spacing-unit--large: math.round($hc-spacing-unit * 2) !default;
 
 
 /**
