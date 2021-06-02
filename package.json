@@ -29,8 +29,8 @@
     "build:confluence": "npm run clean && npm run css:confluence && npm run fonts && npm run images && npm run js:confluence"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/preset-env": "^7.14.4",
+    "@babel/core": "7.14.3",
+    "@babel/preset-env": "7.14.4",
     "autoprefixer": "10.2.6",
     "babelify": "10.0.0",
     "browserify": "17.0.0",
@@ -39,7 +39,7 @@
     "glob": "7.1.7",
     "handlebars": "4.7.7",
     "jquery": "3.6.0",
-    "postcss": "^8.3.0",
+    "postcss": "8.3.0",
     "postcss-cli": "8.3.1",
     "sass": "1.34.0",
     "uglify-js": "3.13.8",
