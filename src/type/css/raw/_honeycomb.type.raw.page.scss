@@ -4,7 +4,7 @@
 
 html {
   font-family: $hc-font-family;
-  font-size: ($hc-font-size/16px)*100%;
+  font-size: math.div($hc-font-size, 16px)*100%;
   line-height: $hc-line-height;
   word-break: break-word;
 }

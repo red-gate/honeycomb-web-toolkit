@@ -6,7 +6,7 @@
 
 @mixin font-size($size: $hc-font-size, $line-height: auto) {
   font-size: $size;
-  font-size: ($size / $hc-font-size) * 1rem;
+  font-size: math.div($size, $hc-font-size) * 1rem;
 
   @if $line-height == auto {
     line-height: $size + 10;

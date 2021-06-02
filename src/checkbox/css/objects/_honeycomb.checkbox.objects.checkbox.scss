@@ -2,7 +2,7 @@
 
 @keyframes downstroke {
     0% { height: 0; }
-    100% { height: $hc-checkbox-height/2;  }
+    100% { height: math.div($hc-checkbox-height, 2);  }
 }
 @keyframes upstroke {
     0% { height: 0; }
@@ -12,7 +12,7 @@
 
 @keyframes downstrokeSmall {
     0% { height: 0; }
-    100% { height: $hc-checkbox-height-small/2;  }
+    100% { height: math.div($hc-checkbox-height-small, 2);  }
 }
 @keyframes upstrokeSmall {
     0% { height: 0; }
@@ -33,7 +33,7 @@ input[type=checkbox].hc-checkbox {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
-    transition: border-color ease $hc-checkbox-duration/2, opacity ease $hc-checkbox-duration/2;
+    transition: border-color ease math.div($hc-checkbox-duration, 2), opacity ease math.div($hc-checkbox-duration, 2);
     cursor:pointer;
 
     &:hover {
@@ -113,11 +113,11 @@ input[type=checkbox]:checked + .hc-checkbox,
     
     &::after{
         height: $hc-checkbox-height * .5;
-        animation: downstroke $hc-checkbox-duration/2 ease 0s forwards;
+        animation: downstroke math.div($hc-checkbox-duration, 2) ease 0s forwards;
     }
     &.hc-checkbox--small::after {
         height: $hc-checkbox-height-small * .5;
-        animation: downstrokeSmall $hc-checkbox-duration/2 ease 0s forwards;
+        animation: downstrokeSmall math.div($hc-checkbox-duration, 2) ease 0s forwards;
     }
      
     &::before{

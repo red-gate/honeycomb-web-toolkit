@@ -15,4 +15,4 @@ $hc-enable-grid-classes: true !default;
 $hc-grid-class: "grid" !default;
 $hc-grid-cols: (10, 12) !default;
 $hc-grid-target-gutter: 0px !default;
-$hc-grid-gutter: ($hc-grid-target-gutter / $hc-container-width) * 100% !default;
+$hc-grid-gutter: math.div($hc-grid-target-gutter, $hc-container-width) * 100% !default;
