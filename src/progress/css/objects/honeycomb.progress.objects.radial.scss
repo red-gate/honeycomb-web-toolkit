@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .progress--radial {
     @include margin($hc-progress-radial-margin-top, "top");
     @include margin($hc-progress-radial-margin-bottom, "bottom");

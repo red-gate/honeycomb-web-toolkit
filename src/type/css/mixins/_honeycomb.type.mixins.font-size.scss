@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // 1. Generates a font size in REMs from a px font-size value
 // 2. Sets line-height:
 //  - if left blank set to $line-height

@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $hc-table-background-colour: $hc-default-bg-color;
 $hc-table-border-colour: color('grey', 3);
 $hc-table-heading-colour: color('grey', 7);

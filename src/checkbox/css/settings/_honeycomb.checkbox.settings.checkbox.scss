@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $hc-checkbox-checked-color: color('green');
 $hc-checkbox-unchecked-color: color('grey', 5);
 $hc-checkbox-background-color: inherit;
