@@ -51,9 +51,20 @@ const set = ( property, value = '', options = {} ) => {
     // Set the cookie.
     document.cookie = updatedCookie;
 };
+
+/**
+ * Remove a cookie.
+ * 
+ * @param {String} property The name of the cookie to remove
+ */
+const remove = property => {
+    set(property, '', {
+        'max-age': -1,
+    });
 };
 
 export default {
     get,
     set,
+    remove,
 };
