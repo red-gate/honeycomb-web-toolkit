@@ -71,6 +71,8 @@ let initAccount = (accountId, crossDomainAccountId) => {
         return false;
     }
 
+    if ( typeof window.ga === 'undefined' ) return false;
+
     // Create the tracker for the individual property.
     // allowLinker defaults to 'false'
     window.ga( 'create', accountId, 'auto' ); 
@@ -92,7 +94,9 @@ let initAccount = (accountId, crossDomainAccountId) => {
 // Track a page view on all trackers.
 let trackPageView = ( url = false ) => {
     const options = url ? { page : url } : {};
-    
+
+    if ( typeof window.ga === 'undefined' ) return false;
+
     // Track pageview for the default tracker
     window.ga( 'send', 'pageview', options );
 
@@ -104,11 +108,15 @@ let trackPageView = ( url = false ) => {
 
 // Track an event on the default tracker
 let trackEvent = ( category = '', action = '', label = null, value = null ) => {
+    if ( typeof window.ga === 'undefined' ) return false;
+
     window.ga( 'send', 'event', category, action, label, value );
 };
 
 // Set a custom variable on the default tracker
 let setCustomVariable = ( index, name, value ) => {
+    if ( typeof window.ga === 'undefined' ) return false;
+
     let options = {};
     options[ 'dimension' + index ] = value;
     window.ga( 'send', 'pageview', options );

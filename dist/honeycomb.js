@@ -73,9 +73,10 @@ var addScript = function addScript() {
 var initAccount = function initAccount(accountId, crossDomainAccountId) {
   if (!accountId || accountId === 'UA-XXX') {
     return false;
-  } // Create the tracker for the individual property.
-  // allowLinker defaults to 'false'
+  }
 
+  if (typeof window.ga === 'undefined') return false; // Create the tracker for the individual property.
+  // allowLinker defaults to 'false'
 
   window.ga('create', accountId, 'auto'); // Create the cross-domain tracker, and set it to allow cross-domain linker parameters.
   // Also enable the auto-linker and pass in a list of sites.
@@ -101,7 +102,8 @@ var trackPageView = function trackPageView() {
   var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
   var options = url ? {
     page: url
-  } : {}; // Track pageview for the default tracker
+  } : {};
+  if (typeof window.ga === 'undefined') return false; // Track pageview for the default tracker
 
   window.ga('send', 'pageview', options); // Track pageview for the crossdomain tracker, if set
 
@@ -116,11 +118,13 @@ var trackEvent = function trackEvent() {
   var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
   var label = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
   var value = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+  if (typeof window.ga === 'undefined') return false;
   window.ga('send', 'event', category, action, label, value);
 }; // Set a custom variable on the default tracker
 
 
 var setCustomVariable = function setCustomVariable(index, name, value) {
+  if (typeof window.ga === 'undefined') return false;
   var options = {};
   options['dimension' + index] = value;
   window.ga('send', 'pageview', options);
