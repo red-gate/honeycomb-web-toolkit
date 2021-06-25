@@ -21,9 +21,36 @@ const get = property => {
     return value;
 };
 
-// TODO: Write cookie set functionality.
-let set = () => {
-    return '@todo - Need to write cookie set functionality';
+/**
+ * Set a cookie.
+ * 
+ * @param {String} property The name of the cookie to set the value of
+ * @param {String} value The value to set
+ * @param {Object} options An object of options where key is the name and value is the value
+ */
+const set = ( property, value = '', options = {} ) => {
+
+    // Spread default options with user defined.
+    options = {
+        path: '/',
+        ...options
+    };
+
+    // Set the property and value.
+    let updatedCookie = `${property}=${encodeURIComponent(value)}`;
+
+    // Set the options.
+    for ( let optionKey in options ) {
+        updatedCookie += `; ${optionKey}`;
+        let optionValue = options[optionKey];
+        if ( optionValue !== true ) {
+            updatedCookie += `= ${optionValue}`;
+        }
+    }
+
+    // Set the cookie.
+    document.cookie = updatedCookie;
+};
 };
 
 export default {
