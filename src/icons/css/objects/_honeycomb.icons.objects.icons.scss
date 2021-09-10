@@ -634,6 +634,13 @@
     }
 }
 
+.icon--offline-cloud {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e971";
+    }
+}
+
 .icon--pause {
     @extend %icon;
     &:before, &:after {
