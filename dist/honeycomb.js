@@ -1634,7 +1634,8 @@ var defaults = {
   success: {
     callback: null,
     message: null
-  }
+  },
+  followUpUrl: null
 };
 /**
  * Create a custom config object by merging the default 
@@ -1682,7 +1683,12 @@ var removeDefaultStyles = function removeDefaultStyles() {
 
 
 var hasCustomSuccess = function hasCustomSuccess(config) {
-  var customSuccess = false; // Is there a custom success callback?
+  var customSuccess = false; // Is there a follow up URL supplied?
+
+  if (config.followUpUrl !== null) {
+    customSuccess = true;
+  } // Is there a custom success callback?
+
 
   if (config.success.callback !== null && typeof config.success.callback !== 'undefined') {
     customSuccess = true;
@@ -1745,6 +1751,11 @@ var create = function create(c) {
 
       if (hasCustomSuccess(config)) {
         marketoForm.onSuccess(function (formValues, followUpUrl) {
+          // Redirect to follow up URL if one set.
+          if (config.followUpUrl) {
+            window.location.assign(config.followUpUrl);
+          }
+
           var $form = marketoForm.getFormElem(); // $form is a jQuery object.
           // If there's a callback, and it's a function, then call it, passing 
           // in the form values so that they can be used client side if needed.

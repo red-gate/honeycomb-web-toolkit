@@ -16,6 +16,7 @@ export const defaults = {
         callback: null,
         message: null,
     },
+    followUpUrl: null,
 };
 
 /**
@@ -67,6 +68,11 @@ const removeDefaultStyles = () => {
  */
 const hasCustomSuccess = config => {
     let customSuccess = false;
+
+    // Is there a follow up URL supplied?
+    if (config.followUpUrl !== null) {
+        customSuccess = true;
+    }
 
     // Is there a custom success callback?
     if (config.success.callback !== null && typeof config.success.callback !== 'undefined') {
@@ -138,6 +144,12 @@ const create = c => {
 
                 if (hasCustomSuccess(config)) {
                     marketoForm.onSuccess((formValues, followUpUrl) => {
+
+                        // Redirect to follow up URL if one set.
+                        if (config.followUpUrl) {
+                            window.location.assign(config.followUpUrl);
+                        }
+
                         const $form = marketoForm.getFormElem(); // $form is a jQuery object.
 
                         // If there's a callback, and it's a function, then call it, passing 
