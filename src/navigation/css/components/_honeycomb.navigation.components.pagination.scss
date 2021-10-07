@@ -59,6 +59,14 @@
     background-repeat: no-repeat;
 }
 
+.pagination__prev,
+.pagination__next {
+    &:hover, &:active, &:focus {
+        background-color: $hc-pagination-hover-background-color !important;
+        color: $hc-pagination-hover-color !important;
+    }
+}
+
 .pagination__index a {
     &:hover, &:active, &:focus {
         background-color: $hc-pagination-hover-background-color !important;
