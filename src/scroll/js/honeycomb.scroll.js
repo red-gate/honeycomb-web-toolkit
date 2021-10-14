@@ -22,6 +22,7 @@ const scrollOnClick = () => {
             window.jQuery( 'html, body' ).animate({
                 scrollTop: window.jQuery( hash ).offset().top + offset
             }, 500, function() {
+                window.location.hash = hash;
                 if ( focus ) {
                     window.jQuery( `#${focus}` ).focus();
                 }
