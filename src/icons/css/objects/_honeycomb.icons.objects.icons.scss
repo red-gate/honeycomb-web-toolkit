@@ -312,6 +312,13 @@
     }
 }
 
+.icon--connected {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e973";
+    }
+}
+
 .icon--copydoc {
     @extend %icon;
     &:before, &:after {
@@ -634,6 +641,13 @@
     }
 }
 
+.icon--not-connected {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e972";
+    }
+}
+
 .icon--offline-cloud {
     @extend %icon;
     &:before, &:after {
@@ -894,6 +908,20 @@
     @extend %icon;
     &:before, &:after {
         content: "\e914";
+    }
+}
+
+.icon--thumbs-down {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e974";
+    }
+}
+
+.icon--thumbs-up {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e975";
     }
 }
 
