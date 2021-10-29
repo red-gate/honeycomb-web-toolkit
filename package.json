@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "node scripts/clean.js",
     "css:sass": "node scripts/css/sass.js",
-    "css:autoprefixer": "node node_modules/postcss-cli/bin/postcss dist/**/*.css --no-map true --use autoprefixer -c scripts/css --dir dist",
+    "css:autoprefixer": "postcss dist/**/*.css --no-map true --use autoprefixer --config scripts/css --dir dist",
     "css:cheatsheet": "node scripts/css/docs.js",
     "css:vendor": "node scripts/css/vendors.js",
     "css": "npm run css:sass && npm run css:autoprefixer && npm run css:vendor && npm run css:cheatsheet",
