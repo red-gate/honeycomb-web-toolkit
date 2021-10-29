@@ -256,7 +256,7 @@ exports["default"] = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.breakpoints = exports.date = exports.version = void 0;
+exports.version = exports.date = exports.breakpoints = void 0;
 var version = 'Version goes here';
 exports.version = version;
 var date = 'Date goes here';
@@ -1552,7 +1552,7 @@ exports["default"] = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.defaults = void 0;
+exports.defaults = exports["default"] = void 0;
 
 var _honeycombDocument = _interopRequireDefault(require("../../document/js/honeycomb.document.load-script"));
 
