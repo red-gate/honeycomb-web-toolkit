@@ -312,6 +312,13 @@
     }
 }
 
+.icon--commit {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e976";
+    }
+}
+
 .icon--connected {
     @extend %icon;
     &:before, &:after {
