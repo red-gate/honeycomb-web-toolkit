@@ -29,21 +29,21 @@
     "build:confluence": "npm run clean && npm run css:confluence && npm run fonts && npm run images && npm run js:confluence"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "autoprefixer": "^10.4.0",
-    "babelify": "^10.0.0",
-    "browserify": "^17.0.0",
+    "@babel/core": "7.15.8",
+    "@babel/preset-env": "7.15.8",
+    "autoprefixer": "10.4.0",
+    "babelify": "10.0.0",
+    "browserify": "17.0.0",
     "eslint": "8.3.0",
-    "fs-extra": "^10.0.0",
-    "glob": "^7.2.0",
-    "handlebars": "^4.7.7",
-    "jquery": "^3.6.0",
-    "postcss": "^8.3.11",
+    "fs-extra": "10.0.0",
+    "glob": "7.2.0",
+    "handlebars": "4.7.7",
+    "jquery": "3.6.0",
+    "postcss": "8.3.11",
     "postcss-cli": "9.0.2",
-    "sass": "^1.43.4",
-    "uglify-js": "^3.14.2",
-    "zip-a-folder": "^1.1.0"
+    "sass": "1.43.4",
+    "uglify-js": "3.14.2",
+    "zip-a-folder": "1.1.0"
   },
   "browserify": {
     "transform": [
