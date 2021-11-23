@@ -1,7 +1,7 @@
 // Extra tasks when building on TeamCity.
 const zipFolder = require('zip-a-folder');
 const fs = require('fs');
-const request = require('request');
+const request = require('node-fetch-commonjs');
 const pkg = require('../package.json');
 
 // Check we have the BUILD_COUNTER environment variable set - if not, we're probably not running in TC, or
@@ -25,37 +25,38 @@ console.warn('##teamcity[buildNumber \'' + packageVersion + '\']');
 
 // Zip up the dist folder
 const pkgFilename = 'RedGate.HoneycombWebToolkit.' + packageVersion + '.zip';
-zipFolder.zipFolder('dist', pkgFilename, function(err) {
-    if(err) {
-        console.error('Failed to zip output package', err);
-        process.exit(1);
-    } else {
+(async () => {
+    await zipFolder.zip('dist', pkgFilename);
+    if (fs.existsSync(pkgFilename)) {
         console.log('Created zipped package');
 
         // Upload the resulting package to Octopus
         const packagesEndpoint = process.env.OCTOPUS_URL + '/api/packages/raw';
 
-        var octopus_post_form = {
-            data: fs.createReadStream(pkgFilename),
-        };
+        const octopus_post_form = new URLSearchParams();
+        octopus_post_form.append('data', fs.createReadStream(pkgFilename));
 
-        request({
-            url: packagesEndpoint,
-            method: 'POST',
-            formData: octopus_post_form,
-            headers: {
-                'X-Octopus-ApiKey': process.env.OCTOPUS_API_KEY
-            }
-        }, function(err, response, body) {
-            // Upload callback
-            if (!err && response.statusCode == 201) {
+        try {
+            const response = await request(packagesEndpoint, {
+                method: 'POST',
+                body: octopus_post_form,
+                headers: {
+                    'X-Octopus-ApiKey': process.env.OCTOPUS_API_KEY
+                }
+            });
+            if (response.ok) {
                 console.log('Package uploaded to Octopus');
             } else {
-                console.error('Octopus upload failed', err, ' status code ', response.statusCode);
-                process.exit(1);
+                throw new Error(response.status);
             }
-        });
+        } catch (err) {
+            console.error('Octopus upload failed', err);
+            process.exit(1);
+        }
+    } else {
+        console.error('Failed to zip output package');
+        process.exit(1);
     }
-});
 
-console.log('teamcity.js complete');
+    console.log('teamcity.js complete');
+})();
