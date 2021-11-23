@@ -33,12 +33,12 @@ const pkgFilename = 'RedGate.HoneycombWebToolkit.' + packageVersion + '.zip';
         // Upload the resulting package to Octopus
         const packagesEndpoint = process.env.OCTOPUS_URL + '/api/packages/raw';
 
-        // const octopus_post_form = new URLSearchParams();
-        // octopus_post_form.append('data', fs.createReadStream(pkgFilename));
+        const octopus_post_form = new URLSearchParams();
+        octopus_post_form.append('data', fs.createReadStream(pkgFilename));
 
-        const octopus_post_form = {
-            data: fs.createReadStream(pkgFilename),
-        };
+        // const octopus_post_form = {
+        //     data: fs.createReadStream(pkgFilename),
+        // };
 
         try {
             const response = await request(packagesEndpoint, {
