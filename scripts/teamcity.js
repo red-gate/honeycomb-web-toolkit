@@ -1,7 +1,7 @@
 // Extra tasks when building on TeamCity.
 const zipFolder = require('zip-a-folder');
 const fs = require('fs');
-const request = require('node-fetch-commonjs');
+const request = require('request');
 const pkg = require('../package.json');
 
 // Check we have the BUILD_COUNTER environment variable set - if not, we're probably not running in TC, or
@@ -33,31 +33,26 @@ const pkgFilename = 'RedGate.HoneycombWebToolkit.' + packageVersion + '.zip';
         // Upload the resulting package to Octopus
         const packagesEndpoint = process.env.OCTOPUS_URL + '/api/packages/raw';
 
-        const octopus_post_form = new URLSearchParams();
-        octopus_post_form.append('data', fs.createReadStream(pkgFilename));
+        const octopus_post_form = {
+            data: fs.createReadStream(pkgFilename),
+        };
 
-        // const octopus_post_form = {
-        //     data: fs.createReadStream(pkgFilename),
-        // };
-
-        try {
-            const response = await request(packagesEndpoint, {
-                method: 'POST',
-                body: octopus_post_form,
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    'X-Octopus-ApiKey': process.env.OCTOPUS_API_KEY
-                }
-            });
-            if (response.ok) {
+        request({
+            url: packagesEndpoint,
+            method: 'POST',
+            formData: octopus_post_form,
+            headers: {
+                'X-Octopus-ApiKey': process.env.OCTOPUS_API_KEY
+            }
+        }, function(err, response, body) {
+            // Upload callback
+            if (!err && response.statusCode == 201) {
                 console.log('Package uploaded to Octopus');
             } else {
-                throw new Error(response.status);
+                console.error('Octopus upload failed', err, ' status code ', response.statusCode);
+                process.exit(1);
             }
-        } catch (err) {
-            console.error('Octopus upload failed', err);
-            process.exit(1);
-        }
+        });
     } else {
         console.error('Failed to zip output package');
         process.exit(1);
