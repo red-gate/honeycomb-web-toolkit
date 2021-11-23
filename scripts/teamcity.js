@@ -45,6 +45,7 @@ const pkgFilename = 'RedGate.HoneycombWebToolkit.' + packageVersion + '.zip';
                 method: 'POST',
                 body: octopus_post_form,
                 headers: {
+                    'Content-Type': 'multipart/form-data',
                     'X-Octopus-ApiKey': process.env.OCTOPUS_API_KEY
                 }
             });
