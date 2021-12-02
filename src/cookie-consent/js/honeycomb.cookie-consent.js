@@ -9,8 +9,25 @@ import { close as closeDialog, open as openDialog } from './honeycomb.cookie-con
  */
 let consentCookieName = 'hccookieconsent';
 
+/**
+ * The groups that can be consented to.
+ * 
+ * @var {Array} consentGroups The groups
+ */
+let consentGroups = [
+    'functional',
+    'performance',
+    'targeting',
+];
+
 const setConsentCookieName = name => {
     consentCookieName = name;
+};
+
+const setConsentGroups = ( groups = null ) => {
+    if (Array.isArray(groups)) {
+        consentGroups = groups;
+    }
 };
 
 /**
@@ -19,16 +36,11 @@ const setConsentCookieName = name => {
  * @returns {String} The name of the consent cookie
  */
 const getConsentCookieName = () => {
-    window.console.log(`Getting consent cookie name as: ${consentCookieName}`);
     return consentCookieName;
 };
 
 const getConsentGroups = () => {
-    return [
-        // 'functional', // Removing functional for now, as we don't have any yet.
-        'performance',
-        'targeting',
-    ];
+    return consentGroups;
 };
 
 /**
@@ -284,6 +296,11 @@ const init = ( settings = {} ) => {
     // Update the cookie consent name if set in settings.
     if ( settings.consentCookieName ) {
         setConsentCookieName(settings.consentCookieName);
+    }
+
+    // Set the consent groups if set in settings.
+    if ( settings.consentGroups ) {
+        setConsentGroups(settings.consentGroups);
     }
     
     // Check if notification should be displayed.
