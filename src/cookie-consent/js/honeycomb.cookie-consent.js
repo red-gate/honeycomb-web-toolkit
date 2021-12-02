@@ -20,10 +20,21 @@ let consentGroups = [
     'targeting',
 ];
 
+/**
+ * Set the consent cookie name.
+ * 
+ * @param {String} name The name of the consent cookie
+ * @returns {Void}
+ */
 const setConsentCookieName = name => {
     consentCookieName = name;
 };
 
+/**
+ * Set the consent groups.
+ * 
+ * @param {Array|Null} groups The groups to consent to
+ */
 const setConsentGroups = ( groups = null ) => {
     if (Array.isArray(groups)) {
         consentGroups = groups;
