@@ -68,10 +68,20 @@ const getConsentCookieName = () => {
     return consentCookieName;
 };
 
+/**
+ * Get the consent groups.
+ * 
+ * @returns {Array} An array of consent groups
+ */
 const getConsentGroups = () => {
     return consentGroups;
 };
 
+/**
+ * Get the custom links to display on the banner.
+ * 
+ * @returns {Array} An array of custom links
+ */
 const getLinks = () => {
     return links;
 };
