@@ -21,6 +21,13 @@ let consentGroups = [
 ];
 
 /**
+ * The links to display in the banner.
+ * 
+ * @var {Array} links An array of link objects
+ */
+let links = [];
+
+/**
  * Set the consent cookie name.
  * 
  * @param {String} name The name of the consent cookie
@@ -42,6 +49,17 @@ const setConsentGroups = ( groups = null ) => {
 };
 
 /**
+ * Set links to display on the banner.
+ * 
+ * @param {Array|Null} links The links to display on the banner
+ */
+const setLinks = ( l = null ) => {
+    if (Array.isArray(l)) {
+        links = l;
+    }
+};
+
+/**
  * Get the name of the Redgate consent cookie
  * 
  * @returns {String} The name of the consent cookie
@@ -52,6 +70,10 @@ const getConsentCookieName = () => {
 
 const getConsentGroups = () => {
     return consentGroups;
+};
+
+const getLinks = () => {
+    return links;
 };
 
 /**
@@ -230,13 +252,16 @@ const displayNotification = () => {
     customiseLinkItem.appendChild(customiseLink);
     list.appendChild(customiseLinkItem);
 
-    // Privacy statement link.
-    const privacyLinkListItem = document.createElement('li');
-    const privacyLink = document.createElement('a');
-    privacyLink.setAttribute('href', '/website/legal');
-    privacyLink.innerHTML = 'Privacy notice';
-    privacyLinkListItem.appendChild(privacyLink);
-    list.appendChild(privacyLinkListItem);
+    // Links.
+    getLinks().forEach(link => {
+        const linkListItem = document.createElement('li');
+        linkListItem.className = 'spaced-right--tight';
+        const a = document.createElement('a');
+        a.setAttribute('href', link.href);
+        a.innerHTML = link.title;
+        linkListItem.appendChild(a);
+        list.appendChild(linkListItem);
+    });
 
     // Add all the nodes to each other.
     column.appendChild(heading);
@@ -312,6 +337,11 @@ const init = ( settings = {} ) => {
     // Set the consent groups if set in settings.
     if ( settings.consentGroups ) {
         setConsentGroups(settings.consentGroups);
+    }
+
+    // Set the links to display in the banner if set in settings.
+    if ( settings.banner?.links ) {
+        setLinks(settings.banner.links);
     }
     
     // Check if notification should be displayed.
