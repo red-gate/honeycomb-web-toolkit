@@ -271,10 +271,7 @@ const displayNotification = () => {
     innerContainer.appendChild(column);
     container.appendChild(innerContainer);
 
-    // Add the container just before the header.
-    // const header = document.querySelector('header');
-    // header.parentElement.insertBefore(container, header);
-
+    // Add the container to the body of the page.
     document.body.appendChild(container);
 };
 
