@@ -47,3 +47,16 @@
 .cookie-dialog__controls button {
     @include margin(0.25, 'right');
 }
+
+.cookie-dialog__close--corner {
+    @extend .icon--clear-cross-circle;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0 !important;
+    color: transparent;
+
+    &:before {
+        font-size: 2rem;
+    }
+}

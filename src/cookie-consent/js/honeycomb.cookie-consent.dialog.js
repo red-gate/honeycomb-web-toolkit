@@ -132,6 +132,16 @@ const open = ( consentGroups = null, setHasConsent = null ) => {
 
     inner.appendChild(controls);
 
+    // Close button in the corner of the dialog.
+    const closeButton2 = document.createElement('button');
+    closeButton2.setAttribute('class', 'button button--transparent button--small cookie-dialog__close--corner');
+    closeButton2.innerHTML = 'Close';
+    closeButton2.addEventListener('click', e => {
+        e.preventDefault();
+        close();
+    });
+    inner.appendChild(closeButton2);
+
     // Append the dialog to the DOM.
     dialog.appendChild(inner);
     document.body.appendChild(dialog);
