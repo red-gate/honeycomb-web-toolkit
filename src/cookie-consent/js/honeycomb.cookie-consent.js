@@ -10,6 +10,13 @@ import { close as closeDialog, open as openDialog } from './honeycomb.cookie-con
 let consentCookieName = 'hccookieconsent';
 
 /**
+ * The domain used when setting the cookie.
+ *
+ * @var {String} consentCookieDomain The domain
+ */
+let consentCookieDomain = window.location.hostname;
+
+/**
  * The groups that can be consented to.
  * 
  * @var {Array} consentGroups The groups
@@ -52,6 +59,16 @@ let links = [];
  */
 const setConsentCookieName = name => {
     consentCookieName = name;
+};
+
+/**
+ * Set the domain used for the cookie.
+ *
+ * @param {String} domain The domain to use for the cookie
+ * @returns {Void}
+ */
+const setConsentCookieDomain = domain => {
+    consentCookieDomain = domain;
 };
 
 /**
@@ -103,6 +120,16 @@ const setLinks = ( l = null ) => {
  */
 const getConsentCookieName = () => {
     return consentCookieName;
+};
+
+/**
+ * Get the domain to use when setting the consent cookie.
+ *
+ * @returns {String} The domain to use for the consent cookie
+ */
+const getConsentCookieDomain = () => {
+    window.console.log(`Getting cookie domain: ${consentCookieDomain}`);
+    return consentCookieDomain;
 };
 
 /**
@@ -215,7 +242,7 @@ const setHasConsent = ( groups = null ) => {
 
     cookie.set(getConsentCookieName(), JSON.stringify(groups), {
         'max-age': 2678400,
-        domain: '.red-gate.com',
+        domain: getConsentCookieDomain(),
     });
 };
 
@@ -226,7 +253,7 @@ const setHasConsent = ( groups = null ) => {
  */
 const setNoConsent = () => {
     cookie.set(getConsentCookieName(), 0, {
-        domain: '.red-gate.com',
+        domain: getConsentCookieDomain(),
     });
 };
 
@@ -393,6 +420,11 @@ const init = ( settings = {} ) => {
     // Update the cookie consent name if set in settings.
     if ( settings.consentCookieName ) {
         setConsentCookieName(settings.consentCookieName);
+    }
+
+    // Update the cookie consent domain if set in settings.
+    if ( settings.cookie?.domain ) {
+        setConsentCookieDomain(settings.cookie.domain);
     }
 
     // Set the consent groups if set in settings.
