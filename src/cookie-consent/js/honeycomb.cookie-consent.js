@@ -128,7 +128,6 @@ const getConsentCookieName = () => {
  * @returns {String} The domain to use for the consent cookie
  */
 const getConsentCookieDomain = () => {
-    window.console.log(`Getting cookie domain: ${consentCookieDomain}`);
     return consentCookieDomain;
 };
 
