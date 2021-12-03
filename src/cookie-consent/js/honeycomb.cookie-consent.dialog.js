@@ -145,6 +145,9 @@ const open = ( consentGroups = null, setHasConsent = null ) => {
     // Append the dialog to the DOM.
     dialog.appendChild(inner);
     document.body.appendChild(dialog);
+
+    // Set focus to the dialog box.
+    dialog.focus();
 };
 
 /**
