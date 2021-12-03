@@ -28,6 +28,13 @@ let consentGroups = [
 let bannerHeading = 'Cookies';
 
 /**
+ * The intro content used on the banner.
+ *
+ * @var {String} bannerIntro The intro content
+ */
+let bannerIntro = '';
+
+/**
  * The links to display in the banner.
  * 
  * @var {Array} links An array of link objects
@@ -66,6 +73,16 @@ const setBannerHeading = heading => {
 };
 
 /**
+ * Set the intro content to use on the banner.
+ *
+ * @param {String} intro The intro content
+ * @returns {Void}
+ */
+const setBannerIntro = intro => {
+    bannerIntro = intro;
+};
+
+/**
  * Set links to display on the banner.
  * 
  * @param {Array|Null} links The links to display on the banner
@@ -101,6 +118,15 @@ const getConsentGroups = () => {
  */
 const getBannerHeading = () => {
     return bannerHeading;
+};
+
+/**
+ * Get the intro content to use on the banner.
+ *
+ * @returns {String} The intro to use on the banner
+ */
+const getBannerIntro = () => {
+    return bannerIntro;
 };
 
 /**
@@ -241,14 +267,14 @@ const displayNotification = () => {
     heading.className = 'beta spaced-bottom--none';
     heading.innerHTML = getBannerHeading();
 
-    // Description.
-    const description = document.createElement('p');
-    description.className = 'gamma text--normal spaced-bottom--none';
-    description.innerHTML = 'We use some essential cookies to make this website work.';
-
-    const description2 = document.createElement('p');
-    description2.className = 'gamma text--normal spaced-bottom--tight';
-    description2.innerHTML = 'We\'d like to set additional ones to see how you use our site and for advertising.';
+    // Intro.
+    let introContainer = null;
+    const introContent = getBannerIntro();
+    if (introContent && introContent !== '') {
+        introContainer = document.createElement('div');
+        introContainer.className = 'gamma text--normal spaced-bottom--tight';
+        introContainer.innerHTML = introContent;
+    }
 
     // List.
     const list = document.createElement('ul');
@@ -301,8 +327,7 @@ const displayNotification = () => {
 
     // Add all the nodes to each other.
     column.appendChild(heading);
-    column.appendChild(description);
-    column.appendChild(description2);
+    introContainer && column.appendChild(introContainer);
     column.appendChild(list);
     innerContainer.appendChild(column);
     container.appendChild(innerContainer);
@@ -375,6 +400,11 @@ const init = ( settings = {} ) => {
     // Set the banner heading if set in settings.
     if ( settings.banner?.heading) {
         setBannerHeading(settings.banner.heading);
+    }
+
+    // Set the banner intro content if set in settings.
+    if ( settings.banner?.intro) {
+        setBannerIntro(settings.banner.intro);
     }
 
     // Set the links to display in the banner if set in settings.
