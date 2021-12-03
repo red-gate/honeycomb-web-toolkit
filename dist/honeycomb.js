@@ -1906,7 +1906,9 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
     "default": obj
   };
-} // Google analytics.
+}
+/* import-sort-ignore */
+// Google analytics.
 
 
 _honeycombAnalytics["default"].setAccountId('UA-XXX');

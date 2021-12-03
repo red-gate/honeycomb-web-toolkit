@@ -1,0 +1,33 @@
+.cookie-consent {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.55) !important;
+    height: 100%;
+
+    .band__inner-container {
+        margin-bottom: 0;
+        background-color: color('grey', 1);
+        max-width: 100%;
+        padding: 10%;
+    }
+
+    a {
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: $hc-link-color;
+        font-weight: 500;
+    }
+
+    @include responsive('small') {
+        p {
+            @include font-size(16px);
+        }
+
+        li {
+            display: block;
+        }
+    }
+}

@@ -1,3 +1,5 @@
+/* import-sort-ignore */
+
 // Google analytics.
 import googleAnalytics from './analytics/js/honeycomb.analytics.google';
 googleAnalytics.setAccountId('UA-XXX');
