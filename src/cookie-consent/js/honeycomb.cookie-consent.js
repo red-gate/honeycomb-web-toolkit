@@ -318,7 +318,6 @@ const displayNotification = () => {
     acceptButton.addEventListener('click', () => {
         setHasConsent();
         hideNotification();
-        trackButtonClick(1);
     });
     acceptButtonListItem.appendChild(acceptButton);
     list.appendChild(acceptButtonListItem);
@@ -374,18 +373,6 @@ const hideNotification = () => {
     if (notification) {
         notification.parentElement.removeChild(notification);
     }
-};
-
-/**
- * Track the button click.
- *
- * @param {Integer} consent Whether consent has been given (1 for yes, 0 for no)
- * @return {Void}
- */
-const trackButtonClick = consent => {
-    const request = new XMLHttpRequest();
-    request.open('GET', `/wp-admin/admin-ajax.php?action=cookie_consent_track&consent=${consent}`);
-    request.send();
 };
 
 /**
