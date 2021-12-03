@@ -1,9 +1,5 @@
 /* import-sort-ignore */
 
-// Cookie consent.
-import cookieConsent from './cookie-consent/js/honeycomb.cookie-consent';
-cookieConsent.init();
-
 // Google analytics.
 import googleAnalytics from './analytics/js/honeycomb.analytics.google';
 googleAnalytics.setAccountId('UA-XXX');
