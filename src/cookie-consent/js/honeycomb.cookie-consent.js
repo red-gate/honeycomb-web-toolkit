@@ -21,6 +21,13 @@ let consentGroups = [
 ];
 
 /**
+ * The heading used on the banner.
+ *
+ * @var {String} bannerHeading The heading
+ */
+let bannerHeading = 'Cookies';
+
+/**
  * The links to display in the banner.
  * 
  * @var {Array} links An array of link objects
@@ -46,6 +53,16 @@ const setConsentGroups = ( groups = null ) => {
     if (Array.isArray(groups)) {
         consentGroups = groups;
     }
+};
+
+/**
+ * Set the heading to use on the banner.
+ *
+ * @param {String} heading The heading to use on the banner
+ * @returns {Void}
+ */
+const setBannerHeading = heading => {
+    bannerHeading = heading;
 };
 
 /**
@@ -75,6 +92,15 @@ const getConsentCookieName = () => {
  */
 const getConsentGroups = () => {
     return consentGroups;
+};
+
+/**
+ * Get the heading to use on the banner.
+ *
+ * @returns {String} The heading to use on the banner
+ */
+const getBannerHeading = () => {
+    return bannerHeading;
 };
 
 /**
@@ -213,7 +239,7 @@ const displayNotification = () => {
     // Heading.
     const heading = document.createElement('h1');
     heading.className = 'beta spaced-bottom--none';
-    heading.innerHTML = 'Cookies on red-gate.com';
+    heading.innerHTML = getBannerHeading();
 
     // Description.
     const description = document.createElement('p');
@@ -344,6 +370,11 @@ const init = ( settings = {} ) => {
     // Set the consent groups if set in settings.
     if ( settings.consentGroups ) {
         setConsentGroups(settings.consentGroups);
+    }
+
+    // Set the banner heading if set in settings.
+    if ( settings.banner?.heading) {
+        setBannerHeading(settings.banner.heading);
     }
 
     // Set the links to display in the banner if set in settings.
