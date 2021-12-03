@@ -418,8 +418,8 @@ const isCrawler = () => {
 const init = ( settings = {} ) => {
 
     // Update the cookie consent name if set in settings.
-    if ( settings.consentCookieName ) {
-        setConsentCookieName(settings.consentCookieName);
+    if ( settings.cookie?.name ) {
+        setConsentCookieName(settings.cookie.name);
     }
 
     // Update the cookie consent domain if set in settings.
