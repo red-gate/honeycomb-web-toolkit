@@ -89,6 +89,9 @@ let initAccount = (accountId, crossDomainAccountId) => {
     if ( optimizeContainerId ) {
         window.ga('require', optimizeContainerId);
     }
+
+    // Anonymise IP addresses by default.
+    window.ga( 'set', 'anonymizeIp', true );
 };
 
 // Track a page view on all trackers.
