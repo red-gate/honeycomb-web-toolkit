@@ -397,6 +397,36 @@ const isCrawler = () => {
 };
 
 /**
+ * Update the consent value for a group.
+ * 
+ * If the group doesn't exist, it will create it.
+ * 
+ * @param {String} group The consent group to update the value of
+ * @param {Number} value The value to set the consent group to
+ * @returns {Boolean} True if the consent was updated, false it not
+ */
+const updateConsent = ( group = '', value = 0 ) => {
+    
+    // Get groups from cookie with their values (defaulting to 0 if no cookie found).
+    const groups = 
+        getConsentGroupsFromCookie() || 
+        Object.fromEntries(
+            getConsentGroups().map(
+                group => [group, 0]
+            )
+        );
+
+    // If the group exists, and the value is the same, then exit early.
+    if ((group in groups) && (groups[group] === value)) return false;
+
+    // Update the group's value and update the consent cookie.
+    groups[group] = value;
+    setHasConsent(groups);
+
+    return true;
+};
+
+/**
  * Initialise the module and its functionality.
  * 
  * @param {Object} settings An object containing settings to override the defaults. * 
@@ -451,4 +481,5 @@ const init = ( settings = {} ) => {
 export default {
     init,
     hasConsent,
+    updateConsent,
 };
