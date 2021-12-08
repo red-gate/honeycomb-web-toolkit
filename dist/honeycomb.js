@@ -1557,9 +1557,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.defaults = exports["default"] = void 0;
 
-var _honeycombDocument = _interopRequireDefault(require("../../document/js/honeycomb.document.load-script"));
-
 var _honeycombAnalytics = require("../../analytics/js/honeycomb.analytics.google");
+
+var _honeycombDocument = _interopRequireDefault(require("../../document/js/honeycomb.document.load-script"));
 
 var _this = void 0;
 
@@ -1638,7 +1638,10 @@ var defaults = {
     callback: null,
     message: null
   },
-  followUpUrl: null
+  followUpUrl: null,
+  submit: {
+    callback: null
+  }
 };
 /**
  * Create a custom config object by merging the default 
@@ -1675,6 +1678,26 @@ var removeDefaultStyles = function removeDefaultStyles() {
     var formElement = formElements[_i];
     formElement.removeAttribute('style');
   }
+};
+/**
+ * Check the config to find out if the form has custom submit functionality or
+ * not.
+ *
+ * @param {Object} config The config object, to check for custom submit against.
+ * @returns {Boolean} Whether the form has custom submit functionality or not.
+ */
+
+
+var hasCustomSubmit = function hasCustomSubmit(config) {
+  var _config$submit, _config$submit2;
+
+  var customSubmit = false;
+
+  if ((_config$submit = config.submit) !== null && _config$submit !== void 0 && _config$submit.callback && typeof ((_config$submit2 = config.submit) === null || _config$submit2 === void 0 ? void 0 : _config$submit2.callback) === 'function') {
+    customSubmit = true;
+  }
+
+  return customSubmit;
 };
 /**
  * Check the config to find out if the form has custom 
@@ -1750,6 +1773,16 @@ var create = function create(c) {
 
       if (typeof config.callback === 'function') {
         config.callback.call(_this, marketoForm);
+      }
+
+      if (hasCustomSubmit(config)) {
+        marketoForm.onSubmit(function () {
+          var _config$submit3;
+
+          if (typeof ((_config$submit3 = config.submit) === null || _config$submit3 === void 0 ? void 0 : _config$submit3.callback) === 'function') {
+            config.submit.callback.call(_this);
+          }
+        });
       }
 
       if (hasCustomSuccess(config)) {
