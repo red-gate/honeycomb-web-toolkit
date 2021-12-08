@@ -1,5 +1,5 @@
-import loadScript from '../../document/js/honeycomb.document.load-script';
 import { trackEvent } from '../../analytics/js/honeycomb.analytics.google';
+import loadScript from '../../document/js/honeycomb.document.load-script';
 
 /**
  * The default form settings.
@@ -17,6 +17,9 @@ export const defaults = {
         message: null,
     },
     followUpUrl: null,
+    submit: {
+        callback: null,
+    },
 };
 
 /**
@@ -57,6 +60,23 @@ const removeDefaultStyles = () => {
         let formElement = formElements[i];
         formElement.removeAttribute('style');
     }
+};
+
+/**
+ * Check the config to find out if the form has custom submit functionality or
+ * not.
+ *
+ * @param {Object} config The config object, to check for custom submit against.
+ * @returns {Boolean} Whether the form has custom submit functionality or not.
+ */
+const hasCustomSubmit = config => {
+    let customSubmit = false;
+
+    if (config.submit?.callback && (typeof config.submit?.callback === 'function')) {
+        customSubmit = true;
+    }
+
+    return customSubmit;
 };
 
 /**
@@ -140,6 +160,14 @@ const create = c => {
 
                 if (typeof config.callback === 'function') {
                     config.callback.call(this, marketoForm);
+                }
+
+                if (hasCustomSubmit(config)) {
+                    marketoForm.onSubmit(() => {
+                        if (typeof config.submit?.callback === 'function') {
+                            config.submit.callback.call(this);
+                        }
+                    });
                 }
 
                 if (hasCustomSuccess(config)) {
