@@ -144,6 +144,10 @@
         &:before {
             @include font-size($hc-navigation-dropdown-arrow-font-size);
         }
+
+        svg {
+            width: $hc-navigation-dropdown-arrow-width;
+        }
     }
 
     .dropdown > ul {
@@ -297,6 +301,10 @@
 
                 &:before {
                     @include font-size($hc-navigation-mobile-menu-arrow-icon-font-size);
+                }
+
+                svg {
+                    width: $hc-dropdown-arrow-width;
                 }
             }
         }
