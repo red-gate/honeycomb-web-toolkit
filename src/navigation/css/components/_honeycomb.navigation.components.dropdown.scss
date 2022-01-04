@@ -49,22 +49,23 @@
         width: 16px;
         height: 18px;
 
-        &:before {
-            @include font-size(20px);
+        svg {
             display: block;
+            width: $hc-dropdown-arrow-width;
+            height: $hc-dropdown-arrow-height;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: "Redgate";
+            transition: 0.25s;
         }
     }
 
-    &.open .arrow:before {
-        content: "\e608";
+    &.open .arrow svg {
+        transform: translate(-50%, -50%) rotateX(180deg);
     }
 
-    &.closed .arrow:before {
-        content: "\e605";
+    &.closed .arrow svg {
+        transform: translate(-50%, -50%) rotateX(0deg);
     }
 }
