@@ -1574,14 +1574,9 @@ function ownKeys(object, enumerableOnly) {
 
   if (Object.getOwnPropertySymbols) {
     var symbols = Object.getOwnPropertySymbols(object);
-
-    if (enumerableOnly) {
-      symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-    }
-
-    keys.push.apply(keys, symbols);
+    enumerableOnly && (symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    })), keys.push.apply(keys, symbols);
   }
 
   return keys;
@@ -1589,19 +1584,12 @@ function ownKeys(object, enumerableOnly) {
 
 function _objectSpread(target) {
   for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
+    var source = null != arguments[i] ? arguments[i] : {};
+    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
+      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+    });
   }
 
   return target;
@@ -2254,13 +2242,23 @@ var addArrows = function addArrows() {
     if ($this.hasClass(classNameNoArrow)) return;
 
     if ($this.find('ul').length > 0 && $this.attr('data-arrow-added') !== 'true') {
-      var $a = window.jQuery('<a/>').attr('href', '#toggle').attr('tabindex', '-1') // Remove the dropdown arrow from the tab index, as it just duplicates the original anchor
+      var $a = window.jQuery("<a>".concat(getArrowSvg(), "</a>")).attr('href', '#toggle').attr('tabindex', '-1') // Remove the dropdown arrow from the tab index, as it just duplicates the original anchor
       .addClass('arrow');
       $this.addClass("dropdown ".concat(classNameClosed));
       $this.attr('data-arrow-added', 'true');
       $a.appendTo($this);
     }
   });
+};
+/**
+ * Get the string of SVG to use for the arrow.
+ * 
+ * @returns {String} The string of SVG to use for the arrow
+ */
+
+
+var getArrowSvg = function getArrowSvg() {
+  return '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M5 8.79l1-1c0.181-0.18 0.43-0.291 0.705-0.291s0.524 0.111 0.705 0.291l4.6 4.6 4.6-4.6c0.181-0.18 0.43-0.291 0.705-0.291s0.524 0.111 0.705 0.291l1 1c0.088 0.090 0.143 0.214 0.143 0.35s-0.055 0.26-0.143 0.35l-7 7-7-7c-0.095-0.091-0.153-0.219-0.153-0.36 0-0.131 0.051-0.251 0.134-0.34l-0 0z"></path></svg>';
 }; // check if a specified dropdown is a parent of an event target
 
 
