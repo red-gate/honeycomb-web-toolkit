@@ -2897,7 +2897,12 @@ var scrollOnClick = function scrollOnClick() {
 
       e.preventDefault();
       var hashTop = (_window$jQuery = window.jQuery(hash)) === null || _window$jQuery === void 0 ? void 0 : (_window$jQuery$offset = _window$jQuery.offset()) === null || _window$jQuery$offset === void 0 ? void 0 : _window$jQuery$offset.top;
-      if (!hashTop) return;
+
+      if (!hashTop) {
+        window.console.warn("Honeycomb: Element with ID \"".concat(hash, "\" not found, so can't scroll to it."));
+        return;
+      }
+
       window.jQuery('html, body').animate({
         scrollTop: window.jQuery(hash).offset().top + offset
       }, 500, function () {
