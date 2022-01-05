@@ -1768,7 +1768,7 @@ var create = function create(c) {
           var _config$submit3;
 
           if (typeof ((_config$submit3 = config.submit) === null || _config$submit3 === void 0 ? void 0 : _config$submit3.callback) === 'function') {
-            config.submit.callback.call(_this);
+            config.submit.callback.call(_this, marketoForm);
           }
         });
       }

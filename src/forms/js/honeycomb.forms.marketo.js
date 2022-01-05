@@ -165,7 +165,7 @@ const create = c => {
                 if (hasCustomSubmit(config)) {
                     marketoForm.onSubmit(() => {
                         if (typeof config.submit?.callback === 'function') {
-                            config.submit.callback.call(this);
+                            config.submit.callback.call(this, marketoForm);
                         }
                     });
                 }
