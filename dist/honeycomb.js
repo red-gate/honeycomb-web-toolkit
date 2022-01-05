@@ -2893,7 +2893,11 @@ var scrollOnClick = function scrollOnClick() {
     var hash = isHashOnThisPage(href);
 
     if (hash) {
+      var _window$jQuery, _window$jQuery$offset;
+
       e.preventDefault();
+      var hashTop = (_window$jQuery = window.jQuery(hash)) === null || _window$jQuery === void 0 ? void 0 : (_window$jQuery$offset = _window$jQuery.offset()) === null || _window$jQuery$offset === void 0 ? void 0 : _window$jQuery$offset.top;
+      if (!hashTop) return;
       window.jQuery('html, body').animate({
         scrollTop: window.jQuery(hash).offset().top + offset
       }, 500, function () {

@@ -19,6 +19,8 @@ const scrollOnClick = () => {
 
         if ( hash ) {
             e.preventDefault();
+            const hashTop = window.jQuery( hash )?.offset()?.top;
+            if ( ! hashTop ) return;
             window.jQuery( 'html, body' ).animate({
                 scrollTop: window.jQuery( hash ).offset().top + offset
             }, 500, function() {
