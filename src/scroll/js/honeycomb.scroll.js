@@ -20,7 +20,7 @@ const scrollOnClick = () => {
         if ( hash ) {
             e.preventDefault();
             const hashTop = window.jQuery( hash )?.offset()?.top;
-            if ( ! hashTop ) {
+            if ( typeof hashTop === 'undefined' ) {
                 window.console.warn(`Honeycomb: Element with ID "${hash}" not found, so can't scroll to it.`);
                 return;
             }
