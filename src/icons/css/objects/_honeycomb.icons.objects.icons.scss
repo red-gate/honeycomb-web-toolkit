@@ -1223,7 +1223,8 @@
     }
 }
 
-.icon--sql-toolbelt {
+.icon--sql-toolbelt,
+.icon--sql-toolbelt-essentials {
     @extend %icon;
     &:before, &:after {
         content: "\e925";
