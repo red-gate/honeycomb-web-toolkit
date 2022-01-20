@@ -4,6 +4,22 @@ const init = () => {
     scrollBeforeSticky();
 };
 
+/**
+ * Default to an animation interval of 500ms.
+ * 
+ * If the user has prefers-reduced-motion enabled,
+ * we return 0 so the scrolling is not animated. 
+ */
+const getAnimationTiming = () => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    if ( ! reducedMotion || reducedMotion.matches ) {
+        return 0;
+    } else {
+        return 500;
+    }
+};
+
 const scrollOnClick = () => {
     if (typeof window.jQuery === 'undefined') {
         window.console.warn('Honeycomb: jQuery not found, so scroll functionality won\'t work as expected');
@@ -24,9 +40,10 @@ const scrollOnClick = () => {
                 window.console.warn(`Honeycomb: Element with ID "${hash}" not found, so can't scroll to it.`);
                 return;
             }
+            const timing = getAnimationTiming();
             window.jQuery( 'html, body' ).animate({
                 scrollTop: window.jQuery( hash ).offset().top + offset
-            }, 500, function() {
+            }, timing, function() {
                 window.location.hash = hash;
                 if ( focus ) {
                     window.jQuery( `#${focus}` ).focus();
