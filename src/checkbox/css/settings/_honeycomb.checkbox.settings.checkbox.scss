@@ -1,10 +1,10 @@
 @use 'sass:math';
 
-$hc-checkbox-checked-color: color('green');
-$hc-checkbox-unchecked-color: color('grey', 5);
-$hc-checkbox-background-color: inherit;
-$hc-checkbox-height: 30px;
-$hc-checkbox-height-small: math.div($hc-checkbox-height, 3) * 2;
-$hc-checkbox-font-color: inherit;
-$hc-checkbox-duration: .4s;
+$hc-checkbox-checked-color: color('green') !default;
+$hc-checkbox-unchecked-color: color('grey', 5) !default;
+$hc-checkbox-background-color: inherit !default;
+$hc-checkbox-height: 30px !default;
+$hc-checkbox-height-small: math.div($hc-checkbox-height, 3) * 2 !default;
+$hc-checkbox-font-color: inherit !default;
+$hc-checkbox-duration: .4s !default;
 $hc-checkbox-loading-icon-dir: "base/images/" !default;
