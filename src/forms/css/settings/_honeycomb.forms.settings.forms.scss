@@ -26,7 +26,7 @@ $hc-forms-checkbox-margin: 0 !default;
 $hc-forms-checkbox-border-width: 2px !default;
 $hc-forms-checkbox-border-colour: color('grey', 6) !default;
 $hc-forms-checkbox-border-radius: 2px !default;
-$hc-forms-checkbox-vertical-alignment: text-top;
+$hc-forms-checkbox-vertical-alignment: text-top !default;
 @if $hc-mode == app {
     $hc-forms-checkbox-vertical-alignment: middle;
 }

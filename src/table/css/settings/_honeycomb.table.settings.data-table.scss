@@ -2,7 +2,7 @@
 $hc-data-table-font-size: 14px !default;
 
 // Vertical alignment.
-$hc-data-table-cell-vertical-alignment: middle;
+$hc-data-table-cell-vertical-alignment: middle !default;
 
 // Padding values.
 $hc-data-table-cell-min-height: 36px !default;
@@ -66,6 +66,6 @@ $hc-data-table-sortable-sorted-icon-colour: $hc-data-table-sortable-icon-hover-c
 $hc-data-table-collapsable-header-hover-background-colour: $hc-data-table-hover-background-colour !default;
 $hc-data-table-collapsable-header-hover-colour: color('blue', 6) !default;
 $hc-data-table-collapsable-header-padding-top-ratio: 0.25 !default;
-$hc-data-table-collapsable-header-padding-bottom-ratio: $hc-data-table-collapsable-header-padding-top-ratio;
+$hc-data-table-collapsable-header-padding-bottom-ratio: $hc-data-table-collapsable-header-padding-top-ratio !default;
 $hc-data-table-collapsable-header-icon-margin-ratio: 0.25 !default;
 $hc-data-table-collapsable-header-icon-font-size: 18px !default;

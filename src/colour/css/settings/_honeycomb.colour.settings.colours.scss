@@ -77,17 +77,17 @@ $hc-site-colors: (
     "transparent": (
         "base": transparent
     )
-);
+) !default;
 
 // Chain colours onto useage variables
-$hc-default-bg-color: map-get(map-get($hc-site-colors, "white"), "base");
-$hc-default-text-color: map-get(map-get($hc-site-colors, "grey"), 7);
-$hc-default-border-color: map-get(map-get($hc-site-colors, "grey"), 3);
+$hc-default-bg-color: map-get(map-get($hc-site-colors, "white"), "base") !default;
+$hc-default-text-color: map-get(map-get($hc-site-colors, "grey"), 7) !default;
+$hc-default-border-color: map-get(map-get($hc-site-colors, "grey"), 3) !default;
 
-$hc-link-color: map-get(map-get($hc-site-colors, "blue"), 6);
-$hc-link-border-color: map-get(map-get($hc-site-colors, "blue"), "base");
-$hc-link-hover-color: map-get(map-get($hc-site-colors, "blue"), 8);
-$hc-link-hover-background-color: map-get(map-get($hc-site-colors, "grey"), 1);
+$hc-link-color: map-get(map-get($hc-site-colors, "blue"), 6) !default;
+$hc-link-border-color: map-get(map-get($hc-site-colors, "blue"), "base") !default;
+$hc-link-hover-color: map-get(map-get($hc-site-colors, "blue"), 8) !default;
+$hc-link-hover-background-color: map-get(map-get($hc-site-colors, "grey"), 1) !default;
 
 $hc-heading-size-1-color: map-get(map-get($hc-site-colors, "grey"), 9) !default;
 $hc-heading-size-2-color: $hc-heading-size-1-color !default;
