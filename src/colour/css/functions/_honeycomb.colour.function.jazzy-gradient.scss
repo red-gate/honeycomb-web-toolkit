@@ -1,0 +1,9 @@
+@function jazzyGradient( $direction: 'right' ) {
+    @return linear-gradient(
+        to #{$direction}, 
+        color('red', 'jazzy'), 
+        color('orange', 'jazzy'), 
+        color('green', 'jazzy'), 
+        color('blue', 'jazzy')
+    );
+}

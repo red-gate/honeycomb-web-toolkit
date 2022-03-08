@@ -1,0 +1,90 @@
+.jazzy-underline {
+    border-bottom: none;
+
+    &:after {
+        content: "";
+        display: block;
+        width: 20%;
+        min-width: 100px;
+        height: $hc-jazzy-thickness;
+        margin-top: 4px;
+        border-radius: 10px;
+        background: jazzyGradient();
+    }
+}
+
+.text--center.jazzy-underline:after,
+.text--center .jazzy-underline:after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.jazzy-top-border {
+    position: relative;
+    
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: $hc-jazzy-thickness;
+        background: jazzyGradient();
+    }
+}
+
+.jazzy-bottom-border {
+    position: relative;
+    
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: $hc-jazzy-thickness;
+        background: jazzyGradient();
+    }
+}
+
+.jazzy-left-border {
+    position: relative;
+    
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: $hc-jazzy-thickness;
+        height: 100%;
+        background: jazzyGradient('bottom');
+    }
+}
+
+.jazzy-right-border {
+    position: relative;
+    
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: $hc-jazzy-thickness;
+        height: 100%;
+        background: jazzyGradient('bottom');
+    }
+}
+
+.jazzy-text {
+    background: jazzyGradient();
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.background-color--jazzy {
+    background: jazzyGradient();
+}

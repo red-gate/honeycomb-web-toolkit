@@ -256,3 +256,50 @@ p:last-child .button:last-child {
         }
     }
 }
+
+.button--jazzy,
+%button--jazzy {
+    border: none;
+    background-color: transparent !important;
+    position: relative;
+    left: $hc-button-jazzy-thickness;
+    top: $hc-button-jazzy-thickness;
+    margin-bottom: $hc-button-jazzy-thickness;
+    padding: 6px 22px !important;
+    z-index: 2;
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: -#{$hc-button-jazzy-thickness};
+        left: -#{$hc-button-jazzy-thickness};
+        width: calc(100% + ($hc-button-jazzy-thickness*2));
+        height: calc(100% + ($hc-button-jazzy-thickness*2));
+        border-radius: $hc-button-jazzy-radius;
+        background: jazzyGradient();
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: color('white');
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: $hc-button-jazzy-radius;
+    }
+
+    &:hover {
+        color: color('grey', 1) !important;
+        background-color: transparent !important;
+
+        &:after {
+            background-color: color('grey', 9);
+        }
+    }
+}
