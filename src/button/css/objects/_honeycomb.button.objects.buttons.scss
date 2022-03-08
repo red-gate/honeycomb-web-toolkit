@@ -267,6 +267,7 @@ p:last-child .button:last-child {
     margin-bottom: $hc-button-jazzy-thickness;
     padding: 6px 22px !important;
     z-index: 2;
+    transition: none;
 
     &:before {
         content: "";
@@ -300,6 +301,25 @@ p:last-child .button:last-child {
 
         &:after {
             background-color: color('grey', 9);
+        }
+    }
+}
+
+.scheme--black {
+    .button--jazzy,
+    %button--jazzy {
+        color: color('grey', 1) !important;
+
+        &:after {
+            background-color: color('grey', 9);
+        }
+
+        &:hover {
+            color: color('grey', 9) !important;
+
+            &:after {
+                background-color: color('grey', 1);
+            }
         }
     }
 }
