@@ -1238,7 +1238,8 @@
     }
 }
 
-.icon--flyway {
+.icon--flyway,
+.icon--flyway-desktop {
     @extend %icon;
     &:before, &:after {
         content: "\e968";
