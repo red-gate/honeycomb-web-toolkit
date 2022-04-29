@@ -2878,6 +2878,23 @@ var init = function init() {
   scrollOnClick();
   scrollBeforeSticky();
 };
+/**
+ * Default to an animation interval of 500ms.
+ * 
+ * If the user has prefers-reduced-motion enabled,
+ * we return 0 so the scrolling is not animated. 
+ */
+
+
+var getAnimationTiming = function getAnimationTiming() {
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (!reducedMotion || reducedMotion.matches) {
+    return 0;
+  } else {
+    return 500;
+  }
+};
 
 var scrollOnClick = function scrollOnClick() {
   if (typeof window.jQuery === 'undefined') {
@@ -2903,9 +2920,10 @@ var scrollOnClick = function scrollOnClick() {
         return;
       }
 
+      var timing = getAnimationTiming();
       window.jQuery('html, body').animate({
         scrollTop: window.jQuery(hash).offset().top + offset
-      }, 500, function () {
+      }, timing, function () {
         window.location.hash = hash;
 
         if (focus) {
