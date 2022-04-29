@@ -326,6 +326,13 @@
     }
 }
 
+.icon--console {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e977";
+    }
+}
+
 .icon--copydoc {
     @extend %icon;
     &:before, &:after {
