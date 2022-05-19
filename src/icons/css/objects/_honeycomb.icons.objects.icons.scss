@@ -473,6 +473,20 @@
     }
 }
 
+.icon--fast-forward {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e97a";
+    }
+}
+
+.icon--fast-rewind {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e97b";
+    }
+}
+
 .icon--filter {
     @extend %icon;
     &:before, &:after {
@@ -827,6 +841,20 @@
     @extend %icon;
     &:before, &:after {
         content: "\e902";
+    }
+}
+
+.icon--skip-back {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e978";
+    }
+}
+
+.icon--skip-forward {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e979";
     }
 }
 
