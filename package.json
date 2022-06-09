@@ -42,7 +42,7 @@
     "postcss": "8.4.14",
     "postcss-cli": "9.1.0",
     "request": "2.88.2",
-    "sass": "1.52.2",
+    "sass": "1.52.3",
     "uglify-js": "3.16.0",
     "zip-a-folder": "1.1.3"
   },
