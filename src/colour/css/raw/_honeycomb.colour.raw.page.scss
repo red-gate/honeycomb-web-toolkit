@@ -2,7 +2,7 @@
     #PAGE
 \*------------------------------------*/
 
-html {
+html, :root, .hc-root {
   background-color: $hc-default-bg-color;
   color: $hc-default-text-color;
   border-color: $hc-default-border-color;

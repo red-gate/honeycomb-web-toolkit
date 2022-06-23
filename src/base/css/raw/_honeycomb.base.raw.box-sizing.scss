@@ -6,7 +6,7 @@
 /**
  * Sets box-sizing globally.
  */
-html {
+html, :root, .hc-root {
   box-sizing: border-box;
 }
 
