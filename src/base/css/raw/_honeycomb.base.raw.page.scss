@@ -4,7 +4,7 @@
     #PAGE
 \*------------------------------------*/
 
-html {
+html, :root, .hc-root {
   font-size: math.div($hc-font-size, 16px)*100%;
   -webkit-font-smoothing: antialiased;
 }
