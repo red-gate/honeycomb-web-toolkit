@@ -40,7 +40,7 @@
     "handlebars": "4.7.7",
     "jquery": "3.6.0",
     "postcss": "8.4.14",
-    "postcss-cli": "9.1.0",
+    "postcss-cli": "10.0.0",
     "request": "2.88.2",
     "sass": "1.53.0",
     "uglify-js": "3.16.1",
