@@ -1,4 +1,4 @@
-import { trackEvent } from '../../analytics/js/honeycomb.analytics.google';
+import googleAnalytics from '../../analytics/js/honeycomb.analytics.google';
 import loadScript from '../../document/js/honeycomb.document.load-script';
 
 /**
@@ -114,9 +114,9 @@ const hasCustomSuccess = config => {
  * Sends an event to Google Analytics
  */
 const handleError = () => {
-    if ( typeof trackEvent !== 'function' ) return false;
+    if ( typeof googleAnalytics.trackEvent !== 'function' ) return false;
 
-    trackEvent( 'Marketo', 'Marketo forms javascript failed to load', window.location.path );
+    googleAnalytics.trackEvent( 'Marketo', 'Marketo forms javascript failed to load', window.location.path );
 };
 
 /*

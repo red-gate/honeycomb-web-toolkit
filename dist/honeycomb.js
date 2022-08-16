@@ -1557,7 +1557,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.defaults = exports["default"] = void 0;
 
-var _honeycombAnalytics = require("../../analytics/js/honeycomb.analytics.google");
+var _honeycombAnalytics = _interopRequireDefault(require("../../analytics/js/honeycomb.analytics.google"));
 
 var _honeycombDocument = _interopRequireDefault(require("../../document/js/honeycomb.document.load-script"));
 
@@ -1723,8 +1723,9 @@ var hasCustomSuccess = function hasCustomSuccess(config) {
 
 
 var handleError = function handleError() {
-  if (typeof _honeycombAnalytics.trackEvent !== 'function') return false;
-  (0, _honeycombAnalytics.trackEvent)('Marketo', 'Marketo forms javascript failed to load', window.location.path);
+  if (typeof _honeycombAnalytics["default"].trackEvent !== 'function') return false;
+
+  _honeycombAnalytics["default"].trackEvent('Marketo', 'Marketo forms javascript failed to load', window.location.path);
 };
 /*
  * Format checkboxes so that the label is alongside the input.
