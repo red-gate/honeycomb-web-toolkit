@@ -1557,7 +1557,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.defaults = exports["default"] = void 0;
 
-var _honeycombAnalytics = require("../../analytics/js/honeycomb.analytics.google");
+var _honeycombAnalytics = _interopRequireDefault(require("../../analytics/js/honeycomb.analytics.google"));
 
 var _honeycombDocument = _interopRequireDefault(require("../../document/js/honeycomb.document.load-script"));
 
@@ -1629,7 +1629,8 @@ var defaults = {
   followUpUrl: null,
   submit: {
     callback: null
-  }
+  },
+  customValidation: true
 };
 /**
  * Create a custom config object by merging the default 
@@ -1723,8 +1724,9 @@ var hasCustomSuccess = function hasCustomSuccess(config) {
 
 
 var handleError = function handleError() {
-  if (typeof _honeycombAnalytics.trackEvent !== 'function') return false;
-  (0, _honeycombAnalytics.trackEvent)('Marketo', 'Marketo forms javascript failed to load', window.location.path);
+  if (typeof _honeycombAnalytics["default"].trackEvent !== 'function') return false;
+
+  _honeycombAnalytics["default"].trackEvent('Marketo', 'Marketo forms javascript failed to load', window.location.path);
 };
 /*
  * Format checkboxes so that the label is alongside the input.
@@ -1800,51 +1802,53 @@ var create = function create(c) {
         });
       }
 
-      marketoForm.onValidate(function (successful) {
-        if (!successful) {
-          marketoForm.submittable(false);
-        } else {
-          // Do some custom validation.
-          // Get the fields and their values from the form.
-          var fields = marketoForm.vals(); // Custom object for storing info about the fail.
-
-          var fail = {
-            isFail: false,
-            message: '',
-            element: null
-          }; // Email validation.
-
-          if (typeof fields.Email !== 'undefined') {
-            // Email regex provided by https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/using_regular_expressions_to_validate_email_addresses.htm.
-            // Check that the format is acceptable to Salesforce (only valid salesforce characters, single @, at least one . character in domain).
-            var emailRegex = RegExp('^[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$');
-
-            if (emailRegex.test(fields.Email.toLowerCase()) === false) {
-              fail.isFail = true;
-              fail.message = 'Please enter a valid email address.';
-              fail.element = marketoForm.getFormElem().find('input[name="Email"]');
-            }
-          } // If form validation fails.
-
-
-          if (fail.isFail) {
-            // Stop the form from being submittable.
-            marketoForm.submittable(false); // Show an error message against the invalid field.
-
-            marketoForm.showErrorMessage(fail.message, fail.element); //Scroll to the highest erroring field.
-
-            var invalidSection = fail.element.get(0).previousSibling;
-            invalidSection.scrollIntoView({
-              block: 'center'
-            }); // Display the field as invalid using the Marketo class.
-
-            fail.element.get(0).classList.add('mktoInvalid');
+      if (config.customValidation) {
+        marketoForm.onValidate(function (successful) {
+          if (!successful) {
+            marketoForm.submittable(false);
           } else {
-            // All is good, continue as normal.
-            marketoForm.submittable(true);
+            // Do some custom validation.
+            // Get the fields and their values from the form.
+            var fields = marketoForm.vals(); // Custom object for storing info about the fail.
+
+            var fail = {
+              isFail: false,
+              message: '',
+              element: null
+            }; // Email validation.
+
+            if (typeof fields.Email !== 'undefined') {
+              // Email regex provided by https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/using_regular_expressions_to_validate_email_addresses.htm.
+              // Check that the format is acceptable to Salesforce (only valid salesforce characters, single @, at least one . character in domain).
+              var emailRegex = RegExp('^[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$');
+
+              if (emailRegex.test(fields.Email.toLowerCase()) === false) {
+                fail.isFail = true;
+                fail.message = 'Please enter a valid email address.';
+                fail.element = marketoForm.getFormElem().find('input[name="Email"]');
+              }
+            } // If form validation fails.
+
+
+            if (fail.isFail) {
+              // Stop the form from being submittable.
+              marketoForm.submittable(false); // Show an error message against the invalid field.
+
+              marketoForm.showErrorMessage(fail.message, fail.element); //Scroll to the highest erroring field.
+
+              var invalidSection = fail.element.get(0).previousSibling;
+              invalidSection.scrollIntoView({
+                block: 'center'
+              }); // Display the field as invalid using the Marketo class.
+
+              fail.element.get(0).classList.add('mktoInvalid');
+            } else {
+              // All is good, continue as normal.
+              marketoForm.submittable(true);
+            }
           }
-        }
-      });
+        });
+      }
     });
   }, {}, handleError);
 };
