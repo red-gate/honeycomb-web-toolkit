@@ -228,7 +228,9 @@
 }
 
 .icon--flyway,
-.icon--flyway-desktop {
+.icon--flyway-desktop,
+.icon--flyway-teams,
+.icon--flyway-enterprise {
     @extend %icon;
     &:before, &:after {
         content: "\e968";

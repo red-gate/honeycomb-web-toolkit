@@ -1,6 +1,6 @@
 {
   "name": "honeycomb-web-toolkit",
-  "version": "13.0.2",
+  "version": "13.1.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/red-gate/honeycomb-web-toolkit"
@@ -29,21 +29,21 @@
     "build:confluence": "npm run clean && npm run css:confluence && npm run fonts && npm run images && npm run js:confluence"
   },
   "devDependencies": {
-    "@babel/core": "7.18.10",
-    "@babel/preset-env": "7.18.10",
-    "autoprefixer": "10.4.8",
+    "@babel/core": "7.20.2",
+    "@babel/preset-env": "7.20.2",
+    "autoprefixer": "10.4.12",
     "babelify": "10.0.0",
     "browserify": "17.0.0",
-    "eslint": "8.22.0",
+    "eslint": "8.27.0",
     "fs-extra": "10.1.0",
     "glob": "8.0.3",
     "handlebars": "4.7.7",
-    "jquery": "3.6.0",
+    "jquery": "3.6.1",
     "postcss": "8.4.16",
     "postcss-cli": "10.0.0",
     "request": "2.88.2",
-    "sass": "1.54.4",
-    "uglify-js": "3.16.3",
+    "sass": "1.55.0",
+    "uglify-js": "3.17.2",
     "zip-a-folder": "1.1.5"
   },
   "browserify": {

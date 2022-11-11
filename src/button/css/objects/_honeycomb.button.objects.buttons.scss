@@ -228,6 +228,24 @@ p:last-child .button:last-child {
     }
 }
 
+// Lightest red button
+.button--lightest-red,
+%button--lightest-red {
+    background-color: color('red', 1) !important;
+    border-color: color('red', 1) !important;
+    color: color('grey', 7) !important;
+
+    &:hover {
+        background-color: color('red', 3) !important;
+        border-color: color('red', 3) !important;
+    }
+
+    &:active {
+        background-color: color('red', 5) !important;
+        border-color: color('red', 5) !important;
+    }
+}
+
 // Transparent button
 .button--transparent,
 %button--transparent {
