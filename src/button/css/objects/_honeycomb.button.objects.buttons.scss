@@ -210,9 +210,9 @@ p:last-child .button:last-child {
     }
 }
 
-// Black button
-.button--black,
-%button--black {
+// Grey button
+.button--dark-grey,
+%button--dark-grey {
     background-color: color('grey', 7) !important;
     border-color: color('grey', 7) !important;
     color: color('white') !important;
@@ -225,6 +225,24 @@ p:last-child .button:last-child {
     &:active {
         background-color: color('black') !important;
         border-color: color('black') !important;
+    }
+}
+
+// Black button
+.button--black,
+%button--black {
+    background-color: color('black') !important;
+    border-color: color('black') !important;
+    color: color('white') !important;
+
+    &:hover {
+        background-color: color('grey', 8) !important;
+        border-color: color('grey', 8) !important;
+    }
+
+    &:active {
+        background-color: color('grey', 8) !important;
+        border-color: color('grey', 8) !important;
     }
 }
 
