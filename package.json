@@ -1,6 +1,6 @@
 {
   "name": "honeycomb-web-toolkit",
-  "version": "13.1.5",
+  "version": "14.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/red-gate/honeycomb-web-toolkit"
