@@ -1,0 +1,15 @@
+@mixin buildTextAlign($suffix: "", $important: false) {
+    .text--center#{$suffix} {
+        text-align: center !important;
+    }
+      
+      
+    .text--left#{$suffix} {
+        text-align: left !important;
+    }
+      
+      
+    .text--right#{$suffix} {
+        text-align: right !important;
+    }
+}
