@@ -38,7 +38,7 @@
                 } @else {
                     // Greater specificity for responsive classes, to allow default responsive behaviour to be overridden
                     %#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},
-                    .grid .#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {
+                    .#{$hc-grid-class} .#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {
                         #{$property}: $total;
                     }
                 }
