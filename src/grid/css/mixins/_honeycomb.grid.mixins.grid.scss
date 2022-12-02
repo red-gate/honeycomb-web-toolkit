@@ -29,9 +29,18 @@
                     $total: math.div(100, math.div($grid-col, $i)) * 1%;
                 }
 
-                %#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},
-                .grid .#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {
-                    #{$property}: $total;
+                @if $suffix == '' {
+                    // Lower specificity for standard classes, to let default responsive behaviour take effect 
+                    %#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},
+                    .#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {
+                        #{$property}: $total;
+                    }
+                } @else {
+                    // Greater specificity for responsive classes, to allow default responsive behaviour to be overridden
+                    %#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix},
+                    .grid .#{$hc-grid-class}__col--#{$action}-#{$i}-of-#{$grid-col}#{$suffix} {
+                        #{$property}: $total;
+                    }
                 }
             }
         }
