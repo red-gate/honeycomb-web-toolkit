@@ -67,10 +67,10 @@ let init = () => {
     // follow the link.
     $body.on('click', '.header--primary__menu--mobile .dropdown > a', function(e) {
         if (this.getAttribute('href') !== '#toggle') {
-            e.preventDefault();
 
             let $toggle = window.jQuery(this).siblings('a[href="#toggle"]');
             if ($toggle) {
+                e.preventDefault();
                 $toggle.trigger('click');
             }
         }
