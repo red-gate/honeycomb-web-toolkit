@@ -368,8 +368,15 @@
         }
     }
 
-    .dropdown.open .arrow {
-        color: color('white');
+    .dropdown.open {
+        & > a:first-of-type {
+            color: color('white');
+            border-bottom-color: color('white');
+        }
+
+        .arrow {
+            color: color('white');
+        }
     }
 
     .dropdown > ul {
