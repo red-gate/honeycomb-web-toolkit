@@ -71,7 +71,7 @@ let handle = () => {
     }
     
     let $body = window.jQuery( 'body' );
-    $body.on( 'click', '.js-dropdown a[href="#toggle"]', function( e ) {
+    $body.on( 'click', 'li[data-arrow-added] > a', function( e ) {
         let $this = window.jQuery( this );
         let $dropdown = $this.parent();
 

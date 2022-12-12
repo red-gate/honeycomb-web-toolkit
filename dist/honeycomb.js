@@ -2140,7 +2140,8 @@ var handle = function handle() {
     return;
   }
   var $body = window.jQuery('body');
-  $body.on('click', '.js-dropdown a[href="#toggle"]', function (e) {
+  // $body.on( 'click', '.js-dropdown a[href="#toggle"]', function( e ) {
+  $body.on('click', 'li[data-arrow-added] > a', function (e) {
     var $this = window.jQuery(this);
     var $dropdown = $this.parent();
     e.preventDefault();
