@@ -2210,7 +2210,6 @@ var dropdownNotification = function dropdownNotification() {
   $headers.each(function () {
     var $body = window.jQuery('body');
     $body.on('click', '.header--primary__container .dropdown .arrow', function () {
-      window.console.log('Doing dropdown notification click thingy');
       var $arrow = window.jQuery(this);
       var $header = $arrow.parents('.header--primary');
       if ($arrow.parent('li').hasClass('open')) {
