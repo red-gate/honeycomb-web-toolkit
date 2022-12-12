@@ -66,22 +66,22 @@ const dropdownIsActive = (dropdown, target) => {
 };
 
 let handle = () => {
-    if (typeof window.jQuery === 'undefined') {
-        window.console.warn( 'Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected' );
-        return;
-    }
-    
-    let $body = window.jQuery( 'body' );
-    $body.on( 'click', 'li[data-arrow-added] > a', function( e ) {
-        let $this = window.jQuery( this );
-        let $dropdown = $this.parent();
+    const links = document.querySelectorAll(`li[${attributeArrowAdded}] > a`);
+    links.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
 
-        e.preventDefault();
-        if ( $dropdown.hasClass( classNameOpen ) ) {
-            $dropdown.removeClass( classNameOpen ).addClass( classNameClosed );
-        } else {
-            $dropdown.addClass( classNameOpen ).removeClass( classNameClosed );
-        }
+            const dropdown = e.target.closest('.dropdown');
+            if (!dropdown) return;
+
+            if (dropdown.classList.contains(classNameOpen)) {
+                dropdown.classList.remove(classNameOpen);
+                dropdown.classList.add(classNameClosed);
+            } else {
+                dropdown.classList.add(classNameOpen);
+                dropdown.classList.remove(classNameClosed);
+            }
+        });
     });
 
     // close all open dropdowns when clicking elsewhere in the document
