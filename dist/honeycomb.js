@@ -1440,6 +1440,15 @@ function _interopRequireDefault(obj) {
     "default": obj
   };
 }
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, _typeof(obj);
+}
 function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
   if (Object.getOwnPropertySymbols) {
@@ -1462,6 +1471,7 @@ function _objectSpread(target) {
   return target;
 }
 function _defineProperty(obj, key, value) {
+  key = _toPropertyKey(key);
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -1473,6 +1483,20 @@ function _defineProperty(obj, key, value) {
     obj[key] = value;
   }
   return obj;
+}
+function _toPropertyKey(arg) {
+  var key = _toPrimitive(arg, "string");
+  return _typeof(key) === "symbol" ? key : String(key);
+}
+function _toPrimitive(input, hint) {
+  if (_typeof(input) !== "object" || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (_typeof(res) !== "object") return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
 }
 /**
  * The default form settings.
@@ -2056,6 +2080,7 @@ var selector = '.js-dropdown';
 var classNameOpen = 'open';
 var classNameClosed = 'closed';
 var classNameNoArrow = 'dropdown--no-arrow';
+var attributeArrowAdded = 'data-arrow-added';
 var init = function init() {
   addArrows();
   handle();
@@ -2069,11 +2094,11 @@ var addArrows = function addArrows() {
   $lis.each(function () {
     var $this = window.jQuery(this);
     if ($this.hasClass(classNameNoArrow)) return;
-    if ($this.find('ul').length > 0 && $this.attr('data-arrow-added') !== 'true') {
+    if ($this.find('ul').length > 0 && $this.attr(attributeArrowAdded) !== 'true') {
       var $a = window.jQuery("<a>".concat(getArrowSvg(), "</a>")).attr('href', '#toggle').attr('tabindex', '-1') // Remove the dropdown arrow from the tab index, as it just duplicates the original anchor
       .addClass('arrow');
       $this.addClass("dropdown ".concat(classNameClosed));
-      $this.attr('data-arrow-added', 'true');
+      $this.attr(attributeArrowAdded, 'true');
       $a.appendTo($this);
     }
   });
@@ -2111,20 +2136,20 @@ var dropdownIsActive = function dropdownIsActive(dropdown, target) {
   return false;
 };
 var handle = function handle() {
-  if (typeof window.jQuery === 'undefined') {
-    window.console.warn('Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected');
-    return;
-  }
-  var $body = window.jQuery('body');
-  $body.on('click', '.js-dropdown a[href="#toggle"]', function (e) {
-    var $this = window.jQuery(this);
-    var $dropdown = $this.parent();
-    e.preventDefault();
-    if ($dropdown.hasClass(classNameOpen)) {
-      $dropdown.removeClass(classNameOpen).addClass(classNameClosed);
-    } else {
-      $dropdown.addClass(classNameOpen).removeClass(classNameClosed);
-    }
+  var links = document.querySelectorAll("li[".concat(attributeArrowAdded, "] > a"));
+  links.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var dropdown = e.target.closest('.dropdown');
+      if (!dropdown) return;
+      if (dropdown.classList.contains(classNameOpen)) {
+        dropdown.classList.remove(classNameOpen);
+        dropdown.classList.add(classNameClosed);
+      } else {
+        dropdown.classList.add(classNameOpen);
+        dropdown.classList.remove(classNameClosed);
+      }
+    });
   });
 
   // close all open dropdowns when clicking elsewhere in the document
@@ -2218,9 +2243,9 @@ var init = function init() {
   // follow the link.
   $body.on('click', '.header--primary__menu--mobile .dropdown > a', function (e) {
     if (this.getAttribute('href') !== '#toggle') {
-      e.preventDefault();
       var $toggle = window.jQuery(this).siblings('a[href="#toggle"]');
       if ($toggle) {
+        e.preventDefault();
         $toggle.trigger('click');
       }
     }
@@ -3224,28 +3249,33 @@ function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 function _iterableToArrayLimit(arr, i) {
-  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
-  if (_i == null) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _s, _e;
-  try {
-    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
+  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+  if (null != _i) {
+    var _s,
+      _e,
+      _x,
+      _r,
+      _arr = [],
+      _n = !0,
+      _d = !1;
     try {
-      if (!_n && _i["return"] != null) _i["return"]();
+      if (_x = (_i = _i.call(arr)).next, 0 === i) {
+        if (Object(_i) !== _i) return;
+        _n = !1;
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
+        ;
+      }
+    } catch (err) {
+      _d = !0, _e = err;
     } finally {
-      if (_d) throw _e;
+      try {
+        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
+      } finally {
+        if (_d) throw _e;
+      }
     }
+    return _arr;
   }
-  return _arr;
 }
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;

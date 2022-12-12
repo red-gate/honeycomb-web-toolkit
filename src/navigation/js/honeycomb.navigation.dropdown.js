@@ -2,6 +2,7 @@ let selector = '.js-dropdown';
 let classNameOpen = 'open';
 let classNameClosed = 'closed';
 let classNameNoArrow = 'dropdown--no-arrow';
+let attributeArrowAdded = 'data-arrow-added';
 
 let init = () => {
     addArrows();
@@ -19,13 +20,13 @@ let addArrows = () => {
         let $this = window.jQuery( this );
         if ( $this.hasClass(classNameNoArrow) ) return;
         
-        if ( ( $this.find( 'ul' ).length > 0 ) && ( $this.attr( 'data-arrow-added' ) !== 'true' ) ) {
+        if ( ( $this.find( 'ul' ).length > 0 ) && ( $this.attr( attributeArrowAdded ) !== 'true' ) ) {
             let $a = window.jQuery( `<a>${getArrowSvg()}</a>` )
                 .attr( 'href', '#toggle' )
                 .attr( 'tabindex', '-1' ) // Remove the dropdown arrow from the tab index, as it just duplicates the original anchor
                 .addClass( 'arrow' );
             $this.addClass( `dropdown ${classNameClosed}` );
-            $this.attr( 'data-arrow-added', 'true' );
+            $this.attr( attributeArrowAdded, 'true' );
             $a.appendTo( $this );
         }
     });
@@ -65,22 +66,22 @@ const dropdownIsActive = (dropdown, target) => {
 };
 
 let handle = () => {
-    if (typeof window.jQuery === 'undefined') {
-        window.console.warn( 'Honeycomb: jQuery not found, so dropdown functionality won\'t work as expected' );
-        return;
-    }
-    
-    let $body = window.jQuery( 'body' );
-    $body.on( 'click', '.js-dropdown a[href="#toggle"]', function( e ) {
-        let $this = window.jQuery( this );
-        let $dropdown = $this.parent();
+    const links = document.querySelectorAll(`li[${attributeArrowAdded}] > a`);
+    links.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
 
-        e.preventDefault();
-        if ( $dropdown.hasClass( classNameOpen ) ) {
-            $dropdown.removeClass( classNameOpen ).addClass( classNameClosed );
-        } else {
-            $dropdown.addClass( classNameOpen ).removeClass( classNameClosed );
-        }
+            const dropdown = e.target.closest('.dropdown');
+            if (!dropdown) return;
+
+            if (dropdown.classList.contains(classNameOpen)) {
+                dropdown.classList.remove(classNameOpen);
+                dropdown.classList.add(classNameClosed);
+            } else {
+                dropdown.classList.add(classNameOpen);
+                dropdown.classList.remove(classNameClosed);
+            }
+        });
     });
 
     // close all open dropdowns when clicking elsewhere in the document

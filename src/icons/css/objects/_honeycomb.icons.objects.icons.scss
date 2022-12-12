@@ -1044,3 +1044,18 @@
         content: "\e913";
     }
 }
+
+/**
+ * Spacing modifiers.
+ */
+ .icon--spaced-left {
+    &:before, &:after {
+        @include margin(0.25, 'left');
+    }
+}
+
+.icon--spaced-right {
+    &:before, &:after {
+        @include margin(0.25, 'right');
+    }
+}

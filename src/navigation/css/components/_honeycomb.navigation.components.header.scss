@@ -153,11 +153,15 @@
     .dropdown > ul {
         @include padding(0);
         height: auto;
+        border-left-style: solid;
+        border-left-width: $hc-navigation-dropdown-list-border-width;
+        border-right-style: solid;
+        border-right-width: $hc-navigation-dropdown-list-border-width;
+        border-bottom-style: solid;
+        border-bottom-width: $hc-navigation-dropdown-list-border-width;
 
         li {
             text-align: left;
-            border-bottom-style: solid;
-            border-bottom-width: $hc-navigation-dropdown-list-item-border-width;
 
             &:last-of-type {
                 border-bottom-width: 0;
@@ -291,6 +295,9 @@
                 position: relative;
                 width: 100%;
                 left: 0;
+                border-left-style: none;
+                border-right-style: none;
+                border-bottom-style: none;
             }
 
             .arrow {
@@ -361,15 +368,27 @@
         }
     }
 
-    .dropdown.open .arrow {
-        color: color('white');
+    .dropdown.open {
+        & > a:first-of-type {
+            color: color('white');
+            border-bottom-color: color('white');
+        }
+
+        .arrow {
+            color: color('white');
+        }
     }
 
     .dropdown > ul {
-        background-color: color('grey', 8);
+        background-color: color('white');
+        border-color: color('grey', 3);
 
-        li {
-            border-bottom-color: color('grey', 6);
+        a {
+            color: color('grey', 7);
+
+            &:hover {
+                background-color: color('grey', 1);
+            }
         }
     }
 
@@ -405,6 +424,27 @@
 
         li {
             border-top-color: color('grey', 7);
+            border-bottom-color: color('grey', 6);
+        }
+
+        .dropdown > ul {
+            background-color: color('grey', 8);
+
+            a {
+                color: color('grey', 4);
+
+                &:hover {
+                    background-color: transparent;
+                    color: color('white');
+                }
+
+                &.active {
+                    &, &:hover {
+                        background-color: color('red');
+                        color: color('white');
+                    }
+                }
+            }
         }
 
         .dropdown.open {
@@ -416,10 +456,6 @@
             & > a {
                 color: color('white');
             }
-        }
-
-        .active {
-            background-color: color('red');
         }
 
         .active-parent {
