@@ -2,6 +2,7 @@ let selector = '.js-dropdown';
 let classNameOpen = 'open';
 let classNameClosed = 'closed';
 let classNameNoArrow = 'dropdown--no-arrow';
+let attributeArrowAdded = 'data-arrow-added';
 
 let init = () => {
     addArrows();
@@ -19,13 +20,13 @@ let addArrows = () => {
         let $this = window.jQuery( this );
         if ( $this.hasClass(classNameNoArrow) ) return;
         
-        if ( ( $this.find( 'ul' ).length > 0 ) && ( $this.attr( 'data-arrow-added' ) !== 'true' ) ) {
+        if ( ( $this.find( 'ul' ).length > 0 ) && ( $this.attr( attributeArrowAdded ) !== 'true' ) ) {
             let $a = window.jQuery( `<a>${getArrowSvg()}</a>` )
                 .attr( 'href', '#toggle' )
                 .attr( 'tabindex', '-1' ) // Remove the dropdown arrow from the tab index, as it just duplicates the original anchor
                 .addClass( 'arrow' );
             $this.addClass( `dropdown ${classNameClosed}` );
-            $this.attr( 'data-arrow-added', 'true' );
+            $this.attr( attributeArrowAdded, 'true' );
             $a.appendTo( $this );
         }
     });
