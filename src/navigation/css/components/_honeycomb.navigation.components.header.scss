@@ -249,7 +249,7 @@
 
         [class^="icon--"] {
             @include margin($hc-navigation-mobile-menu-icon-margin-ratio-right, 'right');
-            display: inline-block;
+            display: block;
         }
 
         &, li {
