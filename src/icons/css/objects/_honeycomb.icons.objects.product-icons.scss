@@ -236,3 +236,10 @@
         content: "\e968";
     }
 }
+
+.icon--redgate-clone {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e925";
+    }
+}
