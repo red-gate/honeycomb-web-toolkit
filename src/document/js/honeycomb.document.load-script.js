@@ -44,3 +44,7 @@ const load = ( url = '', callback = undefined, attrs = {}, errorCallback = undef
 export default {
     load
 };
+
+export {
+    load,
+};
