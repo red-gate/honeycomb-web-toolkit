@@ -1,5 +1,14 @@
-const load = ( url = false, callback = false, attrs = {}, errorCallback = false ) => {
-    if ( url !== false ) {
+/**
+ * Load a script from a given URL.
+ *
+ * @param {string} url The URL to load
+ * @param {function|undefined} callback A function to execute after the script has loaded
+ * @param {object} attrs An object containing attributes to apply to the script element
+ * @param {function|undefined} errorCallback A function to execute if the script errors while attempting to load the URL
+ * @return {void}
+ */
+const load = ( url = '', callback = undefined, attrs = {}, errorCallback = undefined ) => {
+    if ( url !== '' ) {
         let se = document.createElement( 'script' );
         const honeycombPath = (window.Honeycomb && window.Honeycomb.path) ? window.Honeycomb.path : '';
         se.type = 'text/javascript';
@@ -34,4 +43,8 @@ const load = ( url = false, callback = false, attrs = {}, errorCallback = false 
 
 export default {
     load
+};
+
+export {
+    load,
 };
