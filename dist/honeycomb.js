@@ -350,95 +350,93 @@ var init = function init() {
         init();
       });
     } else {
-      (function () {
-        var onInitEvent = document.createEvent('Event');
-        var onBeforeChangeEvent = document.createEvent('Event');
-        var onAfterChangeEvent = document.createEvent('Event');
-        onInitEvent.initEvent('onCarouselInit', true, true);
-        onBeforeChangeEvent.initEvent('onCarouselBeforeChange', true, true);
-        onAfterChangeEvent.initEvent('onCarouselAfterChange', true, true);
-        var _loop = function _loop(i) {
-          var carousel = carousels[i];
-          var options = {
-            autoplaySpeed: 4000,
-            dotsClass: 'slick-dots carousel__pagination',
-            adaptiveHeight: false,
-            dots: true
-          };
-
-          // Arrows.
-          if (carousel.getAttribute('data-carousel-arrows')) {
-            options.arrows = carousel.getAttribute('data-carousel-arrows') === 'true';
-          }
-
-          // Autoplay
-          if (carousel.getAttribute('data-carousel-autoplay')) {
-            options.autoplay = carousel.getAttribute('data-carousel-autoplay') === 'true';
-          }
-
-          // Pagination / Dots.
-          if (carousel.getAttribute('data-carousel-pagination') && carousel.getAttribute('data-carousel-pagination') === 'false') {
-            options.dots = false;
-          }
-
-          // Fade.
-          if (carousel.getAttribute('data-carousel-fade')) {
-            options.fade = carousel.getAttribute('data-carousel-fade') === 'true';
-          }
-
-          // Adaptive Height (Automatically update height)
-          if (carousel.getAttribute('data-carousel-auto-height')) {
-            options.adaptiveHeight = carousel.getAttribute('data-carousel-auto-height') === 'true';
-          }
-
-          // Autoplay speed.
-          if (carousel.getAttribute('data-carousel-autoplay-speed')) {
-            options.autoplaySpeed = carousel.getAttribute('data-carousel-autoplay-speed');
-          }
-
-          // rearrange nav
-          window.jQuery(carousel).on('init', function () {
-            rearrangeNav(carousel);
-          });
-
-          // Dispatch init event.
-          window.jQuery(carousel).on('init', function (slick) {
-            onInitEvent.carousel = {
-              carousel: slick.target
-            };
-            carousel.dispatchEvent(onInitEvent);
-          });
-
-          // Dispatch beforeChange event.
-          window.jQuery(carousel).on('beforeChange', function (slick, currentSlide) {
-            onBeforeChangeEvent.carousel = {
-              carousel: slick.target,
-              current: {
-                index: currentSlide.currentSlide,
-                element: slick.target.querySelector('.slick-slide[data-slick-index="' + currentSlide.currentSlide + '"]')
-              }
-            };
-            carousel.dispatchEvent(onBeforeChangeEvent);
-          });
-
-          // Dispatch afterChange event.
-          window.jQuery(carousel).on('afterChange', function (slick, currentSlide) {
-            onAfterChangeEvent.carousel = {
-              carousel: slick.target,
-              current: {
-                index: currentSlide.currentSlide,
-                element: slick.target.querySelector('.slick-slide[data-slick-index="' + currentSlide.currentSlide + '"]')
-              }
-            };
-            carousel.dispatchEvent(onAfterChangeEvent);
-          });
-          window.jQuery(carousel).slick(options);
-          window.jQuery(carousel).css('visibility', 'inherit').css('height', 'auto');
+      var onInitEvent = document.createEvent('Event');
+      var onBeforeChangeEvent = document.createEvent('Event');
+      var onAfterChangeEvent = document.createEvent('Event');
+      onInitEvent.initEvent('onCarouselInit', true, true);
+      onBeforeChangeEvent.initEvent('onCarouselBeforeChange', true, true);
+      onAfterChangeEvent.initEvent('onCarouselAfterChange', true, true);
+      var _loop = function _loop() {
+        var carousel = carousels[i];
+        var options = {
+          autoplaySpeed: 4000,
+          dotsClass: 'slick-dots carousel__pagination',
+          adaptiveHeight: false,
+          dots: true
         };
-        for (var i = 0; i < carousels.length; i++) {
-          _loop(i);
+
+        // Arrows.
+        if (carousel.getAttribute('data-carousel-arrows')) {
+          options.arrows = carousel.getAttribute('data-carousel-arrows') === 'true';
         }
-      })();
+
+        // Autoplay
+        if (carousel.getAttribute('data-carousel-autoplay')) {
+          options.autoplay = carousel.getAttribute('data-carousel-autoplay') === 'true';
+        }
+
+        // Pagination / Dots.
+        if (carousel.getAttribute('data-carousel-pagination') && carousel.getAttribute('data-carousel-pagination') === 'false') {
+          options.dots = false;
+        }
+
+        // Fade.
+        if (carousel.getAttribute('data-carousel-fade')) {
+          options.fade = carousel.getAttribute('data-carousel-fade') === 'true';
+        }
+
+        // Adaptive Height (Automatically update height)
+        if (carousel.getAttribute('data-carousel-auto-height')) {
+          options.adaptiveHeight = carousel.getAttribute('data-carousel-auto-height') === 'true';
+        }
+
+        // Autoplay speed.
+        if (carousel.getAttribute('data-carousel-autoplay-speed')) {
+          options.autoplaySpeed = carousel.getAttribute('data-carousel-autoplay-speed');
+        }
+
+        // rearrange nav
+        window.jQuery(carousel).on('init', function () {
+          rearrangeNav(carousel);
+        });
+
+        // Dispatch init event.
+        window.jQuery(carousel).on('init', function (slick) {
+          onInitEvent.carousel = {
+            carousel: slick.target
+          };
+          carousel.dispatchEvent(onInitEvent);
+        });
+
+        // Dispatch beforeChange event.
+        window.jQuery(carousel).on('beforeChange', function (slick, currentSlide) {
+          onBeforeChangeEvent.carousel = {
+            carousel: slick.target,
+            current: {
+              index: currentSlide.currentSlide,
+              element: slick.target.querySelector('.slick-slide[data-slick-index="' + currentSlide.currentSlide + '"]')
+            }
+          };
+          carousel.dispatchEvent(onBeforeChangeEvent);
+        });
+
+        // Dispatch afterChange event.
+        window.jQuery(carousel).on('afterChange', function (slick, currentSlide) {
+          onAfterChangeEvent.carousel = {
+            carousel: slick.target,
+            current: {
+              index: currentSlide.currentSlide,
+              element: slick.target.querySelector('.slick-slide[data-slick-index="' + currentSlide.currentSlide + '"]')
+            }
+          };
+          carousel.dispatchEvent(onAfterChangeEvent);
+        });
+        window.jQuery(carousel).slick(options);
+        window.jQuery(carousel).css('visibility', 'inherit').css('height', 'auto');
+      };
+      for (var i = 0; i < carousels.length; i++) {
+        _loop();
+      }
     }
   }
 };
@@ -879,9 +877,7 @@ function _unsupportedIterableToArray(o, minLen) {
 }
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 var updateEls = false;
@@ -1097,13 +1093,22 @@ exports["default"] = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.load = exports["default"] = void 0;
+/**
+ * Load a script from a given URL.
+ *
+ * @param {string} url The URL to load
+ * @param {function|undefined} callback A function to execute after the script has loaded
+ * @param {object} attrs An object containing attributes to apply to the script element
+ * @param {function|undefined} errorCallback A function to execute if the script errors while attempting to load the URL
+ * @return {void}
+ */
 var load = function load() {
-  var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-  var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
   var attrs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-  var errorCallback = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-  if (url !== false) {
+  var errorCallback = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : undefined;
+  if (url !== '') {
     var se = document.createElement('script');
     var honeycombPath = window.Honeycomb && window.Honeycomb.path ? window.Honeycomb.path : '';
     se.type = 'text/javascript';
@@ -1131,6 +1136,7 @@ var load = function load() {
     s.parentNode.insertBefore(se, s);
   }
 };
+exports.load = load;
 var _default = {
   load: load
 };
@@ -2270,10 +2276,10 @@ var parentActiveClass = 'nav--vertical__active-parent';
 var toggleClass = 'nav--vertical__toggle';
 var init = function init() {
   var navs = document.querySelectorAll('.nav--vertical');
-  var _loop = function _loop(i) {
+  var _loop = function _loop() {
     var nav = navs[i];
     var as = nav.querySelectorAll('a');
-    var _loop2 = function _loop2(x) {
+    var _loop2 = function _loop2() {
       var a = as[x];
       a.addEventListener('click', function (e) {
         if (a.parentElement.className.match(collapseClass) !== null) {
@@ -2296,11 +2302,11 @@ var init = function init() {
       });
     };
     for (var x = 0; x < as.length; x++) {
-      _loop2(x);
+      _loop2();
     }
   };
   for (var i = 0; i < navs.length; i++) {
-    _loop(i);
+    _loop();
   }
 };
 var toggle = function toggle(e, a) {
@@ -2844,7 +2850,7 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = void 0;
 var init = function init() {
   var imgs = document.querySelectorAll('img.js-svg');
-  var _loop = function _loop(i) {
+  var _loop = function _loop() {
     var img = imgs[i];
     var src = img.getAttribute('src').replace(/(.png)|(.gif)/, '.svg');
     var newImage = new Image();
@@ -2854,7 +2860,7 @@ var init = function init() {
     };
   };
   for (var i = 0; i < imgs.length; i++) {
-    _loop(i);
+    _loop();
   }
 };
 var _default = {
@@ -2937,9 +2943,7 @@ function _unsupportedIterableToArray(o, minLen) {
 }
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 var init = function init() {
@@ -3132,9 +3136,7 @@ function _unsupportedIterableToArray(o, minLen) {
 }
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 var hook = '.js-toggle';
@@ -3262,9 +3264,7 @@ function _iterableToArrayLimit(arr, i) {
       if (_x = (_i = _i.call(arr)).next, 0 === i) {
         if (Object(_i) !== _i) return;
         _n = !1;
-      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
-        ;
-      }
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
     } catch (err) {
       _d = !0, _e = err;
     } finally {
@@ -3341,9 +3341,7 @@ function _unsupportedIterableToArray(o, minLen) {
 }
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 // Default options for video playback.
@@ -3568,9 +3566,9 @@ var addInlineVideos = function addInlineVideos() {
       if (videoContainer.querySelector("iframe[id^=\"".concat(videoId, "\"]"))) {
         return "continue";
       }
-      var duration = void 0;
-      var currentTime = void 0;
-      var percentages = void 0;
+      var duration;
+      var currentTime;
+      var percentages;
       var goalTracked = false;
       if (videoId) {
         // Append empty div which will get replaced by video.
