@@ -4,298 +4,369 @@
 <!--#include virtual="/docs/includes/head/head-end.htm" -->
 
 <body class="" id="top-of-page">
-  <div class="page-wrapper">
+    <div class="page-wrapper">
 
-    <div class="band">
-        <div class="band__inner-container--tight">
-            <h1 class="section-heading--honeycomb">Marketo form</h1>
+        <div class="band">
+            <div class="band__inner-container--tight">
+                <h1 class="section-heading--honeycomb">Marketo form</h1>
 
-            <h2>2551</h2>
-            <form id="mktoForm_2551"></form>
-            <script>
-                window.addEventListener('load', function(){
-                    window.Honeycomb.Marketo.create({
-                        formId: 2551,
-                        formsJavaScriptUrl: 'https://app-lon10.marketo.com/js/forms2/js/forms2.min.js',
-                        rootUrl: '//app-lon10.marketo.com',
-                        success: {
-                            message: 'Form 2551 successfully submitted.'
-                        }
+                <h2>2551</h2>
+                <form id="mktoForm_2551"></form>
+                <script>
+                    window.addEventListener('load', function () {
+                        window.Honeycomb.Marketo.create({
+                            formId: 2551,
+                            formsJavaScriptUrl: 'https://app-lon10.marketo.com/js/forms2/js/forms2.min.js',
+                            rootUrl: '//app-lon10.marketo.com',
+                            success: {
+                                message: 'Form 2551 successfully submitted.'
+                            }
+                        });
                     });
-                });
-            </script>
+                </script>
 
-            <h2>1006</h2>
-            <form id="mktoForm_1006"></form>
-            <script>
-                window.addEventListener('load', function(){
-                    window.Honeycomb.Marketo.create({
-                        formId: 1006,
-                        formsJavaScriptUrl: 'https://app-lon10.marketo.com/js/forms2/js/forms2.min.js',
-                        rootUrl: '//app-lon10.marketo.com',
-                        success: {
-                            message: 'Form 1006 successfully submitted.'
-                        }
+                <h2>1006</h2>
+                <form id="mktoForm_1006"></form>
+                <script>
+                    window.addEventListener('load', function () {
+                        window.Honeycomb.Marketo.create({
+                            formId: 1006,
+                            formsJavaScriptUrl: 'https://app-lon10.marketo.com/js/forms2/js/forms2.min.js',
+                            rootUrl: '//app-lon10.marketo.com',
+                            success: {
+                                message: 'Form 1006 successfully submitted.'
+                            }
+                        });
                     });
-                });
-            </script>
+                </script>
 
+            </div>
         </div>
-    </div>
 
-    <div class="band">
-      <div class="band__inner-container--tight">
-        <h1 class="section-heading--honeycomb">Generic form</h1>
+        <div class="band">
+            <div class="band__inner-container--tight">
+                <h1 class="section-heading--honeycomb">Generic form</h1>
 
-        <form method="get" action="">
-            <fieldset>
-                <input type="text" class="input--large display--inline" />
-                <input type="text" class="display--inline" />
-                <input type="text" class="input--small display--inline" />
-                <input type="text" class="input--x-small display--inline" />
-                <input type="text" class="input--xx-small display--inline" />
-            </fieldset>
+                <form method="get" action="">
+                    <fieldset>
+                        <input type="text" class="input--large display--inline" />
+                        <input type="text" class="display--inline" />
+                        <input type="text" class="input--small display--inline" />
+                        <input type="text" class="input--x-small display--inline" />
+                        <input type="text" class="input--xx-small display--inline" />
+                    </fieldset>
 
-            <fieldset>
-                <div class="grid__row">
-                    <div class="grid__col grid__col--span-2-of-12">
-                        <div class="form__field-container">
-                            <label for="large">Large</label>
-                            <input type="text" class="input--large" />
+                    <fieldset>
+                        <div class="grid__row">
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label for="large">Large</label>
+                                    <input type="text" class="input--large" placeholder="placeholder text" />
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label for="regular">Regular</label>
+                                    <input type="text" class="" placeholder="placeholder text" />
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label for="small">Small</label>
+                                    <input type="text" class="input--small" placeholder="placeholder text" />
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label for="extra-small">Extra small</label>
+                                    <input type="text" class="input--x-small" placeholder="placeholder text" />
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label for="extra-extra-small">Extra extra small</label>
+                                    <input type="text" class="input--xx-small" placeholder="placeholder text" />
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="grid__col grid__col--span-2-of-12">
-                        <div class="form__field-container">
-                            <label for="regular">Regular</label>
-                            <input type="text" class="" />
+                        <div class="grid__row">
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label for="large">Large (disabled)</label>
+                                    <input type="text" class="input--large" placeholder="placeholder text" disabled />
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label for="regular">Regular (disabled)</label>
+                                    <input type="text" class="" placeholder="placeholder text" disabled
+                                        value="Value goes here" />
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label for="small">Small (disabled)</label>
+                                    <input type="text" class="input--small" placeholder="placeholder text" disabled />
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label for="extra-small">Extra small (disabled)</label>
+                                    <input type="text" class="input--x-small" placeholder="placeholder text" disabled />
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label for="extra-extra-small">Extra extra small (disabled)</label>
+                                    <input type="text" class="input--xx-small" placeholder="placeholder text"
+                                        disabled />
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="grid__col grid__col--span-2-of-12">
-                        <div class="form__field-container">
-                            <label for="small">Small</label>
-                            <input type="text" class="input--small" />
+                        <div class="grid__row">
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label>Large</label>
+                                    <select class="select--large">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label>Regular</label>
+                                    <select class="">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label>Small</label>
+                                    <select class="select--small">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label>Extra small</label>
+                                    <select class="select--x-small">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid__col grid__col--span-2-of-12">
+                                <div class="form__field-container">
+                                    <label>Extra extra small</label>
+                                    <select class="select--xx-small">
+                                        <option>Option 1</option>
+                                        <option>Option 2</option>
+                                        <option>Option 3</option>
+                                        <option>Option 4</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="grid__col grid__col--span-2-of-12">
-                        <div class="form__field-container">
-                            <label for="extra-small">Extra small</label>
-                            <input type="text" class="input--x-small" />
+                        <div class="grid__row spaced-bottom--tight">
+                            <div class="grid__col grid__col--span-6-of-12">
+                                <p class="spaced-bottom--none"><b>Bare</b></p>
+                                <p>Minimal select style <select class="select--bare">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>for use inline with text</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="grid__col grid__col--span-2-of-12">
-                        <div class="form__field-container">
-                            <label for="extra-extra-small">Extra extra small</label>
-                            <input type="text" class="input--xx-small" />
+                        <div class="grid__col grid__col--span-4-of-12">
+                            <div class="form__field-container">
+                                <label for="title">Title</label>
+                                <select name="title" id="title">
+                                    <option>Mr</option>
+                                    <option>Mrs</option>
+                                    <option>Dr</option>
+                                    <option>Sir</option>
+                                    <option>Ms</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="grid__row">
-                    <div class="grid__col grid__col--span-2-of-12">
-                        <div class="form__field-container">
-                            <label>Large</label>
-                            <select class="select--large">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                                <option>Option 4</option>
-                            </select>
+                        <div class="grid__col grid__col--span-4-of-12">
+                            <div class="form__field-container">
+                                <label for="datalist">Datalist</label>
+                                <input list="flavours" id="datalist" name="datalist" />
+                                <datalist id="flavours">
+                                    <option value="Chocolate">
+                                    <option value="Coconut">
+                                    <option value="Mint">
+                                    <option value="Strawberry">
+                                    <option value="Vanilla">
+                                </datalist>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="grid__col grid__col--span-2-of-12">
-                        <div class="form__field-container">
-                            <label>Regular</label>
-                            <select class="">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                                <option>Option 4</option>
-                            </select>
+                        <div class="grid__col grid__col--span-4-of-12">
+                            <div class="form__field-container">
+                                <label for="surname">Surname</label>
+                                <input type="text" name="surname" id="surname" placeholder="Casbon" class="js-help"
+                                    data-help-text="Help text to go here">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="grid__col grid__col--span-2-of-12">
-                        <div class="form__field-container">
-                            <label>Small</label>
-                            <select class="select--small">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                                <option>Option 4</option>
-                            </select>
+
+                        <div class="form__field-container form__field-container--error">
+                            <label for="first-name">First name</label>
+                            <p class="form__help-text">This is the help text</p>
+                            <input type="text" name="first-name" id="first-name" placeholder="Edward" required
+                                class="js-required">
+                            <p class="form__error-message">First name is empty, please enter a name</p>
                         </div>
-                    </div>
 
-                    <div class="grid__col grid__col--span-2-of-12">
                         <div class="form__field-container">
-                            <label>Extra small</label>
-                            <select class="select--x-small">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                                <option>Option 4</option>
-                            </select>
+                            <label for="surname">Surname</label>
+                            <input type="text" name="surname" id="surname" placeholder="Casbon" class="js-help"
+                                data-help-text="Help text to go here">
                         </div>
-                    </div>
 
-                    <div class="grid__col grid__col--span-2-of-12">
                         <div class="form__field-container">
-                            <label>Extra extra small</label>
-                            <select class="select--xx-small">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                                <option>Option 4</option>
-                            </select>
+                            <label for="choices">Choices</label>
+                            <input type="checkbox" name="choice-1" id="choice-1" value="Choice 1"> <label
+                                for="choice-1">Choice 1</label>
+                            <input type="checkbox" name="choice-2" id="choice-2" value="Choice 2"> <label
+                                for="choice-2">Choice 2</label>
+                            <input type="checkbox" name="choice-3" id="choice-3" value="Choice 3"> <label
+                                for="choice-3">Choice 3</label>
+
+                            <span class="toggle-container"><input type="checkbox" name="toggle-1" id="toggle-1"
+                                    value="Toggle 1" class="toggle"><label for="toggle-1"></label></span> <label
+                                for="toggle-1">Toggle</label>
+
+                            <input type="checkbox" name="choice-4" id="choice-4" value="Choice 4"> <label
+                                for="choice-4">Choice 4</label>
                         </div>
-                    </div>
-                </div>
 
-                <div class="grid__row spaced-bottom--tight">
-                    <div class="grid__col grid__col--span-6-of-12">
-                        <p class="spaced-bottom--none"><b>Bare</b></p>
-                        <p>Minimal select style <select class="select--bare"> <option>1</option><option>2</option><option>3</option> </select>for use inline with text</p>
-                    </div>
-                </div>
+                        <div class="form__field-container">
+                            <label for="toggles">Toggles</label>
 
-                <div class="grid__col grid__col--span-4-of-12">
-                    <div class="form__field-container">
-                        <label for="title">Title</label>
-                        <select name="title" id="title">
-                            <option>Mr</option>
-                            <option>Mrs</option>
-                            <option>Dr</option>
-                            <option>Sir</option>
-                            <option>Ms</option>
-                        </select>
-                    </div>
-                </div>
+                            <span class="toggle-container"><input type="checkbox" name="toggle-2" id="toggle-2"
+                                    value="Toggle 2" class="toggle"><label for="toggle-2"></label></span> <label
+                                for="toggle-2">Toggle (Unchecked)</label>
+                            <span class="toggle-container"><input type="checkbox" name="toggle-3" id="toggle-3"
+                                    value="Toggle 3" class="toggle" checked><label for="toggle-3"></label></span> <label
+                                for="toggle-3">Toggle (Checked)</label>
+                            <span class="toggle-container"><input type="checkbox" name="toggle-4" id="toggle-4"
+                                    value="Toggle 4" class="toggle" disabled><label for="toggle-4"></label></span>
+                            <label for="toggle-4" class="label--disabled">Toggle (Disabled)</label>
+                            <span class="toggle-container toggle-container--disabled"><input type="checkbox"
+                                    name="toggle-5" id="toggle-5" value="Toggle 5" class="toggle" checked
+                                    disabled><label for="toggle-5"></label></span> <label for="toggle-5">Toggle (Checked
+                                and Disabled)</label>
+                        </div>
 
-                <div class="grid__col grid__col--span-4-of-12">
-                    <div class="form__field-container">
-                        <label for="datalist">Datalist</label>
-                        <input list="flavours" id="datalist" name="datalist"/>
-                        <datalist id="flavours">
-                            <option value="Chocolate">
-                            <option value="Coconut">
-                            <option value="Mint">
-                            <option value="Strawberry">
-                            <option value="Vanilla">
-                        </datalist>
-                    </div>
-                </div>
+                        <div class="form__field-container">
+                            <label for="radio">Radio</label>
+                            <input type="radio" name="choice" id="radio-1" value="Choice 1"> <label for="radio-1">Choice
+                                1</label>
+                            <input type="radio" name="choice" id="radio-2" value="Choice 2"> <label for="radio-2">Choice
+                                2</label>
+                            <input type="radio" name="choice" id="radio-3" value="Choice 3"> <label for="radio-3">Choice
+                                3</label>
+                            <input type="radio" name="choice" id="radio-4" value="Choice 4"> <label for="radio-4">Choice
+                                4</label>
+                        </div>
 
-                <div class="grid__col grid__col--span-4-of-12">
-                    <div class="form__field-container">
-                        <label for="surname">Surname</label>
-                        <input type="text" name="surname" id="surname" placeholder="Casbon" class="js-help" data-help-text="Help text to go here">
-                    </div>
-                </div>
-                
+                        <div class="form__field-container">
+                            <label for="comments">Comments</label>
+                            <textarea name="comments" rows="10" cols="40"></textarea>
+                        </div>
 
-                <div class="form__field-container form__field-container--error">
-                    <label for="first-name">First name</label>
-                    <p class="form__help-text">This is the help text</p>
-                    <input type="text" name="first-name" id="first-name" placeholder="Edward" required class="js-required">
-                    <p class="form__error-message">First name is empty, please enter a name</p>  
-                </div>
+                        <div class="form__field-container">
+                            <input type="submit" value="Submit">
+                        </div>
+                    </fieldset>
+                </form>
 
-                <div class="form__field-container">
-                    <label for="surname">Surname</label>
-                    <input type="text" name="surname" id="surname" placeholder="Casbon" class="js-help" data-help-text="Help text to go here">
-                </div>
+                <h2 class="section-heading--honeycomb">Example HTML</h2>
+                <p data-height="900" data-theme-id="0" data-slug-hash="yyPZVd" data-default-tab="html"
+                    data-user="redgatewebteam" class='codepen'>See the Pen <a
+                        href='http://codepen.io/redgatewebteam/pen/yyPZVd/'>Redgate - HTML - Forms - Generic</a> by
+                    Redgate Web Team (<a href='http://codepen.io/redgatewebteam'>@redgatewebteam</a>) on <a
+                        href='http://codepen.io'>CodePen</a>.</p>
 
-                <div class="form__field-container">
-                    <label for="choices">Choices</label>
-                    <input type="checkbox" name="choice-1" id="choice-1" value="Choice 1"> <label for="choice-1">Choice 1</label>
-                    <input type="checkbox" name="choice-2" id="choice-2" value="Choice 2"> <label for="choice-2">Choice 2</label>
-                    <input type="checkbox" name="choice-3" id="choice-3" value="Choice 3"> <label for="choice-3">Choice 3</label>
+            </div>
+        </div>
 
-                    <span class="toggle-container"><input type="checkbox" name="toggle-1" id="toggle-1" value="Toggle 1" class="toggle"><label for="toggle-1"></label></span> <label for="toggle-1">Toggle</label>
 
-                    <input type="checkbox" name="choice-4" id="choice-4" value="Choice 4"> <label for="choice-4">Choice 4</label>
-                </div>
 
-                <div class="form__field-container">
-                    <label for="toggles">Toggles</label>
 
-                    <span class="toggle-container"><input type="checkbox" name="toggle-2" id="toggle-2" value="Toggle 2" class="toggle"><label for="toggle-2"></label></span> <label for="toggle-2">Toggle (Unchecked)</label>
-                    <span class="toggle-container"><input type="checkbox" name="toggle-3" id="toggle-3" value="Toggle 3" class="toggle" checked><label for="toggle-3"></label></span> <label for="toggle-3">Toggle (Checked)</label>
-                    <span class="toggle-container"><input type="checkbox" name="toggle-4" id="toggle-4" value="Toggle 4" class="toggle" disabled><label for="toggle-4"></label></span> <label for="toggle-4" class="label--disabled">Toggle (Disabled)</label>
-                    <span class="toggle-container toggle-container--disabled"><input type="checkbox" name="toggle-5" id="toggle-5" value="Toggle 5" class="toggle" checked disabled><label for="toggle-5"></label></span> <label for="toggle-5">Toggle (Checked and Disabled)</label>
-                </div>
+        <div class="band">
+            <div class="band__inner-container--tight">
+                <h1 class="section-heading--honeycomb">HubSpot form</h1>
 
-                <div class="form__field-container">
-                    <label for="radio">Radio</label>
-                    <input type="radio" name="choice" id="radio-1" value="Choice 1"> <label for="radio-1">Choice 1</label>
-                    <input type="radio" name="choice" id="radio-2" value="Choice 2"> <label for="radio-2">Choice 2</label>
-                    <input type="radio" name="choice" id="radio-3" value="Choice 3"> <label for="radio-3">Choice 3</label>
-                    <input type="radio" name="choice" id="radio-4" value="Choice 4"> <label for="radio-4">Choice 4</label>
-                </div>
-
-                <div class="form__field-container">
-                    <label for="comments">Comments</label>
-                    <textarea name="comments" rows="10" cols="40"></textarea>
-                </div>
-
-                <div class="form__field-container">
-                    <input type="submit" value="Submit">
-                </div>
-            </fieldset>
-        </form>
-
-        <h2 class="section-heading--honeycomb">Example HTML</h2>
-        <p data-height="900" data-theme-id="0" data-slug-hash="yyPZVd" data-default-tab="html" data-user="redgatewebteam" class='codepen'>See the Pen <a href='http://codepen.io/redgatewebteam/pen/yyPZVd/'>Redgate - HTML - Forms - Generic</a> by Redgate Web Team (<a href='http://codepen.io/redgatewebteam'>@redgatewebteam</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-
-      </div>
-    </div>
-    
-    
-    
-    
-    <div class="band">
-      <div class="band__inner-container--tight">
-        <h1 class="section-heading--honeycomb">HubSpot form</h1>
-
-        <script charset="utf-8" src="//js.hsforms.net/forms/current.js"></script>
-        <script>
+                <script charset="utf-8" src="//js.hsforms.net/forms/current.js"></script>
+                <script>
             // hbspt.forms.create({
             //     portalId: '305265',
             //     formId: '8e2f21e0-567c-4382-9e17-e2f4f5ec5a8f',
             //     css: ''
             // });
-        </script>
+                </script>
 
-        <!-- HubSpot form -->
-        <script>
-          hbspt.forms.create({
-            portalId: '305265',
-            formId: '17265cd8-d35d-4f63-89fb-02ca98728927',
-            css: ''
-          });
-        </script>
-        <!-- /HubSpot form -->
+                <!-- HubSpot form -->
+                <script>
+                    hbspt.forms.create({
+                        portalId: '305265',
+                        formId: '17265cd8-d35d-4f63-89fb-02ca98728927',
+                        css: ''
+                    });
+                </script>
+                <!-- /HubSpot form -->
 
-        <h2 class="section-heading--honeycomb">Example HTML</h2>
-        <p data-height="240" data-theme-id="0" data-slug-hash="VYrgPW" data-default-tab="html" data-user="redgatewebteam" class='codepen'>See the Pen <a href='http://codepen.io/redgatewebteam/pen/VYrgPW/'>Redgate - HTML - Forms - HubSpot</a> by Redgate Web Team (<a href='http://codepen.io/redgatewebteam'>@redgatewebteam</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+                <h2 class="section-heading--honeycomb">Example HTML</h2>
+                <p data-height="240" data-theme-id="0" data-slug-hash="VYrgPW" data-default-tab="html"
+                    data-user="redgatewebteam" class='codepen'>See the Pen <a
+                        href='http://codepen.io/redgatewebteam/pen/VYrgPW/'>Redgate - HTML - Forms - HubSpot</a> by
+                    Redgate Web Team (<a href='http://codepen.io/redgatewebteam'>@redgatewebteam</a>) on <a
+                        href='http://codepen.io'>CodePen</a>.</p>
 
-      </div>
-    </div>
-    
-    
-    
-    
-    
-  </div><!-- END .page-wrapper -->
+            </div>
+        </div>
 
-  
 
-  
-  <!--#include virtual="/docs/includes/footer/footer.htm" -->
 
-  
+
+
+    </div><!-- END .page-wrapper -->
+
+
+
+
+    <!--#include virtual="/docs/includes/footer/footer.htm" -->
