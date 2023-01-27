@@ -17,3 +17,23 @@
 ::placeholder {
     color: $hc-placeholder-colour;
 }
+
+:disabled::-webkit-input-placeholder {
+    color: $hc-placeholder-disabled-colour;
+}
+
+:disabled::-moz-placeholder {
+    color: $hc-placeholder-disabled-colour;
+}
+
+:disabled:-ms-input-placeholder {
+    color: $hc-placeholder-disabled-colour;
+}
+
+:disabled::-ms-input-placeholder {
+    color: $hc-placeholder-disabled-colour;
+}
+
+:disabled::placeholder {
+    color: $hc-placeholder-disabled-colour;
+}

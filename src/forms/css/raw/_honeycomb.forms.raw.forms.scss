@@ -12,6 +12,12 @@ input, select, textarea {
     border-radius: $hc-forms-input-border-radius;
     border-color: $hc-forms-input-border-colour;
     background-color: #fff;
+
+    &:disabled {
+        border-color: $hc-forms-disabled-border-colour;
+        background-color: $hc-forms-disabled-background-colour;
+        color: $hc-forms-disabled-color;
+    }
 }
 
 input, select {

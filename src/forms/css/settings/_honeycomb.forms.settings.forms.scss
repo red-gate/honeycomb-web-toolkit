@@ -72,6 +72,8 @@ $hc-forms-datalist-arrow-background-size: 1em !default;
 
 // Generic.
 $hc-forms-disabled-color: color("grey", 4) !default;
+$hc-forms-disabled-background-colour: color("grey", 1) !default;
+$hc-forms-disabled-border-colour: color("grey", 3) !default;
 
 // Field containers.
 $hc-forms-field-container-margin-bottom-ratio: 0.6 !default;
