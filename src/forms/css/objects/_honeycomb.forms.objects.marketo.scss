@@ -20,7 +20,7 @@ form[id^="mktoForm_"] {
 }
 
 .mktoFormCol {
-    @include margin(0.6, 'bottom');
+    @include margin(0.6, 'bottom', true);
     flex-grow: 1;
     flex-basis: 100%;
 
@@ -95,4 +95,13 @@ form[id^="mktoForm_"] {
             float: right;
         }
     }
+}
+
+/**
+ * Some elements have width styles applied to them after our custom JavaScript
+ * has removed any style attributes from the Marketo forms. This rule ensures
+ * that our CSS trumps any styles applied by the Marketo JavaScript.
+ */
+.mktoHasWidth {
+    width: 100% !important;
 }
