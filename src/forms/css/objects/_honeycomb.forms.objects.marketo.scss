@@ -96,3 +96,12 @@ form[id^="mktoForm_"] {
         }
     }
 }
+
+/**
+ * Some elements have width styles applied to them after our custom JavaScript
+ * has removed any style attributes from the Marketo forms. This rule ensures
+ * that our CSS trumps any styles applied by the Marketo JavaScript.
+ */
+.mktoHasWidth {
+    width: 100% !important;
+}
