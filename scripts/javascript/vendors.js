@@ -3,13 +3,13 @@ const fs = require('fs-extra');
 const glob = require('glob');
 const pkg = require('../../package.json');
 
-glob(`${pkg.project.src}/**/vendor/**/*.js`, (err, files) => {
-    if(err) {
+(async function() {
+    const files = await glob(`${pkg.project.src}/**/vendor/**/*.js`);
+    if( ! files.length ) {
         console.error('Error globbing vendor scripts');
-        console.error(err);
         process.exit(1);
     }
-
+    
     files.map(file => {
         const distPath = file.replace(pkg.project.src, pkg.project.dist);
         fs.ensureDir(path.dirname(distPath), err => {
@@ -30,4 +30,4 @@ glob(`${pkg.project.src}/**/vendor/**/*.js`, (err, files) => {
             });
         });
     });
-});
+})();

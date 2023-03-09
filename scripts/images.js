@@ -12,32 +12,30 @@ const images = [
     `${pkg.project.src}/base/`
 ];
 
-images.map(image => {
-    glob(`${image}/**/*.+(gif|png|svg)`, (err, files) => {
-        if(err) {
-            console.error('Error globbing images');
-            console.error(err);
-            process.exit(1);
-        }
+images.map(async image => {
+    const files = await glob(`${image}/**/*.+(gif|png|svg)`);
+    if( ! files.length ) {
+        console.error('Error globbing images');
+        process.exit(1);
+    }
 
-        files.map(file => {
-            const distPath = file.replace(pkg.project.src, pkg.project.dist);
-            fs.ensureDir(path.dirname(distPath), err => {
+    files.map(file => {
+        const distPath = file.replace(pkg.project.src, pkg.project.dist);
+        fs.ensureDir(path.dirname(distPath), err => {
+            if(err) {
+                console.error('Error ensuring image directory exists');
+                console.error(err);
+                process.exit(1);
+            }
+
+            fs.copy(file, distPath, err => {
                 if(err) {
-                    console.error('Error ensuring image directory exists');
+                    console.error('Error copying image');
                     console.error(err);
                     process.exit(1);
                 }
 
-                fs.copy(file, distPath, err => {
-                    if(err) {
-                        console.error('Error copying image');
-                        console.error(err);
-                        process.exit(1);
-                    }
-
-                    console.log(`Copied image ${file} to ${distPath}`);
-                })
+                console.log(`Copied image ${file} to ${distPath}`);
             });
         });
     });
