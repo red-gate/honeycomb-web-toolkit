@@ -106,3 +106,13 @@ form[id^="mktoForm_"] {
 .mktoHasWidth {
     width: 100% !important;
 }
+
+/**
+ * For the Databases of Interest field, have a 3-column layout for checkboxes + labels.
+ * 
+ * Slack thread: https://redgate.slack.com/archives/GF85KV7FX/p1678188588081699
+ */
+[name="Database_s_of_Interest__c"] + label {
+    @include margin(0.5, 'bottom');
+    flex-basis: calc(33% - 20px);
+}
