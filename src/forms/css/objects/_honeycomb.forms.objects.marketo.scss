@@ -77,6 +77,7 @@ form[id^="mktoForm_"] {
     display: flex;
     flex-wrap: wrap;
     flex-basis: 100%;
+    line-height: 20px;
 
     label {
         @include margin(0, 'right', true);
@@ -111,6 +112,6 @@ form[id^="mktoForm_"] {
  * Slack thread: https://redgate.slack.com/archives/GF85KV7FX/p1678188588081699
  */
 [name="Database_s_of_Interest__c"] + label {
-    @include margin(0.5, 'bottom');
+    margin-bottom: 30px;
     flex-basis: calc(33% - 20px);
 }
