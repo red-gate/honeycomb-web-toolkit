@@ -86,8 +86,6 @@ form[id^="mktoForm_"] {
     }
 
     & + label {
-        display: inline-block;
-
         // The HTML for .mktoCheckboxList has the heading following the list, 
         // so we need to reorder the elements.
         order: -1;
