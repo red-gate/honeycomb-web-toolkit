@@ -110,7 +110,7 @@ input[type="radio"] {
 label {
     @include margin($hc-forms-label-margin-bottom-ratio, 'bottom');
     display: block;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 select {
