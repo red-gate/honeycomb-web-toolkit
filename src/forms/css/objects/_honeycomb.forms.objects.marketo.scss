@@ -76,6 +76,7 @@ form[id^="mktoForm_"] {
     display: flex;
     flex-wrap: wrap;
     flex-basis: 100%;
+    line-height: 20px;
 
     label {
         @include margin(0, 'right', true);
@@ -85,8 +86,6 @@ form[id^="mktoForm_"] {
     }
 
     & + label {
-        display: inline-block;
-
         // The HTML for .mktoCheckboxList has the heading following the list, 
         // so we need to reorder the elements.
         order: -1;
@@ -104,4 +103,14 @@ form[id^="mktoForm_"] {
  */
 .mktoHasWidth {
     width: 100% !important;
+}
+
+/**
+ * For the Databases of Interest field, have a 3-column layout for checkboxes + labels.
+ * 
+ * Slack thread: https://redgate.slack.com/archives/GF85KV7FX/p1678188588081699
+ */
+[name="Database_s_of_Interest__c"] + label {
+    margin-bottom: 30px;
+    flex-basis: calc(33% - 20px);
 }
