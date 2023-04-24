@@ -39,7 +39,7 @@
     "glob": "10.0.0",
     "handlebars": "4.7.7",
     "jquery": "3.6.4",
-    "postcss": "8.4.22",
+    "postcss": "8.4.23",
     "postcss-cli": "10.1.0",
     "request": "2.88.2",
     "sass": "1.62.0",
