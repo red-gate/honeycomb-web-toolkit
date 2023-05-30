@@ -36,7 +36,7 @@
     "browserify": "17.0.0",
     "eslint": "8.41.0",
     "fs-extra": "11.1.1",
-    "glob": "10.2.4",
+    "glob": "10.2.6",
     "handlebars": "4.7.7",
     "jquery": "3.7.0",
     "postcss": "8.4.23",
