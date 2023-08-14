@@ -324,6 +324,19 @@ const displayNotification = () => {
     acceptButtonListItem.appendChild(acceptButton);
     list.appendChild(acceptButtonListItem);
 
+    // Reject button.
+    const rejectButtonListItem = document.createElement('li');
+    rejectButtonListItem.className = 'spaced-right--tight';
+    const rejectButton = document.createElement('button');
+    rejectButton.className = 'button button--small';
+    rejectButton.innerHTML = 'Reject additional cookies';
+    rejectButton.addEventListener('click', () => {
+        setHasConsent(null, false);
+        hideNotification();
+    });
+    rejectButtonListItem.appendChild(rejectButton);
+    list.appendChild(rejectButtonListItem);
+
     // Customise link.
     const customiseLinkItem = document.createElement('li');
     customiseLinkItem.className = 'spaced-right--tight';
