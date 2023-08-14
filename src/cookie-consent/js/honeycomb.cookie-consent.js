@@ -228,14 +228,16 @@ const hasConsent = ( group = null ) => {
  *
  * @param {Object|Null} groups The groups object with the group as the property,
  *                             and the consent status as the value (0|1)
+ * @param {Boolean} status The status to set consent to if groups is null.
+ *                         Defaults to true (accepted)
  */
-const setHasConsent = ( groups = null ) => {
+const setHasConsent = ( groups = null, status = true ) => {
 
     // If no groups info is passed in, then set all groups to have consent.
     if ( groups === null ) {
         groups = {};
         getConsentGroups().forEach(group => {
-            groups[group] = 1;
+            groups[group] = status === true ? 1 : 0;
         });
     }
 
