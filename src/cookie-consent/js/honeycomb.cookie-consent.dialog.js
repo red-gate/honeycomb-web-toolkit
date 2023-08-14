@@ -51,13 +51,27 @@ const open = ( consentGroups = null, setHasConsent = null ) => {
 
     // Allow all button.
     const acceptAll = document.createElement('button');
-    acceptAll.setAttribute('class', 'button button--primary button--small spaced-bottom--tight');
+    acceptAll.setAttribute('class', 'button button--primary button--small spaced-bottom--tight spaced-right--tight');
     acceptAll.innerHTML = 'Accept all';
     acceptAll.addEventListener('click', e => {
         e.preventDefault();
         setHasConsent(null);
     });
     inner.appendChild(acceptAll);
+
+    // Reject all button.
+    const rejectAll = document.createElement('button');
+    rejectAll.setAttribute('class', 'button button--small spaced-bottom--tight');
+    rejectAll.innerHTML = 'Reject all';
+    rejectAll.addEventListener('click', e => {
+        e.preventDefault();
+        const rejections = {};
+        for (let consentGroup in consentGroups) {
+            rejections[consentGroup] = 0;
+        }
+        setHasConsent(rejections);
+    });
+    inner.appendChild(rejectAll);
 
     // Group heading.
     const groupHeading = document.createElement('h2');

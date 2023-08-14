@@ -224,23 +224,25 @@ const hasConsent = ( group = null ) => {
 
 /**
  * Set the consent cookie with the groups consent statuses, and for it to
- * expire in 31 days.
+ * expire in 31 days if cookies accepted, and 6 months if rejected.
  *
  * @param {Object|Null} groups The groups object with the group as the property,
  *                             and the consent status as the value (0|1)
+ * @param {Boolean} status The status to set consent to if groups is null.
+ *                         Defaults to true (accepted)
  */
-const setHasConsent = ( groups = null ) => {
+const setHasConsent = ( groups = null, status = true ) => {
 
     // If no groups info is passed in, then set all groups to have consent.
     if ( groups === null ) {
         groups = {};
         getConsentGroups().forEach(group => {
-            groups[group] = 1;
+            groups[group] = status === true ? 1 : 0;
         });
     }
 
     cookie.set(getConsentCookieName(), JSON.stringify(groups), {
-        'max-age': 2678400,
+        'max-age': (status === 1) ? 2678400 : 16070400,
         domain: getConsentCookieDomain(),
     });
 };
@@ -321,6 +323,19 @@ const displayNotification = () => {
     });
     acceptButtonListItem.appendChild(acceptButton);
     list.appendChild(acceptButtonListItem);
+
+    // Reject button.
+    const rejectButtonListItem = document.createElement('li');
+    rejectButtonListItem.className = 'spaced-right--tight';
+    const rejectButton = document.createElement('button');
+    rejectButton.className = 'button button--small';
+    rejectButton.innerHTML = 'Reject additional cookies';
+    rejectButton.addEventListener('click', () => {
+        setHasConsent(null, false);
+        hideNotification();
+    });
+    rejectButtonListItem.appendChild(rejectButton);
+    list.appendChild(rejectButtonListItem);
 
     // Customise link.
     const customiseLinkItem = document.createElement('li');

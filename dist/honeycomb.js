@@ -2723,9 +2723,9 @@ var scrollOnClick = function scrollOnClick() {
     var focus = $this.attr('data-scroll-to-focus') || false;
     var hash = isHashOnThisPage(href);
     if (hash) {
-      var _window$jQuery, _window$jQuery$offset;
+      var _window$jQuery;
       e.preventDefault();
-      var hashTop = (_window$jQuery = window.jQuery(hash)) === null || _window$jQuery === void 0 ? void 0 : (_window$jQuery$offset = _window$jQuery.offset()) === null || _window$jQuery$offset === void 0 ? void 0 : _window$jQuery$offset.top;
+      var hashTop = (_window$jQuery = window.jQuery(hash)) === null || _window$jQuery === void 0 || (_window$jQuery = _window$jQuery.offset()) === null || _window$jQuery === void 0 ? void 0 : _window$jQuery.top;
       if (typeof hashTop === 'undefined') {
         window.console.warn("Honeycomb: Element with ID \"".concat(hash, "\" not found, so can't scroll to it."));
         return;
@@ -3564,8 +3564,9 @@ var addInlineVideos = function addInlineVideos() {
       // If video is already loaded, skip.
       // NB we look for the iframe for the specific video, because in React we may be reusing an old VideoPlayer component.
       if (videoContainer.querySelector("iframe[id^=\"".concat(videoId, "\"]"))) {
-        return "continue";
+        return 1; // continue
       }
+
       var duration;
       var currentTime;
       var percentages;
@@ -3679,8 +3680,7 @@ var addInlineVideos = function addInlineVideos() {
       videoCounter++;
     };
     for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-      var _ret = _loop();
-      if (_ret === "continue") continue;
+      if (_loop()) continue;
     }
   } catch (err) {
     _iterator2.e(err);
