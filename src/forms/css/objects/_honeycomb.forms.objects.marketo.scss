@@ -110,7 +110,17 @@ form[id^="mktoForm_"] {
  * 
  * Slack thread: https://redgate.slack.com/archives/GF85KV7FX/p1678188588081699
  */
-[name="Database_s_of_Interest__c"] + label {
+ [name="Database_s_of_Interest__c"] + label {
     margin-bottom: 30px;
     flex-basis: calc(32% - 20px);
+
+    // Half-width columns at medium viewport sizes
+    @media only screen and (max-width:900px) and (min-width:600px) {
+        flex-basis: calc(49% - 20px);
+    }
+
+    // Tweak to prevent line-wrapping when we break to single-column flow
+    @media only screen and (max-width:600px) {
+        flex-basis: calc(33% - 20px);
+    }
 }
