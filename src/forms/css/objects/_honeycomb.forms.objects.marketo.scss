@@ -106,18 +106,13 @@ form[id^="mktoForm_"] {
 }
 
 /**
- * For the Databases of Interest field, have a 3-column layout for checkboxes + labels.
+ * For the Databases of Interest field, have a 2-column layout for checkboxes + labels.
  * 
  * Slack thread: https://redgate.slack.com/archives/GF85KV7FX/p1678188588081699
  */
  [name="Database_s_of_Interest__c"] + label {
     margin-bottom: 30px;
-    flex-basis: calc(32% - 20px);
-
-    // Half-width columns at medium viewport sizes
-    @media only screen and (max-width:900px) and (min-width:600px) {
-        flex-basis: calc(49% - 20px);
-    }
+    flex-basis: calc(49% - 20px);
 
     // Tweak to prevent line-wrapping when we break to single-column flow
     @media only screen and (max-width:600px) {
