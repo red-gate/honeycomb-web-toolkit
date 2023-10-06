@@ -244,7 +244,7 @@ var setupTrackingAlias = function setupTrackingAlias() {
     });
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init,
   accountId: accountId,
   setupTrackingAlias: setupTrackingAlias,
@@ -253,7 +253,6 @@ var _default = {
   trackEvent: trackEvent,
   trackPageView: trackPageView
 };
-exports["default"] = _default;
 
 },{"../../cookie-consent/js/honeycomb.cookie-consent":13,"../../document/js/honeycomb.document.load-script":16}],2:[function(require,module,exports){
 "use strict";
@@ -271,10 +270,9 @@ var init = function init() {
     s.parentNode.insertBefore(p, s);
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{}],3:[function(require,module,exports){
 "use strict";
@@ -311,10 +309,9 @@ var step = function step() {
     });
   });
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{}],4:[function(require,module,exports){
 "use strict";
@@ -323,11 +320,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.version = exports.date = exports.breakpoints = void 0;
-var version = 'Version goes here';
-exports.version = version;
-var date = 'Date goes here';
-exports.date = date;
-var breakpoints = [{
+var version = exports.version = 'Version goes here';
+var date = exports.date = 'Date goes here';
+var breakpoints = exports.breakpoints = [{
   'breakpoint': 'large',
   'width': 9999
 }, {
@@ -337,7 +332,6 @@ var breakpoints = [{
   'breakpoint': 'small',
   'width': 480
 }];
-exports.breakpoints = breakpoints;
 
 },{}],5:[function(require,module,exports){
 "use strict";
@@ -357,11 +351,10 @@ var addClass = function addClass(className) {
 var isIE7 = function isIE7() {
   return navigator.appVersion.indexOf('MSIE 7') !== -1 ? true : false;
 };
-var _default = {
+var _default = exports["default"] = {
   init: init,
   isIE7: isIE7
 };
-exports["default"] = _default;
 
 },{}],6:[function(require,module,exports){
 "use strict";
@@ -513,10 +506,9 @@ var init = function init() {
     }
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{"../../document/js/honeycomb.document.load-script":16}],7:[function(require,module,exports){
 "use strict";
@@ -773,10 +765,9 @@ var getData = function getData(chart) {
   }
   return $deferred;
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{"../../document/js/honeycomb.document.load-script":16}],8:[function(require,module,exports){
 "use strict";
@@ -815,10 +806,9 @@ var init = function init(callback) {
     }
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{"../../document/js/honeycomb.document.load-script":16}],9:[function(require,module,exports){
 "use strict";
@@ -877,10 +867,9 @@ var init = function init() {
     loadVendorStyle(config);
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{"../../document/js/honeycomb.document.load-script":16,"../../document/js/honeycomb.document.load-style":17}],10:[function(require,module,exports){
 "use strict";
@@ -1018,10 +1007,9 @@ var update = function update() {
 window.addEventListener('resize', function () {
   update();
 });
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{}],11:[function(require,module,exports){
 "use strict";
@@ -1155,10 +1143,9 @@ var handleClickAway = function handleClickAway(event) {
     }
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{}],12:[function(require,module,exports){
 "use strict";
@@ -1180,7 +1167,7 @@ var dialog = null;
  *                                 object of groups and their consent values
  * @return {Void}
  */
-var open = function open() {
+var open = exports.open = function open() {
   var consentGroups = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
   var setHasConsent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
   if (dialog) return;
@@ -1335,14 +1322,12 @@ var open = function open() {
 /**
  * Close the dialog.
  */
-exports.open = open;
-var close = function close() {
+var close = exports.close = function close() {
   if (dialog) {
     dialog.parentElement.removeChild(dialog);
     dialog = null;
   }
 };
-exports.close = close;
 
 },{}],13:[function(require,module,exports){
 "use strict";
@@ -1359,14 +1344,14 @@ function _interopRequireDefault(obj) {
     "default": obj
   };
 }
-function _typeof(obj) {
+function _typeof(o) {
   "@babel/helpers - typeof";
 
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, _typeof(obj);
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
 }
 /**
  * The name of the consent cookie.
@@ -1845,12 +1830,11 @@ var init = function init() {
     setHasConsent(getConsentGroupsFromCookie());
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init,
   hasConsent: hasConsent,
   updateConsent: updateConsent
 };
-exports["default"] = _default;
 
 },{"../../cookie/js/honeycomb.cookie":15,"../json/crawler-user-agents.json":14,"./honeycomb.cookie-consent.dialog":12}],14:[function(require,module,exports){
 module.exports=[
@@ -6722,35 +6706,35 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
-function _typeof(obj) {
+function _typeof(o) {
   "@babel/helpers - typeof";
 
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, _typeof(obj);
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
 }
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
+function ownKeys(e, r) {
+  var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    var o = Object.getOwnPropertySymbols(e);
+    r && (o = o.filter(function (r) {
+      return Object.getOwnPropertyDescriptor(e, r).enumerable;
+    })), t.push.apply(t, o);
   }
-  return keys;
+  return t;
 }
-function _objectSpread(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+function _objectSpread(e) {
+  for (var r = 1; r < arguments.length; r++) {
+    var t = null != arguments[r] ? arguments[r] : {};
+    r % 2 ? ownKeys(Object(t), !0).forEach(function (r) {
+      _defineProperty(e, r, t[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
+      Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
     });
   }
-  return target;
+  return e;
 }
 function _defineProperty(obj, key, value) {
   key = _toPropertyKey(key);
@@ -6842,12 +6826,11 @@ var remove = function remove(property) {
     'max-age': -1
   });
 };
-var _default = {
+var _default = exports["default"] = {
   get: get,
   set: set,
   remove: remove
 };
-exports["default"] = _default;
 
 },{}],16:[function(require,module,exports){
 "use strict";
@@ -6865,7 +6848,7 @@ exports.load = exports["default"] = void 0;
  * @param {function|undefined} errorCallback A function to execute if the script errors while attempting to load the URL
  * @return {void}
  */
-var load = function load() {
+var load = exports.load = function load() {
   var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
   var attrs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
@@ -6898,11 +6881,9 @@ var load = function load() {
     s.parentNode.insertBefore(se, s);
   }
 };
-exports.load = load;
-var _default = {
+var _default = exports["default"] = {
   load: load
 };
-exports["default"] = _default;
 
 },{}],17:[function(require,module,exports){
 "use strict";
@@ -6940,10 +6921,9 @@ var load = function load() {
     head.appendChild(link);
   }
 };
-var _default = {
+var _default = exports["default"] = {
   load: load
 };
-exports["default"] = _default;
 
 },{}],18:[function(require,module,exports){
 "use strict";
@@ -6981,10 +6961,9 @@ var init = function init() {
   }
 };
 
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{"../../document/js/honeycomb.document.load-script":16}],19:[function(require,module,exports){
 "use strict";
@@ -7031,10 +7010,9 @@ var equalise = function equalise() {
     }
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{"../../document/js/honeycomb.document.load-script":16}],20:[function(require,module,exports){
 "use strict";
@@ -7138,10 +7116,9 @@ var resetFilter = function resetFilter() {
   $items.prop('checked', true);
   updateFilter.call(this);
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{}],21:[function(require,module,exports){
 "use strict";
@@ -7188,10 +7165,9 @@ var addHelpIcon = function addHelpIcon() {
     }
   }]);
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{}],22:[function(require,module,exports){
 "use strict";
@@ -7208,35 +7184,35 @@ function _interopRequireDefault(obj) {
     "default": obj
   };
 }
-function _typeof(obj) {
+function _typeof(o) {
   "@babel/helpers - typeof";
 
-  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, _typeof(obj);
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
 }
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
+function ownKeys(e, r) {
+  var t = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    enumerableOnly && (symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    })), keys.push.apply(keys, symbols);
+    var o = Object.getOwnPropertySymbols(e);
+    r && (o = o.filter(function (r) {
+      return Object.getOwnPropertyDescriptor(e, r).enumerable;
+    })), t.push.apply(t, o);
   }
-  return keys;
+  return t;
 }
-function _objectSpread(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = null != arguments[i] ? arguments[i] : {};
-    i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
-      Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+function _objectSpread(e) {
+  for (var r = 1; r < arguments.length; r++) {
+    var t = null != arguments[r] ? arguments[r] : {};
+    r % 2 ? ownKeys(Object(t), !0).forEach(function (r) {
+      _defineProperty(e, r, t[r]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) {
+      Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
     });
   }
-  return target;
+  return e;
 }
 function _defineProperty(obj, key, value) {
   key = _toPropertyKey(key);
@@ -7271,7 +7247,7 @@ function _toPrimitive(input, hint) {
  * 
  * Exported so they can be imported by the React implementation.
  */
-var defaults = {
+var defaults = exports.defaults = {
   callback: function callback() {},
   formId: '',
   formsJavaScriptUrl: 'https://content.red-gate.com/js/forms2/js/forms2.min.js',
@@ -7295,7 +7271,6 @@ var defaults = {
  * @param {object} c The user supplied config.
  * @return {object} The defaults merged with the user supplied config.
  */
-exports.defaults = defaults;
 var createConfig = function createConfig(c) {
   return _objectSpread(_objectSpread({}, defaults), c);
 };
@@ -7499,11 +7474,10 @@ var init = function init(callback) {
     callback.call(_this);
   }
 };
-var _default = {
+var _default = exports["default"] = {
   create: create,
   init: init
 };
-exports["default"] = _default;
 
 },{"../../analytics/js/honeycomb.analytics.google":1,"../../document/js/honeycomb.document.load-script":16}],23:[function(require,module,exports){
 "use strict";
@@ -7734,10 +7708,9 @@ var initLightbox = function initLightbox() {
     }
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{"../../document/js/honeycomb.document.load-script":16}],25:[function(require,module,exports){
 "use strict";
@@ -7831,11 +7804,10 @@ var getConfig = function getConfig($map) {
   config.streetView = $map.attr('data-google-map-street-view') || false;
   return config;
 };
-var _default = {
+var _default = exports["default"] = {
   init: init,
   initialiseMap: initialiseMap
 };
-exports["default"] = _default;
 
 },{}],26:[function(require,module,exports){
 "use strict";
@@ -7941,11 +7913,10 @@ var handle = function handle() {
     }
   });
 };
-var _default = {
+var _default = exports["default"] = {
   init: init,
   addArrows: addArrows
 };
-exports["default"] = _default;
 
 },{}],27:[function(require,module,exports){
 "use strict";
@@ -8019,10 +7990,9 @@ var init = function init() {
     }
   });
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{}],28:[function(require,module,exports){
 "use strict";
@@ -8110,10 +8080,9 @@ var collapse = function collapse(e, nav) {
     nav.className = nav.className.replace(collapsedClass, '');
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{}],29:[function(require,module,exports){
 "use strict";
@@ -8235,12 +8204,11 @@ var notification = function notification(options) {
   // Kick off.
   self.init();
 };
-var _default = {
+var _default = exports["default"] = {
   init: init,
   block: notification,
   buildNotification: buildNotification
 };
-exports["default"] = _default;
 
 },{}],30:[function(require,module,exports){
 "use strict";
@@ -8270,8 +8238,7 @@ var CustomEvent = function CustomEvent() {
     };
   }
 };
-var _default = CustomEvent;
-exports["default"] = _default;
+var _default = exports["default"] = CustomEvent;
 
 },{}],31:[function(require,module,exports){
 "use strict";
@@ -8296,8 +8263,7 @@ var indexOf = function indexOf() {
     };
   }
 };
-var _default = indexOf;
-exports["default"] = _default;
+var _default = exports["default"] = indexOf;
 
 },{}],32:[function(require,module,exports){
 "use strict";
@@ -8438,13 +8404,12 @@ var toggle = function toggle(button, callback) {
     open(button, callback);
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init,
   toggle: toggle,
   open: open,
   close: close
 };
-exports["default"] = _default;
 
 },{}],33:[function(require,module,exports){
 "use strict";
@@ -8550,10 +8515,9 @@ var scrollBeforeSticky = function scrollBeforeSticky() {
     }, 1000);
   });
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{}],34:[function(require,module,exports){
 "use strict";
@@ -8598,10 +8562,9 @@ var init = function init() {
     }
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{"../../document/js/honeycomb.document.load-script":16}],35:[function(require,module,exports){
 "use strict";
@@ -8625,10 +8588,9 @@ var init = function init() {
     _loop();
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{}],36:[function(require,module,exports){
 "use strict";
@@ -8825,10 +8787,9 @@ var init = function init() {
     }
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":16}],37:[function(require,module,exports){
 "use strict";
@@ -8994,10 +8955,9 @@ var toggle = function toggle(target) {
     _iterator4.f();
   }
 };
-var _default = {
+var _default = exports["default"] = {
   init: init
 };
-exports["default"] = _default;
 
 },{}],38:[function(require,module,exports){
 "use strict";
@@ -9012,31 +8972,31 @@ function _slicedToArray(arr, i) {
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _iterableToArrayLimit(arr, i) {
-  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
-  if (null != _i) {
-    var _s,
-      _e,
-      _x,
-      _r,
-      _arr = [],
-      _n = !0,
-      _d = !1;
+function _iterableToArrayLimit(r, l) {
+  var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+  if (null != t) {
+    var e,
+      n,
+      i,
+      u,
+      a = [],
+      f = !0,
+      o = !1;
     try {
-      if (_x = (_i = _i.call(arr)).next, 0 === i) {
-        if (Object(_i) !== _i) return;
-        _n = !1;
-      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
-    } catch (err) {
-      _d = !0, _e = err;
+      if (i = (t = t.call(r)).next, 0 === l) {
+        if (Object(t) !== t) return;
+        f = !1;
+      } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
+    } catch (r) {
+      o = !0, n = r;
     } finally {
       try {
-        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
+        if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return;
       } finally {
-        if (_d) throw _e;
+        if (o) throw n;
       }
     }
-    return _arr;
+    return a;
   }
 }
 function _arrayWithHoles(arr) {
@@ -9060,8 +9020,8 @@ function _createForOfIteratorHelper(o, allowArrayLike) {
             value: o[i++]
           };
         },
-        e: function e(_e2) {
-          throw _e2;
+        e: function e(_e) {
+          throw _e;
         },
         f: F
       };
@@ -9080,9 +9040,9 @@ function _createForOfIteratorHelper(o, allowArrayLike) {
       normalCompletion = step.done;
       return step;
     },
-    e: function e(_e3) {
+    e: function e(_e2) {
       didErr = true;
-      err = _e3;
+      err = _e2;
     },
     f: function f() {
       try {
@@ -9455,12 +9415,11 @@ var getOptions = function getOptions(video) {
 window.onYouTubeIframeAPIReady = function () {
   addInlineVideos();
 };
-var _default = {
+var _default = exports["default"] = {
   init: init,
   options: options,
   addInlineVideos: addInlineVideos,
   videos: videos
 };
-exports["default"] = _default;
 
 },{}]},{},[23]);
