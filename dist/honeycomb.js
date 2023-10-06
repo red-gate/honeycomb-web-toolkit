@@ -97,6 +97,16 @@ var init = function init() {
     trackLightboxVideoViews();
   });
 };
+var isExcludedEnvironment = function isExcludedEnvironment() {
+  var excludedEnvironments = ['localhost', 'local.red-gate.com', 'local.honeycomb.com', 'webstaging.red-gate.com', 'coredev-uat'];
+  var isExcluded = false;
+  excludedEnvironments.forEach(function (environment) {
+    if (window.location.host.includes(environment)) {
+      isExcluded = true;
+    }
+  });
+  return isExcluded;
+};
 var setAccountId = function setAccountId(accId) {
   accountId = accId;
 };
@@ -138,9 +148,13 @@ var initAccount = function initAccount(accountId) {
   window.gtag('js', new Date());
 
   // Add account IDs.
-  window.gtag('config', accountId);
+  var configOptions = {};
+  if (isExcludedEnvironment()) {
+    configOptions['debug_mode'] = true;
+  }
+  window.gtag('config', accountId, configOptions);
   if (crossDomainAccountId) {
-    window.gtag('config', crossDomainAccountId);
+    window.gtag('config', crossDomainAccountId, configOptions);
   }
 
   // Update consent for storing cookies if targeting consent given.
