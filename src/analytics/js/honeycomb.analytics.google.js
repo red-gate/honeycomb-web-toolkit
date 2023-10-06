@@ -26,6 +26,25 @@ const init = () => {
     });
 };
 
+const isExcludedEnvironment = () => {
+    const excludedEnvironments = [
+        'localhost',
+        'local.red-gate.com',
+        'local.honeycomb.com',
+        'webstaging.red-gate.com',
+        'coredev-uat',
+    ];
+
+    let isExcluded = false;
+    excludedEnvironments.forEach(environment => {
+        if (window.location.host.includes(environment)) {
+            isExcluded = true;
+        }
+    });
+
+    return isExcluded;
+};
+
 const setAccountId = accId => {
     accountId = accId;
 };
@@ -69,9 +88,13 @@ const initAccount = (accountId, crossDomainAccountId = null) => {
     window.gtag('js', new Date());
 
     // Add account IDs.
-    window.gtag('config', accountId);
+    const configOptions = {};
+    if (isExcludedEnvironment()) {
+        configOptions['debug_mode'] = true;
+    }
+    window.gtag('config', accountId, configOptions);
     if (crossDomainAccountId) {
-        window.gtag('config', crossDomainAccountId);
+        window.gtag('config', crossDomainAccountId, configOptions);
     }
 
     // Update consent for storing cookies if targeting consent given.
