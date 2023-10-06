@@ -7522,7 +7522,7 @@ function _interopRequireDefault(obj) {
 
 // Google analytics.
 
-_honeycombAnalytics["default"].setAccountId('G-X7VDRWRT4P');
+_honeycombAnalytics["default"].setAccountId('G-XXX');
 _honeycombAnalytics["default"].init();
 
 // Pingdom.

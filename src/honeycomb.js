@@ -2,7 +2,7 @@
 
 // Google analytics.
 import googleAnalytics from './analytics/js/honeycomb.analytics.google';
-googleAnalytics.setAccountId('G-X7VDRWRT4P');
+googleAnalytics.setAccountId('G-XXX');
 googleAnalytics.init();
 
 // Pingdom.
