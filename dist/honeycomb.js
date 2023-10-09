@@ -7402,6 +7402,14 @@ var create = function create(c) {
       var marketoFormElement = marketoForm.getFormElem().get(0);
       removeDefaultStyles();
       formatCheckboxes(marketoFormElement);
+
+      // Replicate default Google Analytics `form_submit` event.
+      marketoForm.onSuccess(function () {
+        _honeycombAnalytics["default"].trackEvent('form_submit', {
+          form_id: marketoForm.getFormElem().get(0).getAttribute('id'),
+          marketo_form_id: marketoForm.getId()
+        });
+      });
       if (typeof config.callback === 'function') {
         config.callback.call(_this, marketoForm);
       }
