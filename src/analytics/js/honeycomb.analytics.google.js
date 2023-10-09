@@ -138,8 +138,18 @@ const trackLightboxVideoViews = () => {
     const els = document.querySelectorAll('.lightbox--video, .js-lightbox--video');
     for (let i=0; i<els.length; i++) {
         els[i].addEventListener('click', (e) => {
-            const videoId = e.target.href.replace(/http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g, '');
-            const url = new URL(e.target.href);
+            let target = e.target;
+
+            // Ensure target is the link, rather than a child element.
+            while (!target.hasAttribute('href')) {
+                target = target.parentElement;
+            }
+
+            const videoId = target.href.replace(
+                /http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g,
+                ''
+            );
+            const url = new URL(target.href);
             trackEvent('video_start', {
                 video_current_time: 0,
                 video_percent: 0,
