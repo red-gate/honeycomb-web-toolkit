@@ -159,6 +159,14 @@ const create = c => {
                 removeDefaultStyles();
                 formatCheckboxes(marketoFormElement);
 
+                // Replicate default Google Analytics `form_submit` event.
+                marketoForm.onSuccess(() => {
+                    googleAnalytics.trackEvent('form_submit', {
+                        form_id: marketoForm.getFormElem().get(0).getAttribute('id'),
+                        marketo_form_id: marketoForm.getId(),
+                    });
+                });
+
                 if (typeof config.callback === 'function') {
                     config.callback.call(this, marketoForm);
                 }
