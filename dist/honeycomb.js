@@ -4,7 +4,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.trackPageView = exports.trackEvent = exports.setupTrackingAlias = exports.isExcludedEnvironment = exports["default"] = exports.accountId = void 0;
 var _honeycomb = _interopRequireDefault(require("../../cookie-consent/js/honeycomb.cookie-consent"));
 var _honeycombDocument = require("../../document/js/honeycomb.document.load-script");
 function _interopRequireDefault(obj) {
@@ -102,7 +102,7 @@ var init = function init() {
     };
   });
 };
-var isExcludedEnvironment = function isExcludedEnvironment() {
+var isExcludedEnvironment = exports.isExcludedEnvironment = function isExcludedEnvironment() {
   var excludedEnvironments = ['localhost', 'local.red-gate.com', 'local.honeycomb.com', 'webstaging.red-gate.com', 'coredev-uat'];
   var isExcluded = false;
   excludedEnvironments.forEach(function (environment) {
@@ -113,7 +113,7 @@ var isExcludedEnvironment = function isExcludedEnvironment() {
   return isExcluded;
 };
 var setAccountId = function setAccountId(accId) {
-  accountId = accId;
+  exports.accountId = accountId = accId;
 };
 var setCrossDomainAccountId = function setCrossDomainAccountId(accId) {
   crossDomainAccountId = accId;
@@ -173,7 +173,7 @@ var initAccount = function initAccount(accountId) {
 };
 
 // Track a page view on all trackers.
-var trackPageView = function trackPageView() {
+var trackPageView = exports.trackPageView = function trackPageView() {
   var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var options = url !== '' ? {
     page_location: url
@@ -182,7 +182,7 @@ var trackPageView = function trackPageView() {
 };
 
 // Track an event.
-var trackEvent = function trackEvent() {
+var trackEvent = exports.trackEvent = function trackEvent() {
   var event = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   if (event === '') return false;
@@ -211,7 +211,7 @@ var trackLightboxVideoViews = function trackLightboxVideoViews() {
 // Click track (helper for instead of onclick="gtag('event', ...)".
 // Use data-attributes instead. Keeps HTML nicer and easy to update in the
 // future).
-var setupTrackingAlias = function setupTrackingAlias() {
+var setupTrackingAlias = exports.setupTrackingAlias = function setupTrackingAlias() {
   var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document;
   var els = element.querySelectorAll('[data-ga-track]');
   for (var i = 0; i < els.length; i++) {

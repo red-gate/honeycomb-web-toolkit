@@ -193,3 +193,11 @@ export default {
     trackEvent,
     trackPageView,
 };
+
+export {
+    accountId,
+    isExcludedEnvironment,
+    setupTrackingAlias,
+    trackEvent,
+    trackPageView,
+};
