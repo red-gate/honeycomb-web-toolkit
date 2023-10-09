@@ -196,8 +196,14 @@ var trackLightboxVideoViews = function trackLightboxVideoViews() {
   var els = document.querySelectorAll('.lightbox--video, .js-lightbox--video');
   for (var i = 0; i < els.length; i++) {
     els[i].addEventListener('click', function (e) {
-      var videoId = e.target.href.replace(/http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g, '');
-      var url = new URL(e.target.href);
+      var target = e.target;
+
+      // Ensure target is the link, rather than a child element.
+      while (!target.hasAttribute('href')) {
+        target = target.parentElement;
+      }
+      var videoId = target.href.replace(/http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g, '');
+      var url = new URL(target.href);
       trackEvent('video_start', {
         video_current_time: 0,
         video_percent: 0,
