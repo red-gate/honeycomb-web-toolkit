@@ -12,11 +12,24 @@
         <div class="band__inner-container">
             <h1 class="section-heading--style-guide">Google Analytics tracking</h1>
             <p>Use data attributes on elements to track their click with google analytics event tracking.</p>
-            <p>This will capture the data in both the current and universal analytics platforms.</p>
 
-            <h2 class="section-heading--style-guide">HTML</h2>
-            <p data-height="350" data-theme-id="0" data-slug-hash="yyzPwj" data-default-tab="html" data-user="redgatewebteam" class='codepen'>See the Pen <a href='http://codepen.io/edwardcasbon/pen/OPmKoG/'>Redgate - Google analytics tracking</a> by Edward Casbon (<a href='http://codepen.io/edwardcasbon'>@edwardcasbon</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+            <code><pre>
+<span><</span>p
+    data-ga-track
+    data-ga-track-event="event-name"
+    data-ga-track-first-name="First"
+    data-ga-track-surname="Surname"
+    data-something-else="xyz"
+<span>></span>Click me<span><</span>/p<span>></span></pre></code>
 
+            <p
+                class="display--inline padded--tight background-color--grey color--white"
+                data-ga-track
+                data-ga-track-event="event-name"
+                data-ga-track-first-name="First"
+                data-ga-track-surname="Surname"
+                data-something-else="xyz"
+            >Click me</p>
 
             <h2 class="section-heading--style-guide">Options</h2>
             <table>
@@ -27,16 +40,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Category</td><td>Category of the tracked event</td><td>null</td><td><code class="code">data-ga-track-category="Category"</code></td>
+                        <td>Event</td><td>Event name to track the event as</td><td>null</td><td><code class="code">data-ga-track-event="event-name"</code></td>
                     </tr>
                     <tr>
-                        <td>Action</td><td>Action of the tracked event</td><td>null</td><td><code class="code">data-ga-track-action="Action"</code></td>
-                    </tr>
-                    <tr>
-                        <td>Label</td><td>Label of the tracked event</td><td>null</td><td><code class="code">data-ga-track-label="Label"</code></td>
-                    </tr>
-                    <tr>
-                        <td>Value</td><td>Value of the tracked event</td><td>null</td><td><code class="code">data-ga-track-value="1"</code></td>
+                        <td>{Param}</td><td>Custom param to pass along with the event</td><td>null</td><td><code class="code">data-ga-track-name="Name goes here"</code></td>
                     </tr>
                 </tbody>
             </table>

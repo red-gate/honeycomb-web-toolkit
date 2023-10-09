@@ -1,148 +1,173 @@
-let accountId;
-let sites;
-let optimizeContainerId;
-let crossDomainAccountId;
-let crossDomain = false;
-let crossDomainTrackerName = 'crossDomain';
+import cookieConsent from '../../cookie-consent/js/honeycomb.cookie-consent';
+import { load } from '../../document/js/honeycomb.document.load-script';
+import { logDeprecatedFunctionToConsole } from '../../notification/js/honeycomb.notification.log-deprecated-function';
 
-let init = ( s = false ) => {
+let accountId;
+let crossDomainAccountId;
+
+const init = () => {
 
     // If the account ID is not set, then don't carry on.
-    if ( ! accountId || ( accountId === 'UA-XXX' ) ) {
+    if (!accountId || (accountId === 'G-XXX')) {
         window.console.warn('Honeycomb: Google Analytics account ID is not set, therefore the Google Analytics script will not be loaded.');
         return false;
     }
 
     // Add the tracking script.
-    addScript();
+    addScript().then(() => {
 
-    // Init the analytics accounts.
-    initAccount( accountId, crossDomainAccountId );
+        // Init the analytics accounts.
+        initAccount(accountId, crossDomainAccountId);
 
-    // Track a page view.
-    if ( s.trackPageView !== false ) {
-        trackPageView();
-    }
+        // Set up tracking alias helper.
+        setupTrackingAlias();
 
-    // Set up tracking alias helper.
-    setupTrackingAlias();
+        // Track lightbox video views.
+        trackLightboxVideoViews();
 
-    // Track YouTube video views.
-    trackYouTubeViews();
+        // Do console error if window.ga called, but doesn't exist, as V4 is now window.gtag().
+        window.ga = window.ga || function () {
+            window.console.error(
+                'Honeycomb web toolkit has now been updated to use Google Analytics V4 (gtag). Please update any `window.ga()` references to use the new V4 API.',
+                arguments
+            );
+        };
+    });
 };
 
-let setAccountId = accId => {
+const isExcludedEnvironment = () => {
+    const excludedEnvironments = [
+        'localhost',
+        'local.red-gate.com',
+        'local.honeycomb.com',
+        'webstaging.red-gate.com',
+        'coredev-uat',
+    ];
+
+    let isExcluded = false;
+    excludedEnvironments.forEach(environment => {
+        if (window.location.host.includes(environment)) {
+            isExcluded = true;
+        }
+    });
+
+    return isExcluded;
+};
+
+const setAccountId = accId => {
     accountId = accId;
 };
 
-let setCrossDomainAccountId = accId => {
-    crossDomain = true;
+const setCrossDomainAccountId = accId => {
     crossDomainAccountId = accId;
-};
-
-let setSites = s => {
-    sites = s;
-};
-
-let setOptimizeId = id => {
-    optimizeContainerId = id;
 };
 
 // Add the Google Analytics script to the page.
 // Expanded out the isogram iife.
-let addScript = () => {
-    window.GoogleAnalyticsObject = 'ga';
-    window.ga = window.ga || function() {
-        ( window.ga.q = window.ga.q || [] ).push( arguments );
-    };
-    window.ga.l = 1 * new Date();
-
-    let script = document.createElement( 'script' );
-    script.async = 1;
-    script.src = '//www.google-analytics.com/analytics.js';
-
-    let firstScript = document.getElementsByTagName( 'script' )[ 0 ];
-    firstScript.parentNode.insertBefore( script, firstScript );
+const addScript = () => {
+    return new Promise((resolve, reject) => {
+        load(`https://www.googletagmanager.com/gtag/js?id=${accountId}`, () => {
+            resolve();
+        }, {
+            async:true
+        }, () => {
+            reject('Google Analytics script not loaded');
+        });
+    });
 };
 
 // Initialise the account, with the account ID.
-let initAccount = (accountId, crossDomainAccountId) => {
-    if ( ! accountId || ( accountId === 'UA-XXX' ) ) {
+const initAccount = (accountId, crossDomainAccountId = null) => {
+    if (!accountId || (accountId === 'G-XXX')) {
         return false;
     }
 
-    if ( typeof window.ga === 'undefined' ) return false;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function() {
+        window.dataLayer.push(arguments);
+    };
 
-    // Create the tracker for the individual property.
-    // allowLinker defaults to 'false'
-    window.ga( 'create', accountId, 'auto' ); 
-    
-    // Create the cross-domain tracker, and set it to allow cross-domain linker parameters.
-    // Also enable the auto-linker and pass in a list of sites.
-    // Our implementation of multiple trackers follows this guide: https://www.simoahava.com/gtm-tips/cross-domain-tracking-with-multiple-ga-trackers/
-    if ( crossDomainAccountId && sites ) {
-        window.ga( 'create', crossDomainAccountId, { name: crossDomainTrackerName, cookieName: '_crossDomainGa', 'allowLinker': true } );        
-        window.ga( `${crossDomainTrackerName}.require`, 'linker' );
-        window.ga( `${crossDomainTrackerName}.linker:autoLink`, sites );
+    // Set default values of consent to denied.
+    window.gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500,
+    });
+
+    window.gtag('js', new Date());
+
+    // Add account IDs.
+    const configOptions = {};
+    if (isExcludedEnvironment()) {
+        configOptions['debug_mode'] = true;
+    }
+    window.gtag('config', accountId, configOptions);
+    if (crossDomainAccountId) {
+        window.gtag('config', crossDomainAccountId, configOptions);
     }
 
-    if ( optimizeContainerId ) {
-        window.ga('require', optimizeContainerId);
+    // Update consent for storing cookies if targeting consent given.
+    const hasTargetingConsent = cookieConsent.hasConsent('targeting');
+    if (hasTargetingConsent) {
+        window.gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'analytics_storage': 'granted',
+        });
     }
-
-    // Anonymise IP addresses by default.
-    window.ga( 'set', 'anonymizeIp', true );
 };
 
 // Track a page view on all trackers.
-let trackPageView = ( url = false ) => {
-    const options = url ? { page : url } : {};
+const trackPageView = ( url = '' ) => {
+    const options = (url !== '') ? {
+        page_location : url,
+    } : {};
 
-    if ( typeof window.ga === 'undefined' ) return false;
-
-    // Track pageview for the default tracker
-    window.ga( 'send', 'pageview', options );
-
-    // Track pageview for the crossdomain tracker, if set
-    if ( crossDomain ) {
-        window.ga( `${crossDomainTrackerName}.send`, 'pageview', options );
-    }
+    trackEvent('page_view', options);
 };
 
-// Track an event on the default tracker
-let trackEvent = ( category = '', action = '', label = null, value = null ) => {
-    if ( typeof window.ga === 'undefined' ) return false;
+// Track an event.
+const trackEvent = (event = '', params = {}) => {
+    if (event === '') return false;
+    if (typeof window.gtag === 'undefined') return false;
 
-    window.ga( 'send', 'event', category, action, label, value );
-};
-
-// Set a custom variable on the default tracker
-let setCustomVariable = ( index, name, value ) => {
-    if ( typeof window.ga === 'undefined' ) return false;
-
-    let options = {};
-    options[ 'dimension' + index ] = value;
-    window.ga( 'send', 'pageview', options );
+    window.gtag('event', event, params);
 };
 
 // Track youtube video views.
-let trackYouTubeViews = () => {
-    let els = document.querySelectorAll( '.lightbox--video' );
-    for ( let i = 0; i < els.length; i++ ) {
-        els[i].addEventListener( 'click', ( e ) => {
-            let videoId = e.target.href.replace( /http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g, '' );
-            trackEvent( 'Video', window.location.pathname, videoId );
-        } );
+const trackLightboxVideoViews = () => {
+    const els = document.querySelectorAll('.lightbox--video, .js-lightbox--video');
+    for (let i=0; i<els.length; i++) {
+        els[i].addEventListener('click', (e) => {
+            let target = e.target;
+
+            // Ensure target is the link, rather than a child element.
+            while (!target.hasAttribute('href')) {
+                target = target.parentElement;
+            }
+
+            const videoId = target.href.replace(
+                /http(s)*:\/\/www.youtube.com\/embed\/|\?.*/g,
+                ''
+            );
+            const url = new URL(target.href);
+            trackEvent('video_start', {
+                video_current_time: 0,
+                video_percent: 0,
+                video_url: url.origin + url.pathname,
+                video_id: videoId,
+                lightbox: true,
+            });
+        });
     }
 };
 
-// Click track (helper for instead of onclick="ga(send...)".
+// Click track (helper for instead of onclick="gtag('event', ...)".
 // Use data-attributes instead. Keeps HTML nicer and easy to update in the
 // future).
-let setupTrackingAlias = (element = document) => {
-    let els = element.querySelectorAll( '[data-ga-track]' );
-    for ( let i = 0; i < els.length; i++ ) {
-        els[i].addEventListener( 'click', ( e ) => {
+const setupTrackingAlias = (element = document) => {
+    const els = element.querySelectorAll('[data-ga-track]');
+    for (let i=0; i<els.length; i++) {
+        els[i].addEventListener('click', (e) => {
             let target = e.target;
 
             // Ensure that the target is the element with the tracking info,
@@ -152,26 +177,54 @@ let setupTrackingAlias = (element = document) => {
                 target = target.parentElement;
             }
 
-            let category = target.getAttribute( 'data-ga-track-category' ) || null;
-            let action = target.getAttribute( 'data-ga-track-action' ) || null;
-            let label = target.getAttribute( 'data-ga-track-label' ) || null;
-            let value = target.getAttribute( 'data-ga-track-value' ) || null;
+            const event = target.getAttribute('data-ga-track-event');
+            if (event === null) return;
 
-            // Process Google tracking event.
-            trackEvent( category, action, label, value );
+            // Get attributes that match 'data-ga-track-'.
+            const eventParams = {};
+            for (const attr of target.attributes) {
+                if (attr.name.match('data-ga-track-') && !attr.name.match('data-ga-track-event')) {
+                    eventParams[attr.name.substring('data-ga-track-'.length)] = attr.value;
+                }
+            }
+
+            // Process the Google tracking event.
+            trackEvent(event, eventParams);
         } );
     }
 };
 
+const setCustomVariable = (...args) => {
+    logDeprecatedFunctionToConsole('setCustomVariable', 'Google Analytics');
+};
+
+const setOptimizeId = (...args) => {
+    logDeprecatedFunctionToConsole('setOptimizeId', 'Google Analytics');
+};
+
+const setSites = (...args) => {
+    logDeprecatedFunctionToConsole('setSites', 'Google Analytics');
+};
+
 export default {
     init,
+    accountId,
+    isExcludedEnvironment,
+    setupTrackingAlias,
     setAccountId,
     setCrossDomainAccountId,
-    setSites,
-    setOptimizeId,
-    trackPageView,
     trackEvent,
+    trackPageView,
+
     setCustomVariable,
+    setOptimizeId,
+    setSites,
+};
+
+export {
     accountId,
-    setupTrackingAlias
+    isExcludedEnvironment,
+    setupTrackingAlias,
+    trackEvent,
+    trackPageView,
 };
