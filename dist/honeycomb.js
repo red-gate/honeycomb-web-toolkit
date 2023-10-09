@@ -7,6 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.trackPageView = exports.trackEvent = exports.setupTrackingAlias = exports.isExcludedEnvironment = exports["default"] = exports.accountId = void 0;
 var _honeycomb = _interopRequireDefault(require("../../cookie-consent/js/honeycomb.cookie-consent"));
 var _honeycombDocument = require("../../document/js/honeycomb.document.load-script");
+var _honeycombNotification = require("../../notification/js/honeycomb.notification.log-deprecated-function");
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
     "default": obj
@@ -249,6 +250,15 @@ var setupTrackingAlias = exports.setupTrackingAlias = function setupTrackingAlia
     });
   }
 };
+var setCustomVariable = function setCustomVariable() {
+  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setCustomVariable', 'Google Analytics');
+};
+var setOptimizeId = function setOptimizeId() {
+  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setOptimizeId', 'Google Analytics');
+};
+var setSites = function setSites() {
+  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setSites', 'Google Analytics');
+};
 var _default = exports["default"] = {
   init: init,
   accountId: accountId,
@@ -257,10 +267,13 @@ var _default = exports["default"] = {
   setAccountId: setAccountId,
   setCrossDomainAccountId: setCrossDomainAccountId,
   trackEvent: trackEvent,
-  trackPageView: trackPageView
+  trackPageView: trackPageView,
+  setCustomVariable: setCustomVariable,
+  setOptimizeId: setOptimizeId,
+  setSites: setSites
 };
 
-},{"../../cookie-consent/js/honeycomb.cookie-consent":13,"../../document/js/honeycomb.document.load-script":16}],2:[function(require,module,exports){
+},{"../../cookie-consent/js/honeycomb.cookie-consent":13,"../../document/js/honeycomb.document.load-script":16,"../../notification/js/honeycomb.notification.log-deprecated-function":30}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7661,7 +7674,7 @@ _honeycomb18["default"].init({
   analytics: _honeycombAnalytics["default"]
 });
 
-},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./chart/js/honeycomb.chart":7,"./chat/js/honeycomb.chat.intercom":8,"./code/js/honeycomb.code":9,"./content/js/honeycomb.content":10,"./context-menu/js/honeycomb.context-menu":11,"./document/js/honeycomb.document.viewport":18,"./equalise/js/honeycomb.equalise":19,"./filter/js/honeycomb.filter":20,"./forms/js/honeycomb.forms":21,"./forms/js/honeycomb.forms.marketo":22,"./lightbox/js/honeycomb.lightbox":24,"./maps/js/honeycomb.maps.google":25,"./navigation/js/honeycomb.navigation.dropdown":26,"./navigation/js/honeycomb.navigation.header":27,"./navigation/js/honeycomb.navigation.vertical":28,"./notification/js/honeycomb.notification.block":29,"./polyfill/js/honeycomb.polyfill.custom-event":30,"./polyfill/js/honeycomb.polyfill.index-of":31,"./reveal/js/honeycomb.reveal":32,"./scroll/js/honeycomb.scroll":33,"./sticky/js/honeycomb.sticky":34,"./svg/js/honeycomb.svg":35,"./tabs/js/honeycomb.tabs":36,"./toggle/js/honeycomb.toggle":37,"./video/js/honeycomb.video":38}],24:[function(require,module,exports){
+},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./chart/js/honeycomb.chart":7,"./chat/js/honeycomb.chat.intercom":8,"./code/js/honeycomb.code":9,"./content/js/honeycomb.content":10,"./context-menu/js/honeycomb.context-menu":11,"./document/js/honeycomb.document.viewport":18,"./equalise/js/honeycomb.equalise":19,"./filter/js/honeycomb.filter":20,"./forms/js/honeycomb.forms":21,"./forms/js/honeycomb.forms.marketo":22,"./lightbox/js/honeycomb.lightbox":24,"./maps/js/honeycomb.maps.google":25,"./navigation/js/honeycomb.navigation.dropdown":26,"./navigation/js/honeycomb.navigation.header":27,"./navigation/js/honeycomb.navigation.vertical":28,"./notification/js/honeycomb.notification.block":29,"./polyfill/js/honeycomb.polyfill.custom-event":31,"./polyfill/js/honeycomb.polyfill.index-of":32,"./reveal/js/honeycomb.reveal":33,"./scroll/js/honeycomb.scroll":34,"./sticky/js/honeycomb.sticky":35,"./svg/js/honeycomb.svg":36,"./tabs/js/honeycomb.tabs":37,"./toggle/js/honeycomb.toggle":38,"./video/js/honeycomb.video":39}],24:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8222,6 +8235,25 @@ var _default = exports["default"] = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.logDeprecatedFunctionToConsole = void 0;
+var logDeprecatedFunctionToConsole = exports.logDeprecatedFunctionToConsole = function logDeprecatedFunctionToConsole() {
+  var func = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var module = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+  var version = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '14.2.0';
+  var warning = "\"".concat(func, "\" has been deprecated ");
+  if (module !== '') {
+    warning += "from the \"".concat(module, "\" module ");
+  }
+  warning += "in Honeycomb web toolkit v".concat(version, " and will be removed in a later version.");
+  window.console.warn(warning);
+};
+
+},{}],31:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports["default"] = void 0;
 // polyfill for window.CustomEvent
 // from https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
@@ -8246,7 +8278,7 @@ var CustomEvent = function CustomEvent() {
 };
 var _default = exports["default"] = CustomEvent;
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8271,7 +8303,7 @@ var indexOf = function indexOf() {
 };
 var _default = exports["default"] = indexOf;
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8417,7 +8449,7 @@ var _default = exports["default"] = {
   close: close
 };
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8525,7 +8557,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8572,7 +8604,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":16}],35:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":16}],36:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8598,7 +8630,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8797,7 +8829,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":16}],37:[function(require,module,exports){
+},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":16}],38:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8965,7 +8997,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
