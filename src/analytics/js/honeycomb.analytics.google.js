@@ -184,15 +184,15 @@ const setupTrackingAlias = (element = document) => {
     }
 };
 
-const setCustomVariable = () => {
+const setCustomVariable = (...args) => {
     logDeprecatedFunctionToConsole('setCustomVariable', 'Google Analytics');
 };
 
-const setOptimizeId = () => {
+const setOptimizeId = (...args) => {
     logDeprecatedFunctionToConsole('setOptimizeId', 'Google Analytics');
 };
 
-const setSites = () => {
+const setSites = (...args) => {
     logDeprecatedFunctionToConsole('setSites', 'Google Analytics');
 };
 
