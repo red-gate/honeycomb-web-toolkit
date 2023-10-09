@@ -95,6 +95,11 @@ var init = function init() {
 
     // Track lightbox video views.
     trackLightboxVideoViews();
+
+    // Do console error if window.ga called, but doesn't exist, as V4 is now window.gtag().
+    window.ga = window.ga || function () {
+      window.console.error('Honeycomb web toolkit has now been updated to use Google Analytics V4 (gtag). Please update any `window.ga()` references to use the new V4 API.', arguments);
+    };
   });
 };
 var isExcludedEnvironment = function isExcludedEnvironment() {
