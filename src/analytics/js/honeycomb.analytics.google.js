@@ -186,6 +186,7 @@ const setupTrackingAlias = (element = document) => {
 export default {
     init,
     accountId,
+    isExcludedEnvironment,
     setupTrackingAlias,
     setAccountId,
     setCrossDomainAccountId,

@@ -252,6 +252,7 @@ var setupTrackingAlias = function setupTrackingAlias() {
 var _default = exports["default"] = {
   init: init,
   accountId: accountId,
+  isExcludedEnvironment: isExcludedEnvironment,
   setupTrackingAlias: setupTrackingAlias,
   setAccountId: setAccountId,
   setCrossDomainAccountId: setCrossDomainAccountId,
