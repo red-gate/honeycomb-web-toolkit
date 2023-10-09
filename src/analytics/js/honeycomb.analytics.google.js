@@ -1,5 +1,6 @@
 import cookieConsent from '../../cookie-consent/js/honeycomb.cookie-consent';
 import { load } from '../../document/js/honeycomb.document.load-script';
+import { logDeprecatedFunctionToConsole } from '../../notification/js/honeycomb.notification.log-deprecated-function';
 
 let accountId;
 let crossDomainAccountId;
@@ -183,6 +184,18 @@ const setupTrackingAlias = (element = document) => {
     }
 };
 
+const setCustomVariable = () => {
+    logDeprecatedFunctionToConsole('setCustomVariable', 'Google Analytics');
+};
+
+const setOptimizeId = () => {
+    logDeprecatedFunctionToConsole('setOptimizeId', 'Google Analytics');
+};
+
+const setSites = () => {
+    logDeprecatedFunctionToConsole('setSites', 'Google Analytics');
+};
+
 export default {
     init,
     accountId,
@@ -192,6 +205,10 @@ export default {
     setCrossDomainAccountId,
     trackEvent,
     trackPageView,
+
+    setCustomVariable,
+    setOptimizeId,
+    setSites,
 };
 
 export {
