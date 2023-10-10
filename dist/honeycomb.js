@@ -104,7 +104,7 @@ var init = function init() {
   });
 };
 var isExcludedEnvironment = exports.isExcludedEnvironment = function isExcludedEnvironment() {
-  var excludedEnvironments = ['localhost', 'local.red-gate.com', 'local.honeycomb.com', 'webstaging.red-gate.com', 'coredev-uat'];
+  var excludedEnvironments = ['localhost', 'local.red-gate.com', 'local.honeycomb.com', 'local.simple-talk.com', 'webstaging.red-gate.com', 'coredev-uat'];
   var isExcluded = false;
   excludedEnvironments.forEach(function (environment) {
     if (window.location.host.includes(environment)) {

@@ -40,6 +40,7 @@ const isExcludedEnvironment = () => {
         'localhost',
         'local.red-gate.com',
         'local.honeycomb.com',
+        'local.simple-talk.com',
         'webstaging.red-gate.com',
         'coredev-uat',
     ];
