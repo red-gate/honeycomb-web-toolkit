@@ -257,13 +257,13 @@ var setupTrackingAlias = exports.setupTrackingAlias = function setupTrackingAlia
   }
 };
 var setCustomVariable = function setCustomVariable() {
-  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setCustomVariable', 'Google Analytics');
+  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setCustomVariable', 'Google Analytics', '14.2.0');
 };
 var setOptimizeId = function setOptimizeId() {
-  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setOptimizeId', 'Google Analytics');
+  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setOptimizeId', 'Google Analytics', '14.2.0');
 };
 var setSites = function setSites() {
-  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setSites', 'Google Analytics');
+  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setSites', 'Google Analytics', '14.2.0');
 };
 var _default = exports["default"] = {
   init: init,
