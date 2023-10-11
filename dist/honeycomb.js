@@ -104,7 +104,7 @@ var init = function init() {
   });
 };
 var isExcludedEnvironment = exports.isExcludedEnvironment = function isExcludedEnvironment() {
-  var excludedEnvironments = ['localhost', 'local.red-gate.com', 'local.honeycomb.com', 'webstaging.red-gate.com', 'coredev-uat'];
+  var excludedEnvironments = ['localhost', 'local.red-gate.com', 'local.honeycomb.com', 'local.simple-talk.com', 'webstaging.red-gate.com', 'coredev-uat'];
   var isExcluded = false;
   excludedEnvironments.forEach(function (environment) {
     if (window.location.host.includes(environment)) {
@@ -257,13 +257,13 @@ var setupTrackingAlias = exports.setupTrackingAlias = function setupTrackingAlia
   }
 };
 var setCustomVariable = function setCustomVariable() {
-  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setCustomVariable', 'Google Analytics');
+  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setCustomVariable', 'Google Analytics', '14.2.0');
 };
 var setOptimizeId = function setOptimizeId() {
-  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setOptimizeId', 'Google Analytics');
+  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setOptimizeId', 'Google Analytics', '14.2.0');
 };
 var setSites = function setSites() {
-  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setSites', 'Google Analytics');
+  (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setSites', 'Google Analytics', '14.2.0');
 };
 var _default = exports["default"] = {
   init: init,
