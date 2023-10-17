@@ -1,4 +1,4 @@
-input[type="submit"], button {
+input[type="submit"], button:not(.kaltura__player button) {
     @extend %button;
     
     &.button--large {
