@@ -85,14 +85,21 @@ form[id^="mktoForm_"] {
         flex-basis: calc(100% - 20px); // 20px is the width of the input
     }
 
-    & + label {
+    & + label,
+    & + .mktoError + label {
         // The HTML for .mktoCheckboxList has the heading following the list, 
         // so we need to reorder the elements.
-        order: -1;
+        order: -2;
 
         .mktoAsterix {
             float: right;
         }
+    }
+
+    & + .mktoError {
+        @include margin(0, 'top');
+        @include margin(0.25, 'bottom');
+        order: -1;
     }
 }
 
