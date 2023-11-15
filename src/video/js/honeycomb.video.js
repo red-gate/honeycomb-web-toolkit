@@ -253,10 +253,12 @@ const addInlineVideos = () => {
                         rel: 0,
                         autohide: options.autohide,
                         autoplay: options.autoplay,
+                        mute: options.mute,
                         controls: options.controls,
                         showinfo: options.showinfo,
                         loop: options.loop,
-                        enablejsapi: 1
+                        enablejsapi: 1,
+                        
                     },
                     events: {
                         onStateChange: ( event ) => {
@@ -343,12 +345,13 @@ const getOptions = video => {
 
     // Autoplay.
     if (video.hasAttribute('data-video-auto-play')) {
-        optionsCopy.autoplay = video.getAttribute('data-video-auto-play');
+        optionsCopy.autoplay = video.getAttribute('data-video-auto-play') === 'true' ? 1 : 0;
+        optionsCopy.mute = 1; // Autoplaying an embedded player requires it to be muted
     }
 
     // Controls.
     if (video.hasAttribute('data-video-controls')) {
-        optionsCopy.controls = video.getAttribute('data-video-controls');
+        optionsCopy.controls = video.getAttribute('data-video-controls') === 'true' ? 1 : 0;
     }
 
     // Show info.
@@ -358,7 +361,7 @@ const getOptions = video => {
 
     // Loop.
     if (video.hasAttribute('data-video-loop')) {
-        optionsCopy.loop = video.getAttribute('data-video-loop');
+        optionsCopy.loop = video.getAttribute('data-video-loop') === 'true' ? 1 : 0;
     }
 
     // Return the options object.
