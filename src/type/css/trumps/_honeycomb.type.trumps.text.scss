@@ -68,6 +68,14 @@
 
 .text--normal {
   font-weight: normal !important;
+
+  &.alpha,
+  &.beta,
+  &.gamma,
+  &.delta,
+  &.zeta {
+    color: inherit;
+  }
 }
 
 
