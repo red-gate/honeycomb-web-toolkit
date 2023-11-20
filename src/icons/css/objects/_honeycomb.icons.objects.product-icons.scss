@@ -243,3 +243,10 @@
         content: "\e937";
     }
 }
+
+.icon--redgate-test-data-manager {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e97e";
+    }
+}
