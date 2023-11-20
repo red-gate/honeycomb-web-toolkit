@@ -9341,6 +9341,7 @@ var addInlineVideos = function addInlineVideos() {
               rel: 0,
               autohide: _options.autohide,
               autoplay: _options.autoplay,
+              mute: _options.mute,
               controls: _options.controls,
               showinfo: _options.showinfo,
               loop: _options.loop,
@@ -9441,12 +9442,13 @@ var getOptions = function getOptions(video) {
 
   // Autoplay.
   if (video.hasAttribute('data-video-auto-play')) {
-    optionsCopy.autoplay = video.getAttribute('data-video-auto-play');
+    optionsCopy.autoplay = video.getAttribute('data-video-auto-play') === 'true' ? 1 : 0;
+    optionsCopy.mute = 1; // Autoplaying an embedded player requires it to be muted
   }
 
   // Controls.
   if (video.hasAttribute('data-video-controls')) {
-    optionsCopy.controls = video.getAttribute('data-video-controls');
+    optionsCopy.controls = video.getAttribute('data-video-controls') === 'true' ? 1 : 0;
   }
 
   // Show info.
@@ -9456,7 +9458,7 @@ var getOptions = function getOptions(video) {
 
   // Loop.
   if (video.hasAttribute('data-video-loop')) {
-    optionsCopy.loop = video.getAttribute('data-video-loop');
+    optionsCopy.loop = video.getAttribute('data-video-loop') === 'true' ? 1 : 0;
   }
 
   // Return the options object.
