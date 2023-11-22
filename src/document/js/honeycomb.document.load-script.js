@@ -33,7 +33,7 @@ const load = ( url = '', callback = undefined, attrs = {}, errorCallback = undef
 
         // Custom attributes.
         for ( let prop in attrs ) {
-            se[prop] = attrs[prop];
+            se.setAttribute(prop, attrs[prop]);
         }
 
         let s = document.getElementsByTagName( 'script' )[ 0 ];
