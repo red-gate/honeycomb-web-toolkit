@@ -6900,7 +6900,7 @@ var load = exports.load = function load() {
 
     // Custom attributes.
     for (var prop in attrs) {
-      se[prop] = attrs[prop];
+      se.setAttribute(prop, attrs[prop]);
     }
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(se, s);
