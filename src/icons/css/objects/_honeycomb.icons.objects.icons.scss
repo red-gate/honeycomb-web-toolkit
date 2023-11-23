@@ -117,6 +117,13 @@
     }
 }
 
+.icon--arrow-down {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e601";
+    }
+}
+
 .icon--arrow-down-link {
     @extend %icon;
     &:before, &:after {
@@ -163,6 +170,13 @@
     @extend %icon;
     &:before, &:after {
         content: "\e942";
+    }
+}
+
+.icon--arrow-up {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e97f";
     }
 }
 
