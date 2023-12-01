@@ -562,6 +562,7 @@ var colours = ['204, 0, 0',
 // Yellow
 '118, 118, 118' // Grey
 ];
+
 var init = function init() {
   var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var charts = document.querySelectorAll('.js-chart');
@@ -6994,6 +6995,7 @@ var init = function init() {
     }
   }
 };
+
 var _default = exports["default"] = {
   init: init
 };
@@ -8184,6 +8186,7 @@ var notification = function notification(options) {
       // Could be either 'font' or 'image'.
       src: false // Reference to the icon.
     },
+
     content: '',
     duration: false,
     container: window.jQuery('body')
@@ -9315,6 +9318,7 @@ var addInlineVideos = function addInlineVideos() {
       if (videoContainer.querySelector("iframe[id^=\"".concat(videoId, "\"]"))) {
         return 1; // continue
       }
+
       var duration;
       var currentTime;
       var percentages;
