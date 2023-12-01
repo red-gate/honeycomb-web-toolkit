@@ -562,7 +562,6 @@ var colours = ['204, 0, 0',
 // Yellow
 '118, 118, 118' // Grey
 ];
-
 var init = function init() {
   var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var charts = document.querySelectorAll('.js-chart');
@@ -6995,7 +6994,6 @@ var init = function init() {
     }
   }
 };
-
 var _default = exports["default"] = {
   init: init
 };
@@ -8186,7 +8184,6 @@ var notification = function notification(options) {
       // Could be either 'font' or 'image'.
       src: false // Reference to the icon.
     },
-
     content: '',
     duration: false,
     container: window.jQuery('body')
@@ -9154,7 +9151,7 @@ var loadPlayerAPIs = function loadPlayerAPIs() {
     if (videoId) {
       // If video is already loaded, skip.
       // We look for the iframe for the specific video, because in React we may be reusing an old VideoPlayer component.
-      if (videoContainer.querySelector("iframe[id^=\"".concat(videoId, "\"]"))) {
+      if (videoContainer.querySelector("iframe[id^=\"".concat(videoId, "\"], video"))) {
         continue;
       }
       if (isVimeoId(videoId)) {
@@ -9209,6 +9206,16 @@ var isVimeoId = function isVimeoId(id) {
     return false;
   }
   return !!id.match(/^[0-9]*$/);
+};
+var isLocalVideoId = function isLocalVideoId(id) {
+  var extensions = ['mp4', 'webm'];
+  var isLocalVideo = false;
+  extensions.forEach(function (ext) {
+    if (id.match(".".concat(ext)) !== null) {
+      isLocalVideo = true;
+    }
+  });
+  return isLocalVideo;
 };
 
 // calculate second values for 10%, 20% etc. for event tracking
@@ -9300,6 +9307,38 @@ var attachVimeoPlayerEventListeners = function attachVimeoPlayerEventListeners(p
     handlePlayEvent(videoId, data.duration);
   });
 };
+var addHtmlVideoPlayer = function addHtmlVideoPlayer(src, options, element) {
+  console.log('Add HTML video player', {
+    src: src,
+    options: options,
+    element: element
+  });
+
+  // Clear the contents of the target element.
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  var videoPlayer = document.createElement('video');
+  videoPlayer.setAttribute('src', src);
+
+  // Autoplay.
+  if (options.autoplay) {
+    videoPlayer.muted = true;
+    // videoPlayer.playsInline = true;
+    videoPlayer.autoplay = true;
+  }
+
+  // Controls.
+  if (options.controls) {
+    videoPlayer.controls = true;
+  }
+
+  // Loop.
+  if (options.loop) {
+    videoPlayer.loop = true;
+  }
+  element.appendChild(videoPlayer);
+};
 
 // Search the document for video containers, 
 // and load any video players that need loading. 
@@ -9318,7 +9357,6 @@ var addInlineVideos = function addInlineVideos() {
       if (videoContainer.querySelector("iframe[id^=\"".concat(videoId, "\"]"))) {
         return 1; // continue
       }
-
       var duration;
       var currentTime;
       var percentages;
@@ -9420,6 +9458,9 @@ var addInlineVideos = function addInlineVideos() {
             // add event listeners 
             attachVimeoPlayerEventListeners(player, videoId, goalTracked);
           }
+        } else if (isLocalVideoId(videoId)) {
+          videoContainer.classList.add('video-container--html-player');
+          addHtmlVideoPlayer(videoId, _options, videoDiv.parentElement);
         } else {
           // load youtube player
           if (window.YT && typeof window.YT.Player === 'function') {
