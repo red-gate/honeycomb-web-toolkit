@@ -30,7 +30,7 @@ const loadPlayerAPIs = () => {
         if (videoId) {
             // If video is already loaded, skip.
             // We look for the iframe for the specific video, because in React we may be reusing an old VideoPlayer component.
-            if ( videoContainer.querySelector( `iframe[id^="${videoId}"]` ) ) {
+            if ( videoContainer.querySelector( `iframe[id^="${videoId}"], video` ) ) {
                 continue;
             }
 
@@ -95,6 +95,17 @@ const isVimeoId = id => {
     return !! id.match(/^[0-9]*$/);
 };
 
+const isLocalVideoId = (id) => {
+    const extensions = ['mp4', 'webm'];
+    let isLocalVideo = false;
+    extensions.forEach((ext) => {
+        if (id.match(`.${ext}`) !== null) {
+            isLocalVideo = true;
+        }
+    });
+
+    return isLocalVideo;
+};
 
 // calculate second values for 10%, 20% etc. for event tracking
 const calculatePercentages = duration => {
@@ -196,6 +207,34 @@ const attachVimeoPlayerEventListeners = (player, videoId, goalTracked) => {
 
         handlePlayEvent( videoId, data.duration );
     });
+};
+
+const addHtmlVideoPlayer = (src, options, element) => {
+    // Clear the contents of the target element.
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+
+    const videoPlayer = document.createElement('video');
+    videoPlayer.setAttribute('src', src);
+
+    // Autoplay.
+    if (options.autoplay) {
+        videoPlayer.muted = true;
+        videoPlayer.autoplay = true;
+    }
+
+    // Controls.
+    if (options.controls) {
+        videoPlayer.controls = true;
+    }
+
+    // Loop.
+    if (options.loop) {
+        videoPlayer.loop = true;
+    }
+
+    element.appendChild(videoPlayer);
 };
 
 
@@ -318,7 +357,9 @@ const addInlineVideos = () => {
                     // add event listeners 
                     attachVimeoPlayerEventListeners( player, videoId, goalTracked );
                 }
-
+            } else if (isLocalVideoId(videoId)) {
+                videoContainer.classList.add('video-container--html-player');
+                addHtmlVideoPlayer(videoId, options, videoDiv.parentElement);
             } else {
                 // load youtube player
                 if ( window.YT && typeof window.YT.Player === 'function' ) {
