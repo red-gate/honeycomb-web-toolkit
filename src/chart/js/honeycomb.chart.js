@@ -22,7 +22,7 @@ const init = ( config = {} ) => {
             }
         } else {
             if (typeof config.url === 'undefined') {
-                config.url = 'chart/vendor/chart.js.2.4.0.min.js';
+                config.url = 'chart/vendor/chart.js.4.4.0.min.js';
             }
 
             loadScript.load(config.url, init);
@@ -103,7 +103,13 @@ const renderChart = chart => {
             return false;
         }
 
-        const type = chart.getAttribute('data-chart-type') || 'bar';
+        let type = chart.getAttribute('data-chart-type') || 'bar';
+
+        // Add support for legacy type.
+        if (type === 'horizontalBar') {
+            type = 'bar';
+        }
+
         const config = setConfig(chart, data);
         const options = setOptions(chart);
 
@@ -136,7 +142,9 @@ const setConfig = ( chart, data ) => {
                 backgroundColor: setBackgroundColour(type, colourOpacity, data.dataSets, dataSet),
                 borderColor: setBorderColour(type, colourOpacity, data.dataSets, dataSet),
                 pointRadius: pointRadius,
-                pointHoverRadius: pointRadius
+                pointHoverRadius: pointRadius,
+                fill: true,
+                tension: 0.2,
             };
         })
     };
@@ -159,46 +167,49 @@ const setOptions = chart => {
 
     const options = {};
 
+    // Horizontal bar chart.
+    if (type === 'horizontalBar') {
+        options.indexAxis = 'y';
+    }
+
     // Stacked bar chart.
     if ((type === 'bar' || type === 'horizontalBar') && stacked) {
         options.scales = options.scales || {};
+        options.scales.x = options.scales.x || {};
+        options.scales.y = options.scales.y || {};
 
-        options.scales.xAxes = options.scales.xAxes || [];
-        options.scales.xAxes[0] = options.scales.xAxes[0] || {};
-        options.scales.xAxes[0].stacked = true;
-
-        options.scales.yAxes = options.scales.yAxes || [];
-        options.scales.yAxes[0] = options.scales.yAxes[0] || {};
-        options.scales.yAxes[0].stacked = true;
+        options.scales.x.stacked = true;
+        options.scales.y.stacked = true;
     }
 
     // Gridlines (on by default).
     if (!verticalGridlines) {
         options.scales = options.scales || {};
-        options.scales.xAxes = options.scales.xAxes || [];
-        options.scales.xAxes[0] = options.scales.xAxes[0] || {};
-        options.scales.xAxes[0].gridLines = options.scales.xAxes[0].gridLines || {};
-        options.scales.xAxes[0].gridLines.display = false;
+        options.scales.x = options.scales.x || {};
+        options.scales.x.grid = options.scales.x.grid || {};
+        options.scales.x.grid.display = false;
     }
     if (!horizontalGridlines) {
         options.scales = options.scales || {};
-        options.scales.yAxes = options.scales.yAxes || [];
-        options.scales.yAxes[0] = options.scales.yAxes[0] || {};
-        options.scales.yAxes[0].gridLines = options.scales.yAxes[0].gridLines || {};
-        options.scales.yAxes[0].gridLines.display = false;
+        options.scales.y = options.scales.y || {};
+        options.scales.y.grid = options.scales.y.grid || {};
+        options.scales.y.grid.display = false;
     }
 
     // Legend.
     if (legend === 'false') {
-        options.legend = options.legend || {};
-        options.legend.display = false;
+        options.plugins = options.plugins || {};
+        options.plugins.legend = options.plugins.legend || {};
+        options.plugins.legend.display = false;
     }
 
     // Legend position.
     if (legendPosition) {
-        options.legend = options.legend || {};
-        options.legend.display = true;
-        options.legend.position = legendPosition;
+        options.plugins = options.plugins || {};
+        options.plugins.legend = options.plugins.legend || {};
+        options.plugins.legend.display = true;
+        options.plugins.legend.position = legendPosition;
+        options.plugins.legend.align = 'start';
     }
 
     // Legend callback.
@@ -216,31 +227,30 @@ const setOptions = chart => {
     // Vertical axis
     if (verticalAxis === 'false') {
         options.scales = options.scales || {};
-        options.scales.xAxes = options.scales.xAxes || [];
-        options.scales.xAxes[0] = options.scales.xAxes[0] || {};
-        options.scales.xAxes[0].display = false;
+        options.scales.x = options.scales.x || {};
+        options.scales.x.display = false;
     }
 
     // Horizontal axis
     if (horizontalAxis === 'false') {
         options.scales = options.scales || {};
-        options.scales.yAxes = options.scales.yAxes || [];
-        options.scales.yAxes[0] = options.scales.yAxes[0] || {};
-        options.scales.yAxes[0].display = false;
+        options.scales.y = options.scales.y || {};
+        options.scales.y.display = false;
     }
 
     // Tooltips
     if (tooltips && tooltips === 'false') {
-        options.tooltips = options.tooltips || {};
-        options.tooltips.enabled = false;
+        options.plugins = options.plugins || {};
+        options.plugins.tooltip = options.plugins.tooltip || {};
+        options.plugins.tooltip.enabled = false;
     }
 
     return options;
 };
 
 const setGlobalSettings = () => {
-    window.Chart.defaults.global.defaultFontFamily = 'Roboto';
-    window.Chart.defaults.global.legend.position = 'bottom';
+    window.Chart.defaults.font.family = 'Roboto';
+    window.Chart.defaults.plugins.legend.position = 'bottom';
 
     window.Honeycomb = window.Honeycomb || {};
     window.Honeycomb.charts = window.Honeycomb.charts || [];
