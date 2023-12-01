@@ -4,6 +4,27 @@
     padding-bottom: 56.25%; /* 16:9 ratio */
     height: 0;
     overflow: hidden;
+
+    &:has(video) {
+        padding-bottom: 0;
+        height: auto;
+        overflow: visible;
+
+        video {
+            width: 100%;
+        }
+    }
+
+    // Compatibility for browsers that don't support :has
+    &--html-player {
+        padding-bottom: 0;
+        height: auto;
+        overflow: visible;
+
+        video {
+            width: 100%;
+        }
+    }
 }
 
 .js-video-container iframe,
