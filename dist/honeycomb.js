@@ -9308,12 +9308,6 @@ var attachVimeoPlayerEventListeners = function attachVimeoPlayerEventListeners(p
   });
 };
 var addHtmlVideoPlayer = function addHtmlVideoPlayer(src, options, element) {
-  console.log('Add HTML video player', {
-    src: src,
-    options: options,
-    element: element
-  });
-
   // Clear the contents of the target element.
   while (element.firstChild) {
     element.removeChild(element.firstChild);
@@ -9324,7 +9318,6 @@ var addHtmlVideoPlayer = function addHtmlVideoPlayer(src, options, element) {
   // Autoplay.
   if (options.autoplay) {
     videoPlayer.muted = true;
-    // videoPlayer.playsInline = true;
     videoPlayer.autoplay = true;
   }
 
