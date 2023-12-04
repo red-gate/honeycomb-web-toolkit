@@ -14,9 +14,17 @@
             <p>Embed YouTube videos on the page, either inline or as background elements.</p>
             <p>Note: If you want to play the video in a <a href="/style-guide/js-library/lightbox.htm" class="js-scroll-to">lightbox</a>, use the <a href="/style-guide/js-library/lightbox.htm" class="js-scroll-to">lightbox</a> functionality.</p>
 
-
-            <h2 class="section-heading--style-guide">Example inline embed</h2>
-            <div class="js-video-container video-container" data-video-id="Zz8bdsPn01Q" data-video-controls="1"></div>
+            <div class="grid">
+                <h2 class="section-heading--style-guide">Example inline embed</h2>
+                <div class="grid__col grid__col--span-6-of-12 padded--tight">
+                    <h3>Native/HTML video player</h3>
+                    <div class="js-video-container video-container" data-video-id="https://www.red-gate.com/assets/products/test-data-manager/images/ui-demo.mp4" data-video-controls="true" data-video-auto-play="true" data-video-loop="true"></div>                      
+                </div>
+                <div class="grid__col grid__col--span-6-of-12 padded--tight">
+                    <h3>Youtube video</h3>
+                    <div class="js-video-container video-container" data-video-id="Zz8bdsPn01Q" data-video-controls="1"></div>
+                </div>
+            </div>
 
             <h2 class="section-heading--style-guide">Example background video</h2>
             <p>{Killed the autoplay example}</p>
