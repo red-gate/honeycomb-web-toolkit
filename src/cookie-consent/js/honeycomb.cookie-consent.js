@@ -45,7 +45,7 @@ let bannerIntro = `
     experience and provide more personalized services 
     to you, both on this website and through other media.</p>
     <p>To find out more about the cookies we use, see our 
-    <a href="https://www.red-gate.com/trust/privacy-and-cookies">Privacy Policy</a></p>
+    <a href="https://www.red-gate.com/trust/privacy-notice">Privacy Policy</a></p>
 `;
 
 /**
