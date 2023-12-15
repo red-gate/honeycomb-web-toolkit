@@ -40,8 +40,12 @@ let bannerHeading = 'Cookies';
  * @var {String} bannerIntro The intro content
  */
 let bannerIntro = `
-    <p class="spaced-bottom--none">We use some essential cookies to make this website work.</p>
-    <p>We\'d like to set additional ones to see how you use our site and for advertising.</p>
+    <p class="spaced-bottom--none">This website stores cookies on your computer.</p>
+    <p class="spaced-bottom--none">These cookies are used to improve your website 
+    experience and provide more personalized services 
+    to you, both on this website and through other media.</p>
+    <p>To find out more about the cookies we use, see our 
+    <a href="/trust/privacy-and-cookies">Privacy Policy</a></p>
 `;
 
 /**
