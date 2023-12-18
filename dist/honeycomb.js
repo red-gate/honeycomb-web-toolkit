@@ -147,9 +147,11 @@ var initAccount = function initAccount(accountId) {
 
   // Set default values of consent to denied.
   window.gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied',
-    'wait_for_update': 500
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
   });
   window.gtag('js', new Date());
 
@@ -167,8 +169,10 @@ var initAccount = function initAccount(accountId) {
   var hasTargetingConsent = _honeycomb["default"].hasConsent('targeting');
   if (hasTargetingConsent) {
     window.gtag('consent', 'update', {
-      'ad_storage': 'granted',
-      'analytics_storage': 'granted'
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted'
     });
   }
 };
@@ -1420,7 +1424,7 @@ var bannerHeading = 'Cookies';
  *
  * @var {String} bannerIntro The intro content
  */
-var bannerIntro = "\n    <p class=\"spaced-bottom--none\">We use some essential cookies to make this website work.</p>\n    <p>We'd like to set additional ones to see how you use our site and for advertising.</p>\n";
+var bannerIntro = "\n    <p class=\"spaced-bottom--none\">This website stores cookies on your computer.</p>\n    <p class=\"spaced-bottom--none\">These cookies are used to improve your website \n    experience and provide more personalized services \n    to you, both on this website and through other media.</p>\n    <p>To find out more about the cookies we use, see our \n    <a href=\"https://www.red-gate.com/trust/privacy-notice\">Privacy Policy</a></p>\n";
 
 /**
  * The links to display in the banner.
