@@ -90,9 +90,11 @@ const initAccount = (accountId, crossDomainAccountId = null) => {
 
     // Set default values of consent to denied.
     window.gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'wait_for_update': 500,
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500,
     });
 
     window.gtag('js', new Date());
@@ -111,8 +113,10 @@ const initAccount = (accountId, crossDomainAccountId = null) => {
     const hasTargetingConsent = cookieConsent.hasConsent('targeting');
     if (hasTargetingConsent) {
         window.gtag('consent', 'update', {
-            'ad_storage': 'granted',
-            'analytics_storage': 'granted',
+            ad_storage: 'granted',
+            ad_user_data: 'granted',
+            ad_personalization: 'granted',
+            analytics_storage: 'granted',
         });
     }
 };
