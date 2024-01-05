@@ -1,5 +1,8 @@
 // Import honeycomb
 @import 'honeycomb';
 
+// Cookie consent styles (as not included by default Honeycomb)
+@import 'cookie-consent/css/main';
+
 // Import Confluence styling for Confluence themes.
 @import 'confluence/css/main';
