@@ -211,6 +211,25 @@ const setSites = (...args) => {
     logDeprecatedFunctionToConsole('setSites', 'Google Analytics', '14.2.0');
 };
 
+// Listen for cookie consent updates and update consent based on the
+// "targeting" group.
+window.addEventListener('CookieConsent', (e) => {
+    const consent =
+        Object.prototype.hasOwnProperty.call(e.detail.groups, 'targeting') &&
+        e.detail.groups.targeting == 1
+            ? 'granted'
+            : 'denied';
+
+    if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+            ad_storage: consent,
+            ad_user_data: consent,
+            ad_personalization: consent,
+            analytics_storage: consent,
+        });
+    }
+});
+
 export default {
     init,
     accountId,
