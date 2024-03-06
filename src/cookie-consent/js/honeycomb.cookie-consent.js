@@ -230,6 +230,8 @@ const hasConsent = ( group = null ) => {
  * Set the consent cookie with the groups consent statuses, and for it to
  * expire in 31 days if cookies accepted, and 6 months if rejected.
  *
+ * Also dispatch a `CookieConsent` event which includes the consent group data.
+ *
  * @param {Object|Null} groups The groups object with the group as the property,
  *                             and the consent status as the value (0|1)
  * @param {Boolean} status The status to set consent to if groups is null.
@@ -249,6 +251,15 @@ const setHasConsent = ( groups = null, status = true ) => {
         'max-age': (status === 1) ? 2678400 : 16070400,
         domain: getConsentCookieDomain(),
     });
+
+    window.dispatchEvent(
+        new CustomEvent('CookieConsent', {
+            bubbles: true,
+            detail: {
+                groups,
+            },
+        })
+    );
 };
 
 /**

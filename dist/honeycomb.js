@@ -79,6 +79,7 @@ function _arrayLikeToArray(arr, len) {
 }
 var accountId;
 var crossDomainAccountId;
+var consentProperties = ['ad_storage', 'ad_user_data', 'ad_personalization', 'analytics_storage'];
 var init = function init() {
   // If the account ID is not set, then don't carry on.
   if (!accountId || accountId === 'G-XXX') {
@@ -146,13 +147,13 @@ var initAccount = function initAccount(accountId) {
   };
 
   // Set default values of consent to denied.
-  window.gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
+  var defaultConsent = {
     wait_for_update: 500
+  };
+  consentProperties.forEach(function (prop) {
+    defaultConsent[prop] = 'denied';
   });
+  window.gtag('consent', 'default', defaultConsent);
   window.gtag('js', new Date());
 
   // Add account IDs.
@@ -168,12 +169,11 @@ var initAccount = function initAccount(accountId) {
   // Update consent for storing cookies if targeting consent given.
   var hasTargetingConsent = _honeycomb["default"].hasConsent('targeting');
   if (hasTargetingConsent) {
-    window.gtag('consent', 'update', {
-      ad_storage: 'granted',
-      ad_user_data: 'granted',
-      ad_personalization: 'granted',
-      analytics_storage: 'granted'
+    var updatedConsent = {};
+    consentProperties.forEach(function (prop) {
+      updatedConsent[prop] = 'granted';
     });
+    window.gtag('consent', 'update', updatedConsent);
   }
 };
 
@@ -269,6 +269,19 @@ var setOptimizeId = function setOptimizeId() {
 var setSites = function setSites() {
   (0, _honeycombNotification.logDeprecatedFunctionToConsole)('setSites', 'Google Analytics', '14.2.0');
 };
+
+// Listen for cookie consent updates and update consent based on the
+// "targeting" group.
+window.addEventListener('CookieConsent', function (e) {
+  var consent = Object.prototype.hasOwnProperty.call(e.detail.groups, 'targeting') && e.detail.groups.targeting == 1 ? 'granted' : 'denied';
+  if (typeof window.gtag === 'function') {
+    var updatedConsent = {};
+    consentProperties.forEach(function (prop) {
+      updatedConsent[prop] = consent;
+    });
+    window.gtag('consent', 'update', updatedConsent);
+  }
+});
 var _default = exports["default"] = {
   init: init,
   accountId: accountId,
@@ -1567,6 +1580,8 @@ var hasConsent = function hasConsent() {
  * Set the consent cookie with the groups consent statuses, and for it to
  * expire in 31 days if cookies accepted, and 6 months if rejected.
  *
+ * Also dispatch a `CookieConsent` event which includes the consent group data.
+ *
  * @param {Object|Null} groups The groups object with the group as the property,
  *                             and the consent status as the value (0|1)
  * @param {Boolean} status The status to set consent to if groups is null.
@@ -1586,6 +1601,12 @@ var setHasConsent = function setHasConsent() {
     'max-age': status === 1 ? 2678400 : 16070400,
     domain: getConsentCookieDomain()
   });
+  window.dispatchEvent(new CustomEvent('CookieConsent', {
+    bubbles: true,
+    detail: {
+      groups: groups
+    }
+  }));
 };
 
 /**

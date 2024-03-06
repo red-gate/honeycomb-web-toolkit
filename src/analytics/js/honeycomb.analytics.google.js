@@ -5,6 +5,13 @@ import { logDeprecatedFunctionToConsole } from '../../notification/js/honeycomb.
 let accountId;
 let crossDomainAccountId;
 
+const consentProperties = [
+    'ad_storage',
+    'ad_user_data',
+    'ad_personalization',
+    'analytics_storage',
+];
+
 const init = () => {
 
     // If the account ID is not set, then don't carry on.
@@ -89,13 +96,13 @@ const initAccount = (accountId, crossDomainAccountId = null) => {
     };
 
     // Set default values of consent to denied.
-    window.gtag('consent', 'default', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: 'denied',
+    const defaultConsent = {
         wait_for_update: 500,
+    };
+    consentProperties.forEach((prop) => {
+        defaultConsent[prop] = 'denied';
     });
+    window.gtag('consent', 'default', defaultConsent);
 
     window.gtag('js', new Date());
 
@@ -112,12 +119,11 @@ const initAccount = (accountId, crossDomainAccountId = null) => {
     // Update consent for storing cookies if targeting consent given.
     const hasTargetingConsent = cookieConsent.hasConsent('targeting');
     if (hasTargetingConsent) {
-        window.gtag('consent', 'update', {
-            ad_storage: 'granted',
-            ad_user_data: 'granted',
-            ad_personalization: 'granted',
-            analytics_storage: 'granted',
+        const updatedConsent = {};
+        consentProperties.forEach((prop) => {
+            updatedConsent[prop] = 'granted';
         });
+        window.gtag('consent', 'update', updatedConsent);
     }
 };
 
@@ -210,6 +216,24 @@ const setOptimizeId = (...args) => {
 const setSites = (...args) => {
     logDeprecatedFunctionToConsole('setSites', 'Google Analytics', '14.2.0');
 };
+
+// Listen for cookie consent updates and update consent based on the
+// "targeting" group.
+window.addEventListener('CookieConsent', (e) => {
+    const consent =
+        Object.prototype.hasOwnProperty.call(e.detail.groups, 'targeting') &&
+        e.detail.groups.targeting == 1
+            ? 'granted'
+            : 'denied';
+
+    if (typeof window.gtag === 'function') {
+        const updatedConsent = {};
+        consentProperties.forEach((prop) => {
+            updatedConsent[prop] = consent;
+        });
+        window.gtag('consent', 'update', updatedConsent);
+    }
+});
 
 export default {
     init,
