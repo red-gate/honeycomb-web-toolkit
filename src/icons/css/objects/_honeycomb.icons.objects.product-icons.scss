@@ -156,6 +156,7 @@
     }
 }
 
+.icon--redgate-monitor,
 .icon--sql-monitor {
     @extend %icon;
     &:before, &:after {
