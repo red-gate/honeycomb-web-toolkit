@@ -52,18 +52,17 @@ const displayNotification = ( latestSpace, docLink ) => {
 };
 
 const init = () => {
-
-    // Only check for latest version if there's a version number in the URL.
+    const manualUrlsToCheck = ['https://documentation.red-gate.com/sm'];
     const urlParts = window.location.pathname.split('/');
-    const spaceUri = (urlParts[0] !== '') ? urlParts[0] : urlParts[1];
-    if (spaceUri.match(/[0-9]/ig) !== null) {
+    const spaceUri = urlParts[0] !== '' ? urlParts[0] : urlParts[1];
+
+    if (manualUrlsToCheck.includes(window.location.href) || spaceUri.match(/[0-9]/ig) !== null) {
         const link = document.querySelector('.js-older-versions a');
         if (link) {
-            checkForLatestVersion(link.href);
+        checkForLatestVersion(link.href);
         }
     }
 };
-
 export default {
     init
 };
