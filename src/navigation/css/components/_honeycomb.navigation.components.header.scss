@@ -463,3 +463,149 @@
         }
     }
 }
+
+.header--primary--light {
+
+    background-color: color('grey', 1);
+
+    .header--primary__app-logo-container {
+        background-color: color('grey', 1);
+        color: color('grey', 9) !important;
+    }
+
+    .header--primary__app-name-container {
+        color: color('grey', 9) !important;
+    }
+
+    .header--primary__company-logo-container {
+        color: color('grey', 9) !important;
+    }
+
+    .header--primary__strapline {
+        color: color('grey', 9);
+    }
+
+    a, a:link, a:visited, a:focus {
+        color: color('grey', 7);
+    }
+
+    a:hover {
+        color: color('grey', 7);
+    }
+
+    .active, a.active {
+        color: color('grey', 9);
+        border-bottom-color: color('red');
+        
+        &:hover {
+            border-bottom-color: color('grey', 9);
+        }
+    }
+
+    .header--primary__icon {
+
+        &:hover {
+            background-color: color('grey', 3);
+        }
+
+        &.active {
+            background-color: color('grey', 3);
+            border-bottom-color: color('grey', 9) !important;
+        }
+    }
+
+    .dropdown.open {
+        & > a:first-of-type {
+            color: color('grey', 9);
+            border-bottom-color: color('grey', 9);
+        }
+
+        .arrow {
+            color: color('grey', 9);
+        }
+    }
+
+    .dropdown > ul {
+        background-color: color('white');
+        border-color: color('grey', 3);
+
+        a {
+            color: color('grey', 7);
+
+            &:hover {
+                background-color: color('grey', 1);
+            }
+        }
+    }
+
+    .header--primary__menu-button {
+        background-color: color('grey', 2);
+        color: color('grey', 9) !important;
+
+        .mobile-nav--open & {
+            background-color: color('grey', 2);
+        }
+    }
+
+    input[type="text"], input[type="search"] {
+        background-color: color('grey', 2);
+        color: color('grey', 9);
+    }
+
+    input[type="submit"], button {
+        background-color: color('grey', 2) !important;
+        color: color('grey', 9) !important;
+
+        &:hover {
+            background-color: color('grey', 3) !important;
+        }
+    }
+
+    .header--primary__menu--mobile {
+        border-bottom-color: color('grey', 9);
+
+        &, ul {
+            background-color: color('grey', 2);
+        }
+
+        li {
+            border-top-color: color('grey', 4);
+            border-bottom-color: color('grey', 3);
+        }
+
+        .dropdown > ul {
+            background-color: color('grey', 2);
+
+            a {
+                color: color('grey', 8);
+
+                &:hover {
+                    background-color: transparent;
+                    color: color('grey', 9);
+                }
+
+                &.active {
+                    &, &:hover {
+                        background-color: color('red');
+                        color: color('white');
+                    }
+                }
+            }
+        }
+
+        .dropdown.open {
+
+            &, ul {
+                background-color: color('grey', 3);
+            }
+        
+            & > a {
+                color: color('grey', 8);
+            }
+        }
+
+        .active-parent {
+            color: color('grey', 9);
+        }
+    }
+}
