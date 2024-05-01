@@ -296,7 +296,7 @@ var _default = exports["default"] = {
   setSites: setSites
 };
 
-},{"../../cookie-consent/js/honeycomb.cookie-consent":26,"../../document/js/honeycomb.document.load-script":29,"../../notification/js/honeycomb.notification.log-deprecated-function":43}],2:[function(require,module,exports){
+},{"../../cookie-consent/js/honeycomb.cookie-consent":12,"../../document/js/honeycomb.document.load-script":15,"../../notification/js/honeycomb.notification.log-deprecated-function":29}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -552,7 +552,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":29}],7:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":15}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -820,7 +820,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":29}],8:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":15}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -881,633 +881,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":29,"../../document/js/honeycomb.document.load-style":30}],9:[function(require,module,exports){
-"use strict";
-
-var _honeycomb = _interopRequireDefault(require("./confluence/js/honeycomb.confluence"));
-var _honeycomb2 = _interopRequireDefault(require("./cookie-consent/js/honeycomb.cookie-consent"));
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-// Confluence. (Only import Confluence styling for Confluence themes.)
-
-_honeycomb["default"].init();
-
-// Init the cookie consent functionality, using red-gate.com as the default.
-window.Honeycomb = window.Honeycomb || {};
-window.Honeycomb.CookieConsent = _honeycomb2["default"];
-_honeycomb2["default"].init({
-  banner: {
-    heading: 'Cookies on red-gate.com',
-    links: [{
-      title: 'Privacy notice',
-      href: 'https://www.red-gate.com/website/legal'
-    }]
-  },
-  consentGroups: [
-  // 'functional', // Removing functional for now, as we don't have any yet.
-  'performance', 'targeting'],
-  cookie: {
-    name: 'rgcookieconsent',
-    domain: '.red-gate.com'
-  }
-});
-
-},{"./confluence/js/honeycomb.confluence":14,"./cookie-consent/js/honeycomb.cookie-consent":26}],10:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var titles = document.querySelectorAll('.code__title');
-var init = function init() {
-  collapseAll();
-  for (var i = 0; i < titles.length; i++) {
-    titles[i].addEventListener('click', function () {
-      var code = this.nextElementSibling;
-      if (code.style.display === 'none') {
-        // Display code
-        code.style.display = 'block';
-        this.style.marginBottom = '0';
-        this.setAttribute('data-code-open', 'true');
-      } else {
-        // Hide code
-        code.style.display = 'none';
-        this.style.marginBottom = '1rem';
-        this.setAttribute('data-code-open', 'false');
-      }
-    });
-  }
-};
-var collapseAll = function collapseAll() {
-  var codes = document.querySelectorAll('.code__title + .prettyprint');
-  for (var i = 0; i < codes.length; i++) {
-    codes[i].style.display = 'none';
-  }
-  for (var a = 0; a < titles.length; a++) {
-    titles[a].style.marginBottom = '1rem';
-    titles[a].setAttribute('data-code-open', 'false');
-    titles[a].innerHTML += ' <small class="float-right">Toggle source code</small>';
-  }
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],11:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-// Convert classes to IDs (as ID's get stripped out when added
-// via the editor)
-// Usage: set class="class-a class-b id--this-is-my-id class-c"
-var init = function init() {
-  var els = document.querySelectorAll('[class*=id--]');
-  for (var i = 0; i < els.length; i++) {
-    var id = false;
-    var el = els[i];
-    var cls = el.getAttribute('class').match(/id--[a-z0-9-]*/ig);
-    if (cls) {
-      var c = cls[0];
-      id = c.replace('id--', '');
-    }
-    if (id) {
-      el.setAttribute('id', id);
-    }
-  }
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],12:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var init = function init() {
-  if (typeof window.Confluence === 'undefined') return;
-  if (typeof window.Confluence.Space === 'undefined') return;
-  if (typeof window.Confluence.Space.key === 'undefined') return;
-  var version = window.Confluence.Space.key.replace(/[^0-9]/g, '');
-  if (version !== '' && parseInt(version) > 1) {
-    var oldVersions = document.querySelector('.js-older-versions');
-    if (oldVersions) {
-      oldVersions.style.display = 'block';
-    }
-  }
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],13:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var classNames = {
-  hidden: 'expand-hidden',
-  revealed: 'expand-revealed',
-  contentHidden: 'expand-content-hidden'
-};
-var containers = null;
-var init = function init() {
-  containers = document.querySelectorAll('.expand-container, [data-macro-name="expand"]');
-  if (!containers) return;
-  setupContainers();
-};
-var setupContainers = function setupContainers() {
-  for (var i = 0; i < containers.length; i++) {
-    var container = containers[i];
-    var control = container.querySelector('.expand-control');
-    var content = container.querySelector('.expand-content');
-    if (!control && !content) return;
-    updateControl(control, content);
-    addHandler(control, content);
-  }
-};
-var addHandler = function addHandler(control, content) {
-  control.addEventListener('click', function () {
-    window.setTimeout(function () {
-      updateControl(control, content);
-    }, 100);
-  });
-};
-var updateControl = function updateControl(control, content) {
-  if (content.classList.contains(classNames.hidden)) {
-    control.classList.add(classNames.contentHidden);
-  } else {
-    control.classList.remove(classNames.contentHidden);
-  }
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],14:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var _honeycombConfluence = _interopRequireDefault(require("./honeycomb.confluence.code"));
-var _honeycombConfluence2 = _interopRequireDefault(require("./honeycomb.confluence.convertIds"));
-var _honeycombConfluence3 = _interopRequireDefault(require("./honeycomb.confluence.displayVersions"));
-var _honeycombConfluence4 = _interopRequireDefault(require("./honeycomb.confluence.expand"));
-var _honeycombConfluence5 = _interopRequireDefault(require("./honeycomb.confluence.latestVersionNotification"));
-var _honeycombConfluence6 = _interopRequireDefault(require("./honeycomb.confluence.lightbox"));
-var _honeycombConfluence7 = _interopRequireDefault(require("./honeycomb.confluence.notifications"));
-var _honeycombConfluence8 = _interopRequireDefault(require("./honeycomb.confluence.pageTree"));
-var _honeycombConfluence9 = _interopRequireDefault(require("./honeycomb.confluence.sidebar"));
-var _honeycombConfluence10 = _interopRequireDefault(require("./honeycomb.confluence.tables"));
-var _honeycombConfluence11 = _interopRequireDefault(require("./honeycomb.confluence.tasklist"));
-var _honeycombConfluence12 = _interopRequireDefault(require("./honeycomb.confluence.toc"));
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-var init = function init() {
-  _honeycombConfluence9["default"].init();
-  _honeycombConfluence6["default"].init();
-  _honeycombConfluence7["default"].init();
-  _honeycombConfluence12["default"].init();
-  _honeycombConfluence10["default"].init();
-  _honeycombConfluence2["default"].init();
-  _honeycombConfluence3["default"].init();
-  _honeycombConfluence["default"].init();
-  _honeycombConfluence5["default"].init();
-  _honeycombConfluence4["default"].init();
-  _honeycombConfluence11["default"].init();
-  _honeycombConfluence8["default"].init();
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{"./honeycomb.confluence.code":10,"./honeycomb.confluence.convertIds":11,"./honeycomb.confluence.displayVersions":12,"./honeycomb.confluence.expand":13,"./honeycomb.confluence.latestVersionNotification":15,"./honeycomb.confluence.lightbox":16,"./honeycomb.confluence.notifications":17,"./honeycomb.confluence.pageTree":18,"./honeycomb.confluence.sidebar":19,"./honeycomb.confluence.tables":20,"./honeycomb.confluence.tasklist":21,"./honeycomb.confluence.toc":22}],15:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var checkForLatestVersion = function checkForLatestVersion(href) {
-  if (href) {
-    window.jQuery.ajax({
-      url: href,
-      success: function success(data) {
-        var page = new DOMParser().parseFromString(data, 'text/html');
-        if (page) {
-          var docLinks = page.querySelectorAll('[data-macro-name="sp-pagelayout"] a');
-          var docLink = false;
-          for (var i = 0; i < docLinks.length; i++) {
-            if (docLinks[i].innerHTML == 'Documentation') {
-              docLink = docLinks[i];
-              break;
-            }
-          }
-
-          // Latest docs link is docLink.
-          var latestSpace = getSpaceFromUrl(docLink.href);
-          var thisSpace = getSpaceFromUrl(window.location.href);
-          if (latestSpace !== thisSpace) {
-            displayNotification(latestSpace, href);
-          }
-        }
-      }
-    });
-  }
-};
-var getSpaceFromUrl = function getSpaceFromUrl(url) {
-  var a = document.createElement('a');
-  a.href = url;
-  var splits = a.pathname.split('/');
-  var space = splits[0] === '' ? splits[1] : splits[0];
-  var version = space.match(/\d+/g);
-  return version !== null ? version[0] : null;
-};
-var displayNotification = function displayNotification(latestSpace, docLink) {
-  var notification = document.createElement('div');
-  var innerHTML = '';
-  notification.className = 'notification notification--block notification--info spaced-top--tight spaced-bottom--none';
-  innerHTML += '<div class="notification--block__inner-container"><figure class="notification__icon"><span class="icon icon--info"></span></figure><div class="notification__body">';
-  innerHTML += "<p>These pages cover ".concat(window.Confluence.Space.name, ", which is not the latest version. Help for <a href=\"").concat(docLink, "\">other versions</a> is also available.</p>");
-  innerHTML += '</div></div>';
-  notification.innerHTML = innerHTML;
-  var pageContent = document.querySelector('.page-content');
-  if (pageContent) {
-    pageContent.insertBefore(notification, pageContent.firstChild);
-  }
-};
-var init = function init() {
-  var manualUrlsToCheck = ['https://documentation.red-gate.com/sm'];
-  var urlParts = window.location.pathname.split('/');
-  var spaceUri = urlParts[0] !== '' ? urlParts[0] : urlParts[1];
-  if (manualUrlsToCheck.includes(window.location.href) || spaceUri.match(/[0-9]/ig) !== null) {
-    var link = document.querySelector('.js-older-versions a');
-    if (link) {
-      checkForLatestVersion(link.href);
-    }
-  }
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],16:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var init = function init() {
-  if (typeof window.jQuery === 'undefined') {
-    window.console.warn('Honeycomb: jQuery not found, so lightbox functionality won\'t work');
-    return;
-  }
-  window.jQuery('.confluence-embedded-image').each(function () {
-    var $this = window.jQuery(this);
-    var $parents = $this.parents();
-    var imageIsLinked = false;
-
-    // Loop through parents to make sure image is not wrapped in a link
-    $parents.each(function (index, $parent) {
-      if ($parent.nodeName === 'A') {
-        imageIsLinked = true;
-      }
-    });
-    if (!imageIsLinked) {
-      var $a = window.jQuery('<a/>').addClass('lightbox link-image js-lightbox').attr('href', $this.attr('src')).attr('rel', 'lightbox');
-      $this.wrap($a);
-    }
-  });
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],17:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var init = function init() {
-  if (typeof window.jQuery === 'undefined') {
-    window.console.warn('Honeycomb: jQuery not found, so notification functionality won\'t work as expected');
-    return;
-  }
-
-  // List of classes to add to.
-  var classes = {
-    'confluence-information-macro': 'notification notification--block notification--block--minimal',
-    'confluence-information-macro-tip': 'notification--success',
-    'confluence-information-macro-note': 'notification--warning',
-    'confluence-information-macro-information': 'notification--info',
-    'confluence-information-macro-warning': 'notification--fail',
-    'confluence-information-macro-body': 'notification__body',
-    'confluence-information-macro-icon': 'notification__icon'
-  };
-  var icons = {
-    'info': 'icon--info',
-    'success': 'icon--success',
-    'fail': 'icon--fail',
-    'warning': 'icon--warning'
-  };
-
-  // Loop through and add the classes.
-  for (var c in classes) {
-    window.jQuery('.' + c).addClass(classes[c]);
-  }
-
-  // Add the inner container.
-  window.jQuery('.confluence-information-macro').wrapInner('<div class="notification--block__inner-container"></div>');
-
-  // Loop through adding in notification icons.
-  window.jQuery('.confluence-information-macro').each(function () {
-    var $this = window.jQuery(this);
-    for (var i in icons) {
-      if ($this.hasClass('notification--' + i)) {
-        var _c = 'icon ' + icons[i];
-        var $span = window.jQuery('<span/>').addClass(_c);
-        $span.prependTo($this.find('.confluence-information-macro-icon'));
-      }
-    }
-  });
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],18:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-/**
- * Build the page tree.
- */
-var buildPageTreeMacro = function buildPageTreeMacro(pageTreeMacro) {
-  var domain = document.location.protocol + '//' + document.location.hostname;
-  var requestIdUrl = pageTreeMacro.querySelector('[name="treeRequestId"]').getAttribute('value');
-  var hasRoot = !!pageTreeMacro.querySelector('[name="noRoot"]').getAttribute('value');
-  var pageId = pageTreeMacro.querySelector('[name="rootPageId"]').getAttribute('value');
-  var treeId = pageTreeMacro.querySelector('[name="treeId"]').getAttribute('value');
-  var startDepth = pageTreeMacro.querySelector('[name="startDepth"]').getAttribute('value');
-  var mobile = pageTreeMacro.querySelector('[name="mobile"]').getAttribute('value');
-  var treePageId = pageTreeMacro.querySelector('[name="treePageId"]').getAttribute('value');
-  var requestUrl = buildRequestUrl(domain + requestIdUrl, {
-    hasRoot: hasRoot,
-    pageId: pageId,
-    treeId: treeId,
-    startDepth: startDepth,
-    mobile: mobile,
-    treePageId: treePageId
-  });
-
-  // Do ajax call and inject returned HTML.
-  if (typeof window.jQuery !== 'undefined') {
-    window.jQuery.ajax({
-      url: requestUrl,
-      error: function error(request, status, _error) {
-        window.console.error('Error with Page Tree ajax call', _error);
-      },
-      success: function success(data) {
-        if (typeof data !== 'undefined') {
-          pageTreeMacro.innerHTML = data;
-        }
-      }
-    });
-  }
-};
-
-/**
- * Build the request URL
- *
- * @param string url The URL of the request
- * @param object params The request params object (key/value pairs)
- * @return string The built URL
- */
-var buildRequestUrl = function buildRequestUrl(url, params) {
-  var requestUrl = url;
-  if (requestUrl.match('/?') !== null) {
-    requestUrl += '&';
-  } else {
-    requestUrl += '?';
-  }
-  var requestParams = [];
-  for (var key in params) {
-    requestParams.push(key + '=' + params[key]);
-  }
-  requestUrl += requestParams.join('&');
-  return requestUrl;
-};
-
-/**
- * Check to see if any page trees exist, and if
- * they do, then build them.
- */
-var init = function init() {
-  var pageTreeMacros = document.querySelectorAll('[data-macro-name="pagetree"]');
-  if (pageTreeMacros) {
-    for (var i = 0; i < pageTreeMacros.length; i++) {
-      buildPageTreeMacro(pageTreeMacros[i]);
-    }
-  }
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],19:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var init = function init() {
-  if (typeof window.jQuery === 'undefined') {
-    window.console.warn('Honeycomb: jQuery not found, so the scrollTree plugin won\'t be loaded');
-    return;
-  }
-  if (typeof window.jQuery.fn.scrollTree === 'undefined') {
-    window.console.warn('Honeycomb: The scrollTree plugin hasn\'t been installed correctly. - Plugin undefined');
-    return;
-  }
-  window.jQuery('.confluence-sidebar ul').scrollTree({
-    'contextPath': window.contextPath,
-    'css': {
-      'ancestor': 'nav--vertical__active-parent',
-      'current': 'nav--vertical__active',
-      'collapsed': 'collapsed',
-      'expanded': 'nav--vertical__active-parent',
-      'toggle': 'nav--vertical__toggle',
-      'normal': ''
-    },
-    'renderChildLi': function renderChildLi(child, opts) {
-      var html = '<li class="' + opts.css[child.type] + '">';
-      html += '<a href="' + child.link + '" class="' + opts.css[child.type] + '">';
-      if (typeof child.children !== 'undefined') {
-        html += '<span class="' + opts.css.toggle + ' ' + opts.css.toggle + '--has-children"></span>';
-      }
-      html += child.title + '</a>';
-      html += '</li>';
-      return html;
-    }
-  });
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],20:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-// If the table isn't a code example (highlight) and is wider
-// than it's parent (i.e. it's wider than the page) then
-// change it to a fixed layout table.
-var init = function init() {
-  var tables = document.querySelectorAll('table');
-  for (var i = 0; i < tables.length; i++) {
-    var table = tables[i];
-    var wrapper = table.parentElement;
-    var onPhotoBoard = document.querySelector('body').className.match('id-11863182');
-    if (wrapper.className === 'table-wrap' && wrapper.parentElement.className.match('highlight') === null && !onPhotoBoard) {
-      if (table.clientWidth > wrapper.clientWidth) {
-        table.className += ' table--fixed';
-      }
-    }
-  }
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],21:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-// add support for Confluence's native Task List feature
-// native example:
-// https://info.red-gate.com/display/IPS/DRAFT%3A+Implementation+checklist+-+V1
-// Scroll Viewport example:
-// https://info.red-gate.com/rg/useful-information/company-information/pricing-packaging-information/pricing-and-packagingdocumentation/draft-implementation-checklist-v1
-
-var toggleTaskState = function toggleTaskState(task, tasklistId) {
-  var endpointBase = 'https://info.red-gate.com/rest/inlinetasks/1/task/';
-  var taskId = task.getAttribute('data-inline-task-id');
-  var taskEndpoint = "".concat(endpointBase).concat(tasklistId, "/").concat(taskId, "/");
-
-  // determine if we are setting checked or unchecked status
-  var status = task.classList.contains('checked') ? 'UNCHECKED' : 'CHECKED';
-
-  // toggle CSS class
-  task.classList.toggle('checked');
-
-  // POST request body
-  var body = "{ 'status' : '".concat(status, "', 'trigger' : 'VIEW_PAGE' }");
-  fetch(taskEndpoint, {
-    'credentials': 'include',
-    'headers': {
-      'accept': 'application/json, text/javascript, */*; q=0.01',
-      'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-      'cache-control': 'no-cache',
-      'content-type': 'application/json',
-      'pragma': 'no-cache',
-      'x-requested-with': 'XMLHttpRequest'
-    },
-    'referrer': window.location.href,
-    'referrerPolicy': 'no-referrer-when-downgrade',
-    'body': body,
-    'method': 'POST',
-    'mode': 'cors'
-  });
-};
-var init = function init() {
-  var tasks = document.querySelectorAll('[data-inline-task-id]');
-  if (tasks.length) {
-    var _loop = function _loop() {
-      var task = tasks[i];
-      var tasklistId = task.parentElement.getAttribute('data-inline-tasks-content-id');
-      task.addEventListener('click', function (event) {
-        event.stopPropagation();
-        event.preventDefault();
-        toggleTaskState(this, tasklistId);
-      });
-    };
-    for (var i = 0; i < tasks.length; i++) {
-      _loop();
-    }
-  }
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],22:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-var init = function init() {
-  if (typeof window.jQuery === 'undefined') {
-    window.console.warn('Honeycomb: jQuery not found, so TOC functionality won\'t work as expected');
-    return;
-  }
-  window.jQuery('.toc-macro').each(function () {
-    var $this = window.jQuery(this);
-    var defaults = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-    var headings = $this.data('headerelements').toLowerCase().split(',');
-    var excludedHeadings = [];
-    for (var i = 0; i < defaults.length; i++) {
-      if (headings.indexOf(defaults[i]) === -1) {
-        excludedHeadings.push(defaults[i]);
-      }
-    }
-
-    // Exclude H1 headings by default.
-    excludedHeadings.push('h1');
-
-    // Convert array to string.
-    excludedHeadings = excludedHeadings.join(', ');
-    $this.toc({
-      exclude: excludedHeadings,
-      numerate: false
-    });
-  });
-};
-var _default = exports["default"] = {
-  init: init
-};
-
-},{}],23:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":15,"../../document/js/honeycomb.document.load-style":16}],9:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1647,7 +1021,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],24:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1783,7 +1157,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],25:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1965,7 +1339,7 @@ var close = exports.close = function close() {
   }
 };
 
-},{}],26:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2480,7 +1854,7 @@ var _default = exports["default"] = {
   updateConsent: updateConsent
 };
 
-},{"../../cookie/js/honeycomb.cookie":28,"../json/crawler-user-agents.json":27,"./honeycomb.cookie-consent.dialog":25}],27:[function(require,module,exports){
+},{"../../cookie/js/honeycomb.cookie":14,"../json/crawler-user-agents.json":13,"./honeycomb.cookie-consent.dialog":11}],13:[function(require,module,exports){
 module.exports=[
   {
     "pattern": "Googlebot\\/",
@@ -7343,7 +6717,7 @@ module.exports=[
   }
 ]
 
-},{}],28:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7476,7 +6850,7 @@ var _default = exports["default"] = {
   remove: remove
 };
 
-},{}],29:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7529,7 +6903,7 @@ var _default = exports["default"] = {
   load: load
 };
 
-},{}],30:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7569,7 +6943,7 @@ var _default = exports["default"] = {
   load: load
 };
 
-},{}],31:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7608,7 +6982,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":29}],32:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":15}],18:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7657,7 +7031,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":29}],33:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":15}],19:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7763,7 +7137,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],34:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7812,7 +7186,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],35:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8130,7 +7504,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{"../../analytics/js/honeycomb.analytics.google":1,"../../document/js/honeycomb.document.load-script":29}],36:[function(require,module,exports){
+},{"../../analytics/js/honeycomb.analytics.google":1,"../../document/js/honeycomb.document.load-script":15}],22:[function(require,module,exports){
 "use strict";
 
 var _honeycombAnalytics = _interopRequireDefault(require("./analytics/js/honeycomb.analytics.google"));
@@ -8298,7 +7672,7 @@ _honeycomb18["default"].init({
   analytics: _honeycombAnalytics["default"]
 });
 
-},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./chart/js/honeycomb.chart":7,"./code/js/honeycomb.code":8,"./content/js/honeycomb.content":23,"./context-menu/js/honeycomb.context-menu":24,"./document/js/honeycomb.document.viewport":31,"./equalise/js/honeycomb.equalise":32,"./filter/js/honeycomb.filter":33,"./forms/js/honeycomb.forms":34,"./forms/js/honeycomb.forms.marketo":35,"./lightbox/js/honeycomb.lightbox":37,"./maps/js/honeycomb.maps.google":38,"./navigation/js/honeycomb.navigation.dropdown":39,"./navigation/js/honeycomb.navigation.header":40,"./navigation/js/honeycomb.navigation.vertical":41,"./notification/js/honeycomb.notification.block":42,"./polyfill/js/honeycomb.polyfill.custom-event":44,"./polyfill/js/honeycomb.polyfill.index-of":45,"./reveal/js/honeycomb.reveal":46,"./scroll/js/honeycomb.scroll":47,"./sticky/js/honeycomb.sticky":48,"./svg/js/honeycomb.svg":49,"./tabs/js/honeycomb.tabs":50,"./toggle/js/honeycomb.toggle":51,"./video/js/honeycomb.video":52}],37:[function(require,module,exports){
+},{"./analytics/js/honeycomb.analytics.google":1,"./analytics/js/honeycomb.analytics.pingdom":2,"./animation/js/honeycomb.animation.fade":3,"./base/js/honeycomb.base":4,"./browser/js/honeycomb.browser":5,"./carousel/js/honeycomb.carousel":6,"./chart/js/honeycomb.chart":7,"./code/js/honeycomb.code":8,"./content/js/honeycomb.content":9,"./context-menu/js/honeycomb.context-menu":10,"./document/js/honeycomb.document.viewport":17,"./equalise/js/honeycomb.equalise":18,"./filter/js/honeycomb.filter":19,"./forms/js/honeycomb.forms":20,"./forms/js/honeycomb.forms.marketo":21,"./lightbox/js/honeycomb.lightbox":23,"./maps/js/honeycomb.maps.google":24,"./navigation/js/honeycomb.navigation.dropdown":25,"./navigation/js/honeycomb.navigation.header":26,"./navigation/js/honeycomb.navigation.vertical":27,"./notification/js/honeycomb.notification.block":28,"./polyfill/js/honeycomb.polyfill.custom-event":30,"./polyfill/js/honeycomb.polyfill.index-of":31,"./reveal/js/honeycomb.reveal":32,"./scroll/js/honeycomb.scroll":33,"./sticky/js/honeycomb.sticky":34,"./svg/js/honeycomb.svg":35,"./tabs/js/honeycomb.tabs":36,"./toggle/js/honeycomb.toggle":37,"./video/js/honeycomb.video":38}],23:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8355,7 +7729,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":29}],38:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":15}],24:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8452,7 +7826,7 @@ var _default = exports["default"] = {
   initialiseMap: initialiseMap
 };
 
-},{}],39:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8561,7 +7935,7 @@ var _default = exports["default"] = {
   addArrows: addArrows
 };
 
-},{}],40:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8637,7 +8011,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],41:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8727,7 +8101,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],42:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8852,7 +8226,7 @@ var _default = exports["default"] = {
   buildNotification: buildNotification
 };
 
-},{}],43:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8871,7 +8245,7 @@ var logDeprecatedFunctionToConsole = exports.logDeprecatedFunctionToConsole = fu
   window.console.warn(warning);
 };
 
-},{}],44:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8901,7 +8275,7 @@ var CustomEvent = function CustomEvent() {
 };
 var _default = exports["default"] = CustomEvent;
 
-},{}],45:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -8926,7 +8300,7 @@ var indexOf = function indexOf() {
 };
 var _default = exports["default"] = indexOf;
 
-},{}],46:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9072,7 +8446,7 @@ var _default = exports["default"] = {
   close: close
 };
 
-},{}],47:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9180,7 +8554,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],48:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9227,7 +8601,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{"../../document/js/honeycomb.document.load-script":29}],49:[function(require,module,exports){
+},{"../../document/js/honeycomb.document.load-script":15}],35:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9253,7 +8627,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],50:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9452,7 +8826,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":29}],51:[function(require,module,exports){
+},{"../../browser/js/honeycomb.browser":5,"../../document/js/honeycomb.document.load-script":15}],37:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -9620,7 +8994,7 @@ var _default = exports["default"] = {
   init: init
 };
 
-},{}],52:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -10122,4 +9496,4 @@ var _default = exports["default"] = {
   videos: videos
 };
 
-},{}]},{},[36,9]);
+},{}]},{},[22]);
