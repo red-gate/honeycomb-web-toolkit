@@ -1,11 +1,11 @@
 const titles = document.querySelectorAll('.code__title');
 
 const init = () => {
-    collapseAll();
+    initializeTitles();
 
-    for (var i=0; i<titles.length; i++) {
-        titles[i].addEventListener('click', function() {       
-            const code = this.nextElementSibling;               
+    for (var i = 0; i < titles.length; i++) {
+        titles[i].addEventListener('click', function() {
+            const code = this.nextElementSibling;
             if (code.style.display === 'none') {
 
                 // Display code
@@ -26,17 +26,19 @@ const init = () => {
     }
 };
 
-const collapseAll = () => {
+const initializeTitles = () => {
     const codes = document.querySelectorAll('.code__title + .prettyprint');
     
     for (let i=0; i<codes.length; i++) {
-        codes[i].style.display = 'none';
+        codes[i].style.display = 'block';
     }
-    
+
     for (let a=0; a<titles.length; a++) {
-        titles[a].style.marginBottom = '1rem';
-        titles[a].setAttribute('data-code-open', 'false');
-        titles[a].innerHTML += ' <small class="float-right">Toggle source code</small>';
+        titles[a].style.marginBottom = '0';
+        titles[a].setAttribute('data-code-open', 'true');
+        if (!titles[a].querySelector('.float-right')) {
+            titles[a].innerHTML += ' <small class="float-right">Toggle source code</small>';
+        }
     }
 };
 
