@@ -186,6 +186,34 @@ li > .list--bare {
     color: red;
 }
 
+/**
+ * Tick circle list
+ *
+*/
+.list--tick-circle {
+    @extend %list--icon;
+
+    & > li {
+        @extend .icon--tick-circle;
+
+        &:before {
+            color: color('red', 'brand');
+        }
+    }
+}
+
+.list--tick-circle--large {
+    @extend %list--icon;
+    @extend %list--icon--large;
+
+    & > li {
+        @extend .icon--tick-circle;
+
+        &:before {
+            color: color('red', 'brand');
+        }
+    }
+}
 
 
 /**
