@@ -173,7 +173,7 @@ const create = c => {
 
                 removeDefaultStyles();
                 formatCheckboxes(marketoFormElement);
-                formatReCaptchaPrivacyNotice();
+                formatReCaptchaPrivacyNotice(marketoFormElement);
 
                 // Replicate default Google Analytics `form_submit` event.
                 marketoForm.onSuccess(() => {
