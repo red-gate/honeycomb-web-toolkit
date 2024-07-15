@@ -135,6 +135,21 @@ const formatCheckboxes = form => {
     }
 };
 
+/**
+ * Move the Google reCaptcha privacy notice into our privacy notice block.
+ * Currently this notice only shows up on selected forms.
+ * 
+ * @param {HTMLElement} form The Marketo form
+ */
+const formatReCaptchaPrivacyNotice = form => {
+    const reCaptchaPrivacyNotice = form.querySelector('.mktoCaptchaDisclaimer');
+    const privacyNoticeBlock = form.querySelector('.mktoPrivacyNotice div');
+
+    if ( ! reCaptchaPrivacyNotice || ! privacyNoticeBlock ) return;
+
+    privacyNoticeBlock.appendChild(reCaptchaPrivacyNotice);
+};
+
 const create = c => {
     
     // Get the config for the form.
@@ -158,6 +173,7 @@ const create = c => {
 
                 removeDefaultStyles();
                 formatCheckboxes(marketoFormElement);
+                formatReCaptchaPrivacyNotice();
 
                 // Replicate default Google Analytics `form_submit` event.
                 marketoForm.onSuccess(() => {
