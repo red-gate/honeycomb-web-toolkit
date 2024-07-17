@@ -1,8 +1,10 @@
 import loadScript from '../../document/js/honeycomb.document.load-script';
 
+const paginationClassName = 'carousel__pagination';
+
 const rearrangeNav = (carousel) => {
     // selectors
-    let nav = carousel.querySelector('ul');
+    let nav = carousel.querySelector(`ul.${paginationClassName}`);
     let leftButton = carousel.querySelector('.slick-prev');
     let rightButton = carousel.querySelector('.slick-next');
 
@@ -67,7 +69,7 @@ const init = ( config = {} ) => {
                 let carousel = carousels[ i ];
                 let options = {
                     autoplaySpeed: 4000,
-                    dotsClass: 'slick-dots carousel__pagination',
+                    dotsClass: `slick-dots ${paginationClassName}`,
                     adaptiveHeight: false,
                     dots: true
                 };
