@@ -1,8 +1,10 @@
 import loadScript from '../../document/js/honeycomb.document.load-script';
 
+const paginationClassName = 'carousel__pagination';
+
 const rearrangeNav = (carousel) => {
     // selectors
-    let nav = carousel.querySelector('ul');
+    let nav = carousel.querySelector(`ul.${paginationClassName}`);
     let leftButton = carousel.querySelector('.slick-prev');
     let rightButton = carousel.querySelector('.slick-next');
 
@@ -21,7 +23,7 @@ const rearrangeNav = (carousel) => {
 
         // the left button can't be the first element in the <ul>, otherwise it messes up the navigation, which counts <ul> child elements to map the slides to the links - adding a new first-child pushes the links off by one
         // so we need to add it to the end of the list, and translate its position by working out the width of the nav, plus the width of the arrow
-        let navWidth = ( carousel.querySelectorAll('ul li').length - 1 ) * 30 + 130;
+        let navWidth = ( nav.querySelectorAll('li').length - 1 ) * 30 + 130;
         leftButton.style.transform = `translate(-${navWidth}px, 0px)`;
     
     } else if(!nav && leftButton && rightButton) {
@@ -67,7 +69,7 @@ const init = ( config = {} ) => {
                 let carousel = carousels[ i ];
                 let options = {
                     autoplaySpeed: 4000,
-                    dotsClass: 'slick-dots carousel__pagination',
+                    dotsClass: `slick-dots ${paginationClassName}`,
                     adaptiveHeight: false,
                     dots: true
                 };
