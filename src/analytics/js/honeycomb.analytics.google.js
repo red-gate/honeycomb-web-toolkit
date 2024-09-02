@@ -107,7 +107,9 @@ const initAccount = (accountId, crossDomainAccountId = null) => {
     window.gtag('js', new Date());
 
     // Add account IDs.
-    const configOptions = {};
+    const configOptions = {
+        allow_enhanced_conversions: true,
+    };
     if (isExcludedEnvironment()) {
         configOptions['debug_mode'] = true;
     }
