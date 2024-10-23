@@ -54,18 +54,15 @@
                 'root': rootLink,
                 'parent': parentLink || $parentLi.find('> a').attr('href'),
                 'current': currentLink || ''
-            })
-                .success(function success(children) {
-                    insertChildren($ul, children);
+            }, function success(children) {
+                insertChildren($ul, children);
 
-                    $parentLi.removeClass(opts.css.loading)
-                        .addClass(opts.css.expanded);
-                })
-                .error(function error(jqXHR, textStatus, errorThrown) {
-                    $parentLi.removeClass(opts.css.loading)
-                        .addClass(opts.css.error);
-                })
-            ;
+                $parentLi.removeClass(opts.css.loading)
+                    .addClass(opts.css.expanded);
+            }).fail(function error(jqXHR, textStatus, errorThrown) {
+                $parentLi.removeClass(opts.css.loading)
+                    .addClass(opts.css.error);
+            });
         }
 
 
