@@ -157,7 +157,9 @@ var initAccount = function initAccount(accountId) {
   window.gtag('js', new Date());
 
   // Add account IDs.
-  var configOptions = {};
+  var configOptions = {
+    allow_enhanced_conversions: true
+  };
   if (isExcludedEnvironment()) {
     configOptions['debug_mode'] = true;
   }
@@ -411,9 +413,10 @@ function _interopRequireDefault(obj) {
     "default": obj
   };
 }
+var paginationClassName = 'carousel__pagination';
 var rearrangeNav = function rearrangeNav(carousel) {
   // selectors
-  var nav = carousel.querySelector('ul');
+  var nav = carousel.querySelector("ul.".concat(paginationClassName));
   var leftButton = carousel.querySelector('.slick-prev');
   var rightButton = carousel.querySelector('.slick-next');
 
@@ -431,7 +434,7 @@ var rearrangeNav = function rearrangeNav(carousel) {
 
     // the left button can't be the first element in the <ul>, otherwise it messes up the navigation, which counts <ul> child elements to map the slides to the links - adding a new first-child pushes the links off by one
     // so we need to add it to the end of the list, and translate its position by working out the width of the nav, plus the width of the arrow
-    var navWidth = (carousel.querySelectorAll('ul li').length - 1) * 30 + 130;
+    var navWidth = (nav.querySelectorAll('li').length - 1) * 30 + 130;
     leftButton.style.transform = "translate(-".concat(navWidth, "px, 0px)");
   } else if (!nav && leftButton && rightButton) {
     // No pagination dots (nav)
@@ -468,7 +471,7 @@ var init = function init() {
         var carousel = carousels[i];
         var options = {
           autoplaySpeed: 4000,
-          dotsClass: 'slick-dots carousel__pagination',
+          dotsClass: "slick-dots ".concat(paginationClassName),
           adaptiveHeight: false,
           dots: true
         };
