@@ -2,42 +2,23 @@
     #ROUNDED CORNERS
 \*------------------------------------*/
 
-.rounded {
-    @include rounded;
-}
+@include buildCorners("");
 
-.rounded--top {
-    @include rounded-top;
-}
+/**
+ * Build the rounded corners classes at breakpoints, using Desktop first approach, like the
+ * responsive mixin in the base module.
+ */
+ @if $hc-responsive {
+    $hc-breakpoints: false !default;
+    @if $hc-breakpoints {
+        @each $breakpoint in $hc-breakpoints {
+            $name: nth($breakpoint, 1);
+            $width: nth($breakpoint, 2);
+            $declaration: "(#{$hc-mqProperty} #{$width})";
 
-.rounded--bottom {
-    @include rounded-bottom;
-}
-
-.rounded--left {
-    @include rounded-left;
-}
-
-.rounded--right {
-    @include rounded-right;
-}
-
-.rounded--top-left {
-    @include rounded-top-left;
-}
-
-.rounded--top-right {
-    @include rounded-top-right;
-}
-
-.rounded--bottom-right {
-    @include rounded-bottom-right;
-}
-
-.rounded--bottom-left {
-    @include rounded-bottom-left;
-}
-
-.rounded--circle {
-    @include rounded-circle;
+            @media #{$declaration} {
+                @include buildCorners("--#{$name}");
+            }
+        }
+    }
 }

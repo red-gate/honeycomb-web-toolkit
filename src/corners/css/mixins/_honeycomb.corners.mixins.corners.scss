@@ -1,0 +1,46 @@
+// Build the corner rounding rules, with optional suffix
+@mixin buildCorners($suffix: "") {
+    .rounded#{$suffix} {
+        @include rounded;
+    }
+
+    .rounded--top#{$suffix} {
+        @include rounded-top;
+    }
+
+    .rounded--bottom#{$suffix} {
+        @include rounded-bottom;
+    }
+
+    .rounded--left#{$suffix} {
+        @include rounded-left;
+    }
+
+    .rounded--right#{$suffix} {
+        @include rounded-right;
+    }
+
+    .rounded--top-left#{$suffix} {
+        @include rounded-top-left;
+    }
+
+    .rounded--top-right#{$suffix} {
+        @include rounded-top-right;
+    }
+
+    .rounded--bottom-right#{$suffix} {
+        @include rounded-bottom-right;
+    }
+
+    .rounded--bottom-left#{$suffix} {
+        @include rounded-bottom-left;
+    }
+
+    .rounded--circle#{$suffix} {
+        @include rounded-circle;
+    }
+
+    .rounded--none#{$suffix} {
+        border-radius: 0px !important;
+    }
+}
