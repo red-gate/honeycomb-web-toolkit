@@ -1,8 +1,3 @@
-/* Roboto */
-@import url($hc-font-roboto-url);
-@import url($hc-font-roboto-condensed-url);
-@import url($hc-font-roboto-slab-url);
-
 /* Redgate type */
 @font-face {
     font-family: 'redgate-type';
@@ -11,3 +6,12 @@
     font-style: normal;
     font-display: swap;
 }
+
+/* Roboto */
+// @import 'honeycomb.type.raw.roboto';
+
+/* Roboto Slab */
+@import 'honeycomb.type.raw.roboto-slab';
+
+/* Roboto Condensed */
+// @import 'honeycomb.type.raw.roboto-condensed';
