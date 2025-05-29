@@ -277,5 +277,6 @@ const init = callback => {
 
 export default {
     create,
-    init
+    init,
+    removeDefaultStyles,
 };

@@ -7504,7 +7504,8 @@ var init = function init(callback) {
 };
 var _default = exports["default"] = {
   create: create,
-  init: init
+  init: init,
+  removeDefaultStyles: removeDefaultStyles
 };
 
 },{"../../analytics/js/honeycomb.analytics.google":1,"../../document/js/honeycomb.document.load-script":15}],22:[function(require,module,exports){
