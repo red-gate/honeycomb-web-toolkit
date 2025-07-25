@@ -30,10 +30,31 @@
     }
 }
 
+.icon--redgate-pgcompare {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e901";
+    }
+}
+
+.icon--redgate-pgnow {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e902";
+    }
+}
+
 .icon--readyroll {
     @extend %icon;
     &:before, &:after {
         content: "\e9cd";
+    }
+}
+
+.icon--schema-compare-for-mysql {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e900";
     }
 }
 
