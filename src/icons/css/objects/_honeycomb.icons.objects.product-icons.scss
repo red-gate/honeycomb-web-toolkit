@@ -4,7 +4,7 @@
  .icon--data-compare-for-oracle {
     @extend %icon;
     &:before, &:after {
-        content: "\e963";
+        content: "\e99f";
     }
 }
 
@@ -12,147 +12,154 @@
  .icon--data-masker-for-oracle {
     @extend %icon;
     &:before, &:after {
-        content: "\e923";
-    }
-}
-
-.icon--data-platform-studio {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e925";
+        content: "\e9c5";
     }
 }
 
 .icon--dlm-automation {
     @extend %icon;
     &:before, &:after {
-        content: "\e929";
+        content: "\e9e3";
     }
 }
 
 .icon--dlm-dashboard {
     @extend %icon;
     &:before, &:after {
-        content: "\e91e";
+        content: "\e9d8";
+    }
+}
+
+.icon--redgate-pgcompare {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e901";
+    }
+}
+
+.icon--redgate-pgnow {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e902";
     }
 }
 
 .icon--readyroll {
     @extend %icon;
     &:before, &:after {
-        content: "\e933";
+        content: "\e9cd";
     }
 }
 
-.icon--redgate-deploy {
+.icon--schema-compare-for-mysql {
     @extend %icon;
     &:before, &:after {
-        content: "\e925";
+        content: "\e900";
     }
 }
 
 .icon--schema-compare-for-oracle {
     @extend %icon;
     &:before, &:after {
-        content: "\e962";
+        content: "\e99e";
     }
 }
 
 .icon--source-control-for-oracle {
     @extend %icon;
     &:before, &:after {
-        content: "\e961";
+        content: "\e99d";
     }
 }
 
 .icon--sql-backup {
     @extend %icon;
     &:before, &:after {
-        content: "\e928";
+        content: "\e9e2";
     }
 }
 
 .icon--sql-change-automation {
     @extend %icon;
     &:before, &:after {
-        content: "\e93b";
+        content: "\e9c3";
     }
 }
 
 .icon--sql-clone {
     @extend %icon;
     &:before, &:after {
-        content: "\e937";
+        content: "\e9d1";
     }
 }
 
 .icon--sql-code-guard {
     @extend %icon;
     &:before, &:after {
-        content: "\e936";
+        content: "\e9d0";
     }
 }
 
 .icon--sql-compare {
     @extend %icon;
     &:before, &:after {
-        content: "\e91b";
+        content: "\e9e5";
     }
 }
 
 .icon--sql-comparison-sdk {
     @extend %icon;
     &:before, &:after {
-        content: "\e927";
+        content: "\e9e1";
     }
 }
 
 .icon--sql-data-catalog {
     @extend %icon;
     &:before, &:after {
-        content: "\e95c";
+        content: "\e9a4";
     }
 }
 
 .icon--sql-data-compare {
     @extend %icon;
     &:before, &:after {
-        content: "\e91f";
+        content: "\e9d9";
     }
 }
 
 .icon--sql-data-generator {
     @extend %icon;
     &:before, &:after {
-        content: "\e938";
+        content: "\e9d2";
     }
 }
 
 .icon--sql-dependency-tracker {
     @extend %icon;
     &:before, &:after {
-        content: "\e926";
+        content: "\e9e0";
     }
 }
 
 .icon--sql-doc {
     @extend %icon;
     &:before, &:after {
-        content: "\e920";
+        content: "\e9da";
     }
 }
 
 .icon--sql-estate-manager {
     @extend %icon;
     &:before, &:after {
-        content: "\e93c";
+        content: "\e9c4";
     }
 }
 
 .icon--sql-index-manager {
     @extend %icon;
     &:before, &:after {
-        content: "\e935";
+        content: "\e9cf";
     }
 }
 
@@ -160,56 +167,49 @@
 .icon--sql-monitor {
     @extend %icon;
     &:before, &:after {
-        content: "\e921";
+        content: "\e9db";
     }
 }
 
 .icon--sql-multi-script {
     @extend %icon;
     &:before, &:after {
-        content: "\e934";
+        content: "\e9ce";
     }
 }
 
 .icon--sql-prompt {
     @extend %icon;
     &:before, &:after {
-        content: "\e939";
-    }
-}
-
-.icon--sql-provision {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e925";
+        content: "\e9d3";
     }
 }
 
 .icon--sql-scripts-manager {
     @extend %icon;
     &:before, &:after {
-        content: "\e932";
+        content: "\e9cc";
     }
 }
 
 .icon--sql-search {
     @extend %icon;
     &:before, &:after {
-        content: "\e922";
+        content: "\e9dc";
     }
 }
 
 .icon--sql-source-control {
     @extend %icon;
     &:before, &:after {
-        content: "\e93a";
+        content: "\e9dd";
     }
 }
 
 .icon--sql-test {
     @extend %icon;
     &:before, &:after {
-        content: "\e924";
+        content: "\e9de";
     }
 }
 
@@ -217,14 +217,7 @@
 .icon--sql-toolbelt-essentials {
     @extend %icon;
     &:before, &:after {
-        content: "\e925";
-    }
-}
-
-.icon--redgate-change-control {
-    @extend %icon;
-    &:before, &:after {
-        content: "\e925";
+        content: "\e9df";
     }
 }
 
@@ -234,20 +227,30 @@
 .icon--flyway-enterprise {
     @extend %icon;
     &:before, &:after {
-        content: "\e968";
+        content: "\e997";
     }
 }
 
 .icon--redgate-clone {
     @extend %icon;
     &:before, &:after {
-        content: "\e937";
+        content: "\e9d1";
     }
 }
 
 .icon--redgate-test-data-manager {
     @extend %icon;
     &:before, &:after {
-        content: "\e97e";
+        content: "\e983";
     }
+}
+
+/**
+ * Deprecated logos
+ */
+.icon--data-platform-studio,
+.icon--redgate-deploy,
+.icon--sql-provision,
+.icon--redgate-change-control {
+    @extend .icon--sql-toolbelt;
 }
