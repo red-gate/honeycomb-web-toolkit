@@ -924,10 +924,24 @@
     }
 }
 
+.icon--star {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e99b";
+    }
+}
+
 .icon--star-circle {
     @extend %icon;
     &:before, &:after {
         content: "\e9a9";
+    }
+}
+
+.icon--star-outline {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e99a";
     }
 }
 
