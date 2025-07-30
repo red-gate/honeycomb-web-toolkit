@@ -30,6 +30,7 @@
     }
 }
 
+.icon--pgcompare,
 .icon--redgate-pgcompare {
     @extend %icon;
     &:before, &:after {
@@ -37,6 +38,7 @@
     }
 }
 
+.icon--pgnow,
 .icon--redgate-pgnow {
     @extend %icon;
     &:before, &:after {
