@@ -135,7 +135,7 @@
         }
 
         .pagination__prev:before {
-            content: "\e943";
+            content: "\e9b2";
         }
 
         .pagination__next {
@@ -143,7 +143,7 @@
         }
 
         .pagination__next:after {
-            content: "\e942";
+            content: "\e9b1";
         }
 
         .pagination__index li:not(.pagination__page--active) {
@@ -185,7 +185,7 @@ td.data-table__sortable {
         right: 10px;
         top: 50%;
         transform: translateY(-50%);
-        content: "\e93e";
+        content: "\e9ad";
     }
 
     &:hover {
@@ -210,11 +210,11 @@ td.data-table__sortable {
     }
 
     &.data-table__sortable--sorted-up:after {
-        content: "\e940";
+        content: "\e9af";
     }
 
     &.data-table__sortable--sorted-down:after {
-        content: "\e941";
+        content: "\e9b0";
     }
 }
 
@@ -244,14 +244,14 @@ td.data-table__sortable {
             font-family: "Redgate";
             font-weight: normal;
             vertical-align: bottom;
-            content: "\e607";
+            content: "\e635";
         }
     }
 
     &--open {
 
         th:before, td:before {
-            content: "\e605";
+            content: "\e633";
         }
     }
 

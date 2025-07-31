@@ -20,7 +20,7 @@ nav.breadcrumbs {
 
         &:after {
             @include padding(0.5, 'left');
-            content: "\e607";
+            content: "\e635";
             font-family: "Redgate";
             color: color('red', 'brand');
             font-weight: normal;

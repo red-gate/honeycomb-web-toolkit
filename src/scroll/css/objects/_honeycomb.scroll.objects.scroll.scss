@@ -10,7 +10,7 @@
     border:none;
     font-weight: bold;
     &:before {
-        content: "\e608";
+        content: "\e636";
         font-family: "Redgate";
         @include margin(0.25, right);
     }
@@ -19,27 +19,27 @@
 .scroll--up {
     @extend %scroll;
     &:before {
-        content: "\e608";
+        content: "\e636";
     }
 }
 
 .scroll--down {
     @extend %scroll;
     &:before {
-        content: "\e605";
+        content: "\e633";
     }
 }
 
 .scroll--left {
     @extend %scroll;
     &:before {
-        content: "\e606";
+        content: "\e634";
     }
 }
 
 .scroll--right {
     @extend %scroll;
     &:before {
-        content: "\e607";
+        content: "\e635";
     }
 }
