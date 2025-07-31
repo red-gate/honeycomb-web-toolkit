@@ -86,7 +86,7 @@ input[type="checkbox"] {
     &:checked {
         &:after {
             @include font-size($hc-forms-checkbox-tick-font-size, false);
-            content: "\e625";
+            content: "\e64a";
             color: color('white');
             font-family: "Redgate";
             position: absolute;

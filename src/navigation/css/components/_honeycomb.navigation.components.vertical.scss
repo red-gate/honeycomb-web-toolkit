@@ -425,13 +425,13 @@
 			color: color('grey', 6);
 
             &:before {
-                content: "\e607";
+                content: "\e635";
             }
         }
 
         .nav--vertical__active > a > .nav--vertical__toggle:before,
         .nav--vertical__active-parent > a > .nav--vertical__toggle:before {
-            content: "\e605";
+            content: "\e633";
         }
 
         .nav--vertical__active > a {

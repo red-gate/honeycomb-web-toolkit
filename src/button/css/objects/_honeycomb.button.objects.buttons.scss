@@ -101,7 +101,7 @@ p:last-child .button:last-child {
     @extend %button--primary;
 
     &:before {
-        content: "\e60f ";
+        content: "\e63f ";
         font-family: "Redgate";
         @include padding(0.25, right);
     }
@@ -112,7 +112,7 @@ p:last-child .button:last-child {
 .button--download--mobile,
 %button--download--mobile {
     &:before {
-        content: "\e611 ";
+        content: "\e642 ";
     }
 }
 
@@ -123,7 +123,7 @@ p:last-child .button:last-child {
     @extend %button--primary;
 
     &:after {
-        content: "\e607 ";
+        content: "\e635 ";
         font-family: "Redgate";
         @include padding(0.25, left);
     }
@@ -150,7 +150,7 @@ p:last-child .button:last-child {
     }
 
     &:before {
-        content: "\e62a ";
+        content: "\e62e ";
         font-family: "Redgate";
         @include padding(0.25, right);
     }
