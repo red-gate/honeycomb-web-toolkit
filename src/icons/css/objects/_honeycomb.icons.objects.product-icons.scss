@@ -53,6 +53,7 @@
     }
 }
 
+.icon--schema-compare-mysql,
 .icon--schema-compare-for-mysql {
     @extend %icon;
     &:before, &:after {
