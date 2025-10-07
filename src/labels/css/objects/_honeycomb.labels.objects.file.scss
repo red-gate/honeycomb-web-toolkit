@@ -8,7 +8,7 @@
     &:before {
         @include font-size($hc-label-file-icon-font-size, false);
         @include margin(0.1, 'right');
-        content: '\e60e';
+        content: '\e63e';
         font-family: 'Redgate';
         position: relative;
         top: 2px;
