@@ -215,6 +215,22 @@ li > .list--bare {
     }
 }
 
+/**
+ * Cross 'X' list
+ *
+*/
+
+.list--cross {
+    @extend %list--icon;
+
+    & > li {
+        @extend .icon--cross;
+
+        &:before {
+            color: color('red', 'brand');
+        }
+    }
+}
 
 /**
  * Chevron list
