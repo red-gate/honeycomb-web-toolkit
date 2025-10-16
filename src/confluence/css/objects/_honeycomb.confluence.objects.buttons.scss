@@ -1,7 +1,11 @@
 //Remove default button styles on expand control
 
 .expand-control {
-    button {
-        background-color: none;
+    button.aui-button-link {
+        background-color: transparent !important;
+
+        &:hover {
+            background-color: transparent !important;
+        }
     }
 }
