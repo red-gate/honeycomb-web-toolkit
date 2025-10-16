@@ -28,5 +28,13 @@
         &.expand-content-hidden {
             @extend .icon--chevron-right;
         }
+
+        button.aui-button-link {
+        background-color: transparent !important;
+
+            &:hover {
+                background-color: transparent !important;
+            }
+        }
     }
 }
