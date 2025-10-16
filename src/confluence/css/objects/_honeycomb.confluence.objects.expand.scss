@@ -29,12 +29,8 @@
             @extend .icon--chevron-right;
         }
 
-        button.aui-button-link {
-        background-color: transparent !important;
-
-            &:hover {
-                background-color: transparent !important;
-            }
+        .aui-button {
+            font-size: 16px!important;
         }
     }
 }
