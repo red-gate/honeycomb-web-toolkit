@@ -101,6 +101,17 @@ Build the toolkit:
 npm install && npm run build`
 
 
+### Custom build for Confluence
+The resultant stylesheet and javascript is used for the info site and documentation site.
+
+To run a custom build of Honeycomb for Confluence, run:
+
+```
+npm install 
+npm run build:confluence
+```
+
+
 ### Custom build for Zuora 
 The resultant stylesheet is used within the Zuora payment view that we embed in our payment page.
 
