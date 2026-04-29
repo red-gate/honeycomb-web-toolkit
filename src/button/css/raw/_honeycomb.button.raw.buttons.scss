@@ -1,4 +1,4 @@
-input[type="submit"], button:not(.aui-button) {
+input[type="submit"], button:not(.aui-button, .rw-btn) {
     @extend %button;
     
     &.button--large {
