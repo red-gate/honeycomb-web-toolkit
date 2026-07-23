@@ -6,6 +6,10 @@ blockquote {
     -webkit-font-smoothing: antialiased;
     @include margin(0.5, "left");
 
+    @include responsive('small') {
+        @include margin(0, "left");
+    }
+
     p {
         @include font-size(18px);
     }
