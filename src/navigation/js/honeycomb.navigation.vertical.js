@@ -42,9 +42,9 @@ const toggle = ( e, a ) => {
     e.preventDefault();
     const parent = a.parentElement;
     if (parent.className.match(activeClass) !== null) {
-        parent.className = parent.className.replace(parentActiveClass, '').replace(activeClass, '');
+        $(parent).removeClass(parentActiveClass + " " + activeClass);
     } else {
-        parent.className = parent.className + ` ${parentActiveClass}`;
+        $(parent).addClass(parentActiveClass + " " + activeClass);
     }
 };
 
@@ -54,18 +54,18 @@ const update = ( e, nav, a ) => {
     // Remove all active classes.
     let items = nav.querySelectorAll(`.${activeClass}`);
     for (let i=0; i<items.length; i++) {
-        const re = new RegExp(activeClass, 'g');
-        items[i].className = items[i].className.replace(re, '');
+        $(items[i]).removeClass(parentActiveClass + " " + activeClass);
     }
 
+    var parent = a.parentElement;
     // Add active class to parent.
-    a.parentElement.className = a.parentElement.className + ` ${activeClass}`;
+    $(parent).addClass (activeClass);
 
     // Add parent active class to parent list items.
     let el = a.parentElement.parentElement;
     while (el.className.match('nav--vertical') === null) {
         if (el.nodeName === 'LI') {
-            el.className = el.className + ` ${parentActiveClass}`;
+            $(el).addClass(parentActiveClass);
         }
 
         el = el.parentElement;
