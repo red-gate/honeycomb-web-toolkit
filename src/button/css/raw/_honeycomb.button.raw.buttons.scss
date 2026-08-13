@@ -1,4 +1,4 @@
-input[type="submit"], button:not(.aui-button, .rw-btn, .components-button) {
+input[type="submit"], button:not(.aui-button, .rw-btn, .components-button, .fslightbox-toolbar-button) {
     @extend %button;
     
     &.button--large {
