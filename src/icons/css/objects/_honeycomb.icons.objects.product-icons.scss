@@ -256,6 +256,13 @@
     }
 }
 
+.icon--redgate-assistant {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e91d";
+    }
+}
+
 /**
  * Deprecated logos
  */

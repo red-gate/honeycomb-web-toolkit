@@ -91,6 +91,13 @@
     }
 }
 
+.icon--ai-sparkle {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e91b";
+    }
+}
+
 .icon--alert {
     @extend %icon;
     &:before, &:after {
@@ -126,10 +133,31 @@
     }
 }
 
+.icon--arrow-circle-left {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e905";
+    }
+}
+
+.icon--arrow-circle-right {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e906";
+    }
+}
+
 .icon--arrow-down {
     @extend %icon;
     &:before, &:after {
         content: "\e630";
+    }
+}
+
+.icon--arrow-down-bold {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e919";
     }
 }
 
@@ -161,6 +189,13 @@
     }
 }
 
+.icon--arrow-left-bold {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e916";
+    }
+}
+
 .icon--arrow-left-link {
     @extend %icon;
     &:before, &:after {
@@ -175,6 +210,13 @@
     }
 }
 
+.icon--arrow-right-bold {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e917";
+    }
+}
+
 .icon--arrow-right-link {
     @extend %icon;
     &:before, &:after {
@@ -186,6 +228,13 @@
     @extend %icon;
     &:before, &:after {
         content: "\ea00";
+    }
+}
+
+.icon--arrow-up-bold {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e918";
     }
 }
 
@@ -235,6 +284,20 @@
     @extend %icon;
     &:before, &:after {
         content: "\e9bb";
+    }
+}
+
+.icon--bookmark {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e915";
+    }
+}
+
+.icon--bookmark-outline {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e914";
     }
 }
 
@@ -315,6 +378,13 @@
     }
 }
 
+.icon--cloud {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e91c";
+    }
+}
+
 .icon--cloud-server {
     @extend %icon;
     &:before, &:after {
@@ -333,6 +403,13 @@
     @extend %icon;
     &:before, &:after {
         content: "\e63a";
+    }
+}
+
+.icon--comments-2 {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e913";
     }
 }
 
@@ -483,6 +560,13 @@
     }
 }
 
+.icon--expand-arrows {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e912";
+    }
+}
+
 .icon--export {
     @extend %icon;
     &:before, &:after {
@@ -543,6 +627,13 @@
     @extend %icon;
     &:before, &:after {
         content: "\e645";
+    }
+}
+
+.icon--folder-shared {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e910";
     }
 }
 
@@ -693,6 +784,13 @@
     }
 }
 
+.icon--money-note {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e90f";
+    }
+}
+
 .icon--more-actions-horizontal {
     @extend %icon;
     &:before, &:after {
@@ -770,6 +868,13 @@
     }
 }
 
+.icon--play-circle-outline {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e90e";
+    }
+}
+
 .icon--plus {
     @extend %icon;
     &:before, &:after {
@@ -809,6 +914,20 @@
     @extend %icon;
     &:before, &:after {
         content: "\e9a0";
+    }
+}
+
+.icon--robot-1 {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e90d";
+    }
+}
+
+.icon--robot-2 {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e908";
     }
 }
 
@@ -865,6 +984,20 @@
     @extend %icon;
     &:before, &:after {
         content: "\e652";
+    }
+}
+
+.icon--shield-tick {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e909";
+    }
+}
+
+.icon--shield-user {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e90a";
     }
 }
 
@@ -1044,6 +1177,20 @@
     @extend %icon;
     &:before, &:after {
         content: "\e653";
+    }
+}
+
+.icon--user-2 {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e90b";
+    }
+}
+
+.icon--user-3 {
+    @extend %icon;
+    &:before, &:after {
+        content: "\e90c";
     }
 }
 
